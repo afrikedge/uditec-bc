@@ -1,0 +1,21 @@
+{
+    "telemetry.enableTelemetry": false,
+    "CRS.ObjectNamePrefix": "AFK01 ",
+    "CRS.AlSubFolderName": "Source",
+    "CRS.ExtensionObjectNamePattern": "<Prefix> <BaseNameShort>",
+    "CRS.FileNamePattern": "<ObjectNameShort>.<ObjectTypeShortPascalCase>.al",
+    "CRS.FileNamePatternExtensions": "<ObjectNameShort>.<ObjectTypeShortPascalCase>.al",
+    "CRS.FileNamePatternPageCustomizations": "<ObjectNameShort>.<ObjectTypeShortPascalCase>.al",
+    "CRS.OnSaveAlFileAction": "DoNothing",
+    "CRS.RenameWithGit": false,
+    "CRS.ObjectNameSuffix": "",
+    "al.enableCodeActions": true,
+    "al.enableCodeAnalysis": true,    
+    "al.codeAnalyzers": [
+        "${AppSourceCop}",
+        "${CodeCop}",
+        "${PerTenantExtensionCop}",
+        "${UICop}"
+    ],
+    "al.ruleSetPath": ".\\Company.ruleset.json"
+}

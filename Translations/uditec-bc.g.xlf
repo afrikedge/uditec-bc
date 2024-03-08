@@ -1,0 +1,249 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-US" target-language="en-US" original="uditec-bc">
+    <body>
+      <group id="body">
+        <trans-unit id="Table 3907401246 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Document Step History</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table AFK01 Document Step History - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3907401246 - Field 2279323338 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Action</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table AFK01 Document Step History - Field Action - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3907401246 - Field 1059534406 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Action Date</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table AFK01 Document Step History - Field Action Date - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3907401246 - Field 1015222337 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Created Document</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table AFK01 Document Step History - Field Created Document - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3907401246 - Field 486908828 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Document No.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table AFK01 Document Step History - Field Document No. - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3907401246 - Field 2363328873 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Document Type</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table AFK01 Document Step History - Field Document Type - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3907401246 - Field 2955941580 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>New Status</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table AFK01 Document Step History - Field New Status - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3907401246 - Field 3509776727 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>New Status ID</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table AFK01 Document Step History - Field New Status ID - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3907401246 - Field 2274806545 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Step ID</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table AFK01 Document Step History - Field Step ID - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3907401246 - Field 2708250016 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>User ID</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table AFK01 Document Step History - Field User ID - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3907401246 - Field 129688762 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>User Name</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table AFK01 Document Step History - Field User Name - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 2564178748 - NamedType 3523952544" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Le document ne se trouve pas à un statut où il peut être validé.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit AFK01 Sales Order Processing - NamedType ErrDocumentStatusOnValidation</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 2564178748 - NamedType 2192651235" size-unit="char" translate="yes" xml:space="preserve">
+          <source>La commande ne peut plus être annulée car elle a déjà été livrée</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit AFK01 Sales Order Processing - NamedType ErrOnCancelledOrder</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 2564178748 - NamedType 2718391705" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Vous ne pouvez pas solder cette commande car la quantité livrée n'a pas été completement été facturée pour l'article %1</source>
+          <note from="Developer" annotates="general" priority="2">%1=Item No</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit AFK01 Sales Order Processing - NamedType ErrOnCloseOrder_Qty</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 2564178748 - NamedType 90523671" size-unit="char" translate="yes" xml:space="preserve">
+          <source>&amp;Envoyer en traitement,&amp;Supprimer la commande</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit AFK01 Sales Order Processing - NamedType LblAction01</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 2564178748 - NamedType 989025221" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Voulez-vous annuler la commande %1. \Si oui la commande ne sera plus traitée.</source>
+          <note from="Developer" annotates="general" priority="2">%1=Order No</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit AFK01 Sales Order Processing - NamedType QstCancelledOrder</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 2564178748 - NamedType 4155473326" size-unit="char" translate="yes" xml:space="preserve">
+          <source>La commande sera supprimée. Voulez-vous continuer ?</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit AFK01 Sales Order Processing - NamedType QstDeleteDraft</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 2564178748 - NamedType 2350728957" size-unit="char" translate="yes" xml:space="preserve">
+          <source>La commande sera renvoyée en saisie. Voulez-vous continuer ?</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit AFK01 Sales Order Processing - NamedType QstSetAsDraft</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 228010471 - NamedType 1145802899" size-unit="char" translate="yes" xml:space="preserve">
+          <source>You are not authorized to use this feature.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit AFK01 Security Mgt - NamedType ErrNotAuthorizedAction</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 2883372774 - Field 3748602192 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1192395785">
+          <source>Delivery Autorised by</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension AFK01 Sales Header - Field AFK01 Delivery Autorised by - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 2883372774 - Field 3847646882 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1192395785">
+          <source>Delivery Autorised On</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension AFK01 Sales Header - Field AFK01 Delivery Autorised On - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 2883372774 - Field 1051691040 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1192395785">
+          <source>Observations</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension AFK01 Sales Header - Field AFK01 Observations - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 2883372774 - Field 561934966 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1192395785">
+          <source>Processing Status</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension AFK01 Sales Header - Field AFK01 Processing Status - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 2883372774 - Field 4006560901 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1192395785">
+          <source>Return Reason</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension AFK01 Sales Header - Field AFK01 Return Reason - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 2883372774 - Field 985004723 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1192395785">
+          <source>User Id</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension AFK01 Sales Header - Field AFK01 User Id - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 2033441021 - Field 230641443 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 337631938">
+          <source>Can Cancel Sales Order</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension AFK01 User Setup - Field AFK01 Can Cancel Sales Order - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 2033441021 - Field 4294020383 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 337631938">
+          <source>Can update Sales Order after vaidation</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension AFK01 User Setup - Field AFK01 CanUpdateSalesOrderVal - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 687872781 - EnumValue 1181470318 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Change Status</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum AFK01 ActionStepHistory - EnumValue Change Status - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 687872781 - EnumValue 32276907 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Creation</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum AFK01 ActionStepHistory - EnumValue Creation - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 687872781 - EnumValue 2414990744 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Deletion</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum AFK01 ActionStepHistory - EnumValue Deletion - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 687872781 - EnumValue 821689635 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Invoice</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum AFK01 ActionStepHistory - EnumValue Invoice - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 687872781 - EnumValue 4180147670 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Ship</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum AFK01 ActionStepHistory - EnumValue Ship - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 2551393079 - EnumValue 1673401186 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Sales Order</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum AFK01 DocTypeStepHistory - EnumValue Sales Order - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 2888167522 - EnumValue 3543129988 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Blocked</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum AFK01 SO Processing Status - EnumValue Blocked - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 2888167522 - EnumValue 4069904181 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Cancelled</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum AFK01 SO Processing Status - EnumValue Cancelled - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 2888167522 - EnumValue 1778072510 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Closed</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum AFK01 SO Processing Status - EnumValue Closed - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 2888167522 - EnumValue 3595645932 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Consigned</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum AFK01 SO Processing Status - EnumValue Consigned - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 2888167522 - EnumValue 253238575 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Draft</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum AFK01 SO Processing Status - EnumValue Draft - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 2888167522 - EnumValue 1643477514 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Partially Consigned</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum AFK01 SO Processing Status - EnumValue Partially Consigned - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 2888167522 - EnumValue 3983421230 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Partially delivered</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum AFK01 SO Processing Status - EnumValue Partially delivered - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 2888167522 - EnumValue 2299128373 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Partially invoiced</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum AFK01 SO Processing Status - EnumValue Partially invoiced - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 2888167522 - EnumValue 2244002499 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Partially out of stock</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum AFK01 SO Processing Status - EnumValue Partially out of stock - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 2888167522 - EnumValue 2731830898 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Stock out</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum AFK01 SO Processing Status - EnumValue Stock out - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 2888167522 - EnumValue 1958594629 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Totally delivered</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum AFK01 SO Processing Status - EnumValue Totally delivered - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 2888167522 - EnumValue 322290054 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Totally invoiced</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum AFK01 SO Processing Status - EnumValue Totally invoiced - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 2888167522 - EnumValue 717890328 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Waiting for delivery</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum AFK01 SO Processing Status - EnumValue Waiting for delivery - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 2888167522 - EnumValue 3766691823 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Waiting for discount</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum AFK01 SO Processing Status - EnumValue Waiting for discount - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 2888167522 - EnumValue 373951863 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Waiting for prepayment</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum AFK01 SO Processing Status - EnumValue Waiting for prepayment - Property Caption</note>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

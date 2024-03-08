@@ -1,0 +1,33 @@
+{
+  "id": "4d67ed39-21ba-4099-96f5-1ba73cf2c432",
+  "name": "uditec-bc",
+  "publisher": "Afrikedge",
+  "version": "1.0.0.0",
+  "brief": "Specific customizations for Uditec",
+  "description": "Specific customizations for Uditec",
+  "privacyStatement": "https://www.afrikedge.com",
+  "EULA": "https://www.afrikedge.com",
+  "help": "https://www.afrikedge.com",
+  "url": "https://www.afrikedge.com",
+  "contextSensitiveHelpUrl": "https://www.afrikedge.com",
+  "logo": "Logo/ExtensionLogo.jpg",
+  "dependencies": [],
+  "screenshots": [],
+  "platform": "1.0.0.0",
+  "application": "23.0.0.0",
+  "idRanges": [
+    {
+      "from": 50000,
+      "to": 50299
+    }
+  ],
+  "resourceExposurePolicy": {
+    "allowDebugging": true,
+    "allowDownloadingSource": true,
+    "includeSourceInSymbolFile": true
+  },
+  "runtime": "12.0",
+  "features": [
+    "NoImplicitWith","TranslationFile","GenerateCaptions"
+  ]
+}
