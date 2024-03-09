@@ -32,5 +32,13 @@ permissionset 50000 "A01 Uditec_All"
         tabledata "A01 External Profile" = RIMD,
         tabledata "A01 External User Company" = RIMD,
         table "A01 External Profile" = X,
-        table "A01 External User Company" = X;
+        table "A01 External User Company" = X,
+        tabledata "A01 Resp Center Item Category" = RIMD,
+        table "A01 Resp Center Item Category" = X,
+        report "A01 CreateResetPassword" = X,
+        codeunit "A01 Api Mgt1" = X,
+        page "A01 External Profiles" = X,
+        page "A01 External User" = X,
+        page "A01 External User Companies" = X,
+        page "A01 External Users" = X;
 }
