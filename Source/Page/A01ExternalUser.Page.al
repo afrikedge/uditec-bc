@@ -35,6 +35,12 @@ page 50022 "A01 External User"
                 field(PasswordIsSet; Rec.PasswordIsSet)
                 {
                 }
+                field("Sales Person Code"; Rec."Sales Person Code")
+                {
+                }
+                field("Responsibility Center"; Rec."Responsibility Center")
+                {
+                }
             }
             part(Companies; "A01 External User Companies")
             {

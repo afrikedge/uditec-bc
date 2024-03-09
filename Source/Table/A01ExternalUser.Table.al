@@ -59,6 +59,17 @@ table 50001 "A01 External User"
             Editable = false;
             Caption = 'BC User Id';
         }
+        field(11; "Sales Person Code"; Code[20])
+        {
+            Caption = 'Sales Person Code';
+            TableRelation = "Salesperson/Purchaser";
+        }
+        field(12; "Responsibility Center"; Code[10])
+        {
+            Caption = 'Responsibility Center';
+            TableRelation = "Responsibility Center";
+        }
+
     }
     keys
     {
