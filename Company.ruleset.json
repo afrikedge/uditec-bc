@@ -41,6 +41,11 @@
             "id": "AS0092",
             "action": "None",
             "justification": "The app.json file must specify an Azure Application Insights resource with the property 'applicationInsightsKey' for monitoring operations related to this extension. See https://docs.microsoft.com/dynamics365/business-central/dev-itpro/administration/telemetry-overview for additional information."
-        }                 
+        },
+        {
+            "id": "AS0005",
+            "action": "None",
+            "justification": "Allow simple if structure"
+        }              
     ]
 }
