@@ -9,6 +9,7 @@ tableextension 50003 "A01 Responsibility Center" extends "Responsibility Center"
         {
             Caption = 'Default Customer';
             DataClassification = CustomerContent;
+            TableRelation = Customer;
         }
         field(50001; "A01 Theme Color 1"; Text[30])
         {
@@ -25,10 +26,17 @@ tableextension 50003 "A01 Responsibility Center" extends "Responsibility Center"
             Caption = 'Theme Color 3';
             DataClassification = CustomerContent;
         }
-        field(50004; "A01 Logo"; Blob)
+        field(50004; "A01 Logo"; Media)
         {
-            Caption = 'Logo';
+            Caption = 'Picture';
+            //SubType = Bitmap;
             DataClassification = CustomerContent;
+        }
+        field(50005; "A01 Nos of categories"; Integer)
+        {
+            Caption = 'Item Categories';
+            FieldClass = FlowField;
+            CalcFormula = count("A01 Resp Center Item Category" where("Responsability Center Code" = field(Code)));
         }
     }
 }

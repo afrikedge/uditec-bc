@@ -40,5 +40,12 @@ permissionset 50000 "A01 Uditec_All"
         page "A01 External Profiles" = X,
         page "A01 External User" = X,
         page "A01 External User Companies" = X,
-        page "A01 External Users" = X;
+        page "A01 External Users" = X,
+        tabledata "A01 Warranty Plan" = RIMD,
+        table "A01 Warranty Plan" = X,
+        page "A01 Resp Center Categories" = X,
+        page "A01Resp Center Media Factbox" = X,
+        tabledata "A01 Item Warranty" = RIMD,
+        table "A01 Item Warranty" = X,
+        page "A01 Warranty Plans" = X;
 }

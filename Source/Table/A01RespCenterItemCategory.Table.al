@@ -5,6 +5,7 @@ table 50004 "A01 Resp Center Item Category"
 {
     Caption = 'Resp Center Item Category';
     DataClassification = CustomerContent;
+    LookupPageId = "A01 Resp Center Categories";
 
     fields
     {
@@ -15,10 +16,11 @@ table 50004 "A01 Resp Center Item Category"
         field(2; "Item Category Code"; Code[10])
         {
             Caption = 'Item Category Code';
+            TableRelation = "Item Category";
         }
-        field(3; Active; Boolean)
+        field(3; Blocked; Boolean)
         {
-            Caption = 'Active';
+            Caption = 'Blocked';
         }
     }
     keys
