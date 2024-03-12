@@ -1,17 +1,8 @@
 /// <summary>
 /// Codeunit LocalApi (ID 50005).
 /// </summary>
-codeunit 50006 "A01 Api Mgt1"
+codeunit 50006 "A01 Api Mgt"
 {
-    procedure Ping(input: Integer): Integer
-    begin
-        exit(-input);
-    end;
-
-    procedure Delay(delayMilliseconds: Integer)
-    begin
-        Sleep(delayMilliseconds);
-    end;
 
     procedure GetLengthOfStringWithConfirmation(inputJson: Text): Integer
     var
@@ -60,6 +51,57 @@ codeunit 50006 "A01 Api Mgt1"
         HeaderJson.Add('Lines', TabArray);
         exit(format(HeaderJson));
     end;
+
+    procedure CreateResponseSuccess(PostedDocNo: Code[20]): Text
+    var
+        HeaderJson: JsonObject;
+    begin
+        HeaderJson.Add('error', false);
+        HeaderJson.Add('message', PostedDocNo);
+        exit(format(HeaderJson));
+    end;
+
+    procedure CreateResponseError(ErrorMessage: Text): Text
+    var
+        HeaderJson: JsonObject;
+    begin
+        HeaderJson.Add('error', true);
+        HeaderJson.Add('message', ErrorMessage);
+        exit(format(HeaderJson));
+    end;
+
+    procedure GetText("key": Text; input: JsonObject): Text
+    var
+        c: JsonToken;
+    begin
+        input.Get("key", c);
+        exit(c.AsValue().AsText());
+    end;
+
+    procedure GetDate("key": Text; input: JsonObject): Date
+    var
+        c: JsonToken;
+    begin
+        input.Get("key", c);
+        exit(c.AsValue().AsDate());
+    end;
+
+    procedure GetInt("key": Text; input: JsonObject): Integer
+    var
+        c: JsonToken;
+    begin
+        input.Get("key", c);
+        exit(c.AsValue().AsInteger());
+    end;
+
+    procedure GetDecimal("key": Text; input: JsonObject): Decimal
+    var
+        c: JsonToken;
+    begin
+        input.Get("key", c);
+        exit(c.AsValue().AsDecimal());
+    end;
+
 
 
 }
