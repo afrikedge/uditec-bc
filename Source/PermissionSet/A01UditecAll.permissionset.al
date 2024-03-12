@@ -52,5 +52,7 @@ permissionset 50000 "A01 Uditec_All"
         table "A01 Payment Type Configuration" = X,
         codeunit "A01 WS QuotesMgt" = X,
         page "A01 Item Warranty Plans" = X,
-        page "A01 ShipToAdressMediaFactbox" = X;
+        page "A01 ShipToAdressMediaFactbox" = X,
+        tabledata "A01 Parameter Record" = RIMD,
+        table "A01 Parameter Record" = X;
 }
