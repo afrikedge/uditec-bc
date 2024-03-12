@@ -198,6 +198,31 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table A01 Item Warranty - Field Warranty Plan Type - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Table 318426958 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Payment Type Configuration</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table A01 Payment Type Configuration - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 318426958 - Field 2704330142 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Journal Batch Name</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table A01 Payment Type Configuration - Field Journal Batch Name - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 318426958 - Field 3684440170 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Journal Template Name</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table A01 Payment Type Configuration - Field Journal Template Name - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 318426958 - Field 4099490416 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Payment Class</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table A01 Payment Type Configuration - Field Payment Class - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 318426958 - Field 907492870 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Payment Type</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table A01 Payment Type Configuration - Field Payment Type - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Table 1950458870 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Resp Center Item Category</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -4614,7 +4639,7 @@
           <note from="Xliff Generator" annotates="general" priority="3">Page A01 ShipToAdressMediaFactbox - NamedType DeleteImageQst</note>
         </trans-unit>
         <trans-unit id="Page 1235637342 - NamedType 1285936202" size-unit="char" translate="yes" xml:space="preserve">
-          <source>You must specify a customer name before you can import a picture.</source>
+          <source>You must specify a name before you can import a picture.</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page A01 ShipToAdressMediaFactbox - NamedType MustSpecifyNameErr</note>
         </trans-unit>
@@ -4674,7 +4699,7 @@
           <note from="Xliff Generator" annotates="general" priority="3">Page A01Resp Center Media Factbox - NamedType DeleteImageQst</note>
         </trans-unit>
         <trans-unit id="Page 1436162306 - NamedType 1285936202" size-unit="char" translate="yes" xml:space="preserve">
-          <source>You must specify a customer name before you can import a picture.</source>
+          <source>You must specify a name before you can import a picture.</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page A01Resp Center Media Factbox - NamedType MustSpecifyNameErr</note>
         </trans-unit>
@@ -4902,6 +4927,11 @@
           <source>Item Status</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension A01 Item - Field A01 Item Status - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 3109568695 - Field 1193983374 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 3276313895">
+          <source>Shipment Method Code</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension A01 Item - Field A01 Shipment Method Code - Property Caption</note>
         </trans-unit>
         <trans-unit id="TableExtension 3046274025 - Field 919133785 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 2247850105">
           <source>Default Customer</source>
@@ -5322,6 +5352,61 @@
           <source>SAS</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Enum A01 Legal Status - EnumValue SAS - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 3409715142 - EnumValue 1371923692 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source> </source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum A01 Payment Doc Type - EnumValue   - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 3409715142 - EnumValue 3030206118 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Bank Card</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum A01 Payment Doc Type - EnumValue Bank Card - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 3409715142 - EnumValue 1024793053 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Bank Draft</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum A01 Payment Doc Type - EnumValue Bank Draft - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 3409715142 - EnumValue 3234237967 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Bank Transfer</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum A01 Payment Doc Type - EnumValue Bank Transfer - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 3409715142 - EnumValue 229234099 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Cash</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum A01 Payment Doc Type - EnumValue Cash - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 3409715142 - EnumValue 2705887175 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Deferred Check</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum A01 Payment Doc Type - EnumValue Deferred Check - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 3409715142 - EnumValue 3308523082 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Deposit Slip</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum A01 Payment Doc Type - EnumValue Deposit Slip - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 3409715142 - EnumValue 2172848197 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Direct Check</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum A01 Payment Doc Type - EnumValue Direct Check - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 3409715142 - EnumValue 1529723851 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Mvola</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum A01 Payment Doc Type - EnumValue Mvola - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 3409715142 - EnumValue 2722998844 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Orange</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum A01 Payment Doc Type - EnumValue Orange - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 3409715142 - EnumValue 746686244 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Purchase Voucher</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum A01 Payment Doc Type - EnumValue Voucher - Property Caption</note>
         </trans-unit>
         <trans-unit id="Enum 1041244500 - EnumValue 922092568 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Dirt track</source>

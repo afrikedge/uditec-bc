@@ -11,5 +11,11 @@ tableextension 50004 "A01 Item" extends Item
             DataClassification = CustomerContent;
             Editable = false;
         }
+        field(50002; "A01 Shipment Method Code"; Code[10])
+        {
+            Caption = 'Shipment Method Code';
+            TableRelation = "Shipment Method";
+            DataClassification = CustomerContent;
+        }
     }
 }
