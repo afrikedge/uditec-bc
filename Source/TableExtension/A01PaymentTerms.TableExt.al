@@ -6,7 +6,7 @@ tableextension 50008 "A01 Payment Terms" extends "Payment Terms"
         {
             Caption = 'Sales Mode';
             DataClassification = CustomerContent;
-            TableRelation = "Dimension Value" where("Global Dimension No." = const(3));
+            TableRelation = "Dimension Value".Code where("Global Dimension No." = const(3));
         }
         field(50001; "A01 Multi-deadlines"; Boolean)
         {

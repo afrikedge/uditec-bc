@@ -103,6 +103,17 @@ pageextension 50002 "A01 Order Processor RC" extends "Order Processor Role Cente
                     RunObject = Page "A01 Sales Orders - Invoiced";
                 }
             }
+            group(A01_Compta)
+            {
+                Caption = 'Afk Compta';
+                Image = Administration;
+                action(A01Compta_JournalPayment)
+                {
+                    ApplicationArea = Basic, Suite;
+                    Caption = 'Afk Cash receipt journal';
+                    RunObject = Page "A01 Cash Receipt Doc Journal";
+                }
+            }
             group(A01_Config)
             {
                 Caption = 'Afk Config';

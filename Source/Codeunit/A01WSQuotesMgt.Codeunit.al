@@ -24,7 +24,7 @@ codeunit 50005 "A01 WS QuotesMgt"
 
             ToDelete := ws.GetBool('IsDeletion', input);
             if (ToDelete) then
-                exit(DeleteQuote(NoQuote, input))
+                exit(DeleteQuote(NoQuote))
             else
                 exit(ModifyQuote(NoQuote, input))
 
@@ -69,7 +69,7 @@ codeunit 50005 "A01 WS QuotesMgt"
 
     end;
 
-    local procedure DeleteQuote(QuoteNo: Text; input: JsonObject): Text
+    local procedure DeleteQuote(QuoteNo: Text): Text
     var
         SalesQuote: Record "Sales Header";
     begin

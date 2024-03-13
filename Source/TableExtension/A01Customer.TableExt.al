@@ -19,7 +19,7 @@ tableextension 50006 "A01 Customer" extends Customer
         {
             Caption = 'Risk Level';
             DataClassification = CustomerContent;
-            TableRelation = "A01 Parameter Record" where(Type = const(RiskLevel));
+            TableRelation = "A01 Parameter Record".Code where(Type = const(RiskLevel));
         }
     }
 }

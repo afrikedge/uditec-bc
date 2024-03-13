@@ -40,6 +40,15 @@ codeunit 50002 "A01 EventsSubscribers_Code"
             IsHandled := true;
     end;
 
+    [EventSubscriber(ObjectType::Codeunit, Codeunit::"Gen. Jnl.-Post Batch", 'OnAfterPostGenJnlLine', '', true, true)]
+    local procedure OnAfterPostGenJnlLine_GenJnlPostBatch(var GenJournalLine: Record "Gen. Journal Line"; CommitIsSuppressed: Boolean; var GenJnlPostLine: Codeunit "Gen. Jnl.-Post Line"; IsPosted: Boolean; var PostingGenJournalLine: Record "Gen. Journal Line")
+    var
+        TresoMgt: Codeunit "A01 Treso Mgt";
+    begin
+        TresoMgt.A01_ProcessFeuilleReglementCCL(GenJournalLine);
+    end;
+
+
 
 
 
