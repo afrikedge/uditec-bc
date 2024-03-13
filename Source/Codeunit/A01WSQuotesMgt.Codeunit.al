@@ -16,12 +16,19 @@ codeunit 50005 "A01 WS QuotesMgt"
     var
         input: JsonObject;
         NoQuote: text;
+        ToDelete: Boolean;
     begin
         input.ReadFrom(inputJson);
         NoQuote := ws.GetText('QuoteNo', input);
-        if (NoQuote <> '') then
-            exit(ModifyQuote(NoQuote, input))
-        else
+        if (NoQuote <> '') then begin
+
+            ToDelete := ws.GetBool('IsDeletion', input);
+            if (ToDelete) then
+                exit(DeleteQuote(NoQuote, input))
+            else
+                exit(ModifyQuote(NoQuote, input))
+
+        end else
             exit(AddQuote(input));
     end;
 
@@ -57,6 +64,19 @@ codeunit 50005 "A01 WS QuotesMgt"
         ProcessSalesQuoteHeader(SalesQuote, input);
 
         processQuotesLines(SalesQuote, SalesQuoteLine, input);
+
+        exit(Ws.CreateResponseSuccess(SalesQuote."No."));
+
+    end;
+
+    local procedure DeleteQuote(QuoteNo: Text; input: JsonObject): Text
+    var
+        SalesQuote: Record "Sales Header";
+    begin
+
+        SalesQuote.Get(SalesQuote."Document Type"::Quote, QuoteNo);
+
+        SalesQuote.Delete(true);
 
         exit(Ws.CreateResponseSuccess(SalesQuote."No."));
 

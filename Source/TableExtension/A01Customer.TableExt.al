@@ -15,5 +15,11 @@ tableextension 50006 "A01 Customer" extends Customer
             Caption = 'Legal Status';
             DataClassification = CustomerContent;
         }
+        field(50002; "A01 Risk Level"; Code[20])
+        {
+            Caption = 'Risk Level';
+            DataClassification = CustomerContent;
+            TableRelation = "A01 Parameter Record" where(Type = const(RiskLevel));
+        }
     }
 }

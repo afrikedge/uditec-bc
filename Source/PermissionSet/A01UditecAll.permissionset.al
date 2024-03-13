@@ -54,5 +54,11 @@ permissionset 50000 "A01 Uditec_All"
         page "A01 Item Warranty Plans" = X,
         page "A01 ShipToAdressMediaFactbox" = X,
         tabledata "A01 Parameter Record" = RIMD,
-        table "A01 Parameter Record" = X;
+        table "A01 Parameter Record" = X,
+        tabledata "A01 Customer Debt Status" = RIMD,
+        table "A01 Customer Debt Status" = X,
+        page "A01 Customer Debt Status List" = X,
+        page "A01 Customer Risk Levels" = X,
+        page "A01 Item Ticket Format List" = X,
+        page "A01 Parameter Value List" = X;
 }

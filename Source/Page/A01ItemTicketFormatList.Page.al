@@ -1,10 +1,13 @@
-page 50028 "A01 Customer Risk Levels"
+/// <summary>
+/// Page A01 Item Ticket Format List (ID 50029).
+/// </summary>
+page 50029 "A01 Item Ticket Format List"
 {
     ApplicationArea = All;
-    Caption = 'Customer Risk Levels';
+    Caption = 'Item Ticket Format List';
     PageType = List;
     SourceTable = "A01 Parameter Record";
-    SourceTableView = Type
+    SourceTableView = where(Type = const(TicketFormat));
     UsageCategory = Lists;
 
     layout

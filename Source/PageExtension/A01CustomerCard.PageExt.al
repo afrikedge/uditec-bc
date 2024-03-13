@@ -15,6 +15,10 @@ pageextension 50006 "A01 Customer Card" extends "Customer Card"
             {
                 ApplicationArea = Basic, Suite;
             }
+            field("A01 Risk Level"; Rec."A01 Risk Level")
+            {
+                ApplicationArea = Basic, Suite;
+            }
         }
     }
 }

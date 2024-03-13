@@ -103,6 +103,41 @@ pageextension 50002 "A01 Order Processor RC" extends "Order Processor Role Cente
                     RunObject = Page "A01 Sales Orders - Invoiced";
                 }
             }
+            group(A01_Config)
+            {
+                Caption = 'Afk Config';
+                Image = Administration;
+                action(A01Config_RiskLevels)
+                {
+                    ApplicationArea = Basic, Suite;
+                    Caption = 'Risk levels';
+                    RunObject = Page "A01 Customer Risk Levels";
+                }
+                action(A01Config_TicketFormat)
+                {
+                    ApplicationArea = Basic, Suite;
+                    Caption = 'Item Ticket formats';
+                    RunObject = Page "A01 Item Ticket Format List";
+                }
+                action(A01Config_DebtStatus)
+                {
+                    ApplicationArea = Basic, Suite;
+                    Caption = 'Customer Debt Status';
+                    RunObject = Page "A01 Customer Debt Status List";
+                }
+                action(A01Config_WarrantyPlans)
+                {
+                    ApplicationArea = Basic, Suite;
+                    Caption = 'Warranty plans';
+                    RunObject = Page "A01 Warranty Plans";
+                }
+                action(A01Config_PaymentTypeConfig)
+                {
+                    ApplicationArea = Basic, Suite;
+                    Caption = 'Payment configuration types';
+                    RunObject = Page "A01 Payment Type Configuration";
+                }
+            }
         }
     }
 }

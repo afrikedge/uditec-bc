@@ -5,6 +5,7 @@ table 50008 "A01 Parameter Record"
 {
     Caption = 'Parameter Record';
     DataClassification = CustomerContent;
+    LookupPageId = "A01 Parameter Value List";
 
     fields
     {
