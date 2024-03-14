@@ -60,5 +60,20 @@ permissionset 50000 "A01 Uditec_All"
         page "A01 Customer Debt Status List" = X,
         page "A01 Customer Risk Levels" = X,
         page "A01 Item Ticket Format List" = X,
-        page "A01 Parameter Value List" = X;
+        page "A01 Parameter Value List" = X,
+        tabledata "A01 Scoring Criteria" = RIMD,
+        table "A01 Scoring Criteria" = X,
+        codeunit "A01 Treso Mgt" = X,
+        page "A01 Cash Receipt Doc Journal" = X,
+        page "A01 Payment Type Configuration" = X,
+        tabledata "A01 Scoring Criteria Value" = RIMD,
+        table "A01 Scoring Criteria Value" = X,
+        tabledata "A01 Customer Requirement" = RIMD,
+        table "A01 Customer Requirement" = X,
+        tabledata "A01 Customer Criteria" = RIMD,
+        table "A01 Customer Criteria" = X,
+        tabledata "A01 Scoring Matrix" = RIMD,
+        table "A01 Scoring Matrix" = X,
+        tabledata "A01 Customer Scoring" = RIMD,
+        table "A01 Customer Scoring" = X;
 }
