@@ -111,6 +111,7 @@ codeunit 50005 "A01 WS QuotesMgt"
 
     local procedure ProcessSalesQuoteHeader(var SalesQuote: Record "Sales Header"; input: JsonObject)
     begin
+
         //SalesQuote.Validate("Sell-to Customer No.", GetText('customerNo', input));
         if (SalesQuote."Sell-to Customer No." <> WS.GetText('customerNo', input)) then
             SalesQuote.Validate("Sell-to Customer No.", WS.GetText('customerNo', input));
@@ -139,8 +140,8 @@ codeunit 50005 "A01 WS QuotesMgt"
         if (SalesQuote."Sell-to Address" <> WS.GetText('saleQuoteDocumentDate', input)) then
             SalesQuote.Validate("Sell-to Address", WS.GetText('saleQuoteDocumentDate', input));
 
-        // if (SalesQuote."Sell-to Address" <> GetText('saleQuoteValidUntilDate', input)) then
-        //     SalesQuote.Validate("Sell-to Address", GetText('saleQuoteValidUntilDate', input));
+        if (SalesQuote."Quote Valid Until Date" <> WS.GetDate('saleQuoteValidUntilDate', input)) then
+            SalesQuote.Validate("Quote Valid Until Date", WS.GetDate('saleQuoteValidUntilDate', input));
 
         if (SalesQuote."Requested Delivery Date" <> WS.GetDate('saleQuoteShipRequestedDate', input)) then
             SalesQuote.Validate("Requested Delivery Date", WS.GetDate('saleQuoteShipRequestedDate', input));

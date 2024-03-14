@@ -15,6 +15,10 @@ pageextension 50003 "A01 Item Card" extends "Item Card"
             {
                 ApplicationArea = Basic, Suite;
             }
+            field("A01 Ticket Format"; Rec."A01 Ticket Format")
+            {
+                ApplicationArea = Basic, Suite;
+            }
         }
     }
     actions
