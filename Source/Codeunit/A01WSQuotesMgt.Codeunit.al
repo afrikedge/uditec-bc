@@ -181,8 +181,6 @@ codeunit 50005 "A01 WS QuotesMgt"
     end;
 
     local procedure processSalesQuoteLine(SalesQuote: Record "Sales Header"; var SalesLine: Record "Sales Line"; input: JsonObject)
-    var
-        intValue: Integer;
     begin
 
         if (SalesLine."Document No." <> SalesQuote."No.") then
@@ -194,22 +192,16 @@ codeunit 50005 "A01 WS QuotesMgt"
         if (SalesLine."Line No." <> WS.GetInt('Line No_', input)) then
             SalesLine."Line No." := WS.GetInt('Line No_', input);
 
-        intValue := WS.GetInt('Type', input);
-
-        if (intValue = 0) then
-            SalesLine.Validate(Type, SalesLine.Type::Item);
-
-        if (intValue = 1) then
-            SalesLine.Validate(Type, SalesLine.Type::" ");
+        if (SalesLine.Type.AsInteger() <> WS.GetInt('Type', input)) then
+            SalesLine.Validate(Type, WS.GetInt('Type', input));
 
         if (SalesLine.Type = SalesLine.Type::" ") then
             SalesLine.Description := CopyStr(WS.GetText('Description', input), 1, 100);
 
-
         if (SalesLine.Type = SalesLine.Type::Item) then begin
 
-            if (SalesQuote."No." <> WS.GetText('No_', input)) then
-                SalesQuote.Validate("No.", WS.GetText('No_', input));
+            if (SalesLine."No." <> WS.GetText('No_', input)) then
+                SalesLine.Validate("No.", WS.GetText('No_', input));
 
             SalesLine.Description := CopyStr(WS.GetText('Description', input), 1, 100);
 
