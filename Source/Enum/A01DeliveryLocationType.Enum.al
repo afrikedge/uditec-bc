@@ -1,7 +1,10 @@
+/// <summary>
+/// Enum A01 Delivery Location Type (ID 50008).
+/// </summary>
 enum 50008 "A01 Delivery Location Type"
 {
     Extensible = true;
-    
+
     value(0; "Ground floor")
     {
         Caption = 'Ground floor';

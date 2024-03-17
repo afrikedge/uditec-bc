@@ -1,7 +1,10 @@
+/// <summary>
+/// Enum A01 Road Conditions (ID 50006).
+/// </summary>
 enum 50006 "A01 Road Conditions"
 {
     Extensible = true;
-    
+
     value(0; Tar)
     {
         Caption = 'Tar';

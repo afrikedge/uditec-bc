@@ -1,3 +1,6 @@
+/// <summary>
+/// TableExtension A01 Payment Header Archive (ID 50012) extends Record Payment Header Archive.
+/// </summary>
 tableextension 50012 "A01 Payment Header Archive" extends "Payment Header Archive"
 {
     fields
