@@ -86,6 +86,14 @@ codeunit 50006 "A01 Api Mgt"
         exit(c.AsValue().AsDate());
     end;
 
+    procedure GetBool("key": Text; input: JsonObject): Boolean
+    var
+        c: JsonToken;
+    begin
+        input.Get("key", c);
+        exit(c.AsValue().AsBoolean());
+    end;
+
     procedure GetInt("key": Text; input: JsonObject): Integer
     var
         c: JsonToken;

@@ -31,7 +31,7 @@ Table 50007 "A01 Payment Type Configuration"
     }
     keys
     {
-        key(PK; "Journal Template Name")
+        key(PK; "Journal Template Name", "Journal Batch Name", "Payment Type")
         {
             Clustered = true;
         }

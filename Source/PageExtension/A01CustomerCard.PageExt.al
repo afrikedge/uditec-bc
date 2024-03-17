@@ -15,6 +15,32 @@ pageextension 50006 "A01 Customer Card" extends "Customer Card"
             {
                 ApplicationArea = Basic, Suite;
             }
+            field("A01 Risk Level"; Rec."A01 Risk Level")
+            {
+                ApplicationArea = Basic, Suite;
+            }
+        }
+    }
+    actions
+    {
+        addafter(ShipToAddresses)
+        {
+            action(A01Criteria)
+            {
+                ApplicationArea = Basic, Suite;
+                Caption = 'Scoring criteria';
+                Image = ViewDetails;
+                RunObject = Page "A01 Cust Scoring Criteria";
+                RunPageLink = "Customer No." = field("No.");
+            }
+            action(A01Scoring)
+            {
+                ApplicationArea = Basic, Suite;
+                Caption = 'Scoring';
+                Image = ViewDetails;
+                RunObject = Page "A01 Customer Scoring List";
+                RunPageLink = "Customer No." = field("No.");
+            }
         }
     }
 }

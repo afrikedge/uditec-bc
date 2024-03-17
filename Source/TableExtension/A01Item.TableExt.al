@@ -17,5 +17,11 @@ tableextension 50004 "A01 Item" extends Item
             TableRelation = "Shipment Method";
             DataClassification = CustomerContent;
         }
+        field(50003; "A01 Ticket Format"; Code[10])
+        {
+            Caption = 'Ticket Format';
+            TableRelation = "A01 Parameter Record".Code where(Type = const(TicketFormat));
+            DataClassification = CustomerContent;
+        }
     }
 }

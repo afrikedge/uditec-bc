@@ -8,20 +8,27 @@ codeunit 50005 "A01 WS QuotesMgt"
         WS: codeunit "A01 Api Mgt";
 
     /// <summary>
-    /// upsert.
+    /// Run.
     /// </summary>
-    /// <param name="inputJson">Text.</param>
+    /// <param name="input">JsonObject.</param>
+    /// <param name="IsDeletion">Boolean.</param>
     /// <returns>Return value of type Text.</returns>
-    procedure Run(inputJson: Text): Text
+    procedure Run(input: JsonObject; IsDeletion: Boolean): Text
     var
-        input: JsonObject;
         NoQuote: text;
+    //ToDelete: Boolean;
     begin
-        input.ReadFrom(inputJson);
+        //input.ReadFrom(inputJson);
         NoQuote := ws.GetText('QuoteNo', input);
-        if (NoQuote <> '') then
-            exit(ModifyQuote(NoQuote, input))
-        else
+        if (NoQuote <> '') then begin
+
+            //ToDelete := ws.GetBool('IsDeletion', input);
+            if (IsDeletion) then
+                exit(DeleteQuote(NoQuote))
+            else
+                exit(ModifyQuote(NoQuote, input))
+
+        end else
             exit(AddQuote(input));
     end;
 
@@ -62,6 +69,19 @@ codeunit 50005 "A01 WS QuotesMgt"
 
     end;
 
+    local procedure DeleteQuote(QuoteNo: Text): Text
+    var
+        SalesQuote: Record "Sales Header";
+    begin
+
+        SalesQuote.Get(SalesQuote."Document Type"::Quote, QuoteNo);
+
+        SalesQuote.Delete(true);
+
+        exit(Ws.CreateResponseSuccess(SalesQuote."No."));
+
+    end;
+
     local procedure AddOrInsertSalesQuoteLine(SalesQuote: Record "Sales Header"; var SalesLine: Record "Sales Line"; input: JsonObject)
     var
         SalesL: Record "Sales Line";
@@ -91,6 +111,7 @@ codeunit 50005 "A01 WS QuotesMgt"
 
     local procedure ProcessSalesQuoteHeader(var SalesQuote: Record "Sales Header"; input: JsonObject)
     begin
+
         //SalesQuote.Validate("Sell-to Customer No.", GetText('customerNo', input));
         if (SalesQuote."Sell-to Customer No." <> WS.GetText('customerNo', input)) then
             SalesQuote.Validate("Sell-to Customer No.", WS.GetText('customerNo', input));
@@ -119,8 +140,8 @@ codeunit 50005 "A01 WS QuotesMgt"
         if (SalesQuote."Sell-to Address" <> WS.GetText('saleQuoteDocumentDate', input)) then
             SalesQuote.Validate("Sell-to Address", WS.GetText('saleQuoteDocumentDate', input));
 
-        // if (SalesQuote."Sell-to Address" <> GetText('saleQuoteValidUntilDate', input)) then
-        //     SalesQuote.Validate("Sell-to Address", GetText('saleQuoteValidUntilDate', input));
+        if (SalesQuote."Quote Valid Until Date" <> WS.GetDate('saleQuoteValidUntilDate', input)) then
+            SalesQuote.Validate("Quote Valid Until Date", WS.GetDate('saleQuoteValidUntilDate', input));
 
         if (SalesQuote."Requested Delivery Date" <> WS.GetDate('saleQuoteShipRequestedDate', input)) then
             SalesQuote.Validate("Requested Delivery Date", WS.GetDate('saleQuoteShipRequestedDate', input));
@@ -152,12 +173,14 @@ codeunit 50005 "A01 WS QuotesMgt"
         if (SalesQuote."Due Date" <> WS.GetDate('saleQuoteDueDate', input)) then
             SalesQuote.Validate("Due Date", WS.GetDate('saleQuoteDueDate', input));
 
+        if (SalesQuote."A01 User Id" <> WS.GetText('webUserName', input)) then
+            SalesQuote.Validate("A01 User Id", WS.GetText('webUserName', input));
+
+
         SalesQuote.Modify();
     end;
 
     local procedure processSalesQuoteLine(SalesQuote: Record "Sales Header"; var SalesLine: Record "Sales Line"; input: JsonObject)
-    var
-        intValue: Integer;
     begin
 
         if (SalesLine."Document No." <> SalesQuote."No.") then
@@ -169,22 +192,16 @@ codeunit 50005 "A01 WS QuotesMgt"
         if (SalesLine."Line No." <> WS.GetInt('Line No_', input)) then
             SalesLine."Line No." := WS.GetInt('Line No_', input);
 
-        intValue := WS.GetInt('Type', input);
-
-        if (intValue = 0) then
-            SalesLine.Validate(Type, SalesLine.Type::Item);
-
-        if (intValue = 1) then
-            SalesLine.Validate(Type, SalesLine.Type::" ");
+        if (SalesLine.Type.AsInteger() <> WS.GetInt('Type', input)) then
+            SalesLine.Validate(Type, WS.GetInt('Type', input));
 
         if (SalesLine.Type = SalesLine.Type::" ") then
             SalesLine.Description := CopyStr(WS.GetText('Description', input), 1, 100);
 
-
         if (SalesLine.Type = SalesLine.Type::Item) then begin
 
-            if (SalesQuote."No." <> WS.GetText('No_', input)) then
-                SalesQuote.Validate("No.", WS.GetText('No_', input));
+            if (SalesLine."No." <> WS.GetText('No_', input)) then
+                SalesLine.Validate("No.", WS.GetText('No_', input));
 
             SalesLine.Description := CopyStr(WS.GetText('Description', input), 1, 100);
 
