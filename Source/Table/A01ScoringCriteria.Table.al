@@ -5,6 +5,7 @@ table 50010 "A01 Scoring Criteria"
 {
     Caption = 'Scoring Criteria';
     DataClassification = CustomerContent;
+    LookupPageId = "A01 Scoring Criteria List";
 
     fields
     {

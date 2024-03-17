@@ -113,6 +113,12 @@ pageextension 50002 "A01 Order Processor RC" extends "Order Processor Role Cente
                     Caption = 'Afk Cash receipt journal';
                     RunObject = Page "A01 Cash Receipt Doc Journal";
                 }
+                action(A01Compta_PayClassList)
+                {
+                    ApplicationArea = Basic, Suite;
+                    Caption = 'Payment Class List';
+                    RunObject = Page "Payment Class";
+                }
             }
             group(A01_Config)
             {
@@ -147,6 +153,36 @@ pageextension 50002 "A01 Order Processor RC" extends "Order Processor Role Cente
                     ApplicationArea = Basic, Suite;
                     Caption = 'Payment configuration types';
                     RunObject = Page "A01 Payment Type Configuration";
+                }
+                action(A01Config_UserSetup)
+                {
+                    ApplicationArea = Basic, Suite;
+                    Caption = 'User Setup';
+                    RunObject = Page "User Setup";
+                }
+                action(A01Config_ScoringCriteria)
+                {
+                    ApplicationArea = Basic, Suite;
+                    Caption = 'Scoring criteria';
+                    RunObject = Page "A01 Scoring Criteria List";
+                }
+                action(A01Config_ScoringCriteriaValue)
+                {
+                    ApplicationArea = Basic, Suite;
+                    Caption = 'Scoring Criteria Values';
+                    RunObject = Page "A01 Scoring Criteria Value";
+                }
+                action(A01Config_CustScoringRequirement)
+                {
+                    ApplicationArea = Basic, Suite;
+                    Caption = 'Cust Scoring Requirement';
+                    RunObject = Page "A01 Cust Scoring Requirement";
+                }
+                action(A01Config_ScoringMatrix)
+                {
+                    ApplicationArea = Basic, Suite;
+                    Caption = 'Scoring Matrix';
+                    RunObject = Page "A01 Scoring Matrix";
                 }
             }
         }

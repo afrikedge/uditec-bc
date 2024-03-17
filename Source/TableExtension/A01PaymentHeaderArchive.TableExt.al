@@ -1,7 +1,4 @@
-/// <summary>
-/// TableExtension A01 Payment Header (ID 50010) extends Record Payment Header.
-/// </summary>
-tableextension 50010 "A01 Payment Header" extends "Payment Header"
+tableextension 50012 "A01 Payment Header Archive" extends "Payment Header Archive"
 {
     fields
     {

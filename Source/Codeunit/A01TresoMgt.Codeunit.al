@@ -4,7 +4,7 @@
 codeunit 50007 "A01 Treso Mgt"
 {
     var
-        ErrText01: Label 'Le document de paiement n''a pas été configuré pour \le modèle %1\la feuille %2\le type %3', comment = '%1=model,%2=journal,%3=type';
+        ErrText01: Label 'The payment document has not been configured for \template %1\sheet %2\type %3', comment = '%1=model,%2=journal,%3=type';
 
 
     procedure A01_ProcessFeuilleReglementCCL(GenJnlLine3: Record "Gen. Journal Line")

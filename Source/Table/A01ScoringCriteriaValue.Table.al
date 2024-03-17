@@ -20,9 +20,9 @@ table 50011 "A01 Scoring Criteria Value"
         {
             Caption = 'Type';
         }
-        field(4; Citeria; Code[20])
+        field(4; Criteria; Code[20])
         {
-            Caption = 'Citeria';
+            Caption = 'Criteria';
             TableRelation = "A01 Scoring Criteria";
         }
     }

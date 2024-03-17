@@ -13,28 +13,29 @@ table 50014 "A01 Scoring Matrix"
             Caption = 'Sales Mode';
             TableRelation = "Dimension Value".Code where("Global Dimension No." = const(3));
         }
-        field(2; "Selection Criteria"; Code[20])
+        field(2; "Criteria"; Code[20])
         {
-            Caption = 'Selection Criteria';
+            Caption = 'Criteria';
             TableRelation = "A01 Scoring Criteria";
         }
         field(3; Coefficient; Decimal)
         {
             Caption = 'Coefficient';
-            trigger OnValidate()
-            begin
-                Rec."Weighted Point" := Rec.Point * Rec.Coefficient;
-            end;
+            FieldClass = FlowField;
+            CalcFormula = lookup("A01 Scoring Criteria".Coefficient where(Code = field("Criteria")));
+            Editable = false;
         }
         field(4; "Criteria Value"; Code[20])
         {
             Caption = 'Criteria Value';
+            TableRelation = "A01 Scoring Criteria Value" where(Criteria = field(Criteria));
         }
         field(5; "Point"; Decimal)
         {
             Caption = 'Point';
             trigger OnValidate()
             begin
+                Rec.CalcFields(Coefficient);
                 Rec."Weighted Point" := Rec.Point * Rec.Coefficient;
             end;
         }
@@ -46,7 +47,7 @@ table 50014 "A01 Scoring Matrix"
     }
     keys
     {
-        key(PK; "Sales Mode")
+        key(PK; "Sales Mode", Criteria)
         {
             Clustered = true;
         }

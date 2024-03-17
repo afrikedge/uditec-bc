@@ -54,14 +54,14 @@ codeunit 50000 "A01 Sales Order Processing"
     var
         ArchiveManagement: Codeunit ArchiveManagement;
         Selection: Integer;
-        LblAction01: Label '&Envoyer en traitement,&Supprimer la commande';
-        QstDeleteDraft: Label 'La commande sera supprimée. Voulez-vous continuer ?';
-        QstCancelledOrder: Label 'Voulez-vous annuler la commande %1. \Si oui la commande ne sera plus traitée.', Comment = '%1=Order No';
-        ErrOnCancelledOrder: Label 'La commande ne peut plus être annulée car elle a déjà été livrée';
-        ErrOnCloseOrder_Qty: Label 'Vous ne pouvez pas solder cette commande car la quantité livrée n''a pas été completement été facturée pour l''article %1', Comment = '%1=Item No';
-        QstSetAsDraft: label 'La commande sera renvoyée en saisie. Voulez-vous continuer ?';
-        ErrDocumentStatusOnValidation: Label 'Le document ne se trouve pas à un statut où il peut être validé.';
-        LblOptionsValidateStock: Label '&Valider le stock,&Renvoyer en saisie';
+        LblAction01: Label '&Send for processing,&Delete order';
+        QstDeleteDraft: Label 'The order will be deleted. Do you want to continue ?';
+        QstCancelledOrder: Label 'Do you want to cancel order %1. \If yes, the order will no longer be processed.', Comment = '%1=Order No';
+        ErrOnCancelledOrder: Label 'The order can no longer be canceled because it has already been delivered';
+        ErrOnCloseOrder_Qty: Label 'You cannot close this order because the quantity delivered has not been completely invoiced for item %1', Comment = '%1=Item No';
+        QstSetAsDraft: label 'The order will be returned for edition. Do you want to continue ?';
+        ErrDocumentStatusOnValidation: Label 'The document is not at a status where it can be validated.';
+        LblOptionsValidateStock: Label '&Check inventory,&Resend to edition';
         LblOptionsCancel: Label '&Cancel order';
         LblOptionsClose: Label '&Close order';
 

@@ -50,6 +50,9 @@ codeunit 50004 "A01 Security Mgt"
     begin
         UserSetup.Get(UserId);
 
+        if (UserSetup."A01 Disable Resp Center Filter") then
+            exit('*');
+
         if UserSetup."Sales Resp. Ctr. Filter" <> '' then
             if Rep = '' then
                 Rep := UserSetup."Sales Resp. Ctr. Filter"

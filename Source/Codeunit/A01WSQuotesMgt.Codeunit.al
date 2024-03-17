@@ -8,22 +8,22 @@ codeunit 50005 "A01 WS QuotesMgt"
         WS: codeunit "A01 Api Mgt";
 
     /// <summary>
-    /// upsert.
+    /// Run.
     /// </summary>
-    /// <param name="inputJson">Text.</param>
+    /// <param name="input">JsonObject.</param>
+    /// <param name="IsDeletion">Boolean.</param>
     /// <returns>Return value of type Text.</returns>
-    procedure Run(inputJson: Text): Text
+    procedure Run(input: JsonObject; IsDeletion: Boolean): Text
     var
-        input: JsonObject;
         NoQuote: text;
-        ToDelete: Boolean;
+    //ToDelete: Boolean;
     begin
-        input.ReadFrom(inputJson);
+        //input.ReadFrom(inputJson);
         NoQuote := ws.GetText('QuoteNo', input);
         if (NoQuote <> '') then begin
 
-            ToDelete := ws.GetBool('IsDeletion', input);
-            if (ToDelete) then
+            //ToDelete := ws.GetBool('IsDeletion', input);
+            if (IsDeletion) then
                 exit(DeleteQuote(NoQuote))
             else
                 exit(ModifyQuote(NoQuote, input))
@@ -172,6 +172,10 @@ codeunit 50005 "A01 WS QuotesMgt"
 
         if (SalesQuote."Due Date" <> WS.GetDate('saleQuoteDueDate', input)) then
             SalesQuote.Validate("Due Date", WS.GetDate('saleQuoteDueDate', input));
+
+        if (SalesQuote."A01 User Id" <> WS.GetText('webUserName', input)) then
+            SalesQuote.Validate("A01 User Id", WS.GetText('webUserName', input));
+
 
         SalesQuote.Modify();
     end;

@@ -44,5 +44,10 @@ tableextension 50001 "A01 User Setup" extends "User Setup"
             TableRelation = "Responsibility Center".Code;
             DataClassification = CustomerContent;
         }
+        field(50008; "A01 Disable Resp Center Filter"; Boolean)
+        {
+            Caption = 'Disable Resp Center filter';
+            DataClassification = CustomerContent;
+        }
     }
 }
