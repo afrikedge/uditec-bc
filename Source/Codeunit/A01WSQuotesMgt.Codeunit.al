@@ -207,7 +207,7 @@ codeunit 50005 "A01 WS QuotesMgt"
 
             SalesLine."Description 2" := CopyStr(WS.GetText('Description 2', input), 1, 50);
 
-            if (SalesLine."Location Code" <> WS.GetText('No_', input)) then
+            if (SalesLine."Location Code" <> WS.GetText('Location Code', input)) then
                 SalesLine.Validate("Location Code", WS.GetText('Location Code', input));
 
             if (SalesLine.Quantity <> WS.GetDecimal('Quantity', input)) then
