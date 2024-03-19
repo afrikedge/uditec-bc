@@ -31,6 +31,10 @@ tableextension 50006 "A01 Customer" extends Customer
             Caption = 'Sales Mode';
             TableRelation = "Dimension Value".Code where("Global Dimension No." = const(3));
             DataClassification = CustomerContent;
+            trigger OnValidate()
+            begin
+                Rec.ValidateShortcutDimCode(3, "A01 Sales Mode");
+            end;
         }
         modify("Payment Terms Code")
         {

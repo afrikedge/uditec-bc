@@ -23,7 +23,6 @@ pageextension 50001 "A01 Responsability Center Card" extends "Responsibility Cen
             {
                 ApplicationArea = Basic, Suite;
             }
-
         }
         addbefore(Control1900383207)
         {

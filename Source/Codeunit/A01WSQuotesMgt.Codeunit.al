@@ -238,4 +238,33 @@ codeunit 50005 "A01 WS QuotesMgt"
             AddOrInsertSalesQuoteLine(SalesQuote, SalesQuoteLine, LineInput);
         end;
     end;
+
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="input"></param>
+    /// <returns>Return value of type Text.</returns>
+    procedure MakeOrder(input: JsonObject): Text
+    var
+        NoQuote: text;
+    begin
+        NoQuote := ws.GetText('QuoteNo', input);
+        if (NoQuote <> '') then
+            exit(QuoteToOrder(NoQuote));
+    end;
+
+    local procedure QuoteToOrder(NoQuote: text): Text
+    var
+        SalesQuote: Record "Sales Header";
+        SalesOrder: Record "Sales Header";
+        SalesQuoteToOrder: Codeunit "Sales-Quote to Order";
+
+    begin
+        if (SalesQuote.get(SalesQuote."Document Type"::Quote, NoQuote)) then begin
+            SalesQuoteToOrder.Run(SalesQuote);
+            SalesQuoteToOrder.GetSalesOrderHeader(SalesOrder);
+            Commit();
+            exit(Ws.CreateResponseSuccess(SalesOrder."No."));
+        end;
+    end;
 }

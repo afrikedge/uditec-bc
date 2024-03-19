@@ -75,5 +75,16 @@ permissionset 50000 "A01 Uditec_All"
         tabledata "A01 Scoring Matrix" = RIMD,
         table "A01 Scoring Matrix" = X,
         tabledata "A01 Customer Scoring" = RIMD,
-        table "A01 Customer Scoring" = X;
+        table "A01 Customer Scoring" = X,
+        tabledata "A01 Credit Depreciation Table" = RIMD,
+        table "A01 Credit Depreciation Table" = X,
+        codeunit "A01 Api Interface Mgt" = X,
+        page "A01 Cust Scoring Criteria" = X,
+        page "A01 Cust Scoring Requirement" = X,
+        page "A01 Customer Scoring List" = X,
+        page "A01 Scoring Criteria List" = X,
+        page "A01 Scoring Criteria Value" = X,
+        page "A01 Scoring Matrix" = X,
+        tabledata "A01 Afk Setup" = RIMD,
+        table "A01 Afk Setup" = X;
 }

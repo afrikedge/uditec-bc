@@ -124,6 +124,12 @@ pageextension 50002 "A01 Order Processor RC" extends "Order Processor Role Cente
             {
                 Caption = 'Afk Config';
                 Image = Administration;
+                action(A01Config_Setup)
+                {
+                    ApplicationArea = Basic, Suite;
+                    Caption = 'Afk Setup';
+                    RunObject = Page "A01 Afk Setup";
+                }
                 action(A01Config_RiskLevels)
                 {
                     ApplicationArea = Basic, Suite;
