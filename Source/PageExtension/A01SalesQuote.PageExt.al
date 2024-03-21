@@ -26,6 +26,7 @@ pageextension 50017 "A01 Sales Quote" extends "Sales Quote"
                 field("A01 Analyst comments"; Rec."A01 Analyst comments")
                 {
                     ApplicationArea = Basic, Suite;
+                    MultiLine = true;
                 }
                 field("A01 System Decision"; Rec."A01 System Decision")
                 {

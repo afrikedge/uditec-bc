@@ -76,6 +76,7 @@ tableextension 50000 "A01 Sales Header" extends "Sales Header"
         {
             Caption = 'Analyst comments';
             DataClassification = CustomerContent;
+
         }
         field(50012; "A01 System Decision"; Enum "A01 System Decision")
         {
