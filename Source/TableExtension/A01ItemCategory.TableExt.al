@@ -25,5 +25,10 @@ tableextension 50015 "A01 Item Category" extends "Item Category"
             Caption = 'Monthly interest rate % (Mirindra)';
             DataClassification = CustomerContent;
         }
+        field(50009; "A01 MIR Eligible Products"; Enum "A01 MIR Eligible Product Mode")
+        {
+            Caption = 'Eligible Products (Mirindra)';
+            DataClassification = CustomerContent;
+        }
     }
 }

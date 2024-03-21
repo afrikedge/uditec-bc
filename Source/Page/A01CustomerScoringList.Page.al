@@ -15,6 +15,9 @@ page 50039 "A01 Customer Scoring List"
         {
             repeater(General)
             {
+                field("Sales Mode"; Rec."Sales Mode")
+                {
+                }
                 field(Criteria; Rec.Criteria)
                 {
                 }
@@ -24,13 +27,19 @@ page 50039 "A01 Customer Scoring List"
                 field("Criteria Value"; Rec."Criteria Value")
                 {
                 }
+                field(Precision; Rec.Precision)
+                {
+                }
                 field(Validity; Rec.Validity)
+                {
+                }
+                field("Validity Date"; Rec."Validity Date")
                 {
                 }
                 field("Document Required"; Rec."Document Required")
                 {
                 }
-                field("Validity Date"; Rec."Validity Date")
+                field(DocumentLink; Rec.DocumentLink)
                 {
                 }
                 field(Valid; Rec.Valid)

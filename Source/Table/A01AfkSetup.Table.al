@@ -62,14 +62,17 @@ table 50017 "A01 Afk Setup"
         field(12; "MIR Item for interest"; Code[20])
         {
             Caption = 'Item for interest';
+            TableRelation = Item where(Type = const(Service));
         }
         field(13; "MIR Sales Mode"; Code[20])
         {
             Caption = 'Sales Mode';
+            TableRelation = "Dimension Value".Code where("Global Dimension No." = const(3));
         }
         field(14; "MIR Item for application fees"; Code[20])
         {
             Caption = 'Item for application fees';
+            TableRelation = Item where(Type = const(Service));
         }
         field(15; "Minimum Delivery per trip"; Integer)
         {
@@ -104,6 +107,10 @@ table 50017 "A01 Afk Setup"
         field(22; "Code"; Code[10])
         {
             Caption = 'Code';
+        }
+        field(23; "MIR Eligible Products"; Enum "A01 MIR Eligible Product Mode")
+        {
+            Caption = 'Eligible Products';
         }
     }
     keys

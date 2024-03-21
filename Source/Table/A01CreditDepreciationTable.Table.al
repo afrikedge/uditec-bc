@@ -46,9 +46,9 @@ table 50016 "A01 Credit Depreciation Table"
         {
             Caption = 'Payment balance';
         }
-        field(10; "Amount paid"; Decimal)
+        field(10; "Interest"; Decimal)
         {
-            Caption = 'Amount paid';
+            Caption = 'Interest';
         }
     }
     keys

@@ -25,6 +25,10 @@ page 50040 "A01 Afk Setup"
             {
                 Caption = 'Mirindra';
 
+                field("MIR Eligible Products"; Rec."MIR Eligible Products")
+                {
+                    ToolTip = 'Indicates items allowed for Mirindra credit sales';
+                }
                 field("MIR Application fees (%)"; Rec."MIR Application fees (%)")
                 {
                     ToolTip = 'Percentage of Application fees to be included in the calculation of the debt';

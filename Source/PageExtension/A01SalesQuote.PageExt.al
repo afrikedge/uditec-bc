@@ -23,6 +23,22 @@ pageextension 50017 "A01 Sales Quote" extends "Sales Quote"
                 {
                     ApplicationArea = Basic, Suite;
                 }
+                field("A01 Analyst comments"; Rec."A01 Analyst comments")
+                {
+                    ApplicationArea = Basic, Suite;
+                }
+                field("A01 System Decision"; Rec."A01 System Decision")
+                {
+                    ApplicationArea = Basic, Suite;
+                }
+                field("A01 Analyst Opinion"; Rec."A01 Analyst Opinion")
+                {
+                    ApplicationArea = Basic, Suite;
+                }
+                field("A01 Investigator Opinion"; Rec."A01 Investigator Opinion")
+                {
+                    ApplicationArea = Basic, Suite;
+                }
             }
         }
     }

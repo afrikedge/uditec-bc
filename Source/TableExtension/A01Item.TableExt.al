@@ -43,6 +43,21 @@ tableextension 50004 "A01 Item" extends Item
             Caption = 'Monthly interest rate % (Mirindra)';
             DataClassification = CustomerContent;
         }
+        field(50008; "A01 MIR Eligible Product"; Boolean)
+        {
+            Caption = 'Eligible Product (Mirindra)';
+            DataClassification = CustomerContent;
+        }
+        field(50009; "A01 Prep required for credit"; Decimal)
+        {
+            Caption = 'Prepayment required for credit (%)';
+            DataClassification = CustomerContent;
+        }
+        field(50010; "A01 Eligible for credit sales"; Boolean)
+        {
+            Caption = 'Eligible for credit sales';
+            DataClassification = CustomerContent;
+        }
 
     }
 }

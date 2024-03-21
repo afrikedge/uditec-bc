@@ -45,7 +45,7 @@ table 50013 "A01 Cust Scoring Criteria"
         field(7; "List Value"; Code[20])
         {
             Caption = 'List Value';
-            TableRelation = "A01 Scoring Criteria";
+            TableRelation = "A01 Scoring Criteria Value" where(Criteria = field(Criteria));
         }
         field(8; Validity; Enum "A01 Scoring Criteria Validity")
         {
@@ -68,6 +68,10 @@ table 50013 "A01 Cust Scoring Criteria"
         field(11; Valid; Boolean)
         {
             Caption = 'Valid';
+        }
+        field(12; DocumentLink; Text[100])
+        {
+            Caption = 'Document link';
         }
     }
     keys

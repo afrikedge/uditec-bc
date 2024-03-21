@@ -13,6 +13,11 @@ table 50015 "A01 Customer Scoring"
             Caption = 'Customer No.';
             TableRelation = "Customer";
         }
+        field(10; "Lead No."; Code[20])
+        {
+            Caption = 'Lead No.';
+            TableRelation = "Contact";
+        }
         field(2; Criteria; Code[20])
         {
             Caption = 'Criteria';
@@ -56,10 +61,20 @@ table 50015 "A01 Customer Scoring"
         {
             Caption = 'Score';
         }
-        // field(9; Precision; Code)
-        // {
-        //     Caption = 'Point';
-        // }
+        field(12; DocumentLink; Text[100])
+        {
+            Caption = 'Document link';
+        }
+        field(13; "Sales Mode"; Code[20])
+        {
+            Caption = 'Sales Mode';
+            TableRelation = "Dimension Value".Code where("Global Dimension No." = const(3));
+            DataClassification = CustomerContent;
+        }
+        field(14; Precision; Text[50])
+        {
+            Caption = 'Precision';
+        }
     }
     keys
     {

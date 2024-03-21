@@ -68,5 +68,25 @@ tableextension 50002 "A01 Sales Header Archive" extends "Sales Header Archive"
             MinValue = 0;
             MaxValue = 100;
         }
+        field(50011; "A01 Analyst comments"; Text[200])
+        {
+            Caption = 'Analyst comments';
+            DataClassification = CustomerContent;
+        }
+        field(50012; "A01 System Decision"; Enum "A01 System Decision")
+        {
+            Caption = 'System Decision';
+            DataClassification = CustomerContent;
+        }
+        field(50013; "A01 Analyst Opinion"; Enum "A01 Eligibility Opinion")
+        {
+            Caption = 'Analyst Opinion';
+            DataClassification = CustomerContent;
+        }
+        field(50014; "A01 Investigator Opinion"; Enum "A01 Eligibility Opinion")
+        {
+            Caption = 'Investigator Opinion';
+            DataClassification = CustomerContent;
+        }
     }
 }

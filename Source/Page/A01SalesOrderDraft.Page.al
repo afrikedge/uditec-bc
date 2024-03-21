@@ -824,7 +824,7 @@ page 50003 "A01 Sales Order - Draft"
                             Caption = 'Contact No.';
                             Editable = (BillToOptions = BillToOptions::"Custom Address") or (Rec."Bill-to Customer No." <> Rec."Sell-to Customer No.");
                             Enabled = (BillToOptions = BillToOptions::"Custom Address") or (Rec."Bill-to Customer No." <> Rec."Sell-to Customer No.");
-                            Importance = Additional;
+                            // Importance = Aputdditional;
                             ToolTip = 'Specifies the number of the contact the invoice will be sent to.';
                         }
                         field("Bill-to Contact"; Rec."Bill-to Contact")
@@ -1483,6 +1483,7 @@ page 50003 "A01 Sales Order - Draft"
                     ApplicationArea = All;
                     Caption = 'Process';
                     Image = Approve;
+                    Ellipsis = true;
                     //ToolTip = 'Approve the requested changes.';
                     //Visible = OpenApprovalEntriesExistForCurrUser;
 
@@ -1956,7 +1957,7 @@ page 50003 "A01 Sales Order - Draft"
                     AccessByPermission = TableData "Posted Invt. Pick Header" = R;
                     ApplicationArea = Warehouse;
                     Caption = 'Create Inventor&y Put-away/Pick';
-                    Ellipsis = true;
+                    //Ellipsis = true;
                     Image = CreateInventoryPickup;
                     ToolTip = 'Create an inventory put-away or inventory pick to handle items on the document according to a basic warehouse configuration that does not require warehouse receipt or shipment documents.';
 
