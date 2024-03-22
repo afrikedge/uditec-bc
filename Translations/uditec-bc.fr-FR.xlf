@@ -1053,6 +1053,18 @@
           <note from="Developer" annotates="general" priority="2">%1=model,%2=journal,%3=type</note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit A01 Treso Mgt - NamedType ErrText01</note>
         </trans-unit>
+        <trans-unit id="Codeunit 2886873769 - NamedType 2994406387" size-unit="char" translate="yes" xml:space="preserve">
+          <source>The order N° %1 does not exists</source>
+          <target state="needs-review-translation">La commande %1 n'existe pas</target>
+          <note from="Developer" annotates="general" priority="2">%1 = QuoteNo</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit A01 WS OrdersMgt - NamedType LblErrorOrderNotExists</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 4111297821 - NamedType 850573183" size-unit="char" translate="yes" xml:space="preserve">
+          <source>The Quote N° %1 does not exists</source>
+          <target state="needs-review-translation">Le devis %1 n'existe pas</target>
+          <note from="Developer" annotates="general" priority="2">%1 = QuoteNo</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit A01 WS QuotesMgt - NamedType LblErrorQuoteNotExists</note>
+        </trans-unit>
         <trans-unit id="Page 2685203037 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Afk Setup</source>
           <target state="needs-review-translation">Paramètres AddOns</target>
@@ -1226,6 +1238,30 @@
           <target state="needs-review-translation">Indique si la visite de site est obligatoire ou non</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page A01 Afk Setup - Control MIR Site visit required - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2685203037 - Control 97468426 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Test Api</source>
+          <target state="needs-review-translation">Test Api</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page A01 Afk Setup - Control TestApi - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2685203037 - Control 3530254604 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>JsonInput</source>
+          <target state="needs-review-translation">JsonInput</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page A01 Afk Setup - Control TestApiJsonInput - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2685203037 - Control 3221088999 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>JsonResponse</source>
+          <target state="needs-review-translation">JsonResponse</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page A01 Afk Setup - Control TestApiJsonResponse - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2685203037 - Action 2675496269 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>TestAPI</source>
+          <target state="needs-review-translation">TestAPI</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page A01 Afk Setup - Action Process - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 1698614240 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Cash Receipt Journals</source>
@@ -7617,35 +7653,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension A01 Item - Field A01 Item Status - Property Caption</note>
         </trans-unit>
-        <trans-unit id="TableExtension 3109568695 - Field 4235413341 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 3276313895">
-          <source>Maximum credit duration (Months)</source>
-          <target state="needs-review-translation">Durée maximale de crédit (Mois)</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">TableExtension A01 Item - Field A01 Maximum credit duration - Property Caption</note>
-        </trans-unit>
         <trans-unit id="TableExtension 3109568695 - Field 4018234756 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 3276313895">
           <source>Eligible Product (Mirindra)</source>
           <target state="needs-review-translation">Produit éligible (Mirindra)</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension A01 Item - Field A01 MIR Eligible Product - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="TableExtension 3109568695 - Field 613847003 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 3276313895">
-          <source>Maximum credit duration (Mirindra)</source>
-          <target state="needs-review-translation">Durée maximale de crédit (Mirindra)</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">TableExtension A01 Item - Field A01 MIR Max credit duration - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="TableExtension 3109568695 - Field 1207989580 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 3276313895">
-          <source>Monthly interest rate % (Mirindra)</source>
-          <target state="needs-review-translation">Taux d’intérêt % (Mirindra)</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">TableExtension A01 Item - Field A01 MIR Monthly interest % - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="TableExtension 3109568695 - Field 3517405985 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 3276313895">
-          <source>Required Prepayment % (Mirindra)</source>
-          <target state="needs-review-translation">Taux d’intérêt % (Mirindra)</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">TableExtension A01 Item - Field A01 MIR Required Prepayment % - Property Caption</note>
         </trans-unit>
         <trans-unit id="TableExtension 3109568695 - Field 4293556796 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 3276313895">
           <source>Prepayment required for credit (%)</source>
@@ -7887,6 +7899,12 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension A01 Sales Header - Field A01 Observations - Property Caption</note>
         </trans-unit>
+        <trans-unit id="TableExtension 1143019865 - Field 2229951790 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1192395785">
+          <source>Web user order creator</source>
+          <target state="needs-review-translation">Commande créée par</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension A01 Sales Header - Field A01 Order Web User Id - Property Caption</note>
+        </trans-unit>
         <trans-unit id="TableExtension 1143019865 - Field 858855201 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1192395785">
           <source>Processing Status</source>
           <target state="needs-review-translation">Statut de traitement</target>
@@ -7916,6 +7934,12 @@
           <target state="needs-review-translation">Identifiant d'utilisateur</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension A01 Sales Header - Field A01 User Id - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 1143019865 - Field 2556311944 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1192395785">
+          <source>Web User Id</source>
+          <target state="needs-review-translation">Utilisateur Externe</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension A01 Sales Header - Field A01 Web User Id - Property Caption</note>
         </trans-unit>
         <trans-unit id="TableExtension 2954665223 - Field 214188807 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1948788855">
           <source>A01 Allow Deletion</source>
@@ -7977,6 +8001,12 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension A01 Sales Header Archive - Field A01 Observations - Property Caption</note>
         </trans-unit>
+        <trans-unit id="TableExtension 2954665223 - Field 2229951790 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1948788855">
+          <source>Web user order creator</source>
+          <target state="needs-review-translation">Commande créée par</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension A01 Sales Header Archive - Field A01 Order Web User Id - Property Caption</note>
+        </trans-unit>
         <trans-unit id="TableExtension 2954665223 - Field 858855201 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1948788855">
           <source>Processing Status</source>
           <target state="needs-review-translation">Statut de traitement</target>
@@ -8006,6 +8036,12 @@
           <target state="needs-review-translation">Identifiant d'utilisateur</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension A01 Sales Header Archive - Field A01 User Id - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 2954665223 - Field 2556311944 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1948788855">
+          <source>Web User Id</source>
+          <target state="needs-review-translation">Utilisateur Externe</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension A01 Sales Header Archive - Field A01 Web User Id - Property Caption</note>
         </trans-unit>
         <trans-unit id="TableExtension 3511035122 - Field 1193983374 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 2574427010">
           <source>Shipment Method Code</source>

@@ -878,6 +878,11 @@
           <note from="Developer" annotates="general" priority="2">%1=model,%2=journal,%3=type</note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit A01 Treso Mgt - NamedType ErrText01</note>
         </trans-unit>
+        <trans-unit id="Codeunit 2886873769 - NamedType 2994406387" size-unit="char" translate="yes" xml:space="preserve">
+          <source>The order N° %1 does not exists</source>
+          <note from="Developer" annotates="general" priority="2">%1 = QuoteNo</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit A01 WS OrdersMgt - NamedType LblErrorOrderNotExists</note>
+        </trans-unit>
         <trans-unit id="Codeunit 4111297821 - NamedType 850573183" size-unit="char" translate="yes" xml:space="preserve">
           <source>The Quote N° %1 does not exists</source>
           <note from="Developer" annotates="general" priority="2">%1 = QuoteNo</note>

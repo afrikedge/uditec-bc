@@ -2,7 +2,7 @@ codeunit 50009 "A01 WS OrdersMgt"
 {
     var
         WS: codeunit "A01 Api Mgt";
-        LblErrorQuoteNotExists: Label 'The order N° %1 does not exists', Comment = '%1 = QuoteNo';
+        LblErrorOrderNotExists: Label 'The order N° %1 does not exists', Comment = '%1 = QuoteNo';
 
     /// <summary>
     /// Run.
@@ -109,68 +109,74 @@ codeunit 50009 "A01 WS OrdersMgt"
     local procedure ProcessSalesOrderHeader(var SalesOrder: Record "Sales Header"; input: JsonObject)
     begin
 
-        if (SalesOrder."Sell-to Customer No." <> WS.GetText('customerNo', input)) then
-            SalesOrder.Validate("Sell-to Customer No.", WS.GetText('customerNo', input));
+        if (SalesOrder."A01 Web User Id" <> WS.GetText('webUserName', input)) then
+            SalesOrder.Validate("A01 Web User Id", WS.GetText('webUserName', input));
 
-        if (SalesOrder."Sell-to Contact No." <> WS.GetText('customerContactCode', input)) then
-            SalesOrder.Validate("Sell-to Contact No.", WS.GetText('customerContactCode', input));
+        if (SalesOrder."Sell-to Customer No." <> WS.GetText('saleOrderCustomerNo', input)) then
+            SalesOrder.Validate("Sell-to Customer No.", WS.GetText('saleOrderCustomerNo', input));
 
-        if (SalesOrder."Sell-to Address" <> WS.GetText('customerAddrese', input)) then
-            SalesOrder.Validate("Sell-to Address", WS.GetText('customerAddrese', input));
-
-        if (SalesOrder."Sell-to Address 2" <> WS.GetText('customerAddresse2', input)) then
-            SalesOrder.Validate("Sell-to Address 2", WS.GetText('customerAddresse2', input));
-
-        if (SalesOrder."Sell-to City" <> WS.GetText('customerCity', input)) then
-            SalesOrder.Validate("Sell-to City", WS.GetText('customerCity', input));
-
-        if (SalesOrder."Sell-to Phone No." <> WS.GetText('customerPhoneNo', input)) then
-            SalesOrder.Validate("Sell-to Phone No.", WS.GetText('customerPhoneNo', input));
-
-        if (SalesOrder."Sell-to Address" <> WS.GetText('customerEmailAddress', input)) then
-            SalesOrder.Validate("Sell-to Address", WS.GetText('customerEmailAddress', input));
-
-        if (SalesOrder."Sell-to Address" <> WS.GetText('saleOrderOrderDate', input)) then
-            SalesOrder.Validate("Sell-to Address", WS.GetText('saleOrderOrderDate', input));
-
-        if (SalesOrder."Sell-to Address" <> WS.GetText('saleOrderDocumentDate', input)) then
-            SalesOrder.Validate("Sell-to Address", WS.GetText('saleOrderDocumentDate', input));
-
-        //if (SalesOrder."Quote Valid Until Date" <> WS.GetDate('saleOrderValidUntilDate', input)) then
-        //    SalesOrder.Validate("Quote Valid Until Date", WS.GetDate('saleOrderValidUntilDate', input));
-
-        if (SalesOrder."Requested Delivery Date" <> WS.GetDate('saleOrderShipRequestedDate', input)) then
-            SalesOrder.Validate("Requested Delivery Date", WS.GetDate('saleOrderShipRequestedDate', input));
+        if (SalesOrder."Sell-to Contact No." <> WS.GetText('saleOrderCustomerContactCode', input)) then
+            SalesOrder.Validate("Sell-to Contact No.", WS.GetText('saleOrderCustomerContactCode', input));
 
         if (SalesOrder."Responsibility Center" <> WS.GetText('saleOrderResponsibilityCenter', input)) then
             SalesOrder.Validate("Responsibility Center", WS.GetText('saleOrderResponsibilityCenter', input));
 
-        if (SalesOrder."Gen. Bus. Posting Group" <> WS.GetText('customerGenBusPostingGroup', input)) then
-            SalesOrder.Validate("Gen. Bus. Posting Group", WS.GetText('customerGenBusPostingGroup', input));
+        if (SalesOrder."Salesperson Code" <> WS.GetText('saleOrderSalesperson', input)) then
+            SalesOrder.Validate("Salesperson Code", WS.GetText('saleOrderSalesperson', input));
 
-        if (SalesOrder."VAT Bus. Posting Group" <> WS.GetText('customerVATBusPostingGroup', input)) then
-            SalesOrder.Validate("VAT Bus. Posting Group", WS.GetText('customerVATBusPostingGroup', input));
-
-        if (SalesOrder."Shipment Method Code" <> WS.GetText('customerShipmentMethodCode', input)) then
-            SalesOrder.Validate("Shipment Method Code", WS.GetText('customerShipmentMethodCode', input));
-
-        if (SalesOrder."Ship-to Code" <> WS.GetText('saleOrderShipToCode', input)) then
-            SalesOrder.Validate("Ship-to Code", WS.GetText('saleOrderShipToCode', input));
+        if (SalesOrder."Campaign No." <> WS.GetText('saleOrderCampaignNo', input)) then
+            SalesOrder.Validate("Campaign No.", WS.GetText('saleOrderCampaignNo', input));
 
         if (SalesOrder."Location Code" <> WS.GetText('saleOrderLocationCode', input)) then
             SalesOrder.Validate("Location Code", WS.GetText('saleOrderLocationCode', input));
 
-        if (SalesOrder."Payment Method Code" <> WS.GetText('customerPaymentMethodCode', input)) then
-            SalesOrder.Validate("Payment Method Code", WS.GetText('customerPaymentMethodCode', input));
+        if (SalesOrder."Shortcut Dimension 2 Code" <> WS.GetText('saleOrderSalesChannel', input)) then
+            SalesOrder.Validate("Shortcut Dimension 2 Code", WS.GetText('saleOrderSalesChannel', input));
 
-        if (SalesOrder."Payment Terms Code" <> WS.GetText('customerPaymentTermsCode', input)) then
-            SalesOrder.Validate("Payment Terms Code", WS.GetText('customerPaymentTermsCode', input));
+        if (SalesOrder."A01 Sales Mode" <> WS.GetText('saleOrderSalesMode', input)) then
+            SalesOrder.Validate("A01 Sales Mode", WS.GetText('saleOrderSalesMode', input));
 
-        if (SalesOrder."Due Date" <> WS.GetDate('saleOrderDueDate', input)) then
-            SalesOrder.Validate("Due Date", WS.GetDate('saleOrderDueDate', input));
+        if (SalesOrder."Customer Price Group" <> WS.GetText('saleOrderCustomerPriceGroup', input)) then
+            SalesOrder.Validate("Customer Price Group", WS.GetText('saleOrderCustomerPriceGroup', input));
 
-        if (SalesOrder."A01 Web User Id" <> WS.GetText('webUserName', input)) then
-            SalesOrder.Validate("A01 Web User Id", WS.GetText('webUserName', input));
+        if (SalesOrder."VAT Bus. Posting Group" <> WS.GetText('saleOrderVATBusPostingGroup', input)) then
+            SalesOrder.Validate("VAT Bus. Posting Group", WS.GetText('saleOrderVATBusPostingGroup', input));
+
+        if (SalesOrder."Gen. Bus. Posting Group" <> WS.GetText('saleOrderGenBusPostingGroup', input)) then
+            SalesOrder.Validate("Gen. Bus. Posting Group", WS.GetText('saleOrderGenBusPostingGroup', input));
+
+
+        if (SalesOrder."Document Date" <> WS.GetDate('saleOrderDocumentDate', input)) then
+            SalesOrder.Validate("Document Date", WS.GetDate('saleOrderDocumentDate', input));
+
+        //if (SalesOrder."Quote Valid Until Date" <> WS.GetDate('saleQuoteValidUntilDate', input)) then
+        //    SalesOrder.Validate("Order Valid Until Date", WS.GetDate('saleOrderValidUntilDate', input));
+
+        if (SalesOrder."Requested Delivery Date" <> WS.GetDate('saleOrderShipRequestedDate', input)) then
+            SalesOrder.Validate("Requested Delivery Date", WS.GetDate('saleOrderShipRequestedDate', input));
+
+        if (SalesOrder."Promised Delivery Date" <> WS.GetDate('saleOrderPromisedDeliveryDate', input)) then
+            SalesOrder.Validate("Promised Delivery Date", WS.GetDate('saleOrderPromisedDeliveryDate', input));
+
+        if (SalesOrder."Payment Method Code" <> WS.Gettext('saleOrderPaymentMethodCode', input)) then
+            SalesOrder.Validate("Payment Method Code", WS.Gettext('saleOrderPaymentMethodCode', input));
+
+        if (SalesOrder."Payment Terms Code" <> WS.Gettext('saleOrderPaymentTermsCode', input)) then
+            SalesOrder.Validate("Payment Terms Code", WS.Gettext('saleOrderPaymentTermsCode', input));
+
+        if (SalesOrder."Prepayment %" <> WS.GetDecimal('saleOrderPrepayment', input)) then
+            SalesOrder.Validate("Prepayment %", WS.GetDecimal('saleOrderPrepayment', input));
+
+        if (SalesOrder."Ship-to Code" <> WS.Gettext('saleOrderCustomerShipToCode', input)) then
+            SalesOrder.Validate("Ship-to Code", WS.Gettext('saleOrderCustomerShipToCode', input));
+
+        if (SalesOrder."Shipment Method Code" <> WS.GetText('saleOrderShipmentMethodCode', input)) then
+            SalesOrder.Validate("Shipment Method Code", WS.GetText('saleOrderShipmentMethodCode', input));
+
+        //if (SalesOrder.store <> WS.GetText('saleOrderCustomerStoreCode', input)) then
+        // SalesOrder.Validate("Shipment Method Code", WS.GetText('saleOrderCustomerStoreCode', input));
+
+
 
 
         SalesOrder.Modify();
@@ -199,12 +205,18 @@ codeunit 50009 "A01 WS OrdersMgt"
             if (SalesLine."No." <> WS.GetText('No_', input)) then
                 SalesLine.Validate("No.", WS.GetText('No_', input));
 
+            if (SalesLine."Variant Code" <> WS.GetText('Variant Code', input)) then
+                SalesLine.Validate("Variant Code", WS.GetText('Variant Code', input));
+
             SalesLine.Description := CopyStr(WS.GetText('Description', input), 1, 100);
 
             SalesLine."Description 2" := CopyStr(WS.GetText('Description 2', input), 1, 50);
 
             if (SalesLine."Location Code" <> WS.GetText('Location Code', input)) then
                 SalesLine.Validate("Location Code", WS.GetText('Location Code', input));
+
+            if (SalesLine."Bin Code" <> WS.GetText('Bin Code', input)) then
+                SalesLine.Validate("Bin Code", WS.GetText('Bin Code', input));
 
             if (SalesLine.Quantity <> WS.GetDecimal('Quantity', input)) then
                 SalesLine.Validate(Quantity, WS.GetDecimal('Quantity', input));
@@ -253,17 +265,17 @@ codeunit 50009 "A01 WS OrdersMgt"
 
     local procedure ProcessOrder(NoOrder: text): Text
     var
-        SalesQuote: Record "Sales Header";
+        SalesOrder: Record "Sales Header";
         OrderMgt: Codeunit "A01 Sales Order Processing";
 
     begin
-        if (SalesQuote.get(SalesQuote."Document Type"::Order, NoOrder)) then begin
+        if (SalesOrder.get(SalesOrder."Document Type"::Order, NoOrder)) then begin
 
-            OrderMgt.ValidateDraft(SalesQuote);
-            exit(Ws.CreateResponseSuccess(SalesQuote."No."));
+            OrderMgt.ValidateDraft(SalesOrder);
+            exit(Ws.CreateResponseSuccess(SalesOrder."No."));
 
         end else
-            exit(Ws.CreateResponseError(StrSubstNo(LblErrorQuoteNotExists, NoOrder)));
+            exit(Ws.CreateResponseError(StrSubstNo(LblErrorOrderNotExists, NoOrder)));
     end;
 
     ///JSON demande de prix : renvoie le prix
