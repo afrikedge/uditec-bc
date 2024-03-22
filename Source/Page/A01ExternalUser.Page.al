@@ -80,11 +80,9 @@ page 50022 "A01 External User"
                     //PromotedCategory = Process;
                     trigger OnAction()
                     var
-                        ApiMgt: Codeunit "A01 Api Interface Mgt";
-                        jsonText: Text;
+                        ApiMgt: Codeunit "A01 Api Mgt";
                     begin
-                        jsonText := '';
-                        ApiMgt.Run(jsonText);
+                        ApiMgt.DebugApiFunction();
                     end;
                 }
             }

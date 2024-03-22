@@ -88,5 +88,17 @@ tableextension 50002 "A01 Sales Header Archive" extends "Sales Header Archive"
             Caption = 'Investigator Opinion';
             DataClassification = CustomerContent;
         }
+        field(50015; "A01 Web User Id"; Code[50])
+        {
+            Caption = 'Web User Id';
+            DataClassification = CustomerContent;
+            Editable = false;
+        }
+        field(50016; "A01 Order Web User Id"; Code[50])
+        {
+            Caption = 'Web user order creator';
+            DataClassification = CustomerContent;
+            Editable = false;
+        }
     }
 }

@@ -2,6 +2,7 @@ codeunit 50009 "A01 WS OrdersMgt"
 {
     var
         WS: codeunit "A01 Api Mgt";
+        LblErrorQuoteNotExists: Label 'The order N° %1 does not exists', Comment = '%1 = QuoteNo';
 
     /// <summary>
     /// Run.
@@ -168,8 +169,8 @@ codeunit 50009 "A01 WS OrdersMgt"
         if (SalesOrder."Due Date" <> WS.GetDate('saleOrderDueDate', input)) then
             SalesOrder.Validate("Due Date", WS.GetDate('saleOrderDueDate', input));
 
-        if (SalesOrder."A01 User Id" <> WS.GetText('webUserName', input)) then
-            SalesOrder.Validate("A01 User Id", WS.GetText('webUserName', input));
+        if (SalesOrder."A01 Web User Id" <> WS.GetText('webUserName', input)) then
+            SalesOrder.Validate("A01 Web User Id", WS.GetText('webUserName', input));
 
 
         SalesOrder.Modify();
@@ -233,4 +234,70 @@ codeunit 50009 "A01 WS OrdersMgt"
             AddOrInsertSalesOrderLine(SalesOrder, SalesOrderLine, LineInput);
         end;
     end;
+
+    /// <summary>
+    /// ValidateDraft.
+    /// </summary>
+    /// <param name="input">JsonObject.</param>
+    /// <returns>Return value of type Text.</returns>
+    procedure ValidateDraft(input: JsonObject): Text
+    var
+        NoOrder: text;
+    //WebUser: text;
+    begin
+        NoOrder := ws.GetText('OrderNo', input);
+        //WebUser := ws.GetText('webUserName', input);
+        if (NoOrder <> '') then
+            exit(ProcessOrder(NoOrder));
+    end;
+
+    local procedure ProcessOrder(NoOrder: text): Text
+    var
+        SalesQuote: Record "Sales Header";
+        OrderMgt: Codeunit "A01 Sales Order Processing";
+
+    begin
+        if (SalesQuote.get(SalesQuote."Document Type"::Order, NoOrder)) then begin
+
+            OrderMgt.ValidateDraft(SalesQuote);
+            exit(Ws.CreateResponseSuccess(SalesQuote."No."));
+
+        end else
+            exit(Ws.CreateResponseError(StrSubstNo(LblErrorQuoteNotExists, NoOrder)));
+    end;
+
+    ///JSON demande de prix : renvoie le prix
+    //{"inputJson":"{\"Parameter\":\"item_getPrice\",\"itemCode\":\"54555\",\"CustomerCode\":\"CMZCASH\",\"CampaignCode\":\"\"}"}
+    /// <summary>
+    /// GetUnitPrice.
+    /// </summary>
+    /// <param name="input">JsonObject.</param>
+    /// <returns>Return value of type Text.</returns>
+    procedure GetUnitPrice(input: JsonObject): Text
+    var
+        QuoteNo: Code[20];
+        itemCode: Code[20];
+    begin
+        QuoteNo := CopyStr(ws.GetText('OrderNo', input), 1, 20);
+        itemCode := CopyStr(ws.GetText('itemCode', input), 1, 20);
+        exit(GetPrice(QuoteNo, itemCode));
+    end;
+
+    local procedure GetPrice(OrderNo: Code[20]; ItemNo: Code[20]): Text
+    var
+        TempSalesLine: Record "Sales Line" temporary;
+        PriceText: Code[20];
+    begin
+
+        TempSalesLine.Init();
+        TempSalesLine."Document Type" := TempSalesLine."Document Type"::Order;
+        TempSalesLine."Document No." := OrderNo;
+
+        TempSalesLine.Validate(Type, TempSalesLine.Type::Item);
+        TempSalesLine.Validate("No.", ItemNo);
+
+        PriceText := Format(TempSalesLine."Unit Price");
+        exit(Ws.CreateResponseSuccess(PriceText));
+    end;
+
 }

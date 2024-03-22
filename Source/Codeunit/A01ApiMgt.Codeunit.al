@@ -110,6 +110,17 @@ codeunit 50006 "A01 Api Mgt"
         exit(c.AsValue().AsDecimal());
     end;
 
+    /// <summary>
+    /// DebugApiFunction
+    /// </summary>
+    procedure DebugApiFunction()
+    var
+        ApiInterface: Codeunit "A01 Api Interface Mgt";
+        jsonText: Text;
+    begin
+        jsonText := '{"inputJson":"{\"Parameter\":\"item_getPrice\",\"itemCode\":\"0902075\",\"CustomerCode\":\"CMZCASH\",\"CampaignCode\":\"\"}"}';
+        ApiInterface.Run(jsonText);
+    end;
 
 
 }

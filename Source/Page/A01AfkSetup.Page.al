@@ -129,6 +129,44 @@ page 50040 "A01 Afk Setup"
                     ToolTip = 'Default duration in number of hours between the entry date and the end date of diagnosis';
                 }
             }
+            group("TestApi")
+            {
+                Caption = 'Test Api';
+
+                field(TestApiJsonInput; TestApiJsonInput)
+                {
+                    Caption = 'JsonInput';
+                    MultiLine = true;
+                }
+                field(TestApiJsonResponse; TestApiJsonResponse)
+                {
+                    Caption = 'JsonResponse';
+                    MultiLine = true;
+                }
+            }
+        }
+    }
+    actions
+    {
+        area(processing)
+        {
+            action(Process)
+            {
+                ApplicationArea = All;
+                Caption = 'TestAPI';
+                Image = TestFile;
+                Ellipsis = true;
+                //ToolTip = 'Approve the requested changes.';
+                //Visible = OpenApprovalEntriesExistForCurrUser;
+
+                trigger OnAction()
+                var
+                    ApiInterface: Codeunit "A01 Api Interface Mgt";
+                begin
+                    if (TestApiJsonInput <> '') then
+                        TestApiJsonResponse := ApiInterface.Run(TestApiJsonInput);
+                end;
+            }
         }
     }
     trigger OnOpenPage()
@@ -139,4 +177,8 @@ page 50040 "A01 Afk Setup"
             Rec.Insert();
         end;
     end;
+
+    var
+        TestApiJsonInput: Text;
+        TestApiJsonResponse: Text;
 }

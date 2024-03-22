@@ -32,6 +32,10 @@ codeunit 50008 "A01 Api Interface Mgt"
                 exit(QuotesMgt.Run(input, true));
             'quotes_makeorder':
                 exit(QuotesMgt.MakeOrder(input));
+            'quotes_item_getPrice':
+                exit(QuotesMgt.GetUnitPrice(input));
+            'quotes_requestApproval':
+                exit(QuotesMgt.RequestApproval(input));
 
             'orders_insert':
                 exit(OrdersMgt.Run(input, false));
@@ -39,6 +43,11 @@ codeunit 50008 "A01 Api Interface Mgt"
                 exit(OrdersMgt.Run(input, false));
             'orders_delete':
                 exit(OrdersMgt.Run(input, true));
+            'orders_requestApproval':
+                exit(OrdersMgt.ValidateDraft(input));
+            'orders_item_getPrice':
+                exit(OrdersMgt.GetUnitPrice(input));
+
 
             else
                 exit(StrSubstNo(LblUnknownParameter, param));

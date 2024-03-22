@@ -66,13 +66,17 @@ codeunit 50000 "A01 Sales Order Processing"
         LblOptionsClose: Label '&Close order';
 
 
-    local procedure ValidateDraft(SalesH: Record "Sales Header")
+    /// <summary>
+    /// ValidateDraft.
+    /// </summary>
+    /// <param name="SalesH">Record "Sales Header".</param>
+    procedure ValidateDraft(SalesH: Record "Sales Header")
     begin
         SalesH.TestField("Sell-to Customer No.");
         SalesH.TestField("Ship-to Code");
-        SalesH.TestField("Shipment Method Code");
-        SalesH.TestField("Requested Delivery Date");
-        SalesH.TestField("Currency Code");
+        //SalesH.TestField("Shipment Method Code");
+        //SalesH.TestField("Requested Delivery Date");
+        //SalesH.TestField("Currency Code");
         SalesH.TestField("Order Date");
         CheckLocaltionOnLines(SalesH);
 

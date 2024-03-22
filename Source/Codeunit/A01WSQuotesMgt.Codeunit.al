@@ -6,6 +6,7 @@ codeunit 50005 "A01 WS QuotesMgt"
 
     var
         WS: codeunit "A01 Api Mgt";
+        LblErrorQuoteNotExists: Label 'The Quote N° %1 does not exists', Comment = '%1 = QuoteNo';
 
     /// <summary>
     /// Run.
@@ -113,32 +114,42 @@ codeunit 50005 "A01 WS QuotesMgt"
     begin
 
         //SalesQuote.Validate("Sell-to Customer No.", GetText('customerNo', input));
-        if (SalesQuote."Sell-to Customer No." <> WS.GetText('customerNo', input)) then
-            SalesQuote.Validate("Sell-to Customer No.", WS.GetText('customerNo', input));
 
-        if (SalesQuote."Sell-to Contact No." <> WS.GetText('customerContactCode', input)) then
-            SalesQuote.Validate("Sell-to Contact No.", WS.GetText('customerContactCode', input));
+        if (SalesQuote."A01 Web User Id" <> WS.GetText('webUserName', input)) then
+            SalesQuote.Validate("A01 Web User Id", WS.GetText('webUserName', input));
 
-        if (SalesQuote."Sell-to Address" <> WS.GetText('customerAddrese', input)) then
-            SalesQuote.Validate("Sell-to Address", WS.GetText('customerAddrese', input));
+        if (SalesQuote."Sell-to Customer No." <> WS.GetText('saleQuoteCustomerNo', input)) then
+            SalesQuote.Validate("Sell-to Customer No.", WS.GetText('saleQuoteCustomerNo', input));
 
-        if (SalesQuote."Sell-to Address 2" <> WS.GetText('customerAddresse2', input)) then
-            SalesQuote.Validate("Sell-to Address 2", WS.GetText('customerAddresse2', input));
+        if (SalesQuote."Sell-to Contact No." <> WS.GetText('saleQuoteCustomerContactCode', input)) then
+            SalesQuote.Validate("Sell-to Contact No.", WS.GetText('saleQuoteCustomerContactCode', input));
 
-        if (SalesQuote."Sell-to City" <> WS.GetText('customerCity', input)) then
-            SalesQuote.Validate("Sell-to City", WS.GetText('customerCity', input));
+        if (SalesQuote."Responsibility Center" <> WS.GetText('saleQuoteResponsibilityCenter', input)) then
+            SalesQuote.Validate("Responsibility Center", WS.GetText('saleQuoteResponsibilityCenter', input));
 
-        if (SalesQuote."Sell-to Phone No." <> WS.GetText('customerPhoneNo', input)) then
-            SalesQuote.Validate("Sell-to Phone No.", WS.GetText('customerPhoneNo', input));
+        if (SalesQuote."Salesperson Code" <> WS.GetText('saleQuoteSalesperson', input)) then
+            SalesQuote.Validate("Salesperson Code", WS.GetText('saleQuoteSalesperson', input));
 
-        if (SalesQuote."Sell-to Address" <> WS.GetText('customerEmailAddress', input)) then
-            SalesQuote.Validate("Sell-to Address", WS.GetText('customerEmailAddress', input));
+        if (SalesQuote."Campaign No." <> WS.GetText('saleQuoteCampaignNo', input)) then
+            SalesQuote.Validate("Campaign No.", WS.GetText('saleQuoteCampaignNo', input));
 
-        if (SalesQuote."Sell-to Address" <> WS.GetText('saleQuoteOrderDate', input)) then
-            SalesQuote.Validate("Sell-to Address", WS.GetText('saleQuoteOrderDate', input));
+        if (SalesQuote."Location Code" <> WS.GetText('saleQuoteLocationCode', input)) then
+            SalesQuote.Validate("Location Code", WS.GetText('saleQuoteLocationCode', input));
 
-        if (SalesQuote."Sell-to Address" <> WS.GetText('saleQuoteDocumentDate', input)) then
-            SalesQuote.Validate("Sell-to Address", WS.GetText('saleQuoteDocumentDate', input));
+        if (SalesQuote."Shortcut Dimension 2 Code" <> WS.GetText('saleQuoteSalesChannel', input)) then
+            SalesQuote.Validate("Shortcut Dimension 2 Code", WS.GetText('saleQuoteSalesChannel', input));
+
+        if (SalesQuote."A01 Sales Mode" <> WS.GetText('saleQuoteSalesMode', input)) then
+            SalesQuote.Validate("A01 Sales Mode", WS.GetText('saleQuoteSalesMode', input));
+
+        if (SalesQuote."Customer Price Group" <> WS.GetText('saleQuoteCustomerPriceGroup', input)) then
+            SalesQuote.Validate("Customer Price Group", WS.GetText('saleQuoteCustomerPriceGroup', input));
+
+        if (SalesQuote."VAT Bus. Posting Group" <> WS.GetText('saleQuoteVATBusPostingGroup', input)) then
+            SalesQuote.Validate("VAT Bus. Posting Group", WS.GetText('saleQuoteVATBusPostingGroup', input));
+
+        if (SalesQuote."Document Date" <> WS.GetDate('saleQuoteDocumentDate', input)) then
+            SalesQuote.Validate("Document Date", WS.GetDate('saleQuoteDocumentDate', input));
 
         if (SalesQuote."Quote Valid Until Date" <> WS.GetDate('saleQuoteValidUntilDate', input)) then
             SalesQuote.Validate("Quote Valid Until Date", WS.GetDate('saleQuoteValidUntilDate', input));
@@ -146,36 +157,23 @@ codeunit 50005 "A01 WS QuotesMgt"
         if (SalesQuote."Requested Delivery Date" <> WS.GetDate('saleQuoteShipRequestedDate', input)) then
             SalesQuote.Validate("Requested Delivery Date", WS.GetDate('saleQuoteShipRequestedDate', input));
 
-        if (SalesQuote."Responsibility Center" <> WS.GetText('saleQuoteResponsibilityCenter', input)) then
-            SalesQuote.Validate("Responsibility Center", WS.GetText('saleQuoteResponsibilityCenter', input));
+        if (SalesQuote."Promised Delivery Date" <> WS.GetDate('saleQuotePromisedDeliveryDate', input)) then
+            SalesQuote.Validate("Promised Delivery Date", WS.GetDate('saleQuotePromisedDeliveryDate', input));
 
-        if (SalesQuote."Gen. Bus. Posting Group" <> WS.GetText('customerGenBusPostingGroup', input)) then
-            SalesQuote.Validate("Gen. Bus. Posting Group", WS.GetText('customerGenBusPostingGroup', input));
+        if (SalesQuote."Payment Method Code" <> WS.Gettext('saleQuotePaymentMethodCode', input)) then
+            SalesQuote.Validate("Payment Method Code", WS.Gettext('saleQuotePaymentMethodCode', input));
 
-        if (SalesQuote."VAT Bus. Posting Group" <> WS.GetText('customerVATBusPostingGroup', input)) then
-            SalesQuote.Validate("VAT Bus. Posting Group", WS.GetText('customerVATBusPostingGroup', input));
+        if (SalesQuote."Payment Terms Code" <> WS.Gettext('saleQuotePaymentTermsCode', input)) then
+            SalesQuote.Validate("Payment Terms Code", WS.Gettext('saleQuotePaymentTermsCode', input));
 
-        if (SalesQuote."Shipment Method Code" <> WS.GetText('customerShipmentMethodCode', input)) then
-            SalesQuote.Validate("Shipment Method Code", WS.GetText('customerShipmentMethodCode', input));
+        if (SalesQuote."Prepayment %" <> WS.GetDecimal('saleQuotePrepayment', input)) then
+            SalesQuote.Validate("Prepayment %", WS.GetDecimal('saleQuotePrepayment', input));
 
-        if (SalesQuote."Ship-to Code" <> WS.GetText('saleQuoteShipToCode', input)) then
-            SalesQuote.Validate("Ship-to Code", WS.GetText('saleQuoteShipToCode', input));
+        if (SalesQuote."Ship-to Code" <> WS.Gettext('saleQuoteCustomerShipToCode', input)) then
+            SalesQuote.Validate("Ship-to Code", WS.Gettext('saleQuoteCustomerShipToCode', input));
 
-        if (SalesQuote."Location Code" <> WS.GetText('saleQuoteLocationCode', input)) then
-            SalesQuote.Validate("Location Code", WS.GetText('saleQuoteLocationCode', input));
-
-        if (SalesQuote."Payment Method Code" <> WS.GetText('customerPaymentMethodCode', input)) then
-            SalesQuote.Validate("Payment Method Code", WS.GetText('customerPaymentMethodCode', input));
-
-        if (SalesQuote."Payment Terms Code" <> WS.GetText('customerPaymentTermsCode', input)) then
-            SalesQuote.Validate("Payment Terms Code", WS.GetText('customerPaymentTermsCode', input));
-
-        if (SalesQuote."Due Date" <> WS.GetDate('saleQuoteDueDate', input)) then
-            SalesQuote.Validate("Due Date", WS.GetDate('saleQuoteDueDate', input));
-
-        if (SalesQuote."A01 User Id" <> WS.GetText('webUserName', input)) then
-            SalesQuote.Validate("A01 User Id", WS.GetText('webUserName', input));
-
+        if (SalesQuote."Shipment Method Code" <> WS.GetText('saleQuoteShipmentMethodCode', input)) then
+            SalesQuote.Validate("Shipment Method Code", WS.GetText('saleQuoteShipmentMethodCode', input));
 
         SalesQuote.Modify();
     end;
@@ -203,12 +201,20 @@ codeunit 50005 "A01 WS QuotesMgt"
             if (SalesLine."No." <> WS.GetText('No_', input)) then
                 SalesLine.Validate("No.", WS.GetText('No_', input));
 
+            if (SalesLine."Variant Code" <> WS.GetText('Variant Code', input)) then
+                SalesLine.Validate("Variant Code", WS.GetText('Variant Code', input));
+
             SalesLine.Description := CopyStr(WS.GetText('Description', input), 1, 100);
 
             SalesLine."Description 2" := CopyStr(WS.GetText('Description 2', input), 1, 50);
 
+
             if (SalesLine."Location Code" <> WS.GetText('Location Code', input)) then
                 SalesLine.Validate("Location Code", WS.GetText('Location Code', input));
+
+            if (SalesLine."Bin Code" <> WS.GetText('Bin Code', input)) then
+                SalesLine.Validate("Bin Code", WS.GetText('Bin Code', input));
+
 
             if (SalesLine.Quantity <> WS.GetDecimal('Quantity', input)) then
                 SalesLine.Validate(Quantity, WS.GetDecimal('Quantity', input));
@@ -216,11 +222,14 @@ codeunit 50005 "A01 WS QuotesMgt"
             if (SalesLine."Unit of Measure Code" <> WS.GetText('Unit of Measure', input)) then
                 SalesLine.Validate("Unit of Measure Code", WS.GetText('Unit of Measure', input));
 
+            if (SalesLine."A01 Shipment Method Code" <> WS.GetText('Shipment Method Code', input)) then
+                SalesLine.Validate("A01 Shipment Method Code", WS.GetText('Shipment Method Code', input));
+
             if (SalesLine."Unit Price" <> WS.GetDecimal('Unit Price', input)) then
                 SalesLine.Validate("Unit Price", WS.GetDecimal('Unit Price', input));
 
-            if (SalesLine."Line Discount %" <> WS.GetDecimal('Line Discount _', input)) then
-                SalesLine.Validate("Line Discount %", WS.GetDecimal('Line Discount _', input));
+            //if (SalesLine."Line Discount %" <> WS.GetDecimal('Line Discount _', input)) then
+            //    SalesLine.Validate("Line Discount %", WS.GetDecimal('Line Discount _', input));
 
         end;
     end;
@@ -239,6 +248,8 @@ codeunit 50005 "A01 WS QuotesMgt"
         end;
     end;
 
+    /// ///JSON conversion devis renvoie le numéro de la commande générée
+    //{"inputJson":"{\"Parameter\":\"quotes_makeorder\",\"webUserName\":\"\",\"QuoteNo\":\"101005\",\"IsDeletion\":0}"}
     /// <summary>
     /// 
     /// </summary>
@@ -247,24 +258,116 @@ codeunit 50005 "A01 WS QuotesMgt"
     procedure MakeOrder(input: JsonObject): Text
     var
         NoQuote: text;
+        WebUser: text;
     begin
         NoQuote := ws.GetText('QuoteNo', input);
+        WebUser := ws.GetText('webUserName', input);
         if (NoQuote <> '') then
-            exit(QuoteToOrder(NoQuote));
+            exit(QuoteToOrder(NoQuote, WebUser));
     end;
 
-    local procedure QuoteToOrder(NoQuote: text): Text
+    ///JSON demande d'approbation devis: renvoie le nouveau statut du devis
+    //{"inputJson":"{\"Parameter\":\"quotes_requestApproval\",\"webUserName\":\"GERALD\",\"webUserResponsibilityCenter\":\"CG001\",\"QuoteNo\":\"101005\"}"}
+    /// <summary>
+    /// RequestApproval.
+    /// </summary>
+    /// <param name="input">JsonObject.</param>
+    /// <returns>Return value of type Text.</returns>
+    procedure RequestApproval(input: JsonObject): Text
+    var
+        NoQuote: text;
+    //WebUser: text;
+    begin
+        NoQuote := ws.GetText('QuoteNo', input);
+        //WebUser := ws.GetText('webUserName', input);
+        if (NoQuote <> '') then
+            exit(SendApprovalRequest(NoQuote));
+    end;
+
+
+    local procedure QuoteToOrder(NoQuote: text; WebUserId: text): Text
     var
         SalesQuote: Record "Sales Header";
         SalesOrder: Record "Sales Header";
         SalesQuoteToOrder: Codeunit "Sales-Quote to Order";
+        ApprovalsMgmt: Codeunit "Approvals Mgmt.";
 
     begin
         if (SalesQuote.get(SalesQuote."Document Type"::Quote, NoQuote)) then begin
-            SalesQuoteToOrder.Run(SalesQuote);
-            SalesQuoteToOrder.GetSalesOrderHeader(SalesOrder);
-            Commit();
-            exit(Ws.CreateResponseSuccess(SalesOrder."No."));
-        end;
+
+            if (ApprovalsMgmt.PrePostApprovalCheckSales(SalesQuote)) then begin
+                SalesQuote."A01 Order Web User Id" := CopyStr(WebUserId, 1, 50);
+                SalesQuote.Modify();
+
+                SalesQuoteToOrder.Run(SalesQuote);
+                SalesQuoteToOrder.GetSalesOrderHeader(SalesOrder);
+                Commit();
+                exit(Ws.CreateResponseSuccess(SalesOrder."No."));
+            end
+
+        end else
+            exit(Ws.CreateResponseError(StrSubstNo(LblErrorQuoteNotExists, NoQuote)));
     end;
+
+    ///JSON demande de prix : renvoie le prix
+    //{"inputJson":"{\"Parameter\":\"item_getPrice\",\"itemCode\":\"54555\",\"CustomerCode\":\"CMZCASH\",\"CampaignCode\":\"\"}"}
+    /// <summary>
+    /// GetUnitPrice.
+    /// </summary>
+    /// <param name="input">JsonObject.</param>
+    /// <returns>Return value of type Text.</returns>
+    procedure GetUnitPrice(input: JsonObject): Text
+    var
+        QuoteNo: Code[20];
+        itemCode: Code[20];
+    //CampaignCode: Code[20];
+    begin
+        QuoteNo := CopyStr(ws.GetText('QuoteNo', input), 1, 20);
+        itemCode := CopyStr(ws.GetText('itemCode', input), 1, 20);
+        //CampaignCode := CopyStr(ws.GetText('CampaignCode', input), 1, 20);
+        exit(GetPrice(QuoteNo, itemCode));
+    end;
+
+    local procedure GetPrice(QuoteNo: Code[20]; ItemNo: Code[20]): Text
+    var
+        TempSalesLine: Record "Sales Line" temporary;
+        //TempSalesHeader: Record "Sales Header" temporary;
+        PriceText: Code[20];
+    begin
+        /*TempSalesHeader.Init();
+        TempSalesHeader."Document Type" := TempSalesHeader."Document Type"::Quote;
+        TempSalesHeader."No." := '';
+        TempSalesHeader.Insert(true);
+
+        TempSalesHeader.Validate("Sell-to Customer No.", CustNo);
+        if (CampainNo = '') then
+            TempSalesHeader.Validate("Campaign No.", CampainNo);*/
+
+        TempSalesLine.Init();
+        TempSalesLine."Document Type" := TempSalesLine."Document Type"::Quote;
+        TempSalesLine."Document No." := QuoteNo;
+
+        TempSalesLine.Validate(Type, TempSalesLine.Type::Item);
+        TempSalesLine.Validate("No.", ItemNo);
+        //TempSalesLine.Validate(Quantity, 1);
+        PriceText := Format(TempSalesLine."Unit Price");
+        exit(Ws.CreateResponseSuccess(PriceText));
+    end;
+
+    local procedure SendApprovalRequest(NoQuote: text): Text
+    var
+        SalesQuote: Record "Sales Header";
+        ApprovalsMgmt: Codeunit "Approvals Mgmt.";
+
+    begin
+        if (SalesQuote.get(SalesQuote."Document Type"::Quote, NoQuote)) then begin
+
+            if ApprovalsMgmt.CheckSalesApprovalPossible(SalesQuote) then
+                ApprovalsMgmt.OnSendSalesDocForApproval(SalesQuote);
+            exit(Ws.CreateResponseSuccess(SalesQuote."No."));
+
+        end else
+            exit(Ws.CreateResponseError(StrSubstNo(LblErrorQuoteNotExists, NoQuote)));
+    end;
+
 }
