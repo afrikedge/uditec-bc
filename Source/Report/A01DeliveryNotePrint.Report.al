@@ -257,14 +257,4 @@ report 50003 "A01 DeliveryNotePrint"
         CompanySignLbl: Label 'Company signature';
 
 
-    // local procedure GetImage()
-    // var
-    //     RespCenter: Record "Responsibility Center";
-    //     Img: Codeunit Image;
-    // begin
-    //     RespCenter.Get();
-    //     // ImgStream := RespCenter.gets
-    // end;
-
-
 }

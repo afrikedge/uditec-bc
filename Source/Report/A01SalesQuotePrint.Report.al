@@ -17,7 +17,7 @@ report 50001 "A01 SalesQuotePrint"
         {
             RequestFilterFields = "No.", "Sell-to Customer No.";
             DataItemTableView = sorting("Document Type", "No.") where("Document Type" = const(Quote));
-            RequestFilterHeading = 'Sales Quote';
+            RequestFilterHeading = 'Pro Forma Invoice';
             column(CompanyInfo__Picture; CompanyInfo.Picture)
             {
             }
@@ -416,10 +416,6 @@ report 50001 "A01 SalesQuotePrint"
 
                 trigger OnPreDataItem()
                 begin
-                    // if (AfkLinesNumber < 10) then
-                    //     SetRange(Number, 1, 10 - AfkLinesNumber)
-                    // else
-                    //SetRange(Number, 1, 14 - AfkLinesNumber);
                     SetRange(Number, 1, 0);
                 end;
             }
@@ -708,26 +704,17 @@ report 50001 "A01 SalesQuotePrint"
                     AfkTotalAmount_LCY := ROUND(AfkTotalAmount_LCY, AfkLocalCurrency."Amount Rounding Precision");
                     AfkTotalVAT_LCY := ROUND(AfkTotalVAT_LCY, AfkLocalCurrency."Amount Rounding Precision");
 
+                    AfkTotalAmountInclVAT_LCYText :=
+                           Format(AfkTotalAmountInclVAT_LCY, 0,
+                           AutoFormat.ResolveAutoFormat("Auto Format"::AmountFormat, AfkLocalCurrency.Code));
+                    AfkTotalAmount_LCYText :=
+                        Format(AfkTotalAmount_LCY, 0,
+                        AutoFormat.ResolveAutoFormat("Auto Format"::AmountFormat, AfkLocalCurrency.Code));
+                    // AfkLocalCurrencyText := 'XAF';
+                    AfkTotalVAT_LCYText :=
+                        Format(AfkTotalVAT_LCY, 0,
+                        AutoFormat.ResolveAutoFormat("Auto Format"::AmountFormat, AfkLocalCurrency.Code));
 
-                    if ((Header."Currency Factor" = 1) or (Header."Currency Factor" = 0)) then begin
-                        AfkTotalAmountInclVAT_LCYText := '';
-                        AfkLocalCurrencyText := '';
-                        AfkTotalAmount_LCYText := '';
-                        AfkTotalVAT_LCYText := '';
-                    end else begin
-                        AfkTotalAmountInclVAT_LCYText :=
-                            Format(AfkTotalAmountInclVAT_LCY, 0,
-                            AutoFormat.ResolveAutoFormat("Auto Format"::AmountFormat, AfkLocalCurrency.Code));
-                        AfkTotalAmount_LCYText :=
-                            Format(AfkTotalAmount_LCY, 0,
-                            AutoFormat.ResolveAutoFormat("Auto Format"::AmountFormat, AfkLocalCurrency.Code));
-                        AfkLocalCurrencyText := 'XAF';
-                        AfkTotalVAT_LCYText :=
-                            Format(AfkTotalVAT_LCY, 0,
-                            AutoFormat.ResolveAutoFormat("Auto Format"::AmountFormat, AfkLocalCurrency.Code));
-
-                    end;
-                    ;
                     RepCheck.InitTextVariable();
                     RepCheck.FormatNoText(NoText, AfkTotalAmountInclVAT_LCY, AfkLocalCurrency.Code);
 
@@ -743,9 +730,6 @@ report 50001 "A01 SalesQuotePrint"
             trigger OnAfterGetRecord()
             var
                 CurrencyExchangeRate: Record "Currency Exchange Rate";
-                Currency: Record Currency;
-                GeneralLedgerSetup: Record "General Ledger Setup";
-                ArchiveManagement: Codeunit ArchiveManagement;
                 SalesPost: Codeunit "Sales-Post";
             begin
                 GLSetup.Get();
@@ -787,6 +771,26 @@ report 50001 "A01 SalesQuotePrint"
                 if SalesPersonInfo.Get(Header."Salesperson Code") then
                     SellerName := SalesPersonInfo.Name;
 
+                // if Cust.Get(Header."Sell-to Customer No.") then begin
+                //     CustomerName := Cust.Name;
+                //     CustomerAddress := Cust.Address;
+                // end;
+
+                if Cust.Get(Header."Sell-to Customer No.") then
+                    if Cust."A01 Customer Type" = Cust."A01 Customer Type"::Miscellaneous then begin
+                        if ContactInfo.Get(Header."Sell-to Contact No.") then begin
+                            CustomerName := ContactInfo.Name;
+                            CustomerAddress := ContactInfo.Address;
+                            CustomerPhone := ContactInfo."Phone No.";
+                        end;
+                    end else begin
+                        if Cust.Get(Header."Sell-to Customer Templ. Code") then begin
+                            CustomerName := Cust.Name;
+                            CustomerAddress := Cust.Address;
+                            CustomerPhone := Cust."Phone No.";
+                        end;
+                    end;
+
                 if not IsReportInPreviewMode() then
                     CODEUNIT.Run(CODEUNIT::"Sales-Printed", Header);
 
@@ -818,32 +822,7 @@ report 50001 "A01 SalesQuotePrint"
                     CalculatedExchRate :=
                       Round(1 / "Currency Factor" * CurrencyExchangeRate."Exchange Rate Amount", 0.000001);
                     ExchangeRateText := StrSubstNo(ExchangeRateTxt, CalculatedExchRate, CurrencyExchangeRate."Exchange Rate Amount");
-                    //     CurrCode := "Currency Code";
-                    //     if Currency.Get("Currency Code") then
-                    //         CurrSymbol := Currency.GetCurrencySymbol();
-                    // end else
-                    //     if GeneralLedgerSetup.Get() then begin
-                    //         CurrCode := GeneralLedgerSetup."LCY Code";
-                    //         CurrSymbol := GeneralLedgerSetup.GetCurrencySymbol();
-                    //     end;
                 end;
-
-                FormatDocumentFields(Header);
-                if SellToContact.Get("Sell-to Contact No.") then;
-                if BillToContact.Get("Bill-to Contact No.") then;
-
-                // if not IsReportInPreviewMode() and
-                //    (CurrReport.UseRequestPage and ArchiveDocument or
-                //     not CurrReport.UseRequestPage and (SalesSetup."Archive Quotes" <> SalesSetup."Archive Quotes"::Never))
-                // then
-                //     case SalesSetup."Archive Quotes" of
-                //         SalesSetup."Archive Quotes"::Always:
-                //             ArchiveManagement.ArchSalesDocumentNoConfirm(Header);
-                //         SalesSetup."Archive Quotes"::Question:
-                //             ArchiveManagement.ArchiveSalesDocument(Header);
-                //     end;
-
-                // OnAfterGetSalesHeader(Header);
 
                 TotalSubTotal := 0;
                 TotalInvDiscAmount := 0;
@@ -869,32 +848,32 @@ report 50001 "A01 SalesQuotePrint"
 
         layout
         {
-            // area(content)
-            // {
-            //     group(Options)
-            //     {
-            //         Caption = 'Options';
-            //         field(LogInteraction; LogInteraction)
-            //         {
-            //             ApplicationArea = Basic, Suite;
-            //             Caption = 'Log Interaction';
-            //             Enabled = LogInteractionEnable;
-            //             ToolTip = 'Specifies that interactions with the contact are logged.';
-            //         }
-            //         field(ArchiveDocument; ArchiveDocument)
-            //         {
-            //             ApplicationArea = Basic, Suite;
-            //             Caption = 'Archive Document';
-            //             ToolTip = 'Specifies if the document is archived after you preview or print it.';
+            area(content)
+            {
+                group(Options)
+                {
+                    //         Caption = 'Options';
+                    //         field(LogInteraction; LogInteraction)
+                    //         {
+                    //             ApplicationArea = Basic, Suite;
+                    //             Caption = 'Log Interaction';
+                    //             Enabled = LogInteractionEnable;
+                    //             ToolTip = 'Specifies that interactions with the contact are logged.';
+                    //         }
+                    //         field(ArchiveDocument; ArchiveDocument)
+                    //         {
+                    //             ApplicationArea = Basic, Suite;
+                    //             Caption = 'Archive Document';
+                    //             ToolTip = 'Specifies if the document is archived after you preview or print it.';
 
-            //             trigger OnValidate()
-            //             begin
-            //                 if not ArchiveDocument then
-            //                     LogInteraction := false;
-            //             end;
-            //         }
-            //     }
-            // }
+                    //             trigger OnValidate()
+                    //             begin
+                    //                 if not ArchiveDocument then
+                    //                     LogInteraction := false;
+                    //             end;
+                    //         }
+                }
+            }
         }
 
         actions

@@ -149,7 +149,7 @@ report 50005 "A01 TransferOrderPrint"
                 // }
                 dataitem("Item Ledger Entry"; "Item Ledger Entry")
                 {
-                    DataItemTableView = sorting("Document Type", "Entry Type") where("Document Type" = filter(9), "Entry Type" = filter(4));
+                    DataItemTableView = sorting("Document Type", "Entry Type") where("Document Type" = filter(9), "Entry Type" = const(Transfer));
                     DataItemLinkReference = Line;
                     DataItemLink = "Item No." = field("Item No."), "Order No." = field("Document No.");
                     column(Serial_No_; "Serial No.")
@@ -201,8 +201,6 @@ report 50005 "A01 TransferOrderPrint"
     begin
         CompanyInfo.Get();
         CompanyInfo.CalcFields(Picture);
-
-        // if not CompanyInfo.Get() then
     end;
 
     var

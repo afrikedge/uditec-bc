@@ -798,10 +798,6 @@ report 50002 "A01 SalesInvoicePrint"
 
                 trigger OnPreDataItem()
                 begin
-                    // if (AfkLinesNumber < 10) then
-                    //     SetRange(Number, 1, 10 - AfkLinesNumber)
-                    // else
-                    //SetRange(Number, 1, 14 - AfkLinesNumber);
                     SetRange(Number, 1, 0);
                 end;
             }
@@ -1205,34 +1201,18 @@ report 50002 "A01 SalesInvoicePrint"
                     AfkTotalAmount_LCY := ROUND(AfkTotalAmount_LCY, AfkLocalCurrency."Amount Rounding Precision");
                     AfkTotalVAT_LCY := ROUND(AfkTotalVAT_LCY, AfkLocalCurrency."Amount Rounding Precision");
 
+                    AfkTotalAmountInclVAT_LCYText :=
+                           Format(AfkTotalAmountInclVAT_LCY, 0,
+                           AutoFormat.ResolveAutoFormat("Auto Format"::AmountFormat, AfkLocalCurrency.Code));
+                    AfkTotalAmount_LCYText :=
+                        Format(AfkTotalAmount_LCY, 0,
+                        AutoFormat.ResolveAutoFormat("Auto Format"::AmountFormat, AfkLocalCurrency.Code));
+                    // AfkLocalCurrencyText := 'XAF';
+                    AfkTotalVAT_LCYText :=
+                        Format(AfkTotalVAT_LCY, 0,
+                        AutoFormat.ResolveAutoFormat("Auto Format"::AmountFormat, AfkLocalCurrency.Code));
+                    AfkLocalCurrencyCaption := AfkDeviseLbl;
 
-                    if ((Header."Currency Factor" = 1) or (Header."Currency Factor" = 0)) then begin
-                        AfkTotalAmountInclVAT_LCYText := '';
-                        AfkLocalCurrencyText := '';
-                        AfkTotalAmount_LCYText := '';
-                        AfkTotalVAT_LCYText := '';
-                        AfkLocalCurrencyCaption := '';
-                        AfkTotalAmount_LCYCaption := '';
-                        AfkTotalVAT_LCYCaption := '';
-                        AfkTotalAmountInclVAT_LCYCaption := '';
-                    end else begin
-                        AfkTotalAmountInclVAT_LCYText :=
-                            Format(AfkTotalAmountInclVAT_LCY, 0,
-                            AutoFormat.ResolveAutoFormat("Auto Format"::AmountFormat, AfkLocalCurrency.Code));
-                        AfkTotalAmount_LCYText :=
-                            Format(AfkTotalAmount_LCY, 0,
-                            AutoFormat.ResolveAutoFormat("Auto Format"::AmountFormat, AfkLocalCurrency.Code));
-                        AfkLocalCurrencyText := 'XAF';
-                        AfkTotalVAT_LCYText :=
-                            Format(AfkTotalVAT_LCY, 0,
-                            AutoFormat.ResolveAutoFormat("Auto Format"::AmountFormat, AfkLocalCurrency.Code));
-                        AfkLocalCurrencyCaption := AfkDeviseLbl;
-
-                        AfkTotalAmount_LCYCaption := AfkTotalHTCFALbl;
-                        AfkTotalVAT_LCYCaption := AfkVAT1925Lbl;
-                        AfkTotalAmountInclVAT_LCYCaption := AfkTotalTTCCFALbl;
-                    end;
-                    ;
                     RepCheck.InitTextVariable();
                     RepCheck.FormatNoText(NoText, AfkTotalAmountInclVAT_LCY, AfkLocalCurrency.Code);
 
@@ -1246,16 +1226,12 @@ report 50002 "A01 SalesInvoicePrint"
             }
             trigger OnAfterGetRecord()
             var
-                // Contact: Record Contact;
+
                 CurrencyExchangeRate: Record "Currency Exchange Rate";
                 PaymentServiceSetup: Record "Payment Service Setup";
                 Language: Codeunit Language;
-            // Currency: Record Currency;
-            // GeneralLedgerSetup: Record "General Ledger Setup";
             begin
                 CurrReport.Language := Language.GetLanguageIdOrDefault("Language Code");
-                // CurrReport.FormatRegion := Language.GetFormatRegionOrDefault("Format Region");
-                // FormatAddr.SetLanguageCode("Language Code");
 
                 GLSetup.Get();
                 GLSetup.TestField("LCY Code");
