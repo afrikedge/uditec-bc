@@ -1597,6 +1597,10 @@ report 50006 "A01 PurchaseOrderPrint"
         LogInteractionEnable: Boolean;
         TotalSubTotal, TotalAmount, TotalInvoiceDiscountAmount : Decimal;
 
+    /// <summary>
+    /// IsReportInPreviewMode.
+    /// </summary>
+    /// <returns>Return value of type Boolean.</returns>
     procedure InitializeRequest(LogInteractionParam: Boolean)
     begin
         LogInteraction := LogInteractionParam;

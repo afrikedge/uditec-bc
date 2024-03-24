@@ -1147,6 +1147,10 @@ report 50001 "A01 SalesQuotePrint"
         exit(SalesConfirmationLbl);
     end;
 
+    /// <summary>
+    /// IsReportInPreviewMode.
+    /// </summary>
+    /// <returns>Return value of type Boolean.</returns>
     procedure InitializeRequest(NewLogInteraction: Boolean)
     begin
         LogInteraction := NewLogInteraction;

@@ -878,6 +878,10 @@ report 50008 "A01 PurchaseQuotePrint"
         NoOfCopies: Integer;
         ShowInternalInfo: Boolean;
 
+    /// <summary>
+    /// IsReportInPreviewMode.
+    /// </summary>
+    /// <returns>Return value of type Boolean.</returns>
     procedure IntializeRequest(NewNoOfCopies: Integer; NewShowInternalInfo: Boolean; NewArchiveDocument: Boolean; NewLogInteraction: Boolean)
     begin
         NoOfCopies := NewNoOfCopies;

@@ -1642,6 +1642,10 @@ report 50002 "A01 SalesInvoicePrint"
         exit(SalesInvoiceLbl);
     end;
 
+    /// <summary>
+    /// IsReportInPreviewMode.
+    /// </summary>
+    /// <returns>Return value of type Boolean.</returns>
     procedure InitializeRequest(NewLogInteraction: Boolean; DisplayAsmInfo: Boolean)
     begin
         LogInteraction := NewLogInteraction;
