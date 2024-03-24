@@ -1,7 +1,7 @@
 /// <summary>
 /// Codeunit AFK01 ReportEventsSubr (ID 50007).
 /// </summary>
-codeunit 50007 "A01 EventsSubscribers_Report"
+codeunit 50010 "A01 EventsSubscribers_Report"
 {
     [EventSubscriber(ObjectType::Codeunit, Codeunit::ReportManagement, 'OnAfterSubstituteReport', '', false, false)]
     local procedure OnAfterSubstitute_Reports(ReportId: Integer; var NewReportId: Integer)

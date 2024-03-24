@@ -594,8 +594,8 @@ report 50008 "A01 PurchaseQuotePrint"
             var
                 GLSetup: Record "General Ledger Setup";
             begin
-                CurrReport.Language := Language.GetLanguageIdOrDefault("Language Code");
-                CurrReport.FormatRegion := Language.GetFormatRegionOrDefault("Format Region");
+                CurrReport.Language := LanguageMgt.GetLanguageIdOrDefault("Language Code");
+                CurrReport.FormatRegion := LanguageMgt.GetFormatRegionOrDefault("Format Region");
                 FormatAddr.SetLanguageCode("Language Code");
 
                 AfkCurrCode := "Purchase Header"."Currency Code";
@@ -732,7 +732,7 @@ report 50008 "A01 PurchaseQuotePrint"
         AfkCurrency: Record Currency;
         PurchasePostPrepayments: Codeunit "Purchase-Post Prepayments";
         AutoFormat: Codeunit "Auto Format";
-        Language: Codeunit Language;
+        LanguageMgt: Codeunit Language;
         PurchPost: Codeunit "Purch.-Post";
         FormatAddr: Codeunit "Format Address";
         FormatDocument: Codeunit "Format Document";

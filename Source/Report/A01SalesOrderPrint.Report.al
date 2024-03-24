@@ -813,8 +813,8 @@ report 50007 "A01 SalesOrderPrint"
         OnInitReportForGlobalVariable(IsHandled, LegalOfficeTxt, LegalOfficeLbl);
 #if not CLEAN23
         if not IsHandled then begin
-            LegalOfficeTxt := CompanyInformation.GetLegalOffice();
-            LegalOfficeLbl := CompanyInformation.GetLegalOfficeLbl();
+            // LegalOfficeTxt := CompanyInformation.GetLegalOffice();
+            // LegalOfficeLbl := CompanyInformation.GetLegalOfficeLbl();
         end;
 #endif
     end;

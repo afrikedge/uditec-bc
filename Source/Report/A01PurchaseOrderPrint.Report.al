@@ -1359,10 +1359,10 @@ report 50006 "A01 PurchaseOrderPrint"
         OnInitReportForGlobalVariable(IsHandled, LegalOfficeTxt, LegalOfficeLbl, CustomGiroTxt, CustomGiroLbl);
 #if not CLEAN23
         if not IsHandled then begin
-            LegalOfficeTxt := CompanyInfo.GetLegalOffice();
-            LegalOfficeLbl := CompanyInfo.GetLegalOfficeLbl();
-            CustomGiroTxt := CompanyInfo.GetCustomGiro();
-            CustomGiroLbl := CompanyInfo.GetCustomGiroLbl();
+            // LegalOfficeTxt := CompanyInfo.GetLegalOffice();
+            // LegalOfficeLbl := CompanyInfo.GetLegalOfficeLbl();
+            // CustomGiroTxt := CompanyInfo.GetCustomGiro();
+            // CustomGiroLbl := CompanyInfo.GetCustomGiroLbl();
         end;
 #endif
     end;
@@ -1388,15 +1388,27 @@ report 50006 "A01 PurchaseOrderPrint"
     end;
 
     var
+        BuyFromContact: Record Contact;
+        PayToContact: Record Contact;
+        PurchSetup: Record "Purchases & Payables Setup";
+        ShipmentMethod: Record "Shipment Method";
+        PaymentTerms: Record "Payment Terms";
+        PrepmtPaymentTerms: Record "Payment Terms";
+        SalespersonPurchaser: Record "Salesperson/Purchaser";
+        TempVATAmountLine: Record "VAT Amount Line" temporary;
+        TempPrepmtVATAmountLine: Record "VAT Amount Line" temporary;
+        TempPrepaymentInvLineBuffer: Record "Prepayment Inv. Line Buffer" temporary;
+        TempPrePmtVATAmountLineDeduct: Record "VAT Amount Line" temporary;
         GLSetup: Record "General Ledger Setup";
         TempPurchLine: Record "Purchase Line" temporary;
         CurrExchRate: Record "Currency Exchange Rate";
         CompanyInfo: Record "Company Information";
         CurrencyExchangeRate: Record "Currency Exchange Rate";
         AfkLocalCurrency: Record Currency;
+        ResponsibilityCenter: Record "Responsibility Center";
         Vendor: Record Vendor;
         AfkCurrency: Record Currency;
-        Language: Codeunit Language;
+        LanguageMgt: Codeunit Language;
         FormatAddr: Codeunit "Format Address";
         FormatDocument: Codeunit "Format Document";
         PurchPost: Codeunit "Purch.-Post";
@@ -1565,18 +1577,9 @@ report 50006 "A01 PurchaseOrderPrint"
         LegalOfficeTxt, LegalOfficeLbl, CustomGiroTxt, CustomGiroLbl : Text;
 
         // protected var
-        ResponsibilityCenter: Record "Responsibility Center";
-        BuyFromContact: Record Contact;
-        PayToContact: Record Contact;
-        PurchSetup: Record "Purchases & Payables Setup";
-        ShipmentMethod: Record "Shipment Method";
-        PaymentTerms: Record "Payment Terms";
-        PrepmtPaymentTerms: Record "Payment Terms";
-        SalespersonPurchaser: Record "Salesperson/Purchaser";
-        TempVATAmountLine: Record "VAT Amount Line" temporary;
-        TempPrepmtVATAmountLine: Record "VAT Amount Line" temporary;
-        TempPrepaymentInvLineBuffer: Record "Prepayment Inv. Line Buffer" temporary;
-        TempPrePmtVATAmountLineDeduct: Record "VAT Amount Line" temporary;
+
+
+
         BuyFromAddr: array[8] of Text[100];
         CompanyAddr: array[8] of Text[100];
         VendAddr: array[8] of Text[100];

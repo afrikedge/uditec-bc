@@ -1026,26 +1026,26 @@ report 50002 "A01 SalesInvoicePrint"
                             CurrReport.Break();
                 end;
             }
-            dataitem(PaymentReportingArgument; "Payment Reporting Argument")
-            {
-                DataItemTableView = SORTING(Key);
-                UseTemporary = true;
-                column(PaymentServiceLogo; Logo)
-                {
-                }
-                column(PaymentServiceLogo_UrlText; "URL Caption")
-                {
-                }
-                column(PaymentServiceLogo_Url; GetTargetURL())
-                {
-                }
-                column(PaymentServiceText_UrlText; "URL Caption")
-                {
-                }
-                column(PaymentServiceText_Url; GetTargetURL())
-                {
-                }
-            }
+            // dataitem(PaymentReportingArgument; "Payment Reporting Argument")
+            // {
+            //     DataItemTableView = SORTING(Key);
+            //     UseTemporary = true;
+            //     column(PaymentServiceLogo; Logo)
+            //     {
+            //     }
+            //     column(PaymentServiceLogo_UrlText; "URL Caption")
+            //     {
+            //     }
+            //     column(PaymentServiceLogo_Url; GetTargetURL())
+            //     {
+            //     }
+            //     column(PaymentServiceText_UrlText; "URL Caption")
+            //     {
+            //     }
+            //     column(PaymentServiceText_Url; GetTargetURL())
+            //     {
+            //     }
+            // }
             dataitem(LeftHeader; "Name/Value Buffer")
             {
                 DataItemTableView = SORTING(ID);
@@ -1294,7 +1294,7 @@ report 50002 "A01 SalesInvoicePrint"
 
                 GetLineFeeNoteOnReportHist("No.");
 
-                PaymentServiceSetup.CreateReportingArgs(PaymentReportingArgument, Header);
+                //PaymentServiceSetup.CreateReportingArgs(PaymentReportingArgument, Header);
 
                 CalcFields("Amount Including VAT");
                 //RemainingAmount := GetRemainingAmount;
@@ -1420,11 +1420,12 @@ report 50002 "A01 SalesInvoicePrint"
         SalesSetup: Record "Sales & Receivables Setup";
         ShipmentMethod: Record "Shipment Method";
         PaymentTerms: Record "Payment Terms";
+        AfkLocalCurrency: Record Currency;
         Cust: Record Customer;
         // TempLineFeeNoteOnReportHist: Record "Line Fee Note on Report Hist.";
         TempLineFeeNoteOnReportHist: Record "Line Fee Note on Report Hist." temporary;
         RepCheck: Report Check;
-        AfkLocalCurrency: Record Currency;
+
         // Language: Codeunit Language;
         FormatAddr: Codeunit "Format Address";
         SegManagement: Codeunit SegManagement;
@@ -1541,7 +1542,7 @@ report 50002 "A01 SalesInvoicePrint"
         PmtDiscTxt: Label 'If we receive the payment before %1, you are eligible for a %2% payment discount.', Comment = '%1 Discount Due Date %2 = value of Payment Discount % ';
         SalesInvoiceLbl: Label 'CREDIT SALES INVOICE';
         InvNoLbl: Label 'Invoice number :';
-        SalesPersonText: Text[30];
+        SalesPersonText: Text[50];
         UnitNameLbl: Label 'Unit name :';
         UnitAddressLbl: Label 'Unit address :';
         UnitCityLbl: Label 'Unit city';
@@ -1637,7 +1638,7 @@ report 50002 "A01 SalesInvoicePrint"
     begin
         OnBeforeGetDocumentCaption(Header, DocCaption);
         if DocCaption <> '' then
-            exit(DocCaption);
+            exit(CopyStr(DocCaption, 1, 250));
         exit(SalesInvoiceLbl);
     end;
 
