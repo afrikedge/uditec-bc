@@ -86,5 +86,19 @@ permissionset 50000 "A01 Uditec_All"
         page "A01 Scoring Criteria Value" = X,
         page "A01 Scoring Matrix" = X,
         tabledata "A01 Afk Setup" = RIMD,
-        table "A01 Afk Setup" = X;
+        table "A01 Afk Setup" = X,
+        tabledata "A01 RC Payment Method" = RIMD,
+        table "A01 RC Payment Method" = X,
+        codeunit "A01 WS OrdersMgt" = X,
+        page "A01 Afk Setup" = X,
+        tabledata "A01 Responsibility Matrix" = RIMD,
+        table "A01 Responsibility Matrix" = X,
+        page "A01 Objects" = X,
+        page "A01 RC Payment Methods" = X,
+        tabledata "A01 Sales Payment Method" = RIMD,
+        table "A01 Sales Payment Method" = X,
+        page "A01 Responsibility Matrix" = X,
+        tabledata "A01 Purchase Import Step" = RIMD,
+        table "A01 Purchase Import Step" = X,
+        page "A01 Import Steps" = X;
 }

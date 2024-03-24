@@ -103,23 +103,6 @@ pageextension 50002 "A01 Order Processor RC" extends "Order Processor Role Cente
                     RunObject = Page "A01 Sales Orders - Invoiced";
                 }
             }
-            group(A01_Compta)
-            {
-                Caption = 'Afk Compta';
-                Image = Administration;
-                action(A01Compta_JournalPayment)
-                {
-                    ApplicationArea = Basic, Suite;
-                    Caption = 'Afk Cash receipt journal';
-                    RunObject = Page "A01 Cash Receipt Doc Journal";
-                }
-                action(A01Compta_PayClassList)
-                {
-                    ApplicationArea = Basic, Suite;
-                    Caption = 'Payment Class List';
-                    RunObject = Page "Payment Class";
-                }
-            }
             group(A01_Config)
             {
                 Caption = 'Afk Config';
@@ -189,6 +172,72 @@ pageextension 50002 "A01 Order Processor RC" extends "Order Processor Role Cente
                     ApplicationArea = Basic, Suite;
                     Caption = 'Scoring Matrix';
                     RunObject = Page "A01 Scoring Matrix";
+                }
+                action(A01External_profiles)
+                {
+                    ApplicationArea = Basic, Suite;
+                    Caption = 'External profiles';
+                    RunObject = Page "A01 External Profiles";
+                }
+                action(A01ExternalUsers)
+                {
+                    ApplicationArea = Basic, Suite;
+                    Caption = 'External users';
+                    RunObject = Page "A01 External Users";
+                }
+                action(A01RCPaymentMethod)
+                {
+                    ApplicationArea = Basic, Suite;
+                    Caption = 'Payment method configuration';
+                    RunObject = Page "A01 RC Payment Methods";
+                }
+                action(A01Objets)
+                {
+                    ApplicationArea = Basic, Suite;
+                    Caption = 'Objects';
+                    RunObject = Page "A01 Objects";
+                }
+                action(A01ResponsibilityMatrix)
+                {
+                    ApplicationArea = Basic, Suite;
+                    Caption = 'Responsibility Matrix';
+                    RunObject = Page "A01 Responsibility Matrix";
+                }
+                action(A01Compta_PayClassList02)
+                {
+                    ApplicationArea = Basic, Suite;
+                    Caption = 'Payment Class List';
+                    RunObject = Page "Payment Class";
+                }
+                action(A01Compta_PayMethods)
+                {
+                    ApplicationArea = Basic, Suite;
+                    Caption = 'Payment methods';
+                    RunObject = Page "Payment Methods";
+                }
+                action(A01ImportSteps)
+                {
+                    ApplicationArea = Basic, Suite;
+                    Caption = 'Import Steps';
+                    RunObject = Page "A01 Import Steps";
+                }
+            }
+            group(A01_Compta)
+            {
+                Visible = false;
+                Caption = 'Afk Compta';
+                Image = Administration;
+                action(A01Compta_JournalPayment)
+                {
+                    ApplicationArea = Basic, Suite;
+                    Caption = 'Afk Cash receipt journal';
+                    RunObject = Page "A01 Cash Receipt Doc Journal";
+                }
+                action(A01Compta_PayClassList)
+                {
+                    ApplicationArea = Basic, Suite;
+                    Caption = 'Payment Class List';
+                    RunObject = Page "Payment Class";
                 }
             }
         }

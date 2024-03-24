@@ -43,6 +43,10 @@ pageextension 50003 "A01 Item Card" extends "Item Card"
             {
                 ApplicationArea = Basic, Suite;
             }
+            field("A01 Assembly service"; Rec."A01 Assembly service")
+            {
+                ApplicationArea = Basic, Suite;
+            }
         }
     }
     actions

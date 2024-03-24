@@ -58,6 +58,12 @@ tableextension 50004 "A01 Item" extends Item
             Caption = 'Eligible for credit sales';
             DataClassification = CustomerContent;
         }
+        field(50011; "A01 Assembly service"; Boolean)
+        {
+            Caption = 'Assembly service';
+            DataClassification = CustomerContent;
+        }
+
 
     }
 }

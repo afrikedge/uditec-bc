@@ -369,6 +369,14 @@ page 50002 "A01 Sales Order - Workflow"
                 SubPageLink = "Document No." = field("No.");
                 UpdatePropagation = Both;
             }
+            part(A01PaymentMethods; "A01 Sales Payment Methods")
+            {
+                ApplicationArea = All;
+                Editable = IsSalesLinesEditable;
+                Enabled = IsSalesLinesEditable;
+                SubPageLink = "Document Type" = const(Order), "Document No." = field("No.");
+                UpdatePropagation = Both;
+            }
             group("Invoice Details")
             {
                 Caption = 'Invoice Details';

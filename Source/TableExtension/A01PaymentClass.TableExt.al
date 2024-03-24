@@ -11,5 +11,11 @@ tableextension 50011 "A01 Payment Class" extends "Payment Class"
             DataClassification = CustomerContent;
             TableRelation = "Responsibility Center";
         }
+        field(50001; "A01 Payment Method"; Code[20])
+        {
+            Caption = 'Payment Method';
+            DataClassification = CustomerContent;
+            TableRelation = "Payment Method";
+        }
     }
 }
