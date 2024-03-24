@@ -369,6 +369,14 @@ page 50002 "A01 Sales Order - Workflow"
                 SubPageLink = "Document No." = field("No.");
                 UpdatePropagation = Both;
             }
+            part(A01PaymentMethods; "A01 Sales Payment Methods")
+            {
+                ApplicationArea = All;
+                Editable = IsSalesLinesEditable;
+                Enabled = IsSalesLinesEditable;
+                SubPageLink = "Document Type" = const(Order), "Document No." = field("No.");
+                UpdatePropagation = Both;
+            }
             group("Invoice Details")
             {
                 Caption = 'Invoice Details';
@@ -1007,6 +1015,28 @@ page 50002 "A01 Sales Order - Workflow"
                     ToolTip = 'Specifies the last date the customer can pay the prepayment invoice and still receive a payment discount on the prepayment amount.';
                 }
             }
+
+            group(A01Credit)
+            {
+                Caption = 'Credit';
+                field("A01 Credit Validation Status"; Rec."A01 Credit Validation Status")
+                {
+                    ApplicationArea = Basic, Suite;
+                }
+                field("A01 Credit Duration (Month)"; Rec."A01 Credit Duration (Month)")
+                {
+                    ApplicationArea = Basic, Suite;
+                }
+                field("A01 Interest rate"; Rec."A01 Interest rate")
+                {
+                    ApplicationArea = Basic, Suite;
+                }
+                field("A01 Sales Mode"; Rec."A01 Sales Mode")
+                {
+                    ApplicationArea = Basic, Suite;
+                }
+            }
+
         }
         area(factboxes)
         {

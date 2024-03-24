@@ -19,6 +19,34 @@ pageextension 50003 "A01 Item Card" extends "Item Card"
             {
                 ApplicationArea = Basic, Suite;
             }
+            // field("A01 MIR Max credit duration"; Rec."A01 MIR Max credit duration")
+            // {
+            //     ApplicationArea = Basic, Suite;
+            // }
+            // field("A01 MIR Monthly interest %"; Rec."A01 MIR Monthly interest %")
+            // {
+            //     ApplicationArea = Basic, Suite;
+            // }
+            // field("A01 MIR Required Prepayment %"; Rec."A01 MIR Required Prepayment %")
+            // {
+            //     ApplicationArea = Basic, Suite;
+            // }
+            field("A01 MIR Eligible Product"; Rec."A01 MIR Eligible Product")
+            {
+                ApplicationArea = Basic, Suite;
+            }
+            field("A01 Prep required for credit"; Rec."A01 Prep required for credit")
+            {
+                ApplicationArea = Basic, Suite;
+            }
+            field("A01 Eligible for credit sales"; Rec."A01 Eligible for credit sales")
+            {
+                ApplicationArea = Basic, Suite;
+            }
+            field("A01 Assembly service"; Rec."A01 Assembly service")
+            {
+                ApplicationArea = Basic, Suite;
+            }
         }
     }
     actions

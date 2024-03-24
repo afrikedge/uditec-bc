@@ -71,6 +71,20 @@ page 50022 "A01 External User"
                         ResetPasswordPage.RunModal();
                     end;
                 }
+                action(CreatePasswordTest)
+                {
+                    ApplicationArea = All;
+                    Image = Create;
+                    Caption = 'TestJP';
+                    //Promoted = true;
+                    //PromotedCategory = Process;
+                    trigger OnAction()
+                    var
+                        ApiMgt: Codeunit "A01 Api Mgt";
+                    begin
+                        ApiMgt.DebugApiFunction();
+                    end;
+                }
             }
         }
     }

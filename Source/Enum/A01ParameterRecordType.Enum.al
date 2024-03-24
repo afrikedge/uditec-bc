@@ -17,4 +17,12 @@ enum 50017 "A01 Parameter Record Type"
     {
         Caption = 'TicketFormat';
     }
+    value(3; Object)
+    {
+        Caption = 'Object';
+    }
+    value(4; ImportStep)
+    {
+        Caption = 'ImportStep';
+    }
 }

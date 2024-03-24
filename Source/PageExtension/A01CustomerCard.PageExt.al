@@ -19,6 +19,14 @@ pageextension 50006 "A01 Customer Card" extends "Customer Card"
             {
                 ApplicationArea = Basic, Suite;
             }
+            field("A01 Identification Mode"; Rec."A01 Identification Mode")
+            {
+                ApplicationArea = Basic, Suite;
+            }
+            field("A01 Sales Mode"; Rec."A01 Sales Mode")
+            {
+                ApplicationArea = Basic, Suite;
+            }
         }
     }
     actions

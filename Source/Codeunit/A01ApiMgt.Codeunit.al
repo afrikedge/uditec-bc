@@ -81,9 +81,14 @@ codeunit 50006 "A01 Api Mgt"
     procedure GetDate("key": Text; input: JsonObject): Date
     var
         c: JsonToken;
+        actualDate: Date;
     begin
         input.Get("key", c);
-        exit(c.AsValue().AsDate());
+        actualDate := c.AsValue().AsDate();
+        if (Date2DMY(actualDate, 3) = 1753) then
+            exit(0D)
+        else
+            exit(c.AsValue().AsDate());
     end;
 
     procedure GetBool("key": Text; input: JsonObject): Boolean
@@ -110,6 +115,17 @@ codeunit 50006 "A01 Api Mgt"
         exit(c.AsValue().AsDecimal());
     end;
 
+    /// <summary>
+    /// DebugApiFunction
+    /// </summary>
+    procedure DebugApiFunction()
+    var
+        ApiInterface: Codeunit "A01 Api Interface Mgt";
+        jsonText: Text;
+    begin
+        jsonText := '{"inputJson":"{\"Parameter\":\"item_getPrice\",\"itemCode\":\"0902075\",\"CustomerCode\":\"CMZCASH\",\"CampaignCode\":\"\"}"}';
+        ApiInterface.Run(jsonText);
+    end;
 
 
 }

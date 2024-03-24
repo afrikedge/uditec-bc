@@ -45,5 +45,76 @@ tableextension 50000 "A01 Sales Header" extends "Sales Header"
             DataClassification = CustomerContent;
             Editable = false;
         }
+        field(50007; "A01 Credit Validation Status"; Enum "A01 Credit Validation Status")
+        {
+            Caption = 'Validation Status';
+            DataClassification = CustomerContent;
+        }
+        field(50008; "A01 Credit Duration (Month)"; Integer)
+        {
+            Caption = 'Credit Duration (Month)';
+            DataClassification = CustomerContent;
+        }
+        field(50009; "A01 Sales Mode"; Code[20])
+        {
+            Caption = 'Sales Mode';
+            TableRelation = "Dimension Value".Code where("Global Dimension No." = const(3));
+            DataClassification = CustomerContent;
+            trigger OnValidate()
+            begin
+                Rec.ValidateShortcutDimCode(3, "A01 Sales Mode");
+            end;
+        }
+        field(50010; "A01 Interest rate"; Decimal)
+        {
+            Caption = 'Interest rate %';
+            DataClassification = CustomerContent;
+            MinValue = 0;
+            MaxValue = 100;
+        }
+        field(50011; "A01 Analyst comments"; Text[200])
+        {
+            Caption = 'Analyst comments';
+            DataClassification = CustomerContent;
+
+        }
+        field(50012; "A01 System Decision"; Enum "A01 System Decision")
+        {
+            Caption = 'System Decision';
+            DataClassification = CustomerContent;
+        }
+        field(50013; "A01 Analyst Opinion"; Enum "A01 Eligibility Opinion")
+        {
+            Caption = 'Analyst Opinion';
+            DataClassification = CustomerContent;
+        }
+        field(50014; "A01 Investigator Opinion"; Enum "A01 Eligibility Opinion")
+        {
+            Caption = 'Investigator Opinion';
+            DataClassification = CustomerContent;
+        }
+        field(50015; "A01 Web User Id"; Code[50])
+        {
+            Caption = 'Web User Id';
+            DataClassification = CustomerContent;
+            Editable = false;
+        }
+        field(50016; "A01 Order Web User Id"; Code[50])
+        {
+            Caption = 'Web user order creator';
+            DataClassification = CustomerContent;
+            Editable = false;
+        }
+        modify("Sell-to Customer No.")
+        {
+            trigger OnAfterValidate()
+            var
+                Cust1: Record Customer;
+            begin
+                if (Cust1.get("Sell-to Customer No.")) then
+                    Rec.validate("A01 Sales Mode", Cust1."A01 Sales Mode");
+            end;
+        }
+
     }
 }

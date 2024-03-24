@@ -42,6 +42,9 @@ page 50037 "A01 Cust Scoring Criteria"
                 field("Document Required"; Rec."Document Required")
                 {
                 }
+                field(DocumentLink; Rec.DocumentLink)
+                {
+                }
                 field(Valid; Rec.Valid)
                 {
                 }

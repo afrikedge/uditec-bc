@@ -17,7 +17,7 @@ table 50008 "A01 Parameter Record"
         {
             Caption = 'Code';
         }
-        field(3; Description; Text[50])
+        field(3; Description; Text[100])
         {
             Caption = 'Description';
         }
