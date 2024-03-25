@@ -194,7 +194,7 @@ page 50018 "A01 Sales Order - FollowUp"
     trigger OnOpenPage()
     begin
         SetFiltreCentreGestion();
-        Rec.SetRange("A01 User Id", UserId);
+        //Rec.SetRange("A01 User Id", UserId);
         Rec.SetRange("Date Filter", 0D, WorkDate());
     end;
 

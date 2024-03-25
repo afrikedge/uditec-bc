@@ -47,19 +47,19 @@
                                             <TablixBody>
                                               <TablixColumns>
                                                 <TablixColumn>
-                                                  <Width>2.39986cm</Width>
+                                                  <Width>2.63311cm</Width>
                                                 </TablixColumn>
                                                 <TablixColumn>
                                                   <Width>2.8695cm</Width>
                                                 </TablixColumn>
                                                 <TablixColumn>
-                                                  <Width>1.76375cm</Width>
+                                                  <Width>0.45452cm</Width>
                                                 </TablixColumn>
                                                 <TablixColumn>
                                                   <Width>2.64119cm</Width>
                                                 </TablixColumn>
                                                 <TablixColumn>
-                                                  <Width>3.7515cm</Width>
+                                                  <Width>4.82748cm</Width>
                                                 </TablixColumn>
                                               </TablixColumns>
                                               <TablixRows>
@@ -1590,7 +1590,7 @@
                                                             <Paragraph>
                                                               <TextRuns>
                                                                 <TextRun>
-                                                                  <Value EvaluationMode="Constant" />
+                                                                  <Value>=Fields!A01_Description.Value</Value>
                                                                   <Style>
                                                                     <FontSize>8pt</FontSize>
                                                                   </Style>
@@ -1635,7 +1635,7 @@
                                                             <Paragraph>
                                                               <TextRuns>
                                                                 <TextRun>
-                                                                  <Value>="Facture : " &amp; Fields!Document_No_.Value</Value>
+                                                                  <Value>= Fields!Document_No_.Value</Value>
                                                                   <Style>
                                                                     <FontSize>8pt</FontSize>
                                                                   </Style>
@@ -1725,7 +1725,7 @@
                                                             <Paragraph>
                                                               <TextRuns>
                                                                 <TextRun>
-                                                                  <Value>=Fields!Amount_to_Apply.Value</Value>
+                                                                  <Value>=Fields!Credit_Amount.Value</Value>
                                                                   <Style>
                                                                     <FontSize>7pt</FontSize>
                                                                     <Format>#,0;(#,0)</Format>
@@ -1842,7 +1842,7 @@
                                                             <Paragraph>
                                                               <TextRuns>
                                                                 <TextRun>
-                                                                  <Value>=Fields!Amount__LCY_.Value</Value>
+                                                                  <Value>=Fields!A01Total_LCYText.Value</Value>
                                                                   <Style>
                                                                     <FontSize>7pt</FontSize>
                                                                     <FontWeight>Bold</FontWeight>
@@ -2006,7 +2006,7 @@
                                                   <TextRun>
                                                     <Value>=Fields!AmountInWords.Value</Value>
                                                     <Style>
-                                                      <FontSize>7pt</FontSize>
+                                                      <FontSize>6pt</FontSize>
                                                       <FontWeight>Bold</FontWeight>
                                                     </Style>
                                                   </TextRun>
@@ -2276,14 +2276,16 @@
                       </Style>
                     </TextRun>
                   </TextRuns>
-                  <Style />
+                  <Style>
+                    <TextAlign>Left</TextAlign>
+                  </Style>
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox6</rd:DefaultName>
               <Top>0.44662cm</Top>
               <Left>5.69268cm</Left>
               <Height>0.84694cm</Height>
-              <Width>4.22878cm</Width>
+              <Width>7.65873cm</Width>
               <ZIndex>2</ZIndex>
               <Style>
                 <Border>
@@ -2376,6 +2378,9 @@ End Function
         <Field Name="Posting_Date">
           <DataField>Posting_Date</DataField>
         </Field>
+        <Field Name="A01_Description">
+          <DataField>A01_Description</DataField>
+        </Field>
         <Field Name="ReportTitleLbl">
           <DataField>ReportTitleLbl</DataField>
         </Field>
@@ -2454,6 +2459,12 @@ End Function
         <Field Name="Amount__LCY_Format">
           <DataField>Amount__LCY_Format</DataField>
         </Field>
+        <Field Name="Credit_Amount">
+          <DataField>Credit_Amount</DataField>
+        </Field>
+        <Field Name="Credit_AmountFormat">
+          <DataField>Credit_AmountFormat</DataField>
+        </Field>
         <Field Name="AmountInWords">
           <DataField>AmountInWords</DataField>
         </Field>
@@ -2472,15 +2483,6 @@ End Function
         <Field Name="A01Total_LCYText">
           <DataField>A01Total_LCYText</DataField>
         </Field>
-        <Field Name="Document_No_">
-          <DataField>Document_No_</DataField>
-        </Field>
-        <Field Name="Amount_to_Apply">
-          <DataField>Amount_to_Apply</DataField>
-        </Field>
-        <Field Name="Amount_to_ApplyFormat">
-          <DataField>Amount_to_ApplyFormat</DataField>
-        </Field>
         <Field Name="Total">
           <DataField>Total</DataField>
         </Field>
@@ -2492,6 +2494,15 @@ End Function
         </Field>
         <Field Name="MontantTotalFormat">
           <DataField>MontantTotalFormat</DataField>
+        </Field>
+        <Field Name="Document_No_">
+          <DataField>Document_No_</DataField>
+        </Field>
+        <Field Name="Amount_to_Apply">
+          <DataField>Amount_to_Apply</DataField>
+        </Field>
+        <Field Name="Amount_to_ApplyFormat">
+          <DataField>Amount_to_ApplyFormat</DataField>
         </Field>
       </Fields>
       <Query>

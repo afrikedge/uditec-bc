@@ -47,22 +47,22 @@
                                             <TablixBody>
                                               <TablixColumns>
                                                 <TablixColumn>
-                                                  <Width>1.20255in</Width>
+                                                  <Width>1.69597in</Width>
                                                 </TablixColumn>
                                                 <TablixColumn>
-                                                  <Width>1.67245in</Width>
+                                                  <Width>1.47435in</Width>
                                                 </TablixColumn>
                                                 <TablixColumn>
-                                                  <Width>0.63667in</Width>
+                                                  <Width>0.39468in</Width>
                                                 </TablixColumn>
                                                 <TablixColumn>
-                                                  <Width>0.5in</Width>
+                                                  <Width>0.405in</Width>
                                                 </TablixColumn>
                                                 <TablixColumn>
                                                   <Width>1.31472in</Width>
                                                 </TablixColumn>
                                                 <TablixColumn>
-                                                  <Width>1.91301in</Width>
+                                                  <Width>1.95467in</Width>
                                                 </TablixColumn>
                                               </TablixColumns>
                                               <TablixRows>
@@ -1512,7 +1512,7 @@
                                             <Top>0.15972in</Top>
                                             <Left>0.04167in</Left>
                                             <Height>1.09721in</Height>
-                                            <Width>7.2394in</Width>
+                                            <Width>7.23939in</Width>
                                             <Style>
                                               <Border>
                                                 <Style>None</Style>
@@ -2616,7 +2616,6 @@
                                           </Border>
                                         </Style>
                                       </Rectangle>
-                                      <rd:Selected>true</rd:Selected>
                                     </CellContents>
                                   </TablixCell>
                                 </TablixCells>
@@ -2929,10 +2928,9 @@
                     <Paragraph>
                       <TextRuns>
                         <TextRun>
-                          <Value />
+                          <Value>=First(Fields!UnitAddress.Value, "DataSet_Result")</Value>
                           <Style>
                             <FontSize>7pt</FontSize>
-                            <FontWeight>Bold</FontWeight>
                           </Style>
                         </TextRun>
                       </TextRuns>
@@ -3191,6 +3189,9 @@ End Function
         </Field>
         <Field Name="A01City">
           <DataField>A01City</DataField>
+        </Field>
+        <Field Name="UnitAddress">
+          <DataField>UnitAddress</DataField>
         </Field>
         <Field Name="A01PostCode">
           <DataField>A01PostCode</DataField>

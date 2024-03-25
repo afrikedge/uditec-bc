@@ -93,7 +93,7 @@ codeunit 50005 "A01 WS QuotesMgt"
         SalesL.SetRange("Document Type", SalesQuote."Document Type");
         SalesL.SetRange("Document No.", SalesQuote."No.");
         SalesL.SetRange("Line No.", WS.GetInt('Line No_', input));
-        if (SalesL.IsEmpty) then begin
+        if (not SalesL.FindFirst()) then begin
 
             SalesLine.Init();
 
@@ -103,7 +103,8 @@ codeunit 50005 "A01 WS QuotesMgt"
 
         end else begin
 
-            processSalesQuoteLine(SalesQuote, SalesLine, input);
+            processSalesQuoteLine(SalesQuote, SalesL, input);
+            SalesL.Modify(true);
 
         end;
         ;
@@ -369,5 +370,21 @@ codeunit 50005 "A01 WS QuotesMgt"
         end else
             exit(Ws.CreateResponseError(StrSubstNo(LblErrorQuoteNotExists, NoQuote)));
     end;
+
+    // local procedure ReOpen(NoQuote: text): Text
+    // var
+    //     SalesQuote: Record "Sales Header";
+    //     ApprovalsMgmt: Codeunit "Sales Manual Reopen";
+
+    // begin
+    //     if (SalesQuote.get(SalesQuote."Document Type"::Quote, NoQuote)) then begin
+
+    //         if ApprovalsMgmt.CheckSalesApprovalPossible(SalesQuote) then
+    //             ApprovalsMgmt.OnSendSalesDocForApproval(SalesQuote);
+    //         exit(Ws.CreateResponseSuccess(SalesQuote."No."));
+
+    //     end else
+    //         exit(Ws.CreateResponseError(StrSubstNo(LblErrorQuoteNotExists, NoQuote)));
+    // end;
 
 }

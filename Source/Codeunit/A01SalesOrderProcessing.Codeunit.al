@@ -70,7 +70,7 @@ codeunit 50000 "A01 Sales Order Processing"
     /// ValidateDraft.
     /// </summary>
     /// <param name="SalesH">Record "Sales Header".</param>
-    procedure ValidateDraft(SalesH: Record "Sales Header")
+    procedure ValidateDraft(var SalesH: Record "Sales Header")
     begin
         SalesH.TestField("Sell-to Customer No.");
         SalesH.TestField("Ship-to Code");
@@ -84,7 +84,7 @@ codeunit 50000 "A01 Sales Order Processing"
 
     end;
 
-    local procedure CheckIsOutOfStock(SalesH: Record "Sales Header")
+    local procedure CheckIsOutOfStock(var SalesH: Record "Sales Header")
     var
         isTotallyOutOfStock: Boolean;
     begin
@@ -101,7 +101,7 @@ codeunit 50000 "A01 Sales Order Processing"
             CheckIsBlocked(SalesH);
     end;
 
-    local procedure CheckIsBlocked(SalesH: Record "Sales Header")
+    local procedure CheckIsBlocked(var SalesH: Record "Sales Header")
     begin
         if IsOutOfCreditLimit(SalesH) then begin
             SalesH."A01 Processing Status" := SalesH."A01 Processing Status"::Blocked;
@@ -133,7 +133,7 @@ codeunit 50000 "A01 Sales Order Processing"
         exit(outOfStock);
     end;
 
-    local procedure DeleteDraft(SalesH: Record "Sales Header")
+    local procedure DeleteDraft(var SalesH: Record "Sales Header")
     var
         ReleaseMgt: Codeunit "Release Sales Document";
     begin
@@ -172,9 +172,10 @@ codeunit 50000 "A01 Sales Order Processing"
             until SalesL.Next() < 1;
     end;
 
-    local procedure CheckIsDeliverable(SalesH: Record "Sales Header")
+    local procedure CheckIsDeliverable(var SalesH: Record "Sales Header")
     begin
         SalesH."A01 Processing Status" := SalesH."A01 Processing Status"::"Waiting for delivery";
+        SalesH.Modify();
         InsertNewStep(SalesH."No.", "A01 ActionStepHistory"::"Change Status", format(SalesH."A01 Processing Status"::"Waiting for delivery"), '');
     end;
 

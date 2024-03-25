@@ -191,7 +191,7 @@ page 50005 "A01 Sales Order List Blocked"
     trigger OnOpenPage()
     begin
         SetFiltreCentreGestion();
-        Rec.SetRange("A01 User Id", UserId);
+        //Rec.SetRange("A01 User Id", UserId);
         Rec.SetRange("Date Filter", 0D, WorkDate());
     end;
 

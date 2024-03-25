@@ -739,6 +739,11 @@ report 50006 "A01 PurchaseOrderPrint"
                 column(RequestedReceiptDate; Format("Requested Receipt Date", 0, 4))
                 {
                 }
+                column(TransHeaderAmount; TransHeaderAmount)
+                {
+                    AutoFormatExpression = "Currency Code";
+                    AutoFormatType = 1;
+                }
                 column(PurchLine_VATPct; "VAT %")
                 {
                 }
@@ -746,16 +751,15 @@ report 50006 "A01 PurchaseOrderPrint"
                 trigger OnAfterGetRecord()
                 var
                     tempHT: Decimal;
-                    tempHTD: Decimal;
+                    // tempHTD: Decimal;
                     tempPU: Decimal;
                     tempTTC: Decimal;
                     tempVAT: Decimal;
                 begin
-
-                    AllowInvDisctxt := Format("Allow Invoice Disc.");
-                    TotalSubTotal += "Line Amount";
-                    TotalInvoiceDiscountAmount -= "Inv. Discount Amount";
-                    TotalAmount += Amount;
+                    // AllowInvDisctxt := Format("Allow Invoice Disc.");
+                    // TotalSubTotal += "Line Amount";
+                    // TotalInvoiceDiscountAmount -= "Inv. Discount Amount";
+                    // TotalAmount += Amount;
 
                     ItemNo := "No.";
 
@@ -782,14 +786,14 @@ report 50006 "A01 PurchaseOrderPrint"
                     end else begin
                         if ("Purchase Header"."Prices Including VAT") then begin
                             tempHT := "Purchase Line"."Line Amount" * (1 / (1 + "Purchase Line"."VAT %" / 100));
-                            tempHTD := "Purchase Line"."Line Amount" * (1 / (1 + "Purchase Line"."Line Discount %" / 100));
+                            // tempHTD := "Purchase Line"."Line Amount" * (1 / (1 + "Purchase Line"."Line Discount %" / 100));
                             tempPU := "Purchase Line"."Direct Unit Cost" * (1 / (1 + "Purchase Line"."VAT %" / 100));
                             tempVAT := "Purchase Line"."Amount Including VAT" - tempHT;
                             tempTTC := "Purchase Line"."Amount Including VAT";
 
                         end else begin
                             tempHT := "Purchase Line"."Line Amount";
-                            tempHTD := "Purchase Line"."Line Discount Amount";
+                            // tempHTD := "Purchase Line"."Line Discount Amount";
                             tempPU := "Purchase Line"."Direct Unit Cost";
                             tempVAT := tempHT * "Purchase Line"."VAT %" / 100;
                             tempTTC := tempVAT + "Purchase Line"."Line Amount";
@@ -811,21 +815,21 @@ report 50006 "A01 PurchaseOrderPrint"
                         TransHeaderAmount += PrevLineAmount;
                         PrevLineAmount := tempHT;
                         TotalSubTotal += tempHT;
-                        TotalInvDiscAmount -= "Inv. Discount Amount";
+                        // TotalInvDiscAmount -= "Inv. Discount Amount";
                         TotalAmount += tempHT;
                         TotalAmountVAT += "Amount Including VAT" - tempHT;
                         TotalAmountInclVAT += "Amount Including VAT";
-                        TotalPaymentDiscOnVAT += -(tempHT - "Inv. Discount Amount" - "Amount Including VAT");
+                        // TotalPaymentDiscOnVAT += -(tempHT - "Inv. Discount Amount" - "Amount Including VAT");
 
                     end else begin
                         TransHeaderAmount += PrevLineAmount;
                         PrevLineAmount := "Line Amount";
                         TotalSubTotal += "Line Amount";
-                        TotalInvDiscAmount -= "Inv. Discount Amount";
+                        // TotalInvDiscAmount -= "Inv. Discount Amount";
                         TotalAmount += Amount;
                         TotalAmountVAT += "Amount Including VAT" - Amount;
                         TotalAmountInclVAT += "Amount Including VAT";
-                        TotalPaymentDiscOnVAT += -("Line Amount" - "Inv. Discount Amount" - "Amount Including VAT");
+                        // TotalPaymentDiscOnVAT += -("Line Amount" - "Inv. Discount Amount" - "Amount Including VAT");
                     end;
 
                     FormatDocument.SetPurchaseLine("Purchase Line", FormattedQuanitity, FormattedDirectUnitCost, FormattedVATPct, FormattedLineAmount);
@@ -841,7 +845,7 @@ report 50006 "A01 PurchaseOrderPrint"
                     SetRange("Line No.", 0, "Line No.");
                     TransHeaderAmount := 0;
                     PrevLineAmount := 0;
-                    AfkLinesNumber := Count();
+                    // AfkLinesNumber := Count();
                     // FirstLineHasBeenOutput := false;
                     // DummyCompanyInfo.Picture := CompanyInfo.Picture;
 
@@ -1288,11 +1292,11 @@ report 50006 "A01 PurchaseOrderPrint"
                 end;
 
                 TotalSubTotal := 0;
-                TotalInvDiscAmount := 0;
+                // TotalInvDiscAmount := 0;
                 TotalAmount := 0;
                 TotalAmountVAT := 0;
                 TotalAmountInclVAT := 0;
-                TotalPaymentDiscOnVAT := 0;
+                // TotalPaymentDiscOnVAT := 0;
                 A01TotalAmountInclVAT_LCY := 0;
                 A01TotalAmount_LCY := 0;
                 A01TotalVAT_LCY := 0;
@@ -1336,13 +1340,13 @@ report 50006 "A01 PurchaseOrderPrint"
         }
         trigger OnInit()
         begin
-            LogInteractionEnable := true;
+            // LogInteractionEnable := true;
             ArchiveDocument := PurchSetup."Archive Orders";
         end;
 
         trigger OnOpenPage()
         begin
-            LogInteractionEnable := LogInteraction;
+            // LogInteractionEnable := LogInteraction;
         end;
     }
 
@@ -1408,7 +1412,7 @@ report 50006 "A01 PurchaseOrderPrint"
         ResponsibilityCenter: Record "Responsibility Center";
         Vendor: Record Vendor;
         AfkCurrency: Record Currency;
-        LanguageMgt: Codeunit Language;
+        // LanguageMgt: Codeunit Language;
         FormatAddr: Codeunit "Format Address";
         FormatDocument: Codeunit "Format Document";
         PurchPost: Codeunit "Purch.-Post";
@@ -1427,14 +1431,14 @@ report 50006 "A01 PurchaseOrderPrint"
         VATBaseAmount: Decimal;
         AfkIsLine: Integer;
         NumLigneText: Code[2];
-        TotalInvDiscAmount: Decimal;
-        TotalPaymentDiscOnVAT: Decimal;
+        // TotalInvDiscAmount: Decimal;
+        // TotalPaymentDiscOnVAT: Decimal;
         TotalAmountVAT: Decimal;
         VATDiscountAmount: Decimal;
         PrevLineAmount: Decimal;
         TotalAmountInclVAT: Decimal;
         VALVATBaseLCY: Decimal;
-        AfkLinesNumber: Integer;
+        // AfkLinesNumber: Integer;
         MoreLines: Boolean;
         VALVATAmountLCY: Decimal;
         VALSpecLCYHeader: Text[80];
@@ -1458,7 +1462,7 @@ report 50006 "A01 PurchaseOrderPrint"
         A01TotalVAT_LCY: Decimal;
         A01LinePUFormatted: Text[50];
         A01FormattedVAT: Text[50];
-        AllowInvDisctxt: Text[30];
+        // AllowInvDisctxt: Text[30];
         CompanyLogoPosition: Integer;
         ItemNo: Text;
         A01FormattedTotalVAT: Text[50];
@@ -1490,7 +1494,7 @@ report 50006 "A01 PurchaseOrderPrint"
         A01TotalHT__Lbl: Label 'Total HT (AR) :';
         A01TotalVAT__Lbl: Label 'Total VAT (AR) :';
         A01TotalTTC__Lbl: Label 'Total TTC (AR) :';
-        A01Sgnature__Lbl: Label 'Signature :';
+        // A01Sgnature__Lbl: Label 'Signature :';
         A01ProductCodeLbl: Label 'Product code';
         A01DesignationLbl: Label 'Designation';
         A01QuantityLbl: Label 'Quantity';
@@ -1578,8 +1582,6 @@ report 50006 "A01 PurchaseOrderPrint"
 
         // protected var
 
-
-
         BuyFromAddr: array[8] of Text[100];
         CompanyAddr: array[8] of Text[100];
         VendAddr: array[8] of Text[100];
@@ -1594,7 +1596,7 @@ report 50006 "A01 PurchaseOrderPrint"
         TotalExclVATText: Text[50];
         ArchiveDocument: Boolean;
         LogInteraction: Boolean;
-        LogInteractionEnable: Boolean;
+        // LogInteractionEnable: Boolean;
         TotalSubTotal, TotalAmount, TotalInvoiceDiscountAmount : Decimal;
 
     /// <summary>
