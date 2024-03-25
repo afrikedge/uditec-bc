@@ -1013,7 +1013,6 @@ page 50003 "A01 Sales Order - Draft"
                     ToolTip = 'Specifies the last date the customer can pay the prepayment invoice and still receive a payment discount on the prepayment amount.';
                 }
             }
-
             group(A01Credit)
             {
                 Caption = 'Credit';

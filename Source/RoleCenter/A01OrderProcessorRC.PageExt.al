@@ -224,20 +224,32 @@ pageextension 50002 "A01 Order Processor RC" extends "Order Processor Role Cente
             }
             group(A01_Compta)
             {
-                Visible = false;
-                Caption = 'Afk Compta';
-                Image = Administration;
-                action(A01Compta_JournalPayment)
+                //Visible = false;
+                // Caption = 'Afk Compta';
+                // Image = Administration;
+                // action(A01Compta_JournalPayment)
+                // {
+                //     ApplicationArea = Basic, Suite;
+                //     Caption = 'Afk Cash receipt journal';
+                //     RunObject = Page "A01 Cash Receipt Doc Journal";
+                // }
+                // action(A01Compta_PayClassList)
+                // {
+                //     ApplicationArea = Basic, Suite;
+                //     Caption = 'Payment Class List';
+                //     RunObject = Page "Payment Class";
+                // }
+                action(A01Compta_PayList)
                 {
                     ApplicationArea = Basic, Suite;
-                    Caption = 'Afk Cash receipt journal';
-                    RunObject = Page "A01 Cash Receipt Doc Journal";
+                    Caption = 'Payment Slip List';
+                    RunObject = Page "Payment Slip List";
                 }
-                action(A01Compta_PayClassList)
+                action(A01Compta_PayListArchive)
                 {
                     ApplicationArea = Basic, Suite;
-                    Caption = 'Payment Class List';
-                    RunObject = Page "Payment Class";
+                    Caption = 'Payment Slip List Archive';
+                    RunObject = Page "Payment Slip List Archive";
                 }
             }
         }

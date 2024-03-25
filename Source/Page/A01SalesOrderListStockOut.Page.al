@@ -192,7 +192,7 @@ page 50006 "A01 SalesOrderList-StockOut"
     trigger OnOpenPage()
     begin
         SetFiltreCentreGestion();
-        Rec.SetRange("A01 User Id", UserId);
+        //Rec.SetRange("A01 User Id", UserId);
         Rec.SetRange("Date Filter", 0D, WorkDate());
     end;
 

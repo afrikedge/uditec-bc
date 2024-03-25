@@ -89,7 +89,7 @@ codeunit 50009 "A01 WS OrdersMgt"
         SalesL.SetRange("Document Type", SalesOrder."Document Type");
         SalesL.SetRange("Document No.", SalesOrder."No.");
         SalesL.SetRange("Line No.", WS.GetInt('Line No_', input));
-        if (SalesL.IsEmpty) then begin
+        if (not SalesL.FindFirst()) then begin
 
             SalesLine.Init();
 
@@ -100,6 +100,7 @@ codeunit 50009 "A01 WS OrdersMgt"
         end else begin
 
             processSalesOrderLine(SalesOrder, SalesL, input);
+            SalesL.Modify(true);
 
         end;
         ;
