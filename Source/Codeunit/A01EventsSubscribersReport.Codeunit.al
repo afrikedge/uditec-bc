@@ -18,8 +18,8 @@ codeunit 50010 "A01 EventsSubscribers_Report"
         if ReportId = Report::"Transfer Order" then
             NewReportId := Report::"A01 TransferOrderPrint";
 
-        if ReportId = Report::"Standard Purchase - Order" then
-            NewReportId := Report::"A01 PurchaseOrderPrint";
+        // if ReportId = Report::"Standard Purchase - Order" then
+        //     NewReportId := Report::"A01 PurchaseOrderPrint";
 
         if ReportId = Report::"Standard Sales - Pro Forma Inv" then
             NewReportId := Report::"A01 SalesOrderPrint";

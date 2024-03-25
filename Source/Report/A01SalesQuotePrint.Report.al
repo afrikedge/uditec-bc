@@ -278,7 +278,7 @@ report 50001 "A01 SalesQuotePrint"
                 trigger OnAfterGetRecord()
                 var
                     tempHT: Decimal;
-                    tempHTD: Decimal;
+                    // tempHTD: Decimal;
                     tempPU: Decimal;
                     tempTTC: Decimal;
                     tempVAT: Decimal;
@@ -299,14 +299,14 @@ report 50001 "A01 SalesQuotePrint"
                     end else begin
                         if (Header."Prices Including VAT") then begin
                             tempHT := Line."Line Amount" * (1 / (1 + Line."VAT %" / 100));
-                            tempHTD := Line."Line Amount" * (1 / (1 + Line."Line Discount %" / 100));
+                            // tempHTD := Line."Line Amount" * (1 / (1 + Line."Line Discount %" / 100));
                             tempPU := Line."Unit Price" * (1 / (1 + Line."VAT %" / 100));
                             tempVAT := line."Amount Including VAT" - tempHT;
                             tempTTC := line."Amount Including VAT";
 
                         end else begin
                             tempHT := Line."Line Amount";
-                            tempHTD := Line."Line Discount Amount";
+                            // tempHTD := Line."Line Discount Amount";
                             tempPU := Line."Unit Price";
                             tempVAT := tempHT * Line."VAT %" / 100;
                             tempTTC := tempVAT + Line."Line Amount";
@@ -387,7 +387,7 @@ report 50001 "A01 SalesQuotePrint"
                     SetRange("Line No.", 0, "Line No.");
                     TransHeaderAmount := 0;
                     PrevLineAmount := 0;
-                    AfkLinesNumber := Count();
+                    // AfkLinesNumber := Count();
                     FirstLineHasBeenOutput := false;
                     DummyCompanyInfo.Picture := CompanyInfo.Picture;
 
@@ -730,7 +730,10 @@ report 50001 "A01 SalesQuotePrint"
             trigger OnAfterGetRecord()
             var
                 CurrencyExchangeRate: Record "Currency Exchange Rate";
+                // Rec: Record "Sales Header";
                 SalesPost: Codeunit "Sales-Post";
+            // ApprovalsMgmt: Codeunit "Approvals Mgmt.";
+            // Msg: Label 'Le document est encore au statut ouvert, il doit être lancé';
             begin
                 GLSetup.Get();
                 GLSetup.TestField("LCY Code");
@@ -805,7 +808,7 @@ report 50001 "A01 SalesQuotePrint"
 
                 FormatAddr.GetCompanyAddr("Responsibility Center", RespCenter, CompanyInfo, CompanyAddr);
                 FormatAddr.SalesHeaderBillTo(CustAddr, Header);
-                ShowShippingAddr := FormatAddr.SalesHeaderShipTo(ShipToAddr, CustAddr, Header);
+                // ShowShippingAddr := FormatAddr.SalesHeaderShipTo(ShipToAddr, CustAddr, Header);
 
                 FormatDocumentFields(Header);
                 if SellToContact.Get("Sell-to Contact No.") then;
@@ -824,6 +827,13 @@ report 50001 "A01 SalesQuotePrint"
                     ExchangeRateText := StrSubstNo(ExchangeRateTxt, CalculatedExchRate, CurrencyExchangeRate."Exchange Rate Amount");
                 end;
 
+                // if Rec.Status = Rec.Status::Open then
+                //     if ApprovalsMgmt.PrePostApprovalCheckSales(Rec) then begin
+                //         Message(Msg);
+                //         // Codeunit.Run(Codeunit::"Sales-Quote to Order (Yes/No)", Rec);
+                //         CurrReport.Quit();
+                //     end;
+
                 TotalSubTotal := 0;
                 TotalInvDiscAmount := 0;
                 TotalAmount := 0;
@@ -832,7 +842,6 @@ report 50001 "A01 SalesQuotePrint"
                 AfkTotalAmountInclVAT_LCY := 0;
                 AfkTotalAmount_LCY := 0;
                 AfkTotalVAT_LCY := 0;
-
             end;
 
             trigger OnPreDataItem()
@@ -882,14 +891,14 @@ report 50001 "A01 SalesQuotePrint"
 
         trigger OnInit()
         begin
-            LogInteractionEnable := true;
-            ArchiveDocument := SalesSetup."Archive Quotes" <> SalesSetup."Archive Quotes"::Never;
+            // LogInteractionEnable := true;
+            // ArchiveDocument := SalesSetup."Archive Quotes" <> SalesSetup."Archive Quotes"::Never;
         end;
 
         trigger OnOpenPage()
         begin
             InitLogInteraction();
-            LogInteractionEnable := LogInteraction;
+            // LogInteractionEnable := LogInteraction;
         end;
     }
 
@@ -932,7 +941,7 @@ report 50001 "A01 SalesQuotePrint"
         if not CurrReport.UseRequestPage then
             InitLogInteraction();
 
-        CompanyLogoPosition := SalesSetup."Logo Position on Documents";
+        // CompanyLogoPosition := SalesSetup."Logo Position on Documents";
     end;
 
 
@@ -960,14 +969,13 @@ report 50001 "A01 SalesQuotePrint"
         // SalesLineRec: Record "Sales Line";
         // Currency: Record Currency;
         // VATClause: Record "VAT Clause";
+        // Langauge: Codeunit Language;
         RepCheck: Report Check;
         LanguageMgt: Codeunit Language;
         FormatAddr: Codeunit "Format Address";
         FormatDocument: Codeunit "Format Document";
         SegManagement: Codeunit SegManagement;
         AutoFormat: Codeunit "Auto Format";
-        // Langauge: Codeunit Language;
-
         WorkDescriptionInstream: InStream;
         AfkCurrCode: Code[20];
         NumLigneText: Code[2];
@@ -1002,7 +1010,7 @@ report 50001 "A01 SalesQuotePrint"
         LCYTxt: label ' (LCY)';
         LegalOfficeTxt, LegalOfficeLbl, CustomGiroTxt, CustomGiroLbl, LegalStatementLbl : Text;
         CustAddr: array[8] of Text[100];
-        ShipToAddr: array[8] of Text[100];
+        // ShipToAddr: array[8] of Text[100];
         CompanyAddr: array[8] of Text[100];
         CurrCode: Text[10];
         CurrSymbol: Text[10];
@@ -1039,13 +1047,13 @@ report 50001 "A01 SalesQuotePrint"
         TotalVATBaseLCY: Decimal;
         NumLigne: Integer;
         AfkIsLine: Integer;
-        AfkLinesNumber: Integer;
-        CompanyLogoPosition: Integer;
+        // AfkLinesNumber: Integer;
+        // CompanyLogoPosition: Integer;
         MoreLines: Boolean;
         ShowWorkDescription: Boolean;
-        ShowShippingAddr: Boolean;
-        LogInteractionEnable: Boolean;
-        ArchiveDocument: Boolean;
+        // ShowShippingAddr: Boolean;
+        // LogInteractionEnable: Boolean;
+        // ArchiveDocument: Boolean;
         LogInteraction: Boolean;
         FirstLineHasBeenOutput: Boolean;
         // DisplayAdditionalFeeNote: Boolean;
@@ -1080,7 +1088,7 @@ report 50001 "A01 SalesQuotePrint"
         ArrestedSumLbl: Label 'Arrested at the sum of :';
         OffreLbl: Label 'Offer subject to conditions. See in store';
         ProformaLbl: Label 'This proforma invoice is valid for one week';
-        SalesConfirmationLbl: Label 'Sales Quote';
+        // SalesConfirmationLbl: Label 'Sales Quote';
         InvDiscountAmtLbl: Label 'Invoice Discount';
         SubtotalLbl: Label 'Subtotal';
         UnitLbl: Label 'Unit';
@@ -1142,10 +1150,10 @@ report 50001 "A01 SalesQuotePrint"
         LogInteraction := SegManagement.FindInteractionTemplateCode(Enum::"Interaction Log Entry Document Type"::"Sales Qte.") <> '';
     end;
 
-    local procedure DocumentCaption(): Text[250]
-    begin
-        exit(SalesConfirmationLbl);
-    end;
+    // local procedure DocumentCaption(): Text[250]
+    // begin
+    //     exit(SalesConfirmationLbl);
+    // end;
 
     /// <summary>
     /// IsReportInPreviewMode.
@@ -1205,20 +1213,20 @@ report 50001 "A01 SalesQuotePrint"
         OnAfterSetLanguage();
     end;
 
-    [IntegrationEvent(false, false)]
-    local procedure OnAfterFormatDocumentFields(var SalesHeader: Record "Sales Header")
-    begin
-    end;
+    // [IntegrationEvent(false, false)]
+    // local procedure OnAfterFormatDocumentFields(var SalesHeader: Record "Sales Header")
+    // begin
+    // end;
 
     [IntegrationEvent(false, false)]
     local procedure OnAfterSetLanguage()
     begin
     end;
 
-    [IntegrationEvent(TRUE, FALSE)]
-    local procedure OnAfterGetSalesHeader(SalesHeader: Record "Sales Header")
-    begin
-    end;
+    // [IntegrationEvent(TRUE, FALSE)]
+    // local procedure OnAfterGetSalesHeader(SalesHeader: Record "Sales Header")
+    // begin
+    // end;
 
     [IntegrationEvent(false, false)]
     local procedure OnAfterSetFormatRegion()
@@ -1235,10 +1243,10 @@ report 50001 "A01 SalesQuotePrint"
     begin
     end;
 
-    [IntegrationEvent(false, false)]
-    local procedure OnInitReportForGlobalVariable(var IsHandled: Boolean; var LegalOfficeTxt: Text; var LegalOfficeLbl: Text; var CustomGiroTxt: Text; var CustomGiroLbl: Text; var LegalStatementLbl: Text)
-    begin
-    end;
+    // [IntegrationEvent(false, false)]
+    // local procedure OnInitReportForGlobalVariable(var IsHandled: Boolean; var LegalOfficeTxt: Text; var LegalOfficeLbl: Text; var CustomGiroTxt: Text; var CustomGiroLbl: Text; var LegalStatementLbl: Text)
+    // begin
+    // end;
 
     [IntegrationEvent(true, false)]
     local procedure OnHeaderOnAfterGetRecordOnAfterUpdateNoPrinted(ReportInPreviewMode: Boolean; var SalesHeader: Record "Sales Header")

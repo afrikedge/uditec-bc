@@ -6338,11 +6338,6 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report A01 CashReceiptPrint - NamedType DesignationLbl</note>
         </trans-unit>
-        <trans-unit id="Report 238726400 - NamedType 3642584667" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Exchange rate: %1/%2</source>
-          <note from="Developer" annotates="general" priority="2">%1 and %2 are both amounts.</note>
-          <note from="Xliff Generator" annotates="general" priority="3">Report A01 CashReceiptPrint - NamedType ExchangeRateTxt</note>
-        </trans-unit>
         <trans-unit id="Report 238726400 - NamedType 2839777789" size-unit="char" translate="yes" xml:space="preserve">
           <source>NIF :</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -6587,11 +6582,6 @@
           <source>Quantity</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report A01 PurchaseOrderPrint - NamedType A01QuantityLbl</note>
-        </trans-unit>
-        <trans-unit id="Report 1114081792 - NamedType 1244103817" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Signature :</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Report A01 PurchaseOrderPrint - NamedType A01Sgnature__Lbl</note>
         </trans-unit>
         <trans-unit id="Report 1114081792 - NamedType 2765696188" size-unit="char" translate="yes" xml:space="preserve">
           <source>Supplier identity :</source>
@@ -7038,11 +7028,6 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report A01 PurchaseQuotePrint - Property Caption</note>
         </trans-unit>
-        <trans-unit id="Report 1130738388 - NamedType 3431473269" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Arrested at the sum of :</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Report A01 PurchaseQuotePrint - NamedType A01ArrestedSumLbl</note>
-        </trans-unit>
         <trans-unit id="Report 1130738388 - NamedType 138649224" size-unit="char" translate="yes" xml:space="preserve">
           <source>Date of print :</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -7183,25 +7168,10 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report A01 PurchaseQuotePrint - NamedType EMailCaptionLbl</note>
         </trans-unit>
-        <trans-unit id="Report 1130738388 - NamedType 2188076586" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Expected Date</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Report A01 PurchaseQuotePrint - NamedType ExpectedDateCaptionLbl</note>
-        </trans-unit>
-        <trans-unit id="Report 1130738388 - NamedType 973567044" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Header Dimensions</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Report A01 PurchaseQuotePrint - NamedType HeaderDimensionsCaptionLbl</note>
-        </trans-unit>
         <trans-unit id="Report 1130738388 - NamedType 2862688884" size-unit="char" translate="yes" xml:space="preserve">
           <source>Home Page</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report A01 PurchaseQuotePrint - NamedType HomePageCaptionLbl</note>
-        </trans-unit>
-        <trans-unit id="Report 1130738388 - NamedType 3701122699" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Line Dimensions</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Report A01 PurchaseQuotePrint - NamedType LineDimensionsCaptionLbl</note>
         </trans-unit>
         <trans-unit id="Report 1130738388 - NamedType 2308951394" size-unit="char" translate="yes" xml:space="preserve">
           <source>Page</source>
@@ -7233,11 +7203,6 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report A01 PurchaseQuotePrint - NamedType PurchaseLineNoCaptionLbl</note>
         </trans-unit>
-        <trans-unit id="Report 1130738388 - NamedType 4050340591" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Our No.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Report A01 PurchaseQuotePrint - NamedType PurchaseLineNoOurNoCapLbl</note>
-        </trans-unit>
         <trans-unit id="Report 1130738388 - NamedType 1604120250" size-unit="char" translate="yes" xml:space="preserve">
           <source>Quantity</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -7257,11 +7222,6 @@
           <source>Vendor Item No.</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report A01 PurchaseQuotePrint - NamedType PurchLineVendItemNoCapLbl</note>
-        </trans-unit>
-        <trans-unit id="Report 1130738388 - NamedType 1745962921" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Quote No.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Report A01 PurchaseQuotePrint - NamedType QuoteNoCaptionLbl</note>
         </trans-unit>
         <trans-unit id="Report 1130738388 - NamedType 522960854" size-unit="char" translate="yes" xml:space="preserve">
           <source>Your Reference</source>
@@ -7283,11 +7243,6 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report A01 PurchaseQuotePrint - NamedType ShiptoAddressCaptionLbl</note>
         </trans-unit>
-        <trans-unit id="Report 1130738388 - NamedType 3752334001" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Purchase - Quote %1</source>
-          <note from="Developer" annotates="general" priority="2">%1 = Document No.</note>
-          <note from="Xliff Generator" annotates="general" priority="3">Report A01 PurchaseQuotePrint - NamedType Text002</note>
-        </trans-unit>
         <trans-unit id="Report 1130738388 - NamedType 1376724649" size-unit="char" translate="yes" xml:space="preserve">
           <source>VAT Registration No.</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -7308,21 +7263,6 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report A01 SalesInvoicePrint - NamedType AfkDeviseLbl</note>
         </trans-unit>
-        <trans-unit id="Report 1919361468 - NamedType 2357025648" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Total Excl. VAT CFAF :</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Report A01 SalesInvoicePrint - NamedType AfkTotalHTCFALbl</note>
-        </trans-unit>
-        <trans-unit id="Report 1919361468 - NamedType 3258566269" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Total Incl. VAT CFAF :</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Report A01 SalesInvoicePrint - NamedType AfkTotalTTCCFALbl</note>
-        </trans-unit>
-        <trans-unit id="Report 1919361468 - NamedType 3985288910" size-unit="char" translate="yes" xml:space="preserve">
-          <source>VAT 19.25% :</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Report A01 SalesInvoicePrint - NamedType AfkVAT1925Lbl</note>
-        </trans-unit>
         <trans-unit id="Report 1919361468 - NamedType 3630968764" size-unit="char" translate="yes" xml:space="preserve">
           <source>The invoice has been paid.</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -7334,12 +7274,12 @@
           <note from="Xliff Generator" annotates="general" priority="3">Report A01 SalesInvoicePrint - NamedType ArrestedOfSumLbl</note>
         </trans-unit>
         <trans-unit id="Report 1919361468 - NamedType 965223736" size-unit="char" translate="yes" xml:space="preserve">
-          <source>(E) Balance</source>
+          <source>(E) Balance :</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report A01 SalesInvoicePrint - NamedType BalanceLbl</note>
         </trans-unit>
         <trans-unit id="Report 1919361468 - NamedType 1879606545" size-unit="char" translate="yes" xml:space="preserve">
-          <source>(H) Balance payable</source>
+          <source>(H) Balance payable :</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report A01 SalesInvoicePrint - NamedType BalanceToPayLbl</note>
         </trans-unit>
@@ -7349,7 +7289,7 @@
           <note from="Xliff Generator" annotates="general" priority="3">Report A01 SalesInvoicePrint - NamedType ChecksPayableLbl</note>
         </trans-unit>
         <trans-unit id="Report 1919361468 - NamedType 1929423780" size-unit="char" translate="yes" xml:space="preserve">
-          <source>company signature</source>
+          <source>Signature du client</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report A01 SalesInvoicePrint - NamedType ClientSignLbl</note>
         </trans-unit>
@@ -7369,7 +7309,7 @@
           <note from="Xliff Generator" annotates="general" priority="3">Report A01 SalesInvoicePrint - NamedType CompanyInfoPhoneNoLbl</note>
         </trans-unit>
         <trans-unit id="Report 1919361468 - NamedType 3000703146" size-unit="char" translate="yes" xml:space="preserve">
-          <source>client signature</source>
+          <source>Signature de l'entreprise</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report A01 SalesInvoicePrint - NamedType CompanySignLbl</note>
         </trans-unit>
@@ -7404,7 +7344,7 @@
           <note from="Xliff Generator" annotates="general" priority="3">Report A01 SalesInvoicePrint - NamedType DeliverySiteLbl</note>
         </trans-unit>
         <trans-unit id="Report 1919361468 - NamedType 1442417422" size-unit="char" translate="yes" xml:space="preserve">
-          <source>(D) Deposit</source>
+          <source>(D) Deposit :</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report A01 SalesInvoicePrint - NamedType DepositLbl</note>
         </trans-unit>
@@ -7439,12 +7379,12 @@
           <note from="Xliff Generator" annotates="general" priority="3">Report A01 SalesInvoicePrint - NamedType HomePageLbl</note>
         </trans-unit>
         <trans-unit id="Report 1919361468 - NamedType 1451820797" size-unit="char" translate="yes" xml:space="preserve">
-          <source>(A) HT Price</source>
+          <source>(A) HT Price :</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report A01 SalesInvoicePrint - NamedType HTPriceLbl</note>
         </trans-unit>
         <trans-unit id="Report 1919361468 - NamedType 200661831" size-unit="char" translate="yes" xml:space="preserve">
-          <source>(F) Interest=18% of (E) per year</source>
+          <source>(F) Interest=18% of (E) per year :</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report A01 SalesInvoicePrint - NamedType Interest18Lbl</note>
         </trans-unit>
@@ -7559,12 +7499,12 @@
           <note from="Xliff Generator" annotates="general" priority="3">Report A01 SalesInvoicePrint - NamedType SubtotalLbl</note>
         </trans-unit>
         <trans-unit id="Report 1919361468 - NamedType 2957496827" size-unit="char" translate="yes" xml:space="preserve">
-          <source>(I) Amount TTC of operation</source>
+          <source>(I) Amount TTC of operation :</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report A01 SalesInvoicePrint - NamedType TTCAmountOfOperationLbl</note>
         </trans-unit>
         <trans-unit id="Report 1919361468 - NamedType 1540712272" size-unit="char" translate="yes" xml:space="preserve">
-          <source>(C) TTC Price</source>
+          <source>(C) TTC Price :</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report A01 SalesInvoicePrint - NamedType TTCPriceLbl</note>
         </trans-unit>
@@ -7604,7 +7544,7 @@
           <note from="Xliff Generator" annotates="general" priority="3">Report A01 SalesInvoicePrint - NamedType UnitPriceLbl</note>
         </trans-unit>
         <trans-unit id="Report 1919361468 - NamedType 3606327677" size-unit="char" translate="yes" xml:space="preserve">
-          <source>(B) VAT 20%</source>
+          <source>(B) VAT 20% :</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report A01 SalesInvoicePrint - NamedType VAT20Lbl</note>
         </trans-unit>
@@ -7614,7 +7554,7 @@
           <note from="Xliff Generator" annotates="general" priority="3">Report A01 SalesInvoicePrint - NamedType VATClausesLbl</note>
         </trans-unit>
         <trans-unit id="Report 1919361468 - NamedType 4136417433" size-unit="char" translate="yes" xml:space="preserve">
-          <source>(G) VAT on Interest</source>
+          <source>(G) VAT on Interest :</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report A01 SalesInvoicePrint - NamedType VATInterestLbl</note>
         </trans-unit>
@@ -8028,11 +7968,6 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report A01 SalesQuotePrint - NamedType Report__Caption</note>
         </trans-unit>
-        <trans-unit id="Report 2502538013 - NamedType 2449874975" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Sales Quote</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Report A01 SalesQuotePrint - NamedType SalesConfirmationLbl</note>
-        </trans-unit>
         <trans-unit id="Report 2502538013 - NamedType 727193652" size-unit="char" translate="yes" xml:space="preserve">
           <source>Seller name</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -8422,11 +8357,6 @@
           <source>Orders - Shipped</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension A01 Order Processor RC - Action A01Orders_Shipped - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 4097835928 - Action 203673927 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2211706696">
-          <source>Print Cash Receipt</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension A01 Payment Slip - Action A01 Cash Receipt - Property Caption</note>
         </trans-unit>
         <trans-unit id="PageExtension 2023257757 - Action 243127404 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 4255274469">
           <source>Export Logo</source>

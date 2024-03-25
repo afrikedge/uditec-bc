@@ -45,6 +45,9 @@ report 50007 "A01 SalesOrderPrint"
             column(A01City; City)
             {
             }
+            column(UnitAddress; UnitAddress)
+            {
+            }
             column(A01PostCode; PostalCode)
             {
             }
@@ -432,7 +435,7 @@ report 50007 "A01 SalesOrderPrint"
                     // Location: Record Location;
                     // AutoFormatType: Enum "Auto Format";
                     tempHT: Decimal;
-                    tempHTD: Decimal;
+                    // tempHTD: Decimal;
                     tempPU: Decimal;
                     tempTTC: Decimal;
                     tempVAT: Decimal;
@@ -456,14 +459,14 @@ report 50007 "A01 SalesOrderPrint"
                     end else begin
                         if (Header."Prices Including VAT") then begin
                             tempHT := Line."Line Amount" * (1 / (1 + Line."VAT %" / 100));
-                            tempHTD := Line."Line Amount" * (1 / (1 + Line."Line Discount %" / 100));
+                            // tempHTD := Line."Line Amount" * (1 / (1 + Line."Line Discount %" / 100));
                             tempPU := Line."Unit Price" * (1 / (1 + Line."VAT %" / 100));
                             tempVAT := line."Amount Including VAT" - tempHT;
                             tempTTC := line."Amount Including VAT";
 
                         end else begin
                             tempHT := Line."Line Amount";
-                            tempHTD := Line."Line Discount Amount";
+                            // tempHTD := Line."Line Discount Amount";
                             tempPU := Line."Unit Price";
                             tempVAT := tempHT * Line."VAT %" / 100;
                             tempTTC := tempVAT + Line."Line Amount";
@@ -525,8 +528,8 @@ report 50007 "A01 SalesOrderPrint"
                     SetRange("Line No.", 0, "Line No.");
                     TransHeaderAmount := 0;
                     PrevLineAmount := 0;
-                    AfkLinesNumber := Count();
-                    FirstLineHasBeenOutput := false;
+                    // AfkLinesNumber := Count();
+                    // FirstLineHasBeenOutput := false;
 
                     OnAfterLineOnPreDataItem(Header, Line);
                 end;
@@ -761,6 +764,7 @@ report 50007 "A01 SalesOrderPrint"
 
                 if ResponsibilityInfo.Get(Header."Responsibility Center") then begin
                     UnitName := ResponsibilityInfo.Name;
+                    UnitAddress := ResponsibilityInfo.Address;
                     City := ResponsibilityInfo.City;
                     PostalCode := ResponsibilityInfo."Post Code";
                 end;
@@ -850,7 +854,7 @@ report 50007 "A01 SalesOrderPrint"
         AfkTotalAmount_LCY: Decimal;
         AfkCurrCode: Code[20];
         AfkTotalVAT_LCY: Decimal;
-        AfkLinesNumber: Integer;
+        // AfkLinesNumber: Integer;
         A01FormattedVAT: Text[50];
         A01LinePUFormatted: Text[50];
         TotalInclVATText: Text[50];
@@ -860,7 +864,7 @@ report 50007 "A01 SalesOrderPrint"
         FormattedLineAmountTTC: Text;
         TotalAmountExclInclVATTextValue: Text;
         A01FormattedAmtHT: Text[50];
-        FirstLineHasBeenOutput: Boolean;
+        // FirstLineHasBeenOutput: Boolean;
         MoreLines: Boolean;
         A01FormattedLineDiscountAmount: Text[50];
         LineDiscountPctText: Text;
@@ -870,6 +874,7 @@ report 50007 "A01 SalesOrderPrint"
         TotalVATAmountLCY: Decimal;
         TotalInvDiscAmount: Decimal;
         CurrCode: Text[10];
+        UnitAddress: Text[100];
         TotalExclVATText: Text[50];
         CurrSymbol: Text[10];
         TotalPaymentDiscOnVAT: Decimal;
@@ -951,7 +956,7 @@ report 50007 "A01 SalesOrderPrint"
         FormattedLineAmount: Text;
         FormattedVATAmount: Text;
         FormattedTotalAmount: Text;
-        FormattedTotalVATAmount: Text;
+        // FormattedTotalVATAmount: Text;
         FormattedTotalAmountInclVAT: Text;
         WorkDescriptionLine: Text;
         CurrencyCode: Code[10];
@@ -959,9 +964,9 @@ report 50007 "A01 SalesOrderPrint"
         TotalAmount: Decimal;
         TotalVATAmount: Decimal;
         TotalAmountInclVAT: Decimal;
-        LinePrice: Decimal;
-        LineAmount: Decimal;
-        VATAmount: Decimal;
+        // LinePrice: Decimal;
+        // LineAmount: Decimal;
+        // VATAmount: Decimal;
         ShowWorkDescription: Boolean;
 
     local procedure FormatDocumentFields(SalesHeader: Record "Sales Header")

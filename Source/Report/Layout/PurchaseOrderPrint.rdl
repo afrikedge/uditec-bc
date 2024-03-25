@@ -47,16 +47,16 @@
                                             <TablixBody>
                                               <TablixColumns>
                                                 <TablixColumn>
-                                                  <Width>1.34731in</Width>
+                                                  <Width>1.75953in</Width>
                                                 </TablixColumn>
                                                 <TablixColumn>
-                                                  <Width>1.67245in</Width>
+                                                  <Width>1.48602in</Width>
                                                 </TablixColumn>
                                                 <TablixColumn>
-                                                  <Width>0.4919in</Width>
+                                                  <Width>0.38889in</Width>
                                                 </TablixColumn>
                                                 <TablixColumn>
-                                                  <Width>0.5in</Width>
+                                                  <Width>0.37722in</Width>
                                                 </TablixColumn>
                                                 <TablixColumn>
                                                   <Width>1.31472in</Width>
@@ -2417,7 +2417,6 @@
                                           </Border>
                                         </Style>
                                       </Rectangle>
-                                      <rd:Selected>true</rd:Selected>
                                     </CellContents>
                                   </TablixCell>
                                 </TablixCells>
@@ -3641,6 +3640,12 @@ IYQQQgghhBBCCCGKyLhECCGEEEIIIYQQQgghhBBCCCGEEEIUkXGJEEIIIYQQQgghhBBCCCGEEEIIIYQo
         </Field>
         <Field Name="RequestedReceiptDate">
           <DataField>RequestedReceiptDate</DataField>
+        </Field>
+        <Field Name="TransHeaderAmount">
+          <DataField>TransHeaderAmount</DataField>
+        </Field>
+        <Field Name="TransHeaderAmountFormat">
+          <DataField>TransHeaderAmountFormat</DataField>
         </Field>
         <Field Name="PurchLine_VATPct">
           <DataField>PurchLine_VATPct</DataField>

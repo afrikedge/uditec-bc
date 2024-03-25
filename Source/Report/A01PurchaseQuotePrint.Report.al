@@ -270,11 +270,16 @@ report 50008 "A01 PurchaseQuotePrint"
                 column(A01TotalVAT_LCY; A01TotalVAT_LCY)
                 {
                 }
+                column(TransHeaderAmount; TransHeaderAmount)
+                {
+                    AutoFormatExpression = "Currency Code";
+                    AutoFormatType = 1;
+                }
 
                 trigger OnAfterGetRecord()
                 var
                     tempHT: Decimal;
-                    tempHTD: Decimal;
+                    // tempHTD: Decimal;
                     tempPU: Decimal;
                     tempTTC: Decimal;
                     tempVAT: Decimal;
@@ -309,14 +314,14 @@ report 50008 "A01 PurchaseQuotePrint"
                     end else begin
                         if ("Purchase Header"."Prices Including VAT") then begin
                             tempHT := "Purchase Line"."Line Amount" * (1 / (1 + "Purchase Line"."VAT %" / 100));
-                            tempHTD := "Purchase Line"."Line Amount" * (1 / (1 + "Purchase Line"."Line Discount %" / 100));
+                            // tempHTD := "Purchase Line"."Line Amount" * (1 / (1 + "Purchase Line"."Line Discount %" / 100));
                             tempPU := "Purchase Line"."Direct Unit Cost" * (1 / (1 + "Purchase Line"."VAT %" / 100));
                             tempVAT := "Purchase Line"."Amount Including VAT" - tempHT;
                             tempTTC := "Purchase Line"."Amount Including VAT";
 
                         end else begin
                             tempHT := "Purchase Line"."Line Amount";
-                            tempHTD := "Purchase Line"."Line Discount Amount";
+                            // tempHTD := "Purchase Line"."Line Discount Amount";
                             tempPU := "Purchase Line"."Direct Unit Cost";
                             tempVAT := tempHT * "Purchase Line"."VAT %" / 100;
                             tempTTC := tempVAT + "Purchase Line"."Line Amount";
@@ -338,21 +343,21 @@ report 50008 "A01 PurchaseQuotePrint"
                         TransHeaderAmount += PrevLineAmount;
                         PrevLineAmount := tempHT;
                         TotalSubTotal += tempHT;
-                        TotalInvDiscAmount -= "Inv. Discount Amount";
+                        // TotalInvDiscAmount -= "Inv. Discount Amount";
                         TotalAmount += tempHT;
                         TotalAmountVAT += "Amount Including VAT" - tempHT;
                         TotalAmountInclVAT += "Amount Including VAT";
-                        TotalPaymentDiscOnVAT += -(tempHT - "Inv. Discount Amount" - "Amount Including VAT");
+                        // TotalPaymentDiscOnVAT += -(tempHT - "Inv. Discount Amount" - "Amount Including VAT");
 
                     end else begin
                         TransHeaderAmount += PrevLineAmount;
                         PrevLineAmount := "Line Amount";
                         TotalSubTotal += "Line Amount";
-                        TotalInvDiscAmount -= "Inv. Discount Amount";
+                        // TotalInvDiscAmount -= "Inv. Discount Amount";
                         TotalAmount += Amount;
                         TotalAmountVAT += "Amount Including VAT" - Amount;
                         TotalAmountInclVAT += "Amount Including VAT";
-                        TotalPaymentDiscOnVAT += -("Line Amount" - "Inv. Discount Amount" - "Amount Including VAT");
+                        // TotalPaymentDiscOnVAT += -("Line Amount" - "Inv. Discount Amount" - "Amount Including VAT");
                     end;
 
                     FormatDocument.SetPurchaseLine("Purchase Line", FormattedQuanitity, FormattedDirectUnitCost, FormattedVATPct, FormattedLineAmount);
@@ -368,7 +373,7 @@ report 50008 "A01 PurchaseQuotePrint"
                     SetRange("Line No.", 0, "Line No.");
                     TransHeaderAmount := 0;
                     PrevLineAmount := 0;
-                    AfkLinesNumber := Count();
+                    // AfkLinesNumber := Count();
                 end;
 
                 // trigger OnPostDataItem()
@@ -573,7 +578,7 @@ report 50008 "A01 PurchaseQuotePrint"
                       TempVATAmountLine.GetTotalVATDiscount("Purchase Header"."Currency Code", "Purchase Header"."Prices Including VAT");
                     TotalAmountInclVAT := TempVATAmountLine.GetTotalAmountInclVAT();
 
-                    TempPrepaymentInvLineBuffer.DeleteAll();
+                    // TempPrepaymentInvLineBuffer.DeleteAll();
                     PurchasePostPrepayments.GetPurchLines("Purchase Header", 0, TempPrepmtPurchLine);
                     if not TempPrepmtPurchLine.IsEmpty() then begin
                         PurchasePostPrepayments.GetPurchLinesToDeduct("Purchase Header", TempPurchLine);
@@ -583,10 +588,10 @@ report 50008 "A01 PurchaseQuotePrint"
                     PurchasePostPrepayments.CalcVATAmountLines("Purchase Header", TempPrepmtPurchLine, TempPrepmtVATAmountLine, 0);
                     TempPrepmtVATAmountLine.DeductVATAmountLine(TempPrePmtVATAmountLineDeduct);
                     PurchasePostPrepayments.UpdateVATOnLines("Purchase Header", TempPrepmtPurchLine, TempPrepmtVATAmountLine, 0);
-                    PurchasePostPrepayments.BuildInvLineBuffer("Purchase Header", TempPrepmtPurchLine, 0, TempPrepaymentInvLineBuffer);
-                    PrepmtVATAmount := TempPrepmtVATAmountLine.GetTotalVATAmount();
-                    PrepmtVATBaseAmount := TempPrepmtVATAmountLine.GetTotalVATBase();
-                    PrepmtTotalAmountInclVAT := TempPrepmtVATAmountLine.GetTotalAmountInclVAT();
+                    // PurchasePostPrepayments.BuildInvLineBuffer("Purchase Header", TempPrepmtPurchLine, 0, TempPrepaymentInvLineBuffer);
+                    // PrepmtVATAmount := TempPrepmtVATAmountLine.GetTotalVATAmount();
+                    // PrepmtVATBaseAmount := TempPrepmtVATAmountLine.GetTotalVATBase();
+                    // PrepmtTotalAmountInclVAT := TempPrepmtVATAmountLine.GetTotalAmountInclVAT();
                 end;
             }
 
@@ -628,11 +633,11 @@ report 50008 "A01 PurchaseQuotePrint"
                         ArchiveManagement.StorePurchDocument("Purchase Header", LogInteraction);
 
                 TotalSubTotal := 0;
-                TotalInvDiscAmount := 0;
+                // TotalInvDiscAmount := 0;
                 TotalAmount := 0;
                 TotalAmountVAT := 0;
                 TotalAmountInclVAT := 0;
-                TotalPaymentDiscOnVAT := 0;
+                // TotalPaymentDiscOnVAT := 0;
                 A01TotalAmountInclVAT_LCY := 0;
                 A01TotalAmount_LCY := 0;
                 A01TotalVAT_LCY := 0;
@@ -662,7 +667,7 @@ report 50008 "A01 PurchaseQuotePrint"
 
         trigger OnInit()
         begin
-            LogInteractionEnable := true;
+            // LogInteractionEnable := true;
 
             case PurchSetup."Archive Quotes" of
                 PurchSetup."Archive Quotes"::Never:
@@ -675,7 +680,7 @@ report 50008 "A01 PurchaseQuotePrint"
         trigger OnOpenPage()
         begin
             InitLogInteraction();
-            LogInteractionEnable := LogInteraction;
+            // LogInteractionEnable := LogInteraction;
         end;
     }
 
@@ -713,9 +718,9 @@ report 50008 "A01 PurchaseQuotePrint"
         ShipmentMethod: Record "Shipment Method";
         SalesPurchPerson: Record "Salesperson/Purchaser";
         CompanyInfo: Record "Company Information";
-        TempPurchaseLine: Record "Purchase Line" temporary;
+        // TempPurchaseLine: Record "Purchase Line" temporary;
         DimSetEntry1: Record "Dimension Set Entry";
-        DimSetEntry2: Record "Dimension Set Entry";
+        // DimSetEntry2: Record "Dimension Set Entry";
         RespCenter: Record "Responsibility Center";
         PurchSetup: Record "Purchases & Payables Setup";
         BuyFromContact: Record Contact;
@@ -725,10 +730,10 @@ report 50008 "A01 PurchaseQuotePrint"
         Vendor: Record Vendor;
         TempPurchLine: Record "Purchase Line" temporary;
         TempVATAmountLine: Record "VAT Amount Line" temporary;
-        TempPrepaymentInvLineBuffer: Record "Prepayment Inv. Line Buffer";
+        // TempPrepaymentInvLineBuffer: Record "Prepayment Inv. Line Buffer";
         TempPrepmtVATAmountLine: Record "VAT Amount Line" temporary;
         TempPrePmtVATAmountLineDeduct: Record "VAT Amount Line" temporary;
-        CurrExchRate: Record "Currency Exchange Rate";
+        // CurrExchRate: Record "Currency Exchange Rate";
         AfkCurrency: Record Currency;
         PurchasePostPrepayments: Codeunit "Purchase-Post Prepayments";
         AutoFormat: Codeunit "Auto Format";
@@ -756,28 +761,28 @@ report 50008 "A01 PurchaseQuotePrint"
         VATBaseAmount: Decimal;
         AfkIsLine: Integer;
         NumLigneText: Code[2];
-        TotalInvDiscAmount: Decimal;
-        TotalPaymentDiscOnVAT: Decimal;
+        // TotalInvDiscAmount: Decimal;
+        // TotalPaymentDiscOnVAT: Decimal;
         TotalAmountVAT: Decimal;
         VATDiscountAmount: Decimal;
         PrevLineAmount: Decimal;
         TotalAmountInclVAT: Decimal;
-        Number: Integer;
+        // Number: Integer;
         TotalInclVATText: Text[50];
         TotalExclVATText: Text[50];
         TotalSubTotal: Decimal;
         TotalAmount: Decimal;
         TotalText: Text[50];
         TotalInvoiceDiscountAmount: Decimal;
-        VALVATBaseLCY: Decimal;
-        AfkLinesNumber: Integer;
-        VALVATAmountLCY: Decimal;
-        VALSpecLCYHeader: Text[80];
-        VALExchRate: Text[50];
-        PrepmtVATAmount: Decimal;
-        PrepmtVATBaseAmount: Decimal;
-        PrepmtTotalAmountInclVAT: Decimal;
-        PrepmtLineAmount: Decimal;
+        // VALVATBaseLCY: Decimal;
+        // AfkLinesNumber: Integer;
+        // VALVATAmountLCY: Decimal;
+        // VALSpecLCYHeader: Text[80];
+        // VALExchRate: Text[50];
+        // PrepmtVATAmount: Decimal;
+        // PrepmtVATBaseAmount: Decimal;
+        // PrepmtTotalAmountInclVAT: Decimal;
+        // PrepmtLineAmount: Decimal;
         LineDiscountPctText: Text;
         A01FormattedLineDiscountAmount: Text[50];
         A01FormattedAmtHT: Text[50];
@@ -794,8 +799,8 @@ report 50008 "A01 PurchaseQuotePrint"
         A01TotalVAT_LCY: Decimal;
         A01LinePUFormatted: Text[50];
         A01FormattedVAT: Text[50];
-        AllowInvDisctxt: Text[30];
-        CompanyLogoPosition: Integer;
+        // AllowInvDisctxt: Text[30];
+        // CompanyLogoPosition: Integer;
         ItemNo: Text;
         A01FormattedTotalVAT: Text[50];
         A01FormattedTotalHT: Text[50];
@@ -809,17 +814,17 @@ report 50008 "A01 PurchaseQuotePrint"
         A01TotalAmountInclVAT_LCYText: Text[50];
         A01TotalVAT_LCYText: Text[50];
         A01_AmountInWords: Text;
-        NoOfLoops: Integer;
-        CopyText: Text[30];
-        DimText: Text[120];
-        OldDimText: Text[75];
-        Continue: Boolean;
-        OutputNo: Integer;
+        // NoOfLoops: Integer;
+        // CopyText: Text[30];
+        // DimText: Text[120];
+        // OldDimText: Text[75];
+        // Continue: Boolean;
+        // OutputNo: Integer;
         A01VendorPhone: Text[30];
-        A01VendorName: Text[100];
+        // A01VendorName: Text[100];
         A01VendorAddress: Text[100];
-        LogInteractionEnable: Boolean;
-        Text002: Label 'Purchase - Quote %1', Comment = '%1 = Document No.';
+        // LogInteractionEnable: Boolean;
+        // Text002: Label 'Purchase - Quote %1', Comment = '%1 = Document No.';
         ReportTitle__Caption: Label 'PROFORMA INVOICE';
         A01ProductCode__Caption: Label 'Product code';
         A01Description__Caption: Label 'Designation';
@@ -839,12 +844,12 @@ report 50008 "A01 PurchaseQuotePrint"
         A01TotalHT__Caption: Label 'Total HT (AR) :';
         A01TVA__Caption: Label 'VAT(20%)(AR) :';
         A01TotalTTC__Caption: Label 'Total TTC(AR) :';
-        A01ArrestedSumLbl: Label 'Arrested at the sum of :';
-        ExpectedDateCaptionLbl: Label 'Expected Date';
-        QuoteNoCaptionLbl: Label 'Quote No.';
-        HeaderDimensionsCaptionLbl: Label 'Header Dimensions';
-        PurchaseLineNoOurNoCapLbl: Label 'Our No.';
-        LineDimensionsCaptionLbl: Label 'Line Dimensions';
+        // A01ArrestedSumLbl: Label 'Arrested at the sum of :';
+        // ExpectedDateCaptionLbl: Label 'Expected Date';
+        // QuoteNoCaptionLbl: Label 'Quote No.';
+        // HeaderDimensionsCaptionLbl: Label 'Header Dimensions';
+        // PurchaseLineNoOurNoCapLbl: Label 'Our No.';
+        // LineDimensionsCaptionLbl: Label 'Line Dimensions';
         ShiptoAddressCaptionLbl: Label 'Ship-to Address';
         CompanyInfoPhoneNoCapLbl: Label 'Phone No.';
         CompanyInfoVATRegNoCapLbl: Label 'VAT Reg. No.';
@@ -873,7 +878,7 @@ report 50008 "A01 PurchaseQuotePrint"
 
     protected var
         ArchiveDocument: Boolean;
-        ArchiveDocumentEnable: Boolean;
+        // ArchiveDocumentEnable: Boolean;
         LogInteraction: Boolean;
         NoOfCopies: Integer;
         ShowInternalInfo: Boolean;
@@ -924,8 +929,8 @@ report 50008 "A01 PurchaseQuotePrint"
     begin
     end;
 
-    [IntegrationEvent(TRUE, false)]
-    local procedure OnAfterPostDataItem(var PurchaseHeader: Record "Purchase Header")
-    begin
-    end;
+    // [IntegrationEvent(TRUE, false)]
+    // local procedure OnAfterPostDataItem(var PurchaseHeader: Record "Purchase Header")
+    // begin
+    // end;
 }

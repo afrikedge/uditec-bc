@@ -3162,6 +3162,12 @@ IYQQQgghhBBCCCGKyLhECCGEEEIIIYQQQgghhBBCCCGEEEIUkXGJEEIIIYQQQgghhBBCCCGEEEIIIYQo
         <Field Name="A01TotalVAT_LCYFormat">
           <DataField>A01TotalVAT_LCYFormat</DataField>
         </Field>
+        <Field Name="TransHeaderAmount">
+          <DataField>TransHeaderAmount</DataField>
+        </Field>
+        <Field Name="TransHeaderAmountFormat">
+          <DataField>TransHeaderAmountFormat</DataField>
+        </Field>
         <Field Name="AfkNumLigne2">
           <DataField>AfkNumLigne2</DataField>
         </Field>

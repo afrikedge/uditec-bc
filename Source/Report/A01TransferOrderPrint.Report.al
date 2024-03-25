@@ -112,6 +112,21 @@ report 50005 "A01 TransferOrderPrint"
             column(Transfer_to_Code; "Transfer-to Code")
             {
             }
+            column(Transfer_from_Name; "Transfer-from Name")
+            {
+            }
+            column(Transfer_from_City; "Transfer-from City")
+            {
+            }
+            column(Transfer_from_Address; "Transfer-from Address")
+            {
+            }
+            column(Transfer_from_Post_Code; "Transfer-from Post Code")
+            {
+            }
+            column(Transfer_to_Name; "Transfer-to Name")
+            {
+            }
             dataitem(Line; "Transfer Line")
             {
                 DataItemLinkReference = Header;

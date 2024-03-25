@@ -23,20 +23,20 @@ pageextension 50009 "A01 Payment Slip" extends "Payment Slip"
     }
     actions
     {
-        addafter("P&osting")
-        {
-            action("A01 Cash Receipt")
-            {
-                ApplicationArea = All;
-                Image = PrintForm;
-                Caption = 'Print Cash Receipt';
-                trigger OnAction()
-                var
-                    Cash: Report "A01 CashReceiptPrint";
-                begin
-                    Cash.RunModal();
-                end;
-            }
-        }
+        // addafter("P&osting")
+        // {
+        //     action("A01 Cash Receipt")
+        //     {
+        //         ApplicationArea = All;
+        //         Image = PrintForm;
+        //         Caption = 'Print Cash Receipt';
+        //         trigger OnAction()
+        //         var
+        //             Cash: Report "A01 CashReceiptPrint";
+        //         begin
+        //             Cash.RunModal();
+        //         end;
+        //     }
+        // }
     }
 }

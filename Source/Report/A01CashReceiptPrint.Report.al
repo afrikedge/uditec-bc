@@ -40,6 +40,9 @@ report 50004 "A01 CashReceiptPrint"
             column(Posting_Date; Format("Posting Date"))
             {
             }
+            column(A01_Description; "A01 Description")
+            {
+            }
             column(ReportTitleLbl; ReportTitleLbl)
             {
             }
@@ -120,6 +123,11 @@ report 50004 "A01 CashReceiptPrint"
                 column(Amount__LCY_; "Amount (LCY)")
                 {
                 }
+                column(Credit_Amount; "Credit Amount")
+                {
+                    AutoFormatExpression = Header."Currency Code";
+                    AutoFormatType = 1;
+                }
                 column(AmountInWords; AmountInWords)
                 {
                 }
@@ -136,6 +144,14 @@ report 50004 "A01 CashReceiptPrint"
                 column(A01Total_LCYText; A01Total_LCYText)
                 {
                 }
+                column(Total; Total)
+                {
+                }
+                column(MontantTotal; MontantTotal)
+                {
+                    AutoFormatExpression = Header."Currency Code";
+                    AutoFormatType = 1;
+                }
                 dataitem("Cust. Ledger Entry"; "Cust. Ledger Entry")
                 {
                     DataItemTableView = sorting("Document Type", "Customer No.") where("Document Type" = filter(invoice));
@@ -149,35 +165,27 @@ report 50004 "A01 CashReceiptPrint"
                         AutoFormatExpression = Header."Currency Code";
                         AutoFormatType = 1;
                     }
-                    column(Total; Total)
-                    {
-                    }
-                    column(MontantTotal; MontantTotal)
-                    {
-                        AutoFormatExpression = Header."Currency Code";
-                        AutoFormatType = 1;
-                    }
 
                     trigger OnAfterGetRecord()
                     begin
-                        Clear(Total);
-                        Clear(MontantTotal);
-                        CustLedgerEntryRec.Reset();
-                        CustLedgerEntryRec.SetRange("Customer No.", Line."Account No.");
-                        CustLedgerEntryRec.SetRange("Applies-to ID", Line."Applies-to ID");
-                        if CustLedgerEntryRec.FindFirst() then
-                            repeat
-                                Total := Total + CustLedgerEntryRec."Amount to Apply";
-                            until CustLedgerEntryRec.Next() = 0;
-                        MontantTotal := Total;
+                        // Clear(Total);
+                        // Clear(MontantTotal);
+                        // CustLedgerEntryRec.Reset();
+                        // CustLedgerEntryRec.SetRange("Customer No.", Line."Account No.");
+                        // CustLedgerEntryRec.SetRange("Applies-to ID", Line."Applies-to ID");
+                        // if CustLedgerEntryRec.FindFirst() then
+                        //     repeat
+                        //         Total := Total + CustLedgerEntryRec."Amount to Apply";
+                        //     until CustLedgerEntryRec.Next() = 0;
+                        // MontantTotal := Total;
 
-                        Check.InitTextVariable();
-                        Check.FormatNoText(NoText, MontantTotal, Currency.Code);
-                        NoText[1] := ReplaceString(NoText[1], '****');
-                        NoText[1] := ReplaceString(NoText[1], 'AND 0/100');
-                        NoText[2] := ReplaceString(NoText[2], '****');
-                        NoText[2] := ReplaceString(NoText[2], 'AND 0/100');
-                        AmountInWords := NoText[1] + ' ' + NoText[2];
+                        // Check.InitTextVariable();
+                        // Check.FormatNoText(NoText, "Credit Amount", Currency.Code);
+                        // NoText[1] := ReplaceString(NoText[1], '****');
+                        // NoText[1] := ReplaceString(NoText[1], 'AND 0/100');
+                        // NoText[2] := ReplaceString(NoText[2], '****');
+                        // NoText[2] := ReplaceString(NoText[2], 'AND 0/100');
+                        // AmountInWords := NoText[1] + ' ' + NoText[2];
                     end;
                 }
                 trigger OnAfterGetRecord()
@@ -188,6 +196,31 @@ report 50004 "A01 CashReceiptPrint"
                         CustPhone := Cust."Phone No.";
                     end;
 
+                    Clear(Total);
+                    Clear(MontantTotal);
+                    Line.SetRange("No.", Header."No.");
+                    if Line.FindFirst() then
+                        repeat
+                            Total := Total + Line."Credit Amount";
+                        until Line.Next() = 0;
+                    MontantTotal := Total;
+
+                    A01Total_LCY := CurrencyExchangeRate.ExchangeAmtFCYToLCY(Header."Posting Date",
+                       Header."Currency Code", "Credit Amount", Header."Currency Factor");
+
+                    A01Total_LCY := ROUND(MontantTotal, Currency."Amount Rounding Precision");
+
+                    A01Total_LCYText :=
+                      Format(A01Total_LCY, 0,
+                      AutoFormat.ResolveAutoFormat("Auto Format"::AmountFormat, Currency.Code));
+
+                    Check.InitTextVariable();
+                    Check.FormatNoText(NoText, A01Total_LCY, Currency.Code);
+                    NoText[1] := ReplaceString(NoText[1], '****');
+                    NoText[1] := ReplaceString(NoText[1], 'AND 0/100');
+                    NoText[2] := ReplaceString(NoText[2], '****');
+                    NoText[2] := ReplaceString(NoText[2], 'AND 0/100');
+                    AmountInWords := NoText[1] + ' ' + NoText[2];
                 end;
             }
         }
@@ -225,20 +258,20 @@ report 50004 "A01 CashReceiptPrint"
         Cust: Record Customer;
         CurrencyExchangeRate: Record "Currency Exchange Rate";
         Currency: Record Currency;
-        CustLedgerEntryRec: Record "Cust. Ledger Entry";
+        // CustLedgerEntryRec: Record "Cust. Ledger Entry";
         Check: Report Check;
         AutoFormat: Codeunit "Auto Format";
         // RespCenter: Record "Responsibility Center";
         CustName: Text[100];
-        CalculatedExchRate: Decimal;
-        ExchangeRateText: Text;
+        // CalculatedExchRate: Decimal;
+        // ExchangeRateText: Text;
         A01Total_LCY: Decimal;
         TotalAmount: Decimal;
         CustAddress: Text[100];
         A01Total_LCYText: Text[50];
         CustPhone: Text[30];
         NoText: array[2] of Text;
-        ExchangeRateTxt: Label 'Exchange rate: %1/%2', Comment = '%1 and %2 are both amounts.';
+        // ExchangeRateTxt: Label 'Exchange rate: %1/%2', Comment = '%1 and %2 are both amounts.';
         ReportTitleLbl: Label 'CASH RECEIPT';
         DateOfPrintLbl: Label 'Date of print :';
         CustNameLbl: Label 'Customer name :';

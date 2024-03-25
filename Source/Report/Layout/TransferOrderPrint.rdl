@@ -524,7 +524,7 @@
                                                             <Paragraph>
                                                               <TextRuns>
                                                                 <TextRun>
-                                                                  <Value />
+                                                                  <Value>=Fields!Transfer_to_Name.Value</Value>
                                                                   <Style>
                                                                     <FontSize>8pt</FontSize>
                                                                   </Style>
@@ -1602,7 +1602,7 @@
                     <Paragraph>
                       <TextRuns>
                         <TextRun>
-                          <Value EvaluationMode="Constant" />
+                          <Value>=First(Fields!Transfer_from_Address.Value, "DataSet_Result")</Value>
                           <Style>
                             <FontSize>8pt</FontSize>
                           </Style>
@@ -1636,7 +1636,7 @@
                     <Paragraph>
                       <TextRuns>
                         <TextRun>
-                          <Value EvaluationMode="Constant" />
+                          <Value>=First(Fields!Transfer_from_City.Value, "DataSet_Result") &amp;" / " &amp; First(Fields!Transfer_from_Post_Code.Value, "DataSet_Result")</Value>
                           <Style>
                             <FontSize>8pt</FontSize>
                           </Style>
@@ -1774,7 +1774,7 @@
                     <Paragraph>
                       <TextRuns>
                         <TextRun>
-                          <Value EvaluationMode="Constant" />
+                          <Value>=First(Fields!Transfer_from_Name.Value, "DataSet_Result")</Value>
                           <Style>
                             <FontSize>8pt</FontSize>
                           </Style>
@@ -1998,6 +1998,21 @@ End Function
         </Field>
         <Field Name="Transfer_to_Code">
           <DataField>Transfer_to_Code</DataField>
+        </Field>
+        <Field Name="Transfer_from_Name">
+          <DataField>Transfer_from_Name</DataField>
+        </Field>
+        <Field Name="Transfer_from_City">
+          <DataField>Transfer_from_City</DataField>
+        </Field>
+        <Field Name="Transfer_from_Address">
+          <DataField>Transfer_from_Address</DataField>
+        </Field>
+        <Field Name="Transfer_from_Post_Code">
+          <DataField>Transfer_from_Post_Code</DataField>
+        </Field>
+        <Field Name="Transfer_to_Name">
+          <DataField>Transfer_to_Name</DataField>
         </Field>
         <Field Name="LineNo_Line">
           <DataField>LineNo_Line</DataField>
