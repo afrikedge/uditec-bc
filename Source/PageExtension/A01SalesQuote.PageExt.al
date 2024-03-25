@@ -47,17 +47,17 @@ pageextension 50017 "A01 Sales Quote" extends "Sales Quote"
     {
         modify(Print)
         {
-            trigger OnAfterAction()
+            trigger OnBeforeAction()
             var
-                ApprovalsMgmt: Codeunit "Approvals Mgmt.";
+            // ApprovalsMgmt: Codeunit "Approvals Mgmt.";
             // Msg: Label 'Le document est au statut ouvert';
             begin
-                if Rec.Status = Rec.Status::Open then begin
-                    if ApprovalsMgmt.PrePostApprovalCheckSales(Rec) then begin
-                        Codeunit.Run(Codeunit::"Sales-Quote to Order (Yes/No)", Rec);
-                    end;
-                    // Error(Msg);
-                end;
+                // if Rec.Status = Rec.Status::Open then begin
+                //     if not ApprovalsMgmt.PrePostApprovalCheckSales(Rec) then begin
+                //         Codeunit.Run(Codeunit::"Sales-Quote to Order (Yes/No)", Rec);
+                //         Error(Msg);
+                //     end;
+                // end;
             end;
 
         }

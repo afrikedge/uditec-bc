@@ -640,7 +640,7 @@ report 50002 "A01 SalesInvoicePrint"
                 trigger OnAfterGetRecord()
                 var
                     tempHT: Decimal;
-                    tempHTD: Decimal;
+                    // tempHTD: Decimal;
                     tempPU: Decimal;
                     tempTTC: Decimal;
                     tempVAT: Decimal;
@@ -661,14 +661,14 @@ report 50002 "A01 SalesInvoicePrint"
                     end else begin
                         if (Header."Prices Including VAT") then begin
                             tempHT := Line."Line Amount" * (1 / (1 + Line."VAT %" / 100));
-                            tempHTD := Line."Line Amount" * (1 / (1 + Line."Line Discount %" / 100));
+                            // tempHTD := Line."Line Amount" * (1 / (1 + Line."Line Discount %" / 100));
                             tempPU := Line."Unit Price" * (1 / (1 + Line."VAT %" / 100));
                             tempVAT := line."Amount Including VAT" - tempHT;
                             tempTTC := line."Amount Including VAT";
 
                         end else begin
                             tempHT := Line."Line Amount";
-                            tempHTD := Line."Line Discount Amount";
+                            // tempHTD := Line."Line Discount Amount";
                             tempPU := Line."Unit Price";
                             tempVAT := tempHT * Line."VAT %" / 100;
                             tempTTC := tempVAT + Line."Line Amount";
@@ -768,7 +768,7 @@ report 50002 "A01 SalesInvoicePrint"
                     SetRange("Line No.", 0, "Line No.");
                     TransHeaderAmount := 0;
                     PrevLineAmount := 0;
-                    AfkLinesNumber := Count();
+                    // AfkLinesNumber := Count();
                     FirstLineHasBeenOutput := false;
                     DummyCompanyInfo.Picture := CompanyInfo.Picture;
 
@@ -1228,7 +1228,7 @@ report 50002 "A01 SalesInvoicePrint"
             var
 
                 CurrencyExchangeRate: Record "Currency Exchange Rate";
-                PaymentServiceSetup: Record "Payment Service Setup";
+                // PaymentServiceSetup: Record "Payment Service Setup";
                 Language: Codeunit Language;
             begin
                 CurrReport.Language := Language.GetLanguageIdOrDefault("Language Code");
@@ -1264,7 +1264,7 @@ report 50002 "A01 SalesInvoicePrint"
                     UnitPhone := RespCenter."Phone No.";
                 end;
 
-                if Cust.Get() then begin
+                if Cust.Get(Header."Sell-to Customer No.") then begin
                     CustomerAddress := Cust.Address;
                     CustomerPhone := cust."Phone No.";
                 end;
@@ -1349,13 +1349,13 @@ report 50002 "A01 SalesInvoicePrint"
         }
         trigger OnInit()
         begin
-            LogInteractionEnable := true;
+            // LogInteractionEnable := true;
         end;
 
         trigger OnOpenPage()
         begin
             InitLogInteraction();
-            LogInteractionEnable := LogInteraction;
+            // LogInteractionEnable := LogInteraction;
         end;
     }
 
@@ -1409,7 +1409,7 @@ report 50002 "A01 SalesInvoicePrint"
         RespCenter: Record "Responsibility Center";
         SalesPersonCode: Record "Salesperson/Purchaser";
         SellToContact: Record Contact;
-        Country: Record "Country/Region";
+        // Country: Record "Country/Region";
         VATClause: Record "VAT Clause";
         BillToContact: Record Contact;
         AfkCurrency: Record Currency;
@@ -1433,14 +1433,14 @@ report 50002 "A01 SalesInvoicePrint"
         FormatDocument: Codeunit "Format Document";
         MoreLines: Boolean;
         AfkIsLine: Integer;
-        AfkIsLine2: Integer;
+        // AfkIsLine2: Integer;
         NumLigne: Integer;
         NumLigneText: Code[2];
-        LogInteractionEnable: Boolean;
+        // LogInteractionEnable: Boolean;
         WorkDescriptionInstream: InStream;
         TransHeaderAmount: Decimal;
         FirstLineHasBeenOutput: Boolean;
-        A01FormattedUnitPrice: Text[50];
+        // A01FormattedUnitPrice: Text[50];
         PartiallyPaidLbl: Label 'The invoice has been partially paid. The remaining amount is %1', Comment = '%1=an amount';
         RemainingAmountTxt: Text;
         ChecksPayableLbl: Label 'Please make checks payable to %1', Comment = '%1 = company name';
@@ -1508,7 +1508,7 @@ report 50002 "A01 SalesInvoicePrint"
         FormattedUnitPrice: Text;
         FormattedVATPct: Text;
         LineDiscountPctText: Text;
-        AfkLinesNumber: Integer;
+        // AfkLinesNumber: Integer;
         A01FormattedAmtHT: Text[50];
         A01FormattedLineDiscountAmount: Text[50];
         CompanyAddr: array[8] of Text[100];
@@ -1531,10 +1531,10 @@ report 50002 "A01 SalesInvoicePrint"
         AfkTotalAmountInclVAT_LCY: Decimal;
         LegalOfficeTxt, LegalOfficeLbl, CustomGiroTxt, CustomGiroLbl, LegalStatementLbl : Text;
         LogInteraction: Boolean;
-        ShowShippingAddr: Boolean;
-        AfkTotalHTCFALbl: Label 'Total Excl. VAT CFAF :';
-        AfkVAT1925Lbl: Label 'VAT 19.25% :';
-        AfkTotalTTCCFALbl: Label 'Total Incl. VAT CFAF :';
+        // ShowShippingAddr: Boolean;
+        // AfkTotalHTCFALbl: Label 'Total Excl. VAT CFAF :';
+        // AfkVAT1925Lbl: Label 'VAT 19.25% :';
+        // AfkTotalTTCCFALbl: Label 'Total Incl. VAT CFAF :';
         AfkDeviseLbl: Label 'Currency :';
         AlreadyPaidLbl: Label 'The invoice has been paid.';
         NoFilterSetErr: Label 'You must specify one or more filters to avoid accidently printing all documents.';
@@ -1571,18 +1571,18 @@ report 50002 "A01 SalesInvoicePrint"
         VATClausesLbl: Label 'VAT clause';
 
         SubtotalLbl: Label 'Subtotal';
-        HTPriceLbl: Label '(A) HT Price';
-        VAT20Lbl: Label '(B) VAT 20%';
-        TTCPriceLbl: Label '(C) TTC Price';
-        DepositLbl: Label '(D) Deposit';
-        BalanceLbl: Label '(E) Balance';
-        Interest18Lbl: Label '(F) Interest=18% of (E) per year';   //  Interets=18% de (E) par an
-        VATInterestLbl: Label '(G) VAT on Interest';   //  TVA sur interets
-        BalanceToPayLbl: Label '(H) Balance payable';   //  Solde à payer
-        TTCAmountOfOperationLbl: Label '(I) Amount TTC of operation';   //  Montant TTC de l'opération
+        HTPriceLbl: Label '(A) HT Price :';
+        VAT20Lbl: Label '(B) VAT 20% :';
+        TTCPriceLbl: Label '(C) TTC Price :';
+        DepositLbl: Label '(D) Deposit :';
+        BalanceLbl: Label '(E) Balance :';
+        Interest18Lbl: Label '(F) Interest=18% of (E) per year :';   //  Interets=18% de (E) par an
+        VATInterestLbl: Label '(G) VAT on Interest :';   //  TVA sur interets
+        BalanceToPayLbl: Label '(H) Balance payable :';   //  Solde à payer
+        TTCAmountOfOperationLbl: Label '(I) Amount TTC of operation :';   //  Montant TTC de l'opération
         ArrestedOfSumLbl: Label 'Arrested at the sum of :';
-        CompanySignLbl: Label 'client signature';
-        ClientSignLbl: Label 'company signature';
+        CompanySignLbl: Label 'Signature de l''entreprise';
+        ClientSignLbl: Label 'Signature du client';
         InvDiscountAmtLbl: Label 'Invoice Discount';
         PaymentTermsDescLbl: Label 'Payment Terms :';
         PaymentMethodDescLbl: Label 'Payment Method :';
@@ -1776,11 +1776,11 @@ report 50002 "A01 SalesInvoicePrint"
 
     local procedure FormatAddressFields(var SalesInvoiceHeader: Record "Sales Invoice Header")
     var
-        i: Integer;
+    // i: Integer;
     begin
         FormatAddr.GetCompanyAddr(SalesInvoiceHeader."Responsibility Center", RespCenter, CompanyInfo, CompanyAddr);
         FormatAddr.SalesInvBillTo(CustAddr, SalesInvoiceHeader);
-        ShowShippingAddr := FormatAddr.SalesInvShipTo(ShipToAddr, CustAddr, SalesInvoiceHeader);
+        // ShowShippingAddr := FormatAddr.SalesInvShipTo(ShipToAddr, CustAddr, SalesInvoiceHeader);
         // if ShowShippingAddr then begin
         //     for i := 1 to 8 do
         //         AlternativeAddress[i] := ShipToAddr[i];
@@ -1801,12 +1801,12 @@ report 50002 "A01 SalesInvoicePrint"
         // end;
     end;
 
-    local procedure GetJobTaskDescription(JobNo: Code[20]; JobTaskNo: Code[20]): Text[100]
+    local procedure GetJobTaskDescription(JobN: Code[20]; JobTaskN: Code[20]): Text[100]
     var
         JobTask: Record "Job Task";
     begin
-        JobTask.SetRange("Job No.", JobNo);
-        JobTask.SetRange("Job Task No.", JobTaskNo);
+        JobTask.SetRange("Job No.", JobN);
+        JobTask.SetRange("Job Task No.", JobTaskN);
         if JobTask.FindFirst() then
             exit(JobTask.Description);
 
