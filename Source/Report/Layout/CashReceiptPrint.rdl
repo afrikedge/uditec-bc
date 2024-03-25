@@ -1635,7 +1635,7 @@
                                                             <Paragraph>
                                                               <TextRuns>
                                                                 <TextRun>
-                                                                  <Value>="Facture : " &amp; Fields!Document_No_.Value</Value>
+                                                                  <Value>= Fields!Document_No_.Value</Value>
                                                                   <Style>
                                                                     <FontSize>8pt</FontSize>
                                                                   </Style>
@@ -1725,7 +1725,7 @@
                                                             <Paragraph>
                                                               <TextRuns>
                                                                 <TextRun>
-                                                                  <Value>=Fields!Amount_to_Apply.Value</Value>
+                                                                  <Value>=Fields!Credit_Amount.Value</Value>
                                                                   <Style>
                                                                     <FontSize>7pt</FontSize>
                                                                     <Format>#,0;(#,0)</Format>
@@ -2038,6 +2038,7 @@
                                           </Border>
                                         </Style>
                                       </Rectangle>
+                                      <rd:Selected>true</rd:Selected>
                                     </CellContents>
                                   </TablixCell>
                                 </TablixCells>
@@ -2482,15 +2483,6 @@ End Function
         <Field Name="A01Total_LCYText">
           <DataField>A01Total_LCYText</DataField>
         </Field>
-        <Field Name="Document_No_">
-          <DataField>Document_No_</DataField>
-        </Field>
-        <Field Name="Amount_to_Apply">
-          <DataField>Amount_to_Apply</DataField>
-        </Field>
-        <Field Name="Amount_to_ApplyFormat">
-          <DataField>Amount_to_ApplyFormat</DataField>
-        </Field>
         <Field Name="Total">
           <DataField>Total</DataField>
         </Field>
@@ -2502,6 +2494,15 @@ End Function
         </Field>
         <Field Name="MontantTotalFormat">
           <DataField>MontantTotalFormat</DataField>
+        </Field>
+        <Field Name="Document_No_">
+          <DataField>Document_No_</DataField>
+        </Field>
+        <Field Name="Amount_to_Apply">
+          <DataField>Amount_to_Apply</DataField>
+        </Field>
+        <Field Name="Amount_to_ApplyFormat">
+          <DataField>Amount_to_ApplyFormat</DataField>
         </Field>
       </Fields>
       <Query>

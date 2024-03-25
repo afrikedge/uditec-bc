@@ -144,6 +144,14 @@ report 50004 "A01 CashReceiptPrint"
                 column(A01Total_LCYText; A01Total_LCYText)
                 {
                 }
+                column(Total; Total)
+                {
+                }
+                column(MontantTotal; MontantTotal)
+                {
+                    AutoFormatExpression = Header."Currency Code";
+                    AutoFormatType = 1;
+                }
                 dataitem("Cust. Ledger Entry"; "Cust. Ledger Entry")
                 {
                     DataItemTableView = sorting("Document Type", "Customer No.") where("Document Type" = filter(invoice));
@@ -153,14 +161,6 @@ report 50004 "A01 CashReceiptPrint"
                     {
                     }
                     column(Amount_to_Apply; "Amount to Apply")
-                    {
-                        AutoFormatExpression = Header."Currency Code";
-                        AutoFormatType = 1;
-                    }
-                    column(Total; Total)
-                    {
-                    }
-                    column(MontantTotal; MontantTotal)
                     {
                         AutoFormatExpression = Header."Currency Code";
                         AutoFormatType = 1;
@@ -196,10 +196,19 @@ report 50004 "A01 CashReceiptPrint"
                         CustPhone := Cust."Phone No.";
                     end;
 
+                    Clear(Total);
+                    Clear(MontantTotal);
+                    Line.SetRange("No.", Header."No.");
+                    if Line.FindFirst() then
+                        repeat
+                            Total := Total + Line."Credit Amount";
+                        until Line.Next() = 0;
+                    MontantTotal := Total;
+
                     A01Total_LCY := CurrencyExchangeRate.ExchangeAmtFCYToLCY(Header."Posting Date",
                        Header."Currency Code", "Credit Amount", Header."Currency Factor");
 
-                    A01Total_LCY := ROUND("Credit Amount", Currency."Amount Rounding Precision");
+                    A01Total_LCY := ROUND(MontantTotal, Currency."Amount Rounding Precision");
 
                     A01Total_LCYText :=
                       Format(A01Total_LCY, 0,
