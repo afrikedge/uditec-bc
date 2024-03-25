@@ -103,7 +103,7 @@ codeunit 50005 "A01 WS QuotesMgt"
 
         end else begin
 
-            processSalesQuoteLine(SalesQuote, SalesLine, input);
+            processSalesQuoteLine(SalesQuote, SalesL, input);
 
         end;
         ;

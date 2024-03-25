@@ -99,7 +99,7 @@ codeunit 50009 "A01 WS OrdersMgt"
 
         end else begin
 
-            processSalesOrderLine(SalesOrder, SalesLine, input);
+            processSalesOrderLine(SalesOrder, SalesL, input);
 
         end;
         ;
