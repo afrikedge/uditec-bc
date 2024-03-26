@@ -335,6 +335,10 @@ page 50002 "A01 Sales Order - Workflow"
                     ToolTip = 'Specifies the status of a job queue entry or task that handles the posting of sales orders.';
                     Visible = JobQueuesUsed;
                 }
+                field("A01 Processing Status"; Rec."A01 Processing Status")
+                {
+                    ApplicationArea = All;
+                }
                 field(Status; Rec.Status)
                 {
                     ApplicationArea = Suite;

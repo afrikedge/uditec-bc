@@ -28,8 +28,18 @@ codeunit 50000 "A01 Sales Order Processing"
                     exit;
                 end;
 
+            Rec."A01 Processing Status"::"Waiting for prepayment":
+                begin
+                    Selection := dialog.StrMenu(LblOptionsValidatePrepayment, 1);
+                    if Selection = 0 then exit;
+                    if Selection = 1 then CheckIsAwaitingPrepayment(Rec);
+                    if Selection = 2 then SetStatusToDraft(Rec);
+                    exit;
+                end;
 
-            Rec."A01 Processing Status"::"Blocked", Rec."A01 Processing Status"::"Waiting for delivery":
+
+            Rec."A01 Processing Status"::"Blocked",
+             Rec."A01 Processing Status"::"Waiting for delivery":
                 begin
                     Selection := dialog.StrMenu(LblOptionsCancel, 1);
                     if Selection = 0 then exit;
@@ -62,6 +72,7 @@ codeunit 50000 "A01 Sales Order Processing"
         QstSetAsDraft: label 'The order will be returned for edition. Do you want to continue ?';
         ErrDocumentStatusOnValidation: Label 'The document is not at a status where it can be validated.';
         LblOptionsValidateStock: Label '&Check inventory,&Resend to edition';
+        LblOptionsValidatePrepayment: Label '&Check prepayment,&Resend to edition';
         LblOptionsCancel: Label '&Cancel order';
         LblOptionsClose: Label '&Close order';
 
@@ -89,14 +100,18 @@ codeunit 50000 "A01 Sales Order Processing"
         isTotallyOutOfStock: Boolean;
     begin
         if IsOutOfStock(SalesH, isTotallyOutOfStock) then begin
-            if (isTotallyOutOfStock) then begin
-                SalesH."A01 Processing Status" := SalesH."A01 Processing Status"::"Stock out";
-                InsertNewStep(SalesH."No.", "A01 ActionStepHistory"::"Change Status", FORMAT(SalesH."A01 Processing Status"::"Stock out"), '');
-            end else begin
-                SalesH."A01 Processing Status" := SalesH."A01 Processing Status"::"Partially out of stock";
-                InsertNewStep(SalesH."No.", "A01 ActionStepHistory"::"Change Status", FORMAT(SalesH."A01 Processing Status"::"Partially out of stock"), '');
+            if ((SalesH."A01 Processing Status" <> SalesH."A01 Processing Status"::"Stock out") and
+            (SalesH."A01 Processing Status" <> SalesH."A01 Processing Status"::"Partially out of stock")) then begin
+
+                if (isTotallyOutOfStock) then begin
+                    SalesH."A01 Processing Status" := SalesH."A01 Processing Status"::"Stock out";
+                    InsertNewStep(SalesH."No.", "A01 ActionStepHistory"::"Change Status", FORMAT(SalesH."A01 Processing Status"::"Stock out"), '');
+                end else begin
+                    SalesH."A01 Processing Status" := SalesH."A01 Processing Status"::"Partially out of stock";
+                    InsertNewStep(SalesH."No.", "A01 ActionStepHistory"::"Change Status", FORMAT(SalesH."A01 Processing Status"::"Partially out of stock"), '');
+                end;
+                SalesH.Modify();
             end;
-            SalesH.Modify();
         end else
             CheckIsBlocked(SalesH);
     end;
@@ -104,12 +119,42 @@ codeunit 50000 "A01 Sales Order Processing"
     local procedure CheckIsBlocked(var SalesH: Record "Sales Header")
     begin
         if IsOutOfCreditLimit(SalesH) then begin
-            SalesH."A01 Processing Status" := SalesH."A01 Processing Status"::Blocked;
-            SalesH.Modify();
+            if (SalesH."A01 Processing Status" <> SalesH."A01 Processing Status"::"Blocked") then begin
+                SalesH."A01 Processing Status" := SalesH."A01 Processing Status"::Blocked;
+                SalesH.Modify();
 
-            InsertNewStep(SalesH."No.", "A01 ActionStepHistory"::"Change Status", FORMAT(SalesH."A01 Processing Status"::Blocked), '');
+                InsertNewStep(SalesH."No.", "A01 ActionStepHistory"::"Change Status", FORMAT(SalesH."A01 Processing Status"::Blocked), '');
+            end;
+        end else
+            CheckIsAwaitingPrepayment(SalesH);
+    end;
+
+    /// <summary>
+    /// NeedPrepayment.
+    /// </summary>
+    /// <param name="SalesH">Record "Sales Header".</param>
+    /// <returns>Return value of type Boolean.</returns>
+    procedure CheckIsAwaitingPrepayment(var SalesH: Record "Sales Header")
+    var
+    begin
+        if NeedPrepayment(SalesH) then begin
+            if (SalesH."A01 Processing Status" <> SalesH."A01 Processing Status"::"Waiting for prepayment") then begin
+                SalesH."A01 Processing Status" := SalesH."A01 Processing Status"::"Waiting for prepayment";
+                InsertNewStep(SalesH."No.", "A01 ActionStepHistory"::"Change Status", FORMAT(SalesH."A01 Processing Status"::"Waiting for prepayment"), '');
+                SalesH.Modify();
+            end;
         end else
             CheckIsDeliverable(SalesH);
+    end;
+
+    local procedure NeedPrepayment(SalesH: Record "Sales Header"): Boolean
+    var
+        PrepaymentMgt: Codeunit "Prepayment Mgt.";
+    begin
+        if PrepaymentMgt.TestSalesPrepayment(SalesH) then
+            exit(true);
+        if PrepaymentMgt.TestSalesPayment(SalesH) then
+            exit(true);
     end;
 
     local procedure IsOutOfStock(SalesH: Record "Sales Header"; var isTotally: Boolean): Boolean
@@ -123,12 +168,12 @@ codeunit 50000 "A01 Sales Order Processing"
         SalesL.SetRange(SalesL."Document No.", SalesH."No.");
         if SalesL.FindSet() then
             repeat
-                if (SalesL.Type = SalesL.Type::Item) then
+                if (SalesL.Type = SalesL.Type::Item) then begin
                     if ItemCheckAvail.SalesLineShowWarning(SalesL) then
                         outOfStock := true
                     else
                         isTotally := false;
-
+                end;
             until SalesL.Next() < 1;
         exit(outOfStock);
     end;
@@ -172,7 +217,11 @@ codeunit 50000 "A01 Sales Order Processing"
             until SalesL.Next() < 1;
     end;
 
-    local procedure CheckIsDeliverable(var SalesH: Record "Sales Header")
+    /// <summary>
+    /// CheckIsDeliverable.
+    /// </summary>
+    /// <param name="SalesH">VAR Record "Sales Header".</param>
+    procedure CheckIsDeliverable(var SalesH: Record "Sales Header")
     begin
         SalesH."A01 Processing Status" := SalesH."A01 Processing Status"::"Waiting for delivery";
         SalesH.Modify();

@@ -48,6 +48,40 @@ codeunit 50002 "A01 EventsSubscribers_Code"
         TresoMgt.A01_ProcessFeuilleReglementCCL(GenJournalLine);
     end;
 
+    // [EventSubscriber(ObjectType::Codeunit, Codeunit::"Release Sales Document", 'OnCodeOnBeforeSetStatusReleased', '', true, true)]
+    // local procedure OnCodeOnBeforeSetStatusReleased_ReleaseSalesDocument(var SalesHeader: Record "Sales Header")
+    // var
+    //     SalesOrderMgt: Codeunit "A01 Sales Order Processing";
+    // begin
+    //     if (SalesHeader.Status = SalesHeader.Status::"Pending Prepayment") then
+    //         SalesOrderMgt.CheckIsDeliverable(SalesHeader);
+    // end;
+
+    [EventSubscriber(ObjectType::Codeunit, Codeunit::"Gen. Jnl.-Post Line", 'OnAfterApplyCustLedgEntry', '', true, true)]
+    local procedure OnAfterApplyCustLedgEntry_GenJnlPostLine(var GenJnlLine: Record "Gen. Journal Line"; var NewCVLedgEntryBuf: Record "CV Ledger Entry Buffer"; var OldCustLedgEntry: Record "Cust. Ledger Entry"; NewRemainingAmtBeforeAppln: Decimal)
+    var
+        PostedSalesH: Record "Sales Invoice Header";
+        SalesHeader: Record "Sales Header";
+        SalesOrderMgt: Codeunit "A01 Sales Order Processing";
+
+    begin
+        // if (PostedSalesH.Get(GenJournalLine."Document No.")) then
+        //     if (PostedSalesH."Prepayment Invoice") then
+        //         if (SalesHeader.Get(SalesHeader."Document Type"::Order, PostedSalesH."Order No.")) then
+        //             if (SalesHeader.Status = SalesHeader.Status::"Pending Prepayment") then
+        //                 SalesOrderMgt.CheckIsAwaitingPrepayment(SalesHeader);
+        if (OldCustLedgEntry.Prepayment) then
+            if (OldCustLedgEntry."Document Type" = OldCustLedgEntry."Document Type"::Invoice) then
+                if (PostedSalesH.Get(OldCustLedgEntry."Document No.")) then
+                    if (PostedSalesH."Prepayment Invoice") then
+                        if (SalesHeader.Get(SalesHeader."Document Type"::Order, PostedSalesH."Prepayment Order No.")) then
+                            if (SalesHeader.Status = SalesHeader.Status::"Pending Prepayment") then
+                                SalesOrderMgt.CheckIsDeliverable(SalesHeader);
+    end;
+
+
+
+
 
 
 
