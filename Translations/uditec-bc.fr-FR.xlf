@@ -7961,7 +7961,7 @@
         </trans-unit>
         <trans-unit id="Report 1114081792 - NamedType 2189117947" size-unit="char" translate="yes" xml:space="preserve">
           <source>Allow Invoice Discount</source>
-          <target state="needs-translation"/>
+          <target state="needs-review-translation">Autoriser la remise sur facture</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Report A01 PurchaseOrderPrint - NamedType AllowInvoiceDiscCaptionLbl</note>
         </trans-unit>
@@ -7973,73 +7973,73 @@
         </trans-unit>
         <trans-unit id="Report 1114081792 - NamedType 1908025102" size-unit="char" translate="yes" xml:space="preserve">
           <source>The purchase order is attached to this message.</source>
-          <target state="needs-translation"/>
+          <target state="needs-review-translation">Le bon de commande est joint à cette facture.</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Report A01 PurchaseOrderPrint - NamedType BodyLbl</note>
         </trans-unit>
         <trans-unit id="Report 1114081792 - NamedType 1930263167" size-unit="char" translate="yes" xml:space="preserve">
           <source>Buyer</source>
-          <target state="needs-translation"/>
+          <target state="needs-review-translation">Acheteur</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Report A01 PurchaseOrderPrint - NamedType BuyerCaptionLbl</note>
         </trans-unit>
         <trans-unit id="Report 1114081792 - NamedType 2609547522" size-unit="char" translate="yes" xml:space="preserve">
           <source>Buy-from Contact E-Mail</source>
-          <target state="needs-translation"/>
+          <target state="needs-review-translation">E-Mail du contact d'achat</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Report A01 PurchaseOrderPrint - NamedType BuyFromContactEmailLbl</note>
         </trans-unit>
         <trans-unit id="Report 1114081792 - NamedType 2182502985" size-unit="char" translate="yes" xml:space="preserve">
           <source>Buy-from Contact Mobile Phone No.</source>
-          <target state="needs-translation"/>
+          <target state="needs-review-translation">Numéro de téléphone portable du contact d'achat</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Report A01 PurchaseOrderPrint - NamedType BuyFromContactMobilePhoneNoLbl</note>
         </trans-unit>
         <trans-unit id="Report 1114081792 - NamedType 2508934449" size-unit="char" translate="yes" xml:space="preserve">
           <source>Buy-from Contact Phone No.</source>
-          <target state="needs-translation"/>
+          <target state="needs-review-translation">Numéro de téléphone du contact d'achat</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Report A01 PurchaseOrderPrint - NamedType BuyFromContactPhoneNoLbl</note>
         </trans-unit>
         <trans-unit id="Report 1114081792 - NamedType 2771379227" size-unit="char" translate="yes" xml:space="preserve">
           <source>Sincerely</source>
-          <target state="needs-translation"/>
+          <target state="needs-review-translation">Sincèrement</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Report A01 PurchaseOrderPrint - NamedType ClosingLbl</note>
         </trans-unit>
         <trans-unit id="Report 1114081792 - NamedType 2438826717" size-unit="char" translate="yes" xml:space="preserve">
           <source>Account No.</source>
-          <target state="needs-translation"/>
+          <target state="needs-review-translation">N ° de compte.</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Report A01 PurchaseOrderPrint - NamedType CompanyInfoBankAccNoCaptionLbl</note>
         </trans-unit>
         <trans-unit id="Report 1114081792 - NamedType 1275674192" size-unit="char" translate="yes" xml:space="preserve">
           <source>Bank</source>
-          <target state="needs-translation"/>
+          <target state="needs-review-translation">Banque</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Report A01 PurchaseOrderPrint - NamedType CompanyInfoBankNameCaptionLbl</note>
         </trans-unit>
         <trans-unit id="Report 1114081792 - NamedType 1454106313" size-unit="char" translate="yes" xml:space="preserve">
           <source>Giro No.</source>
-          <target state="needs-translation"/>
+          <target state="needs-review-translation">N° Giro</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Report A01 PurchaseOrderPrint - NamedType CompanyInfoGiroNoCaptionLbl</note>
         </trans-unit>
         <trans-unit id="Report 1114081792 - NamedType 2826867220" size-unit="char" translate="yes" xml:space="preserve">
           <source>Phone No.</source>
-          <target state="needs-translation"/>
+          <target state="needs-review-translation">N° téléphone</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Report A01 PurchaseOrderPrint - NamedType CompanyInfoPhoneNoCaptionLbl</note>
         </trans-unit>
         <trans-unit id="Report 1114081792 - NamedType 75049271" size-unit="char" translate="yes" xml:space="preserve">
           <source>Confirm To</source>
-          <target state="needs-translation"/>
+          <target state="needs-review-translation">Confirmer</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Report A01 PurchaseOrderPrint - NamedType ConfirmToCaptionLbl</note>
         </trans-unit>
         <trans-unit id="Report 1114081792 - NamedType 3801332884" size-unit="char" translate="yes" xml:space="preserve">
           <source>Direct Unit Cost</source>
-          <target state="needs-translation"/>
+          <target state="needs-review-translation">Coût unitaire direct</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Report A01 PurchaseOrderPrint - NamedType DirectUniCostCaptionLbl</note>
         </trans-unit>
@@ -8057,37 +8057,37 @@
         </trans-unit>
         <trans-unit id="Report 1114081792 - NamedType 3897674943" size-unit="char" translate="yes" xml:space="preserve">
           <source>Email</source>
-          <target state="needs-translation"/>
+          <target state="needs-review-translation">E-mail</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Report A01 PurchaseOrderPrint - NamedType EmailIDCaptionLbl</note>
         </trans-unit>
         <trans-unit id="Report 1114081792 - NamedType 1909269221" size-unit="char" translate="yes" xml:space="preserve">
           <source>Exchange rate: %1/%2</source>
-          <target state="needs-translation"/>
+          <target state="needs-review-translation">Taux de change : %1/%2</target>
           <note from="Developer" annotates="general" priority="2">%1 = CurrExchRate."Relational Exch. Rate Amount", %2 = CurrExchRate."Exchange Rate Amount"</note>
           <note from="Xliff Generator" annotates="general" priority="3">Report A01 PurchaseOrderPrint - NamedType ExchangeRateLbl</note>
         </trans-unit>
         <trans-unit id="Report 1114081792 - NamedType 340642376" size-unit="char" translate="yes" xml:space="preserve">
           <source>Expected Receipt Date</source>
-          <target state="needs-translation"/>
+          <target state="needs-review-translation">Date de réception prévue</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Report A01 PurchaseOrderPrint - NamedType ExpectedReceiptDateLbl</note>
         </trans-unit>
         <trans-unit id="Report 1114081792 - NamedType 514421613" size-unit="char" translate="yes" xml:space="preserve">
           <source>Hello</source>
-          <target state="needs-translation"/>
+          <target state="needs-review-translation">Salut</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Report A01 PurchaseOrderPrint - NamedType GreetingLbl</note>
         </trans-unit>
         <trans-unit id="Report 1114081792 - NamedType 2862688884" size-unit="char" translate="yes" xml:space="preserve">
           <source>Home Page</source>
-          <target state="needs-translation"/>
+          <target state="needs-review-translation">Page d'accueil</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Report A01 PurchaseOrderPrint - NamedType HomePageCaptionLbl</note>
         </trans-unit>
         <trans-unit id="Report 1114081792 - NamedType 1170285572" size-unit="char" translate="yes" xml:space="preserve">
           <source>Invoice Discount:</source>
-          <target state="needs-translation"/>
+          <target state="needs-review-translation">Remise facture:</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Report A01 PurchaseOrderPrint - NamedType InvDiscCaptionLbl</note>
         </trans-unit>
@@ -8099,13 +8099,13 @@
         </trans-unit>
         <trans-unit id="Report 1114081792 - NamedType 3269490021" size-unit="char" translate="yes" xml:space="preserve">
           <source>Line Amount</source>
-          <target state="needs-translation"/>
+          <target state="needs-review-translation">Montant ligne</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Report A01 PurchaseOrderPrint - NamedType ItemLineAmountCaptionLbl</note>
         </trans-unit>
         <trans-unit id="Report 1114081792 - NamedType 41194798" size-unit="char" translate="yes" xml:space="preserve">
           <source>Item No.</source>
-          <target state="needs-translation"/>
+          <target state="needs-review-translation">No article.</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Report A01 PurchaseOrderPrint - NamedType ItemNumberCaptionLbl</note>
         </trans-unit>
@@ -8135,133 +8135,133 @@
         </trans-unit>
         <trans-unit id="Report 1114081792 - NamedType 3184947576" size-unit="char" translate="yes" xml:space="preserve">
           <source>Job No.</source>
-          <target state="needs-translation"/>
+          <target state="needs-review-translation">No travail</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Report A01 PurchaseOrderPrint - NamedType JobNoLbl</note>
         </trans-unit>
         <trans-unit id="Report 1114081792 - NamedType 1742294907" size-unit="char" translate="yes" xml:space="preserve">
           <source>Job Task No.</source>
-          <target state="needs-translation"/>
+          <target state="needs-review-translation">Tâche de travail n°</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Report A01 PurchaseOrderPrint - NamedType JobTaskNoLbl</note>
         </trans-unit>
         <trans-unit id="Report 1114081792 - NamedType 2134599625" size-unit="char" translate="yes" xml:space="preserve">
           <source>Local Currency</source>
-          <target state="needs-translation"/>
+          <target state="needs-review-translation">Devise locale</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Report A01 PurchaseOrderPrint - NamedType LocalCurrentyLbl</note>
         </trans-unit>
         <trans-unit id="Report 1114081792 - NamedType 1095348740" size-unit="char" translate="yes" xml:space="preserve">
           <source>Order Date</source>
-          <target state="needs-translation"/>
+          <target state="needs-review-translation">Date de la commande</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Report A01 PurchaseOrderPrint - NamedType OrderDateLbl</note>
         </trans-unit>
         <trans-unit id="Report 1114081792 - NamedType 2219219549" size-unit="char" translate="yes" xml:space="preserve">
           <source>Order No.</source>
-          <target state="needs-translation"/>
+          <target state="needs-review-translation">No de la commande</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Report A01 PurchaseOrderPrint - NamedType OrderNoCaptionLbl</note>
         </trans-unit>
         <trans-unit id="Report 1114081792 - NamedType 650077689" size-unit="char" translate="yes" xml:space="preserve">
           <source>Page</source>
-          <target state="needs-translation"/>
+          <target state="needs-review-translation">Page</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Report A01 PurchaseOrderPrint - NamedType PageCaptionLbl</note>
         </trans-unit>
         <trans-unit id="Report 1114081792 - NamedType 2893846144" size-unit="char" translate="yes" xml:space="preserve">
           <source>Payment Details</source>
-          <target state="needs-translation"/>
+          <target state="needs-review-translation">Details du paiement</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Report A01 PurchaseOrderPrint - NamedType PaymentDetailsCaptionLbl</note>
         </trans-unit>
         <trans-unit id="Report 1114081792 - NamedType 3169568710" size-unit="char" translate="yes" xml:space="preserve">
           <source>Payment Terms</source>
-          <target state="needs-translation"/>
+          <target state="needs-review-translation">Conditions de paiement</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Report A01 PurchaseOrderPrint - NamedType PaymentTermsDescCaptionLbl</note>
         </trans-unit>
         <trans-unit id="Report 1114081792 - NamedType 2079014799" size-unit="char" translate="yes" xml:space="preserve">
           <source>Pay-to Contact E-Mail</source>
-          <target state="needs-translation"/>
+          <target state="needs-review-translation">E-mail du contact payant</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Report A01 PurchaseOrderPrint - NamedType PayToContactEmailLbl</note>
         </trans-unit>
         <trans-unit id="Report 1114081792 - NamedType 3401923736" size-unit="char" translate="yes" xml:space="preserve">
           <source>Pay-to Contact Mobile Phone No.</source>
-          <target state="needs-translation"/>
+          <target state="needs-review-translation">Numéro de téléphone portable du contact payant</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Report A01 PurchaseOrderPrint - NamedType PayToContactMobilePhoneNoLbl</note>
         </trans-unit>
         <trans-unit id="Report 1114081792 - NamedType 1854022560" size-unit="char" translate="yes" xml:space="preserve">
           <source>Pay-to Contact Phone No.</source>
-          <target state="needs-translation"/>
+          <target state="needs-review-translation">Numéro de téléphone du contact payant</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Report A01 PurchaseOrderPrint - NamedType PayToContactPhoneNoLbl</note>
         </trans-unit>
         <trans-unit id="Report 1114081792 - NamedType 3626250946" size-unit="char" translate="yes" xml:space="preserve">
           <source>Planned Receipt Date</source>
-          <target state="needs-translation"/>
+          <target state="needs-review-translation">Date de réception prévue</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Report A01 PurchaseOrderPrint - NamedType PlannedReceiptDateLbl</note>
         </trans-unit>
         <trans-unit id="Report 1114081792 - NamedType 3013644840" size-unit="char" translate="yes" xml:space="preserve">
           <source>Prepayment Specification</source>
-          <target state="needs-translation"/>
+          <target state="needs-review-translation">Spécification de l'acompte</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Report A01 PurchaseOrderPrint - NamedType PrepaymentSpecCaptionLbl</note>
         </trans-unit>
         <trans-unit id="Report 1114081792 - NamedType 2780112871" size-unit="char" translate="yes" xml:space="preserve">
           <source>Description</source>
-          <target state="needs-translation"/>
+          <target state="needs-review-translation">Désignation</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Report A01 PurchaseOrderPrint - NamedType PrepmtInvBuDescCaptionLbl</note>
         </trans-unit>
         <trans-unit id="Report 1114081792 - NamedType 1225323363" size-unit="char" translate="yes" xml:space="preserve">
           <source>G/L Account No.</source>
-          <target state="needs-translation"/>
+          <target state="needs-review-translation">No compte général</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Report A01 PurchaseOrderPrint - NamedType PrepmtInvBufGLAccNoCaptionLbl</note>
         </trans-unit>
         <trans-unit id="Report 1114081792 - NamedType 2677110465" size-unit="char" translate="yes" xml:space="preserve">
           <source>Prepmt. Payment Terms</source>
-          <target state="needs-translation"/>
+          <target state="needs-review-translation">Conditions de paiement acompte</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Report A01 PurchaseOrderPrint - NamedType PrepymtTermsDescCaptionLbl</note>
         </trans-unit>
         <trans-unit id="Report 1114081792 - NamedType 182229247" size-unit="char" translate="yes" xml:space="preserve">
           <source>Prepayment VAT Amount Specification</source>
-          <target state="needs-translation"/>
+          <target state="needs-review-translation">Spécification du montant TVA de l'acompte</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Report A01 PurchaseOrderPrint - NamedType PrepymtVATAmtSpecCaptionLbl</note>
         </trans-unit>
         <trans-unit id="Report 1114081792 - NamedType 611284396" size-unit="char" translate="yes" xml:space="preserve">
           <source>Prices Including VAT</source>
-          <target state="needs-translation"/>
+          <target state="needs-review-translation">Prix TTC</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Report A01 PurchaseOrderPrint - NamedType PricesIncludingVATCaptionLbl</note>
         </trans-unit>
         <trans-unit id="Report 1114081792 - NamedType 1332311937" size-unit="char" translate="yes" xml:space="preserve">
           <source>Prices Including VAT</source>
-          <target state="needs-translation"/>
+          <target state="needs-review-translation">Prix TTC</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Report A01 PurchaseOrderPrint - NamedType PricesInclVATtxtLbl</note>
         </trans-unit>
         <trans-unit id="Report 1114081792 - NamedType 122545475" size-unit="char" translate="yes" xml:space="preserve">
           <source>Promised Receipt Date</source>
-          <target state="needs-translation"/>
+          <target state="needs-review-translation">Date de réception promise</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Report A01 PurchaseOrderPrint - NamedType PromisedReceiptDateLbl</note>
         </trans-unit>
         <trans-unit id="Report 1114081792 - NamedType 634581238" size-unit="char" translate="yes" xml:space="preserve">
           <source>Invoice Discount Amount</source>
-          <target state="needs-translation"/>
+          <target state="needs-review-translation">Montant de la remise sur facture</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Report A01 PurchaseOrderPrint - NamedType PurchLineInvDiscAmtCaptionLbl</note>
         </trans-unit>
         <trans-unit id="Report 1114081792 - NamedType 3411081103" size-unit="char" translate="yes" xml:space="preserve">
           <source>Discount %</source>
-          <target state="needs-translation"/>
+          <target state="needs-review-translation">Pourcentage remise</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Report A01 PurchaseOrderPrint - NamedType PurchLineLineDiscCaptionLbl</note>
         </trans-unit>
@@ -8285,139 +8285,139 @@
         </trans-unit>
         <trans-unit id="Report 1114081792 - NamedType 415620768" size-unit="char" translate="yes" xml:space="preserve">
           <source>Receive By</source>
-          <target state="needs-translation"/>
+          <target state="needs-review-translation">Reçu par</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Report A01 PurchaseOrderPrint - NamedType ReceivebyCaptionLbl</note>
         </trans-unit>
         <trans-unit id="Report 1114081792 - NamedType 2291760470" size-unit="char" translate="yes" xml:space="preserve">
           <source>Requested Receipt Date</source>
-          <target state="needs-translation"/>
+          <target state="needs-review-translation">Date de réception demandée</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Report A01 PurchaseOrderPrint - NamedType RequestedReceiptDateLbl</note>
         </trans-unit>
         <trans-unit id="Report 1114081792 - NamedType 203962742" size-unit="char" translate="yes" xml:space="preserve">
           <source>Shipment Method</source>
-          <target state="needs-translation"/>
+          <target state="needs-review-translation">Méthode d'expédition</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Report A01 PurchaseOrderPrint - NamedType ShipmentMethodDescCaptionLbl</note>
         </trans-unit>
         <trans-unit id="Report 1114081792 - NamedType 232471621" size-unit="char" translate="yes" xml:space="preserve">
           <source>Ship-to Address</source>
-          <target state="needs-translation"/>
+          <target state="needs-review-translation">Adresse d'expédition</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Report A01 PurchaseOrderPrint - NamedType ShiptoAddressCaptionLbl</note>
         </trans-unit>
         <trans-unit id="Report 1114081792 - NamedType 3126303398" size-unit="char" translate="yes" xml:space="preserve">
           <source>Subtotal</source>
-          <target state="needs-translation"/>
+          <target state="needs-review-translation">Total</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Report A01 PurchaseOrderPrint - NamedType SubtotalCaptionLbl</note>
         </trans-unit>
         <trans-unit id="Report 1114081792 - NamedType 1729335317" size-unit="char" translate="yes" xml:space="preserve">
           <source>Tax Ident. Type</source>
-          <target state="needs-translation"/>
+          <target state="needs-review-translation">Type de numéro d'identification fiscale</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Report A01 PurchaseOrderPrint - NamedType TaxIdentTypeCaptionLbl</note>
         </trans-unit>
         <trans-unit id="Report 1114081792 - NamedType 2566983481" size-unit="char" translate="yes" xml:space="preserve">
           <source>To:</source>
-          <target state="needs-translation"/>
+          <target state="needs-review-translation">À:</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Report A01 PurchaseOrderPrint - NamedType ToCaptionLbl</note>
         </trans-unit>
         <trans-unit id="Report 1114081792 - NamedType 1583171122" size-unit="char" translate="yes" xml:space="preserve">
           <source>Total</source>
-          <target state="needs-translation"/>
+          <target state="needs-review-translation">Total</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Report A01 PurchaseOrderPrint - NamedType TotalCaptionLbl</note>
         </trans-unit>
         <trans-unit id="Report 1114081792 - NamedType 1349122805" size-unit="char" translate="yes" xml:space="preserve">
           <source>Total Price</source>
-          <target state="needs-translation"/>
+          <target state="needs-review-translation">Prix total</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Report A01 PurchaseOrderPrint - NamedType TotalPriceCaptionLbl</note>
         </trans-unit>
         <trans-unit id="Report 1114081792 - NamedType 2786556803" size-unit="char" translate="yes" xml:space="preserve">
           <source>Unit Price (LCY)</source>
-          <target state="needs-translation"/>
+          <target state="needs-review-translation">Prix unitaire (Devise locale)</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Report A01 PurchaseOrderPrint - NamedType UnitPriceLbl</note>
         </trans-unit>
         <trans-unit id="Report 1114081792 - NamedType 2096959425" size-unit="char" translate="yes" xml:space="preserve">
           <source>VAT Base</source>
-          <target state="needs-translation"/>
+          <target state="needs-review-translation">Base TVA</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Report A01 PurchaseOrderPrint - NamedType VALVATBaseLCYCaptionLbl</note>
         </trans-unit>
         <trans-unit id="Report 1114081792 - NamedType 3915137156" size-unit="char" translate="yes" xml:space="preserve">
           <source>VAT Amount Specification in </source>
-          <target state="needs-translation"/>
+          <target state="needs-review-translation">Spécification du montant de la TVA en</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Report A01 PurchaseOrderPrint - NamedType VATAmountSpecificationLbl</note>
         </trans-unit>
         <trans-unit id="Report 1114081792 - NamedType 1223243188" size-unit="char" translate="yes" xml:space="preserve">
           <source>Invoice Discount Base Amount</source>
-          <target state="needs-translation"/>
+          <target state="needs-review-translation">Montant de base de l'escompte sur facture</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Report A01 PurchaseOrderPrint - NamedType VATAmtLineInvDiscBaseAmtCaptionLbl</note>
         </trans-unit>
         <trans-unit id="Report 1114081792 - NamedType 3691499681" size-unit="char" translate="yes" xml:space="preserve">
           <source>Line Amount</source>
-          <target state="needs-translation"/>
+          <target state="needs-review-translation">Montant ligne</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Report A01 PurchaseOrderPrint - NamedType VATAmtLineLineAmtCaptionLbl</note>
         </trans-unit>
         <trans-unit id="Report 1114081792 - NamedType 977652710" size-unit="char" translate="yes" xml:space="preserve">
           <source>VAT Amount</source>
-          <target state="needs-translation"/>
+          <target state="needs-review-translation">Montant TVA</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Report A01 PurchaseOrderPrint - NamedType VATAmtLineVATAmtCaptionLbl</note>
         </trans-unit>
         <trans-unit id="Report 1114081792 - NamedType 1210262078" size-unit="char" translate="yes" xml:space="preserve">
           <source>VAT %</source>
-          <target state="needs-translation"/>
+          <target state="needs-review-translation">% TVA</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Report A01 PurchaseOrderPrint - NamedType VATAmtLineVATCaptionLbl</note>
         </trans-unit>
         <trans-unit id="Report 1114081792 - NamedType 1396908878" size-unit="char" translate="yes" xml:space="preserve">
           <source>VAT Amount Specification</source>
-          <target state="needs-translation"/>
+          <target state="needs-review-translation">Spécification montant TVA</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Report A01 PurchaseOrderPrint - NamedType VATAmtSpecCaptionLbl</note>
         </trans-unit>
         <trans-unit id="Report 1114081792 - NamedType 232398666" size-unit="char" translate="yes" xml:space="preserve">
           <source>Payment Discount on VAT</source>
-          <target state="needs-translation"/>
+          <target state="needs-review-translation">Remise de paiement sur la TVA</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Report A01 PurchaseOrderPrint - NamedType VATDiscountAmountCaptionLbl</note>
         </trans-unit>
         <trans-unit id="Report 1114081792 - NamedType 2012124496" size-unit="char" translate="yes" xml:space="preserve">
           <source>VAT Identifier</source>
-          <target state="needs-translation"/>
+          <target state="needs-review-translation">Identifiant TVA</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Report A01 PurchaseOrderPrint - NamedType VATIdentifierCaptionLbl</note>
         </trans-unit>
         <trans-unit id="Report 1114081792 - NamedType 132160432" size-unit="char" translate="yes" xml:space="preserve">
           <source>Vendor No.</source>
-          <target state="needs-translation"/>
+          <target state="needs-review-translation">No fournisseur</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Report A01 PurchaseOrderPrint - NamedType VendNoCaptionLbl</note>
         </trans-unit>
         <trans-unit id="Report 1114081792 - NamedType 361562039" size-unit="char" translate="yes" xml:space="preserve">
           <source>Vendor ID</source>
-          <target state="needs-translation"/>
+          <target state="needs-review-translation">ID fournisseur</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Report A01 PurchaseOrderPrint - NamedType VendorIDCaptionLbl</note>
         </trans-unit>
         <trans-unit id="Report 1114081792 - NamedType 1397476154" size-unit="char" translate="yes" xml:space="preserve">
           <source>Vendor Invoice No.</source>
-          <target state="needs-translation"/>
+          <target state="needs-review-translation">Facture fournisseur no.</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Report A01 PurchaseOrderPrint - NamedType VendorInvoiceNoLbl</note>
         </trans-unit>
         <trans-unit id="Report 1114081792 - NamedType 3257397675" size-unit="char" translate="yes" xml:space="preserve">
           <source>Vendor Order No.</source>
-          <target state="needs-translation"/>
+          <target state="needs-review-translation">Commande fournisseur no.</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Report A01 PurchaseOrderPrint - NamedType VendorOrderNoLbl</note>
         </trans-unit>
@@ -8543,103 +8543,103 @@
         </trans-unit>
         <trans-unit id="Report 1130738388 - NamedType 2609547522" size-unit="char" translate="yes" xml:space="preserve">
           <source>Buy-from Contact E-Mail</source>
-          <target state="needs-translation"/>
+          <target state="needs-review-translation">E-Mail du contact d'achat</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Report A01 PurchaseQuotePrint - NamedType BuyFromContactEmailLbl</note>
         </trans-unit>
         <trans-unit id="Report 1130738388 - NamedType 2182502985" size-unit="char" translate="yes" xml:space="preserve">
           <source>Buy-from Contact Mobile Phone No.</source>
-          <target state="needs-translation"/>
+          <target state="needs-review-translation">Téléphone mobile du contact d'achat</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Report A01 PurchaseQuotePrint - NamedType BuyFromContactMobilePhoneNoLbl</note>
         </trans-unit>
         <trans-unit id="Report 1130738388 - NamedType 2508934449" size-unit="char" translate="yes" xml:space="preserve">
           <source>Buy-from Contact Phone No.</source>
-          <target state="needs-translation"/>
+          <target state="needs-review-translation">Numéro de téléphone du contact d'achat</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Report A01 PurchaseQuotePrint - NamedType BuyFromContactPhoneNoLbl</note>
         </trans-unit>
         <trans-unit id="Report 1130738388 - NamedType 1199929732" size-unit="char" translate="yes" xml:space="preserve">
           <source>Bank</source>
-          <target state="needs-translation"/>
+          <target state="needs-review-translation">Banque</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Report A01 PurchaseQuotePrint - NamedType CompanyInfoBankNameCapLbl</note>
         </trans-unit>
         <trans-unit id="Report 1130738388 - NamedType 1673250957" size-unit="char" translate="yes" xml:space="preserve">
           <source>Giro No.</source>
-          <target state="needs-translation"/>
+          <target state="needs-review-translation">No Giro</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Report A01 PurchaseQuotePrint - NamedType CompanyInfoGiroNoCapLbl</note>
         </trans-unit>
         <trans-unit id="Report 1130738388 - NamedType 239945024" size-unit="char" translate="yes" xml:space="preserve">
           <source>Phone No.</source>
-          <target state="needs-translation"/>
+          <target state="needs-review-translation">No téléphone</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Report A01 PurchaseQuotePrint - NamedType CompanyInfoPhoneNoCapLbl</note>
         </trans-unit>
         <trans-unit id="Report 1130738388 - NamedType 2521192077" size-unit="char" translate="yes" xml:space="preserve">
           <source>VAT Reg. No.</source>
-          <target state="needs-translation"/>
+          <target state="needs-review-translation">TVA Reg. No.</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Report A01 PurchaseQuotePrint - NamedType CompanyInfoVATRegNoCapLbl</note>
         </trans-unit>
         <trans-unit id="Report 1130738388 - NamedType 1838934523" size-unit="char" translate="yes" xml:space="preserve">
           <source>Account No.</source>
-          <target state="needs-translation"/>
+          <target state="needs-review-translation">No compte</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Report A01 PurchaseQuotePrint - NamedType CompInfoBankAccNoCapLbl</note>
         </trans-unit>
         <trans-unit id="Report 1130738388 - NamedType 3526054797" size-unit="char" translate="yes" xml:space="preserve">
           <source>Document Date</source>
-          <target state="needs-translation"/>
+          <target state="needs-review-translation">Date du document</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Report A01 PurchaseQuotePrint - NamedType DocumentDateCapLbl</note>
         </trans-unit>
         <trans-unit id="Report 1130738388 - NamedType 595034892" size-unit="char" translate="yes" xml:space="preserve">
           <source>Email</source>
-          <target state="needs-translation"/>
+          <target state="needs-review-translation">Email</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Report A01 PurchaseQuotePrint - NamedType EMailCaptionLbl</note>
         </trans-unit>
         <trans-unit id="Report 1130738388 - NamedType 2862688884" size-unit="char" translate="yes" xml:space="preserve">
           <source>Home Page</source>
-          <target state="needs-translation"/>
+          <target state="needs-review-translation">Page d'accueil</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Report A01 PurchaseQuotePrint - NamedType HomePageCaptionLbl</note>
         </trans-unit>
         <trans-unit id="Report 1130738388 - NamedType 2308951394" size-unit="char" translate="yes" xml:space="preserve">
           <source>Page</source>
-          <target state="needs-translation"/>
+          <target state="needs-review-translation">Page</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Report A01 PurchaseQuotePrint - NamedType PageNoCaptionLbl</note>
         </trans-unit>
         <trans-unit id="Report 1130738388 - NamedType 2079014799" size-unit="char" translate="yes" xml:space="preserve">
           <source>Pay-to Contact E-Mail</source>
-          <target state="needs-translation"/>
+          <target state="needs-review-translation">E-mail du contact payant</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Report A01 PurchaseQuotePrint - NamedType PayToContactEmailLbl</note>
         </trans-unit>
         <trans-unit id="Report 1130738388 - NamedType 3401923736" size-unit="char" translate="yes" xml:space="preserve">
           <source>Pay-to Contact Mobile Phone No.</source>
-          <target state="needs-translation"/>
+          <target state="needs-review-translation">Numéro  de Téléphone mobile du contact payant</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Report A01 PurchaseQuotePrint - NamedType PayToContactMobilePhoneNoLbl</note>
         </trans-unit>
         <trans-unit id="Report 1130738388 - NamedType 1854022560" size-unit="char" translate="yes" xml:space="preserve">
           <source>Pay-to Contact Phone No.</source>
-          <target state="needs-translation"/>
+          <target state="needs-review-translation">Numéro de téléphone du contact payant</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Report A01 PurchaseQuotePrint - NamedType PayToContactPhoneNoLbl</note>
         </trans-unit>
         <trans-unit id="Report 1130738388 - NamedType 2452220408" size-unit="char" translate="yes" xml:space="preserve">
           <source>Description</source>
-          <target state="needs-translation"/>
+          <target state="needs-review-translation">Désignation</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Report A01 PurchaseQuotePrint - NamedType PurchaseLineDescCapLbl</note>
         </trans-unit>
         <trans-unit id="Report 1130738388 - NamedType 1871678036" size-unit="char" translate="yes" xml:space="preserve">
           <source>Item No.</source>
-          <target state="needs-translation"/>
+          <target state="needs-review-translation">No article</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Report A01 PurchaseQuotePrint - NamedType PurchaseLineNoCaptionLbl</note>
         </trans-unit>
@@ -8651,25 +8651,25 @@
         </trans-unit>
         <trans-unit id="Report 1130738388 - NamedType 2406652490" size-unit="char" translate="yes" xml:space="preserve">
           <source>Unit of Measure</source>
-          <target state="needs-translation"/>
+          <target state="needs-review-translation">Unité de mesure</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Report A01 PurchaseQuotePrint - NamedType PurchaseLineUOMCaptionLbl</note>
         </trans-unit>
         <trans-unit id="Report 1130738388 - NamedType 3521906084" size-unit="char" translate="yes" xml:space="preserve">
           <source>Purchaser</source>
-          <target state="needs-translation"/>
+          <target state="needs-review-translation">Acheteur</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Report A01 PurchaseQuotePrint - NamedType PurchaserTextCaptionLbl</note>
         </trans-unit>
         <trans-unit id="Report 1130738388 - NamedType 3926225537" size-unit="char" translate="yes" xml:space="preserve">
           <source>Vendor Item No.</source>
-          <target state="needs-translation"/>
+          <target state="needs-review-translation">No article fournisseur</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Report A01 PurchaseQuotePrint - NamedType PurchLineVendItemNoCapLbl</note>
         </trans-unit>
         <trans-unit id="Report 1130738388 - NamedType 522960854" size-unit="char" translate="yes" xml:space="preserve">
           <source>Your Reference</source>
-          <target state="needs-translation"/>
+          <target state="needs-review-translation">Votre réference</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Report A01 PurchaseQuotePrint - NamedType ReferenceTextCaptionLbl</note>
         </trans-unit>
@@ -8681,19 +8681,19 @@
         </trans-unit>
         <trans-unit id="Report 1130738388 - NamedType 381424994" size-unit="char" translate="yes" xml:space="preserve">
           <source>Shipment Method</source>
-          <target state="needs-translation"/>
+          <target state="needs-review-translation">Methode d'expédition</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Report A01 PurchaseQuotePrint - NamedType ShipmentMethodDescCapLbl</note>
         </trans-unit>
         <trans-unit id="Report 1130738388 - NamedType 232471621" size-unit="char" translate="yes" xml:space="preserve">
           <source>Ship-to Address</source>
-          <target state="needs-translation"/>
+          <target state="needs-review-translation">Adresse d'expédition</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Report A01 PurchaseQuotePrint - NamedType ShiptoAddressCaptionLbl</note>
         </trans-unit>
         <trans-unit id="Report 1130738388 - NamedType 1376724649" size-unit="char" translate="yes" xml:space="preserve">
           <source>VAT Registration No.</source>
-          <target state="needs-translation"/>
+          <target state="needs-review-translation">No d'enregistrement TVA </target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Report A01 PurchaseQuotePrint - NamedType VatRegistrationNoCaptionLbl</note>
         </trans-unit>
@@ -8717,7 +8717,7 @@
         </trans-unit>
         <trans-unit id="Report 1919361468 - NamedType 3630968764" size-unit="char" translate="yes" xml:space="preserve">
           <source>The invoice has been paid.</source>
-          <target state="needs-translation"/>
+          <target state="needs-review-translation">La facture a été payée.</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Report A01 SalesInvoicePrint - NamedType AlreadyPaidLbl</note>
         </trans-unit>
@@ -8741,7 +8741,7 @@
         </trans-unit>
         <trans-unit id="Report 1919361468 - NamedType 857124111" size-unit="char" translate="yes" xml:space="preserve">
           <source>Please make checks payable to %1</source>
-          <target state="needs-translation"/>
+          <target state="needs-review-translation">Veuillez établir des chèques à l'ordre de</target>
           <note from="Developer" annotates="general" priority="2">%1 = company name</note>
           <note from="Xliff Generator" annotates="general" priority="3">Report A01 SalesInvoicePrint - NamedType ChecksPayableLbl</note>
         </trans-unit>
@@ -8753,19 +8753,19 @@
         </trans-unit>
         <trans-unit id="Report 1919361468 - NamedType 3338143750" size-unit="char" translate="yes" xml:space="preserve">
           <source>Bank</source>
-          <target state="needs-translation"/>
+          <target state="needs-review-translation">Banque</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Report A01 SalesInvoicePrint - NamedType CompanyInfoBankNameLbl</note>
         </trans-unit>
         <trans-unit id="Report 1919361468 - NamedType 1810908995" size-unit="char" translate="yes" xml:space="preserve">
           <source>Giro No.</source>
-          <target state="needs-translation"/>
+          <target state="needs-review-translation">No Giro</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Report A01 SalesInvoicePrint - NamedType CompanyInfoGiroNoLbl</note>
         </trans-unit>
         <trans-unit id="Report 1919361468 - NamedType 1970452706" size-unit="char" translate="yes" xml:space="preserve">
           <source>Phone No.</source>
-          <target state="needs-translation"/>
+          <target state="needs-review-translation">No téléphone</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Report A01 SalesInvoicePrint - NamedType CompanyInfoPhoneNoLbl</note>
         </trans-unit>
@@ -8837,19 +8837,19 @@
         </trans-unit>
         <trans-unit id="Report 1919361468 - NamedType 1198791402" size-unit="char" translate="yes" xml:space="preserve">
           <source>Email</source>
-          <target state="needs-translation"/>
+          <target state="needs-review-translation">Email</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Report A01 SalesInvoicePrint - NamedType EMailLbl</note>
         </trans-unit>
         <trans-unit id="Report 1919361468 - NamedType 3642584667" size-unit="char" translate="yes" xml:space="preserve">
           <source>Exchange rate: %1/%2</source>
-          <target state="needs-translation"/>
+          <target state="needs-review-translation">Taux d'echange</target>
           <note from="Developer" annotates="general" priority="2">%1 and %2 are both amounts.</note>
           <note from="Xliff Generator" annotates="general" priority="3">Report A01 SalesInvoicePrint - NamedType ExchangeRateTxt</note>
         </trans-unit>
         <trans-unit id="Report 1919361468 - NamedType 1243851074" size-unit="char" translate="yes" xml:space="preserve">
           <source>Home Page</source>
-          <target state="needs-translation"/>
+          <target state="needs-review-translation">Page d'accueil</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Report A01 SalesInvoicePrint - NamedType HomePageLbl</note>
         </trans-unit>
@@ -8867,7 +8867,7 @@
         </trans-unit>
         <trans-unit id="Report 1919361468 - NamedType 3079811618" size-unit="char" translate="yes" xml:space="preserve">
           <source>Invoice Discount</source>
-          <target state="needs-translation"/>
+          <target state="needs-review-translation">Remise facture</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Report A01 SalesInvoicePrint - NamedType InvDiscountAmtLbl</note>
         </trans-unit>
@@ -8885,19 +8885,19 @@
         </trans-unit>
         <trans-unit id="Report 1919361468 - NamedType 327693762" size-unit="char" translate="yes" xml:space="preserve">
           <source>Job No.</source>
-          <target state="needs-translation"/>
+          <target state="needs-review-translation">No travail</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Report A01 SalesInvoicePrint - NamedType JobNoLbl2</note>
         </trans-unit>
         <trans-unit id="Report 1919361468 - NamedType 194808771" size-unit="char" translate="yes" xml:space="preserve">
           <source>Job Task Description</source>
-          <target state="needs-translation"/>
+          <target state="needs-review-translation">Description de la tâche du poste</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Report A01 SalesInvoicePrint - NamedType JobTaskDescLbl</note>
         </trans-unit>
         <trans-unit id="Report 1919361468 - NamedType 1518908157" size-unit="char" translate="yes" xml:space="preserve">
           <source>Job Task No.</source>
-          <target state="needs-translation"/>
+          <target state="needs-review-translation">Tâche de travail n°</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Report A01 SalesInvoicePrint - NamedType JobTaskNoLbl2</note>
         </trans-unit>
@@ -8909,13 +8909,13 @@
         </trans-unit>
         <trans-unit id="Report 1919361468 - NamedType 2491107794" size-unit="char" translate="yes" xml:space="preserve">
           <source>You must specify one or more filters to avoid accidently printing all documents.</source>
-          <target state="needs-translation"/>
+          <target state="needs-review-translation">Vous devez spécifier un ou plusieurs filtres pour éviter d'imprimer accidentellement tous les documents</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Report A01 SalesInvoicePrint - NamedType NoFilterSetErr</note>
         </trans-unit>
         <trans-unit id="Report 1919361468 - NamedType 3539596564" size-unit="char" translate="yes" xml:space="preserve">
           <source>The invoice has been partially paid. The remaining amount is %1</source>
-          <target state="needs-translation"/>
+          <target state="needs-review-translation">La facture a été partiellement payée. Le montant restant est de</target>
           <note from="Developer" annotates="general" priority="2">%1=an amount</note>
           <note from="Xliff Generator" annotates="general" priority="3">Report A01 SalesInvoicePrint - NamedType PartiallyPaidLbl</note>
         </trans-unit>
@@ -8927,25 +8927,25 @@
         </trans-unit>
         <trans-unit id="Report 1919361468 - NamedType 2906320672" size-unit="char" translate="yes" xml:space="preserve">
           <source>Payment Terms :</source>
-          <target state="needs-translation"/>
+          <target state="needs-review-translation">Conditions de paiement :</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Report A01 SalesInvoicePrint - NamedType PaymentTermsDescLbl</note>
         </trans-unit>
         <trans-unit id="Report 1919361468 - NamedType 3007589352" size-unit="char" translate="yes" xml:space="preserve">
           <source>If we receive the payment before %1, you are eligible for a %2% payment discount.</source>
-          <target state="needs-translation"/>
+          <target state="needs-review-translation">Si nous recevons le paiement avant, vous avez droit à une remise de paiement de </target>
           <note from="Developer" annotates="general" priority="2">%1 Discount Due Date %2 = value of Payment Discount % </note>
           <note from="Xliff Generator" annotates="general" priority="3">Report A01 SalesInvoicePrint - NamedType PmtDiscTxt</note>
         </trans-unit>
         <trans-unit id="Report 1919361468 - NamedType 3790346625" size-unit="char" translate="yes" xml:space="preserve">
           <source>Price</source>
-          <target state="needs-translation"/>
+          <target state="needs-review-translation">Prix</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Report A01 SalesInvoicePrint - NamedType PriceLbl</note>
         </trans-unit>
         <trans-unit id="Report 1919361468 - NamedType 822797676" size-unit="char" translate="yes" xml:space="preserve">
           <source>Price per</source>
-          <target state="needs-translation"/>
+          <target state="needs-review-translation">Prix par</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Report A01 SalesInvoicePrint - NamedType PricePerLbl</note>
         </trans-unit>
@@ -8981,7 +8981,7 @@
         </trans-unit>
         <trans-unit id="Report 1919361468 - NamedType 2175793069" size-unit="char" translate="yes" xml:space="preserve">
           <source>Shipment Method</source>
-          <target state="needs-translation"/>
+          <target state="needs-review-translation">Methode d'expédition</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Report A01 SalesInvoicePrint - NamedType ShptMethodDescLbl</note>
         </trans-unit>
@@ -8993,7 +8993,7 @@
         </trans-unit>
         <trans-unit id="Report 1919361468 - NamedType 3014721408" size-unit="char" translate="yes" xml:space="preserve">
           <source>Subtotal</source>
-          <target state="needs-translation"/>
+          <target state="needs-review-translation">Total</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Report A01 SalesInvoicePrint - NamedType SubtotalLbl</note>
         </trans-unit>
@@ -9023,7 +9023,7 @@
         </trans-unit>
         <trans-unit id="Report 1919361468 - NamedType 984818344" size-unit="char" translate="yes" xml:space="preserve">
           <source>Unit</source>
-          <target state="needs-translation"/>
+          <target state="needs-review-translation">Nom de l'unité</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Report A01 SalesInvoicePrint - NamedType UnitLbl</note>
         </trans-unit>
@@ -9059,7 +9059,7 @@
         </trans-unit>
         <trans-unit id="Report 1919361468 - NamedType 2760006609" size-unit="char" translate="yes" xml:space="preserve">
           <source>VAT clause</source>
-          <target state="needs-translation"/>
+          <target state="needs-review-translation">Clause TVA</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Report A01 SalesInvoicePrint - NamedType VATClausesLbl</note>
         </trans-unit>
@@ -9173,7 +9173,7 @@
         </trans-unit>
         <trans-unit id="Report 3247732489 - NamedType 1344531350" size-unit="char" translate="yes" xml:space="preserve">
           <source>Offer subject to conditions. See in store</source>
-          <target state="needs-translation"/>
+          <target state="needs-review-translation">Offre soumise à conditions. Voir en magasin</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Report A01 SalesOrderPrint - NamedType A01OffreLbl</note>
         </trans-unit>
@@ -9263,49 +9263,49 @@
         </trans-unit>
         <trans-unit id="Report 3247732489 - NamedType 1851005282" size-unit="char" translate="yes" xml:space="preserve">
           <source>Bill-to Contact E-Mail</source>
-          <target state="needs-translation"/>
+          <target state="needs-review-translation">E-mail du contact de facturation</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Report A01 SalesOrderPrint - NamedType BillToContactEmailLbl</note>
         </trans-unit>
         <trans-unit id="Report 3247732489 - NamedType 2423794985" size-unit="char" translate="yes" xml:space="preserve">
           <source>Bill-to Contact Mobile Phone No.</source>
-          <target state="needs-translation"/>
+          <target state="needs-review-translation">Numéro de téléphone mobile du contact de facturation</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Report A01 SalesOrderPrint - NamedType BillToContactMobilePhoneNoLbl</note>
         </trans-unit>
         <trans-unit id="Report 3247732489 - NamedType 24137681" size-unit="char" translate="yes" xml:space="preserve">
           <source>Bill-to Contact Phone No.</source>
-          <target state="needs-translation"/>
+          <target state="needs-review-translation">Numéro de téléphone du contact de facturation</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Report A01 SalesOrderPrint - NamedType BillToContactPhoneNoLbl</note>
         </trans-unit>
         <trans-unit id="Report 3247732489 - NamedType 1464398968" size-unit="char" translate="yes" xml:space="preserve">
           <source>Country</source>
-          <target state="needs-translation"/>
+          <target state="needs-review-translation">Pays</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Report A01 SalesOrderPrint - NamedType CountryOfManufactuctureLbl</note>
         </trans-unit>
         <trans-unit id="Report 3247732489 - NamedType 3878637365" size-unit="char" translate="yes" xml:space="preserve">
           <source>For customs purposes only.</source>
-          <target state="needs-translation"/>
+          <target state="needs-review-translation">À l'usage des douanes seulement.</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Report A01 SalesOrderPrint - NamedType DeclartionLbl</note>
         </trans-unit>
         <trans-unit id="Report 3247732489 - NamedType 2623093095" size-unit="char" translate="yes" xml:space="preserve">
           <source>Pro Forma Invoice</source>
-          <target state="needs-translation"/>
+          <target state="needs-review-translation">Facture Proforma</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Report A01 SalesOrderPrint - NamedType DocumentTitleLbl</note>
         </trans-unit>
         <trans-unit id="Report 3247732489 - NamedType 3642584667" size-unit="char" translate="yes" xml:space="preserve">
           <source>Exchange rate: %1/%2</source>
-          <target state="needs-translation"/>
+          <target state="needs-review-translation">Taux d'echange</target>
           <note from="Developer" annotates="general" priority="2">%1 and %2 are both amounts.</note>
           <note from="Xliff Generator" annotates="general" priority="3">Report A01 SalesOrderPrint - NamedType ExchangeRateTxt</note>
         </trans-unit>
         <trans-unit id="Report 3247732489 - NamedType 1877187315" size-unit="char" translate="yes" xml:space="preserve">
           <source>Page</source>
-          <target state="needs-translation"/>
+          <target state="needs-review-translation">Page</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Report A01 SalesOrderPrint - NamedType PageLbl</note>
         </trans-unit>
@@ -9317,49 +9317,49 @@
         </trans-unit>
         <trans-unit id="Report 3247732489 - NamedType 2518404021" size-unit="char" translate="yes" xml:space="preserve">
           <source>Sell-to Contact E-Mail</source>
-          <target state="needs-translation"/>
+          <target state="needs-review-translation">E-mail du contact de vente</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Report A01 SalesOrderPrint - NamedType SellToContactEmailLbl</note>
         </trans-unit>
         <trans-unit id="Report 3247732489 - NamedType 689955230" size-unit="char" translate="yes" xml:space="preserve">
           <source>Sell-to Contact Mobile Phone No.</source>
-          <target state="needs-translation"/>
+          <target state="needs-review-translation">Numéro de téléphone mobile du contact de vente</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Report A01 SalesOrderPrint - NamedType SellToContactMobilePhoneNoLbl</note>
         </trans-unit>
         <trans-unit id="Report 3247732489 - NamedType 1096796838" size-unit="char" translate="yes" xml:space="preserve">
           <source>Sell-to Contact Phone No.</source>
-          <target state="needs-translation"/>
+          <target state="needs-review-translation">Numéro de téléphone du contact</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Report A01 SalesOrderPrint - NamedType SellToContactPhoneNoLbl</note>
         </trans-unit>
         <trans-unit id="Report 3247732489 - NamedType 3058433994" size-unit="char" translate="yes" xml:space="preserve">
           <source>For and on behalf of the above named company:</source>
-          <target state="needs-translation"/>
+          <target state="needs-review-translation">Pour et au nom de la société susmentionnée</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Report A01 SalesOrderPrint - NamedType SignatureLbl</note>
         </trans-unit>
         <trans-unit id="Report 3247732489 - NamedType 1119192707" size-unit="char" translate="yes" xml:space="preserve">
           <source>Name (in print) Signature</source>
-          <target state="needs-translation"/>
+          <target state="needs-review-translation">Nom (en caractères d'imprimerie) Signature</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Report A01 SalesOrderPrint - NamedType SignatureNameLbl</note>
         </trans-unit>
         <trans-unit id="Report 3247732489 - NamedType 2756798833" size-unit="char" translate="yes" xml:space="preserve">
           <source>Position in company</source>
-          <target state="needs-translation"/>
+          <target state="needs-review-translation">Poste dans la société</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Report A01 SalesOrderPrint - NamedType SignaturePositionLbl</note>
         </trans-unit>
         <trans-unit id="Report 3247732489 - NamedType 3182469044" size-unit="char" translate="yes" xml:space="preserve">
           <source>Total Weight</source>
-          <target state="needs-translation"/>
+          <target state="needs-review-translation">Poids total</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Report A01 SalesOrderPrint - NamedType TotalWeightLbl</note>
         </trans-unit>
         <trans-unit id="Report 3247732489 - ReportDataItem 907109761 - Property 1806354803" size-unit="char" translate="yes" xml:space="preserve">
           <source>Pro Forma Invoice</source>
-          <target state="needs-translation"/>
+          <target state="needs-review-translation">Facture proforma</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Report A01 SalesOrderPrint - ReportDataItem Header - Property RequestFilterHeading</note>
         </trans-unit>
@@ -9377,7 +9377,7 @@
         </trans-unit>
         <trans-unit id="Report 2502538013 - NamedType 1908025102" size-unit="char" translate="yes" xml:space="preserve">
           <source>Thank you for your business. Your quote is attached to this message.</source>
-          <target state="needs-translation"/>
+          <target state="needs-review-translation">Merci pour votre entreprise. Votre devis est joint à ce message</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Report A01 SalesQuotePrint - NamedType BodyLbl</note>
         </trans-unit>
@@ -9389,7 +9389,7 @@
         </trans-unit>
         <trans-unit id="Report 2502538013 - NamedType 2771379227" size-unit="char" translate="yes" xml:space="preserve">
           <source>Sincerely</source>
-          <target state="needs-translation"/>
+          <target state="needs-review-translation">Sincèrement</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Report A01 SalesQuotePrint - NamedType ClosingLbl</note>
         </trans-unit>
@@ -9467,25 +9467,25 @@
         </trans-unit>
         <trans-unit id="Report 2502538013 - NamedType 3642584667" size-unit="char" translate="yes" xml:space="preserve">
           <source>Exchange rate: %1/%2</source>
-          <target state="needs-translation"/>
+          <target state="needs-review-translation">Taux d'echange</target>
           <note from="Developer" annotates="general" priority="2">%1 and %2 are both amounts.</note>
           <note from="Xliff Generator" annotates="general" priority="3">Report A01 SalesQuotePrint - NamedType ExchangeRateTxt</note>
         </trans-unit>
         <trans-unit id="Report 2502538013 - NamedType 514421613" size-unit="char" translate="yes" xml:space="preserve">
           <source>Hello</source>
-          <target state="needs-translation"/>
+          <target state="needs-review-translation">Salut</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Report A01 SalesQuotePrint - NamedType GreetingLbl</note>
         </trans-unit>
         <trans-unit id="Report 2502538013 - NamedType 3079811618" size-unit="char" translate="yes" xml:space="preserve">
           <source>Invoice Discount</source>
-          <target state="needs-translation"/>
+          <target state="needs-review-translation">Remise facture</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Report A01 SalesQuotePrint - NamedType InvDiscountAmtLbl</note>
         </trans-unit>
         <trans-unit id="Report 2502538013 - NamedType 2751058498" size-unit="char" translate="yes" xml:space="preserve">
           <source> (LCY)</source>
-          <target state="needs-translation"/>
+          <target state="needs-review-translation">(Devise société)</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Report A01 SalesQuotePrint - NamedType LCYTxt</note>
         </trans-unit>
@@ -9497,7 +9497,7 @@
         </trans-unit>
         <trans-unit id="Report 2502538013 - NamedType 2491107794" size-unit="char" translate="yes" xml:space="preserve">
           <source>You must specify one or more filters to avoid accidently printing all documents.</source>
-          <target state="needs-translation"/>
+          <target state="needs-review-translation">Vous devez spécifier un ou plusieurs filtres pour éviter d'imprimer accidentellement tous les document</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Report A01 SalesQuotePrint - NamedType NoFilterSetErr</note>
         </trans-unit>
@@ -9509,7 +9509,7 @@
         </trans-unit>
         <trans-unit id="Report 2502538013 - NamedType 3007589352" size-unit="char" translate="yes" xml:space="preserve">
           <source>If we receive the payment before %1, you are eligible for a %2% payment discount.</source>
-          <target state="needs-translation"/>
+          <target state="needs-review-translation">Si nous recevons le paiement avant, vous avez droit à une remise de paiement de</target>
           <note from="Developer" annotates="general" priority="2">%1 = Discount Due Date %2 = value of Payment Discount % </note>
           <note from="Xliff Generator" annotates="general" priority="3">Report A01 SalesQuotePrint - NamedType PmtDiscTxt</note>
         </trans-unit>
@@ -9521,13 +9521,13 @@
         </trans-unit>
         <trans-unit id="Report 2502538013 - NamedType 3790346625" size-unit="char" translate="yes" xml:space="preserve">
           <source>Price</source>
-          <target state="needs-translation"/>
+          <target state="needs-review-translation">Prix</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Report A01 SalesQuotePrint - NamedType PriceLbl</note>
         </trans-unit>
         <trans-unit id="Report 2502538013 - NamedType 822797676" size-unit="char" translate="yes" xml:space="preserve">
           <source>Price per</source>
-          <target state="needs-translation"/>
+          <target state="needs-review-translation">Prix par</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Report A01 SalesQuotePrint - NamedType PricePerLbl</note>
         </trans-unit>
@@ -9575,7 +9575,7 @@
         </trans-unit>
         <trans-unit id="Report 2502538013 - NamedType 3014721408" size-unit="char" translate="yes" xml:space="preserve">
           <source>Subtotal</source>
-          <target state="needs-translation"/>
+          <target state="needs-review-translation">Total</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Report A01 SalesQuotePrint - NamedType SubtotalLbl</note>
         </trans-unit>
@@ -9605,7 +9605,7 @@
         </trans-unit>
         <trans-unit id="Report 2502538013 - NamedType 984818344" size-unit="char" translate="yes" xml:space="preserve">
           <source>Unit</source>
-          <target state="needs-translation"/>
+          <target state="needs-review-translation">Nom de l'unité</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Report A01 SalesQuotePrint - NamedType UnitLbl</note>
         </trans-unit>
@@ -9623,27 +9623,21 @@
         </trans-unit>
         <trans-unit id="Report 2502538013 - NamedType 803899421" size-unit="char" translate="yes" xml:space="preserve">
           <source>VAT Amount (LCY)</source>
-          <target state="needs-translation"/>
+          <target state="needs-review-translation">Montant TVA (Devise société)</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Report A01 SalesQuotePrint - NamedType VATAmountLCYLbl</note>
         </trans-unit>
         <trans-unit id="Report 2502538013 - NamedType 282000566" size-unit="char" translate="yes" xml:space="preserve">
           <source>VAT Base (LCY)</source>
-          <target state="needs-translation"/>
+          <target state="needs-review-translation">Base TVA (Devise société)</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Report A01 SalesQuotePrint - NamedType VATBaseLCYLbl</note>
         </trans-unit>
         <trans-unit id="Report 2502538013 - ReportDataItem 907109761 - Property 1806354803" size-unit="char" translate="yes" xml:space="preserve">
           <source>Pro Forma Invoice</source>
-          <target state="needs-translation"/>
+          <target state="needs-review-translation">Facture proforma</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Report A01 SalesQuotePrint - ReportDataItem Header - Property RequestFilterHeading</note>
-        </trans-unit>
-        <trans-unit id="Report 2502538013 - ReportDataItem 907109761 - Method 3245603402 - NamedType 3004040435" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Le document est encore au statut ouvert, il doit être lancé</source>
-          <target state="needs-translation"/>
-          <note from="Developer" annotates="general" priority="2"/>
-          <note from="Xliff Generator" annotates="general" priority="3">Report A01 SalesQuotePrint - ReportDataItem Header - Method OnAfterGetRecord - NamedType Msg</note>
         </trans-unit>
         <trans-unit id="Report 3372795280 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>A01 Transfer order print</source>
@@ -9802,22 +9796,22 @@
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension A01 Item Card - Action A01Attributes - Property Caption</note>
         </trans-unit>
         <trans-unit id="PageExtension 3250568499 - Action 4027586805 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2747922353">
-          <source>Afk Compta</source>
-          <target state="needs-review-translation">AFK Compta</target>
+          <source>A01_Compta</source>
+          <target state="needs-adaptation">AFK Compta</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension A01 Order Processor RC - Action A01_Compta - Property Caption</note>
         </trans-unit>
-        <trans-unit id="PageExtension 3250568499 - Action 4150887468 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2747922353">
-          <source>Afk Cash receipt journal</source>
-          <target state="needs-review-translation">Feuille de trésorerie AFK</target>
+        <trans-unit id="PageExtension 3250568499 - Action 2601854699 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2747922353">
+          <source>Payment Slip List</source>
+          <target state="needs-review-translation">Liste des bordereaux de paiement</target>
           <note from="Developer" annotates="general" priority="2"/>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension A01 Order Processor RC - Action A01Compta_JournalPayment - Property Caption</note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension A01 Order Processor RC - Action A01Compta_PayList - Property Caption</note>
         </trans-unit>
-        <trans-unit id="PageExtension 3250568499 - Action 197057513 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2747922353">
-          <source>Payment Class List</source>
-          <target state="needs-review-translation">Liste des cours de paiement</target>
+        <trans-unit id="PageExtension 3250568499 - Action 1724681277 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2747922353">
+          <source>Payment Slip List Archive</source>
+          <target state="needs-review-translation">Liste archive des bordereaux de paiement</target>
           <note from="Developer" annotates="general" priority="2"/>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension A01 Order Processor RC - Action A01Compta_PayClassList - Property Caption</note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension A01 Order Processor RC - Action A01Compta_PayListArchive - Property Caption</note>
         </trans-unit>
         <trans-unit id="PageExtension 3250568499 - Action 1801886999 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2747922353">
           <source>Afk Config</source>
@@ -10034,12 +10028,6 @@
           <target state="needs-review-translation">Commandes - expédiées</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension A01 Order Processor RC - Action A01Orders_Shipped - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 4097835928 - Action 203673927 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2211706696">
-          <source>Print Cash Receipt</source>
-          <target state="needs-review-translation">Imprimer le reçu d'encaissement</target>
-          <note from="Developer" annotates="general" priority="2"/>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension A01 Payment Slip - Action A01 Cash Receipt - Property Caption</note>
         </trans-unit>
         <trans-unit id="PageExtension 2023257757 - Action 243127404 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 4255274469">
           <source>Export Logo</source>

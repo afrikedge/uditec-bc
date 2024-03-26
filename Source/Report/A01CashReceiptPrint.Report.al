@@ -97,6 +97,12 @@ report 50004 "A01 CashReceiptPrint"
             column(PaymentModeLbl; PaymentModeLbl)
             {
             }
+            column(CustIdentity; CustIdentity)
+            {
+            }
+            column(CustAddressName; CustAddressName)
+            {
+            }
             column(AmountLbl; AmountLbl)
             {
             }
@@ -154,61 +160,56 @@ report 50004 "A01 CashReceiptPrint"
                 }
                 dataitem("Cust. Ledger Entry"; "Cust. Ledger Entry")
                 {
-                    DataItemTableView = sorting("Document Type", "Customer No.") where("Document Type" = filter(invoice));
-                    DataItemLinkReference = Line;
-                    DataItemLink = "Customer No." = field("Account No."), "Applies-to ID" = field("Applies-to ID");
+                    DataItemTableView = sorting("Document No.", "Document Type", Open) where("Document Type" = filter(1), Open = filter(0));
+                    DataItemLinkReference = Header;
+                    DataItemLink = "Document No." = field("No.");
                     column(Document_No_; "Document No.")
                     {
                     }
-                    column(Amount_to_Apply; "Amount to Apply")
+                    dataitem(CustLedgerEntry; "Cust. Ledger Entry")
                     {
-                        AutoFormatExpression = Header."Currency Code";
-                        AutoFormatType = 1;
+                        DataItemTableView = sorting("Document No.", "Document Type", Open) where("Document Type" = filter(2), Open = filter(0));
+                        DataItemLinkReference = "Cust. Ledger Entry";
+                        DataItemLink = "Closed by Entry No." = field("Entry No.");
+                        column(Closed_by_Amount__LCY_; "Closed by Amount (LCY)")
+                        {
+                            AutoFormatExpression = Header."Currency Code";
+                            AutoFormatType = 1;
+                        }
+                        column(Document_No; "Document No.")
+                        {
+                        }
+                        column(External_Document_No_; "External Document No.")
+                        {
+                        }
+                        trigger OnAfterGetRecord()
+                        begin
+                            CustLedgerEntry.Reset();
+                            CustLedgerEntry.SetRange("Closed by Entry No.", "Cust. Ledger Entry"."Entry No.");
+                        end;
                     }
-
-                    trigger OnAfterGetRecord()
-                    begin
-                        // Clear(Total);
-                        // Clear(MontantTotal);
-                        // CustLedgerEntryRec.Reset();
-                        // CustLedgerEntryRec.SetRange("Customer No.", Line."Account No.");
-                        // CustLedgerEntryRec.SetRange("Applies-to ID", Line."Applies-to ID");
-                        // if CustLedgerEntryRec.FindFirst() then
-                        //     repeat
-                        //         Total := Total + CustLedgerEntryRec."Amount to Apply";
-                        //     until CustLedgerEntryRec.Next() = 0;
-                        // MontantTotal := Total;
-
-                        // Check.InitTextVariable();
-                        // Check.FormatNoText(NoText, "Credit Amount", Currency.Code);
-                        // NoText[1] := ReplaceString(NoText[1], '****');
-                        // NoText[1] := ReplaceString(NoText[1], 'AND 0/100');
-                        // NoText[2] := ReplaceString(NoText[2], '****');
-                        // NoText[2] := ReplaceString(NoText[2], 'AND 0/100');
-                        // AmountInWords := NoText[1] + ' ' + NoText[2];
-                    end;
                 }
                 trigger OnAfterGetRecord()
                 begin
                     if Cust.Get(Line."Account No.") then begin
                         CustName := Cust.Name;
-                        CustAddress := Cust.Address;
+                        CustIdentity := Cust.Contact;
                         CustPhone := Cust."Phone No.";
+                        CustAddress := Cust."Ship-to Code";
                     end;
 
-                    Clear(Total);
-                    Clear(MontantTotal);
                     Line.SetRange("No.", Header."No.");
-                    if Line.FindFirst() then
-                        repeat
-                            Total := Total + Line."Credit Amount";
-                        until Line.Next() = 0;
-                    MontantTotal := Total;
+                    Line.SetRange("No.", "Cust. Ledger Entry"."Document No.");
+                    // if Line.FindFirst() then
+                    //     repeat
+                    //         Total := Total + Line."Credit Amount";
+                    //     until Line.Next() = 0;
+                    // MontantTotal := Total;
 
                     A01Total_LCY := CurrencyExchangeRate.ExchangeAmtFCYToLCY(Header."Posting Date",
                        Header."Currency Code", "Credit Amount", Header."Currency Factor");
 
-                    A01Total_LCY := ROUND(MontantTotal, Currency."Amount Rounding Precision");
+                    A01Total_LCY := ROUND(A01Total_LCY, Currency."Amount Rounding Precision");
 
                     A01Total_LCYText :=
                       Format(A01Total_LCY, 0,
@@ -223,34 +224,45 @@ report 50004 "A01 CashReceiptPrint"
                     AmountInWords := NoText[1] + ' ' + NoText[2];
                 end;
             }
+            trigger OnAfterGetRecord()
+            begin
+                Header.SetRange("No.");
+            end;
+
         }
     }
 
     requestpage
     {
+        SaveValues = true;
         layout
         {
-            area(Content)
-            {
-                // group(GroupName)
-                // {
-                //     field(Name; SourceExpression)
-                //     {
-                //         ApplicationArea = All;
-
-                //     }
-                // }
-            }
+            // area(Content)
+            // {
+            //     group(GroupName)
+            //     {
+            //         Caption = 'Options';
+            //         field(DocNo; DocNo)
+            //         {
+            //             ApplicationArea = All;
+            //             Caption = 'No.';
+            //         }
+            //     }
+            // }
         }
 
         actions
         {
         }
     }
+
     trigger OnPreReport()
     begin
         CompanyInfo.Get();
         CompanyInfo.CalcFields(Picture);
+
+        // if Header.GetFilters = '' then
+        //     Error(NoFilterSetErr);
     end;
 
     var
@@ -258,16 +270,17 @@ report 50004 "A01 CashReceiptPrint"
         Cust: Record Customer;
         CurrencyExchangeRate: Record "Currency Exchange Rate";
         Currency: Record Currency;
-        // CustLedgerEntryRec: Record "Cust. Ledger Entry";
         Check: Report Check;
         AutoFormat: Codeunit "Auto Format";
-        // RespCenter: Record "Responsibility Center";
         CustName: Text[100];
+        // NoFilterSetErr: Label 'You must specify one or more filters to avoid accidently printing all documents.';
+        CustAddressName: Text[100];
         // CalculatedExchRate: Decimal;
         // ExchangeRateText: Text;
         A01Total_LCY: Decimal;
         TotalAmount: Decimal;
         CustAddress: Text[100];
+        CustIdentity: Text[100];
         A01Total_LCYText: Text[50];
         CustPhone: Text[30];
         NoText: array[2] of Text;
@@ -282,7 +295,6 @@ report 50004 "A01 CashReceiptPrint"
         RCSLbl: Label 'RCS :';
         CustPhoneLbl: Label 'Phone :';
         CashReceiptNumberLbl: Label 'Reference :';
-        // VendorNameLbl: Label 'Vendor name :';
         CustSignLbl: Label 'Customer signature';
         CompanySignLbl: Label 'Company signature';
         ArrestedSumLbl: Label 'Arrested at the sum of :';
