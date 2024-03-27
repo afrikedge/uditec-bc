@@ -46,7 +46,7 @@ table 50020 "A01 Sales Payment Method"
     }
     keys
     {
-        key(PK; "Document Type", "Document No.", "Payment Method")
+        key(PK; "Document Type", "Document No.", "Responsibility Center", "Payment Method")
         {
             Clustered = true;
         }

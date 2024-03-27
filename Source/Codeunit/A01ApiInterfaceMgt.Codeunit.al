@@ -47,7 +47,10 @@ codeunit 50008 "A01 Api Interface Mgt"
                 exit(OrdersMgt.ValidateDraft(input));
             'orders_item_getPrice':
                 exit(OrdersMgt.GetUnitPrice(input));
-
+            'orders_payment_save':
+                exit(OrdersMgt.SaveOrderPaymentLines(input));
+            'orders_payment_validate':
+                exit(OrdersMgt.PostSalesOrder(input));
 
             else
                 exit(StrSubstNo(LblUnknownParameter, param));

@@ -359,7 +359,7 @@ codeunit 50007 "A01 Treso Mgt"
 
     local procedure SetAmountsForBalancingEntry(PayAmt: Decimal; var GenJnlLine: Record "Gen. Journal Line")
     begin
-        GenJnlLine.Validate(Amount, PayAmt);
+        GenJnlLine.Validate(Amount, -PayAmt);
         // GenJnlLine.Amount := TotalSalesLine2."Amount Including VAT" + CustLedgEntry."Remaining Pmt. Disc. Possible";
         // GenJnlLine."Source Currency Amount" := GenJnlLine.Amount;
         // CustLedgEntry.CalcFields(Amount);
@@ -417,5 +417,7 @@ codeunit 50007 "A01 Treso Mgt"
     //     CustLedgEntry.SetRange("Document No.", DocNo);
     //     CustLedgEntry.FindLast();
     // end;
+
+
 
 }
