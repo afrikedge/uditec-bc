@@ -378,7 +378,7 @@ page 50002 "A01 Sales Order - Workflow"
                 ApplicationArea = All;
                 Editable = IsSalesLinesEditable;
                 Enabled = IsSalesLinesEditable;
-                SubPageLink = "Document Type" = const(Order), "Document No." = field("No.");
+                SubPageLink = "Document Type" = const(Order), "Document No." = field("No."), "Responsibility Center" = field("Responsibility Center");
                 UpdatePropagation = Both;
             }
             group("Invoice Details")

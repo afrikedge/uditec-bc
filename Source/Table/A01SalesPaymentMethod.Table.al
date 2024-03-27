@@ -19,7 +19,7 @@ table 50020 "A01 Sales Payment Method"
         field(4; "Payment Method"; Code[20])
         {
             Caption = 'Payment Method';
-            TableRelation = "Payment Method";
+            TableRelation = "A01 RC Payment Method"."Payment Method" where("Responsability Center" = field("Responsibility Center"));
         }
         field(5; Reference; Text[50])
         {
@@ -37,6 +37,11 @@ table 50020 "A01 Sales Payment Method"
         {
             Caption = 'Archived';
             Editable = false;
+        }
+        field(9; "Responsibility Center"; Code[10])
+        {
+            Caption = 'Responsibility Center';
+            TableRelation = "Responsibility Center";
         }
     }
     keys

@@ -23,7 +23,7 @@ table 50021 "A01 Purchase Import Step"
         field(4; "Step Code"; Code[20])
         {
             Caption = 'Step Code';
-            TableRelation = if ("Step Type" = const(Step)) "A01 Parameter Record" where(Type = const(ImportStep));
+            TableRelation = if ("Step Type" = const(Step)) "A01 Parameter Record".Code where(Type = const(ImportStep));
         }
         field(6; Notes; Text[100])
         {
