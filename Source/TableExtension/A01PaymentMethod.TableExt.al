@@ -15,5 +15,10 @@ tableextension 50016 "A01 Payment Method" extends "Payment Method"
             Caption = 'Reference required';
             DataClassification = CustomerContent;
         }
+        field(50002; "A01 Caption"; Text[10])
+        {
+            Caption = 'Label';
+            DataClassification = CustomerContent;
+        }
     }
 }

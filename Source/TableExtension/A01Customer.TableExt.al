@@ -36,6 +36,35 @@ tableextension 50006 "A01 Customer" extends Customer
                 Rec.ValidateShortcutDimCode(3, "A01 Sales Mode");
             end;
         }
+        field(50005; "A01 Account Type"; Enum "A01 Customer Account Type")
+        {
+            Caption = 'Account Type';
+            DataClassification = CustomerContent;
+        }
+        field(50006; "A01 Prospect No."; Code[20])
+        {
+            Caption = 'Prospect No.';
+            DataClassification = CustomerContent;
+            TableRelation = Contact;
+        }
+        field(50007; "A01 Modified By"; Code[50])
+        {
+            Caption = 'Modified By';
+            DataClassification = CustomerContent;
+            TableRelation = "A01 External User";
+        }
+        field(50008; "A01 Parent Customer"; Code[20])
+        {
+            Caption = 'Parent Customer';
+            DataClassification = CustomerContent;
+            TableRelation = Customer;
+        }
+        field(50009; "A01 Allowed Item Category"; Code[20])
+        {
+            Caption = 'Allowed Item Category';
+            DataClassification = CustomerContent;
+            TableRelation = "Item Category";
+        }
         modify("Payment Terms Code")
         {
             trigger OnAfterValidate()

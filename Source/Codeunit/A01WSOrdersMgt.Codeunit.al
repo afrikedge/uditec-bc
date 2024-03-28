@@ -328,11 +328,12 @@ codeunit 50009 "A01 WS OrdersMgt"
             exit(UpdatePaymentLinesOnOrder(OrderNo, input));
     end;
 
-    local procedure processSalesOrderPaymentLine(SalesOrderNo: Code[20]; var SalesPayLine: Record "A01 Sales Payment Method"; input: JsonObject)
+    local procedure processSalesOrderPaymentLine(SalesOrder: Record "Sales Header"; var SalesPayLine: Record "A01 Sales Payment Method"; input: JsonObject)
+
     begin
 
-        if (SalesPayLine."Document No." <> SalesOrderNo) then
-            SalesPayLine."Document No." := SalesOrderNo;
+        if (SalesPayLine."Document No." <> SalesOrder."No.") then
+            SalesPayLine."Document No." := SalesOrder."No.";
 
         if (SalesPayLine."Document Type" <> SalesPayLine."Document Type"::Order) then
             SalesPayLine."Document Type" := SalesPayLine."Document Type"::Order;
@@ -348,6 +349,8 @@ codeunit 50009 "A01 WS OrdersMgt"
 
         if (SalesPayLine."Validated Amount" <> WS.GetDecimal('Accepted Amount (LCY)', input)) then
             SalesPayLine.Validate("Validated Amount", WS.GetDecimal('Accepted Amount (LCY)', input));
+
+        SalesPayLine."Responsibility Center" := SalesOrder."Responsibility Center";
 
     end;
 
@@ -365,13 +368,13 @@ codeunit 50009 "A01 WS OrdersMgt"
         if (not PaymentLine.IsEmpty) then
             PaymentLine.DeleteAll();
 
-        processOrderPaymentLines(SalesOrder."No.", input);
+        processOrderPaymentLines(SalesOrder, input);
 
         exit(Ws.CreateResponseSuccess(SalesOrder."No."));
 
     end;
 
-    local procedure processOrderPaymentLines(SalesOrderNo: Code[20]; input: JsonObject)
+    local procedure processOrderPaymentLines(SalesOrder: Record "Sales Header"; input: JsonObject)
     var
         c: JsonToken;
         LinesArray: JsonArray;
@@ -381,17 +384,17 @@ codeunit 50009 "A01 WS OrdersMgt"
         LinesArray := c.AsArray();
         foreach c in LinesArray do begin
             LineInput := c.AsObject();
-            AddOrderPaymentLine(SalesOrderNo, LineInput);
+            AddOrderPaymentLine(SalesOrder, LineInput);
         end;
     end;
 
-    local procedure AddOrderPaymentLine(SalesOrderNo: Code[20]; input: JsonObject)
+    local procedure AddOrderPaymentLine(SalesOrder: Record "Sales Header"; input: JsonObject)
     var
         PaymentLine: Record "A01 Sales Payment Method";
     begin
         PaymentLine.Init();
 
-        processSalesOrderPaymentLine(SalesOrderNo, PaymentLine, input);
+        processSalesOrderPaymentLine(SalesOrder, PaymentLine, input);
 
         PaymentLine.Insert();
     end;
@@ -416,6 +419,10 @@ codeunit 50009 "A01 WS OrdersMgt"
         SalesPost: Codeunit "Sales-Post";
     begin
         SalesOrder.Get(SalesOrder."Document Type"::Order, SalesOrderNo);
+        SalesOrder.Ship := true;
+        SalesOrder.invoice := true;
+        SalesOrder.Validate("Prepayment %", 0);
+        SalesOrder.modify();
         SalesPost.Run(SalesOrder);
         exit(Ws.CreateResponseSuccess(SalesOrder."No."));
     end;

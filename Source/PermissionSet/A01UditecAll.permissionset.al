@@ -100,5 +100,19 @@ permissionset 50000 "A01 Uditec_All"
         page "A01 Responsibility Matrix" = X,
         tabledata "A01 Purchase Import Step" = RIMD,
         table "A01 Purchase Import Step" = X,
-        page "A01 Import Steps" = X;
+        page "A01 Import Steps" = X,
+        tabledata "A01 Approval flow" = RIMD,
+        table "A01 Approval flow" = X,
+        report "A01 CashReceiptPrint" = X,
+        report "A01 DeliveryNotePrint" = X,
+        report "A01 PurchaseOrderPrint" = X,
+        report "A01 PurchaseQuotePrint" = X,
+        report "A01 SalesInvoicePrint" = X,
+        report "A01 SalesOrderPrint" = X,
+        report "A01 SalesQuotePrint" = X,
+        report "A01 TransferOrderPrint" = X,
+        codeunit "A01 EventsSubscribers_Report" = X,
+        page "A01 Item Brands" = X,
+        page "A01 Purchase Import Steps" = X,
+        page "A01 Sales Payment Methods" = X;
 }

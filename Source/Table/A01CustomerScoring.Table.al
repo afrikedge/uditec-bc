@@ -75,6 +75,31 @@ table 50015 "A01 Customer Scoring"
         {
             Caption = 'Precision';
         }
+        field(15; Coefficient; Decimal)
+        {
+            Caption = 'Coefficient';
+        }
+        field(16; "Weighted Score"; Decimal)
+        {
+            Caption = 'Weighted Score';
+        }
+        field(17; "Modified By"; Code[50])
+        {
+            Caption = 'Modified By';
+            TableRelation = "A01 External User";
+            DataClassification = CustomerContent;
+        }
+        field(18; "A01 Account Type"; Enum "A01 Customer Account Type")
+        {
+            Caption = 'Account Type';
+            DataClassification = CustomerContent;
+        }
+        field(19; "A01 Prospect No."; Code[20])
+        {
+            Caption = 'Prospect No.';
+            DataClassification = CustomerContent;
+            TableRelation = Contact;
+        }
     }
     keys
     {

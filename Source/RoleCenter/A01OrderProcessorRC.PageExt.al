@@ -221,6 +221,18 @@ pageextension 50002 "A01 Order Processor RC" extends "Order Processor Role Cente
                     Caption = 'Import Steps';
                     RunObject = Page "A01 Import Steps";
                 }
+                action(A01ItemBrands)
+                {
+                    ApplicationArea = Basic, Suite;
+                    Caption = 'Brands';
+                    RunObject = Page "A01 Item Brands";
+                }
+                action(A01ApprovalFlows)
+                {
+                    ApplicationArea = Basic, Suite;
+                    Caption = 'Approval Flows';
+                    RunObject = Page "A01 Approval flows";
+                }
             }
             group(A01_Compta)
             {

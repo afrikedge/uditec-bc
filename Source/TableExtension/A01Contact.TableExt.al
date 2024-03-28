@@ -35,5 +35,63 @@ tableextension 50005 "A01 Contact" extends Contact
             TableRelation = "Dimension Value".Code where("Global Dimension No." = const(3));
             DataClassification = CustomerContent;
         }
+        field(50005; "A01 Payment Method"; Code[20])
+        {
+            Caption = 'Payment Method';
+            DataClassification = CustomerContent;
+            TableRelation = "Payment Method";
+        }
+        field(50006; "A01 Parent Customer"; Code[20])
+        {
+            Caption = 'Parent Customer';
+            DataClassification = CustomerContent;
+            TableRelation = Customer;
+        }
+        field(50007; "A01 Allowed Item Category"; Code[20])
+        {
+            Caption = 'Allowed Item Category';
+            DataClassification = CustomerContent;
+            TableRelation = "Item Category";
+        }
+        field(50008; "A01 Credit Limit"; Decimal)
+        {
+            Caption = 'Credit Limit';
+            DataClassification = CustomerContent;
+        }
+        field(50009; "A01 VAT Regime"; Code[20])
+        {
+            Caption = 'VAT Regime';
+            DataClassification = CustomerContent;
+            TableRelation = "VAT Business Posting Group";
+        }
+        field(50010; "A01 Main Contact"; Code[20])
+        {
+            Caption = 'Main Contact';
+            DataClassification = CustomerContent;
+            TableRelation = Contact;
+        }
+        field(50011; "A01 Prepayment required"; Decimal)
+        {
+            Caption = 'Prepayment required (%)';
+            DataClassification = CustomerContent;
+            MinValue = 0;
+            MaxValue = 0;
+        }
+        field(50012; "A01 Risk Level"; Code[20])
+        {
+            Caption = 'Risk Level';
+            DataClassification = CustomerContent;
+            TableRelation = "A01 Parameter Record".Code where(Type = const(RiskLevel));
+        }
+        field(50013; "A01 Score"; Decimal)
+        {
+            Caption = 'Score';
+            DataClassification = CustomerContent;
+        }
+        field(50014; "A01 Prospect Status"; Enum "A01 Propect Validation Status")
+        {
+            Caption = 'Prospect Status';
+            DataClassification = CustomerContent;
+        }
     }
 }
