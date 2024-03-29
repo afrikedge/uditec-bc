@@ -6,7 +6,7 @@ page 50048 "A01 Approval flows"
     ApplicationArea = All;
     Caption = 'Approval flows';
     PageType = List;
-    SourceTable = "A01 Approval flow";
+    SourceTable = "A01 Approval Flow";
     UsageCategory = Lists;
 
     layout

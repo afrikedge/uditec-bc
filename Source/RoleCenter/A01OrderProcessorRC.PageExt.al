@@ -233,6 +233,12 @@ pageextension 50002 "A01 Order Processor RC" extends "Order Processor Role Cente
                     Caption = 'Approval Flows';
                     RunObject = Page "A01 Approval flows";
                 }
+                action(A01RevisionRequest)
+                {
+                    ApplicationArea = Basic, Suite;
+                    Caption = 'Revision Request List';
+                    RunObject = Page "A01 Revision Request List";
+                }
             }
             group(A01_Compta)
             {

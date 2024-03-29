@@ -1,7 +1,7 @@
 /// <summary>
 /// Table A01 Approval flow (ID 50022).
 /// </summary>
-table 50022 "A01 Approval flow"
+table 50022 "A01 Approval Flow"
 {
     Caption = 'Approval flow';
     DataClassification = CustomerContent;
