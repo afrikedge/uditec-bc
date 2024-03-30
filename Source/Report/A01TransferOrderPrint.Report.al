@@ -175,17 +175,6 @@ report 50005 "A01 TransferOrderPrint"
                     }
                 }
             }
-
-            trigger OnAfterGetRecord()
-            begin
-                // if RespCenter.Get(Header."Responsibility Center") then begin
-                //     UnitName := RespCenter.Name;
-                //     UnitAddress := RespCenter.Address;
-                //     UnitCity := RespCenter.City;
-                //     UnitPostalCode := RespCenter."Phone No.";
-                // end;
-
-            end;
         }
 
     }
@@ -194,17 +183,6 @@ report 50005 "A01 TransferOrderPrint"
     {
         layout
         {
-            area(Content)
-            {
-                // group(GroupName)
-                // {
-                //     field(Name; SourceExpression)
-                //     {
-                //         ApplicationArea = All;
-
-                //     }
-                // }
-            }
         }
 
         actions
@@ -220,15 +198,10 @@ report 50005 "A01 TransferOrderPrint"
 
     var
         CompanyInfo: Record "Company Information";
-        // RespCenter: Record "Responsibility Center";
-        // Cust: Record Customer;
         UnitName: Text[100];
-        // UnitCenterLogo: Media
         UnitAddress: Text[100];
         UnitCity: Text[50];
         UnitPostalCode: Text[50];
-        // CustAddress: Text[100];
-        // CustPhone: Text[30];
         ReportTitleLbl: Label 'TRANSFER ORDER';
         UnitNameLbl: Label 'Unit name :';
         UnitAddressLbl: Label 'Unit address :';
@@ -244,8 +217,8 @@ report 50005 "A01 TransferOrderPrint"
         DestinationLocationLbl: Label 'Transfer destination location';
         IssuerSignLbl: Label 'Issuer signature';
         ReceiverSignLbl: Label 'Receiver signature';
-        RequestUnitLbl: Label 'Name of requesting unit';
-        RequesterLbl: Label 'Name of requester';
-        RequesterUnitLbl: Label 'Name of receiving unit';
+        RequestUnitLbl: Label 'Name of requesting unit :';
+        RequesterLbl: Label 'Name of requester :';
+        RequesterUnitLbl: Label 'Name of receiving unit :';
 
 }

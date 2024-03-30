@@ -45,7 +45,7 @@ report 50006 "A01 PurchaseOrderPrint"
             column(A01SupplierPhone; A01SupplierPhone)
             {
             }
-            column(A01VendorIdentity; "Buy-from Vendor No.")
+            column(A01VendorIdentity; A01VendorIdentity)
             {
             }
             column(A01Vendor_Name; "Buy-from Vendor Name")
@@ -800,7 +800,7 @@ report 50006 "A01 PurchaseOrderPrint"
                         end;
                         A01FormattedVAT := Format(Round(tempVAT, 0.001, '<'));
                         A01FormattedAmtHT := Format(Round("Purchase Line".Quantity * tempPU, 0.001, '<'));
-                        A01FormattedLineDiscountAmount := Format(Round(tempHT * "Purchase Line"."Line Discount %", 0.001, '<'));
+                        A01FormattedLineDiscountAmount := Format(Round(("Purchase Line".Quantity * tempPU) * ("Purchase Line"."Line Discount %" / 100), 0.001, '<'));
                         FormattedLineAmountTTC := Format(Round(tempTTC, 0.001, '<'));
                     end;
                     A01LineQty := "Purchase Line".Quantity;
@@ -1273,10 +1273,13 @@ report 50006 "A01 PurchaseOrderPrint"
                 if (AfkLocalCurrency.Get(GLSetup."LCY Code") and (AfkCurrCode <> GLSetup."LCY Code")) then
                     AfkLocalCurrencyName := AfkLocalCurrency.Description;
 
-                if Vendor.Get("Purchase Header"."Buy-from Vendor No.") then begin
-                    A01SupplierPhone := Vendor."Phone No.";
-                    A01VendorAddress := Vendor.Address;
+                if BuyFromContact.Get("Purchase Header"."Buy-from Contact No.") then begin
+                    A01SupplierPhone := BuyFromContact."Phone No.";
+                    A01VendorIdentity := BuyFromContact.Name;
                 end;
+
+                if ShipToAddrr.Get("Purchase Header"."Ship-to Code") then
+                    A01VendorAddress := ShipToAddrr.Name;
 
                 NumLigne := 0;
 
@@ -1394,6 +1397,7 @@ report 50006 "A01 PurchaseOrderPrint"
     var
         BuyFromContact: Record Contact;
         PayToContact: Record Contact;
+        ShipToAddrr: Record "Ship-to Address";
         PurchSetup: Record "Purchases & Payables Setup";
         ShipmentMethod: Record "Shipment Method";
         PaymentTerms: Record "Payment Terms";
@@ -1410,7 +1414,7 @@ report 50006 "A01 PurchaseOrderPrint"
         CurrencyExchangeRate: Record "Currency Exchange Rate";
         AfkLocalCurrency: Record Currency;
         ResponsibilityCenter: Record "Responsibility Center";
-        Vendor: Record Vendor;
+        // Vendor: Record Vendor;
         AfkCurrency: Record Currency;
         // LanguageMgt: Codeunit Language;
         FormatAddr: Codeunit "Format Address";
@@ -1421,6 +1425,7 @@ report 50006 "A01 PurchaseOrderPrint"
         ArchiveManagement: Codeunit ArchiveManagement;
         AutoFormat: Codeunit "Auto Format";
         VATNoText: Text[80];
+        A01VendorIdentity: Text[100];
         TransHeaderAmount: Decimal;
         ReferenceText: Text[80];
         A01LinePU: Decimal;

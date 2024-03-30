@@ -32,11 +32,23 @@ pageextension 50009 "A01 Payment Slip" extends "Payment Slip"
         //         Caption = 'Print Cash Receipt';
         //         trigger OnAction()
         //         var
-        //             Cash: Report "A01 CashReceiptPrint";
+        //             PaymentRec: Record "Payment Header";
         //         begin
-        //             Cash.RunModal();
+        //             PaymentRec.SetRange("No.", Rec."No.");
+        //             Report.Run(50004, true, false, PaymentRec);
         //         end;
         //     }
         // }
+
+        modify(Print)
+        {
+            trigger OnBeforeAction()
+            var
+                PaymentRec: Record "Payment Header";
+            begin
+                PaymentRec.SetRange("No.", Rec."No.");
+                Report.Run(50004, true, false, PaymentRec);
+            end;
+        }
     }
 }

@@ -57,10 +57,13 @@ report 50003 "A01 DeliveryNotePrint"
             column(UnitPostalCode; UnitPostalCode)
             {
             }
-            column(CustAddress; CustAddress)
+            column(CustAddress; "Ship-to Name")
             {
             }
             column(CustPhone; CustPhone)
+            {
+            }
+            column(CustIdentity; CustIdentity)
             {
             }
             column(ReportTitleLbl; ReportTitleLbl)
@@ -129,6 +132,9 @@ report 50003 "A01 DeliveryNotePrint"
             column(CompanySignLbl; CompanySignLbl)
             {
             }
+            column(RespCenterImg; RespCenter."A01 Logo")
+            {
+            }
             dataitem(Line; "Sales Shipment Line")
             {
                 DataItemTableView = sorting("Document No.", "Line No.");
@@ -178,13 +184,16 @@ report 50003 "A01 DeliveryNotePrint"
                     UnitName := RespCenter.Name;
                     UnitAddress := RespCenter.Address;
                     UnitCity := RespCenter.City;
-                    UnitPostalCode := RespCenter."Phone No.";
+                    UnitPostalCode := RespCenter."Post Code";
                 end;
 
-                if Cust.Get(Header."Sell-to Customer No.") then begin
-                    CustAddress := Cust.Address;
-                    CustPhone := Cust."Phone No.";
+                if Contact.Get(Header."Bill-to Contact No.") then begin
+                    CustIdentity := Contact.Name;
+                    CustPhone := Contact."Phone No.";
                 end;
+
+                if Ship.Get(Header."Ship-to Code") then
+                    CustAddress := Ship.Name;
 
             end;
         }
@@ -195,17 +204,6 @@ report 50003 "A01 DeliveryNotePrint"
     {
         layout
         {
-            area(Content)
-            {
-                // group(GroupName)
-                // {
-                //     field(Name; SourceExpression)
-                //     {
-                //         ApplicationArea = All;
-
-                //     }
-                // }
-            }
         }
 
         actions
@@ -217,20 +215,20 @@ report 50003 "A01 DeliveryNotePrint"
     begin
         CompanyInfo.Get();
         CompanyInfo.CalcFields(Picture);
-
-        // if not CompanyInfo.Get() then
     end;
 
     var
         CompanyInfo: Record "Company Information";
         RespCenter: Record "Responsibility Center";
-        Cust: Record Customer;
+        // Cust: Record Customer;
+        Contact: Record Contact;
+        Ship: Record "Ship-to Address";
         UnitName: Text[100];
-        // UnitCenterLogo: Media
         UnitAddress: Text[100];
         UnitCity: Text[50];
         UnitPostalCode: Text[50];
         CustAddress: Text[100];
+        CustIdentity: Text[100];
         CustPhone: Text[30];
         ReportTitleLbl: Label 'DELIVERY NOTE';
         UnitNameLbl: Label 'Unit name :';
