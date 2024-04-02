@@ -1,7 +1,7 @@
 /// <summary>
 /// Enum A01 MIR Site visit required (ID 50026).
 /// </summary>
-enum 50026 "A01 MIR Site visit required"
+enum 50026 "A01 MIR Site Visit Required"
 {
     Extensible = true;
 

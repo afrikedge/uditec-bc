@@ -25,4 +25,8 @@ enum 50017 "A01 Parameter Record Type"
     {
         Caption = 'ImportStep';
     }
+    value(5; Brand)
+    {
+        Caption = 'Brand';
+    }
 }

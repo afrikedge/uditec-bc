@@ -63,6 +63,12 @@ tableextension 50004 "A01 Item" extends Item
             Caption = 'Assembly service';
             DataClassification = CustomerContent;
         }
+        field(50012; "A01 Brand"; Code[20])
+        {
+            Caption = 'Brand';
+            TableRelation = "A01 Parameter Record".Code where(Type = const(Brand));
+            DataClassification = CustomerContent;
+        }
 
 
     }

@@ -47,7 +47,7 @@ table 50014 "A01 Scoring Matrix"
     }
     keys
     {
-        key(PK; "Sales Mode", Criteria)
+        key(PK; "Sales Mode", Criteria, "Criteria Value")
         {
             Clustered = true;
         }

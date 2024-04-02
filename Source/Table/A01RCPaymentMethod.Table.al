@@ -50,7 +50,7 @@ table 50018 "A01 RC Payment Method"
     }
     keys
     {
-        key(PK; "Responsability Center", "Payment Class")
+        key(PK; "Responsability Center", "Payment Method")
         {
             Clustered = true;
         }

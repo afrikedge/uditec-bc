@@ -236,10 +236,18 @@ codeunit 50009 "A01 WS OrdersMgt"
 
     local procedure processOrdersLines(SalesOrder: Record "Sales Header"; var SalesOrderLine: Record "Sales Line"; input: JsonObject)
     var
+        SalesLine: record "Sales Line";
         c: JsonToken;
         LinesArray: JsonArray;
         LineInput: JsonObject;
     begin
+
+        SalesLine.Reset();
+        SalesLine.SetRange("Document Type", SalesLine."Document Type"::Order);
+        SalesLine.SetRange("Document No.", SalesOrder."No.");
+        if (not SalesLine.IsEmpty) then
+            SalesLine.DeleteAll();
+
         input.Get('saleOrderLines', c);
         LinesArray := c.AsArray();
         foreach c in LinesArray do begin
@@ -312,5 +320,120 @@ codeunit 50009 "A01 WS OrdersMgt"
         PriceText := Format(TempSalesLine."Unit Price");
         exit(Ws.CreateResponseSuccess(PriceText));
     end;
+
+
+    /// <summary>
+    /// SaveOrderPaymentLines.
+    /// </summary>
+    /// <param name="input">JsonObject.</param>
+    /// <returns>Return value of type Text.</returns>
+    procedure SaveOrderPaymentLines(input: JsonObject): Text
+    var
+        OrderNo: text;
+    begin
+        OrderNo := ws.GetText('OrderNo', input);
+        if (OrderNo <> '') then
+            exit(UpdatePaymentLinesOnOrder(OrderNo, input));
+    end;
+
+    local procedure processSalesOrderPaymentLine(SalesOrder: Record "Sales Header"; var SalesPayLine: Record "A01 Sales Payment Method"; input: JsonObject)
+
+    begin
+
+        if (SalesPayLine."Document No." <> SalesOrder."No.") then
+            SalesPayLine."Document No." := SalesOrder."No.";
+
+        if (SalesPayLine."Document Type" <> SalesPayLine."Document Type"::Order) then
+            SalesPayLine."Document Type" := SalesPayLine."Document Type"::Order;
+
+        if (SalesPayLine."Payment Method" <> WS.GetText('Payment Method Code', input)) then
+            SalesPayLine."Payment Method" := CopyStr(WS.GetText('Payment Method Code', input), 1, 20);
+
+        if (SalesPayLine.Reference <> WS.GetText('Reference', input)) then
+            SalesPayLine.Validate(Reference, WS.GetText('Reference', input));
+
+        if (SalesPayLine.Amount <> WS.GetDecimal('Amount (LCY)', input)) then
+            SalesPayLine.Validate(Amount, WS.GetDecimal('Amount (LCY)', input));
+
+        if (SalesPayLine."Validated Amount" <> WS.GetDecimal('Accepted Amount (LCY)', input)) then
+            SalesPayLine.Validate("Validated Amount", WS.GetDecimal('Accepted Amount (LCY)', input));
+
+        SalesPayLine."Responsibility Center" := SalesOrder."Responsibility Center";
+
+    end;
+
+    local procedure UpdatePaymentLinesOnOrder(OrderNo: Text; input: JsonObject): Text
+    var
+        SalesOrder: Record "Sales Header";
+        PaymentLine: Record "A01 Sales Payment Method";
+    begin
+
+        SalesOrder.Get(SalesOrder."Document Type"::Order, OrderNo);
+
+        PaymentLine.Reset();
+        PaymentLine.SetRange("Document Type", PaymentLine."Document Type"::Order);
+        PaymentLine.SetRange("Document No.", SalesOrder."No.");
+        if (not PaymentLine.IsEmpty) then
+            PaymentLine.DeleteAll();
+
+        processOrderPaymentLines(SalesOrder, input);
+
+        exit(Ws.CreateResponseSuccess(SalesOrder."No."));
+
+    end;
+
+    local procedure processOrderPaymentLines(SalesOrder: Record "Sales Header"; input: JsonObject)
+    var
+        c: JsonToken;
+        LinesArray: JsonArray;
+        LineInput: JsonObject;
+    begin
+        input.Get('saleOrderPaymentLines', c);
+        LinesArray := c.AsArray();
+        foreach c in LinesArray do begin
+            LineInput := c.AsObject();
+            AddOrderPaymentLine(SalesOrder, LineInput);
+        end;
+    end;
+
+    local procedure AddOrderPaymentLine(SalesOrder: Record "Sales Header"; input: JsonObject)
+    var
+        PaymentLine: Record "A01 Sales Payment Method";
+    begin
+        PaymentLine.Init();
+
+        processSalesOrderPaymentLine(SalesOrder, PaymentLine, input);
+
+        PaymentLine.Insert();
+    end;
+
+    /// <summary>
+    /// Sport2000 case
+    /// </summary>
+    /// <param name="input"></param>
+    /// <returns></returns>
+    procedure PostSalesOrder(input: JsonObject): Text
+    var
+        OrderNo: Code[20];
+    begin
+        OrderNo := CopyStr(ws.GetText('OrderNo', input), 1, 20);
+        if (OrderNo <> '') then
+            exit(PostSalesOrderInternal(OrderNo));
+    end;
+
+    local procedure PostSalesOrderInternal(SalesOrderNo: Code[20]): Text
+    var
+        SalesOrder: Record "Sales Header";
+        SalesPost: Codeunit "Sales-Post";
+    begin
+        SalesOrder.Get(SalesOrder."Document Type"::Order, SalesOrderNo);
+        SalesOrder.Ship := true;
+        SalesOrder.invoice := true;
+        SalesOrder.Validate("Prepayment %", 0);
+        SalesOrder.modify();
+        SalesPost.Run(SalesOrder);
+        exit(Ws.CreateResponseSuccess(SalesOrder."No."));
+    end;
+
 
 }

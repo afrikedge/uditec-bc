@@ -32,7 +32,7 @@ table 50012 "A01 Cust Scoring Requirement"
     }
     keys
     {
-        key(PK; "Customer Type")
+        key(PK; "Customer Type", "Legal Form", "Identification Mode", "Scoring Criteria")
         {
             Clustered = true;
         }

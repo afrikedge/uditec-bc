@@ -11,7 +11,7 @@ table 50019 "A01 Responsibility Matrix"
         field(1; Object; Code[20])
         {
             Caption = 'Object';
-            TableRelation = "A01 Parameter Record" where(Type = const(Object));
+            TableRelation = "A01 Parameter Record".Code where(Type = const(Object));
         }
         field(2; "Sales Mode"; Code[20])
         {
@@ -23,7 +23,7 @@ table 50019 "A01 Responsibility Matrix"
             Caption = 'Responsibility Center';
             TableRelation = "Responsibility Center";
         }
-        field(4; Status; Integer)
+        field(4; Status; Enum "A01 Approval Status")
         {
             Caption = 'Status';
         }

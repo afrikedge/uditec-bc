@@ -33,6 +33,32 @@ codeunit 50005 "A01 WS QuotesMgt"
             exit(AddQuote(input));
     end;
 
+
+    /// <summary>
+    /// ModifyQuote.
+    /// </summary>
+    /// <param name="input">JsonObject.</param>
+    /// <param name="IsDeletion">Boolean.</param>
+    /// <returns>Return value of type Text.</returns>
+    procedure RunCreditRequest(input: JsonObject; IsDeletion: Boolean): Text
+    var
+        NoQuote: text;
+    //ToDelete: Boolean;
+    begin
+        //input.ReadFrom(inputJson);
+        NoQuote := ws.GetText('QuoteNo', input);
+        if (NoQuote <> '') then begin
+
+            //ToDelete := ws.GetBool('IsDeletion', input);
+            if (IsDeletion) then
+                exit(DeleteQuote(NoQuote))
+            else
+                exit(ModifyQuote_CreditRequest(NoQuote, input))
+
+        end else
+            exit(AddQuote_CreditRequest(input));
+    end;
+
     local procedure ModifyQuote(QuoteNo: Text; input: JsonObject): Text
     var
         SalesQuote: Record "Sales Header";
@@ -48,6 +74,7 @@ codeunit 50005 "A01 WS QuotesMgt"
         exit(Ws.CreateResponseSuccess(SalesQuote."No."));
 
     end;
+
 
     local procedure AddQuote(input: JsonObject): Text
     var
@@ -65,6 +92,63 @@ codeunit 50005 "A01 WS QuotesMgt"
         ProcessSalesQuoteHeader(SalesQuote, input);
 
         processQuotesLines(SalesQuote, SalesQuoteLine, input);
+
+        exit(Ws.CreateResponseSuccess(SalesQuote."No."));
+
+    end;
+
+    /// <summary>
+    /// AddQuote_CreditRequest.
+    /// </summary>
+    /// <param name="input">JsonObject.</param>
+    /// <returns>Return value of type Text.</returns>
+    local procedure AddQuote_CreditRequest(input: JsonObject): Text
+    var
+        SalesQuote: Record "Sales Header";
+        SalesQuoteLine: Record "Sales Line";
+    begin
+
+        SalesQuote.Init();
+        SalesQuote."Document Type" := SalesQuote."Document Type"::Quote;
+        SalesQuote."No." := '';
+
+        SalesQuoteLine.LockTable();
+        SalesQuote.Insert(true);
+
+        ProcessSalesQuoteHeader(SalesQuote, input);
+        ProcessCreditRequestFields(SalesQuote, input);
+        SalesQuote.Modify(true);
+
+
+        processQuotesLines(SalesQuote, SalesQuoteLine, input);
+        processCreditAmortisationLines(SalesQuote, input);
+        processCreditRequestCriteriaLines(SalesQuote, input);
+
+        exit(Ws.CreateResponseSuccess(SalesQuote."No."));
+
+    end;
+
+    /// <summary>
+    /// ModifyQuote_CreditRequest.
+    /// </summary>
+    /// <param name="QuoteNo">Text.</param>
+    /// <param name="input">JsonObject.</param>
+    /// <returns>Return value of type Text.</returns>
+    local procedure ModifyQuote_CreditRequest(QuoteNo: Text; input: JsonObject): Text
+    var
+        SalesQuote: Record "Sales Header";
+        SalesQuoteLine: Record "Sales Line";
+    begin
+
+        SalesQuote.Get(SalesQuote."Document Type"::Quote, QuoteNo);
+
+        ProcessSalesQuoteHeader(SalesQuote, input);
+        ProcessCreditRequestFields(SalesQuote, input);
+        SalesQuote.Modify(true);
+
+        processQuotesLines(SalesQuote, SalesQuoteLine, input);
+        processCreditAmortisationLines(SalesQuote, input);
+        processCreditRequestCriteriaLines(SalesQuote, input);
 
         exit(Ws.CreateResponseSuccess(SalesQuote."No."));
 
@@ -176,7 +260,19 @@ codeunit 50005 "A01 WS QuotesMgt"
         if (SalesQuote."Shipment Method Code" <> WS.GetText('saleQuoteShipmentMethodCode', input)) then
             SalesQuote.Validate("Shipment Method Code", WS.GetText('saleQuoteShipmentMethodCode', input));
 
-        SalesQuote.Modify();
+
+    end;
+
+    local procedure ProcessCreditRequestFields(var SalesQuote: Record "Sales Header"; input: JsonObject)
+    begin
+        if (SalesQuote."A01 Credit Validation Status".AsInteger() <> WS.Getint('Approval Status', input)) then
+            SalesQuote.Validate("A01 Credit Validation Status", WS.Getint('Approval Status', input));
+
+        if (SalesQuote."A01 Interest rate" <> WS.Getint('Interest rate', input)) then
+            SalesQuote.Validate("A01 Interest rate", WS.Getint('Interest rate', input));
+
+        if (SalesQuote."A01 Credit Duration (Month)" <> WS.Getint('Duration (Month)', input)) then
+            SalesQuote.Validate("A01 Credit Duration (Month)", WS.Getint('Duration (Month)', input));
     end;
 
     local procedure processSalesQuoteLine(SalesQuote: Record "Sales Header"; var SalesLine: Record "Sales Line"; input: JsonObject)
@@ -237,15 +333,67 @@ codeunit 50005 "A01 WS QuotesMgt"
 
     local procedure processQuotesLines(SalesQuote: Record "Sales Header"; var SalesQuoteLine: Record "Sales Line"; input: JsonObject)
     var
+        SalesLine: record "Sales Line";
         c: JsonToken;
         LinesArray: JsonArray;
         LineInput: JsonObject;
     begin
+
+        SalesLine.Reset();
+        SalesLine.SetRange("Document Type", SalesLine."Document Type"::Quote);
+        SalesLine.SetRange("Document No.", SalesQuote."No.");
+        if (not SalesLine.IsEmpty) then
+            SalesLine.DeleteAll();
+
         input.Get('saleQuoteLines', c);
         LinesArray := c.AsArray();
         foreach c in LinesArray do begin
             LineInput := c.AsObject();
             AddOrInsertSalesQuoteLine(SalesQuote, SalesQuoteLine, LineInput);
+        end;
+    end;
+
+    local procedure processCreditAmortisationLines(SalesQuote: Record "Sales Header"; input: JsonObject)
+    var
+        CreditAmortizationLine: Record "A01 Credit Depreciation Table";
+        c: JsonToken;
+        LinesArray: JsonArray;
+        LineInput: JsonObject;
+    begin
+
+        CreditAmortizationLine.Reset();
+        CreditAmortizationLine.SetRange("Document Type", CreditAmortizationLine."Document Type"::"Sales Quote");
+        CreditAmortizationLine.SetRange("Document No.", SalesQuote."No.");
+        if (not CreditAmortizationLine.IsEmpty) then
+            CreditAmortizationLine.DeleteAll();
+
+        input.Get('CreditAmortization', c);
+        LinesArray := c.AsArray();
+        foreach c in LinesArray do begin
+            LineInput := c.AsObject();
+            AddCreditAmortizationLine(SalesQuote, LineInput);
+        end;
+    end;
+
+    local procedure processCreditRequestCriteriaLines(SalesQuote: Record "Sales Header"; input: JsonObject)
+    var
+        CustScoring: Record "A01 Customer Scoring";
+        c: JsonToken;
+        LinesArray: JsonArray;
+        LineInput: JsonObject;
+    begin
+
+        CustScoring.Reset();
+        CustScoring.SetRange("Customer No.", SalesQuote."Sell-to Customer No.");
+        //CustScoring.SetRange("Document No.", SalesQuote."No.");
+        if (not CustScoring.IsEmpty) then
+            CustScoring.DeleteAll();
+
+        input.Get('MirindraRequestCriteria', c);
+        LinesArray := c.AsArray();
+        foreach c in LinesArray do begin
+            LineInput := c.AsObject();
+            AddCreditRequestCriteria(LineInput);
         end;
     end;
 
@@ -386,5 +534,121 @@ codeunit 50005 "A01 WS QuotesMgt"
     //     end else
     //         exit(Ws.CreateResponseError(StrSubstNo(LblErrorQuoteNotExists, NoQuote)));
     // end;
+
+    local procedure AddCreditAmortizationLine(CreditRequest: Record "Sales Header"; input: JsonObject)
+    var
+        CreditAmortizationLine: Record "A01 Credit Depreciation Table";
+    begin
+        CreditAmortizationLine.Init();
+        processCreditAmortizationLine(CreditRequest, CreditAmortizationLine, input);
+        CreditAmortizationLine.Insert();
+    end;
+
+    local procedure processCreditAmortizationLine(CreditRequest: Record "Sales Header"; var CreditAmortizationLine: Record "A01 Credit Depreciation Table"; input: JsonObject)
+    begin
+
+        if (CreditRequest."Document Type" = CreditRequest."Document Type"::Quote) then
+            CreditAmortizationLine."Document Type" := CreditAmortizationLine."Document Type"::"Sales Quote";
+        if (CreditRequest."Document Type" = CreditRequest."Document Type"::Order) then
+            CreditAmortizationLine."Document Type" := CreditAmortizationLine."Document Type"::"Sales order";
+        if (CreditRequest."Document Type" = CreditRequest."Document Type"::Invoice) then
+            CreditAmortizationLine."Document Type" := CreditAmortizationLine."Document Type"::"Posted Sales invoice";
+
+        CreditAmortizationLine."Document No." := CreditRequest."No.";
+
+        if (CreditAmortizationLine."Line No." <> WS.GetInt('Line No_', input)) then
+            CreditAmortizationLine."Line No." := WS.GetInt('Line No_', input);
+
+        if (CreditAmortizationLine."Calculation factor" <> WS.GetDecimal('Calculation factor', input)) then
+            CreditAmortizationLine."Calculation factor" := WS.GetDecimal('Calculation factor', input);
+
+        if (CreditAmortizationLine."Monthly payment" <> WS.GetInt('Monthly payment', input)) then
+            CreditAmortizationLine."Monthly payment" := WS.GetInt('Monthly payment', input);
+
+        if (CreditAmortizationLine."Interest" <> WS.GetInt('Interest', input)) then
+            CreditAmortizationLine."Interest" := WS.GetInt('Interest', input);
+
+        if (CreditAmortizationLine."Depreciation" <> WS.GetInt('Depreciation', input)) then
+            CreditAmortizationLine."Depreciation" := WS.GetInt('Depreciation', input);
+
+        if (CreditAmortizationLine."Remaining debt" <> WS.GetInt('Remaining debt', input)) then
+            CreditAmortizationLine."Remaining debt" := WS.GetInt('Remaining debt', input);
+
+        if (CreditAmortizationLine."Abandoned interests" <> WS.GetInt('Abandoned interests', input)) then
+            CreditAmortizationLine."Abandoned interests" := WS.GetInt('Abandoned interests', input);
+
+        if (CreditAmortizationLine."Payment balance" <> WS.GetInt('Payment balance', input)) then
+            CreditAmortizationLine."Payment balance" := WS.GetInt('Payment balance', input);
+
+    end;
+
+    local procedure AddCreditRequestCriteria(input: JsonObject)
+    var
+        CustScoring: Record "A01 Customer Scoring";
+    begin
+        CustScoring.Init();
+        processCreditRequestCriteria(CustScoring, input);
+        CustScoring.Insert();
+    end;
+
+    local procedure processCreditRequestCriteria(var CustScoring: Record "A01 Customer Scoring"; input: JsonObject)
+    var
+        CustRec: Record Customer;
+        ContactRec: Record Contact;
+        validityValue: Integer;
+    begin
+
+        if (CustRec.Get(WS.GetText('Customer No_', input))) then
+            if (CustScoring."Account Type" <> CustScoring."Account Type"::Customer) then
+                CustScoring."Account Type" := CustScoring."Account Type"::Customer;
+        if (ContactRec.Get(WS.GetText('Customer No_', input))) then
+            if (CustScoring."Account Type" <> CustScoring."Account Type"::Prospect) then
+                CustScoring."Account Type" := CustScoring."Account Type"::Prospect;
+
+
+        if (CustScoring."Customer No." <> WS.GetText('Customer No_', input)) then
+            CustScoring."Customer No." := CopyStr(WS.GetText('Customer No_', input), 1, 20);
+
+        if (CustScoring.Criteria <> WS.GetText('Criteria', input)) then
+            CustScoring.Criteria := CopyStr(WS.GetText('Criteria', input), 1, 20);
+
+        validityValue := WS.GetInt('Validity', input);
+        if (validityValue = 0) then
+            CustScoring."Validity" := CustScoring."Validity"::Limited;
+        if (validityValue = 1) then
+            CustScoring."Validity" := CustScoring."Validity"::Unlimited;
+
+        if (CustScoring.Valid <> WS.GetBool('Valid', input)) then
+            CustScoring."Valid" := WS.GetBool('Valid', input);
+
+        if (CustScoring."Validity Date" <> WS.GetDate('Validity Date', input)) then
+            CustScoring."Validity Date" := WS.GetDate('Validity Date', input);
+
+        if (CustScoring.Coefficient <> WS.GetDecimal('Payment balance', input)) then
+            CustScoring.Coefficient := WS.GetDecimal('Document Require', input);
+
+        if (CustScoring."Document Required" <> WS.GetBool('Document Require', input)) then
+            CustScoring."Document Required" := WS.GetBool('Payment balance', input);
+
+        // if (CustScoring.Type <> WS.GetText('Type', input)) then
+        //CustScoring."Type" := WS.GetText('Type', input);
+
+        if (CustScoring."DocumentLink" <> WS.GetText('DocumentLink', input)) then
+            CustScoring."DocumentLink" := CopyStr(WS.GetText('DocumentLink', input), 1, 100);
+
+        if (CustScoring.Precision <> WS.GetText('Precision', input)) then
+            CustScoring."Precision" := CopyStr(WS.GetText('Precision', input), 1, 50);
+
+        if (CustScoring."Criteria Value" <> WS.GetText('List value', input)) then
+            CustScoring."Criteria Value" := CopyStr(WS.GetText('List value', input), 1, 20);
+
+        if (CustScoring."Weighted Score" <> WS.GetDecimal('Weighed Point', input)) then
+            CustScoring."Weighted Score" := WS.GetDecimal('Weighed Point', input);
+
+        if (CustScoring."Modified By" <> WS.GetText('Updated by', input)) then
+            CustScoring."Modified By" := CopyStr(WS.GetText('Updated by', input), 1, 50);
+
+    end;
+
 
 }

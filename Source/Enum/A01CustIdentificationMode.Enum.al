@@ -5,15 +5,19 @@ enum 50023 "A01 Cust Identification Mode"
 {
     Extensible = true;
 
-    value(0; NIC)
+    value(0; " ")
+    {
+        Caption = 'Not applied';
+    }
+    value(1; NIC)
     {
         Caption = 'NIC';
     }
-    value(1; Passport)
+    value(2; Passport)
     {
         Caption = 'Passport';
     }
-    value(2; "Residency card")
+    value(3; "Residency card")
     {
         Caption = 'Residency card';
     }

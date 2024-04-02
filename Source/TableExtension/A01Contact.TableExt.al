@@ -5,12 +5,86 @@ tableextension 50005 "A01 Contact" extends Contact
 {
     fields
     {
-        field(50001; "A01 Legal Status"; Enum "A01 Legal Status")
+        field(50000; "A01 Customer Type"; Enum "A01 Customer Type")
+        {
+            Caption = 'Customer Type';
+            DataClassification = CustomerContent;
+        }
+        field(50001; "A01 Legal Status"; enum "A01 Legal Status")
         {
             Caption = 'Legal Status';
             DataClassification = CustomerContent;
         }
-        field(50002; "A01 Payment Terms Code"; Code[10])
+        field(50002; "A01 Risk Level"; Code[20])
+        {
+            Caption = 'Risk Level';
+            DataClassification = CustomerContent;
+            TableRelation = "A01 Parameter Record".Code where(Type = const(RiskLevel));
+        }
+        field(50003; "A01 Identification Mode"; Enum "A01 Cust Identification Mode")
+        {
+            Caption = 'Identification Mode';
+            DataClassification = CustomerContent;
+        }
+        field(50004; "A01 Sales Mode"; Code[20])
+        {
+            Caption = 'Sales Mode';
+            TableRelation = "Dimension Value".Code where("Global Dimension No." = const(3));
+            DataClassification = CustomerContent;
+        }
+        field(50005; "A01 Account Type"; Enum "A01 Customer Account Type")
+        {
+            Caption = 'Account Type';
+            DataClassification = CustomerContent;
+        }
+
+        field(50006; "A01 Parent Customer"; Code[20])
+        {
+            Caption = 'Parent Customer';
+            DataClassification = CustomerContent;
+            TableRelation = Customer;
+        }
+        field(50007; "A01 Allowed Item Category"; Code[20])
+        {
+            Caption = 'Allowed Item Category';
+            DataClassification = CustomerContent;
+            TableRelation = "Item Category";
+        }
+
+
+
+
+        field(50100; "A01 VAT Regime"; Code[20])
+        {
+            Caption = 'VAT Regime';
+            DataClassification = CustomerContent;
+            TableRelation = "VAT Business Posting Group";
+        }
+        field(50101; "A01 Main Contact"; Code[20])
+        {
+            Caption = 'Main Contact';
+            DataClassification = CustomerContent;
+            TableRelation = Contact;
+        }
+        field(50102; "A01 Prepayment required"; Decimal)
+        {
+            Caption = 'Prepayment required (%)';
+            DataClassification = CustomerContent;
+            MinValue = 0;
+            MaxValue = 0;
+        }
+
+        field(50103; "A01 Score"; Decimal)
+        {
+            Caption = 'Score';
+            DataClassification = CustomerContent;
+        }
+        field(50104; "A01 Prospect Status"; Enum "A01 Propect Validation Status")
+        {
+            Caption = 'Prospect Status';
+            DataClassification = CustomerContent;
+        }
+        field(50105; "A01 Payment Terms Code"; Code[10])
         {
             Caption = 'Payment Terms Code';
             TableRelation = "Payment Terms";
@@ -24,15 +98,15 @@ tableextension 50005 "A01 Contact" extends Contact
                     Rec.TestField("A01 Sales Mode", PayTerms."A01 Sales Mode");
             end;
         }
-        field(50003; "A01 Identification Mode"; Enum "A01 Cust Identification Mode")
+        field(50106; "A01 Payment Method"; Code[20])
         {
-            Caption = 'Identification Mode';
+            Caption = 'Payment Method';
             DataClassification = CustomerContent;
+            TableRelation = "Payment Method";
         }
-        field(50004; "A01 Sales Mode"; Code[20])
+        field(50107; "A01 Credit Limit"; Decimal)
         {
-            Caption = 'Sales Mode';
-            TableRelation = "Dimension Value".Code where("Global Dimension No." = const(3));
+            Caption = 'Credit Limit';
             DataClassification = CustomerContent;
         }
     }

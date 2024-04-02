@@ -27,6 +27,14 @@ pageextension 50006 "A01 Customer Card" extends "Customer Card"
             {
                 ApplicationArea = Basic, Suite;
             }
+            field("A01 Parent Customer"; Rec."A01 Parent Customer")
+            {
+                ApplicationArea = Basic, Suite;
+            }
+            field("A01 Allowed Item Category"; Rec."A01 Allowed Item Category")
+            {
+                ApplicationArea = Basic, Suite;
+            }
         }
     }
     actions
@@ -47,7 +55,7 @@ pageextension 50006 "A01 Customer Card" extends "Customer Card"
                 Caption = 'Scoring';
                 Image = ViewDetails;
                 RunObject = Page "A01 Customer Scoring List";
-                RunPageLink = "Customer No." = field("No.");
+                RunPageLink = "Customer No." = field("No."), "Account Type" = const(Customer);
             }
         }
     }
