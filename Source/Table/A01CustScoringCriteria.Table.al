@@ -8,6 +8,11 @@ table 50013 "A01 Cust Scoring Criteria"
 
     fields
     {
+        field(13; "Account Type"; Enum "A01 Customer Account Type")
+        {
+            Caption = 'Account Type';
+            DataClassification = CustomerContent;
+        }
         field(1; "Customer No."; Code[20])
         {
             Caption = 'Customer No.';
@@ -76,7 +81,7 @@ table 50013 "A01 Cust Scoring Criteria"
     }
     keys
     {
-        key(PK; "Customer No.", Criteria)
+        key(PK; "Account Type", "Customer No.", Criteria)
         {
             Clustered = true;
         }

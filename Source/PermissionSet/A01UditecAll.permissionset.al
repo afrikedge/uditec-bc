@@ -134,5 +134,11 @@ permissionset 50000 "A01 Uditec_All"
         tabledata "A01 Purchase Voucher Entry" = RIMD,
         table "A01 Purchase Voucher Entry" = X,
         tabledata "A01 Payment Promise" = RIMD,
-        table "A01 Payment Promise" = X;
+        table "A01 Payment Promise" = X,
+        tabledata "A01 Request On Sales Document" = RIMD,
+        table "A01 Request On Sales Document" = X,
+        tabledata "A01 Payment Document" = RIMD,
+        table "A01 Payment Document" = X,
+        tabledata "A01 Payment Document Line" = RIMD,
+        table "A01 Payment Document Line" = X;
 }

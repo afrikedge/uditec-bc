@@ -236,10 +236,18 @@ codeunit 50009 "A01 WS OrdersMgt"
 
     local procedure processOrdersLines(SalesOrder: Record "Sales Header"; var SalesOrderLine: Record "Sales Line"; input: JsonObject)
     var
+        SalesLine: record "Sales Line";
         c: JsonToken;
         LinesArray: JsonArray;
         LineInput: JsonObject;
     begin
+
+        SalesLine.Reset();
+        SalesLine.SetRange("Document Type", SalesLine."Document Type"::Order);
+        SalesLine.SetRange("Document No.", SalesOrder."No.");
+        if (not SalesLine.IsEmpty) then
+            SalesLine.DeleteAll();
+
         input.Get('saleOrderLines', c);
         LinesArray := c.AsArray();
         foreach c in LinesArray do begin

@@ -55,7 +55,7 @@ pageextension 50006 "A01 Customer Card" extends "Customer Card"
                 Caption = 'Scoring';
                 Image = ViewDetails;
                 RunObject = Page "A01 Customer Scoring List";
-                RunPageLink = "Customer No." = field("No.");
+                RunPageLink = "Customer No." = field("No."), "Account Type" = const(Customer);
             }
         }
     }

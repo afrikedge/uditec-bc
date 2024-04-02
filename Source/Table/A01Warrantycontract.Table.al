@@ -8,6 +8,10 @@ table 50027 "A01 Warranty contract"
 
     fields
     {
+        field(11; "No."; Code[20])
+        {
+            Caption = 'No.';
+        }
         field(1; "Item No."; Code[20])
         {
             Caption = 'Item No.';
@@ -20,7 +24,7 @@ table 50027 "A01 Warranty contract"
         {
             Caption = 'Customer No.';
         }
-        field(4; "Document Type"; Enum "Sales Document Type")
+        field(4; "Document Type"; Enum "Item Ledger Document Type")
         {
             Caption = 'Document Type';
         }
@@ -53,7 +57,7 @@ table 50027 "A01 Warranty contract"
     }
     keys
     {
-        key(PK; "Item No.")
+        key(PK; "No.")
         {
             Clustered = true;
         }

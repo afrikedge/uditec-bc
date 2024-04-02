@@ -36,6 +36,10 @@ codeunit 50008 "A01 Api Interface Mgt"
                 exit(QuotesMgt.GetUnitPrice(input));
             'quotes_requestApproval':
                 exit(QuotesMgt.RequestApproval(input));
+            'creditRequests_insert':
+                exit(QuotesMgt.RunCreditRequest(input, false));
+            'creditRequests_modify':
+                exit(QuotesMgt.RunCreditRequest(input, false));
 
             'orders_insert':
                 exit(OrdersMgt.Run(input, false));

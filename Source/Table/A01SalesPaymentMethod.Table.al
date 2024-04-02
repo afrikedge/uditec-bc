@@ -42,6 +42,7 @@ table 50020 "A01 Sales Payment Method"
         {
             Caption = 'Responsibility Center';
             TableRelation = "Responsibility Center";
+            //TODO delete all lines if this field is changed on SO
         }
     }
     keys

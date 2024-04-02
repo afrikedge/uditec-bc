@@ -19,8 +19,7 @@ table 50009 "A01 Customer Debt Status"
         field(3; "Risk Level"; Code[20])
         {
             Caption = 'Risk Level';
-            TableRelation = "A01 Parameter Record" where(Type = const(RiskLevel));
-
+            TableRelation = "A01 Parameter Record".Code where(Type = const(RiskLevel));
         }
         field(4; "Minimum (Days)"; Integer)
         {

@@ -33,7 +33,7 @@ table 50017 "A01 Afk Setup"
         {
             Caption = 'Number of products per file';
         }
-        field(6; "MIR Site visit required"; Enum "A01 MIR Site visit required")
+        field(6; "MIR Site visit required"; Enum "A01 MIR Site Visit Required")
         {
             Caption = 'Site visit required';
         }
@@ -112,6 +112,62 @@ table 50017 "A01 Afk Setup"
         {
             Caption = 'Eligible Products';
         }
+
+        field(24; "Purchase Voucher Nos"; Code[20])
+        {
+            Caption = 'Purchase Voucher Nos';
+            TableRelation = "No. Series";
+        }
+        field(25; "Warranty Contract Nos"; Code[20])
+        {
+            Caption = 'Warranty Contract Nos';
+            TableRelation = "No. Series";
+        }
+        field(26; "Deadline Assignment Nos"; Code[20])
+        {
+            Caption = 'Deadline Assignment Nos';
+            TableRelation = "No. Series";
+        }
+        field(27; "Payment Promise Nos"; Code[20])
+        {
+            Caption = 'Payment Promise Nos';
+            TableRelation = "No. Series";
+        }
+        field(28; "Payment Document Nos"; Code[20])
+        {
+            Caption = 'Payment Document Nos';
+            TableRelation = "No. Series";
+        }
+        field(29; "Discount Request Nos"; Code[20])
+        {
+            Caption = 'Discount Request Nos';
+            TableRelation = "No. Series";
+        }
+        field(30; "Unblocking Request Nos"; Code[20])
+        {
+            Caption = 'Unblocking Request Nos';
+            TableRelation = "No. Series";
+        }
+        field(31; "Revision Request Nos"; Code[20])
+        {
+            Caption = 'Revision Request Nos';
+            TableRelation = "No. Series";
+        }
+        field(32; "Reposession request Nos"; Code[20])
+        {
+            Caption = 'Reposession request Nos';
+            TableRelation = "No. Series";
+        }
+        field(33; "Service Request Nos"; Code[20])
+        {
+            Caption = 'Service Request Nos';
+            TableRelation = "No. Series";
+        }
+        field(34; "Transport Voucher Nos"; Code[20])
+        {
+            Caption = 'Transport Voucher Nos';
+            TableRelation = "No. Series";
+        }
     }
     keys
     {
@@ -123,7 +179,7 @@ table 50017 "A01 Afk Setup"
     var
         RecordHasBeenRead: Boolean;
     /// <summary>
-    /// 
+    /// GetRecordOnce()
     /// </summary>
     procedure GetRecordOnce()
     begin

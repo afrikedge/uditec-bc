@@ -35,10 +35,11 @@ table 50025 "A01 Deadline Assignment"
             Caption = 'Assigned to';
             Editable = false;
         }
-        field(7; "Due status"; integer)
+        field(7; "Due status"; Code[10])
         {
             Caption = 'Due status';
             Editable = false;
+            TableRelation = "A01 Customer Debt Status";
         }
         field(8; "Required action"; Enum "A01 Activity Type")
         {
@@ -47,6 +48,11 @@ table 50025 "A01 Deadline Assignment"
         field(9; Comment; Text[150])
         {
             Caption = 'Comment';
+        }
+        field(10; "Customer Entry No."; Integer)
+        {
+            Caption = 'Customer Entry No.';
+            TableRelation = "Cust. Ledger Entry";
         }
     }
     keys

@@ -48,10 +48,10 @@ page 50039 "A01 Customer Scoring List"
                 field(Point; Rec.Score)
                 {
                 }
-                field("A01 Account Type"; Rec."A01 Account Type")
+                field("A01 Account Type"; Rec."Account Type")
                 {
                 }
-                field("A01 Prospect No."; Rec."A01 Prospect No.")
+                field("Customer No."; Rec."Customer No.")
                 {
                 }
                 field("Modified By"; Rec."Modified By")

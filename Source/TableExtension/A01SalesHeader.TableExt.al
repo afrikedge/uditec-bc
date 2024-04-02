@@ -105,6 +105,13 @@ tableextension 50000 "A01 Sales Header" extends "Sales Header"
             DataClassification = CustomerContent;
             Editable = false;
         }
+        // field(50017; "A01 Eligible Amount"; Decimal)
+        // {
+        //     Caption = 'Eligible Amount';
+        //     DataClassification = CustomerContent;
+        //     Editable = false;
+        // }
+
         modify("Sell-to Customer No.")
         {
             trigger OnAfterValidate()

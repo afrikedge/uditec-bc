@@ -4,33 +4,38 @@
 enum 50040 "A01 Activity Type"
 {
     Extensible = true;
+    value(0; " ")
+    {
+        Caption = ' ';
+    }
 
-    value(0; "E-mail")
+    value(1; "E-mail")
     {
         Caption = 'E-mail';
     }
-    value(1; SMS)
+    value(2; SMS)
     {
         Caption = 'SMS';
     }
-    value(2; Call)
+    value(3; Call)
     {
         Caption = 'Call';
     }
-    value(3; Chat)
+    value(4; Chat)
     {
         Caption = 'Chat';
     }
-    value(4; Appointment)
+    value(5; Appointment)
     {
         Caption = 'Appointment';
     }
-    value(5; Letter)
+    value(6; Letter)
     {
         Caption = 'Letter';
     }
-    value(6; Task)
+    value(7; Task)
     {
         Caption = 'Task';
     }
+
 }

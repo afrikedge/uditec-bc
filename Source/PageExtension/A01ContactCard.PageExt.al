@@ -57,4 +57,26 @@ pageextension 50005 "A01 Contact Card" extends "Contact Card"
             }
         }
     }
+    actions
+    {
+        addafter("Industry Groups")
+        {
+            // action(A01Criteria)
+            // {
+            //     ApplicationArea = Basic, Suite;
+            //     Caption = 'Scoring criteria';
+            //     Image = ViewDetails;
+            //     RunObject = Page "A01 Cust Scoring Criteria";
+            //     RunPageLink = "Customer No." = field("No.");
+            // }
+            action(A01Scoring)
+            {
+                ApplicationArea = Basic, Suite;
+                Caption = 'Scoring';
+                Image = ViewDetails;
+                RunObject = Page "A01 Customer Scoring List";
+                RunPageLink = "Customer No." = field("No."), "Account Type" = const(Prospect);
+            }
+        }
+    }
 }

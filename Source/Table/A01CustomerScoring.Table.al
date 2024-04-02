@@ -8,16 +8,28 @@ table 50015 "A01 Customer Scoring"
 
     fields
     {
-        field(1; "Customer No."; Code[20])
+        field(1; "Account Type"; Enum "A01 Customer Account Type")
+        {
+            Caption = 'Account Type';
+            DataClassification = CustomerContent;
+        }
+        field(18; "Customer No."; Code[20])
         {
             Caption = 'Customer No.';
-            TableRelation = "Customer";
+            DataClassification = CustomerContent;
+            TableRelation = if ("Account Type" = const("Customer")) Customer
+            else if ("Account Type" = const("Prospect")) Contact;
         }
-        field(10; "Lead No."; Code[20])
-        {
-            Caption = 'Lead No.';
-            TableRelation = "Contact";
-        }
+        // field(1; "Customer No."; Code[20])
+        // {
+        //     Caption = 'Customer No.';
+        //     TableRelation = "Customer";
+        // }
+        // field(10; "Lead No."; Code[20])
+        // {
+        //     Caption = 'Lead No.';
+        //     TableRelation = "Contact";
+        // }
         field(2; Criteria; Code[20])
         {
             Caption = 'Criteria';
@@ -89,21 +101,11 @@ table 50015 "A01 Customer Scoring"
             TableRelation = "A01 External User";
             DataClassification = CustomerContent;
         }
-        field(18; "A01 Account Type"; Enum "A01 Customer Account Type")
-        {
-            Caption = 'Account Type';
-            DataClassification = CustomerContent;
-        }
-        field(19; "A01 Prospect No."; Code[20])
-        {
-            Caption = 'Prospect No.';
-            DataClassification = CustomerContent;
-            TableRelation = Contact;
-        }
+
     }
     keys
     {
-        key(PK; "Customer No.", Criteria)
+        key(PK; "Account Type", "Customer No.", Criteria)
         {
             Clustered = true;
         }

@@ -23,7 +23,7 @@ table 50019 "A01 Responsibility Matrix"
             Caption = 'Responsibility Center';
             TableRelation = "Responsibility Center";
         }
-        field(4; Status; Integer)
+        field(4; Status; Enum "A01 Approval Status")
         {
             Caption = 'Status';
         }
