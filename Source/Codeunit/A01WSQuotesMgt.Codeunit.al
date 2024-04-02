@@ -562,23 +562,23 @@ codeunit 50005 "A01 WS QuotesMgt"
         if (CreditAmortizationLine."Calculation factor" <> WS.GetDecimal('Calculation factor', input)) then
             CreditAmortizationLine."Calculation factor" := WS.GetDecimal('Calculation factor', input);
 
-        if (CreditAmortizationLine."Monthly payment" <> WS.GetInt('Monthly payment', input)) then
-            CreditAmortizationLine."Monthly payment" := WS.GetInt('Monthly payment', input);
+        if (CreditAmortizationLine."Monthly payment" <> WS.GetDecimal('Monthly payment', input)) then
+            CreditAmortizationLine."Monthly payment" := WS.GetDecimal('Monthly payment', input);
 
-        if (CreditAmortizationLine."Interest" <> WS.GetInt('Interest', input)) then
-            CreditAmortizationLine."Interest" := WS.GetInt('Interest', input);
+        if (CreditAmortizationLine."Interest" <> WS.GetDecimal('Interest', input)) then
+            CreditAmortizationLine."Interest" := WS.GetDecimal('Interest', input);
 
-        if (CreditAmortizationLine."Depreciation" <> WS.GetInt('Depreciation', input)) then
-            CreditAmortizationLine."Depreciation" := WS.GetInt('Depreciation', input);
+        if (CreditAmortizationLine."Depreciation" <> WS.GetDecimal('Depreciation', input)) then
+            CreditAmortizationLine."Depreciation" := WS.GetDecimal('Depreciation', input);
 
-        if (CreditAmortizationLine."Remaining debt" <> WS.GetInt('Remaining debt', input)) then
-            CreditAmortizationLine."Remaining debt" := WS.GetInt('Remaining debt', input);
+        if (CreditAmortizationLine."Remaining debt" <> WS.GetDecimal('Remaining debt', input)) then
+            CreditAmortizationLine."Remaining debt" := WS.GetDecimal('Remaining debt', input);
 
-        if (CreditAmortizationLine."Abandoned interests" <> WS.GetInt('Abandoned interests', input)) then
-            CreditAmortizationLine."Abandoned interests" := WS.GetInt('Abandoned interests', input);
+        if (CreditAmortizationLine."Abandoned interests" <> WS.GetDecimal('Abandoned interests', input)) then
+            CreditAmortizationLine."Abandoned interests" := WS.GetDecimal('Abandoned interests', input);
 
-        if (CreditAmortizationLine."Payment balance" <> WS.GetInt('Payment balance', input)) then
-            CreditAmortizationLine."Payment balance" := WS.GetInt('Payment balance', input);
+        if (CreditAmortizationLine."Payment balance" <> WS.GetDecimal('Payment balance', input)) then
+            CreditAmortizationLine."Payment balance" := WS.GetDecimal('Payment balance', input);
 
     end;
 
@@ -624,11 +624,11 @@ codeunit 50005 "A01 WS QuotesMgt"
         if (CustScoring."Validity Date" <> WS.GetDate('Validity Date', input)) then
             CustScoring."Validity Date" := WS.GetDate('Validity Date', input);
 
-        if (CustScoring.Coefficient <> WS.GetDecimal('Payment balance', input)) then
-            CustScoring.Coefficient := WS.GetDecimal('Document Require', input);
+        if (CustScoring.Coefficient <> WS.GetDecimal('Coefficient', input)) then
+            CustScoring.Coefficient := WS.GetDecimal('Coefficient', input);
 
-        if (CustScoring."Document Required" <> WS.GetBool('Document Require', input)) then
-            CustScoring."Document Required" := WS.GetBool('Payment balance', input);
+        if (CustScoring."Document Required" <> WS.GetBool('Document required', input)) then
+            CustScoring."Document Required" := WS.GetBool('Document required', input);
 
         // if (CustScoring.Type <> WS.GetText('Type', input)) then
         //CustScoring."Type" := WS.GetText('Type', input);
@@ -641,6 +641,9 @@ codeunit 50005 "A01 WS QuotesMgt"
 
         if (CustScoring."Criteria Value" <> WS.GetText('List value', input)) then
             CustScoring."Criteria Value" := CopyStr(WS.GetText('List value', input), 1, 20);
+
+        if (CustScoring.Score <> WS.GetDecimal('Point', input)) then
+            CustScoring."Score" := WS.GetDecimal('Point', input);
 
         if (CustScoring."Weighted Score" <> WS.GetDecimal('Weighed Point', input)) then
             CustScoring."Weighted Score" := WS.GetDecimal('Weighed Point', input);

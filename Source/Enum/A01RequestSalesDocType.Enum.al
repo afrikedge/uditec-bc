@@ -13,8 +13,4 @@ enum 50042 "A01 Request Sales Doc Type"
     {
         Caption = 'Unblocking';
     }
-    value(2; Reposession)
-    {
-        Caption = 'Reposession';
-    }
 }

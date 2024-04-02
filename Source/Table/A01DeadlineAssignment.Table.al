@@ -54,6 +54,12 @@ table 50025 "A01 Deadline Assignment"
             Caption = 'Customer Entry No.';
             TableRelation = "Cust. Ledger Entry";
         }
+        field(17; "Modified By"; Code[50])
+        {
+            Caption = 'Modified By';
+            TableRelation = "A01 External User";
+            DataClassification = CustomerContent;
+        }
     }
     keys
     {

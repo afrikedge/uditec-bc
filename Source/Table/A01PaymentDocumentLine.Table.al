@@ -34,6 +34,7 @@ table 50033 "A01 Payment Document Line"
             Caption = 'Responsibility Center';
             TableRelation = "Responsibility Center";
         }
+
     }
     keys
     {
@@ -42,4 +43,12 @@ table 50033 "A01 Payment Document Line"
             Clustered = true;
         }
     }
+    var
+    // PaymentDoc: record "A01 Payment Document";
+    // CustLedgEntry: Record "Cust. Ledger Entry";
+
+
+
 }
+
+
