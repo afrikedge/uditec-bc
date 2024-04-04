@@ -18,13 +18,25 @@ codeunit 50010 "A01 EventsSubscribers_Report"
         if ReportId = Report::"Transfer Order" then
             NewReportId := Report::"A01 TransferOrderPrint";
 
-        // if ReportId = Report::"Standard Purchase - Order" then
-        //     NewReportId := Report::"A01 PurchaseOrderPrint";
+        if ReportId = Report::"Standard Purchase - Order" then
+            NewReportId := Report::"A01 PurchaseOrderPrint";
 
         if ReportId = Report::"Standard Sales - Pro Forma Inv" then
             NewReportId := Report::"A01 SalesOrderPrint";
 
         if ReportId = Report::"Purchase - Quote" then
             NewReportId := Report::"A01 PurchaseQuotePrint";
+
+        if ReportId = Report::"Purchase - Receipt" then
+            NewReportId := Report::"A01 PurchaseReceiptPrint";
+
+        if ReportId = Report::"Sales - Return Receipt" then
+            NewReportId := Report::"A01 SalesReturnReceiptPrint";
+
+        if ReportId = Report::"Inventory Movement" then
+            NewReportId := Report::"A01 OutputStockPrint";
+
+        if ReportId = Report::"Phys. Inventory List" then
+            NewReportId := Report::"A01 InventoryListPrint";
     end;
 }

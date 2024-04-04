@@ -1,9 +1,9 @@
 /// <summary>
-/// Report A01 SalesInvoicePrint (ID 50002).
+/// Report A01 SalesInvoiceCreditPrint (ID 50010).
 /// </summary>
-report 50002 "A01 SalesInvoicePrint"
+report 50010 "A01 SalesInvoiceCreditPrint"
 {
-    Caption = 'Sales Invoice Print';
+    Caption = 'Sales Invoice Credit';
     UsageCategory = ReportsAndAnalysis;
     ApplicationArea = All;
     DefaultLayout = RDLC;
@@ -11,7 +11,7 @@ report 50002 "A01 SalesInvoicePrint"
     EnableHyperlinks = true;
     Permissions = tabledata "Sales Shipment Buffer" = rimd;
     WordMergeDataItem = Header;
-    RDLCLayout = './Source/Report/Layout/SalesInvoicePrint.rdl';
+    RDLCLayout = './Source/Report/Layout/SalesInvoiceCreditPrint.rdl';
 
     dataset
     {
@@ -19,7 +19,7 @@ report 50002 "A01 SalesInvoicePrint"
         {
             DataItemTableView = sorting("No.");
             RequestFilterFields = "No.", "Sell-to Customer No.";
-            RequestFilterHeading = 'Sales invoice';
+            RequestFilterHeading = 'Sales invoice credit';
             column(CompanyAddress1; CompanyAddr[1])
             {
             }
@@ -194,15 +194,6 @@ report 50002 "A01 SalesInvoicePrint"
             column(DepositLbl; DepositLbl)
             {
             }
-            column(TotalDeposit; TotalDeposit)
-            {
-                AutoFormatExpression = Header."Currency Code";
-                AutoFormatType = 1;
-            }
-            column(AfkTotalDeposit_LCYText; AfkTotalDeposit_LCYText)
-            {
-            }
-
             column(BalanceLbl; BalanceLbl)
             {
             }
@@ -227,6 +218,15 @@ report 50002 "A01 SalesInvoicePrint"
             column(CompanySignLbl; CompanySignLbl)
             {
             }
+            column(TotalDeposit; TotalDeposit)
+            {
+                AutoFormatExpression = Header."Currency Code";
+                AutoFormatType = 1;
+            }
+            column(AfkTotalDeposit_LCYText; AfkTotalDeposit_LCYText)
+            {
+            }
+
             column(CompanyLogoPosition; CompanyLogoPosition)
             {
             }
@@ -1096,7 +1096,6 @@ report 50002 "A01 SalesInvoicePrint"
                 column(PmtDiscText; PmtDiscText)
                 {
                 }
-
                 trigger OnPreDataItem()
                 begin
                     PmtDiscText := '';
@@ -1324,7 +1323,6 @@ report 50002 "A01 SalesInvoicePrint"
 
                 OnAfterGetSalesHeader(Header);
 
-
                 TotalSubTotal := 0;
                 TotalInvDiscAmount := 0;
                 TotalAmount := 0;
@@ -1334,6 +1332,19 @@ report 50002 "A01 SalesInvoicePrint"
                 AfkTotalAmountInclVAT_LCY := 0;
                 AfkTotalAmount_LCY := 0;
                 AfkTotalVAT_LCY := 0;
+
+                // Clear(Deposit);
+                Clear(TotalDeposit);
+                LineRec.Reset();
+                LineRec.SetRange("Document No.", Header."No.");
+                if LineRec.Findlast() then
+                    repeat
+                        TotalDeposit := TotalDeposit + LineRec."Line Amount";
+                    until LineRec.Next() = 0;
+                TotalDeposit := CurrencyExchangeRate.ExchangeAmtFCYToLCY(Header."Posting Date",
+                                   Header."Currency Code", TotalDeposit, Header."Currency Factor");
+                TotalDeposit := TotalDeposit;
+                AfkTotalDeposit_LCYText := Format(TotalDeposit, 0, AutoFormat.ResolveAutoFormat("Auto Format"::AmountFormat, AfkLocalCurrency.Code));
 
                 if ("Order No." = '') and "Prepayment Invoice" then
                     "Order No." := "Prepayment Order No.";
@@ -1440,9 +1451,9 @@ report 50002 "A01 SalesInvoicePrint"
         PaymentTerms: Record "Payment Terms";
         AfkLocalCurrency: Record Currency;
         Cust: Record Customer;
+        LineRec: Record "Sales Invoice Line";
         // TempLineFeeNoteOnReportHist: Record "Line Fee Note on Report Hist.";
         TempLineFeeNoteOnReportHist: Record "Line Fee Note on Report Hist." temporary;
-        // LineRec: Record "Sales Invoice Line";
         RepCheck: Report Check;
 
         // Language: Codeunit Language;
@@ -1452,10 +1463,8 @@ report 50002 "A01 SalesInvoicePrint"
         FormatDocument: Codeunit "Format Document";
         MoreLines: Boolean;
         CustomerIdentity: Text[100];
-        TotalDeposit: Decimal;
-        // Deposit: Decimal;
-        AfkTotalDeposit_LCYText: Text[50];
         AfkIsLine: Integer;
+        // Deposit: Decimal;
         NumLigne: Integer;
         NumLigneText: Code[2];
         // LogInteractionEnable: Boolean;
@@ -1538,6 +1547,8 @@ report 50002 "A01 SalesInvoicePrint"
         ShipToAddr: array[8] of Text[100];
         PaymentInstructionsTxt: Text;
         CompanyLogoPosition: Integer;
+        TotalDeposit: Decimal;
+        AfkTotalDeposit_LCYText: Text[50];
         DisplayAssemblyInformation: Boolean;
         ShowWorkDescription: Boolean;
         RemainingAmount: Decimal;

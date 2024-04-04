@@ -19,12 +19,12 @@
             <TablixBody>
               <TablixColumns>
                 <TablixColumn>
-                  <Width>7.28107in</Width>
+                  <Width>7.44488in</Width>
                 </TablixColumn>
               </TablixColumns>
               <TablixRows>
                 <TablixRow>
-                  <Height>4.72441in</Height>
+                  <Height>5.12153in</Height>
                   <TablixCells>
                     <TablixCell>
                       <CellContents>
@@ -32,12 +32,12 @@
                           <TablixBody>
                             <TablixColumns>
                               <TablixColumn>
-                                <Width>7.28107in</Width>
+                                <Width>7.44488in</Width>
                               </TablixColumn>
                             </TablixColumns>
                             <TablixRows>
                               <TablixRow>
-                                <Height>4.72441in</Height>
+                                <Height>5.12153in</Height>
                                 <TablixCells>
                                   <TablixCell>
                                     <CellContents>
@@ -53,7 +53,7 @@
                                                   <Width>1.48602in</Width>
                                                 </TablixColumn>
                                                 <TablixColumn>
-                                                  <Width>0.38889in</Width>
+                                                  <Width>0.55271in</Width>
                                                 </TablixColumn>
                                                 <TablixColumn>
                                                   <Width>0.37722in</Width>
@@ -1512,7 +1512,7 @@
                                             <Top>0.15972in</Top>
                                             <Left>0.04167in</Left>
                                             <Height>1.09721in</Height>
-                                            <Width>7.23939in</Width>
+                                            <Width>7.40321in</Width>
                                             <Style>
                                               <Border>
                                                 <Style>None</Style>
@@ -1526,24 +1526,27 @@
                                                   <Width>0.68278in</Width>
                                                 </TablixColumn>
                                                 <TablixColumn>
-                                                  <Width>2.68412in</Width>
+                                                  <Width>1.03963in</Width>
                                                 </TablixColumn>
                                                 <TablixColumn>
-                                                  <Width>0.72222in</Width>
+                                                  <Width>2.4774in</Width>
                                                 </TablixColumn>
                                                 <TablixColumn>
-                                                  <Width>1.27893in</Width>
+                                                  <Width>0.51292in</Width>
                                                 </TablixColumn>
                                                 <TablixColumn>
-                                                  <Width>0.6144in</Width>
+                                                  <Width>0.95254in</Width>
                                                 </TablixColumn>
                                                 <TablixColumn>
-                                                  <Width>1.25694in</Width>
+                                                  <Width>0.83662in</Width>
+                                                </TablixColumn>
+                                                <TablixColumn>
+                                                  <Width>0.92563in</Width>
                                                 </TablixColumn>
                                               </TablixColumns>
                                               <TablixRows>
                                                 <TablixRow>
-                                                  <Height>0.19444in</Height>
+                                                  <Height>0.22916in</Height>
                                                   <TablixCells>
                                                     <TablixCell>
                                                       <CellContents>
@@ -1587,6 +1590,58 @@
                                                               <Color>Black</Color>
                                                               <Style>Solid</Style>
                                                             </RightBorder>
+                                                            <VerticalAlign>Middle</VerticalAlign>
+                                                            <PaddingLeft>2pt</PaddingLeft>
+                                                            <PaddingRight>2pt</PaddingRight>
+                                                            <PaddingTop>2pt</PaddingTop>
+                                                            <PaddingBottom>2pt</PaddingBottom>
+                                                          </Style>
+                                                        </Textbox>
+                                                      </CellContents>
+                                                    </TablixCell>
+                                                    <TablixCell>
+                                                      <CellContents>
+                                                        <Textbox Name="Textbox8">
+                                                          <CanGrow>true</CanGrow>
+                                                          <KeepTogether>true</KeepTogether>
+                                                          <Paragraphs>
+                                                            <Paragraph>
+                                                              <TextRuns>
+                                                                <TextRun>
+                                                                  <Value>=Fields!VendorItemRefLbl.Value</Value>
+                                                                  <Style>
+                                                                    <FontSize>8pt</FontSize>
+                                                                    <FontWeight>Bold</FontWeight>
+                                                                  </Style>
+                                                                </TextRun>
+                                                              </TextRuns>
+                                                              <Style>
+                                                                <TextAlign>Center</TextAlign>
+                                                              </Style>
+                                                            </Paragraph>
+                                                          </Paragraphs>
+                                                          <rd:DefaultName>Textbox8</rd:DefaultName>
+                                                          <Style>
+                                                            <Border>
+                                                              <Style>Solid</Style>
+                                                            </Border>
+                                                            <TopBorder>
+                                                              <Color>Black</Color>
+                                                              <Style>Solid</Style>
+                                                            </TopBorder>
+                                                            <BottomBorder>
+                                                              <Color>Black</Color>
+                                                              <Style>Solid</Style>
+                                                            </BottomBorder>
+                                                            <LeftBorder>
+                                                              <Color>Black</Color>
+                                                              <Style>Solid</Style>
+                                                            </LeftBorder>
+                                                            <RightBorder>
+                                                              <Color>Black</Color>
+                                                              <Style>Solid</Style>
+                                                            </RightBorder>
+                                                            <VerticalAlign>Middle</VerticalAlign>
                                                             <PaddingLeft>2pt</PaddingLeft>
                                                             <PaddingRight>2pt</PaddingRight>
                                                             <PaddingTop>2pt</PaddingTop>
@@ -1634,6 +1689,7 @@
                                                             <RightBorder>
                                                               <Style>Solid</Style>
                                                             </RightBorder>
+                                                            <VerticalAlign>Middle</VerticalAlign>
                                                             <PaddingLeft>2pt</PaddingLeft>
                                                             <PaddingRight>2pt</PaddingRight>
                                                             <PaddingTop>2pt</PaddingTop>
@@ -1680,6 +1736,7 @@
                                                             <RightBorder>
                                                               <Style>Solid</Style>
                                                             </RightBorder>
+                                                            <VerticalAlign>Middle</VerticalAlign>
                                                             <PaddingLeft>2pt</PaddingLeft>
                                                             <PaddingRight>2pt</PaddingRight>
                                                             <PaddingTop>2pt</PaddingTop>
@@ -1697,7 +1754,7 @@
                                                             <Paragraph>
                                                               <TextRuns>
                                                                 <TextRun>
-                                                                  <Value>=Fields!A01UnitPriceLbl.Value</Value>
+                                                                  <Value>=Fields!A01UnitPriceLbl.Value &amp;"(" &amp; Fields!AfkCurrCode.Value &amp;")"</Value>
                                                                   <Style>
                                                                     <FontSize>8pt</FontSize>
                                                                     <FontWeight>Bold</FontWeight>
@@ -1726,6 +1783,7 @@
                                                             <RightBorder>
                                                               <Style>Solid</Style>
                                                             </RightBorder>
+                                                            <VerticalAlign>Middle</VerticalAlign>
                                                             <PaddingLeft>2pt</PaddingLeft>
                                                             <PaddingRight>2pt</PaddingRight>
                                                             <PaddingTop>2pt</PaddingTop>
@@ -1743,7 +1801,7 @@
                                                             <Paragraph>
                                                               <TextRuns>
                                                                 <TextRun>
-                                                                  <Value>=Fields!A01DiscountPercentLbl.Value</Value>
+                                                                  <Value>=Fields!A01DiscountPercentLbl.Value &amp;"(" &amp; Fields!AfkCurrCode.Value &amp;")"</Value>
                                                                   <Style>
                                                                     <FontSize>8pt</FontSize>
                                                                     <FontWeight>Bold</FontWeight>
@@ -1772,6 +1830,7 @@
                                                             <RightBorder>
                                                               <Style>Solid</Style>
                                                             </RightBorder>
+                                                            <VerticalAlign>Middle</VerticalAlign>
                                                             <PaddingLeft>2pt</PaddingLeft>
                                                             <PaddingRight>2pt</PaddingRight>
                                                             <PaddingTop>2pt</PaddingTop>
@@ -1789,7 +1848,7 @@
                                                             <Paragraph>
                                                               <TextRuns>
                                                                 <TextRun>
-                                                                  <Value>=Fields!A01DiscountAmountLbl.Value</Value>
+                                                                  <Value>=Fields!A01DiscountAmountLbl.Value &amp;"(" &amp; Fields!AfkCurrCode.Value &amp;")"</Value>
                                                                   <Style>
                                                                     <FontSize>8pt</FontSize>
                                                                     <FontWeight>Bold</FontWeight>
@@ -1818,6 +1877,7 @@
                                                             <RightBorder>
                                                               <Style>Solid</Style>
                                                             </RightBorder>
+                                                            <VerticalAlign>Middle</VerticalAlign>
                                                             <PaddingLeft>2pt</PaddingLeft>
                                                             <PaddingRight>2pt</PaddingRight>
                                                             <PaddingTop>2pt</PaddingTop>
@@ -1852,6 +1912,56 @@
                                                             </Paragraph>
                                                           </Paragraphs>
                                                           <rd:DefaultName>Textbox46</rd:DefaultName>
+                                                          <Style>
+                                                            <Border>
+                                                              <Color>LightGrey</Color>
+                                                              <Style>Solid</Style>
+                                                            </Border>
+                                                            <TopBorder>
+                                                              <Color>Black</Color>
+                                                              <Style>Solid</Style>
+                                                            </TopBorder>
+                                                            <BottomBorder>
+                                                              <Color>Black</Color>
+                                                              <Style>Solid</Style>
+                                                            </BottomBorder>
+                                                            <LeftBorder>
+                                                              <Color>Black</Color>
+                                                              <Style>Solid</Style>
+                                                            </LeftBorder>
+                                                            <RightBorder>
+                                                              <Color>Black</Color>
+                                                              <Style>Solid</Style>
+                                                            </RightBorder>
+                                                            <PaddingLeft>2pt</PaddingLeft>
+                                                            <PaddingRight>2pt</PaddingRight>
+                                                            <PaddingTop>2pt</PaddingTop>
+                                                            <PaddingBottom>2pt</PaddingBottom>
+                                                          </Style>
+                                                        </Textbox>
+                                                      </CellContents>
+                                                    </TablixCell>
+                                                    <TablixCell>
+                                                      <CellContents>
+                                                        <Textbox Name="Textbox9">
+                                                          <CanGrow>true</CanGrow>
+                                                          <KeepTogether>true</KeepTogether>
+                                                          <Paragraphs>
+                                                            <Paragraph>
+                                                              <TextRuns>
+                                                                <TextRun>
+                                                                  <Value>=Fields!Vendor_Item_No_.Value</Value>
+                                                                  <Style>
+                                                                    <FontSize>8pt</FontSize>
+                                                                  </Style>
+                                                                </TextRun>
+                                                              </TextRuns>
+                                                              <Style>
+                                                                <TextAlign>Left</TextAlign>
+                                                              </Style>
+                                                            </Paragraph>
+                                                          </Paragraphs>
+                                                          <rd:DefaultName>Textbox9</rd:DefaultName>
                                                           <Style>
                                                             <Border>
                                                               <Color>LightGrey</Color>
@@ -2024,9 +2134,10 @@
                                                             <Paragraph>
                                                               <TextRuns>
                                                                 <TextRun>
-                                                                  <Value>=Fields!A01LineDiscountPercent_Line.Value</Value>
+                                                                  <Value>=Fields!A01Line_Discount_Amount.Value</Value>
                                                                   <Style>
                                                                     <FontSize>8pt</FontSize>
+                                                                    <Format>#,0;(#,0)</Format>
                                                                   </Style>
                                                                 </TextRun>
                                                               </TextRuns>
@@ -2074,7 +2185,7 @@
                                                             <Paragraph>
                                                               <TextRuns>
                                                                 <TextRun>
-                                                                  <Value>=Fields!A01Line_Discount_Amount.Value</Value>
+                                                                  <Value>=Fields!A01DiscountedPrice.Value</Value>
                                                                   <Style>
                                                                     <FontSize>8pt</FontSize>
                                                                     <Format>#,0;(#,0)</Format>
@@ -2111,6 +2222,7 @@
                                                 <TablixMember />
                                                 <TablixMember />
                                                 <TablixMember />
+                                                <TablixMember />
                                               </TablixMembers>
                                             </TablixColumnHierarchy>
                                             <TablixRowHierarchy>
@@ -2134,9 +2246,9 @@
                                               </TablixMembers>
                                             </TablixRowHierarchy>
                                             <Top>1.46528in</Top>
-                                            <Left>0.04167in</Left>
-                                            <Height>0.38888in</Height>
-                                            <Width>7.23939in</Width>
+                                            <Left>0.01735in</Left>
+                                            <Height>0.4236in</Height>
+                                            <Width>7.42752in</Width>
                                             <ZIndex>1</ZIndex>
                                             <Style>
                                               <Border>
@@ -2148,10 +2260,10 @@
                                             <TablixBody>
                                               <TablixColumns>
                                                 <TablixColumn>
-                                                  <Width>1.10416in</Width>
+                                                  <Width>1.02777in</Width>
                                                 </TablixColumn>
                                                 <TablixColumn>
-                                                  <Width>1.38542in</Width>
+                                                  <Width>1.17708in</Width>
                                                 </TablixColumn>
                                               </TablixColumns>
                                               <TablixRows>
@@ -2167,7 +2279,7 @@
                                                             <Paragraph>
                                                               <TextRuns>
                                                                 <TextRun>
-                                                                  <Value>=Fields!A01TotalHT__Lbl.Value</Value>
+                                                                  <Value>=Fields!A01TotalHT__Lbl.Value  &amp;"(" &amp; Fields!AfkCurrCode.Value &amp;")"</Value>
                                                                   <Style>
                                                                     <FontSize>8pt</FontSize>
                                                                     <FontWeight>Bold</FontWeight>
@@ -2202,7 +2314,7 @@
                                                             <Paragraph>
                                                               <TextRuns>
                                                                 <TextRun>
-                                                                  <Value>=LAST(Fields!A01TotalAmount_LCYText.Value)</Value>
+                                                                  <Value>=LAST(Fields!TotalAmount.Value)</Value>
                                                                   <Style>
                                                                     <FontSize>7pt</FontSize>
                                                                     <FontWeight>Bold</FontWeight>
@@ -2232,7 +2344,7 @@
                                                   </TablixCells>
                                                 </TablixRow>
                                                 <TablixRow>
-                                                  <Height>0.13889in</Height>
+                                                  <Height>0.1942in</Height>
                                                   <TablixCells>
                                                     <TablixCell>
                                                       <CellContents>
@@ -2243,7 +2355,7 @@
                                                             <Paragraph>
                                                               <TextRuns>
                                                                 <TextRun>
-                                                                  <Value>=Fields!A01TotalVAT__Lbl.Value</Value>
+                                                                  <Value>=Fields!A01TotalVAT__Lbl.Value &amp;"(" &amp; Fields!AfkCurrCode.Value &amp;")"</Value>
                                                                   <Style>
                                                                     <FontSize>8pt</FontSize>
                                                                     <FontWeight>Bold</FontWeight>
@@ -2278,7 +2390,7 @@
                                                             <Paragraph>
                                                               <TextRuns>
                                                                 <TextRun>
-                                                                  <Value>=LAST(Fields!A01TotalVAT_LCYText.Value)</Value>
+                                                                  <Value>=LAST(Fields!TotalVATAmount.Value)</Value>
                                                                   <Style>
                                                                     <FontSize>7pt</FontSize>
                                                                     <FontWeight>Bold</FontWeight>
@@ -2319,7 +2431,7 @@
                                                             <Paragraph>
                                                               <TextRuns>
                                                                 <TextRun>
-                                                                  <Value>=Fields!A01TotalTTC__Lbl.Value</Value>
+                                                                  <Value>=Fields!A01TotalTTC__Lbl.Value &amp;"(" &amp; Fields!AfkCurrCode.Value &amp;")"</Value>
                                                                   <Style>
                                                                     <FontSize>8pt</FontSize>
                                                                     <FontWeight>Bold</FontWeight>
@@ -2354,7 +2466,7 @@
                                                             <Paragraph>
                                                               <TextRuns>
                                                                 <TextRun>
-                                                                  <Value>=LAST(Fields!A01TotalAmountInclVAT_LCYText.Value)</Value>
+                                                                  <Value>=LAST(Fields!TotalAmountInclVAT.Value)</Value>
                                                                   <Style>
                                                                     <FontSize>7pt</FontSize>
                                                                     <FontWeight>Bold</FontWeight>
@@ -2399,10 +2511,304 @@
                                               </TablixMembers>
                                             </TablixRowHierarchy>
                                             <Top>1.98587in</Top>
-                                            <Left>4.79149in</Left>
-                                            <Height>0.47917in</Height>
-                                            <Width>2.48958in</Width>
+                                            <Left>5.24003in</Left>
+                                            <Height>0.53448in</Height>
+                                            <Width>2.20485in</Width>
                                             <ZIndex>2</ZIndex>
+                                            <Style>
+                                              <Border>
+                                                <Style>None</Style>
+                                              </Border>
+                                            </Style>
+                                          </Tablix>
+                                          <Textbox Name="Textbox10">
+                                            <CanGrow>true</CanGrow>
+                                            <KeepTogether>true</KeepTogether>
+                                            <Paragraphs>
+                                              <Paragraph>
+                                                <TextRuns>
+                                                  <TextRun>
+                                                    <Value>=Fields!AuthoriseSignLbl.Value</Value>
+                                                    <Style>
+                                                      <FontSize>9pt</FontSize>
+                                                      <FontWeight>Bold</FontWeight>
+                                                    </Style>
+                                                  </TextRun>
+                                                </TextRuns>
+                                                <Style>
+                                                  <TextAlign>Right</TextAlign>
+                                                </Style>
+                                              </Paragraph>
+                                            </Paragraphs>
+                                            <rd:DefaultName>Textbox10</rd:DefaultName>
+                                            <Top>3.29167in</Top>
+                                            <Left>5.45039in</Left>
+                                            <Height>0.20833in</Height>
+                                            <Width>1.9945in</Width>
+                                            <ZIndex>3</ZIndex>
+                                            <Style>
+                                              <Border>
+                                                <Style>None</Style>
+                                              </Border>
+                                              <PaddingLeft>2pt</PaddingLeft>
+                                              <PaddingRight>2pt</PaddingRight>
+                                              <PaddingTop>2pt</PaddingTop>
+                                              <PaddingBottom>2pt</PaddingBottom>
+                                            </Style>
+                                          </Textbox>
+                                          <Tablix Name="Tablix2">
+                                            <TablixBody>
+                                              <TablixColumns>
+                                                <TablixColumn>
+                                                  <Width>1.71556in</Width>
+                                                </TablixColumn>
+                                                <TablixColumn>
+                                                  <Width>2.08333in</Width>
+                                                </TablixColumn>
+                                              </TablixColumns>
+                                              <TablixRows>
+                                                <TablixRow>
+                                                  <Height>0.1942in</Height>
+                                                  <TablixCells>
+                                                    <TablixCell>
+                                                      <CellContents>
+                                                        <Textbox Name="Textbox65">
+                                                          <CanGrow>true</CanGrow>
+                                                          <KeepTogether>true</KeepTogether>
+                                                          <Paragraphs>
+                                                            <Paragraph>
+                                                              <TextRuns>
+                                                                <TextRun>
+                                                                  <Value>=Fields!Requested_Receipt_DateLbl.Value</Value>
+                                                                  <Style>
+                                                                    <FontSize>8pt</FontSize>
+                                                                    <FontWeight>Bold</FontWeight>
+                                                                  </Style>
+                                                                </TextRun>
+                                                              </TextRuns>
+                                                              <Style>
+                                                                <TextAlign>Right</TextAlign>
+                                                              </Style>
+                                                            </Paragraph>
+                                                          </Paragraphs>
+                                                          <rd:DefaultName>Textbox65</rd:DefaultName>
+                                                          <Style>
+                                                            <Border>
+                                                              <Color>LightGrey</Color>
+                                                              <Style>None</Style>
+                                                            </Border>
+                                                            <PaddingLeft>2pt</PaddingLeft>
+                                                            <PaddingRight>2pt</PaddingRight>
+                                                            <PaddingTop>2pt</PaddingTop>
+                                                            <PaddingBottom>2pt</PaddingBottom>
+                                                          </Style>
+                                                        </Textbox>
+                                                      </CellContents>
+                                                    </TablixCell>
+                                                    <TablixCell>
+                                                      <CellContents>
+                                                        <Textbox Name="Textbox66">
+                                                          <CanGrow>true</CanGrow>
+                                                          <KeepTogether>true</KeepTogether>
+                                                          <Paragraphs>
+                                                            <Paragraph>
+                                                              <TextRuns>
+                                                                <TextRun>
+                                                                  <Value>=Fields!Requested_Receipt_Date.Value</Value>
+                                                                  <Style>
+                                                                    <FontSize>8pt</FontSize>
+                                                                  </Style>
+                                                                </TextRun>
+                                                              </TextRuns>
+                                                              <Style>
+                                                                <TextAlign>Left</TextAlign>
+                                                              </Style>
+                                                            </Paragraph>
+                                                          </Paragraphs>
+                                                          <rd:DefaultName>Textbox66</rd:DefaultName>
+                                                          <Style>
+                                                            <Border>
+                                                              <Color>LightGrey</Color>
+                                                              <Style>None</Style>
+                                                            </Border>
+                                                            <PaddingLeft>2pt</PaddingLeft>
+                                                            <PaddingRight>2pt</PaddingRight>
+                                                            <PaddingTop>2pt</PaddingTop>
+                                                            <PaddingBottom>2pt</PaddingBottom>
+                                                          </Style>
+                                                        </Textbox>
+                                                      </CellContents>
+                                                    </TablixCell>
+                                                  </TablixCells>
+                                                </TablixRow>
+                                                <TablixRow>
+                                                  <Height>0.1942in</Height>
+                                                  <TablixCells>
+                                                    <TablixCell>
+                                                      <CellContents>
+                                                        <Textbox Name="Textbox11">
+                                                          <CanGrow>true</CanGrow>
+                                                          <KeepTogether>true</KeepTogether>
+                                                          <Paragraphs>
+                                                            <Paragraph>
+                                                              <TextRuns>
+                                                                <TextRun>
+                                                                  <Value>=Fields!PaymenTerms__Caption.Value</Value>
+                                                                  <Style>
+                                                                    <FontSize>8pt</FontSize>
+                                                                    <FontWeight>Bold</FontWeight>
+                                                                  </Style>
+                                                                </TextRun>
+                                                              </TextRuns>
+                                                              <Style>
+                                                                <TextAlign>Right</TextAlign>
+                                                              </Style>
+                                                            </Paragraph>
+                                                          </Paragraphs>
+                                                          <rd:DefaultName>Textbox11</rd:DefaultName>
+                                                          <Style>
+                                                            <Border>
+                                                              <Color>LightGrey</Color>
+                                                              <Style>None</Style>
+                                                            </Border>
+                                                            <PaddingLeft>2pt</PaddingLeft>
+                                                            <PaddingRight>2pt</PaddingRight>
+                                                            <PaddingTop>2pt</PaddingTop>
+                                                            <PaddingBottom>2pt</PaddingBottom>
+                                                          </Style>
+                                                        </Textbox>
+                                                      </CellContents>
+                                                    </TablixCell>
+                                                    <TablixCell>
+                                                      <CellContents>
+                                                        <Textbox Name="Textbox58">
+                                                          <CanGrow>true</CanGrow>
+                                                          <KeepTogether>true</KeepTogether>
+                                                          <Paragraphs>
+                                                            <Paragraph>
+                                                              <TextRuns>
+                                                                <TextRun>
+                                                                  <Value>=Fields!A01PaymentTermName.Value</Value>
+                                                                  <Style>
+                                                                    <FontSize>8pt</FontSize>
+                                                                  </Style>
+                                                                </TextRun>
+                                                              </TextRuns>
+                                                              <Style>
+                                                                <TextAlign>Left</TextAlign>
+                                                              </Style>
+                                                            </Paragraph>
+                                                          </Paragraphs>
+                                                          <rd:DefaultName>Textbox58</rd:DefaultName>
+                                                          <Style>
+                                                            <Border>
+                                                              <Color>LightGrey</Color>
+                                                              <Style>None</Style>
+                                                            </Border>
+                                                            <PaddingLeft>2pt</PaddingLeft>
+                                                            <PaddingRight>2pt</PaddingRight>
+                                                            <PaddingTop>2pt</PaddingTop>
+                                                            <PaddingBottom>2pt</PaddingBottom>
+                                                          </Style>
+                                                        </Textbox>
+                                                      </CellContents>
+                                                    </TablixCell>
+                                                  </TablixCells>
+                                                </TablixRow>
+                                                <TablixRow>
+                                                  <Height>0.17361in</Height>
+                                                  <TablixCells>
+                                                    <TablixCell>
+                                                      <CellContents>
+                                                        <Textbox Name="Textbox62">
+                                                          <CanGrow>true</CanGrow>
+                                                          <KeepTogether>true</KeepTogether>
+                                                          <Paragraphs>
+                                                            <Paragraph>
+                                                              <TextRuns>
+                                                                <TextRun>
+                                                                  <Value>=Fields!PaymentMode__Caption.Value</Value>
+                                                                  <Style>
+                                                                    <FontSize>8pt</FontSize>
+                                                                    <FontWeight>Bold</FontWeight>
+                                                                  </Style>
+                                                                </TextRun>
+                                                              </TextRuns>
+                                                              <Style>
+                                                                <TextAlign>Right</TextAlign>
+                                                              </Style>
+                                                            </Paragraph>
+                                                          </Paragraphs>
+                                                          <rd:DefaultName>Textbox62</rd:DefaultName>
+                                                          <Style>
+                                                            <Border>
+                                                              <Color>LightGrey</Color>
+                                                              <Style>None</Style>
+                                                            </Border>
+                                                            <PaddingLeft>2pt</PaddingLeft>
+                                                            <PaddingRight>2pt</PaddingRight>
+                                                            <PaddingTop>2pt</PaddingTop>
+                                                            <PaddingBottom>2pt</PaddingBottom>
+                                                          </Style>
+                                                        </Textbox>
+                                                      </CellContents>
+                                                    </TablixCell>
+                                                    <TablixCell>
+                                                      <CellContents>
+                                                        <Textbox Name="Textbox63">
+                                                          <CanGrow>true</CanGrow>
+                                                          <KeepTogether>true</KeepTogether>
+                                                          <Paragraphs>
+                                                            <Paragraph>
+                                                              <TextRuns>
+                                                                <TextRun>
+                                                                  <Value>=Fields!A01PaymentModeName.Value</Value>
+                                                                  <Style>
+                                                                    <FontSize>8pt</FontSize>
+                                                                  </Style>
+                                                                </TextRun>
+                                                              </TextRuns>
+                                                              <Style>
+                                                                <TextAlign>Left</TextAlign>
+                                                              </Style>
+                                                            </Paragraph>
+                                                          </Paragraphs>
+                                                          <rd:DefaultName>Textbox63</rd:DefaultName>
+                                                          <Style>
+                                                            <Border>
+                                                              <Color>LightGrey</Color>
+                                                              <Style>None</Style>
+                                                            </Border>
+                                                            <PaddingLeft>2pt</PaddingLeft>
+                                                            <PaddingRight>2pt</PaddingRight>
+                                                            <PaddingTop>2pt</PaddingTop>
+                                                            <PaddingBottom>2pt</PaddingBottom>
+                                                          </Style>
+                                                        </Textbox>
+                                                      </CellContents>
+                                                    </TablixCell>
+                                                  </TablixCells>
+                                                </TablixRow>
+                                              </TablixRows>
+                                            </TablixBody>
+                                            <TablixColumnHierarchy>
+                                              <TablixMembers>
+                                                <TablixMember />
+                                                <TablixMember />
+                                              </TablixMembers>
+                                            </TablixColumnHierarchy>
+                                            <TablixRowHierarchy>
+                                              <TablixMembers>
+                                                <TablixMember />
+                                                <TablixMember />
+                                                <TablixMember />
+                                              </TablixMembers>
+                                            </TablixRowHierarchy>
+                                            <Top>2.34674in</Top>
+                                            <Left>0.04167in</Left>
+                                            <Height>0.56201in</Height>
+                                            <Width>3.79889in</Width>
+                                            <ZIndex>4</ZIndex>
                                             <Style>
                                               <Border>
                                                 <Style>None</Style>
@@ -2417,6 +2823,7 @@
                                           </Border>
                                         </Style>
                                       </Rectangle>
+                                      <rd:Selected>true</rd:Selected>
                                     </CellContents>
                                   </TablixCell>
                                 </TablixCells>
@@ -2465,8 +2872,8 @@
             <DataSetName>DataSet_Result</DataSetName>
             <Top>0in</Top>
             <Left>0in</Left>
-            <Height>4.72441in</Height>
-            <Width>7.28107in</Width>
+            <Height>5.12153in</Height>
+            <Width>7.44488in</Width>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -2474,10 +2881,10 @@
             </Style>
           </Tablix>
         </ReportItems>
-        <Height>12cm</Height>
+        <Height>13.00869cm</Height>
         <Style />
       </Body>
-      <Width>18.49392cm</Width>
+      <Width>18.91cm</Width>
       <Page>
         <PageHeader>
           <Height>3.67452cm</Height>
@@ -2519,9 +2926,9 @@
                 </Paragraph>
               </Paragraphs>
               <Top>0.10639in</Top>
-              <Left>2.48139in</Left>
-              <Height>0.34027in</Height>
-              <Width>2.27778in</Width>
+              <Left>3.28269in</Left>
+              <Height>0.31249in</Height>
+              <Width>2.39993in</Width>
               <ZIndex>1</ZIndex>
               <Style>
                 <Border>
@@ -2697,22 +3104,6 @@
           <Height>0.63889in</Height>
           <PrintOnFirstPage>true</PrintOnFirstPage>
           <PrintOnLastPage>true</PrintOnLastPage>
-          <ReportItems>
-            <Image Name="Image1">
-              <Source>Embedded</Source>
-              <Value>Piedpage</Value>
-              <Sizing>FitProportional</Sizing>
-              <Top>0in</Top>
-              <Left>1.24422in</Left>
-              <Height>0.5in</Height>
-              <Width>5.06578in</Width>
-              <Style>
-                <Border>
-                  <Style>None</Style>
-                </Border>
-              </Style>
-            </Image>
-          </ReportItems>
           <Style>
             <Border>
               <Style>None</Style>
@@ -2721,8 +3112,8 @@
         </PageFooter>
         <PageHeight>29.7cm</PageHeight>
         <PageWidth>21cm</PageWidth>
-        <LeftMargin>0.5cm</LeftMargin>
-        <RightMargin>0.5cm</RightMargin>
+        <LeftMargin>1cm</LeftMargin>
+        <RightMargin>1cm</RightMargin>
         <TopMargin>1cm</TopMargin>
         <BottomMargin>1cm</BottomMargin>
         <Style />
@@ -3014,6 +3405,27 @@ IYQQQgghhBBCCCGKyLhECCGEEEIIIYQQQgghhBBCCCGEEEIUkXGJEEIIIYQQQgghhBBCCCGEEEIIIYQo
         <Field Name="A01UnitPriceLbl">
           <DataField>A01UnitPriceLbl</DataField>
         </Field>
+        <Field Name="PaymenTerms__Caption">
+          <DataField>PaymenTerms__Caption</DataField>
+        </Field>
+        <Field Name="PaymentMode__Caption">
+          <DataField>PaymentMode__Caption</DataField>
+        </Field>
+        <Field Name="Requested_Receipt_DateLbl">
+          <DataField>Requested_Receipt_DateLbl</DataField>
+        </Field>
+        <Field Name="Requested_Receipt_Date">
+          <DataField>Requested_Receipt_Date</DataField>
+        </Field>
+        <Field Name="A01PaymentTermName">
+          <DataField>A01PaymentTermName</DataField>
+        </Field>
+        <Field Name="A01PaymentModeName">
+          <DataField>A01PaymentModeName</DataField>
+        </Field>
+        <Field Name="AfkCurrCode">
+          <DataField>AfkCurrCode</DataField>
+        </Field>
         <Field Name="CompanyAddress1">
           <DataField>CompanyAddress1</DataField>
         </Field>
@@ -3071,6 +3483,9 @@ IYQQQgghhBBCCCGKyLhECCGEEEIIIYQQQgghhBBCCCGEEEIUkXGJEEIIIYQQQgghhBBCCCGEEEIIIYQo
         <Field Name="CompanyBankName_Lbl">
           <DataField>CompanyBankName_Lbl</DataField>
         </Field>
+        <Field Name="VendorItemRefLbl">
+          <DataField>VendorItemRefLbl</DataField>
+        </Field>
         <Field Name="CompanyBankBranchNo">
           <DataField>CompanyBankBranchNo</DataField>
         </Field>
@@ -3088,6 +3503,9 @@ IYQQQgghhBBCCCGKyLhECCGEEEIIIYQQQgghhBBCCCGEEEIUkXGJEEIIIYQQQgghhBBCCCGEEEIIIYQo
         </Field>
         <Field Name="CompanyIBAN_Lbl">
           <DataField>CompanyIBAN_Lbl</DataField>
+        </Field>
+        <Field Name="AuthoriseSignLbl">
+          <DataField>AuthoriseSignLbl</DataField>
         </Field>
         <Field Name="CompanySWIFT">
           <DataField>CompanySWIFT</DataField>
@@ -3479,6 +3897,9 @@ IYQQQgghhBBCCCGKyLhECCGEEEIIIYQQQgghhBBCCCGEEEIUkXGJEEIIIYQQQgghhBBCCCGEEEIIIYQo
         <Field Name="A01LineQty">
           <DataField>A01LineQty</DataField>
         </Field>
+        <Field Name="A01DiscountedPrice">
+          <DataField>A01DiscountedPrice</DataField>
+        </Field>
         <Field Name="A01Line_Discount_Amount">
           <DataField>A01Line_Discount_Amount</DataField>
         </Field>
@@ -3514,6 +3935,9 @@ IYQQQgghhBBCCCGKyLhECCGEEEIIIYQQQgghhBBCCCGEEEIUkXGJEEIIIYQQQgghhBBCCCGEEEIIIYQo
         </Field>
         <Field Name="A01TotalVAT_LCYFormat">
           <DataField>A01TotalVAT_LCYFormat</DataField>
+        </Field>
+        <Field Name="Vendor_Item_No_">
+          <DataField>Vendor_Item_No_</DataField>
         </Field>
         <Field Name="VendorItemNo_PurchLine">
           <DataField>VendorItemNo_PurchLine</DataField>

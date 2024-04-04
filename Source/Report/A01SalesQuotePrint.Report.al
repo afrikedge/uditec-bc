@@ -39,6 +39,9 @@ report 50001 "A01 SalesQuotePrint"
             column(UnitName; UnitName)
             {
             }
+            column(unitAddress; unitAddress)
+            {
+            }
             column(City; City)
             {
             }
@@ -46,6 +49,9 @@ report 50001 "A01 SalesQuotePrint"
             {
             }
             column(SellerName; SellerName)
+            {
+            }
+            column(CustIdentity; CustIdentity)
             {
             }
             column(Sell_to_Address; "Sell-to Address")
@@ -72,7 +78,7 @@ report 50001 "A01 SalesQuotePrint"
             column(CustomerName; CustomerName)
             {
             }
-            column(CustomerAddress; CustomerAddress)
+            column(CustomerAddress; "Ship-to Name")
             {
             }
             column(PostalCode__Caption; PostalCode__Caption)
@@ -313,7 +319,7 @@ report 50001 "A01 SalesQuotePrint"
                         end;
                         A01FormattedVAT := Format(Round(tempVAT, 0.001, '<'));
                         A01FormattedAmtHT := Format(Round(Line.Quantity * tempPU, 0.001, '<'));
-                        A01FormattedLineDiscountAmount := Format(Round(tempHT * Line."Line Discount %", 0.001, '<'));
+                        A01FormattedLineDiscountAmount := Format(Round((Line.Quantity * tempPU) * (Line."Line Discount %" / 100), 0.001, '<'));
                         FormattedLineAmountTTC := Format(Round(tempTTC, 0.001, '<'));
                     end;
                     A01LineQty := Line.Quantity;
@@ -324,7 +330,7 @@ report 50001 "A01 SalesQuotePrint"
 
                     // InitializeShipmentLine();
                     if Type = Type::"G/L Account" then
-                        "No." := '';
+                        // "No." := '';
 
                     OnBeforeLineOnAfterGetRecord(Header, Line);
 
@@ -730,10 +736,7 @@ report 50001 "A01 SalesQuotePrint"
             trigger OnAfterGetRecord()
             var
                 CurrencyExchangeRate: Record "Currency Exchange Rate";
-                // Rec: Record "Sales Header";
                 SalesPost: Codeunit "Sales-Post";
-            // ApprovalsMgmt: Codeunit "Approvals Mgmt.";
-            // Msg: Label 'Le document est encore au statut ouvert, il doit être lancé';
             begin
                 GLSetup.Get();
                 GLSetup.TestField("LCY Code");
@@ -768,30 +771,38 @@ report 50001 "A01 SalesQuotePrint"
                 if ResponsibilityInfo.Get(Header."Responsibility Center") then begin
                     UnitName := ResponsibilityInfo.Name;
                     City := ResponsibilityInfo.City;
+                    unitAddress := ResponsibilityInfo.Address;
                     PostCode := ResponsibilityInfo."Post Code";
                 end;
 
                 if SalesPersonInfo.Get(Header."Salesperson Code") then
                     SellerName := SalesPersonInfo.Name;
 
-                // if Cust.Get(Header."Sell-to Customer No.") then begin
-                //     CustomerName := Cust.Name;
-                //     CustomerAddress := Cust.Address;
-                // end;
-
                 if Cust.Get(Header."Sell-to Customer No.") then
                     if Cust."A01 Customer Type" = Cust."A01 Customer Type"::Miscellaneous then begin
                         if ContactInfo.Get(Header."Sell-to Contact No.") then begin
-                            CustomerName := ContactInfo.Name;
-                            CustomerAddress := ContactInfo.Address;
+                            CustIdentity := ContactInfo.Name;
                             CustomerPhone := ContactInfo."Phone No.";
                         end;
-                    end else begin
-                        if Cust.Get(Header."Sell-to Customer Templ. Code") then begin
+
+                        if ShipToAddr.Get(Header."Ship-to Code") then
+                            CustomerAddress := ShipToAddr.Name;
+
+                        if Cust.Get(Header."Sell-to Customer No.") then
                             CustomerName := Cust.Name;
-                            CustomerAddress := Cust.Address;
-                            CustomerPhone := Cust."Phone No.";
+
+                    end else begin
+                        if Cust.Get(Header."Sell-to Customer No.") then
+                            CustomerName := Cust.Name;
+
+                        if ContactInfo.Get(Header."Sell-to Contact No.") then begin
+                            CustIdentity := ContactInfo.Name;
+                            CustomerPhone := ContactInfo."Phone No.";
                         end;
+
+                        if ShipToAddr.Get(Header."Ship-to Code") then
+                            CustomerAddress := ShipToAddr.Name;
+
                     end;
 
                 if not IsReportInPreviewMode() then
@@ -958,6 +969,7 @@ report 50001 "A01 SalesQuotePrint"
         SalesSetup: Record "Sales & Receivables Setup";
         RespCenter: Record "Responsibility Center";
         SellToContact: Record Contact;
+        ShipToAddr: Record "Ship-to Address";
         BillToContact: Record Contact;
         CompanyBankAccount: Record "Bank Account";
         DummyCompanyInfo: Record "Company Information";
@@ -1014,6 +1026,8 @@ report 50001 "A01 SalesQuotePrint"
         CompanyAddr: array[8] of Text[100];
         CurrCode: Text[10];
         CurrSymbol: Text[10];
+        CustIdentity: Text[100];
+        unitAddress: Text[100];
         TotalText: Text[50];
         TotalExclVATText: Text[50];
         TotalInclVATText: Text[50];
@@ -1064,25 +1078,25 @@ report 50001 "A01 SalesQuotePrint"
         UnitAddress__Caption: Label 'Unit address :';
         City__Caption: Label 'City';
         PostalCode__Caption: Label 'Postal code :';
-        SellerName__Caption: Label 'Seller name';
+        SellerName__Caption: Label 'Seller name :';
         Document_No__Caption: Label 'Product code';
         Description__Caption: Label 'Designation';
         Quantity__Caption: Label 'Quantity';
         UnitPrice__Caption: Label 'Unit price HT(AR)';
         DiscountPercent__Caption: Label 'Discount(AR)';
         DiscountAmount__Caption: Label 'Discounted price HT(AR)';
-        DevisNo__Caption: Label 'Quote No';
-        DateOfPrint: Label 'Date of print';
-        CustomerName__Caption: Label 'Customer name';
-        CustomerIdentity__Caption: Label 'Customer identity';
-        CustomerAddress__Caption: Label 'Customer address';
-        NIF__Caption: Label 'NIF';
-        STAT__Caption: Label 'STAT';
-        RCS__Caption: Label 'RCS';
-        CustomerPhone__Caption: Label 'Phone';
-        TotalHT__Caption: Label 'Total HT (AR)';
-        TVA__Caption: Label 'VAT(20%)(AR)';
-        TotalTTC__Caption: Label 'Total TTC(AR)';
+        DevisNo__Caption: Label 'Quote No :';
+        DateOfPrint: Label 'Date of print :';
+        CustomerName__Caption: Label 'Customer name :';
+        CustomerIdentity__Caption: Label 'Customer identity :';
+        CustomerAddress__Caption: Label 'Customer address :';
+        NIF__Caption: Label 'NIF :';
+        STAT__Caption: Label 'STAT :';
+        RCS__Caption: Label 'RCS :';
+        CustomerPhone__Caption: Label 'Phone :';
+        TotalHT__Caption: Label 'Total HT (AR) :';
+        TVA__Caption: Label 'VAT(20%)(AR) :';
+        TotalTTC__Caption: Label 'Total TTC(AR) :';
         CustSignLbl: Label 'Customer signature';
         CompanySignLbl: Label 'Company signature';
         ArrestedSumLbl: Label 'Arrested at the sum of :';
