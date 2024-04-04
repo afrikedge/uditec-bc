@@ -117,6 +117,27 @@ report 50006 "A01 PurchaseOrderPrint"
             column(A01UnitPriceLbl; A01UnitPriceLbl)
             {
             }
+            column(PaymenTerms__Caption; PaymenTerms__Caption)
+            {
+            }
+            column(PaymentMode__Caption; PaymentMode__Caption)
+            {
+            }
+            column(Requested_Receipt_DateLbl; Requested_Receipt_DateLbl)
+            {
+            }
+            column(Requested_Receipt_Date; Format("Requested Receipt Date"))
+            {
+            }
+            column(A01PaymentTermName; A01PaymentTermName)
+            {
+            }
+            column(A01PaymentModeName; A01PaymentModeName)
+            {
+            }
+            column(AfkCurrCode; AfkCurrCode)
+            {
+            }
 
 
             column(CompanyAddress1; CompanyAddr[1])
@@ -176,6 +197,9 @@ report 50006 "A01 PurchaseOrderPrint"
             column(CompanyBankName_Lbl; CompanyInfoBankNameCaptionLbl)
             {
             }
+            column(VendorItemRefLbl; VendorItemRefLbl)
+            {
+            }
             column(CompanyBankBranchNo; CompanyInfo."Bank Branch No.")
             {
             }
@@ -192,6 +216,9 @@ report 50006 "A01 PurchaseOrderPrint"
             {
             }
             column(CompanyIBAN_Lbl; CompanyInfo.FieldCaption(IBAN))
+            {
+            }
+            column(AuthoriseSignLbl; AuthoriseSignLbl)
             {
             }
             column(CompanySWIFT; CompanyInfo."SWIFT Code")
@@ -583,6 +610,11 @@ report 50006 "A01 PurchaseOrderPrint"
                 column(A01LineQty; A01LineQtyFormatted)
                 {
                 }
+                column(A01DiscountedPrice; A01DiscountedPriceText)
+                {
+                    AutoFormatExpression = "Purchase Header"."Currency Code";
+                    AutoFormatType = 2;
+                }
                 column(A01Line_Discount_Amount; A01FormattedLineDiscountAmount)
                 {
                     AutoFormatExpression = "Currency Code";
@@ -618,6 +650,9 @@ report 50006 "A01 PurchaseOrderPrint"
                 {
                 }
                 column(A01TotalVAT_LCY; A01TotalVAT_LCY)
+                {
+                }
+                column(Vendor_Item_No_; "Vendor Item No.")
                 {
                 }
 
@@ -786,14 +821,14 @@ report 50006 "A01 PurchaseOrderPrint"
                     end else begin
                         if ("Purchase Header"."Prices Including VAT") then begin
                             tempHT := "Purchase Line"."Line Amount" * (1 / (1 + "Purchase Line"."VAT %" / 100));
-                            // tempHTD := "Purchase Line"."Line Amount" * (1 / (1 + "Purchase Line"."Line Discount %" / 100));
+                            // tempHTD := "Purchase Line"."Direct Unit Cost" - "Purchase Line"."Line Discount Amount";
                             tempPU := "Purchase Line"."Direct Unit Cost" * (1 / (1 + "Purchase Line"."VAT %" / 100));
                             tempVAT := "Purchase Line"."Amount Including VAT" - tempHT;
                             tempTTC := "Purchase Line"."Amount Including VAT";
 
                         end else begin
                             tempHT := "Purchase Line"."Line Amount";
-                            // tempHTD := "Purchase Line"."Line Discount Amount";
+                            // tempHTD := "Purchase Line"."Direct Unit Cost" - "Purchase Line"."Line Discount Amount";
                             tempPU := "Purchase Line"."Direct Unit Cost";
                             tempVAT := tempHT * "Purchase Line"."VAT %" / 100;
                             tempTTC := tempVAT + "Purchase Line"."Line Amount";
@@ -805,9 +840,11 @@ report 50006 "A01 PurchaseOrderPrint"
                     end;
                     A01LineQty := "Purchase Line".Quantity;
                     A01LinePU := Round(tempPU, 0.000001, '<');
+                    A01DiscountedPrice := Round(tempPU - "Purchase Line"."Line Discount Amount", 0.001, '<');
 
                     A01LineQtyFormatted := Format(A01LineQty);
                     A01LinePUFormatted := Format(A01LinePU);
+                    A01DiscountedPriceText := Format(A01DiscountedPrice);
 
                     LineDiscountPctText := StrSubstNo('%1%', Round("Line Discount %", 0.1));
 
@@ -1256,6 +1293,9 @@ report 50006 "A01 PurchaseOrderPrint"
             var
                 Language: Codeunit Language;
             begin
+                // TotalAmount := 0;
+                // TotalSubTotal := 0;
+                // TotalInvoiceDiscountAmount := 0;
                 CurrReport.Language := Language.GetLanguageIdOrDefault("Language Code");
                 FormatAddr.SetLanguageCode("Language Code");
 
@@ -1294,6 +1334,12 @@ report 50006 "A01 PurchaseOrderPrint"
                         ArchiveManagement.StorePurchDocument("Purchase Header", LogInteraction);
                 end;
 
+                if PaymentTermRec.Get("Purchase Header"."Payment Terms Code") then
+                    A01PaymentTermName := PaymentTermRec.Description;
+
+                if PaymentMethodRec.Get("Purchase Header"."Payment Method Code") then
+                    A01PaymentModeName := PaymentMethodRec.Description;
+
                 TotalSubTotal := 0;
                 // TotalInvDiscAmount := 0;
                 TotalAmount := 0;
@@ -1303,7 +1349,6 @@ report 50006 "A01 PurchaseOrderPrint"
                 A01TotalAmountInclVAT_LCY := 0;
                 A01TotalAmount_LCY := 0;
                 A01TotalVAT_LCY := 0;
-
                 TotalAmount := 0;
                 TotalSubTotal := 0;
                 TotalInvoiceDiscountAmount := 0;
@@ -1396,6 +1441,8 @@ report 50006 "A01 PurchaseOrderPrint"
 
     var
         BuyFromContact: Record Contact;
+        PaymentTermRec: Record "Payment Terms";
+        PaymentMethodRec: Record "Payment Method";
         PayToContact: Record Contact;
         ShipToAddrr: Record "Ship-to Address";
         PurchSetup: Record "Purchases & Payables Setup";
@@ -1425,6 +1472,8 @@ report 50006 "A01 PurchaseOrderPrint"
         ArchiveManagement: Codeunit ArchiveManagement;
         AutoFormat: Codeunit "Auto Format";
         VATNoText: Text[80];
+        A01PaymentTermName: Text[100];
+        A01PaymentModeName: Text[100];
         A01VendorIdentity: Text[100];
         TransHeaderAmount: Decimal;
         ReferenceText: Text[80];
@@ -1433,6 +1482,8 @@ report 50006 "A01 PurchaseOrderPrint"
         OutputNo: Integer;
         DimText: Text[120];
         VATAmount: Decimal;
+        A01DiscountedPrice: Decimal;
+        A01DiscountedPriceText: Text[50];
         VATBaseAmount: Decimal;
         AfkIsLine: Integer;
         NumLigneText: Code[2];
@@ -1486,6 +1537,9 @@ report 50006 "A01 PurchaseOrderPrint"
         TotalAmountExclInclVATTextValue: Text;
         TotalAmountExclInclVATValue: Decimal;
         A01PurchaseOrder__Caption: Label 'PURCHASE ORDER';
+        PaymenTerms__Caption: Label 'Payment terms :';
+        PaymentMode__Caption: Label 'Payment mode :';
+        Requested_Receipt_DateLbl: Label 'Requested receipt date :';
         A01NameOfSupplier__Lbl: Label 'Name of supplier :';
         A01SupplierIdentity__Lbl: Label 'Supplier identity :';
         A01NameAddress__Lbl: Label 'Supplier address :';
@@ -1493,19 +1547,20 @@ report 50006 "A01 PurchaseOrderPrint"
         A01SupplierNIF__Lbl: Label 'NIF :';
         A01SupplierSTAT__Lbl: Label 'STAT :';
         A01SupplierRCS__Lbl: Label 'RCS :';
-        A01PurchaseNumber__Lbl: Label 'Purchase order number :';
-        A01PurchaseDate__Lbl: Label 'Purchase Order Date :';
-        A01UditecInvoiceNo__Lbl: Label 'Uditec Invoice No :';
-        A01TotalHT__Lbl: Label 'Total HT (AR) :';
-        A01TotalVAT__Lbl: Label 'Total VAT (AR) :';
-        A01TotalTTC__Lbl: Label 'Total TTC (AR) :';
+        A01PurchaseNumber__Lbl: Label 'Purchase order numbe :';
+        A01PurchaseDate__Lbl: Label 'OrderDate :';
+        A01UditecInvoiceNo__Lbl: Label 'Vendor proforma reference :';
+        AuthoriseSignLbl: Label 'Authorized signatures';
+        A01TotalHT__Lbl: Label 'Total HT :';
+        A01TotalVAT__Lbl: Label 'Total VAT :';
+        A01TotalTTC__Lbl: Label 'Total TTC :';
         // A01Sgnature__Lbl: Label 'Signature :';
         A01ProductCodeLbl: Label 'Product code';
         A01DesignationLbl: Label 'Designation';
-        A01QuantityLbl: Label 'Quantity';
-        A01UnitPriceLbl: Label 'Unit price HT(AR)';
-        A01DiscountPercentLbl: Label 'Discount(AR)';
-        A01DiscountAmountLbl: Label 'Discounted prices HT(AR)';
+        A01QuantityLbl: Label 'qty';
+        A01UnitPriceLbl: Label 'Unit price HT';
+        A01DiscountPercentLbl: Label 'Discount';
+        A01DiscountAmountLbl: Label 'Discounted prices HT';
         VATAmountSpecificationLbl: Label 'VAT Amount Specification in ';
         LocalCurrentyLbl: Label 'Local Currency';
         ExchangeRateLbl: Label 'Exchange rate: %1/%2', Comment = '%1 = CurrExchRate."Relational Exch. Rate Amount", %2 = CurrExchRate."Exchange Rate Amount"';
@@ -1567,6 +1622,7 @@ report 50006 "A01 PurchaseOrderPrint"
         PurchOrderCaptionLbl: Label 'PURCHASE ORDER';
         PurchOrderNumCaptionLbl: Label 'Purchase Order Number:';
         PurchOrderDateCaptionLbl: Label 'Purchase Order Date:';
+        VendorItemRefLbl: label 'Vendor reference';
         TaxIdentTypeCaptionLbl: Label 'Tax Ident. Type';
         TotalPriceCaptionLbl: Label 'Total Price';
         InvDiscCaptionLbl: Label 'Invoice Discount:';

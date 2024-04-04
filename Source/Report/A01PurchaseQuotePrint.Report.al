@@ -61,6 +61,12 @@ report 50008 "A01 PurchaseQuotePrint"
             column(A01VendorIdentity__Caption; A01VendorIdentity__Caption)
             {
             }
+            column(CustomerSignLbl; CustomerSignLbl)
+            {
+            }
+            column(CompanySignLbl; CompanySignLbl)
+            {
+            }
             column(A01VendorAddress__Caption; A01VendorAddress__Caption)
             {
             }
@@ -77,6 +83,9 @@ report 50008 "A01 PurchaseQuotePrint"
             {
             }
             column(A01DevisNo__Caption; A01DevisNo__Caption)
+            {
+            }
+            column(A01VendorRef__Caption; A01VendorRef__Caption)
             {
             }
             column(A01DateOfPrint_Caption; A01DateOfPrint)
@@ -210,6 +219,9 @@ report 50008 "A01 PurchaseQuotePrint"
                 DataItemLinkReference = "Purchase Header";
                 DataItemTableView = sorting("Document Type", "Document No.", "Line No.");
                 column(LineNo_PurchLine; "Line No.")
+                {
+                }
+                column(Vendor_Item_No_; "Vendor Item No.")
                 {
                 }
                 column(AfkIsLine; AfkIsLine)
@@ -828,14 +840,15 @@ report 50008 "A01 PurchaseQuotePrint"
         A01VendorAddress: Text[100];
         // LogInteractionEnable: Boolean;
         // Text002: Label 'Purchase - Quote %1', Comment = '%1 = Document No.';
-        ReportTitle__Caption: Label 'PROFORMA INVOICE';
+        ReportTitle__Caption: Label 'REQUEST PROFORMA';
         A01ProductCode__Caption: Label 'Product code';
         A01Description__Caption: Label 'Designation';
         A01Quantity__Caption: Label 'Quantity';
         A01UnitPrice__Caption: Label 'Unit price HT(AR)';
         A01DiscountPercent__Caption: Label 'Discount(AR)';
         A01DiscountAmount__Caption: Label 'Discounted price HT(AR)';
-        A01DevisNo__Caption: Label 'Quote No :';
+        A01DevisNo__Caption: Label 'Reference :';
+        A01VendorRef__Caption: Label 'Vendor reference';
         A01DateOfPrint: Label 'Date of print :';
         A01VendorName__Caption: Label 'Vendor name :';
         A01VendorIdentity__Caption: Label 'Vendor identity :';
@@ -844,6 +857,8 @@ report 50008 "A01 PurchaseQuotePrint"
         A01STAT__Caption: Label 'STAT :';
         A01RCS__Caption: Label 'RCS :';
         A01VendorPhone__Caption: Label 'Phone :';
+        CustomerSignLbl: Label 'Customer signature';
+        CompanySignLbl: Label 'Company signature';
         A01TotalHT__Caption: Label 'Total HT (AR) :';
         A01TVA__Caption: Label 'VAT(20%)(AR) :';
         A01TotalTTC__Caption: Label 'Total TTC(AR) :';

@@ -1,30 +1,28 @@
 /// <summary>
-/// Report A01 Delivery note Print (ID 50003).
+/// Report A01 PreparationOrderPrint (ID 50016).
 /// </summary>
-report 50003 "A01 DeliveryNotePrint"
+report 50016 "A01 PreparationOrderPrint"
 {
-    Caption = 'A01 Delivery note print';
+    DefaultLayout = RDLC;
+    Caption = 'A01 Preparation Order print';
+    PreviewMode = PrintLayout;
     UsageCategory = ReportsAndAnalysis;
     ApplicationArea = All;
-    DefaultLayout = RDLC;
-    PreviewMode = PrintLayout;
-    EnableHyperlinks = true;
-    WordMergeDataItem = Header;
-    RDLCLayout = './Source/Report/Layout/DeliveryNotePrint.rdl';
-
+    RDLCLayout = './Source/Report/Layout/PreparationOrderPrint.rdl';
     dataset
     {
-        dataitem(Header; "Sales Shipment Header")
+        dataitem(Header; "Sales Header")
         {
-            DataItemTableView = sorting("No.");
-            RequestFilterFields = "No.";
+            DataItemTableView = sorting("Document Type", "No.") where("Document Type" = const(Order));
+            RequestFilterFields = "No.", "Sell-to Customer No.";
+            RequestFilterHeading = 'Preparation order';
             column(DocumentNo_; "No.")
             {
             }
             column(Posting_Date; Format("Posting Date"))
             {
             }
-            column(Order_No_; "Order No.")
+            column(Order_Date; Format("Order Date"))
             {
             }
             column(CompanyName; COMPANYPROPERTY.DisplayName())
@@ -51,7 +49,7 @@ report 50003 "A01 DeliveryNotePrint"
             column(UnitCity; UnitCity)
             {
             }
-            column(CustName; "Bill-to Name")
+            column(CustName; "Sell-to Customer Name")
             {
             }
             column(UnitPostalCode; UnitPostalCode)
@@ -81,16 +79,10 @@ report 50003 "A01 DeliveryNotePrint"
             column(UnitPostalCodeLbl; UnitPostalCodeLbl)
             {
             }
-            column(OrderNumberLbl; OrderNumberLbl)
+            column(PreparationOrderDateLbl; PreparationOrderDateLbl)
             {
             }
-            column(DeleveryNoteDateLbl; DeleveryNoteDateLbl)
-            {
-            }
-            column(InvoiceNumberLbl; InvoiceNumberLbl)
-            {
-            }
-            column(VehicleNumberLbl; VehicleNumberLbl)
+            column(PreparationOrderNumberLbl; PreparationOrderNumberLbl)
             {
             }
             column(CustNameLbl; CustNameLbl)
@@ -132,52 +124,50 @@ report 50003 "A01 DeliveryNotePrint"
             column(CompanySignLbl; CompanySignLbl)
             {
             }
-            column(RespCenterImg; RespCenter."A01 Logo")
+            column(QtyToShipLbl; QtyToShipLbl)
             {
             }
-            dataitem(Line; "Sales Shipment Line")
+            column(PlannedDeliveryDateLbl; PlannedDeliveryDateLbl)
             {
-                DataItemTableView = sorting("Document No.", "Line No.") where(Type = filter(2));
+            }
+            dataitem(Line; "Sales Line")
+            {
+                DataItemLink = "Document Type" = field("Document Type"), "Document No." = field("No.");
                 DataItemLinkReference = Header;
-                DataItemLink = "Document No." = field("No.");
+                DataItemTableView = sorting("Document No.", "Line No.");
+                RequestFilterFields = "Location Code", "Qty. to Ship";
                 column(LineNo_Line; "Line No.")
-                {
-                }
-                column(Document_No_; "Document No.")
                 {
                 }
                 column(ItemNo_Line; "No.")
                 {
                 }
-                column(Description_Line; Description)
+                column(Document_No_; "Document No.")
+                {
+                }
+                column(Description; Description)
                 {
                 }
                 column(Location_Code; "Location Code")
                 {
                 }
-                column(Quantity; Quantity)
+                column(Qty__to_Ship; "Qty. to Ship")
                 {
                 }
-                column(Quantity_Line_Lbl; FieldCaption(Quantity))
+                column(Planned_Delivery_Date; Format("Planned Delivery Date"))
                 {
                 }
-                column(Type_Line; Format(Type))
+                dataitem("Tracking Specification"; "Tracking Specification")
                 {
-                }
-                dataitem("Item Ledger Entry"; "Item Ledger Entry")
-                {
-                    DataItemTableView = sorting("Document No.") where("Document Type" = filter(1));
+                    DataItemLink = "Item No." = field("No."), "Source ID" = field("Document No."), "Source Ref. No." = field("Line No.");
                     DataItemLinkReference = Line;
-                    DataItemLink = "Document No." = field("Document No."), "Document Line No." = field("Line No.");
+                    DataItemTableView = sorting("Entry No.");
                     column(Serial_No_; "Serial No.")
                     {
                     }
-                    column(Quantity_; Quantity)
-                    {
-                    }
                 }
-            }
 
+            }
             trigger OnAfterGetRecord()
             begin
                 if RespCenter.Get(Header."Responsibility Center") then begin
@@ -187,50 +177,59 @@ report 50003 "A01 DeliveryNotePrint"
                     UnitPostalCode := RespCenter."Post Code";
                 end;
 
-                if Contact.Get(Header."Bill-to Contact No.") then begin
+                if Contact.Get(Header."Sell-to Contact No.") then begin
                     CustIdentity := Contact.Name;
                     CustPhone := Contact."Phone No.";
                 end;
 
-                if Ship.Get(Header."Ship-to Code") then
-                    CustAddress := Ship.Name;
+                // if Ship.Get(Header."Ship-to Code") then
+                //     CustAddress := Ship.Name;
 
             end;
         }
-
     }
 
     requestpage
     {
         layout
         {
+            // area(Content)
+            // {
+            //     group(GroupName)
+            //     {
+            //         field(Name; SourceExpression)
+            //         {
+            //             ApplicationArea = All;
+            //         }
+            //     }
+            // }
         }
 
         actions
         {
         }
     }
-
     trigger OnPreReport()
     begin
         CompanyInfo.Get();
         CompanyInfo.CalcFields(Picture);
     end;
 
+
     var
         CompanyInfo: Record "Company Information";
         RespCenter: Record "Responsibility Center";
-        // Cust: Record Customer;
         Contact: Record Contact;
-        Ship: Record "Ship-to Address";
+        // Ship: Record "Ship-to Address";
         UnitName: Text[100];
         UnitAddress: Text[100];
         UnitCity: Text[50];
         UnitPostalCode: Text[50];
-        CustAddress: Text[100];
+        // CustAddress: Text[100];
         CustIdentity: Text[100];
         CustPhone: Text[30];
-        ReportTitleLbl: Label 'DELIVERY NOTE';
+
+        ReportTitleLbl: Label 'PREPARATION ORDER';
         UnitNameLbl: Label 'Unit name :';
         UnitAddressLbl: Label 'Unit address :';
         UnitCityLbl: Label 'City';
@@ -242,17 +241,15 @@ report 50003 "A01 DeliveryNotePrint"
         STATLbl: Label 'STAT :';
         RCSLbl: Label 'RCS :';
         CustPhoneLbl: Label 'Phone :';
-        OrderNumberLbl: Label 'Delivery note number :';
-        DeleveryNoteDateLbl: Label 'Delivery note date :';
-        InvoiceNumberLbl: Label 'Invoice number :';
-        VehicleNumberLbl: Label 'Vehicle number :';
-
+        PreparationOrderNumberLbl: Label 'Preparation order number :';
+        PreparationOrderDateLbl: Label 'preparation order date :';
+        // OrderNumberLbl: Label 'Order number :';
         ProductCodeLbl: Label 'Product code';
+        PlannedDeliveryDateLbl: Label 'Planned delivery date';
         ProductSerialNumberLbl: Label 'product serial number';
         DesignationLbl: Label 'Designation';
+        QtyToShipLbl: Label 'Quantity to ship';
         ProductLocationLbl: Label 'Product Location';
         CustSignLbl: Label 'Customer signature';
         CompanySignLbl: Label 'Company signature';
-
-
 }
