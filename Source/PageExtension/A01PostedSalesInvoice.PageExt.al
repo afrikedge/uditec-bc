@@ -1,7 +1,7 @@
 /// <summary>
 /// PageExtension A01 Posted Sales Invoice (ID 50023) extends Posted Sales Invoice.
 /// </summary>
-pageextension 50023 "A01 Posted Sales Invoice" extends "Posted Sales Invoice"
+pageextension 50000 "A01 Posted Sales Invoice" extends "Posted Sales Invoice"
 {
     layout
     {

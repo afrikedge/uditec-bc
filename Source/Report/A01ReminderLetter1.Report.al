@@ -1,7 +1,7 @@
 /// <summary>
 /// Report A01 Reminder Letter 1 (ID 50009).
 /// </summary>
-report 50009 "A01 Reminder Letter 1"
+report 50018 "A01 Reminder Letter 1"
 {
     Caption = 'Reminder Letter 1';
     UsageCategory = ReportsAndAnalysis;
