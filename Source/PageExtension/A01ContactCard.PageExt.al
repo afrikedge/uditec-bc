@@ -55,6 +55,10 @@ pageextension 50005 "A01 Contact Card" extends "Contact Card"
             {
                 ApplicationArea = Basic, Suite;
             }
+            field("A01 Preferred Reminder Mode"; Rec."A01 Preferred Reminder Mode")
+            {
+                ApplicationArea = Basic, Suite;
+            }
         }
     }
     actions

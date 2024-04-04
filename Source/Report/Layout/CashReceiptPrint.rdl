@@ -1635,7 +1635,7 @@
                                                             <Paragraph>
                                                               <TextRuns>
                                                                 <TextRun>
-                                                                  <Value>=Fields!Document_No.Value</Value>
+                                                                  <Value>=Fields!Description.Value</Value>
                                                                   <Style>
                                                                     <FontSize>8pt</FontSize>
                                                                   </Style>
@@ -1915,7 +1915,7 @@
                                             <Top>5.32695cm</Top>
                                             <Left>0.00009cm</Left>
                                             <Height>0.52944cm</Height>
-                                            <Width>3.43486cm</Width>
+                                            <Width>3.09972cm</Width>
                                             <ZIndex>3</ZIndex>
                                             <Style>
                                               <Border>
@@ -1936,7 +1936,7 @@
                                                   <TextRun>
                                                     <Value>=Fields!CustSignLbl.Value</Value>
                                                     <Style>
-                                                      <FontSize>8pt</FontSize>
+                                                      <FontSize>7pt</FontSize>
                                                       <FontWeight>Bold</FontWeight>
                                                     </Style>
                                                   </TextRun>
@@ -1971,7 +1971,7 @@
                                                   <TextRun>
                                                     <Value>=Fields!CompanySignLbl.Value</Value>
                                                     <Style>
-                                                      <FontSize>8pt</FontSize>
+                                                      <FontSize>7pt</FontSize>
                                                       <FontWeight>Bold</FontWeight>
                                                     </Style>
                                                   </TextRun>
@@ -2016,9 +2016,9 @@
                                             </Paragraphs>
                                             <rd:DefaultName>Textbox52</rd:DefaultName>
                                             <Top>5.32695cm</Top>
-                                            <Left>3.43495cm</Left>
+                                            <Left>3.09981cm</Left>
                                             <Height>0.52944cm</Height>
-                                            <Width>9.91645cm</Width>
+                                            <Width>10.25159cm</Width>
                                             <ZIndex>6</ZIndex>
                                             <Style>
                                               <Border>
@@ -2514,6 +2514,9 @@ End Function
         </Field>
         <Field Name="External_Document_No_">
           <DataField>External_Document_No_</DataField>
+        </Field>
+        <Field Name="Description">
+          <DataField>Description</DataField>
         </Field>
       </Fields>
       <Query>

@@ -78,6 +78,12 @@ table 50013 "A01 Cust Scoring Criteria"
         {
             Caption = 'Document link';
         }
+        field(14; "Modified By"; Code[50])
+        {
+            Caption = 'Modified By';
+            TableRelation = "A01 External User";
+            DataClassification = CustomerContent;
+        }
     }
     keys
     {

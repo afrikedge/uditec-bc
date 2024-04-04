@@ -48,12 +48,7 @@ page 50051 "A01 Revision Request"
                 {
                 }
             }
-            part(Lines; "A01 Revision Request Subform")
-            {
-                ApplicationArea = Basic, Suite;
-                SubPageLink = "Document No." = field("No.");
-                UpdatePropagation = Both;
-            }
+
         }
     }
 }

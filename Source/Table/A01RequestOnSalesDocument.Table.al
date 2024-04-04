@@ -32,10 +32,11 @@ table 50031 "A01 Request On Sales Document"
         {
             Caption = 'Document No.';
         }
-        field(7; Creator; Code[50])
+        field(7; "Modified By"; Code[50])
         {
-            Caption = 'Creator';
-            Editable = false;
+            Caption = 'Modified By';
+            TableRelation = "A01 External User";
+            DataClassification = CustomerContent;
         }
         field(8; "Requested Discount (%)"; Decimal)
         {
@@ -85,35 +86,7 @@ table 50031 "A01 Request On Sales Document"
         {
             Caption = 'Exceeding';
         }
-        field(19; "Item No."; Code[20])
-        {
-            Caption = 'Item No.';
-            TableRelation = Item;
-        }
-        field(20; "Serial Number"; Text[30])
-        {
-            Caption = 'Serial Number';
-        }
-        field(21; Origin; Enum "A01 Repossession Origin")
-        {
-            Caption = 'Origin';
-        }
-        field(22; "Acceptance Status"; Enum "A01 Reposession Accept Status")
-        {
-            Caption = 'Acceptance Status';
-        }
-        field(23; Reason; Text[100])
-        {
-            Caption = 'Reason';
-        }
-        field(24; "Reposession Type"; Enum "A01 Reposession Type")
-        {
-            Caption = 'Reposession Type';
-        }
-        field(25; "Reposession Item Status"; Enum "A01 Reposession Item Status")
-        {
-            Caption = 'Reposession Item Status';
-        }
+
     }
     keys
     {

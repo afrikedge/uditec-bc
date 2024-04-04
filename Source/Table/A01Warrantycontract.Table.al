@@ -54,6 +54,10 @@ table 50027 "A01 Warranty contract"
         {
             Caption = 'Extended Warranty Ending Date';
         }
+        field(12; "Line No."; integer)
+        {
+            Caption = 'Line No.';
+        }
     }
     keys
     {

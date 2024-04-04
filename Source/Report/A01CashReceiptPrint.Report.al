@@ -182,6 +182,9 @@ report 50004 "A01 CashReceiptPrint"
                         column(External_Document_No_; "External Document No.")
                         {
                         }
+                        column(Description; Description)
+                        {
+                        }
                         trigger OnAfterGetRecord()
                         begin
                             CustLedgerEntry.Reset();
@@ -198,13 +201,9 @@ report 50004 "A01 CashReceiptPrint"
                         CustAddress := Cust."Ship-to Code";
                     end;
 
-                    Line.SetRange("No.", Header."No.");
+                    Line.Reset();
                     Line.SetRange("No.", "Cust. Ledger Entry"."Document No.");
-                    // if Line.FindFirst() then
-                    //     repeat
-                    //         Total := Total + Line."Credit Amount";
-                    //     until Line.Next() = 0;
-                    // MontantTotal := Total;
+                    Line.SetRange("No.", Header."No.");
 
                     A01Total_LCY := CurrencyExchangeRate.ExchangeAmtFCYToLCY(Header."Posting Date",
                        Header."Currency Code", "Credit Amount", Header."Currency Factor");
@@ -224,10 +223,6 @@ report 50004 "A01 CashReceiptPrint"
                     AmountInWords := NoText[1] + ' ' + NoText[2];
                 end;
             }
-            trigger OnAfterGetRecord()
-            begin
-                Header.SetRange("No.");
-            end;
 
         }
     }
@@ -237,18 +232,6 @@ report 50004 "A01 CashReceiptPrint"
         SaveValues = true;
         layout
         {
-            // area(Content)
-            // {
-            //     group(GroupName)
-            //     {
-            //         Caption = 'Options';
-            //         field(DocNo; DocNo)
-            //         {
-            //             ApplicationArea = All;
-            //             Caption = 'No.';
-            //         }
-            //     }
-            // }
         }
 
         actions
@@ -260,9 +243,6 @@ report 50004 "A01 CashReceiptPrint"
     begin
         CompanyInfo.Get();
         CompanyInfo.CalcFields(Picture);
-
-        // if Header.GetFilters = '' then
-        //     Error(NoFilterSetErr);
     end;
 
     var
@@ -273,7 +253,6 @@ report 50004 "A01 CashReceiptPrint"
         Check: Report Check;
         AutoFormat: Codeunit "Auto Format";
         CustName: Text[100];
-        // NoFilterSetErr: Label 'You must specify one or more filters to avoid accidently printing all documents.';
         CustAddressName: Text[100];
         // CalculatedExchRate: Decimal;
         // ExchangeRateText: Text;

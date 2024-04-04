@@ -34,6 +34,12 @@ table 50006 "A01 Item Warranty"
             Caption = 'Warranty Plan Type';
             Editable = false;
         }
+        field(17; "Modified By"; Code[50])
+        {
+            Caption = 'Modified By';
+            TableRelation = "A01 External User";
+            DataClassification = CustomerContent;
+        }
     }
     keys
     {

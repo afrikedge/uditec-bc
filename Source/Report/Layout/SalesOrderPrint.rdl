@@ -441,7 +441,7 @@
                                                             <Paragraph>
                                                               <TextRuns>
                                                                 <TextRun>
-                                                                  <Value />
+                                                                  <Value>=First(Fields!CustIdentity.Value, "DataSet_Result")</Value>
                                                                   <Style>
                                                                     <FontSize>8pt</FontSize>
                                                                   </Style>
@@ -2616,6 +2616,7 @@
                                           </Border>
                                         </Style>
                                       </Rectangle>
+                                      <rd:Selected>true</rd:Selected>
                                     </CellContents>
                                   </TablixCell>
                                 </TablixCells>
@@ -2930,7 +2931,7 @@
                         <TextRun>
                           <Value>=First(Fields!UnitAddress.Value, "DataSet_Result")</Value>
                           <Style>
-                            <FontSize>7pt</FontSize>
+                            <FontSize>8pt</FontSize>
                           </Style>
                         </TextRun>
                       </TextRuns>
@@ -3208,6 +3209,9 @@ End Function
         <Field Name="A01CustomerAddress">
           <DataField>A01CustomerAddress</DataField>
         </Field>
+        <Field Name="CustIdentity">
+          <DataField>CustIdentity</DataField>
+        </Field>
         <Field Name="A01Order_Date">
           <DataField>A01Order_Date</DataField>
         </Field>
@@ -3297,6 +3301,15 @@ End Function
         </Field>
         <Field Name="A01TotalTTC__Caption">
           <DataField>A01TotalTTC__Caption</DataField>
+        </Field>
+        <Field Name="TotalDeposit">
+          <DataField>TotalDeposit</DataField>
+        </Field>
+        <Field Name="TotalDepositFormat">
+          <DataField>TotalDepositFormat</DataField>
+        </Field>
+        <Field Name="AfkTotalDeposit_LCYText">
+          <DataField>AfkTotalDeposit_LCYText</DataField>
         </Field>
         <Field Name="CompanyVATRegNo">
           <DataField>CompanyVATRegNo</DataField>

@@ -118,15 +118,10 @@ permissionset 50000 "A01 Uditec_All"
         tabledata "A01 Revision Request" = RIMD,
         table "A01 Revision Request" = X,
         page "A01 Approval flows" = X,
-        tabledata "A01 Revision Request Line" = RIMD,
-        table "A01 Revision Request Line" = X,
         tabledata "A01 Deadline Assignment" = RIMD,
         table "A01 Deadline Assignment" = X,
         page "A01 Revision Request" = X,
         page "A01 Revision Request List" = X,
-        page "A01 Revision Request Subform" = X,
-        tabledata "A01 Reminder" = RIMD,
-        table "A01 Reminder" = X,
         tabledata "A01 Warranty contract" = RIMD,
         table "A01 Warranty contract" = X,
         tabledata "A01 Purchase Voucher" = RIMD,
@@ -140,5 +135,7 @@ permissionset 50000 "A01 Uditec_All"
         tabledata "A01 Payment Document" = RIMD,
         table "A01 Payment Document" = X,
         tabledata "A01 Payment Document Line" = RIMD,
-        table "A01 Payment Document Line" = X;
+        table "A01 Payment Document Line" = X,
+        tabledata "A01 Reposession Request" = RIMD,
+        table "A01 Reposession Request" = X;
 }

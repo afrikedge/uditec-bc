@@ -16,13 +16,19 @@ table 50030 "A01 Payment Promise"
         {
             Caption = 'Object';
         }
-        field(3; "Customer Account Type"; Enum "A01 Customer Account Type")
+        // field(3; "Customer Account Type"; Enum "A01 Customer Account Type")
+        // {
+        //     Caption = 'Customer Account Type';
+        // }
+        field(3; "Customer No."; Code[20])
         {
-            Caption = 'Customer Account Type';
+            Caption = 'Customer No.';
+            TableRelation = Customer;
         }
-        field(4; "Customer Account No."; Code[20])
+        field(4; "Contact No."; Code[20])
         {
-            Caption = 'Customer Account No.';
+            Caption = 'Contact No.';
+            TableRelation = Contact;
         }
         field(5; Description; Text[50])
         {
@@ -53,7 +59,7 @@ table 50030 "A01 Payment Promise"
         field(11; Origin; Code[20])
         {
             Caption = 'Origin';
-            TableRelation = "A01 Reminder";
+            TableRelation = "Reminder Header";
         }
         field(12; Reminder; Enum "A01 Activity Type")
         {
@@ -67,6 +73,17 @@ table 50030 "A01 Payment Promise"
         {
             Caption = 'Status';
         }
+        field(15; "Reminder date"; Date)
+        {
+            Caption = 'Reminder date';
+        }
+        field(17; "Modified By"; Code[50])
+        {
+            Caption = 'Modified By';
+            TableRelation = "A01 External User";
+            DataClassification = CustomerContent;
+        }
+        //Reminder date
     }
     keys
     {

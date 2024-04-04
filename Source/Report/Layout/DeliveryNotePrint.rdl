@@ -441,7 +441,7 @@
                                                             <Paragraph>
                                                               <TextRuns>
                                                                 <TextRun>
-                                                                  <Value />
+                                                                  <Value>=First(Fields!CustIdentity.Value, "DataSet_Result")</Value>
                                                                   <Style>
                                                                     <FontSize>8pt</FontSize>
                                                                   </Style>
@@ -2790,6 +2790,9 @@ End Function
         <Field Name="CustPhone">
           <DataField>CustPhone</DataField>
         </Field>
+        <Field Name="CustIdentity">
+          <DataField>CustIdentity</DataField>
+        </Field>
         <Field Name="ReportTitleLbl">
           <DataField>ReportTitleLbl</DataField>
         </Field>
@@ -2855,6 +2858,9 @@ End Function
         </Field>
         <Field Name="CompanySignLbl">
           <DataField>CompanySignLbl</DataField>
+        </Field>
+        <Field Name="RespCenterImg">
+          <DataField>RespCenterImg</DataField>
         </Field>
         <Field Name="LineNo_Line">
           <DataField>LineNo_Line</DataField>

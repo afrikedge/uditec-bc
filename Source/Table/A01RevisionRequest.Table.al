@@ -67,6 +67,56 @@ table 50023 "A01 Revision Request"
         {
             Caption = 'Prepayment Required (%)';
         }
+        field(11; "Payment Terms (Proposed)"; Code[20])
+        {
+            Caption = 'Payment Terms (Proposed)';
+            TableRelation = "Payment Terms";
+        }
+        field(12; "Credit Limit (Proposed)"; Decimal)
+        {
+            Caption = 'Credit Limit (Proposed)';
+        }
+        field(13; "Payment Method (Proposed)"; Code[20])
+        {
+            Caption = 'Payment Method (Proposed)';
+            TableRelation = "Payment Method";
+        }
+        field(14; "VAT Regime (Proposed)"; Code[20])
+        {
+            Caption = 'VAT Regime (Proposed)';
+            TableRelation = "VAT Business Posting Group";
+        }
+        field(15; "Prepayment Required (Proposed)"; Decimal)
+        {
+            Caption = 'Prepayment Required % (Proposed)';
+            MinValue = 0;
+            MaxValue = 100;
+        }
+        field(16; "Payment Terms (Validated)"; Code[20])
+        {
+            Caption = 'Payment Terms (Validated)';
+            TableRelation = "Payment Terms";
+        }
+        field(17; "Credit Limit (Validated)"; Decimal)
+        {
+            Caption = 'Credit Limit (Validated)';
+        }
+        field(18; "Payment Method (Validated)"; Code[20])
+        {
+            Caption = 'Payment Method (Validated)';
+            TableRelation = "Payment Method";
+        }
+        field(19; "VAT Regime (Validated)"; Code[20])
+        {
+            Caption = 'VAT Regime (Validated)';
+            TableRelation = "VAT Business Posting Group";
+        }
+        field(20; "Prepay. Required (Validated)"; Decimal)
+        {
+            Caption = 'Prepayment Required % (Validated)';
+            MinValue = 0;
+            MaxValue = 100;
+        }
     }
     keys
     {

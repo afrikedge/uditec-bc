@@ -21,5 +21,43 @@ codeunit 50001 "A01 EventsSubscribers_Table"
                 SalesHeader.testfield("A01 Processing Status", SalesHeader."A01 Processing Status"::Draft);
     end;
 
+    [EventSubscriber(ObjectType::Table, Database::"Issued Reminder Header", 'OnBeforePrintRecords', '', true, true)]
+    local procedure OnBeforePrintRecords_IssuedReminderHeader(var IssuedReminderHeader: Record "Issued Reminder Header"; ShowRequestForm: Boolean; SendAsEmail: Boolean; HideDialog: Boolean; var IsHandled: Boolean)
+    var
+        DocumentSendingProfile: Record "Document Sending Profile";
+        //DummyReportSelections: Record "Report Selections";
+        ReminderLevel: Record "Reminder Level";
+        ReminderHeader: Record "Issued Reminder Header";
+        IssuedReminderHeaderToSend: Record "Issued Reminder Header";
+        ReportDistributionMgt: Codeunit "Report Distribution Management";
+        SuppresSendDialogQst: Label 'Do you want to suppress send dialog?';
+
+    begin
+        IsHandled := true;
+
+        ReminderLevel.Get(IssuedReminderHeader."Reminder Level");
+
+        if SendAsEmail then begin
+            ReminderHeader.Copy(IssuedReminderHeader);
+            if (not HideDialog) and (ReminderHeader.Count > 1) then
+                if Confirm(SuppresSendDialogQst) then
+                    HideDialog := true;
+            if ReminderHeader.FindSet() then
+                repeat
+                    IssuedReminderHeaderToSend.Copy(IssuedReminderHeader);
+                    IssuedReminderHeaderToSend.SetRecFilter();
+                    DocumentSendingProfile.TrySendToEMail(
+                      ReminderLevel."A01 Report Usage".AsInteger(), IssuedReminderHeaderToSend, IssuedReminderHeaderToSend.FieldNo("No."),
+                      ReportDistributionMgt.GetFullDocumentTypeText(IssuedReminderHeader), IssuedReminderHeaderToSend.FieldNo("Customer No."), not HideDialog)
+                until ReminderHeader.Next() = 0;
+        end else
+            DocumentSendingProfile.TrySendToPrinter(
+              ReminderLevel."A01 Report Usage".AsInteger(), IssuedReminderHeader,
+              IssuedReminderHeaderToSend.FieldNo("Customer No."), ShowRequestForm);
+
+    end;
+
+
+
 
 }

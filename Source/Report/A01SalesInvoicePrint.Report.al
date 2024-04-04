@@ -86,7 +86,10 @@ report 50002 "A01 SalesInvoicePrint"
             column(A01Customer_Name; Header."Sell-to Customer Name")
             {
             }
-            column(CustomerAddress; CustomerAddress)
+            column(CustomerAddress; "Ship-to Name")
+            {
+            }
+            column(CustomerIdentity; CustomerIdentity)
             {
             }
             column(CustomerPhone; CustomerPhone)
@@ -191,6 +194,15 @@ report 50002 "A01 SalesInvoicePrint"
             column(DepositLbl; DepositLbl)
             {
             }
+            column(TotalDeposit; TotalDeposit)
+            {
+                AutoFormatExpression = Header."Currency Code";
+                AutoFormatType = 1;
+            }
+            column(AfkTotalDeposit_LCYText; AfkTotalDeposit_LCYText)
+            {
+            }
+
             column(BalanceLbl; BalanceLbl)
             {
             }
@@ -675,7 +687,7 @@ report 50002 "A01 SalesInvoicePrint"
                         end;
                         A01FormattedVAT := Format(Round(tempVAT, 0.001, '<'));
                         A01FormattedAmtHT := Format(Round(Line.Quantity * tempPU, 0.001, '<'));
-                        A01FormattedLineDiscountAmount := Format(Round(tempHT * Line."Line Discount %", 0.001, '<'));
+                        A01FormattedLineDiscountAmount := Format(Round((Line.Quantity * tempPU) * (Line."Line Discount %" / 100), 0.001, '<'));
                         FormattedLineAmountTTC := Format(Round(tempTTC, 0.001, '<'));
                     end;
                     A01LineQty := Line.Quantity;
@@ -685,8 +697,9 @@ report 50002 "A01 SalesInvoicePrint"
                     A01LinePUFormatted := Format(A01LinePU);
 
                     InitializeShipmentLine();
-                    // if Type = Type::"G/L Account" then
-                    //     "No." := '';
+                    if Type = Type::"G/L Account" then
+                        //     "No." := '';
+                        CurrReport.Skip();
 
                     OnBeforeLineOnAfterGetRecord(Header, Line);
 
@@ -1264,10 +1277,13 @@ report 50002 "A01 SalesInvoicePrint"
                     UnitPhone := RespCenter."Phone No.";
                 end;
 
-                if Cust.Get(Header."Sell-to Customer No.") then begin
-                    CustomerAddress := Cust.Address;
-                    CustomerPhone := cust."Phone No.";
+                if SellToContact.Get(Header."Sell-to Contact No.") then begin
+                    CustomerIdentity := SellToContact.Name;
+                    CustomerPhone := SellToContact."Phone No.";
                 end;
+
+                if ShipToAddrr.Get(Header."Ship-to Code") then
+                    CustomerAddress := ShipToAddrr.Name;
 
                 ChecksPayableText := StrSubstNo(ChecksPayableLbl, CompanyInfo.Name);
 
@@ -1307,6 +1323,7 @@ report 50002 "A01 SalesInvoicePrint"
                         RemainingAmountTxt := '';
 
                 OnAfterGetSalesHeader(Header);
+
 
                 TotalSubTotal := 0;
                 TotalInvDiscAmount := 0;
@@ -1409,6 +1426,7 @@ report 50002 "A01 SalesInvoicePrint"
         RespCenter: Record "Responsibility Center";
         SalesPersonCode: Record "Salesperson/Purchaser";
         SellToContact: Record Contact;
+        ShipToAddrr: Record "Ship-to Address";
         // Country: Record "Country/Region";
         VATClause: Record "VAT Clause";
         BillToContact: Record Contact;
@@ -1424,6 +1442,7 @@ report 50002 "A01 SalesInvoicePrint"
         Cust: Record Customer;
         // TempLineFeeNoteOnReportHist: Record "Line Fee Note on Report Hist.";
         TempLineFeeNoteOnReportHist: Record "Line Fee Note on Report Hist." temporary;
+        // LineRec: Record "Sales Invoice Line";
         RepCheck: Report Check;
 
         // Language: Codeunit Language;
@@ -1432,8 +1451,11 @@ report 50002 "A01 SalesInvoicePrint"
         AutoFormat: Codeunit "Auto Format";
         FormatDocument: Codeunit "Format Document";
         MoreLines: Boolean;
+        CustomerIdentity: Text[100];
+        TotalDeposit: Decimal;
+        // Deposit: Decimal;
+        AfkTotalDeposit_LCYText: Text[50];
         AfkIsLine: Integer;
-        // AfkIsLine2: Integer;
         NumLigne: Integer;
         NumLigneText: Code[2];
         // LogInteractionEnable: Boolean;

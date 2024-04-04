@@ -34,10 +34,11 @@ table 50032 "A01 Payment Document"
         {
             Caption = 'Status';
         }
-        field(7; Creator; Code[50])
+        field(7; "Modified By"; Code[50])
         {
-            Caption = 'Creator';
-            Editable = false;
+            Caption = 'Modified By';
+            TableRelation = "A01 External User";
+            DataClassification = CustomerContent;
         }
         field(8; "Responsibility Center"; Code[10])
         {

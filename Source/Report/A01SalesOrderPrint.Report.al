@@ -60,7 +60,10 @@ report 50007 "A01 SalesOrderPrint"
             column(A01CustomerName; "Sell-to Customer Name")
             {
             }
-            column(A01CustomerAddress; CustAddress)
+            column(A01CustomerAddress; "Ship-to Name")
+            {
+            }
+            column(CustIdentity; CustIdentity)
             {
             }
             column(A01Order_Date; Format("Order Date"))
@@ -151,6 +154,14 @@ report 50007 "A01 SalesOrderPrint"
             {
             }
             column(A01TotalTTC__Caption; A01TotalTTC__Caption)
+            {
+            }
+            column(TotalDeposit; TotalDeposit)
+            {
+                AutoFormatExpression = Header."Currency Code";
+                AutoFormatType = 1;
+            }
+            column(AfkTotalDeposit_LCYText; AfkTotalDeposit_LCYText)
             {
             }
 
@@ -429,20 +440,22 @@ report 50007 "A01 SalesOrderPrint"
                     AutoFormatExpression = "Currency Code";
                     AutoFormatType = 1;
                 }
+                // column(AfkTotalDeposit_LCYText; AfkTotalDeposit_LCYText)
+                // {
+                // }
+                // column(TotalDeposit; TotalDeposit)
+                // {
+                //     AutoFormatExpression = "Currency Code";
+                //     AutoFormatType = 1;
+                // }
 
                 trigger OnAfterGetRecord()
                 var
-                    // Location: Record Location;
-                    // AutoFormatType: Enum "Auto Format";
                     tempHT: Decimal;
-                    // tempHTD: Decimal;
                     tempPU: Decimal;
                     tempTTC: Decimal;
                     tempVAT: Decimal;
                 begin
-                    GetItemForRec("No.");
-                    OnBeforeLineOnAfterGetRecord(Header, Line);
-
                     AfkIsLine := 1;
                     NumLigne := NumLigne + 1;
                     if (NumLigne < 10) then
@@ -466,14 +479,13 @@ report 50007 "A01 SalesOrderPrint"
 
                         end else begin
                             tempHT := Line."Line Amount";
-                            // tempHTD := Line."Line Discount Amount";
                             tempPU := Line."Unit Price";
                             tempVAT := tempHT * Line."VAT %" / 100;
                             tempTTC := tempVAT + Line."Line Amount";
                         end;
                         A01FormattedVAT := Format(Round(tempVAT, 0.001, '<'));
                         A01FormattedAmtHT := Format(Round(Line.Quantity * tempPU, 0.001, '<'));
-                        A01FormattedLineDiscountAmount := Format(Round(tempHT * Line."Line Discount %", 0.001, '<'));
+                        A01FormattedLineDiscountAmount := Format(Round((Line.Quantity * tempPU) * (Line."Line Discount %" / 100), 0.001, '<'));
                         FormattedLineAmountTTC := Format(Round(tempTTC, 0.001, '<'));
                     end;
                     A01LineQty := Line.Quantity;
@@ -483,7 +495,10 @@ report 50007 "A01 SalesOrderPrint"
                     A01LinePUFormatted := Format(A01LinePU);
 
                     if Type = Type::"G/L Account" then
-                        "No." := '';
+                        // "No." := '';
+                        CurrReport.Skip();
+
+                    OnBeforeLineOnAfterGetRecord(Header, Line);
 
                     // if "Line Discount %" = 0 then
                     //     LineDiscountPctText := ''
@@ -499,7 +514,6 @@ report 50007 "A01 SalesOrderPrint"
                         TotalAmountVAT += "Amount Including VAT" - tempHT;
                         TotalAmountInclVAT += "Amount Including VAT";
                         TotalPaymentDiscOnVAT += -(tempHT - "Inv. Discount Amount" - "Amount Including VAT");
-
                     end else begin
                         TransHeaderAmount += PrevLineAmount;
                         PrevLineAmount := "Line Amount";
@@ -518,8 +532,7 @@ report 50007 "A01 SalesOrderPrint"
                     TotalAmount := 0;
                     TotalVATAmount := 0;
                     TotalAmountInclVAT := 0;
-                    SetRange(Type, Type::Item);
-
+                    // SetRange(Type, Type::Item);
                     MoreLines := Find('+');
                     while MoreLines and (Description = '') and ("No." = '') and (Quantity = 0) and (Amount = 0) do
                         MoreLines := Next(-1) <> 0;
@@ -678,6 +691,7 @@ report 50007 "A01 SalesOrderPrint"
                 column(AfkLocalCurrencyText; AfkLocalCurrencyText)
                 {
                 }
+
                 trigger OnPreDataItem()
                 var
                     AutoFormatType: Enum "Auto Format";
@@ -738,6 +752,7 @@ report 50007 "A01 SalesOrderPrint"
             begin
                 GLSetup.Get();
                 GLSetup.TestField("LCY Code");
+                // FirstLineHasBeenOutput := false;
 
                 CurrReport.Language := Language.GetLanguageIdOrDefault("Language Code");
                 CurrReport.FormatRegion := Language.GetFormatRegionOrDefault("Format Region");
@@ -772,12 +787,33 @@ report 50007 "A01 SalesOrderPrint"
                 if SalesPersonInfo.Get(Header."Salesperson Code") then
                     SellerName := SalesPersonInfo.Name;
 
+                if ContactInfo.Get(Header."Sell-to Contact No.") then begin
+                    CustIdentity := ContactInfo.Name;
+                    CustomerPhone := ContactInfo."Phone No.";
+                end;
+
+                if ShipToAddr.Get(Header."Ship-to Code") then
+                    CustAddress := ShipToAddr.Name;
+
                 if "Currency Code" <> '' then begin
                     CurrencyExchangeRate.FindCurrency("Posting Date", "Currency Code", 1);
                     CalculatedExchRate :=
                       Round(1 / "Currency Factor" * CurrencyExchangeRate."Exchange Rate Amount", 0.000001);
                     ExchangeRateText := StrSubstNo(ExchangeRateTxt, CalculatedExchRate, CurrencyExchangeRate."Exchange Rate Amount");
                 end;
+
+                Clear(Deposit);
+                Clear(TotalDeposit);
+                LineRec.Reset();
+                LineRec.SetRange("Document No.", Header."No.");
+                if LineRec.FindFirst() then
+                    repeat
+                        Deposit := Deposit + LineRec."Prepmt. Line Amount";
+                    until LineRec.Next() = 0;
+                TotalDeposit := CurrencyExchangeRate.ExchangeAmtFCYToLCY(Header."Posting Date",
+                                   Header."Currency Code", TotalDeposit, Header."Currency Factor");
+                TotalDeposit := Deposit;
+                AfkTotalDeposit_LCYText := Format(TotalDeposit, 0, AutoFormat.ResolveAutoFormat("Auto Format"::AmountFormat, AfkLocalCurrency.Code));
 
                 TotalAmount := 0;
                 TotalAmountVAT := 0;
@@ -787,10 +823,10 @@ report 50007 "A01 SalesOrderPrint"
                 AfkTotalVAT_LCY := 0;
             end;
 
-            // trigger OnPreDataItem()
-            // begin
-            //     FirstLineHasBeenOutput := false;
-            // end;
+            trigger OnPreDataItem()
+            begin
+                // FirstLineHasBeenOutput := false;
+            end;
         }
 
     }
@@ -837,6 +873,9 @@ report 50007 "A01 SalesOrderPrint"
         ResponsibilityInfo: Record "Responsibility Center";
         SalesPersonInfo: Record "Salesperson/Purchaser";
         Item: Record Item;
+        LineRec: Record "Sales Line";
+        ContactInfo: Record Contact;
+        ShipToAddr: Record "Ship-to Address";
         Currency: Record Currency;
         SellToContact: Record Contact;
         BillToContact: Record Contact;
@@ -845,11 +884,17 @@ report 50007 "A01 SalesOrderPrint"
         // Language: Codeunit Language;
         CalculatedExchRate: Decimal;
         PrevLineAmount: Decimal;
+        Deposit: Decimal;
+        TotalDeposit: Decimal;
+        // AfkTotalDeposit_LCY: Decimal;
+        AfkTotalDeposit_LCYText: Text[50];
         ExchangeRateText: Text;
         NoText: array[2] of Text;
         AfkCurrencyName: Text;
         AfkLocalCurrencyName: Text;
         UnitName: Text[100];
+        CustIdentity: Text[100];
+        // CustPhone: Text[30];
         AfkTotalAmountInclVAT_LCY: Decimal;
         AfkTotalAmount_LCY: Decimal;
         AfkCurrCode: Code[20];
@@ -881,6 +926,9 @@ report 50007 "A01 SalesOrderPrint"
         TransHeaderAmount: Decimal;
         TotalText: Text[50];
         TotalSubTotal: Decimal;
+        // FirstLineHasBeenOutput: Boolean;
+        // Deposit: Decimal;
+        // AfkTotalDeposit_LCY: Decimal;
         AfkFormattedTotalVAT: Text[50];
         AfkFormattedTotalHT: Text[50];
         AfkFormattedTotalTTC: Text[50];
@@ -962,6 +1010,7 @@ report 50007 "A01 SalesOrderPrint"
         CurrencyCode: Code[10];
         TotalWeight: Decimal;
         TotalAmount: Decimal;
+        // Deposit: Decimal;
         TotalVATAmount: Decimal;
         TotalAmountInclVAT: Decimal;
         // LinePrice: Decimal;
@@ -1016,17 +1065,17 @@ report 50007 "A01 SalesOrderPrint"
         exit(DocumentTitleLbl);
     end;
 
-    local procedure GetItemForRec(ItemNo: Code[20])
-    var
-        IsHandled: Boolean;
-    begin
-        IsHandled := false;
-        OnBeforeGetItemForRec(ItemNo, IsHandled);
-        if IsHandled then
-            exit;
+    // local procedure GetItemForRec(ItemNo: Code[20])
+    // var
+    //     IsHandled: Boolean;
+    // begin
+    //     IsHandled := false;
+    //     OnBeforeGetItemForRec(ItemNo, IsHandled);
+    //     if IsHandled then
+    //         exit;
 
-        Item.Get(ItemNo);
-    end;
+    //     Item.Get(ItemNo);
+    // end;
 
     [IntegrationEvent(false, false)]
     local procedure OnAfterLineOnPreDataItem(var SalesHeader: Record "Sales Header"; var SalesLine: Record "Sales Line")
@@ -1038,10 +1087,10 @@ report 50007 "A01 SalesOrderPrint"
     begin
     end;
 
-    [IntegrationEvent(true, false)]
-    local procedure OnBeforeGetItemForRec(ItemNo: Code[20]; var IsHandled: Boolean)
-    begin
-    end;
+    // [IntegrationEvent(true, false)]
+    // local procedure OnBeforeGetItemForRec(ItemNo: Code[20]; var IsHandled: Boolean)
+    // begin
+    // end;
 
     [IntegrationEvent(false, false)]
     local procedure OnBeforeLineOnAfterGetRecord(SalesHeader: Record "Sales Header"; var SalesLine: Record "Sales Line")
