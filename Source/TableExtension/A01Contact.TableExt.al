@@ -50,6 +50,11 @@ tableextension 50005 "A01 Contact" extends Contact
             DataClassification = CustomerContent;
             TableRelation = "Item Category";
         }
+        field(50008; "A01 Preferred Reminder Mode"; Enum "A01 Activity Type")
+        {
+            Caption = 'Preferred Reminder Mode';
+            DataClassification = CustomerContent;
+        }
 
 
 

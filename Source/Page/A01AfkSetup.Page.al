@@ -129,6 +129,45 @@ page 50040 "A01 Afk Setup"
                     ToolTip = 'Default duration in number of hours between the entry date and the end date of diagnosis';
                 }
             }
+            group("Numbering")
+            {
+                Caption = 'Numbering';
+
+                field("Payment Promise Nos"; Rec."Payment Promise Nos")
+                {
+                }
+                field("Service Request Nos"; Rec."Service Request Nos")
+                {
+                }
+                field("Purchase Voucher Nos"; Rec."Purchase Voucher Nos")
+                {
+                }
+                field("Discount Request Nos"; Rec."Discount Request Nos")
+                {
+                }
+                field("Revision Request Nos"; Rec."Revision Request Nos")
+                {
+                }
+                field("Transport Voucher Nos"; Rec."Transport Voucher Nos")
+                {
+                }
+                field("Warranty Contract Nos"; Rec."Warranty Contract Nos")
+                {
+                }
+                field("Unblocking Request Nos"; Rec."Unblocking Request Nos")
+                {
+                }
+                field("Deadline Assignment Nos"; Rec."Deadline Assignment Nos")
+                {
+                }
+                field("Reposession request Nos"; Rec."Reposession request Nos")
+                {
+                }
+                field("Payment Document Nos"; Rec."Payment Document Nos")
+                {
+                }
+
+            }
             group("TestApi")
             {
                 Caption = 'Test Api';

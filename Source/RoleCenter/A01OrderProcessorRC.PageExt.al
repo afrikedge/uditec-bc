@@ -270,6 +270,21 @@ pageextension 50002 "A01 Order Processor RC" extends "Order Processor Role Cente
                     RunObject = Page "Payment Slip List Archive";
                 }
             }
+            group(A01AfkCredit)
+            {
+                action(A01RepossessionRequest)
+                {
+                    ApplicationArea = Basic, Suite;
+                    Caption = 'Reposession Requests';
+                    RunObject = Page "A01 Reposession Request List";
+                }
+                action(A01DeadlineAssigment)
+                {
+                    ApplicationArea = Basic, Suite;
+                    Caption = 'Deadlines Assigment';
+                    RunObject = Page "A01 Deadline Assignment List";
+                }
+            }
         }
     }
 }

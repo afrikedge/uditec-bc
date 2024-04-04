@@ -8,7 +8,7 @@ table 50009 "A01 Customer Debt Status"
 
     fields
     {
-        field(1; "Code"; Code[10])
+        field(1; "Code"; Code[20])
         {
             Caption = 'Code';
         }

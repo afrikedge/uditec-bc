@@ -53,6 +53,11 @@ tableextension 50006 "A01 Customer" extends Customer
             DataClassification = CustomerContent;
             TableRelation = "Item Category";
         }
+        field(50008; "A01 Preferred Reminder Mode"; Enum "A01 Activity Type")
+        {
+            Caption = 'Preferred Reminder Mode';
+            DataClassification = CustomerContent;
+        }
 
 
 
@@ -61,7 +66,7 @@ tableextension 50006 "A01 Customer" extends Customer
 
 
 
-
+        //Specific on customer
         field(50100; "A01 Prospect No."; Code[20])
         {
             Caption = 'Prospect No.';

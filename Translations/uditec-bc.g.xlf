@@ -533,10 +533,15 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table A01 Deadline Assignment - Field Comment - Property Caption</note>
         </trans-unit>
-        <trans-unit id="Table 576774419 - Field 949571241 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Customer Entry No.</source>
+        <trans-unit id="Table 576774419 - Field 1171137197 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Customer Name</source>
           <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Table A01 Deadline Assignment - Field Customer Entry No. - Property Caption</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table A01 Deadline Assignment - Field Customer Name - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 576774419 - Field 4190130733 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Customer No.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table A01 Deadline Assignment - Field Customer No. - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 576774419 - Field 3850895719 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Deadline No.</source>
@@ -548,6 +553,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table A01 Deadline Assignment - Field Document Date - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Table 576774419 - Field 486908828 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Document No.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table A01 Deadline Assignment - Field Document No. - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Table 576774419 - Field 4085727052 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Due Date</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -557,11 +567,6 @@
           <source>Due status</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table A01 Deadline Assignment - Field Due status - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Table 576774419 - Field 596019230 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Modified By</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Table A01 Deadline Assignment - Field Modified By - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 576774419 - Field 1923827009 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Required action</source>
@@ -1204,9 +1209,14 @@
           <note from="Xliff Generator" annotates="general" priority="3">Table A01 Reposession Request - Field Modified By - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 2661746449 - Field 4200184881 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Request No.</source>
+          <source>No.</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table A01 Reposession Request - Field No. - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2661746449 - Field 1351594800 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>No. Series</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table A01 Reposession Request - Field No. Series - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 2661746449 - Field 2123958759 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Object</source>
@@ -1237,11 +1247,6 @@
           <source>Serial Number</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table A01 Reposession Request - Field Serial Number - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Table 2661746449 - Field 513339096 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Status</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Table A01 Reposession Request - Field Status - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 311112633 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Request On Sales Document</source>
@@ -1813,6 +1818,11 @@
           <note from="Developer" annotates="general" priority="2">%1 = parameter</note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit A01 Api Interface Mgt - NamedType LblUnknownParameter</note>
         </trans-unit>
+        <trans-unit id="Codeunit 3954644649 - Method 8486776 - NamedType 4139332484" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Do you want to suppress send dialog?</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit A01 EventsSubscribers_Table - Method OnBeforePrintRecords_IssuedReminderHeader - NamedType SuppresSendDialogQst</note>
+        </trans-unit>
         <trans-unit id="Codeunit 4233996319 - NamedType 3523952544" size-unit="char" translate="yes" xml:space="preserve">
           <source>The document is not at a status where it can be validated.</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -2032,6 +2042,11 @@
           <source>Indicates whether the site visit is mandatory or not</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page A01 Afk Setup - Control MIR Site visit required - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2685203037 - Control 1532816877 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Numbering</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page A01 Afk Setup - Control Numbering - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 2685203037 - Control 97468426 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Test Api</source>
@@ -2633,6 +2648,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page A01 Customer Scoring List - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Page 4034026045 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Deadlines Assignment</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page A01 Deadline Assignment List - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Page 266498996 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Document Step Lines</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -2722,6 +2742,21 @@
           <source>Responsability center payment methods</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page A01 RC Payment Methods - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2661746449 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Reposession Request</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page A01 Reposession Request - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2661746449 - Control 2445482498 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>General</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page A01 Reposession Request - Control General - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3572597831 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Reposession Request List</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page A01 Reposession Request List - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 4073643499 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Responsability Center Categories</source>
@@ -8078,6 +8113,261 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report A01 PurchaseQuotePrint - ReportDataItem Purchase Header - Property RequestFilterHeading</note>
         </trans-unit>
+        <trans-unit id="Report 3994419851 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Reminder Letter 1</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 Reminder Letter 1 - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 3994419851 - NamedType 2248914289" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Amount Including VAT</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 Reminder Letter 1 - NamedType AmountIncVATCaptionLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 3994419851 - NamedType 3197031362" size-unit="char" translate="yes" xml:space="preserve">
+          <source>You are receiving this email to formally notify you that payment owed by you is past due. The payment was due on %1. Enclosed is a copy of invoice with the details of remaining amount.</source>
+          <note from="Developer" annotates="general" priority="2">%1 = A due date</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 Reminder Letter 1 - NamedType AmtDueLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 3994419851 - NamedType 4233096702" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Account No.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 Reminder Letter 1 - NamedType BankAccNoCaptionLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 3994419851 - NamedType 2728952663" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Bank</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 Reminder Letter 1 - NamedType BankNameCaptionLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 3994419851 - NamedType 1908025102" size-unit="char" translate="yes" xml:space="preserve">
+          <source>If you have already made the payment, please disregard this email. Thank you for your business.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 Reminder Letter 1 - NamedType BodyLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 3994419851 - NamedType 2771379227" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Sincerely</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 Reminder Letter 1 - NamedType ClosingLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 3994419851 - NamedType 3451557426" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Contact E-Mail</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 Reminder Letter 1 - NamedType ContactEmailLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 3994419851 - NamedType 1836485017" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Contact Mobile Phone No.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 Reminder Letter 1 - NamedType ContactMobilePhoneNoLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 3994419851 - NamedType 1120550273" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Contact Phone No.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 Reminder Letter 1 - NamedType ContactPhoneNoLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 3994419851 - NamedType 4137192940" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Continued</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 Reminder Letter 1 - NamedType ContinuedCaption1Lbl</note>
+        </trans-unit>
+        <trans-unit id="Report 3994419851 - NamedType 4036938315" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Continued</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 Reminder Letter 1 - NamedType ContinuedCaptionLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 3994419851 - NamedType 3569966352" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Description</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 Reminder Letter 1 - NamedType DescriptionLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 3994419851 - NamedType 3112881028" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Document Date</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 Reminder Letter 1 - NamedType DocDateCaptionLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 3994419851 - NamedType 343855514" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Document Date</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 Reminder Letter 1 - NamedType DocumentDateCaption1Lbl</note>
+        </trans-unit>
+        <trans-unit id="Report 3994419851 - NamedType 4092352280" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Due Date</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 Reminder Letter 1 - NamedType DueDateCaptionLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 3994419851 - NamedType 595034892" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Email</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 Reminder Letter 1 - NamedType EMailCaptionLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 3994419851 - NamedType 13422290" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Giro No.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 Reminder Letter 1 - NamedType GiroNoCaptionLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 3994419851 - NamedType 514421613" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Hello</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 Reminder Letter 1 - NamedType GreetingLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 3994419851 - NamedType 973567044" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Header Dimensions</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 Reminder Letter 1 - NamedType HeaderDimensionsCaptionLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 3994419851 - NamedType 2862688884" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Home Page</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 Reminder Letter 1 - NamedType HomePageCaptionLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 3994419851 - NamedType 3556547100" size-unit="char" translate="yes" xml:space="preserve">
+          <source>IBAN</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 Reminder Letter 1 - NamedType IBANCaptionLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 3994419851 - NamedType 3208712818" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Interest Amount</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 Reminder Letter 1 - NamedType InterestAmountCaptionLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 3994419851 - NamedType 650077689" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Page</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 Reminder Letter 1 - NamedType PageCaptionLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 3994419851 - NamedType 1928308579" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Phone No.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 Reminder Letter 1 - NamedType PhoneNoCaptionLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 3994419851 - NamedType 443421780" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Posting Date</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 Reminder Letter 1 - NamedType PostingDateCaptionLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 3994419851 - NamedType 2320187798" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Reminder</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 Reminder Letter 1 - NamedType ReminderCaptionLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 3994419851 - NamedType 1118993357" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Reminder No.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 Reminder Letter 1 - NamedType ReminderNoCaptionLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 3994419851 - NamedType 2476940767" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Total %1</source>
+          <note from="Developer" annotates="general" priority="2">%1 = amt</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 Reminder Letter 1 - NamedType Text000</note>
+        </trans-unit>
+        <trans-unit id="Report 3994419851 - NamedType 3114637384" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Total %1 Incl. VAT</source>
+          <note from="Developer" annotates="general" priority="2">%1 = amt</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 Reminder Letter 1 - NamedType Text001</note>
+        </trans-unit>
+        <trans-unit id="Report 3994419851 - NamedType 1026443335" size-unit="char" translate="yes" xml:space="preserve">
+          <source>VAT Amount Specification in </source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 Reminder Letter 1 - NamedType Text011</note>
+        </trans-unit>
+        <trans-unit id="Report 3994419851 - NamedType 2939533186" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Local Currency</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 Reminder Letter 1 - NamedType Text012</note>
+        </trans-unit>
+        <trans-unit id="Report 3994419851 - NamedType 2301836569" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Exchange rate: %1/%2</source>
+          <note from="Developer" annotates="general" priority="2">%1 = amt; %2 = amt</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 Reminder Letter 1 - NamedType Text013</note>
+        </trans-unit>
+        <trans-unit id="Report 3994419851 - NamedType 626218360" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Page</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 Reminder Letter 1 - NamedType TextPageLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 3994419851 - NamedType 1583171122" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Total</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 Reminder Letter 1 - NamedType TotalCaptionLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 3994419851 - NamedType 3913295325" size-unit="char" translate="yes" xml:space="preserve">
+          <source>VAT Amount</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 Reminder Letter 1 - NamedType VATAmountCaptionLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 3994419851 - NamedType 1396908878" size-unit="char" translate="yes" xml:space="preserve">
+          <source>VAT Amount Specification</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 Reminder Letter 1 - NamedType VATAmtSpecCaptionLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 3994419851 - NamedType 1303359398" size-unit="char" translate="yes" xml:space="preserve">
+          <source>VAT Base</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 Reminder Letter 1 - NamedType VATBaseCaptionLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 3994419851 - NamedType 3365690297" size-unit="char" translate="yes" xml:space="preserve">
+          <source>VAT Clause</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 Reminder Letter 1 - NamedType VATClausesCap</note>
+        </trans-unit>
+        <trans-unit id="Report 3994419851 - NamedType 1071970054" size-unit="char" translate="yes" xml:space="preserve">
+          <source>VAT Identifier</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 Reminder Letter 1 - NamedType VATIdentifierLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 3994419851 - NamedType 969467040" size-unit="char" translate="yes" xml:space="preserve">
+          <source>VAT %</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 Reminder Letter 1 - NamedType VATPercentCaptionLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 3994419851 - ReportDataItem 1929467888 - Property 1806354803" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Reminder</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 Reminder Letter 1 - ReportDataItem Issued Reminder Header - Property RequestFilterHeading</note>
+        </trans-unit>
+        <trans-unit id="Report 3994419851 - Control 2346885236 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Options</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 Reminder Letter 1 - Control Options - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 3994419851 - Control 816368762 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies if you want the reminder that you print to be recorded as interaction, and to be added to the Interaction Log Entry table.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 Reminder Letter 1 - Control LogInteraction - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Report 3994419851 - Control 816368762 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Log Interaction</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 Reminder Letter 1 - Control LogInteraction - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 3994419851 - Control 316520822 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies if you want the printed report to show information that is only for internal use.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 Reminder Letter 1 - Control ShowInternalInfo - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Report 3994419851 - Control 316520822 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Show Internal Information</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 Reminder Letter 1 - Control ShowInternalInfo - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 3994419851 - Control 4146528255 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies if you want multiple interest rate details for the journal lines to be included in the report.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 Reminder Letter 1 - Control ShowMIR - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Report 3994419851 - Control 4146528255 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Show MIR Detail</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 Reminder Letter 1 - Control ShowMIR - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 3994419851 - Control 2278817471 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies if you want to show amounts that are not due from customers.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 Reminder Letter 1 - Control ShowNotDueAmounts - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Report 3994419851 - Control 2278817471 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Show Not Due Amounts</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 Reminder Letter 1 - Control ShowNotDueAmounts - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Report 1919361468 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Sales Invoice Print</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -8993,6 +9283,21 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension A01 Item Card - Action A01Attributes - Property Caption</note>
         </trans-unit>
+        <trans-unit id="PageExtension 3250568499 - Action 1719187443 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2747922353">
+          <source>A01AfkCredit</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension A01 Order Processor RC - Action A01AfkCredit - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 3250568499 - Action 1287074953 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2747922353">
+          <source>Deadlines Assigment</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension A01 Order Processor RC - Action A01DeadlineAssigment - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 3250568499 - Action 777050656 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2747922353">
+          <source>Reposession Requests</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension A01 Order Processor RC - Action A01RepossessionRequest - Property Caption</note>
+        </trans-unit>
         <trans-unit id="PageExtension 3250568499 - Action 4027586805 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2747922353">
           <source>A01_Compta</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -9293,6 +9598,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension A01 Contact - Field A01 Payment Terms Code - Property Caption</note>
         </trans-unit>
+        <trans-unit id="TableExtension 1119515148 - Field 178868020 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 3993128796">
+          <source>Preferred Reminder Mode</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension A01 Contact - Field A01 Preferred Reminder Mode - Property Caption</note>
+        </trans-unit>
         <trans-unit id="TableExtension 1119515148 - Field 2668918784 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 3993128796">
           <source>Prepayment required (%)</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -9357,6 +9667,11 @@
           <source>Parent Customer</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension A01 Customer - Field A01 Parent Customer - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 1245960848 - Field 178868020 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1994964448">
+          <source>Preferred Reminder Mode</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension A01 Customer - Field A01 Preferred Reminder Mode - Property Caption</note>
         </trans-unit>
         <trans-unit id="TableExtension 1245960848 - Field 3300488245 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1994964448">
           <source>Prospect No.</source>
@@ -9622,6 +9937,11 @@
           <source>Reminder date and time</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension A01 Reminder Header - Field A01 Reminder Datetime - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 1151862268 - Field 3018199957 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 751928044">
+          <source>Report Usage</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension A01 Reminder Level - Field A01 Report Usage - Property Caption</note>
         </trans-unit>
         <trans-unit id="TableExtension 3046274025 - Field 919133785 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 2247850105">
           <source>Default Customer</source>
@@ -10967,6 +11287,21 @@
           <source>Manufacturer</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Enum A01 Warranty Plan Type - EnumValue Manufacturer - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="EnumExtension 1919807837 - EnumValue 141247825 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Enum 3528066925">
+          <source>Reminder Level 1</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">EnumExtension A01 Report Selection Usage - EnumValue A01 Reminder 1 - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="EnumExtension 1919807837 - EnumValue 3798518504 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Enum 3528066925">
+          <source>Reminder Level 2</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">EnumExtension A01 Report Selection Usage - EnumValue A01 Reminder 2 - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="EnumExtension 1919807837 - EnumValue 3160821887 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Enum 3528066925">
+          <source>Reminder Level 3</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">EnumExtension A01 Report Selection Usage - EnumValue A01 Reminder 3 - Property Caption</note>
         </trans-unit>
       </group>
     </body>

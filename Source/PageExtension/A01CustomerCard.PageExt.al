@@ -35,6 +35,10 @@ pageextension 50006 "A01 Customer Card" extends "Customer Card"
             {
                 ApplicationArea = Basic, Suite;
             }
+            field("A01 Preferred Reminder Mode"; Rec."A01 Preferred Reminder Mode")
+            {
+                ApplicationArea = Basic, Suite;
+            }
         }
     }
     actions
