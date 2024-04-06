@@ -803,6 +803,16 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table A01 Payment Document - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Table 516060391 - NamedType 150152479" size-unit="char" translate="yes" xml:space="preserve">
+          <source>The lines will be deleted. Do you want to continue ?</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table A01 Payment Document - NamedType LblQuestChangeRespCenter</note>
+        </trans-unit>
+        <trans-unit id="Table 516060391 - Field 4198939294 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Currency Code</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table A01 Payment Document - Field Currency Code - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Table 516060391 - Field 596019230 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Modified By</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -813,10 +823,20 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table A01 Payment Document - Field No. - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Table 516060391 - Field 1351594800 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>No. Series</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table A01 Payment Document - Field No. Series - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Table 516060391 - Field 2123958759 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Object</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table A01 Payment Document - Field Object - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 516060391 - Field 3529549019 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Partner Name</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table A01 Payment Document - Field Partner Name - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 516060391 - Field 3106633803 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Partner No.</source>
@@ -848,15 +868,55 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table A01 Payment Document Line - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Table 1302874565 - Field 1622979514 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Account No.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table A01 Payment Document Line - Field Account No. - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 1302874565 - Field 3699788827 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Account Type</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table A01 Payment Document Line - Field Account Type - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Table 1302874565 - Field 636392376 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Amount</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table A01 Payment Document Line - Field Amount - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Table 1302874565 - Field 592951229 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Amount (LCY)</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table A01 Payment Document Line - Field Amount (LCY) - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 1302874565 - Field 2899774127 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Applies-to Doc. No.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table A01 Payment Document Line - Field Applies-to Doc. No. - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 1302874565 - Field 2865137134 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Applies-to Doc. Type</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table A01 Payment Document Line - Field Applies-to Doc. Type - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 1302874565 - Field 3093642907 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Applies-to ID</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table A01 Payment Document Line - Field Applies-to ID - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 1302874565 - Field 4198939294 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Currency Code</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table A01 Payment Document Line - Field Currency Code - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Table 1302874565 - Field 486908828 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Document No.</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table A01 Payment Document Line - Field Document No. - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 1302874565 - Field 4085727052 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Due Date</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table A01 Payment Document Line - Field Due Date - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 1302874565 - Field 3566004263 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Payment Method</source>
@@ -1833,6 +1893,36 @@
           <note from="Developer" annotates="general" priority="2">%1 = parameter</note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit A01 Api Interface Mgt - NamedType LblUnknownParameter</note>
         </trans-unit>
+        <trans-unit id="Codeunit 2521076797 - NamedType 3114637384" size-unit="char" translate="yes" xml:space="preserve">
+          <source>The %1 in the %2 will be changed from %3 to %4.\</source>
+          <note from="Developer" annotates="general" priority="2">%1 = ... %2 = ...%3 .. %4 ..</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit A01 Doc Payment-Apply - NamedType Text001</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 2521076797 - NamedType 3752334001" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Do you wish to continue?</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit A01 Doc Payment-Apply - NamedType Text002</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 2521076797 - NamedType 95063322" size-unit="char" translate="yes" xml:space="preserve">
+          <source>The update has been interrupted to respect the warning.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit A01 Doc Payment-Apply - NamedType Text003</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 2521076797 - NamedType 1370456556" size-unit="char" translate="yes" xml:space="preserve">
+          <source>The %1 or %2 must be Customer or Vendor.</source>
+          <note from="Developer" annotates="general" priority="2">%1 = ... %2 = ...</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit A01 Doc Payment-Apply - NamedType Text005</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 2521076797 - NamedType 2008153173" size-unit="char" translate="yes" xml:space="preserve">
+          <source>All entries in one application must be in the same currency.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit A01 Doc Payment-Apply - NamedType Text006</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 2521076797 - NamedType 2645849790" size-unit="char" translate="yes" xml:space="preserve">
+          <source>All entries in one application must be in the same currency or one or more of the EMU currencies.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit A01 Doc Payment-Apply - NamedType Text007</note>
+        </trans-unit>
         <trans-unit id="Codeunit 3954644649 - Method 8486776 - NamedType 4139332484" size-unit="char" translate="yes" xml:space="preserve">
           <source>Do you want to suppress send dialog?</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -2653,6 +2743,21 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page A01 Cust Scoring Requirement - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Page 2253965810 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Cust Settlement Subform</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page A01 Cust Settlement Subform - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2253965810 - Action 4181767958 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Apply the customer or vendor payment on the selected payment slip line.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page A01 Cust Settlement Subform - Action Application - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2253965810 - Action 4181767958 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>&amp;Application</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page A01 Cust Settlement Subform - Action Application - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Page 4141137359 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Customer Debt Status List</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -2667,6 +2772,21 @@
           <source>Customer Scoring List</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page A01 Customer Scoring List - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2686914651 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Customer Settlement</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page A01 Customer Settlement - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2686914651 - Control 2445482498 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>General</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page A01 Customer Settlement - Control General - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 1746536774 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Customer Scoring List</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page A01 Customer Settlements - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 4034026045 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Deadlines Assignment</source>
@@ -10612,6 +10732,11 @@
           <source>A01_Compta</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension A01 Order Processor RC - Action A01_Compta - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 3250568499 - Action 3167834574 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2747922353">
+          <source>Customer Settlements</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension A01 Order Processor RC - Action A01Compta_CustSettlment - Property Caption</note>
         </trans-unit>
         <trans-unit id="PageExtension 3250568499 - Action 2601854699 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2747922353">
           <source>Payment Slip List</source>
