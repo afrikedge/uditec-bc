@@ -1,7 +1,7 @@
 /// <summary>
-/// TableExtension A01 Reminder Header (ID 50019) extends Record Reminder Header.
+/// TableExtension A01 Issued Reminder Header (ID 50023) extends Record Issued Reminder Header.
 /// </summary>
-tableextension 50019 "A01 Reminder Header" extends "Reminder Header"
+tableextension 50023 "A01 Issued Reminder Header" extends "Issued Reminder Header"
 {
     fields
     {
@@ -45,11 +45,10 @@ tableextension 50019 "A01 Reminder Header" extends "Reminder Header"
             Caption = 'Reminder date and time';
             DataClassification = CustomerContent;
         }
-        field(50009; "A01 Related activity"; Code[20])
+        field(50009; "A01 Related activity"; Integer)
         {
             Caption = 'Related activity';
             DataClassification = CustomerContent;
-            TableRelation = "Reminder Header";
         }
         field(50010; "A01 Activity Status"; Enum "A01 Activity Status")
         {
@@ -71,6 +70,5 @@ tableextension 50019 "A01 Reminder Header" extends "Reminder Header"
             Caption = 'Subject';
             DataClassification = CustomerContent;
         }
-
     }
 }

@@ -128,6 +128,12 @@ page 50040 "A01 Afk Setup"
                 {
                     ToolTip = 'Default duration in number of hours between the entry date and the end date of diagnosis';
                 }
+                field("Reposession Location"; Rec."Reposession Location")
+                {
+                    ToolTip = 'Location code to use for returning repossessed items';
+                }
+
+
             }
             group("Numbering")
             {

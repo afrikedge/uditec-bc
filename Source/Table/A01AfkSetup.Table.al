@@ -168,6 +168,11 @@ table 50017 "A01 Afk Setup"
             Caption = 'Transport Voucher Nos';
             TableRelation = "No. Series";
         }
+        field(35; "Reposession Location"; Code[20])
+        {
+            Caption = 'Reposession Location';
+            TableRelation = "Location";
+        }
     }
     keys
     {

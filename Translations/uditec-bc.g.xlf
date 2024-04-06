@@ -143,6 +143,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table A01 Afk Setup - Field Purchase Voucher Nos - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Table 2685203037 - Field 4081805805 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Reposession Location</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table A01 Afk Setup - Field Reposession Location - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Table 2685203037 - Field 3829248599 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Reposession request Nos</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -923,6 +928,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table A01 Payment Promise - Field No. - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Table 606705343 - Field 1351594800 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>No. Series</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table A01 Payment Promise - Field No. Series - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Table 606705343 - Field 2123958759 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Object</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -1187,6 +1197,11 @@
           <source>Acceptance Status</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table A01 Reposession Request - Field Acceptance Status - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2661746449 - Field 2369664869 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Created By</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table A01 Reposession Request - Field Created By - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 2661746449 - Field 486908828 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Document No.</source>
@@ -1912,6 +1927,11 @@
           <source>After sales service</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page A01 Afk Setup - Control After sales service - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2685203037 - Control 4081805805 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Location code to use for returning repossessed items</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page A01 Afk Setup - Control Reposession Location - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 2685203037 - Control 3672549898 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>Default duration in number of hours between the entry date and the end date of diagnosis</source>
@@ -2653,6 +2673,16 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page A01 Deadline Assignment List - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Page 4034026045 - Control 4000648066 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Created by</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page A01 Deadline Assignment List - Control SystemCreatedBy - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 4034026045 - Control 4085837753 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Modify by</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page A01 Deadline Assignment List - Control SystemModifiedBy - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Page 266498996 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Document Step Lines</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -2727,6 +2757,26 @@
           <source>Parameter Value List</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page A01 Parameter Value List - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 606705343 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Payment Promise</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page A01 Payment Promise - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 606705343 - Control 2445482498 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>General</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page A01 Payment Promise - Control General - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 606705343 - Control 4200184881 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the value of the No. field.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page A01 Payment Promise - Control No. - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3567180361 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Payment Promise List</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page A01 Payment Promise List - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 318426958 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Payment Type Configuration</source>
@@ -10548,6 +10598,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension A01 Order Processor RC - Action A01DeadlineAssigment - Property Caption</note>
         </trans-unit>
+        <trans-unit id="PageExtension 3250568499 - Action 3588912400 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2747922353">
+          <source>Payment promise list</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension A01 Order Processor RC - Action A01PayPromises - Property Caption</note>
+        </trans-unit>
         <trans-unit id="PageExtension 3250568499 - Action 777050656 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2747922353">
           <source>Reposession Requests</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -10988,6 +11043,76 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension A01 Gen. Journal Line - Field A01 Payment Doc Type - Property Caption</note>
         </trans-unit>
+        <trans-unit id="TableExtension 1952135392 - Field 411291459 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1929467888">
+          <source>Status</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension A01 Issued Reminder Header - Field A01 Activity Status - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 1952135392 - Field 18782943 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1929467888">
+          <source>Type</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension A01 Issued Reminder Header - Field A01 Activity Type - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 1952135392 - Field 423025372 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1929467888">
+          <source>Actual end date and time</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension A01 Issued Reminder Header - Field A01 Actual End Datetime - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 1952135392 - Field 39903745 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1929467888">
+          <source>Actual start date and time</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension A01 Issued Reminder Header - Field A01 Actual Start Datetime - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 1952135392 - Field 1519415861 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1929467888">
+          <source>Created By</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension A01 Issued Reminder Header - Field A01 Created By - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 1952135392 - Field 4192715578 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1929467888">
+          <source>Description</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension A01 Issued Reminder Header - Field A01 Description - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 1952135392 - Field 2961288436 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1929467888">
+          <source>Expected end date and time</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension A01 Issued Reminder Header - Field A01 Expected End Datetime - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 1952135392 - Field 1202808937 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1929467888">
+          <source>Expected start date and time</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension A01 Issued Reminder Header - Field A01 Expected Start Datetime - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 1952135392 - Field 3150905003 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1929467888">
+          <source>Observations</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension A01 Issued Reminder Header - Field A01 Observations - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 1952135392 - Field 4086624526 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1929467888">
+          <source>Related activity</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension A01 Issued Reminder Header - Field A01 Related activity - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 1952135392 - Field 3627417169 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1929467888">
+          <source>Reminder date and time</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension A01 Issued Reminder Header - Field A01 Reminder Datetime - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 1952135392 - Field 555543472 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1929467888">
+          <source>Subject</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension A01 Issued Reminder Header - Field A01 Subject - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 1952135392 - Field 2556311944 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1929467888">
+          <source>Web User Id</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension A01 Issued Reminder Header - Field A01 Web User Id - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 2600132359 - Field 311612309 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 556460471">
+          <source>Debt Status</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension A01 Issued Reminder Line - Field A01 Debt Status - Property Caption</note>
+        </trans-unit>
         <trans-unit id="TableExtension 3109568695 - Field 3451366597 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 3276313895">
           <source>Assembly service</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -11218,10 +11343,25 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension A01 Reminder Header - Field A01 Reminder Datetime - Property Caption</note>
         </trans-unit>
+        <trans-unit id="TableExtension 1810155763 - Field 555543472 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1837124963">
+          <source>Subject</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension A01 Reminder Header - Field A01 Subject - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 1810155763 - Field 2556311944 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1837124963">
+          <source>Web User Id</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension A01 Reminder Header - Field A01 Web User Id - Property Caption</note>
+        </trans-unit>
         <trans-unit id="TableExtension 1151862268 - Field 3018199957 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 751928044">
           <source>Report Usage</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension A01 Reminder Level - Field A01 Report Usage - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 745425196 - Field 311612309 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 2681651900">
+          <source>Debt Status</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension A01 Reminder Line - Field A01 Debt Status - Property Caption</note>
         </trans-unit>
         <trans-unit id="TableExtension 3046274025 - Field 919133785 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 2247850105">
           <source>Default Customer</source>

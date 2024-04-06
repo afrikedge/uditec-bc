@@ -11,6 +11,16 @@ table 50030 "A01 Payment Promise"
         field(1; "No."; Code[20])
         {
             Caption = 'No.';
+            Editable = false;
+
+            trigger OnValidate()
+            begin
+                if "No." <> xRec."No." then begin
+                    AddOnSetup.Get();
+                    NoSeriesManagement.TestManual(AddOnSetup."Reposession request Nos");
+                    "No. Series" := '';
+                end;
+            end;
         }
         field(2; Object; Text[30])
         {
@@ -82,6 +92,12 @@ table 50030 "A01 Payment Promise"
             Caption = 'Modified By';
             TableRelation = "A01 External User";
             DataClassification = CustomerContent;
+            Editable = false;
+        }
+        field(18; "No. Series"; Code[20])
+        {
+            Caption = 'No. Series';
+            TableRelation = "No. Series";
         }
         //Reminder date
     }
@@ -92,4 +108,21 @@ table 50030 "A01 Payment Promise"
             Clustered = true;
         }
     }
+    trigger OnInsert()
+    begin
+        if "No." = '' then begin
+            AddOnSetup.Get();
+            AddOnSetup.TestField("Payment Promise Nos");
+            NoSeriesManagement.InitSeries(AddOnSetup."Payment Promise Nos", xRec."No. Series", 0D, "No.", "No. Series");
+        end;
+        InitHeader();
+    end;
+
+    var
+        AddOnSetup: Record "A01 Afk Setup";
+        NoSeriesManagement: Codeunit NoSeriesManagement;
+
+    local procedure InitHeader()
+    begin
+    end;
 }

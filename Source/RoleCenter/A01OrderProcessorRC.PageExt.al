@@ -284,6 +284,12 @@ pageextension 50002 "A01 Order Processor RC" extends "Order Processor Role Cente
                     Caption = 'Deadlines Assigment';
                     RunObject = Page "A01 Deadline Assignment List";
                 }
+                action(A01PayPromises)
+                {
+                    ApplicationArea = Basic, Suite;
+                    Caption = 'Payment promise list';
+                    RunObject = Page "A01 Payment Promise List";
+                }
             }
         }
     }

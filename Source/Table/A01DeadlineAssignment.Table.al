@@ -25,6 +25,7 @@ table 50025 "A01 Deadline Assignment"
                     "Document Date" := CustLedgerEntry."Document Date";
                     "Due Date" := CustLedgerEntry."Due Date";
                     "Due status" := CalcRiskLevel(CustLedgerEntry);
+                    "Document No." := CustLedgerEntry."Document No.";
                 end;
 
             end;
@@ -39,7 +40,7 @@ table 50025 "A01 Deadline Assignment"
             Caption = 'Assigned to';
             TableRelation = "A01 External User";
         }
-        field(12; "Document No."; Integer)
+        field(12; "Document No."; Code[20])
         {
             Caption = 'Document No.';
             Editable = false;
@@ -91,10 +92,16 @@ table 50025 "A01 Deadline Assignment"
         //     TableRelation = "A01 External User";
         //     DataClassification = CustomerContent;
         // }
+        // field(14; "Created By"; Code[50])
+        // {
+        //     Caption = 'Created By';
+        //     TableRelation = "A01 External User";
+        //     DataClassification = CustomerContent;
+        // }
     }
     keys
     {
-        key(PK; "Customer No.", "Deadline No.", "Assigned to", "Document Date")
+        key(PK; "Customer No.", "Deadline No.", "Assigned to", "Assigned on")
         {
             Clustered = true;
         }

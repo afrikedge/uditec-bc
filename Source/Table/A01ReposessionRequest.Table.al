@@ -51,6 +51,8 @@ table 50024 "A01 Reposession Request"
         {
             Caption = 'Item No.';
             TableRelation = Item;
+            // TableRelation = if ("Document Type" = const("Sales Shipment")) "Sales Shipment Line"."No." where(Type = const(Item), "Document No." = field("Document No."))
+            // else if ("Document Type" = const("Sales Invoice")) "Sales Invoice line"."No." where(Type = const(Item), "Document No." = field("Document No."));
         }
         field(20; "Serial Number"; Text[30])
         {
@@ -80,6 +82,14 @@ table 50024 "A01 Reposession Request"
         {
             Caption = 'No. Series';
             TableRelation = "No. Series";
+        }
+        field(27; "Created By"; Code[50])
+        {
+            Caption = 'Created By';
+            TableRelation = "A01 External User";
+            DataClassification = CustomerContent;
+            Editable = false;
+
         }
     }
     keys

@@ -7,6 +7,7 @@ codeunit 50008 "A01 Api Interface Mgt"
         WS: codeunit "A01 Api Mgt";
         QuotesMgt: Codeunit "A01 WS QuotesMgt";
         OrdersMgt: Codeunit "A01 WS OrdersMgt";
+        CreditMgt: Codeunit "A01 WS Credit Mgt";
         LblUnknownParameter: Label 'Unkwnown parameter : %1', Comment = '%1 = parameter';
     /// <summary>
     /// 
@@ -55,6 +56,30 @@ codeunit 50008 "A01 Api Interface Mgt"
                 exit(OrdersMgt.SaveOrderPaymentLines(input));
             'orders_payment_validate':
                 exit(OrdersMgt.PostSalesOrder(input));
+
+
+            'recoveryActivities_insert':
+                exit(CreditMgt.RunRecoveryActivities(input, false));
+            'recoveryActivities_modify':
+                exit(CreditMgt.RunRecoveryActivities(input, false));
+            'recoveryActivities_delete':
+                exit(CreditMgt.RunRecoveryActivities(input, true));
+
+
+            'repossessionRequests_insert':
+                exit(CreditMgt.RunReposessionRequest(input, false));
+            'repossessionRequests_modify':
+                exit(CreditMgt.RunReposessionRequest(input, false));
+            'repossessionRequests_delete':
+                exit(CreditMgt.RunReposessionRequest(input, true));
+
+
+            'paymentPromises_insert':
+                exit(CreditMgt.RunRPaymentPromise(input, false));
+            'paymentPromises_modify':
+                exit(CreditMgt.RunRPaymentPromise(input, false));
+            'paymentPromises_delete':
+                exit(CreditMgt.RunRPaymentPromise(input, true));
 
             else
                 exit(StrSubstNo(LblUnknownParameter, param));

@@ -4,6 +4,10 @@
 codeunit 50006 "A01 Api Mgt"
 {
 
+    /// <summary>
+    /// GetLengthOfStringWithConfirmation
+    /// </summary>
+    /// <returns></returns>
     procedure GetLengthOfStringWithConfirmation(inputJson: Text): Integer
     var
         c: JsonToken;
@@ -15,6 +19,7 @@ codeunit 50006 "A01 Api Mgt"
         else
             exit(-1);
     end;
+
 
     /// <summary>
     /// 
@@ -52,6 +57,11 @@ codeunit 50006 "A01 Api Mgt"
         exit(format(HeaderJson));
     end;
 
+    /// <summary>
+    /// CreateResponseSuccess.
+    /// </summary>
+    /// <param name="PostedDocNo">Code[20].</param>
+    /// <returns>Return value of type Text.</returns>
     procedure CreateResponseSuccess(PostedDocNo: Code[20]): Text
     var
         HeaderJson: JsonObject;
@@ -61,6 +71,12 @@ codeunit 50006 "A01 Api Mgt"
         exit(format(HeaderJson));
     end;
 
+    /// <summary>
+    /// GetText.
+    /// </summary>
+    /// <param name="key">Text.</param>
+    /// <param name="input">JsonObject.</param>
+    /// <returns>Return value of type Text.</returns>
     procedure CreateResponseError(ErrorMessage: Text): Text
     var
         HeaderJson: JsonObject;
@@ -70,6 +86,12 @@ codeunit 50006 "A01 Api Mgt"
         exit(format(HeaderJson));
     end;
 
+    /// <summary>
+    /// GetText.
+    /// </summary>
+    /// <param name="key">Text.</param>
+    /// <param name="input">JsonObject.</param>
+    /// <returns>Return value of type Text.</returns>
     procedure GetText("key": Text; input: JsonObject): Text
     var
         c: JsonToken;
@@ -78,6 +100,12 @@ codeunit 50006 "A01 Api Mgt"
         exit(c.AsValue().AsText());
     end;
 
+    /// <summary>
+    /// GetDate.
+    /// </summary>
+    /// <param name="key">Text.</param>
+    /// <param name="input">JsonObject.</param>
+    /// <returns>Return value of type Date.</returns>
     procedure GetDate("key": Text; input: JsonObject): Date
     var
         c: JsonToken;
@@ -90,7 +118,31 @@ codeunit 50006 "A01 Api Mgt"
         else
             exit(c.AsValue().AsDate());
     end;
+    /// <summary>
+    /// GetDateTime.
+    /// </summary>
+    /// <param name="key">Text.</param>
+    /// <param name="input">JsonObject.</param>
+    /// <returns>Return value of type DateTime.</returns>
+    procedure GetDateTime("key": Text; input: JsonObject): DateTime
+    var
+        c: JsonToken;
+        actualDate: Date;
+    begin
+        input.Get("key", c);
+        actualDate := c.AsValue().AsDate();
+        if (Date2DMY(actualDate, 3) = 1753) then
+            exit(CreateDateTime(0D, 0T))
+        else
+            exit(c.AsValue().AsDateTime());
+    end;
 
+    /// <summary>
+    /// GetInt.
+    /// </summary>
+    /// <param name="key">Text.</param>
+    /// <param name="input">JsonObject.</param>
+    /// <returns>Return value of type Integer.</returns>
     procedure GetBool("key": Text; input: JsonObject): Boolean
     var
         c: JsonToken;
@@ -99,6 +151,12 @@ codeunit 50006 "A01 Api Mgt"
         exit(c.AsValue().AsBoolean());
     end;
 
+    /// <summary>
+    /// GetDecimal.
+    /// </summary>
+    /// <param name="key">Text.</param>
+    /// <param name="input">JsonObject.</param>
+    /// <returns>Return value of type Decimal.</returns>
     procedure GetInt("key": Text; input: JsonObject): Integer
     var
         c: JsonToken;
@@ -107,6 +165,9 @@ codeunit 50006 "A01 Api Mgt"
         exit(c.AsValue().AsInteger());
     end;
 
+    /// <summary>
+    /// DebugApiFunction
+    /// </summary>
     procedure GetDecimal("key": Text; input: JsonObject): Decimal
     var
         c: JsonToken;
