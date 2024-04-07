@@ -2,7 +2,7 @@
 /// <summary>
 /// Page A01 Customer Settlements (ID 50056).
 /// </summary>
-page 50058 "A01 Customer Settlements"
+page 50059 "A01 Customer Settlement List"
 {
     ApplicationArea = All;
     Caption = 'Customer Scoring List';
@@ -10,8 +10,6 @@ page 50058 "A01 Customer Settlements"
     SourceTable = "A01 Payment Document";
     UsageCategory = Lists;
     CardPageId = "A01 Customer Settlement";
-
-
 
     layout
     {

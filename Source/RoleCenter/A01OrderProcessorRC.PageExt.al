@@ -273,7 +273,7 @@ pageextension 50002 "A01 Order Processor RC" extends "Order Processor Role Cente
                 {
                     ApplicationArea = Basic, Suite;
                     Caption = 'Customer Settlements';
-                    RunObject = Page "A01 Customer Settlements";
+                    RunObject = Page "A01 Customer Settlement List";
                 }
             }
             group(A01AfkCredit)
