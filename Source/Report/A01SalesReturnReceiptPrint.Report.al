@@ -16,7 +16,7 @@ report 50012 "A01 SalesReturnReceiptPrint"
         dataitem("Return Receipt Header"; "Return Receipt Header")
         {
             DataItemTableView = sorting("No.");
-            RequestFilterFields = "No.", "Sell-to Customer No.";
+            RequestFilterFields = "No.", "Sell-to Customer No.", "Location Code";
             RequestFilterHeading = 'Sales Return Receipt';
             column(No_ReturnRcptHeader; "No.")
             {
@@ -40,6 +40,9 @@ report 50012 "A01 SalesReturnReceiptPrint"
             {
             }
             column(ReturnOrder_No_; "Return Order No.")
+            {
+            }
+            column(ProductSerialNumberLbl; ProductSerialNumberLbl)
             {
             }
             column(UnitName; UnitName)
@@ -152,14 +155,49 @@ report 50012 "A01 SalesReturnReceiptPrint"
                 column(Location_Code; "Location Code")
                 {
                 }
+                dataitem("Item Ledger Entry"; "Item Ledger Entry")
+                {
+                    DataItemTableView = sorting("Document No.") where("Document Type" = filter(3));
+                    DataItemLinkReference = "Return Receipt Line";
+                    DataItemLink = "Document No." = field("Document No."), "Document Line No." = field("Line No.");
+                    column(Serial_No_; "Serial No.")
+                    {
+                    }
+                    column(Quantity_; Quantity)
+                    {
+                    }
+                }
+                trigger OnAfterGetRecord()
+                begin
+                    if "No." = 'MIR_FEES' then
+                        CurrReport.Skip();
+                    if "No." = 'mir_fees' then
+                        CurrReport.Skip();
+                    if "No." = 'MIR_INTEREST' then
+                        CurrReport.Skip();
+                    if "No." = 'mir_interest' then
+                        CurrReport.Skip();
+                end;
+
+                trigger OnPreDataItem()
+                begin
+                    SetRange(Type, Type::Item);
+                end;
             }
             trigger OnAfterGetRecord()
             begin
-                if RespCenter.Get("Return Receipt Header"."Responsibility Center") then begin
-                    UnitName := RespCenter.Name;
-                    UnitAddress := RespCenter.Address;
-                    UnitCity := RespCenter.City;
-                    UnitPostalCode := RespCenter."Post Code";
+                // if RespCenter.Get("Return Receipt Header"."Responsibility Center") then begin
+                //     UnitName := RespCenter.Name;
+                //     UnitAddress := RespCenter.Address;
+                //     UnitCity := RespCenter.City;
+                //     UnitPostalCode := RespCenter."Post Code";
+                // end;
+
+                if LocRec.Get("Return Receipt Header"."Location Code") then begin
+                    UnitName := LocRec.Name;
+                    UnitAddress := LocRec.Address;
+                    UnitCity := LocRec.City;
+                    UnitPostalCode := LocRec."Post Code";
                 end;
 
                 if Contact.Get("Return Receipt Header"."Sell-to Contact No.") then begin
@@ -197,8 +235,9 @@ report 50012 "A01 SalesReturnReceiptPrint"
 
     var
         CompanyInfo: Record "Company Information";
-        RespCenter: Record "Responsibility Center";
+        // RespCenter: Record "Responsibility Center";
         Contact: Record Contact;
+        LocRec: Record Location;
         Ship: Record "Ship-to Address";
         UnitName: Text[100];
         UnitAddress: Text[100];
@@ -212,8 +251,8 @@ report 50012 "A01 SalesReturnReceiptPrint"
         SalesReceiptNumberLbl: Label 'Sales Return receipt number :';
         OrderNumberLbl: Label 'Sales return number :';
         DateOfReceiptLbl: Label 'Date of return :';
-        UnitNameLbl: Label 'Unit name :';
-        UnitAddressLbl: Label 'Unit address :';
+        UnitNameLbl: Label 'Unit__name :';
+        UnitAddressLbl: Label 'Uni__address :';
         UnitCityLbl: Label 'City';
         UnitPostalCodeLbl: Label 'Postal code :';
         CustomerNameLbl: Label 'Customer name :';
@@ -227,7 +266,8 @@ report 50012 "A01 SalesReturnReceiptPrint"
         DesignationLbl: Label 'Designation';
         OrderedQuantityLbl: Label 'Ordered quantity';
         QuantityReceivedLbl: Label 'Quantity returned';
+        ProductSerialNumberLbl: Label 'product serial number';
         LocationLbl: Label 'Location';
-        CustomerSignLbl: Label 'Customer signature';
+        CustomerSignLbl: Label 'Customer__signature';
         CompanySignLbl: Label 'Company signature';
 }

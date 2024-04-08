@@ -15,7 +15,7 @@ report 50009 "A01 DeliveryNoteInvoicePrint"
         dataitem("Sales Shipment Header"; "Sales Shipment Header")
         {
             DataItemTableView = sorting("No.");
-            RequestFilterFields = "No.";
+            RequestFilterFields = "No.", "Location Code";
             PrintOnlyIfDetail = true;
             column(DocumentNo_; "No.")
             {
@@ -161,9 +161,18 @@ report 50009 "A01 DeliveryNoteInvoicePrint"
             column(A01UnitPrice__Caption; A01UnitPrice__Caption)
             {
             }
+            column(A01LineDiscountedPrice__Caption; A01LineDiscountedPrice__Caption)
+            {
+            }
+            column(AfkCurrCode; AfkCurrCode)
+            {
+            }
+            column(A01Qty__Caption; A01Qty__Caption)
+            {
+            }
             dataitem("Sales Shipment Line"; "Sales Shipment Line")
             {
-                DataItemTableView = sorting("Document No.", "Line No.");
+                DataItemTableView = sorting("Document No.", "Line No.") where(Type = filter(2));
                 DataItemLinkReference = "Sales Shipment Header";
                 DataItemLink = "Document No." = field("No.");
                 column(LineNo_Line; "Line No.")
@@ -187,8 +196,15 @@ report 50009 "A01 DeliveryNoteInvoicePrint"
                 column(PUnit_Price_Text; Format(Round("Unit Price", 0.01, '<')))
                 {
                 }
-                column(Line_Discount__; "Line Discount %")
+                column(LineDiscount; LineDiscountText)
                 {
+                    AutoFormatExpression = "Sales Shipment Header"."Currency Code";
+                    AutoFormatType = 2;
+                }
+                column(A01DiscountedPrice; A01DiscountedPriceText)
+                {
+                    AutoFormatExpression = "Sales Shipment Header"."Currency Code";
+                    AutoFormatType = 2;
                 }
                 column(Quantity_Line_Lbl; FieldCaption(Quantity))
                 {
@@ -205,6 +221,9 @@ report 50009 "A01 DeliveryNoteInvoicePrint"
                 column(TVA_LCYText; TVA_LCYText)
                 {
                 }
+                column(Bin_Code; "Bin Code")
+                {
+                }
                 dataitem("Item Ledger Entry"; "Item Ledger Entry")
                 {
                     DataItemTableView = sorting("Document No.") where("Document Type" = filter(1));
@@ -219,62 +238,110 @@ report 50009 "A01 DeliveryNoteInvoicePrint"
                 }
                 trigger OnAfterGetRecord()
                 begin
-                    Clear(TotalHT);
-                    Clear(TVA);
-                    Clear(TotalTTC);
-                    SaleLineRec.Reset();
-                    SaleLineRec.SetRange("Document No.", "Sales Shipment Header"."No.");
-                    if SaleLineRec.FindFirst() then begin
-                        repeat
-                            Montant := Round(SaleLineRec.Quantity * SaleLineRec."Unit Price", 0.01, '<');
-                            TotalHT := Round(TotalHT + (Montant - (Montant * SaleLineRec."Line Discount %" / 100)), 0.01, '<');
-                            TVA2 := Round((TotalHT * SaleLineRec."VAT %" / 100), 0.01, '<');
-                            TVA := Round((TotalHT + TVA2) - TotalHT, 0.01, '<');
+                    LineDiscount := Round((Quantity * "Unit Price") * ("Line Discount %" / 100), 0.01, '<');
+                    LineDiscountText := Format(LineDiscount);
 
-                            TotalHT := CurrencyExchangeRate.ExchangeAmtFCYToLCY("Sales Shipment Header"."Posting Date",
-                                "Sales Shipment Header"."Currency Code", TotalHT, "Sales Shipment Header"."Currency Factor");
-                            TVA := CurrencyExchangeRate.ExchangeAmtFCYToLCY("Sales Shipment Header"."Posting Date",
-                                "Sales Shipment Header"."Currency Code", TVA, "Sales Shipment Header"."Currency Factor");
+                    A01DiscountedPrice := Round("Sales Shipment Line"."Unit Price" - LineDiscount, 0.01, '<');
+                    A01DiscountedPriceText := Format(A01DiscountedPrice);
 
-                            TotalHT := ROUND(TotalHT, AfkLocalCurrency."Amount Rounding Precision");
-                            TVA := ROUND(TVA, AfkLocalCurrency."Amount Rounding Precision");
-
-                            Total_LCYText :=
-                             Format(TotalHT, 0,
-                             AutoFormat.ResolveAutoFormat("Auto Format"::AmountFormat, AfkLocalCurrency.Code));
-                            TVA_LCYText :=
-                             Format(TVA, 0,
-                             AutoFormat.ResolveAutoFormat("Auto Format"::AmountFormat, AfkLocalCurrency.Code));
-                        until SaleLineRec.Next() = 0;
-
-                        TotalTTC := CurrencyExchangeRate.ExchangeAmtFCYToLCY("Sales Shipment Header"."Posting Date",
-                                    "Sales Shipment Header"."Currency Code", TotalTTC, "Sales Shipment Header"."Currency Factor");
-                        TotalTTC := TotalHT + TVA;
-                        TotalTTC := ROUND(TotalTTC, AfkLocalCurrency."Amount Rounding Precision");
-                        TotalTTC_LCYText :=
-                         Format(TotalTTC, 0,
-                         AutoFormat.ResolveAutoFormat("Auto Format"::AmountFormat, AfkLocalCurrency.Code));
-                    end;
-
-                    RepCheck.InitTextVariable();
-                    RepCheck.FormatNoText(NoText, TotalTTC, AfkLocalCurrency.Code);
-
-                    NoText[1] := ReplaceString(NoText[1], '****');
-                    NoText[1] := ReplaceString(NoText[1], 'AND 0/100');
-                    NoText[2] := ReplaceString(NoText[2], '****');
-                    NoText[2] := ReplaceString(NoText[2], 'AND 0/100');
-                    Afk_AmountInWords := NoText[1] + ' ' + NoText[2];
+                    if "No." = 'MIR_FEES' then
+                        CurrReport.Skip();
+                    if "No." = 'mir_fees' then
+                        CurrReport.Skip();
+                    if "No." = 'MIR_INTEREST' then
+                        CurrReport.Skip();
+                    if "No." = 'mir_interest' then
+                        CurrReport.Skip();
                 end;
             }
 
             trigger OnAfterGetRecord()
             begin
 
-                if RespCenter.Get("Sales Shipment Header"."Responsibility Center") then begin
-                    UnitName := RespCenter.Name;
-                    UnitAddress := RespCenter.Address;
-                    UnitCity := RespCenter.City;
-                    UnitPostalCode := RespCenter."Post Code";
+                GLSetup.Get();
+                GLSetup.TestField("LCY Code");
+
+                AfkCurrCode := GLSetup."Local Currency Symbol";
+
+                CurrCode := "Sales Shipment Header"."Currency Code";
+                if (CurrCode = '') then
+                    CurrCode := GLSetup."LCY Code";
+
+                AfkCurrencyName := CurrCode;
+                if AfkCurrency.Get(CurrCode) then
+                    AfkCurrencyName := AfkCurrency.Description;
+
+                if (AfkLocalCurrency.Get(GLSetup."LCY Code") and (CurrCode <> GLSetup."LCY Code")) then
+                    AfkLocalCurrencyName := AfkLocalCurrency.Description;
+
+                if "Currency Code" <> '' then begin
+                    CurrencyExchangeRate.FindCurrency("Posting Date", "Currency Code", 1);
+                    CalculatedExchRate :=
+                      Round(1 / "Currency Factor" * CurrencyExchangeRate."Exchange Rate Amount", 0.000001);
+                    ExchangeRateText := StrSubstNo(ExchangeRateTxt, CalculatedExchRate, CurrencyExchangeRate."Exchange Rate Amount");
+                end;
+
+                Clear(TotalHT);
+                Clear(TVA);
+                Clear(TotalTTC);
+                SaleLineRec.Reset();
+                SaleLineRec.SetRange("Document No.", "Sales Shipment Header"."No.");
+                if SaleLineRec.FindFirst() then begin
+                    repeat
+                        Montant := Round(SaleLineRec.Quantity * SaleLineRec."Unit Price", 0.01, '<');
+                        TotalHT := Round(TotalHT + (Montant - (Montant * SaleLineRec."Line Discount %" / 100)), 0.01, '<');
+                        TVA2 := Round((TotalHT * SaleLineRec."VAT %" / 100), 0.01, '<');
+                        TVA := Round((TotalHT + TVA2) - TotalHT, 0.01, '<');
+
+                        TotalHT := CurrencyExchangeRate.ExchangeAmtFCYToLCY("Sales Shipment Header"."Posting Date",
+                            "Sales Shipment Header"."Currency Code", TotalHT, "Sales Shipment Header"."Currency Factor");
+                        TVA := CurrencyExchangeRate.ExchangeAmtFCYToLCY("Sales Shipment Header"."Posting Date",
+                            "Sales Shipment Header"."Currency Code", TVA, "Sales Shipment Header"."Currency Factor");
+
+                        TotalHT := ROUND(TotalHT, AfkLocalCurrency."Amount Rounding Precision");
+                        TVA := ROUND(TVA, AfkLocalCurrency."Amount Rounding Precision");
+
+                        Total_LCYText :=
+                         Format(TotalHT, 0,
+                         AutoFormat.ResolveAutoFormat("Auto Format"::AmountFormat, AfkLocalCurrency.Code));
+                        Total_LCYText := Format(TotalHT);
+                        TVA_LCYText :=
+                         Format(TVA, 0,
+                         AutoFormat.ResolveAutoFormat("Auto Format"::AmountFormat, AfkLocalCurrency.Code));
+                        TVA_LCYText := Format(TVA);
+                    until SaleLineRec.Next() = 0;
+
+                    TotalTTC := CurrencyExchangeRate.ExchangeAmtFCYToLCY("Sales Shipment Header"."Posting Date",
+                                "Sales Shipment Header"."Currency Code", TotalTTC, "Sales Shipment Header"."Currency Factor");
+                    TotalTTC := TotalHT + TVA;
+                    TotalTTC := ROUND(TotalTTC, AfkLocalCurrency."Amount Rounding Precision");
+                    TotalTTC_LCYText :=
+                     Format(TotalTTC, 0,
+                     AutoFormat.ResolveAutoFormat("Auto Format"::AmountFormat, AfkLocalCurrency.Code));
+                    TotalTTC_LCYText := Format(TotalTTC);
+                end;
+
+                RepCheck.InitTextVariable();
+                RepCheck.FormatNoText(NoText, TotalTTC, AfkLocalCurrency.Code);
+
+                NoText[1] := ReplaceString(NoText[1], '****');
+                NoText[1] := ReplaceString(NoText[1], 'AND 0/100');
+                NoText[2] := ReplaceString(NoText[2], '****');
+                NoText[2] := ReplaceString(NoText[2], 'AND 0/100');
+                Afk_AmountInWords := NoText[1] + ' ' + NoText[2];
+
+                // if RespCenter.Get("Sales Shipment Header"."Responsibility Center") then begin
+                //     UnitName := RespCenter.Name;
+                //     UnitAddress := RespCenter.Address;
+                //     UnitCity := RespCenter.City;
+                //     UnitPostalCode := RespCenter."Post Code";
+                // end;
+
+                if LocRec.Get("Sales Shipment Header"."Location Code") then begin
+                    UnitName := LocRec.Name;
+                    UnitAddress := LocRec.Address;
+                    UnitCity := LocRec.City;
+                    UnitPostalCode := LocRec."Post Code";
                 end;
 
                 if Contact.Get("Sales Shipment Header"."Bill-to Contact No.") then begin
@@ -309,15 +376,30 @@ report 50009 "A01 DeliveryNoteInvoicePrint"
 
     var
         CompanyInfo: Record "Company Information";
-        RespCenter: Record "Responsibility Center";
+        // RespCenter: Record "Responsibility Center";
+        LocRec: Record Location;
         Contact: Record Contact;
+        GLSetup: Record "General Ledger Setup";
         CurrencyExchangeRate: Record "Currency Exchange Rate";
         Ship: Record "Ship-to Address";
         SaleLineRec: Record "Sales Shipment Line";
         AfkLocalCurrency: Record Currency;
+        AfkCurrency: Record Currency;
         RepCheck: Report Check;
         AutoFormat: Codeunit "Auto Format";
         Montant: Decimal;
+        CalculatedExchRate: Decimal;
+        ExchangeRateTxt: Label 'Exchange rate: %1/%2', Comment = '%1 and %2 are both amounts.';
+        // "Currency Factor": Decimal;
+        ExchangeRateText: Text;
+        AfkLocalCurrencyName: Text;
+        CurrCode: Code[20];
+        AfkCurrencyName: Text;
+        A01DiscountedPrice: Decimal;
+        LineDiscount: Decimal;
+        AfkCurrCode: Code[20];
+        LineDiscountText: Text[50];
+        A01DiscountedPriceText: Text[50];
         NoText: array[2] of Text;
         TVA2: Decimal;
         Total_LCYText: Text[50];
@@ -334,9 +416,9 @@ report 50009 "A01 DeliveryNoteInvoicePrint"
         CustAddress: Text[100];
         CustIdentity: Text[100];
         CustPhone: Text[30];
-        ReportTitleLbl: Label 'DELIVERY NOTE INVOICE';
-        UnitNameLbl: Label 'Unit name :';
-        UnitAddressLbl: Label 'Unit address :';
+        ReportTitleLbl: Label 'DELIVERYNOTEINVOICE';
+        UnitNameLbl: Label 'Unitname:';
+        UnitAddressLbl: Label 'Unitaddress:';
         UnitCityLbl: Label 'City';
         UnitPostalCodeLbl: Label 'Postal code :';
         CustNameLbl: Label 'Customer name :';
@@ -346,19 +428,21 @@ report 50009 "A01 DeliveryNoteInvoicePrint"
         STATLbl: Label 'STAT :';
         RCSLbl: Label 'RCS :';
         CustPhoneLbl: Label 'Phone :';
-        OrderNumberLbl: Label 'Delivery note number :';
-        DeleveryNoteDateLbl: Label 'Delivery note date :';
-        InvoiceNumberLbl: Label 'Invoice number :';
+        OrderNumberLbl: Label 'Deliverynotenumber:';
+        DeleveryNoteDateLbl: Label 'Deliverynotedate :';
+        InvoiceNumberLbl: Label 'Invoicenumber:';
         VehicleNumberLbl: Label 'Vehicle number :';
 
         ProductCodeLbl: Label 'Product code';
-        ProductSerialNumberLbl: Label 'product serial number';
+        ProductSerialNumberLbl: Label 'product_serialnumber';
         DesignationLbl: Label 'Designation';
-        A01TotalHT__Caption: Label 'Total HT (AR) :';
-        DiscountPercent__Caption: Label 'Discount (AR)';
-        A01UnitPrice__Caption: Label 'Unit price HT (AR)';
-        A01TVA__Caption: Label 'VAT(20%)(AR) :';
-        A01TotalTTC__Caption: Label 'Total TTC (AR) :';
+        A01TotalHT__Caption: Label 'TotalHT:';
+        DiscountPercent__Caption: Label 'Discount';
+        A01UnitPrice__Caption: Label 'UnitpriceHT';
+        A01TVA__Caption: Label 'VAT(20%):';
+        A01LineDiscountedPrice__Caption: Label 'Discounted price';
+        A01TotalTTC__Caption: Label 'TotalTTC:';
+        A01Qty__Caption: Label 'Qty';
         ArrestedOfSum__Caption: Label 'Arrested at the sum of :';
         ProductLocationLbl: Label 'Product Location';
         CustSignLbl: Label 'Customer signature';

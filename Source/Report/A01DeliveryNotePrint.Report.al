@@ -17,7 +17,7 @@ report 50003 "A01 DeliveryNotePrint"
         dataitem(Header; "Sales Shipment Header")
         {
             DataItemTableView = sorting("No.");
-            RequestFilterFields = "No.";
+            RequestFilterFields = "No.", "Location Code";
             column(DocumentNo_; "No.")
             {
             }
@@ -155,6 +155,9 @@ report 50003 "A01 DeliveryNotePrint"
                 column(Location_Code; "Location Code")
                 {
                 }
+                column(Bin_Code; "Bin Code")
+                {
+                }
                 column(Quantity; Quantity)
                 {
                 }
@@ -176,15 +179,33 @@ report 50003 "A01 DeliveryNotePrint"
                     {
                     }
                 }
+                trigger OnAfterGetRecord()
+                begin
+                    if "No." = 'MIR_FEES' then
+                        CurrReport.Skip();
+                    if "No." = 'mir_fees' then
+                        CurrReport.Skip();
+                    if "No." = 'MIR_INTEREST' then
+                        CurrReport.Skip();
+                    if "No." = 'mir_interest' then
+                        CurrReport.Skip();
+                end;
             }
 
             trigger OnAfterGetRecord()
             begin
-                if RespCenter.Get(Header."Responsibility Center") then begin
-                    UnitName := RespCenter.Name;
-                    UnitAddress := RespCenter.Address;
-                    UnitCity := RespCenter.City;
-                    UnitPostalCode := RespCenter."Post Code";
+                // if RespCenter.Get(Header."Responsibility Center") then begin
+                //     UnitName := RespCenter.Name;
+                //     UnitAddress := RespCenter.Address;
+                //     UnitCity := RespCenter.City;
+                //     UnitPostalCode := RespCenter."Post Code";
+                // end;
+
+                if LocRec.Get(Header."Location Code") then begin
+                    UnitName := LocRec.Name;
+                    UnitAddress := LocRec.Address;
+                    UnitCity := LocRec.City;
+                    UnitPostalCode := LocRec."Post Code";
                 end;
 
                 if Contact.Get(Header."Bill-to Contact No.") then begin
@@ -222,6 +243,7 @@ report 50003 "A01 DeliveryNotePrint"
         RespCenter: Record "Responsibility Center";
         // Cust: Record Customer;
         Contact: Record Contact;
+        LocRec: Record Location;
         Ship: Record "Ship-to Address";
         UnitName: Text[100];
         UnitAddress: Text[100];
@@ -231,8 +253,8 @@ report 50003 "A01 DeliveryNotePrint"
         CustIdentity: Text[100];
         CustPhone: Text[30];
         ReportTitleLbl: Label 'DELIVERY NOTE';
-        UnitNameLbl: Label 'Unit name :';
-        UnitAddressLbl: Label 'Unit address :';
+        UnitNameLbl: Label 'Unitname:';
+        UnitAddressLbl: Label 'Unitaddress:';
         UnitCityLbl: Label 'City';
         UnitPostalCodeLbl: Label 'Postal code :';
         CustNameLbl: Label 'Customer name :';
@@ -242,9 +264,9 @@ report 50003 "A01 DeliveryNotePrint"
         STATLbl: Label 'STAT :';
         RCSLbl: Label 'RCS :';
         CustPhoneLbl: Label 'Phone :';
-        OrderNumberLbl: Label 'Delivery note number :';
-        DeleveryNoteDateLbl: Label 'Delivery note date :';
-        InvoiceNumberLbl: Label 'Invoice number :';
+        OrderNumberLbl: Label 'Deliverynotenumber:';
+        DeleveryNoteDateLbl: Label 'Deliverynotedate:';
+        InvoiceNumberLbl: Label 'Invoicenumber :';
         VehicleNumberLbl: Label 'Vehicle number :';
 
         ProductCodeLbl: Label 'Product code';

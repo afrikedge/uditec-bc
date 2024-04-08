@@ -118,6 +118,9 @@ report 50004 "A01 CashReceiptPrint"
             column(TotalAmountLbl; TotalAmountLbl)
             {
             }
+            column(AfkCurrCode; AfkCurrCode)
+            {
+            }
             dataitem(Line; "Payment Line")
             {
                 DataItemTableView = sorting("No.", "Document No.");
@@ -194,6 +197,15 @@ report 50004 "A01 CashReceiptPrint"
                 }
                 trigger OnAfterGetRecord()
                 begin
+                    GLSetup.Get();
+                    GLSetup.TestField("LCY Code");
+
+                    AfkCurrCode := GLSetup."Local Currency Symbol";
+
+                    Line.Reset();
+                    Line.SetRange("No.", "Cust. Ledger Entry"."Document No.");
+                    Line.SetRange("No.", Header."No.");
+
                     if Cust.Get(Line."Account No.") then begin
                         CustName := Cust.Name;
                         CustIdentity := Cust.Contact;
@@ -201,26 +213,40 @@ report 50004 "A01 CashReceiptPrint"
                         CustAddress := Cust."Ship-to Code";
                     end;
 
-                    Line.Reset();
-                    Line.SetRange("No.", "Cust. Ledger Entry"."Document No.");
-                    Line.SetRange("No.", Header."No.");
+                    CurrCode := Header."Currency Code";
+                    if (CurrCode = '') then
+                        CurrCode := GLSetup."LCY Code";
+
+                    AfkCurrencyName := CurrCode;
+                    if AfkCurrency.Get(CurrCode) then
+                        AfkCurrencyName := AfkCurrency.Description;
+
+                    if (AfkLocalCurrency.Get(GLSetup."LCY Code") and (CurrCode <> GLSetup."LCY Code")) then
+                        AfkLocalCurrencyName := AfkLocalCurrency.Description;
+
+                    if "Currency Code" <> '' then begin
+                        CurrencyExchangeRate.FindCurrency("Posting Date", "Currency Code", 1);
+                        CalculatedExchRate :=
+                          Round(1 / "Currency Factor" * CurrencyExchangeRate."Exchange Rate Amount", 0.000001);
+                        ExchangeRateText := StrSubstNo(ExchangeRateTxt, CalculatedExchRate, CurrencyExchangeRate."Exchange Rate Amount");
+                    end;
 
                     A01Total_LCY := CurrencyExchangeRate.ExchangeAmtFCYToLCY(Header."Posting Date",
                        Header."Currency Code", "Credit Amount", Header."Currency Factor");
-
-                    A01Total_LCY := ROUND(A01Total_LCY, Currency."Amount Rounding Precision");
-
+                    A01Total_LCY := ROUND(A01Total_LCY, AfkLocalCurrency."Amount Rounding Precision");
                     A01Total_LCYText :=
                       Format(A01Total_LCY, 0,
-                      AutoFormat.ResolveAutoFormat("Auto Format"::AmountFormat, Currency.Code));
+                      AutoFormat.ResolveAutoFormat("Auto Format"::AmountFormat, AfkLocalCurrency.Code));
+                    A01Total_LCYText := Format(A01Total_LCY);
 
                     Check.InitTextVariable();
-                    Check.FormatNoText(NoText, A01Total_LCY, Currency.Code);
+                    Check.FormatNoText(NoText, A01Total_LCY, AfkLocalCurrency.Code);
                     NoText[1] := ReplaceString(NoText[1], '****');
                     NoText[1] := ReplaceString(NoText[1], 'AND 0/100');
                     NoText[2] := ReplaceString(NoText[2], '****');
                     NoText[2] := ReplaceString(NoText[2], 'AND 0/100');
                     AmountInWords := NoText[1] + ' ' + NoText[2];
+
                 end;
             }
 
@@ -248,14 +274,21 @@ report 50004 "A01 CashReceiptPrint"
     var
         CompanyInfo: Record "Company Information";
         Cust: Record Customer;
+        GLSetup: Record "General Ledger Setup";
         CurrencyExchangeRate: Record "Currency Exchange Rate";
-        Currency: Record Currency;
+        // Currency: Record Currency;
+        AfkLocalCurrency: Record Currency;
+        AfkCurrency: Record Currency;
         Check: Report Check;
         AutoFormat: Codeunit "Auto Format";
         CustName: Text[100];
+        AfkLocalCurrencyName: Text;
+        AfkCurrCode: Code[20];
+        CurrCode: Code[20];
+        AfkCurrencyName: Text;
         CustAddressName: Text[100];
-        // CalculatedExchRate: Decimal;
-        // ExchangeRateText: Text;
+        CalculatedExchRate: Decimal;
+        ExchangeRateText: Text;
         A01Total_LCY: Decimal;
         TotalAmount: Decimal;
         CustAddress: Text[100];
@@ -263,7 +296,7 @@ report 50004 "A01 CashReceiptPrint"
         A01Total_LCYText: Text[50];
         CustPhone: Text[30];
         NoText: array[2] of Text;
-        // ExchangeRateTxt: Label 'Exchange rate: %1/%2', Comment = '%1 and %2 are both amounts.';
+        ExchangeRateTxt: Label 'Exchange rate: %1/%2', Comment = '%1 and %2 are both amounts.';
         ReportTitleLbl: Label 'CASH RECEIPT';
         DateOfPrintLbl: Label 'Date of print :';
         CustNameLbl: Label 'Customer name :';
@@ -282,7 +315,7 @@ report 50004 "A01 CashReceiptPrint"
         ObjectLbl: Label 'Object';
         PaymentModeLbl: Label 'Payment mode';
         AmountLbl: Label 'Amount';
-        TotalAmountLbl: Label 'Total Amount :';
+        TotalAmountLbl: Label 'TotalAmount';
 
         Total: Decimal;
         MontantTotal: Decimal;

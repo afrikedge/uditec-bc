@@ -1304,7 +1304,7 @@ report 50006 "A01 PurchaseOrderPrint"
 
                 AfkCurrCode := "Purchase Header"."Currency Code";
                 if (AfkCurrCode = '') then
-                    AfkCurrCode := GLSetup."LCY Code";
+                    AfkCurrCode := GLSetup."Local Currency Symbol";
 
                 AfkCurrencyName := AfkCurrCode;
                 if AfkCurrency.Get(AfkCurrCode) then

@@ -77,6 +77,9 @@ report 50010 "A01 SalesInvoiceCreditPrint"
             column(A01respCenterCity; City)
             {
             }
+            column(Salesperson_Code; "Salesperson Code")
+            {
+            }
             column(A01RespCenterPostCode; PostCode)
             {
             }
@@ -458,6 +461,9 @@ report 50010 "A01 SalesInvoiceCreditPrint"
             column(Afk_mountInWords; Afk_AmountInWords)
             {
             }
+            column(AfkCurrCod; AfkCurrCod)
+            {
+            }
             dataitem(Line; "Sales Invoice Line")
             {
                 DataItemLink = "Document No." = field("No.");
@@ -547,14 +553,12 @@ report 50010 "A01 SalesInvoiceCreditPrint"
                 }
                 column(AfkTotalAmountInclVAT_LCY; AfkTotalAmountInclVAT_LCY)
                 {
-
                 }
                 column(AfkTotalAmount_LCY; AfkTotalAmount_LCY)
                 {
                 }
                 column(AfkTotalVAT_LCY; AfkTotalVAT_LCY)
                 {
-
                 }
                 column(TransHeaderAmount; TransHeaderAmount)
                 {
@@ -590,6 +594,11 @@ report 50010 "A01 SalesInvoiceCreditPrint"
                 }
                 column(PricePer_Lbl; PricePerLbl)
                 {
+                }
+                column(A01DiscountedPrice; A01DiscountedPriceText)
+                {
+                    AutoFormatExpression = Header."Currency Code";
+                    AutoFormatType = 2;
                 }
                 dataitem(ShipmentLine; "Sales Shipment Buffer")
                 {
@@ -692,13 +701,23 @@ report 50010 "A01 SalesInvoiceCreditPrint"
                     end;
                     A01LineQty := Line.Quantity;
                     A01LinePU := Round(tempPU, 0.000001, '<');
+                    A01DiscountedPrice := Round(tempPU - Line."Line Discount Amount", 0.001, '<');
 
                     A01LineQtyFormatted := Format(A01LineQty);
                     A01LinePUFormatted := Format(A01LinePU);
+                    A01DiscountedPriceText := Format(A01DiscountedPrice);
 
                     InitializeShipmentLine();
-                    if Type = Type::"G/L Account" then
-                        //     "No." := '';
+                    // if Type = Type::"G/L Account" then
+                    //     "No." := '';
+                    // CurrReport.Skip();
+                    if "No." = 'MIR_FEES' then
+                        CurrReport.Skip();
+                    if "No." = 'mir_fees' then
+                        CurrReport.Skip();
+                    if "No." = 'MIR_INTEREST' then
+                        CurrReport.Skip();
+                    if "No." = 'mir_interest' then
                         CurrReport.Skip();
 
                     OnBeforeLineOnAfterGetRecord(Header, Line);
@@ -773,6 +792,7 @@ report 50010 "A01 SalesInvoiceCreditPrint"
                     VATClauseLine.DeleteAll();
                     ShipmentLine.Reset();
                     ShipmentLine.DeleteAll();
+                    SetRange(Type, Type::Item);
                     MoreLines := Find('+');
                     while MoreLines and (Description = '') and ("No." = '') and (Quantity = 0) and (Amount = 0) do
                         MoreLines := Next(-1) <> 0;
@@ -1216,13 +1236,17 @@ report 50010 "A01 SalesInvoiceCreditPrint"
                     AfkTotalAmountInclVAT_LCYText :=
                            Format(AfkTotalAmountInclVAT_LCY, 0,
                            AutoFormat.ResolveAutoFormat("Auto Format"::AmountFormat, AfkLocalCurrency.Code));
+                    AfkTotalAmountInclVAT_LCYText := Format(AfkTotalAmountInclVAT_LCY);
+
                     AfkTotalAmount_LCYText :=
                         Format(AfkTotalAmount_LCY, 0,
                         AutoFormat.ResolveAutoFormat("Auto Format"::AmountFormat, AfkLocalCurrency.Code));
-                    // AfkLocalCurrencyText := 'XAF';
+                    AfkTotalAmount_LCYText := Format(AfkTotalAmount_LCY);
+
                     AfkTotalVAT_LCYText :=
                         Format(AfkTotalVAT_LCY, 0,
                         AutoFormat.ResolveAutoFormat("Auto Format"::AmountFormat, AfkLocalCurrency.Code));
+                    AfkTotalVAT_LCYText := Format(AfkTotalVAT_LCY);
                     AfkLocalCurrencyCaption := AfkDeviseLbl;
 
                     RepCheck.InitTextVariable();
@@ -1252,6 +1276,8 @@ report 50010 "A01 SalesInvoiceCreditPrint"
                 if not Cust.Get("Sell-to Customer No.") then
                     Clear(Cust);
 
+
+                AfkCurrCod := GLSetup."Local Currency Symbol";
                 AfkCurrCode := Header."Currency Code";
                 if (AfkCurrCode = '') then
                     AfkCurrCode := GLSetup."LCY Code";
@@ -1467,6 +1493,9 @@ report 50010 "A01 SalesInvoiceCreditPrint"
         // Deposit: Decimal;
         NumLigne: Integer;
         NumLigneText: Code[2];
+        AfkCurrCod: Code[20];
+        A01DiscountedPriceText: Text[50];
+        A01DiscountedPrice: Decimal;
         // LogInteractionEnable: Boolean;
         WorkDescriptionInstream: InStream;
         TransHeaderAmount: Decimal;
@@ -1574,7 +1603,7 @@ report 50010 "A01 SalesInvoiceCreditPrint"
         ExchangeRateTxt: Label 'Exchange rate: %1/%2', Comment = '%1 and %2 are both amounts.';
         PmtDiscTxt: Label 'If we receive the payment before %1, you are eligible for a %2% payment discount.', Comment = '%1 Discount Due Date %2 = value of Payment Discount % ';
         SalesInvoiceLbl: Label 'CREDIT SALES INVOICE';
-        InvNoLbl: Label 'Invoice number :';
+        InvNoLbl: Label 'Invoice_number :';
         SalesPersonText: Text[50];
         UnitNameLbl: Label 'Unit name :';
         UnitAddressLbl: Label 'Unit address :';
@@ -1588,7 +1617,7 @@ report 50010 "A01 SalesInvoiceCreditPrint"
         STATLbl: Label 'STAT :';
         RCSLbl: Label 'RCS :';
         CustomerPhoneLbl: Label 'Phone :';
-        InvoiceDateLbl: Label 'Invoice Date :';
+        InvoiceDateLbl: Label 'Invoice_Date :';
         DateofprintLbl: Label 'Date of print :';
         VendorNameLbl: Label 'Vendor name :';
         VendorMatriculeLbl: Label 'Vendor matricule :';
@@ -1598,9 +1627,9 @@ report 50010 "A01 SalesInvoiceCreditPrint"
         DesignationLbl: Label 'Designation';
         DeliverySiteLbl: Label 'Delivery site';
         QuantityLbl: Label 'Quantity';
-        UnitPriceLbl: Label 'Unit price HT(AR)';
-        DiscountPercentLbl: Label 'Discount(AR)';
-        DiscountAmountLbl: Label 'Discounted prices HT(AR)';
+        UnitPriceLbl: Label 'UnitpriceHT(AR)';
+        DiscountPercentLbl: Label 'Discount(AR';
+        DiscountAmountLbl: Label 'DiscountedpricesHT(AR)';
         VATClausesLbl: Label 'VAT clause';
 
         SubtotalLbl: Label 'Subtotal';
