@@ -1,15 +1,14 @@
-
 /// <summary>
-/// Page A01 Customer Settlements (ID 50056).
+/// Page A01 Posted Cust Settlements (ID 50058).
 /// </summary>
-page 50059 "A01 Customer Settlement List"
+page 50062 "A01 Posted Cust Settlements"
 {
     ApplicationArea = All;
-    Caption = 'Customer Settlement List';
+    Caption = 'Posted Cust Settlements';
     PageType = List;
-    SourceTable = "A01 Payment Document";
+    SourceTable = "A01 Posted Payment Document";
+    CardPageId = "A01 Posted Cust Settlement";
     UsageCategory = Lists;
-    CardPageId = "A01 Customer Settlement";
 
     layout
     {

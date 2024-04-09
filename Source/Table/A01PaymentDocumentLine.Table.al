@@ -49,6 +49,17 @@ table 50033 "A01 Payment Document Line"
             Caption = 'Applies-to Doc. No.';
             Editable = false;
         }
+        field(480; "Dimension Set ID"; Integer)
+        {
+            Caption = 'Dimension Set ID';
+            Editable = false;
+            TableRelation = "Dimension Set Entry";
+
+            // trigger OnLookup()
+            // begin
+            //     Rec.ShowDimensions();
+            // end;
+        }
 
 
 

@@ -202,8 +202,6 @@ codeunit 50007 "A01 Treso Mgt"
         if (SalesPaymentLine."Validated Amount" <= 0) then
             exit;
 
-        //PaymentCCConfig.TestField("Payment Class");
-
         PaymentClass.Get(RCPaymentMethod."Payment Class");
 
         PaymentHeader.Init();
@@ -262,6 +260,86 @@ codeunit 50007 "A01 Treso Mgt"
 
     end;
 
+    procedure CreateNewPaymentDocFromCustomerSettlement(CustSettlement: Record "A01 Payment Document";
+    CustSettlementLine: Record "A01 Payment Document Line")
+    var
+        PaymentCCConfig: Record "A01 Payment Type Configuration";
+        PaymentClass: Record "Payment Class";
+        PaymentHeader: Record "Payment Header";
+        RCPaymentMethod: Record "A01 RC Payment Method";
+        PaymentLine: Record "Payment Line";
+        Cust: Record Customer;
+        NoSeriesMgt: Codeunit NoSeriesManagement;
+        LineNum: Integer;
+    begin
+
+        if not RCPaymentMethod.get(CustSettlementLine."Responsibility Center", CustSettlementLine."Payment Method") then
+            exit;
+
+        if (RCPaymentMethod."Payment Class") = '' then
+            exit;
+
+        if (CustSettlementLine."Validated Amount" <= 0) then
+            exit;
+
+        PaymentClass.Get(RCPaymentMethod."Payment Class");
+
+        PaymentHeader.Init();
+
+        PaymentClass.TESTFIELD("Header No. Series");
+
+        NoSeriesManagement.InitSeries(PaymentClass."Header No. Series", '', 0D, PaymentHeader."No.", PaymentHeader."No. Series");
+        PaymentHeader.Validate("Payment Class", PaymentClass.Code);
+
+        PaymentLine.LockTable();
+        PaymentHeader.Insert(true);
+
+        PaymentHeader.Validate("Payment Class", PaymentCCConfig."Payment Class");
+        PaymentHeader.Validate("Currency Code", CustSettlement."Currency Code");
+
+        Cust.GET(CustSettlement."Partner No.");
+        PaymentHeader."A01 Check No." := copystr(CustSettlementLine.Reference, 1, 20);
+        PaymentHeader."A01 Customer No." := Cust."No.";
+        PaymentHeader."A01 Customer Name" := Cust.Name;
+        PaymentHeader."A01 Description" := CustSettlement.Object;
+        PaymentHeader.VALIDATE("Posting Date", CustSettlement."Posting Date");
+        PaymentHeader."A01 Origin Document No." := CustSettlement."No.";
+
+        PaymentHeader.Modify();
+
+
+        LineNum := 0;
+        PaymentLine.Init();
+        PaymentLine."Document No." := NoSeriesMgt.GetNextNo(PaymentClass."Line No. Series", WorkDate(), true);
+        PaymentLine."No." := PaymentHeader."No.";
+        PaymentLine."Payment Class" := PaymentHeader."Payment Class";
+        LineNum := LineNum + 10000;
+        PaymentLine."Line No." := LineNum;
+        PaymentLine.Insert();
+
+
+        PaymentLine."Account Type" := PaymentLine."Account Type"::Customer;
+        PaymentLine.VALIDATE(PaymentLine."Account No.", Cust."No.");
+        PaymentLine."Currency Code" := CustSettlement."Currency Code";
+        PaymentLine."Currency Factor" := PaymentHeader."Currency Factor";
+        PaymentLine.VALIDATE(Amount, -ABS(CustSettlementLine."Validated Amount"));
+        //PaymentLine."Applies-to Doc. Type" := DocType;
+        //PaymentLine."Applies-to Doc. No." := DocNo;
+
+
+        // if ((GenJnlLine."A01 Payment Doc Type" = GenJnlLine."A01 Payment Doc Type"::"Direct Check")
+        //   or (GenJnlLine."A01 Payment Doc Type" = GenJnlLine."A01 Payment Doc Type"::"Bank Draft")
+        //   or (GenJnlLine."A01 Payment Doc Type" = GenJnlLine."A01 Payment Doc Type"::"Deferred Check")) then
+        //     GenJnlLine.TESTFIELD("A01 Check No.");
+
+        PaymentLine."Drawee Reference" := CopyStr(PaymentHeader."A01 Check No.", 1, 10);
+        PaymentLine."Due Date" := CustSettlement."Due Date";
+
+        PaymentLine."Dimension Set ID" := CustSettlementLine."Dimension Set ID";
+        PaymentLine.Modify();
+
+    end;
+
     local procedure PostBalancingEntry(SalesHeader: Record "Sales Header";
     SalesPaymentLine: Record "A01 Sales Payment Method";
     DocType: Enum "Gen. Journal Document Type";
@@ -309,9 +387,72 @@ codeunit 50007 "A01 Treso Mgt"
             GenJnlLine."Document Type" := GenJnlLine."Document Type"::Payment;
 
 
-        SetApplyToDocNo(RCPaymentMethod, GenJnlLine, DocType, DocNo);
+        SetBalAccAndApplyToDocNo(RCPaymentMethod, GenJnlLine, DocType, DocNo);
 
         SetAmountsForBalancingEntry(SalesPaymentLine."Validated Amount", GenJnlLine);
+
+        // GenJnlLine."Orig. Pmt. Disc. Possible" := TotalSalesLine2."Pmt. Discount Amount";
+        // GenJnlLine."Orig. Pmt. Disc. Possible(LCY)" :=
+        //     CurrExchRate.ExchangeAmtFCYToLCY(
+        //         SalesHeader.GetUseDate(), SalesHeader."Currency Code", TotalSalesLine2."Pmt. Discount Amount", SalesHeader."Currency Factor");
+
+        GenJnlPostLine.RunWithCheck(GenJnlLine);
+
+    end;
+
+    procedure PostCustSettlementLine(CustSettlement: Record "A01 Payment Document";
+        CustSettlementLine: Record "A01 Payment Document Line";
+        var GenJnlPostLine: Codeunit "Gen. Jnl.-Post Line")
+    var
+        //CustLedgEntry: Record "Cust. Ledger Entry";
+        GenJnlLine: Record "Gen. Journal Line";
+        RCPaymentMethod: Record "A01 RC Payment Method";
+        SourceCodeSetup: Record "Source Code Setup";
+    //EntryFound: Boolean;
+    begin
+        //EntryFound := false;
+
+        //if not EntryFound then
+        //    FindCustLedgEntry(DocType, DocNo, CustLedgEntry);
+        SourceCodeSetup.Get();
+
+        if not RCPaymentMethod.get(CustSettlement."Responsibility Center", CustSettlementLine."Payment Method") then
+            exit;
+
+        if (RCPaymentMethod."Bal. Account No." = '') then
+            exit;
+        if (CustSettlementLine."Validated Amount" <= 0) then
+            exit;
+
+        // if not PaymentMethod.get(SalesPaymentLine."Payment Method") then exit;
+        // if PaymentMethod."Bal. Account No." = '' then exit;
+
+        // GenJnlLine.InitNewLine(
+        //   SalesHeader."Posting Date", SalesHeader."Document Date", SalesHeader."VAT Reporting Date", SalesHeader."Posting Description",
+        //   SalesHeader."Shortcut Dimension 1 Code", SalesHeader."Shortcut Dimension 2 Code",
+        //   SalesHeader."Dimension Set ID", SalesHeader."Reason Code");
+        GenJnlLine.InitNewLine(
+          CustSettlement."Posting Date", CustSettlement."Posting Date", 0D, CustSettlement."Object",
+          CustSettlement."Shortcut Dimension 1 Code", CustSettlement."Shortcut Dimension 2 Code",
+          CustSettlement."Dimension Set ID", '');
+
+
+        GenJnlLine.CopyDocumentFields(Enum::"Gen. Journal Document Type"::Payment, CustSettlement."No.", CustSettlement."External Document No.", SourceCodeSetup."Payment Journal", '');
+        GenJnlLine."Account Type" := GenJnlLine."Account Type"::Customer;
+        GenJnlLine."Account No." := CustSettlement."Partner No.";
+
+        //GenJnlLine.CopyFromSalesHeader(SalesHeader);
+        //GenJnlLine.SetCurrencyFactor(CustSettlement."Currency Code", SalesHeader."Currency Factor");
+
+        // if SalesHeader.IsCreditDocType() then
+        //     GenJnlLine."Document Type" := GenJnlLine."Document Type"::Refund
+        // else
+        GenJnlLine."Document Type" := GenJnlLine."Document Type"::Payment;
+
+
+        SetBalAccAndApplyToID(RCPaymentMethod, GenJnlLine, CustSettlementLine."Applies-to ID");
+
+        SetAmountsForBalancingEntry(CustSettlementLine."Validated Amount", GenJnlLine);
 
         // GenJnlLine."Orig. Pmt. Disc. Possible" := TotalSalesLine2."Pmt. Discount Amount";
         // GenJnlLine."Orig. Pmt. Disc. Possible(LCY)" :=
@@ -392,7 +533,7 @@ codeunit 50007 "A01 Treso Mgt"
     //     GenJnlLine."Allow Zero-Amount Posting" := true;
     // end;
 
-    local procedure SetApplyToDocNo(PayMethod: Record "A01 RC Payment Method"; var GenJnlLine: Record "Gen. Journal Line"; DocType: Enum "Gen. Journal Document Type"; DocNo: Code[20])
+    local procedure SetBalAccAndApplyToDocNo(PayMethod: Record "A01 RC Payment Method"; var GenJnlLine: Record "Gen. Journal Line"; DocType: Enum "Gen. Journal Document Type"; DocNo: Code[20])
     begin
 
         if PayMethod."Bal. Account Type" = PayMethod."Bal. Account Type"::"Bank Account" then
@@ -402,6 +543,20 @@ codeunit 50007 "A01 Treso Mgt"
         GenJnlLine."Bal. Account No." := PayMethod."Bal. Account No.";
         GenJnlLine."Applies-to Doc. Type" := DocType;
         GenJnlLine."Applies-to Doc. No." := DocNo;
+
+    end;
+
+    local procedure SetBalAccAndApplyToID(PayMethod: Record "A01 RC Payment Method"; var GenJnlLine: Record "Gen. Journal Line"; ApplyToID: Code[50])
+    begin
+
+        if PayMethod."Bal. Account Type" = PayMethod."Bal. Account Type"::"Bank Account" then
+            GenJnlLine."Bal. Account Type" := GenJnlLine."Bal. Account Type"::"Bank Account";
+        if PayMethod."Bal. Account Type" = PayMethod."Bal. Account Type"::"G/L Account" then
+            GenJnlLine."Bal. Account Type" := GenJnlLine."Bal. Account Type"::"G/L Account";
+        GenJnlLine."Bal. Account No." := PayMethod."Bal. Account No.";
+        GenJnlLine."Applies-to Doc. Type" := GenJnlLine."Applies-to Doc. Type"::" ";
+        GenJnlLine."Applies-to Doc. No." := '';
+        GenJnlLine."Applies-to ID" := ApplyToID;
 
     end;
 
@@ -423,7 +578,18 @@ codeunit 50007 "A01 Treso Mgt"
     //     CustLedgEntry.SetRange("Document No.", DocNo);
     //     CustLedgEntry.FindLast();
     // end;
-
+    procedure IsMultiMeadlinesInvoice(SalesHeader: Record "Sales Header"): Boolean
+    var
+        PaymentCond: Record "Payment Terms";
+    begin
+        if (not PaymentCond.Get(SalesHeader."Payment Terms Code")) then
+            exit(false);
+        if (not PaymentCond."A01 Multi-deadlines") then
+            exit(false);
+        if (SalesHeader."A01 Credit Duration (Month)" <= 0) then
+            exit(false);
+        exit(true);
+    end;
 
     procedure PostMultiDeadlinesPaymentLines(var SalesHeader: Record "Sales Header";
     var TotalSalesLine2: Record "Sales Line"; var TotalSalesLineLCY2: Record "Sales Line"; CommitIsSuppressed: Boolean;
@@ -448,12 +614,11 @@ codeunit 50007 "A01 Treso Mgt"
         LineDueDate: Date;
 
     begin
-        if (not PaymentCond.Get(SalesHeader."Payment Terms Code")) then
+        if (not IsMultiMeadlinesInvoice(SalesHeader)) then
             exit;
-        if (not PaymentCond."A01 Multi-deadlines") then
-            exit;
-        if (SalesHeader."A01 Credit Duration (Month)" <= 0) then
-            exit;
+
+        PaymentCond.Get(SalesHeader."Payment Terms Code");
+
         LineDueDate := SalesHeader."Due Date";
 
         for i := 1 to SalesHeader."A01 Credit Duration (Month)" do begin

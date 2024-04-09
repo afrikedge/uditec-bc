@@ -17,9 +17,11 @@ codeunit 50013 "A01 Customer Settlement Post"
         CustSettlementLine: Record "A01 Payment Document Line";
         PostedCustSettlementLine: Record "A01 Posted Payment Doc Line";
         SourceCodeSetup: Record "Source Code Setup";
-        CustSetup: Record "A01 Afk Setup";
-        NoSeriesMgt: Codeunit NoSeriesManagement;
+        //CustSetup: Record "A01 Afk Setup";
+        //NoSeriesMgt: Codeunit NoSeriesManagement;
         DocumentErrorsMgt: Codeunit "Document Errors Mgt.";
+        GenJnlPostLine: Codeunit "Gen. Jnl.-Post Line";
+        TresoMgt: Codeunit "A01 Treso Mgt";
         DocumentTitleMsg: Label '#1################################\\', Comment = '%1 = Document description';
         CheckingLinesMsg: Label 'Checking lines        #2######\', Comment = '%2 = counter';
         PostingLinesMsg: Label 'Posting lines         #3######', Comment = '%3 = counter';
@@ -31,10 +33,10 @@ codeunit 50013 "A01 Customer Settlement Post"
         //ErrorText: Text[250];
         SourceCode: Code[10];
         LineCount: Integer;
-        ModifyHeader: Boolean;
-        //LinesToPost: Boolean;
-        SuppressCommit: Boolean;
-        PreviewMode: Boolean;
+    //ModifyHeader: Boolean;
+    //LinesToPost: Boolean;
+    //SuppressCommit: Boolean;
+    //PreviewMode: Boolean;
 
     /// <summary>
     /// Code.
@@ -76,15 +78,9 @@ codeunit 50013 "A01 Customer Settlement Post"
         // Insert posted header
         InsertPostedHeader(CustomerSettlement);
 
+        InsertPostedLines();
 
-        CustSettlementLine.Reset();
-        CustSettlementLine.SetRange("Document No.", CustomerSettlement."No.");
-        if CustSettlementLine.FindSet() then
-            repeat
-                SaveCustSettlementLine(CustSettlementLine);
-            until CustSettlementLine.Next() = 0;
-
-        CreateJournalLines(CustomerSettlement);
+        PostJournalLinesAndPaymentDocs(CustomerSettlement);
 
         FinalizePost(CustomerSettlement."No.");
     end;
@@ -130,31 +126,34 @@ codeunit 50013 "A01 Customer Settlement Post"
             PostedCustSettlement.Insert();
     end;
 
-    local procedure SaveCustSettlementLine(CustSettlementLine: Record "A01 Payment Document Line")
+    local procedure SaveCustSettlementLine(SettlementLine: Record "A01 Payment Document Line")
     begin
         LineCount := LineCount + 1;
         if not HideProgressWindow then
             Window.Update(3, LineCount);
 
-        InsertPostedLine(PostedCustSettlement, CustSettlementLine);
+        InsertPostedLine(PostedCustSettlement, SettlementLine);
 
     end;
 
 
 
-    local procedure CreateJournalLines(CustSettlement: Record "A01 Payment Document")
+    local procedure PostJournalLinesAndPaymentDocs(CustSettlement: Record "A01 Payment Document")
     var
-        GenJournalLine: Record "Gen. Journal Line";
-        CustSettlementLine: Record "A01 Payment Document Line";
-        NextLineNo: Integer;
+        SettlementLine: Record "A01 Payment Document Line";
         IsHandled: Boolean;
     begin
 
-        OnBeforeCreateJournalLines(CustSettlement, IsHandled);
+        OnBeforeCreateJournalLines(CustSettlement, GenJnlPostLine, IsHandled);
         if IsHandled then
             exit;
 
-
+        SettlementLine.SetRange("Document No.", CustSettlement."No.");
+        if SettlementLine.FindSet() then
+            repeat
+                TresoMgt.CreateNewPaymentDocFromCustomerSettlement(CustSettlement, SettlementLine);
+                TresoMgt.PostCustSettlementLine(CustSettlement, SettlementLine, GenJnlPostLine);
+            until SettlementLine.Next() < 1;
 
 
     end;
@@ -193,12 +192,15 @@ codeunit 50013 "A01 Customer Settlement Post"
         CustSettlement.TestField("Posting Date");
         CustSettlement.TestField("Responsibility Center");
         CustSettlement.TestField("Partner No.");
+        CustSettlement.TestField("No.");
+        CustSettlement.TestField(Object);
+
     end;
 
-    local procedure LockTables(var CustSettlement: Record "A01 Payment Document"; var CustSettlementLine: Record "A01 Payment Document Line")
+    local procedure LockTables(var CustSettlement: Record "A01 Payment Document"; var SettlementLine: Record "A01 Payment Document Line")
     begin
         CustSettlement.LockTable();
-        CustSettlementLine.LockTable();
+        SettlementLine.LockTable();
     end;
 
     // local procedure SetPostingNosSeries()
@@ -228,17 +230,17 @@ codeunit 50013 "A01 Customer Settlement Post"
         CustomerSettlement.Delete();
     end;
 
-    local procedure PostGenJnlLine(var NextLineNo: Integer; CustSettlement: Record "A01 Payment Document"; CustSettlementLine: Record "A01 Payment Document Line")
-    var
-        GenJournalLine: Record "Gen. Journal Line";
-        lblCustSettlement: Label 'Cust settlement %1', Comment = '%1 = Comm Settlement No';
-        ExpenseAccount: Code[20];
-    begin
+    // local procedure PostGenJnlLine(var NextLineNo: Integer; CustSettlement: Record "A01 Payment Document"; CustSettlementLine: Record "A01 Payment Document Line")
+    // var
+    //     GenJournalLine: Record "Gen. Journal Line";
+    //     lblCustSettlement: Label 'Cust settlement %1', Comment = '%1 = Comm Settlement No';
+    //     ExpenseAccount: Code[20];
+    // begin
 
-        CustSetup.Get();
+    //     CustSetup.Get();
 
 
-    end;
+    // end;
 
     local procedure ConfirmPosting(var CustSettlement: Record "A01 Payment Document") Result: Boolean
     var
@@ -250,6 +252,16 @@ codeunit 50013 "A01 Customer Settlement Post"
             exit(Result);
         Result := Confirm(LblPostSettlementYesNo, false);
 
+    end;
+
+    local procedure InsertPostedLines()
+    begin
+        CustSettlementLine.Reset();
+        CustSettlementLine.SetRange("Document No.", CustomerSettlement."No.");
+        if CustSettlementLine.FindSet() then
+            repeat
+                SaveCustSettlementLine(CustSettlementLine);
+            until CustSettlementLine.Next() = 0;
     end;
 
     [IntegrationEvent(false, false)]
@@ -288,7 +300,7 @@ codeunit 50013 "A01 Customer Settlement Post"
     end;
 
     [IntegrationEvent(false, false)]
-    local procedure OnBeforeCreateJournalLines(CustSettlement: Record "A01 Payment Document"; var IsHandled: Boolean);
+    local procedure OnBeforeCreateJournalLines(CustSettlement: Record "A01 Payment Document"; var GenJnlPostLine: Codeunit "Gen. Jnl.-Post Line"; var IsHandled: Boolean);
     begin
     end;
 }

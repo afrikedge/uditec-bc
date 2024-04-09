@@ -100,9 +100,23 @@ codeunit 50002 "A01 EventsSubscribers_Code"
         TresoMgt.PostMultiDeadlinesPaymentLines(SalesHeader, TotalSalesLine2, TotalSalesLineLCY2, CommitIsSuppressed, PreviewMode, DocType, DocNo, ExtDocNo, SourceCode, GenJnlPostLine, IsHandled);
     end;
 
+    [EventSubscriber(ObjectType::Codeunit, Codeunit::"Sales-Post", 'OnBeforeSalesInvHeaderInsert', '', true, true)]
+    local procedure OnBeforeSalesInvHeaderInsert_SalesPost(var SalesInvHeader: Record "Sales Invoice Header"; var SalesHeader: Record "Sales Header"; CommitIsSuppressed: Boolean; var IsHandled: Boolean; WhseShip: Boolean; WhseShptHeader: Record "Warehouse Shipment Header"; InvtPickPutaway: Boolean)
+    var
+        TresoMgt: Codeunit "A01 Treso Mgt";
+    begin
+        if (TresoMgt.IsMultiMeadlinesInvoice(SalesHeader)) then
+            SalesInvHeader."External Document No." := SalesInvHeader."No.";
+    end;
+
     // [Obsolete('Moved to Sales Invoice Posting implementation. Use the new event OnBeforePostLedgerEntry in codeunit 825 "Sales Post Invoice Events".', '19.0')]
     // [IntegrationEvent(false, false)]
     // local procedure OnBeforeRunPostCustomerEntry(var SalesHeader: Record "Sales Header"; var TotalSalesLine2: Record "Sales Line"; var TotalSalesLineLCY2: Record "Sales Line"; CommitIsSuppressed: Boolean; PreviewMode: Boolean; DocType: Enum "Gen. Journal Document Type"; DocNo: Code[20]; ExtDocNo: Code[35]; SourceCode: Code[10]; var GenJnlPostLine: Codeunit "Gen. Jnl.-Post Line"; var IsHandled: Boolean)
+    // begin
+    // end;
+
+    // [IntegrationEvent(false, false)]
+    // local procedure OnBeforeSalesInvHeaderInsert(var SalesInvHeader: Record "Sales Invoice Header"; var SalesHeader: Record "Sales Header"; CommitIsSuppressed: Boolean; var IsHandled: Boolean; WhseShip: Boolean; WhseShptHeader: Record "Warehouse Shipment Header"; InvtPickPutaway: Boolean)
     // begin
     // end;
 

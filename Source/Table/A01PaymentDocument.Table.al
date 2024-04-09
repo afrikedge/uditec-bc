@@ -95,6 +95,63 @@ table 50032 "A01 Payment Document"
             Caption = 'Partner Name';
             Editable = false;
         }
+        // field(11; "Description"; Text[100])
+        // {
+        //     Caption = 'Description';
+        // }
+        field(12; "Due Date"; Date)
+        {
+            Caption = 'Due Date';
+        }
+        field(13; "Shortcut Dimension 1 Code"; Code[20])
+        {
+            CaptionClass = '1,2,1';
+            Caption = 'Shortcut Dimension 1 Code';
+
+            trigger OnLookup()
+            begin
+                LookupShortcutDimCode(1, "Shortcut Dimension 1 Code");
+                Validate("Shortcut Dimension 1 Code");
+            end;
+
+            trigger OnValidate()
+            begin
+                ValidateShortcutDimCode(1, "Shortcut Dimension 1 Code");
+                Modify();
+            end;
+        }
+        field(14; "Shortcut Dimension 2 Code"; Code[20])
+        {
+            CaptionClass = '1,2,2';
+            Caption = 'Shortcut Dimension 2 Code';
+
+            trigger OnLookup()
+            begin
+                LookupShortcutDimCode(2, "Shortcut Dimension 2 Code");
+                Validate("Shortcut Dimension 2 Code");
+            end;
+
+            trigger OnValidate()
+            begin
+                ValidateShortcutDimCode(2, "Shortcut Dimension 2 Code");
+                Modify();
+            end;
+        }
+        field(15; "External Document No."; Code[35])
+        {
+            Caption = 'External Document No.';
+        }
+        field(480; "Dimension Set ID"; Integer)
+        {
+            Caption = 'Dimension Set ID';
+            Editable = false;
+            TableRelation = "Dimension Set Entry";
+
+            // trigger OnLookup()
+            // begin
+            //     Rec.ShowDimensions();
+            // end;
+        }
         field(50000; "Currency Code"; Code[10])
         {
             Caption = 'Currency Code';
@@ -126,6 +183,8 @@ table 50032 "A01 Payment Document"
     var
         AddOnSetup: Record "A01 Afk Setup";
         NoSeriesManagement: Codeunit NoSeriesManagement;
+        DimensionManagement: Codeunit DimensionManagement;
+        Text009: Label 'You may have changed a dimension.\\Do you want to update the lines?';
         LblQuestChangeRespCenter: Label 'The lines will be deleted. Do you want to continue ?';
 
     local procedure InitHeader()
@@ -141,5 +200,55 @@ table 50032 "A01 Payment Document"
             if (Confirm(LblQuestChangeRespCenter)) then begin
                 DocLine.DeleteAll();
             end;
+    end;
+
+
+    procedure LookupShortcutDimCode(FieldNo: Integer; var ShortcutDimCode: Code[20])
+    begin
+        DimensionManagement.LookupDimValueCode(FieldNo, ShortcutDimCode);
+        DimensionManagement.ValidateShortcutDimValues(FieldNo, ShortcutDimCode, "Dimension Set ID");
+    end;
+
+
+    procedure ValidateShortcutDimCode(FieldNo: Integer; var ShortcutDimCode: Code[20])
+    begin
+        DimensionManagement.ValidateShortcutDimValues(FieldNo, ShortcutDimCode, "Dimension Set ID");
+        if xRec."Dimension Set ID" <> "Dimension Set ID" then
+            if PaymentLinesExist() then
+                UpdateAllLineDim("Dimension Set ID", xRec."Dimension Set ID");
+    end;
+
+    procedure PaymentLinesExist(): Boolean
+    var
+        PaymentLine: Record "A01 Payment Document Line";
+    begin
+        PaymentLine.Reset();
+        PaymentLine.SetRange("Document No.", "No.");
+        exit(not PaymentLine.IsEmpty())
+    end;
+
+    local procedure UpdateAllLineDim(NewParentDimSetID: Integer; OldParentDimSetID: Integer)
+    var
+        PaymentLine: Record "A01 Payment Document Line";
+        NewDimSetID: Integer;
+    begin
+        // Update all lines with changed dimensions.
+
+        if NewParentDimSetID = OldParentDimSetID then
+            exit;
+        if not Confirm(Text009) then
+            exit;
+
+        PaymentLine.Reset();
+        PaymentLine.SetRange("Document No.", "No.");
+        PaymentLine.LockTable();
+        if PaymentLine.Find('-') then
+            repeat
+                NewDimSetID := DimensionManagement.GetDeltaDimSetID(PaymentLine."Dimension Set ID", NewParentDimSetID, OldParentDimSetID);
+                if PaymentLine."Dimension Set ID" <> NewDimSetID then begin
+                    PaymentLine."Dimension Set ID" := NewDimSetID;
+                    PaymentLine.Modify();
+                end;
+            until PaymentLine.Next() = 0;
     end;
 }
