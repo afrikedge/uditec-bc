@@ -248,11 +248,11 @@ report 50012 "A01 SalesReturnReceiptPrint"
         CustomerPhone: Text[30];
 
         ReportTitleLbl: Label 'SALES RETURN RECEIPT';
-        SalesReceiptNumberLbl: Label 'Sales Return receipt number :';
-        OrderNumberLbl: Label 'Sales return number :';
+        SalesReceiptNumberLbl: Label 'Sales Return receipt N° :';
+        OrderNumberLbl: Label 'Sales return N° :';
         DateOfReceiptLbl: Label 'Date of return :';
-        UnitNameLbl: Label 'Unit__name :';
-        UnitAddressLbl: Label 'Uni__address :';
+        UnitNameLbl: Label 'Unit name :';
+        UnitAddressLbl: Label 'Uni address :';
         UnitCityLbl: Label 'City';
         UnitPostalCodeLbl: Label 'Postal code :';
         CustomerNameLbl: Label 'Customer name :';
@@ -268,6 +268,6 @@ report 50012 "A01 SalesReturnReceiptPrint"
         QuantityReceivedLbl: Label 'Quantity returned';
         ProductSerialNumberLbl: Label 'product serial number';
         LocationLbl: Label 'Location';
-        CustomerSignLbl: Label 'Customer__signature';
+        CustomerSignLbl: Label 'Customer signature';
         CompanySignLbl: Label 'Company signature';
 }

@@ -315,7 +315,7 @@ report 50004 "A01 CashReceiptPrint"
         ObjectLbl: Label 'Object';
         PaymentModeLbl: Label 'Payment mode';
         AmountLbl: Label 'Amount';
-        TotalAmountLbl: Label 'TotalAmount';
+        TotalAmountLbl: Label 'Total Amount';
 
         Total: Decimal;
         MontantTotal: Decimal;

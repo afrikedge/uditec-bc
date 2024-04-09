@@ -253,8 +253,8 @@ report 50003 "A01 DeliveryNotePrint"
         CustIdentity: Text[100];
         CustPhone: Text[30];
         ReportTitleLbl: Label 'DELIVERY NOTE';
-        UnitNameLbl: Label 'Unitname:';
-        UnitAddressLbl: Label 'Unitaddress:';
+        UnitNameLbl: Label 'Unit name:';
+        UnitAddressLbl: Label 'Unit address:';
         UnitCityLbl: Label 'City';
         UnitPostalCodeLbl: Label 'Postal code :';
         CustNameLbl: Label 'Customer name :';
@@ -264,10 +264,10 @@ report 50003 "A01 DeliveryNotePrint"
         STATLbl: Label 'STAT :';
         RCSLbl: Label 'RCS :';
         CustPhoneLbl: Label 'Phone :';
-        OrderNumberLbl: Label 'Deliverynotenumber:';
-        DeleveryNoteDateLbl: Label 'Deliverynotedate:';
-        InvoiceNumberLbl: Label 'Invoicenumber :';
-        VehicleNumberLbl: Label 'Vehicle number :';
+        OrderNumberLbl: Label 'Delivery note N°:';
+        DeleveryNoteDateLbl: Label 'Date:';
+        InvoiceNumberLbl: Label 'Invoice N° :';
+        VehicleNumberLbl: Label 'Vehicle N° :';
 
         ProductCodeLbl: Label 'Product code';
         ProductSerialNumberLbl: Label 'product serial number';

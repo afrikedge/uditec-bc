@@ -1547,13 +1547,13 @@ report 50006 "A01 PurchaseOrderPrint"
         A01SupplierNIF__Lbl: Label 'NIF :';
         A01SupplierSTAT__Lbl: Label 'STAT :';
         A01SupplierRCS__Lbl: Label 'RCS :';
-        A01PurchaseNumber__Lbl: Label 'Purchase order numbe :';
-        A01PurchaseDate__Lbl: Label 'OrderDate :';
+        A01PurchaseNumber__Lbl: Label 'Purchase order N° :';
+        A01PurchaseDate__Lbl: Label 'Order Date :';
         A01UditecInvoiceNo__Lbl: Label 'Vendor proforma reference :';
         AuthoriseSignLbl: Label 'Authorized signatures';
-        A01TotalHT__Lbl: Label 'Total HT :';
-        A01TotalVAT__Lbl: Label 'Total VAT :';
-        A01TotalTTC__Lbl: Label 'Total TTC :';
+        A01TotalHT__Lbl: Label 'Total HT';
+        A01TotalVAT__Lbl: Label 'Total VAT';
+        A01TotalTTC__Lbl: Label 'Total TTC';
         // A01Sgnature__Lbl: Label 'Signature :';
         A01ProductCodeLbl: Label 'Product code';
         A01DesignationLbl: Label 'Designation';

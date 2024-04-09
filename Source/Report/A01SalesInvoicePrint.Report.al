@@ -1597,7 +1597,7 @@ report 50002 "A01 SalesInvoicePrint"
         SalesPersonText: Text[50];
         UnitNameLbl: Label 'Unit name :';
         UnitAddressLbl: Label 'Unit address :';
-        UnitCityLbl: Label 'Unit city';
+        UnitCityLbl: Label 'City';
         UnitPostalCodeLbl: Label 'Postal code :';
         UnitPhoneLbl: Label 'Phone :';
         CustomerNameLbl: Label 'Customer Name :';
@@ -1607,34 +1607,34 @@ report 50002 "A01 SalesInvoicePrint"
         STATLbl: Label 'STAT :';
         RCSLbl: Label 'RCS :';
         CustomerPhoneLbl: Label 'Phone :';
-        InvoiceDateLbl: Label 'Invoice_Date :';
+        InvoiceDateLbl: Label 'Invoice Date :';
         DateofprintLbl: Label 'Date of print :';
         VendorNameLbl: Label 'Vendor name :';
-        VendorMatriculeLbl: Label 'Vendor_matricule :';
+        VendorMatriculeLbl: Label 'Vendor matricule :';
 
 
         ProductCodeLbl: Label 'Product code';
         DesignationLbl: Label 'Designation';
         DeliverySiteLbl: Label 'Delivery site';
         QuantityLbl: Label 'Quantity';
-        UnitPriceLbl: Label 'Unit_priceHT';
-        DiscountPercentLbl: Label '_Discount';
-        DiscountAmountLbl: Label 'Discounted_pricesHT';
+        UnitPriceLbl: Label 'Unit price HT';
+        DiscountPercentLbl: Label 'Discount';
+        DiscountAmountLbl: Label 'Discounted prices HT';
         VATClausesLbl: Label 'VAT clause';
 
         SubtotalLbl: Label 'Subtotal';
-        HTPriceLbl: Label '(A) HT Price :';
-        VAT20Lbl: Label '(B) VAT 20% :';
-        TTCPriceLbl: Label '(C) TTC Price :';
-        DepositLbl: Label '(D) Deposit :';
-        BalanceLbl: Label '(E) Balance :';
-        Interest18Lbl: Label '(F) Interest=18% of (E) per year :';   //  Interets=18% de (E) par an
-        VATInterestLbl: Label '(G) VAT on Interest :';   //  TVA sur interets
-        BalanceToPayLbl: Label '(H) Balance payable :';   //  Solde à payer
-        TTCAmountOfOperationLbl: Label '(I) Amount TTC of operation :';   //  Montant TTC de l'opération
+        HTPriceLbl: Label '(A) HT Price';
+        VAT20Lbl: Label '(B) VAT 20%';
+        TTCPriceLbl: Label '(C) TTC Price';
+        DepositLbl: Label '(D) Deposit';
+        BalanceLbl: Label '(E) Balance';
+        Interest18Lbl: Label '(F) Interest=18% of (E) per year';   //  Interets=18% de (E) par an
+        VATInterestLbl: Label '(G) VAT on Interest';   //  TVA sur interets
+        BalanceToPayLbl: Label '(H) Balance payable';   //  Solde à payer
+        TTCAmountOfOperationLbl: Label '(I) Amount TTC of operation';   //  Montant TTC de l'opération
         ArrestedOfSumLbl: Label 'Arrested at the sum of :';
-        CompanySignLbl: Label 'Signaturede_l''entreprise';
-        ClientSignLbl: Label 'Signature_client';
+        CompanySignLbl: Label 'Company signature';
+        ClientSignLbl: Label 'Client Signature';
         InvDiscountAmtLbl: Label 'Invoice Discount';
         PaymentTermsDescLbl: Label 'Payment Terms :';
         PaymentMethodDescLbl: Label 'Payment Method :';

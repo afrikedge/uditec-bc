@@ -255,7 +255,7 @@ report 50005 "A01 TransferOrderPrint"
         UnitCityLbl: Label 'City';
         UnitPostalCodeLbl: Label 'Postal code :';
         TransferNumberLbl: Label 'Transfer order N° :';
-        DeleveryNoteDateLbl: Label 'Transferdate :';
+        DeleveryNoteDateLbl: Label 'Date :';
         ProductCodeLbl: Label 'Product code';
         ProductSerialNumberLbl: Label 'product serial number';
         DesignationLbl: Label 'Designation';
@@ -265,8 +265,8 @@ report 50005 "A01 TransferOrderPrint"
         OrderedQtyLbl: Label 'Ordered quantity';
         ShippedQtyLbl: Label 'Shipped quantity';
         ReceveidQtyLbl: Label 'Received quantity';
-        IssuerSignLbl: Label 'Issuersignature';
-        ReceiverSignLbl: Label 'Receiversignature';
+        IssuerSignLbl: Label 'Issuer signature';
+        ReceiverSignLbl: Label 'Receiver signature';
         LogistiqueSignLbl: Label 'Logistique signature';
         SecuritySignLbl: Label 'Security signature';
         NameSignLbl: Label 'Name';

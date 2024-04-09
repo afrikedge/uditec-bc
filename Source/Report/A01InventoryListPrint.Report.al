@@ -381,15 +381,15 @@ report 50014 "A01 InventoryListPrint"
         SummaryperItemCaptionLbl: Label 'Summary per Item *';
 
         PostingDateCaptionLbl: Label 'Posting Date';
-        DateOfPrintLbl: Label 'Date__ofprint :';
+        DateOfPrintLbl: Label 'Date of print :';
         ReportTitleLbl: Label 'INVENTORY LIST';
         InventoryDateLbl: Label 'Inventory date';
         ProductCodeLbl: Label 'Product code';
-        ProductVariantCodeLbl: Label 'Variant__code';
+        ProductVariantCodeLbl: Label 'Variant';
         DesignationLbl: Label 'Designation';
         QuantityCalculateLbl: Label 'Quantity (Calculated)';
         QuantityObservedLbl: Label 'Quantity (Observed)';
-        WarehouseLbl: Label 'Warehouse code';
+        WarehouseLbl: Label 'Location code';
         LocationLbl: Label 'Location';
 
     protected var

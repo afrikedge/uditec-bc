@@ -972,7 +972,7 @@ report 50007 "A01 SalesOrderPrint"
         A01UnitAddress__Caption: Label 'Unit address :';
         A01City__Caption: Label 'City';
         A01PostalCode__Caption: Label 'Postal code :';
-        A01OrderNo__Caption: Label 'Order_No :';
+        A01OrderNo__Caption: Label 'Order N° :';
         SellerName__Caption: Label 'Seller name :';
         A01DateOfPrint__Caption: Label 'Date of print :';
         A01CustomerName__Caption: Label 'Customer name :';
@@ -985,12 +985,12 @@ report 50007 "A01 SalesOrderPrint"
         A01ProductCode__Caption: Label 'Product code';
         A01Description__Caption: Label 'Designation';
         A01Quantity__Caption: Label 'Quantity';
-        A01UnitPrice__Caption: Label 'Unit_price HT';
-        A01DiscountPercent__Caption: Label 'Discount_';
-        A01DiscountAmount__Caption: Label 'Discounted_price HT';
-        A01TotalHT__Caption: Label 'Total_HT:';
-        A01TVA__Caption: Label 'VAT_(20%):';
-        A01TotalTTC__Caption: Label 'Total_TTC :';
+        A01UnitPrice__Caption: Label 'Unit price HT';
+        A01DiscountPercent__Caption: Label 'Discount';
+        A01DiscountAmount__Caption: Label 'Discounted price HT';
+        A01TotalHT__Caption: Label 'Total HT';
+        A01TVA__Caption: Label 'VAT (20%)';
+        A01TotalTTC__Caption: Label 'Total TTC';
         A01CustSignLbl: Label 'Customer signature';
         A01CompanySignLbl: Label 'Company signature';
         A01ArrestedSumLbl: Label 'Arrested at the sum of :';

@@ -11,127 +11,6 @@
       <rd:DataSourceID>7346c032-0d76-4c99-b533-4f822f955bc5</rd:DataSourceID>
     </DataSource>
   </DataSources>
-  <DataSets>
-    <DataSet Name="DataSet_Result">
-      <Query>
-        <DataSourceName>DataSource</DataSourceName>
-        <CommandText />
-      </Query>
-      <Fields>
-        <Field Name="CompanyInfoPicture">
-          <DataField>CompanyInfoPicture</DataField>
-        </Field>
-        <Field Name="CompanyInfoBranch">
-          <DataField>CompanyInfoBranch</DataField>
-        </Field>
-        <Field Name="CompanyInfoBankAccount">
-          <DataField>CompanyInfoBankAccount</DataField>
-        </Field>
-        <Field Name="Document_No_">
-          <DataField>Document_No_</DataField>
-        </Field>
-        <Field Name="Posting_Date">
-          <DataField>Posting_Date</DataField>
-        </Field>
-        <Field Name="Description">
-          <DataField>Description</DataField>
-        </Field>
-        <Field Name="BankName">
-          <DataField>BankName</DataField>
-        </Field>
-        <Field Name="BankAddress">
-          <DataField>BankAddress</DataField>
-        </Field>
-        <Field Name="Amount__LCY_">
-          <DataField>Amount__LCY_</DataField>
-        </Field>
-        <Field Name="Amount__LCY_Format">
-          <DataField>Amount__LCY_Format</DataField>
-        </Field>
-        <Field Name="RefLbl">
-          <DataField>RefLbl</DataField>
-        </Field>
-        <Field Name="AntananarivoTxtLbl">
-          <DataField>AntananarivoTxtLbl</DataField>
-        </Field>
-        <Field Name="ObjetLbl">
-          <DataField>ObjetLbl</DataField>
-        </Field>
-        <Field Name="ObjectTextLbl">
-          <DataField>ObjectTextLbl</DataField>
-        </Field>
-        <Field Name="EnterpriseLbl">
-          <DataField>EnterpriseLbl</DataField>
-        </Field>
-        <Field Name="TitleLbl">
-          <DataField>TitleLbl</DataField>
-        </Field>
-        <Field Name="Txt1Lbl">
-          <DataField>Txt1Lbl</DataField>
-        </Field>
-        <Field Name="Txt2Lbl">
-          <DataField>Txt2Lbl</DataField>
-        </Field>
-        <Field Name="BeneficiaryNameLbl">
-          <DataField>BeneficiaryNameLbl</DataField>
-        </Field>
-        <Field Name="BenecifiaryAddressLbl">
-          <DataField>BenecifiaryAddressLbl</DataField>
-        </Field>
-        <Field Name="BenName">
-          <DataField>BenName</DataField>
-        </Field>
-        <Field Name="BankLbl">
-          <DataField>BankLbl</DataField>
-        </Field>
-        <Field Name="BenAddress">
-          <DataField>BenAddress</DataField>
-        </Field>
-        <Field Name="Bank">
-          <DataField>Bank</DataField>
-        </Field>
-        <Field Name="AccountNo">
-          <DataField>AccountNo</DataField>
-        </Field>
-        <Field Name="AccountNoLbl">
-          <DataField>AccountNoLbl</DataField>
-        </Field>
-        <Field Name="Txt3Lbl">
-          <DataField>Txt3Lbl</DataField>
-        </Field>
-        <Field Name="Txt4Lbl">
-          <DataField>Txt4Lbl</DataField>
-        </Field>
-        <Field Name="ALbl">
-          <DataField>ALbl</DataField>
-        </Field>
-        <Field Name="DirectionLbl">
-          <DataField>DirectionLbl</DataField>
-        </Field>
-        <Field Name="AmountIn_LCYText">
-          <DataField>AmountIn_LCYText</DataField>
-        </Field>
-        <Field Name="AmountInWords">
-          <DataField>AmountInWords</DataField>
-        </Field>
-        <Field Name="MGALbl">
-          <DataField>MGALbl</DataField>
-        </Field>
-        <Field Name="AfkCurrCode">
-          <DataField>AfkCurrCode</DataField>
-        </Field>
-        <Field Name="BankAccountNo">
-          <DataField>BankAccountNo</DataField>
-        </Field>
-        <Field Name="AmountInc_LCY">
-          <DataField>AmountInc_LCY</DataField>
-        </Field>
-        <Field Name="AmountInc_LCYFormat">
-          <DataField>AmountInc_LCYFormat</DataField>
-        </Field>
-      </Fields>
-    </DataSet>
-  </DataSets>
   <ReportSections>
     <ReportSection>
       <Body>
@@ -1081,12 +960,6 @@
       </Page>
     </ReportSection>
   </ReportSections>
-  <ReportParametersLayout>
-    <GridLayoutDefinition>
-      <NumberOfColumns>4</NumberOfColumns>
-      <NumberOfRows>2</NumberOfRows>
-    </GridLayoutDefinition>
-  </ReportParametersLayout>
   <Code>Public Function BlankZero(ByVal Value As Decimal)
     if Value = 0 then
         Return ""
@@ -1322,4 +1195,125 @@ yzP/Xfj+V49Xz72J/JBnRRFFlP9buH6JxFMUUUT5KeTHsDNsrxiXiDZLlF+K/Nx0lePDPX38Kdajn684
   <ConsumeContainerWhitespace>true</ConsumeContainerWhitespace>
   <rd:ReportUnitType>Cm</rd:ReportUnitType>
   <rd:ReportID>0eeb6585-38ae-40f1-885b-8d50088d51b4</rd:ReportID>
+  <DataSets>
+    <DataSet Name="DataSet_Result">
+      <Fields>
+        <Field Name="CompanyInfoPicture">
+          <DataField>CompanyInfoPicture</DataField>
+        </Field>
+        <Field Name="CompanyInfoBranch">
+          <DataField>CompanyInfoBranch</DataField>
+        </Field>
+        <Field Name="CompanyInfoBankAccount">
+          <DataField>CompanyInfoBankAccount</DataField>
+        </Field>
+        <Field Name="Document_No_">
+          <DataField>Document_No_</DataField>
+        </Field>
+        <Field Name="Posting_Date">
+          <DataField>Posting_Date</DataField>
+        </Field>
+        <Field Name="Description">
+          <DataField>Description</DataField>
+        </Field>
+        <Field Name="BankName">
+          <DataField>BankName</DataField>
+        </Field>
+        <Field Name="BankAddress">
+          <DataField>BankAddress</DataField>
+        </Field>
+        <Field Name="Amount__LCY_">
+          <DataField>Amount__LCY_</DataField>
+        </Field>
+        <Field Name="Amount__LCY_Format">
+          <DataField>Amount__LCY_Format</DataField>
+        </Field>
+        <Field Name="RefLbl">
+          <DataField>RefLbl</DataField>
+        </Field>
+        <Field Name="AntananarivoTxtLbl">
+          <DataField>AntananarivoTxtLbl</DataField>
+        </Field>
+        <Field Name="ObjetLbl">
+          <DataField>ObjetLbl</DataField>
+        </Field>
+        <Field Name="ObjectTextLbl">
+          <DataField>ObjectTextLbl</DataField>
+        </Field>
+        <Field Name="EnterpriseLbl">
+          <DataField>EnterpriseLbl</DataField>
+        </Field>
+        <Field Name="TitleLbl">
+          <DataField>TitleLbl</DataField>
+        </Field>
+        <Field Name="Txt1Lbl">
+          <DataField>Txt1Lbl</DataField>
+        </Field>
+        <Field Name="Txt2Lbl">
+          <DataField>Txt2Lbl</DataField>
+        </Field>
+        <Field Name="BeneficiaryNameLbl">
+          <DataField>BeneficiaryNameLbl</DataField>
+        </Field>
+        <Field Name="BenecifiaryAddressLbl">
+          <DataField>BenecifiaryAddressLbl</DataField>
+        </Field>
+        <Field Name="BenName">
+          <DataField>BenName</DataField>
+        </Field>
+        <Field Name="BankLbl">
+          <DataField>BankLbl</DataField>
+        </Field>
+        <Field Name="BenAddress">
+          <DataField>BenAddress</DataField>
+        </Field>
+        <Field Name="Bank">
+          <DataField>Bank</DataField>
+        </Field>
+        <Field Name="AccountNo">
+          <DataField>AccountNo</DataField>
+        </Field>
+        <Field Name="AccountNoLbl">
+          <DataField>AccountNoLbl</DataField>
+        </Field>
+        <Field Name="Txt3Lbl">
+          <DataField>Txt3Lbl</DataField>
+        </Field>
+        <Field Name="Txt4Lbl">
+          <DataField>Txt4Lbl</DataField>
+        </Field>
+        <Field Name="ALbl">
+          <DataField>ALbl</DataField>
+        </Field>
+        <Field Name="DirectionLbl">
+          <DataField>DirectionLbl</DataField>
+        </Field>
+        <Field Name="AmountIn_LCYText">
+          <DataField>AmountIn_LCYText</DataField>
+        </Field>
+        <Field Name="AmountInWords">
+          <DataField>AmountInWords</DataField>
+        </Field>
+        <Field Name="MGALbl">
+          <DataField>MGALbl</DataField>
+        </Field>
+        <Field Name="AfkCurrCode">
+          <DataField>AfkCurrCode</DataField>
+        </Field>
+        <Field Name="BankAccountNo">
+          <DataField>BankAccountNo</DataField>
+        </Field>
+        <Field Name="AmountInc_LCY">
+          <DataField>AmountInc_LCY</DataField>
+        </Field>
+        <Field Name="AmountInc_LCYFormat">
+          <DataField>AmountInc_LCYFormat</DataField>
+        </Field>
+      </Fields>
+      <Query>
+        <DataSourceName>DataSource</DataSourceName>
+        <CommandText />
+      </Query>
+    </DataSet>
+  </DataSets>
 </Report>

@@ -401,7 +401,7 @@ report 50015 "A01 InventoryReportPrint"
         UnitAddressLbl: Label 'Warehouse address :';
         UnitCityLbl: Label 'City';
         UnitPostalCodeLbl: Label 'Postal code :';
-        RaisonCodeLbl: Label 'Raison code';
+        RaisonCodeLbl: Label 'Reason code';
         Note1Lbl: Label '*Note:';
         SummaryPerItemLbl: Label 'Your system is set up to use Bin Mandatory and not Warehouse Item Tracking. Therefore, you will not see item tracking numbers by bin but merely as a summary per item.';
         PhysInventoryListCaptionLbl: Label 'Phys. Inventory List';
@@ -411,19 +411,19 @@ report 50015 "A01 InventoryReportPrint"
         SummaryperItemCaptionLbl: Label 'Summary per Item *';
 
         PostingDateCaptionLbl: Label 'Posting Date';
-        DateOfPrintLbl: Label 'Dateof__print:';
+        DateOfPrintLbl: Label 'Date of print:';
         ReportTitleLbl: Label 'INVENTORY REPORT';
         InventoryDateLbl: Label 'Inventory date';
         ProductCodeLbl: Label 'Product code';
-        ProductVariantCodeLbl: Label 'Variantcode_';
+        ProductVariantCodeLbl: Label 'Variant';
         DesignationLbl: Label 'Designation';
         QuantityCalculateLbl: Label 'Quantity (Calculated)';
         QuantityObservedLbl: Label 'Quantity (Observed)';
         EntryTypeLbl: Label 'Entry type';
-        DocumentNumberLbl: Label 'Document number';
+        DocumentNumberLbl: Label 'Document N°';
         UnitAmountLbl: Label 'Unit amount';
         AmountLbl: Label 'Amount';
-        WarehouseLbl: Label 'Warehouse code';
+        WarehouseLbl: Label 'Location code';
         LocationLbl: Label 'Location';
 
     protected var

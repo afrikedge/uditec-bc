@@ -271,8 +271,8 @@ report 50016 "A01 PreparationOrderPrint"
         STATLbl: Label 'STAT :';
         RCSLbl: Label 'RCS :';
         CustPhoneLbl: Label 'Phone :';
-        PreparationOrderNumberLbl: Label 'Preparation order number :';
-        PreparationOrderDateLbl: Label 'preparationorderdate :';
+        PreparationOrderNumberLbl: Label 'Preparation order N° :';
+        PreparationOrderDateLbl: Label 'Date :';
         // OrderNumberLbl: Label 'Order number :';
         ProductCodeLbl: Label 'Product code';
         PlannedDeliveryDateLbl: Label 'Planned delivery date';
