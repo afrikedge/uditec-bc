@@ -173,6 +173,52 @@ table 50017 "A01 Afk Setup"
             Caption = 'Reposession Location';
             TableRelation = "Location";
         }
+        field(36; "AGP Sales Mode"; Code[20])
+        {
+            Caption = 'AGP Sales Mode';
+            TableRelation = "Dimension Value".Code where("Global Dimension No." = const(3));
+        }
+        field(37; "AGP Min number of participants"; Integer)
+        {
+            Caption = 'AGP Minimum number of participants';
+        }
+        field(38; "AGP Site visit"; Enum "A01 MIR Site Visit Required")
+        {
+            Caption = 'AGP Site visit';
+        }
+        field(39; "AGP Type of employee contract"; Enum "A01 AGP Type of emp contr")
+        {
+            Caption = 'AGP Type of employee contract';
+        }
+        field(40; "AGP Minimum salary"; Decimal)
+        {
+            Caption = 'AGP Minimum salary';
+        }
+        field(41; "AGP Conditions of appl fees"; Enum "A01 Agp Application Fees Type")
+        {
+            Caption = 'Conditions of application fees';
+        }
+        field(42; "AGP Administrative fees (%)"; Decimal)
+        {
+            Caption = 'AGP Administrative fees (%)"';
+        }
+        field(43; "AGP Banked Employee"; Boolean)
+        {
+            Caption = 'AGP Banked Employee';
+        }
+        field(45; "AGP Item AGP application fees"; Code[20])
+        {
+            Caption = 'AGP Item for AGP application fees';
+            TableRelation = Item where(Type = const(Service));
+        }
+        field(46; "AGP Contract Nos"; Code[20])
+        {
+            Caption = 'AGP Contract Nos';
+            TableRelation = "No. Series";
+        }
+        //Banked or unbanked employee
+        //Administrative fees (%)
+        //Conditions of application application fees
     }
     keys
     {

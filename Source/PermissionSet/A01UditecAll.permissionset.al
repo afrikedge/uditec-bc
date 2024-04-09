@@ -156,12 +156,15 @@ permissionset 50000 "A01 Uditec_All"
         page "A01 Cust Settlement Subform" = X,
         page "A01 Customer Settlement" = X,
         page "A01 Customer Settlement List" = X,
-        // page "A01 Customer Settlements" = X,
+    // page "A01 Customer Settlements" = X,
         page "A01 Deadline Assignment List" = X,
         page "A01 Payment Promise" = X,
         page "A01 Payment Promise List" = X,
         page "A01 Reposession Request" = X,
         page "A01 Reposession Request List" = X,
         tabledata "A01 Posted Payment Doc Line" = RIMD,
-        table "A01 Posted Payment Doc Line" = X;
+        table "A01 Posted Payment Doc Line" = X,
+        tabledata "A01 AGP Contrat" = RIMD,
+        table "A01 AGP Contrat" = X;
+    //page "A01 Customer Settlements" = X;
 }

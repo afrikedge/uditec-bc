@@ -119,6 +119,43 @@ page 50040 "A01 Afk Setup"
                 {
                     ToolTip = 'Maximum number of months for group purchase credit';
                 }
+                field("AGP Sales Mode"; Rec."AGP Sales Mode")
+                {
+                    ToolTip = 'Indicates the sales method used for AGP contracts';
+                }
+
+                field("AGP Min number of participants"; Rec."AGP Min number of participants")
+                {
+                    ToolTip = 'MIndicates the minimum number of employees required for an AGP contract';
+                }
+                field("AGP Site visit"; Rec."AGP Site visit")
+                {
+                    ToolTip = 'Indicates whether the site visit is mandatory or not';
+                }
+                field("AGP Type of employee contract"; Rec."AGP Type of employee contract")
+                {
+                    ToolTip = 'Indicates the type of contract of employees eligible for the credit';
+                }
+                field("AGP Minimum salary"; Rec."AGP Minimum salary")
+                {
+                    ToolTip = 'Minimum salary for an employee eligible for AGP';
+                }
+                field("AGP Conditions of appl fees"; Rec."AGP Conditions of appl fees")
+                {
+                    ToolTip = 'Indicates under what conditions the application fees are applied';
+                }
+                field("AGP Administrative fees (%)"; Rec."AGP Administrative fees (%)")
+                {
+                    ToolTip = 'MPercentage of the AGP application fee';
+                }
+                field("AGP Banked Employee"; Rec."AGP Banked Employee")
+                {
+                    ToolTip = 'Indicates whether banked or unbanked employees can benefit from the credit';
+                }
+                field("AGP Item AGP application fees"; Rec."AGP Item AGP application fees")
+                {
+
+                }
             }
             group("After sales service")
             {
@@ -170,6 +207,9 @@ page 50040 "A01 Afk Setup"
                 {
                 }
                 field("Payment Document Nos"; Rec."Payment Document Nos")
+                {
+                }
+                field("AGP Contract Nos"; Rec."AGP Contract Nos")
                 {
                 }
 

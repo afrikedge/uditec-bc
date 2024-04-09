@@ -4,8 +4,9 @@
 codeunit 50007 "A01 Treso Mgt"
 {
     var
-        //CurrExchRate: Record "Currency Exchange Rate";
-        GenJnlPostLine: Codeunit "Gen. Jnl.-Post Line";
+        CurrExchRate: Record "Currency Exchange Rate";
+        AddOnSetup: Record "A01 Afk Setup";
+
         NoSeriesManagement: Codeunit NoSeriesManagement;
         ErrText01: Label 'The payment document has not been configured for \template %1\sheet %2\type %3', comment = '%1=model,%2=journal,%3=type';
 
@@ -163,7 +164,8 @@ codeunit 50007 "A01 Treso Mgt"
     /// <param name="PostedInvoiceNo">Code[20].</param>
     /// <param name="ExtDocNo">Code[35].</param>
     /// <param name="SourceCode">Code[10].</param>
-    procedure PostBalancingEntries(SalesHeader: Record "Sales Header"; PostedInvoiceNo: Code[20]; ExtDocNo: Code[35]; SourceCode: Code[10])
+    procedure PostBalancingEntries(SalesHeader: Record "Sales Header"; PostedInvoiceNo: Code[20]; ExtDocNo: Code[35];
+    SourceCode: Code[10]; var GenJnlPostLine: Codeunit "Gen. Jnl.-Post Line")
     var
         SalesPaymentLine: Record "A01 Sales Payment Method";
         GenJnlLine: Record "Gen. Journal Line";
@@ -174,7 +176,7 @@ codeunit 50007 "A01 Treso Mgt"
         if (SalesPaymentLine.FindSet()) then
             repeat
                 CreateNewPaymentDocFromSalesHeader(SalesHeader, SalesPaymentLine, GenJnlLine."Applies-to Doc. Type"::Invoice, PostedInvoiceNo);
-                PostBalancingEntry(SalesHeader, SalesPaymentLine, GenJnlLine."Applies-to Doc. Type"::Invoice, PostedInvoiceNo, ExtDocNo, SourceCode);
+                PostBalancingEntry(SalesHeader, SalesPaymentLine, GenJnlLine."Applies-to Doc. Type"::Invoice, GenJnlPostLine, PostedInvoiceNo, ExtDocNo, SourceCode);
             until SalesPaymentLine.Next() < 1;
     end;
 
@@ -260,8 +262,12 @@ codeunit 50007 "A01 Treso Mgt"
 
     end;
 
-    local procedure PostBalancingEntry(SalesHeader: Record "Sales Header"; SalesPaymentLine: Record "A01 Sales Payment Method"; DocType: Enum "Gen. Journal Document Type"; DocNo: Code[20];
-                                                                                                                                             ExtDocNo: Code[35];
+    local procedure PostBalancingEntry(SalesHeader: Record "Sales Header";
+    SalesPaymentLine: Record "A01 Sales Payment Method";
+    DocType: Enum "Gen. Journal Document Type";
+    var GenJnlPostLine: Codeunit "Gen. Jnl.-Post Line";
+    DocNo: Code[20];
+    ExtDocNo: Code[35];
                                                                                                                                              SourceCode: Code[10])
     var
         //CustLedgEntry: Record "Cust. Ledger Entry";
@@ -419,5 +425,163 @@ codeunit 50007 "A01 Treso Mgt"
     // end;
 
 
+    procedure PostMultiDeadlinesPaymentLines(var SalesHeader: Record "Sales Header";
+    var TotalSalesLine2: Record "Sales Line"; var TotalSalesLineLCY2: Record "Sales Line"; CommitIsSuppressed: Boolean;
+    PreviewMode: Boolean; DocType: Enum "Gen. Journal Document Type"; DocNo: Code[20]; ExtDocNo: Code[35]; SourceCode: Code[10];
+    var GenJnlPostLine: Codeunit "Gen. Jnl.-Post Line"; var IsHandled: Boolean)
+    var
+        PaymentCond: Record "Payment Terms";
+        TotalLineAmtInclVAT: Decimal;
+        TotalLineAmtInclVATLCY: Decimal;
+        TotalLineAmtLCY: Decimal;
+        TotalLineUnitCostLCY: Decimal;
+        TotalLineInvDiscountAmtLCY: Decimal;
+        TotalLinePmtDiscountAmt: Decimal;
+
+        LineAmtInclVAT: Decimal;
+        LineAmtInclVATLCY: Decimal;
+        LineAmtLCY: Decimal;
+        LineUnitCostLCY: Decimal;
+        LineInvDiscountAmtLCY: Decimal;
+        LinePmtDiscountAmt: Decimal;
+        i: Integer;
+        LineDueDate: Date;
+
+    begin
+        if (not PaymentCond.Get(SalesHeader."Payment Terms Code")) then
+            exit;
+        if (not PaymentCond."A01 Multi-deadlines") then
+            exit;
+        if (SalesHeader."A01 Credit Duration (Month)" <= 0) then
+            exit;
+        LineDueDate := SalesHeader."Due Date";
+
+        for i := 1 to SalesHeader."A01 Credit Duration (Month)" do begin
+            if (i <> SalesHeader."A01 Credit Duration (Month)") then begin
+
+                LineAmtInclVAT := RoundAmount(TotalSalesLine2."Amount Including VAT" / SalesHeader."A01 Credit Duration (Month)");
+                LineAmtInclVATLCY := RoundAmount(TotalSalesLineLCY2."Amount Including VAT" / SalesHeader."A01 Credit Duration (Month)");
+                LineAmtLCY := RoundAmount(TotalSalesLineLCY2.Amount / SalesHeader."A01 Credit Duration (Month)");
+                LineUnitCostLCY := RoundAmount(TotalSalesLineLCY2."Unit Cost (LCY)" / SalesHeader."A01 Credit Duration (Month)");
+                LineInvDiscountAmtLCY := RoundAmount(TotalSalesLineLCY2."Inv. Discount Amount" / SalesHeader."A01 Credit Duration (Month)");
+                LinePmtDiscountAmt := RoundAmount(TotalSalesLine2."Pmt. Discount Amount" / SalesHeader."A01 Credit Duration (Month)");
+
+                TotalLineAmtInclVAT += LineAmtInclVAT;
+                TotalLineAmtInclVATLCY += LineAmtInclVATLCY;
+                TotalLineAmtLCY += LineAmtLCY;
+                TotalLineUnitCostLCY += LineUnitCostLCY;
+                TotalLineInvDiscountAmtLCY += LineInvDiscountAmtLCY;
+                TotalLinePmtDiscountAmt += LinePmtDiscountAmt;
+
+            end else begin
+
+                LineAmtInclVAT := Round(TotalSalesLine2."Amount Including VAT" - TotalLineAmtInclVAT);
+                LineAmtInclVATLCY := Round(TotalSalesLineLCY2."Amount Including VAT" - TotalLineAmtInclVATLCY);
+                LineAmtLCY := Round(TotalSalesLineLCY2.Amount - TotalLineAmtLCY);
+                LineUnitCostLCY := Round(TotalSalesLineLCY2."Unit Cost (LCY)" - TotalLineUnitCostLCY);
+                LineInvDiscountAmtLCY := Round(TotalSalesLineLCY2."Inv. Discount Amount" - TotalLineInvDiscountAmtLCY);
+                LinePmtDiscountAmt := Round(TotalSalesLine2."Pmt. Discount Amount" - TotalLinePmtDiscountAmt);
+
+            end;
+
+            PostMultiDeadlinesPayment(SalesHeader, DocType, DocNo, ExtDocNo, SourceCode, GenJnlPostLine, LineAmtInclVAT,
+                LineAmtInclVATLCY, LineAmtLCY, LineUnitCostLCY, LineInvDiscountAmtLCY, LinePmtDiscountAmt, LineDueDate, i);
+
+            LineDueDate := CalcDate('<1M>', LineDueDate);
+        end;
+
+        IsHandled := true;
+
+    end;
+
+    local procedure RoundAmount(Amount: Decimal): Decimal
+    begin
+        AddOnSetup.Get();
+        case AddOnSetup."MIR Due rounding rule" of
+            AddOnSetup."MIR Due rounding rule"::Hundred:
+                exit(Round(Amount, 100, '='));
+            AddOnSetup."MIR Due rounding rule"::Thousand:
+                exit(Round(Amount, 1000, '='));
+            else
+                exit(Amount);
+        end;
+    end;
+
+    local procedure PostMultiDeadlinesPayment(var SalesHeader: Record "Sales Header";
+      DocType: Enum "Gen. Journal Document Type"; DocNo: Code[20];
+                   ExtDocNo: Code[35];
+                   SourceCode: Code[10];
+                   var GenJnlPostLine: Codeunit "Gen. Jnl.-Post Line";
+                   LineAmtInclVAT: Decimal;
+                   LineAmtInclVATLCY: Decimal;
+                   LineAmtLCY: Decimal;
+                   LineUnitCostLCY: Decimal;
+                   LineInvDiscountAmtLCY: Decimal;
+                   LinePmtDiscountAmt: Decimal;
+                   LineDueDate: Date;
+                   LineId: Integer)
+    var
+        PaymentCond: Record "Payment Terms";
+        GenJnlLine: Record "Gen. Journal Line";
+    begin
+        if (not PaymentCond.Get(SalesHeader."Payment Terms Code")) then
+            exit;
+        if (not PaymentCond."A01 Multi-deadlines") then
+            exit;
+
+
+        GenJnlLine.InitNewLine(
+          SalesHeader."Posting Date", SalesHeader."Document Date", SalesHeader."VAT Reporting Date", SalesHeader."Posting Description",
+          SalesHeader."Shortcut Dimension 1 Code", SalesHeader."Shortcut Dimension 2 Code",
+          SalesHeader."Dimension Set ID", SalesHeader."Reason Code");
+
+        GenJnlLine.CopyDocumentFields(DocType, DocNo, ExtDocNo, SourceCode, '');
+        GenJnlLine."Account Type" := GenJnlLine."Account Type"::Customer;
+        GenJnlLine."Account No." := SalesHeader."Bill-to Customer No.";
+        GenJnlLine.CopyFromSalesHeader(SalesHeader);
+        GenJnlLine.SetCurrencyFactor(SalesHeader."Currency Code", SalesHeader."Currency Factor");
+
+        GenJnlLine."System-Created Entry" := true;
+
+        GenJnlLine.CopyFromSalesHeaderApplyTo(SalesHeader);
+        GenJnlLine.CopyFromSalesHeaderPayment(SalesHeader);
+
+        GenJnlLine.Amount := -LineAmtInclVAT;
+        GenJnlLine."Source Currency Amount" := -LineAmtInclVAT;
+        GenJnlLine."Amount (LCY)" := -LineAmtInclVATLCY;
+        GenJnlLine."Sales/Purch. (LCY)" := -LineAmtLCY;
+        GenJnlLine."Profit (LCY)" := -(LineAmtLCY - LineUnitCostLCY);
+        GenJnlLine."Inv. Discount (LCY)" := -LineInvDiscountAmtLCY;
+        GenJnlLine."Orig. Pmt. Disc. Possible" := -LinePmtDiscountAmt;
+        GenJnlLine."Orig. Pmt. Disc. Possible(LCY)" :=
+          CurrExchRate.ExchangeAmtFCYToLCY(
+            SalesHeader.GetUseDate(), SalesHeader."Currency Code", -LinePmtDiscountAmt, SalesHeader."Currency Factor");
+
+        GenJnlLine."Due Date" := LineDueDate;
+        //GenJnlLine."Document No." := Copystr(GenJnlLine."Document No." + '/' + Format(LineId), 1, 20);
+        if (LineId > 1) then
+            GenJnlLine."Document No." := Copystr(GenJnlLine."Document No." + '/' + Format(LineId), 1, 20);
+        //GenJnlLine."External Document No." := Copystr(GenJnlLine."Document No." + '/' + Format(LineId), 1, 35);
+        GenJnlLine."External Document No." := GenJnlLine."Document No.";
+        //GenJnlLine."Document Type" := GenJnlLine."Document Type"::" ";
+        //GenJnlLine."Pmt. Discount Date" := 0D;
+        //GenJnlLine."Payment Discount %" := 0;
+
+
+        // GenJnlLine.Amount := -TotalSalesLine2."Amount Including VAT";
+        // GenJnlLine."Source Currency Amount" := -TotalSalesLine2."Amount Including VAT";
+        // GenJnlLine."Amount (LCY)" := -TotalSalesLineLCY2."Amount Including VAT";
+        // GenJnlLine."Sales/Purch. (LCY)" := -TotalSalesLineLCY2.Amount;
+        // GenJnlLine."Profit (LCY)" := -(TotalSalesLineLCY2.Amount - TotalSalesLineLCY2."Unit Cost (LCY)");
+        // GenJnlLine."Inv. Discount (LCY)" := -TotalSalesLineLCY2."Inv. Discount Amount";
+        // GenJnlLine."Orig. Pmt. Disc. Possible" := -TotalSalesLine2."Pmt. Discount Amount";
+        // GenJnlLine."Orig. Pmt. Disc. Possible(LCY)" :=
+        //   CurrExchRate.ExchangeAmtFCYToLCY(
+        //     SalesHeader.GetUseDate(), SalesHeader."Currency Code", -TotalSalesLine2."Pmt. Discount Amount", SalesHeader."Currency Factor");
+
+        //OnBeforePostCustomerEntry(GenJnlLine, SalesHeader, TotalSalesLine2, TotalSalesLineLCY2, SuppressCommit, PreviewMode, GenJnlPostLine);
+        GenJnlPostLine.RunWithCheck(GenJnlLine);
+        //OnAfterPostCustomerEntry(GenJnlLine, SalesHeader, TotalSalesLine2, TotalSalesLineLCY2, SuppressCommit, GenJnlPostLine);
+    end;
 
 }

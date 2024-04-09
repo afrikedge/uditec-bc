@@ -8,6 +8,26 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table A01 Afk Setup - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Table 2685203037 - Field 362340445 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>AGP Administrative fees (%)"</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table A01 Afk Setup - Field AGP Administrative fees (%) - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2685203037 - Field 987769541 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>AGP Banked Employee</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table A01 Afk Setup - Field AGP Banked Employee - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2685203037 - Field 1386878801 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Conditions of application fees</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table A01 Afk Setup - Field AGP Conditions of appl fees - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2685203037 - Field 1117086482 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>AGP Contract Nos</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table A01 Afk Setup - Field AGP Contract Nos - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Table 2685203037 - Field 1832849887 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>AGP credit duration</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -17,6 +37,21 @@
           <source>AGP Discounts allowed</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table A01 Afk Setup - Field AGP Discounts allowed - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2685203037 - Field 3558043238 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>AGP Item for AGP application fees</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table A01 Afk Setup - Field AGP Item AGP application fees - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2685203037 - Field 2968043910 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>AGP Minimum number of participants</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table A01 Afk Setup - Field AGP Min number of participants - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2685203037 - Field 682061384 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>AGP Minimum salary</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table A01 Afk Setup - Field AGP Minimum salary - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 2685203037 - Field 1650885584 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>AGP Operation duration (Month)</source>
@@ -28,10 +63,25 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table A01 Afk Setup - Field AGP Sales minimum value - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Table 2685203037 - Field 902620127 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>AGP Sales Mode</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table A01 Afk Setup - Field AGP Sales Mode - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2685203037 - Field 1638474424 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>AGP Site visit</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table A01 Afk Setup - Field AGP Site visit - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Table 2685203037 - Field 3912518527 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>AGP Transferable part %</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table A01 Afk Setup - Field AGP Transferable part % - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2685203037 - Field 2566789385 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>AGP Type of employee contract</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table A01 Afk Setup - Field AGP Type of employee contract - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 2685203037 - Field 3004954119 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Code</source>
@@ -182,6 +232,81 @@
           <source>Warranty Contract Nos</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table A01 Afk Setup - Field Warranty Contract Nos - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2071928169 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>AGP Contrat</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table A01 AGP Contrat - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2071928169 - Field 3699788827 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Account Type</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table A01 AGP Contrat - Field Account Type - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2071928169 - Field 1878856189 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Approval Status</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table A01 AGP Contrat - Field Approval Status - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2071928169 - Field 1335318213 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Commitment Type</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table A01 AGP Contrat - Field Commitment Type - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2071928169 - Field 2369664869 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Created By</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table A01 AGP Contrat - Field Created By - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2071928169 - Field 4190130733 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Customer No.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table A01 AGP Contrat - Field Customer No. - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2071928169 - Field 4157851345 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Duration (Month)</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table A01 AGP Contrat - Field Duration (Month) - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2071928169 - Field 1650624869 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>First Terms Date</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table A01 AGP Contrat - Field First Terms Date - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2071928169 - Field 596019230 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Modified By</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table A01 AGP Contrat - Field Modified By - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2071928169 - Field 4200184881 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>No.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table A01 AGP Contrat - Field No. - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2071928169 - Field 2267289004 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>OP Duration (Month)</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table A01 AGP Contrat - Field OP Duration (Month) - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2071928169 - Field 271386232 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>OP Ending Date</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table A01 AGP Contrat - Field OP Ending Date - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2071928169 - Field 3432626541 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>OP Starting Date</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table A01 AGP Contrat - Field OP Starting Date - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2071928169 - Field 3855271124 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Payment Method Code</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table A01 AGP Contrat - Field Payment Method Code - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2071928169 - Field 966740350 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Payment Terms Code</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table A01 AGP Contrat - Field Payment Terms Code - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 1931418295 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Approval flow</source>
@@ -2223,6 +2348,21 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page A01 Afk Setup - Control Grouped purchase - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Page 2685203037 - Control 362340445 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>MPercentage of the AGP application fee</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page A01 Afk Setup - Control AGP Administrative fees (%) - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2685203037 - Control 987769541 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Indicates whether banked or unbanked employees can benefit from the credit</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page A01 Afk Setup - Control AGP Banked Employee - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2685203037 - Control 1386878801 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Indicates under what conditions the application fees are applied</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page A01 Afk Setup - Control AGP Conditions of appl fees - Property ToolTip</note>
+        </trans-unit>
         <trans-unit id="Page 2685203037 - Control 1832849887 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>Maximum number of months for group purchase credit</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -2232,6 +2372,16 @@
           <source>Indicates whether discounts are allowed for credit sales by AGP</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page A01 Afk Setup - Control AGP Discounts allowed - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2685203037 - Control 2968043910 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>MIndicates the minimum number of employees required for an AGP contract</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page A01 Afk Setup - Control AGP Min number of participants - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2685203037 - Control 682061384 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Minimum salary for an employee eligible for AGP</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page A01 Afk Setup - Control AGP Minimum salary - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 2685203037 - Control 1650885584 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>Default number of months during which purchases can be made for an AGP contract</source>
@@ -2243,10 +2393,25 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page A01 Afk Setup - Control AGP Sales minimum value - Property ToolTip</note>
         </trans-unit>
+        <trans-unit id="Page 2685203037 - Control 902620127 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Indicates the sales method used for AGP contracts</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page A01 Afk Setup - Control AGP Sales Mode - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2685203037 - Control 1638474424 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Indicates whether the site visit is mandatory or not</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page A01 Afk Setup - Control AGP Site visit - Property ToolTip</note>
+        </trans-unit>
         <trans-unit id="Page 2685203037 - Control 3912518527 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>Maximum percentage of income that can be used for the monthly loan payment</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page A01 Afk Setup - Control AGP Transferable part % - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2685203037 - Control 2566789385 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Indicates the type of contract of employees eligible for the credit</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page A01 Afk Setup - Control AGP Type of employee contract - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 2685203037 - Control 553059709 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Logistics</source>
@@ -2362,6 +2527,11 @@
           <source>TestAPI</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page A01 Afk Setup - Action Process - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 1820720969 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>AGP Contracts</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page A01 AGP Contracts - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 120109410 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Approval flows</source>
@@ -11203,6 +11373,16 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension A01 Contact - Field A01 Allowed Item Category - Property Caption</note>
         </trans-unit>
+        <trans-unit id="TableExtension 1119515148 - Field 1382838568 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 3993128796">
+          <source>CIF</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension A01 Contact - Field A01 CIF - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 1119515148 - Field 3611807799 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 3993128796">
+          <source>Contract No.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension A01 Contact - Field A01 Contract No. - Property Caption</note>
+        </trans-unit>
         <trans-unit id="TableExtension 1119515148 - Field 3361964132 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 3993128796">
           <source>Credit Limit</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -11212,6 +11392,11 @@
           <source>Customer Type</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension A01 Contact - Field A01 Customer Type - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 1119515148 - Field 2895830626 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 3993128796">
+          <source>ID Number</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension A01 Contact - Field A01 ID Number - Property Caption</note>
         </trans-unit>
         <trans-unit id="TableExtension 1119515148 - Field 2500589011 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 3993128796">
           <source>Identification Mode</source>
@@ -11227,6 +11412,11 @@
           <source>Main Contact</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension A01 Contact - Field A01 Main Contact - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 1119515148 - Field 3486883371 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 3993128796">
+          <source>NIF</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension A01 Contact - Field A01 NIF - Property Caption</note>
         </trans-unit>
         <trans-unit id="TableExtension 1119515148 - Field 1974904180 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 3993128796">
           <source>Parent Customer</source>
@@ -11258,6 +11448,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension A01 Contact - Field A01 Prospect Status - Property Caption</note>
         </trans-unit>
+        <trans-unit id="TableExtension 1119515148 - Field 2803831654 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 3993128796">
+          <source>RCS</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension A01 Contact - Field A01 RCS - Property Caption</note>
+        </trans-unit>
         <trans-unit id="TableExtension 1119515148 - Field 493933903 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 3993128796">
           <source>Risk Level</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -11272,6 +11467,11 @@
           <source>Score</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension A01 Contact - Field A01 Score - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 1119515148 - Field 3001863798 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 3993128796">
+          <source>STAT</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension A01 Contact - Field A01 STAT - Property Caption</note>
         </trans-unit>
         <trans-unit id="TableExtension 1119515148 - Field 451289878 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 3993128796">
           <source>VAT Regime</source>
@@ -11288,10 +11488,25 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension A01 Customer - Field A01 Allowed Item Category - Property Caption</note>
         </trans-unit>
+        <trans-unit id="TableExtension 1245960848 - Field 1382838568 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1994964448">
+          <source>CIF</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension A01 Customer - Field A01 CIF - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 1245960848 - Field 3611807799 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1994964448">
+          <source>Contract No.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension A01 Customer - Field A01 Contract No. - Property Caption</note>
+        </trans-unit>
         <trans-unit id="TableExtension 1245960848 - Field 3407316512 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1994964448">
           <source>Customer Type</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension A01 Customer - Field A01 Customer Type - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 1245960848 - Field 2895830626 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1994964448">
+          <source>ID Number</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension A01 Customer - Field A01 ID Number - Property Caption</note>
         </trans-unit>
         <trans-unit id="TableExtension 1245960848 - Field 2500589011 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1994964448">
           <source>Identification Mode</source>
@@ -11308,6 +11523,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension A01 Customer - Field A01 Modified By - Property Caption</note>
         </trans-unit>
+        <trans-unit id="TableExtension 1245960848 - Field 3486883371 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1994964448">
+          <source>NIF</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension A01 Customer - Field A01 NIF - Property Caption</note>
+        </trans-unit>
         <trans-unit id="TableExtension 1245960848 - Field 1974904180 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1994964448">
           <source>Parent Customer</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -11323,6 +11543,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension A01 Customer - Field A01 Prospect No. - Property Caption</note>
         </trans-unit>
+        <trans-unit id="TableExtension 1245960848 - Field 2803831654 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1994964448">
+          <source>RCS</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension A01 Customer - Field A01 RCS - Property Caption</note>
+        </trans-unit>
         <trans-unit id="TableExtension 1245960848 - Field 493933903 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1994964448">
           <source>Risk Level</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -11332,6 +11557,11 @@
           <source>Sales Mode</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension A01 Customer - Field A01 Sales Mode - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 1245960848 - Field 3001863798 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1994964448">
+          <source>STAT</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension A01 Customer - Field A01 STAT - Property Caption</note>
         </trans-unit>
         <trans-unit id="TableExtension 1351648199 - Field 3262964910 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1806786327">
           <source>Check Date</source>
@@ -12003,6 +12233,26 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension A01 User Setup - Field A01 Sales Resp. Filter 5 - Property Caption</note>
         </trans-unit>
+        <trans-unit id="TableExtension 544471928 - Field 1382838568 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1936001480">
+          <source>CIF</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension A01 Vendor - Field A01 CIF - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 544471928 - Field 3486883371 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1936001480">
+          <source>NIF</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension A01 Vendor - Field A01 NIF - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 544471928 - Field 2803831654 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1936001480">
+          <source>RCS</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension A01 Vendor - Field A01 RCS - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 544471928 - Field 3001863798 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1936001480">
+          <source>STAT</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension A01 Vendor - Field A01 STAT - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Enum 4001540073 - EnumValue 3541228055 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>1st plan</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -12133,6 +12383,26 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Enum A01 Activity Type - EnumValue Task - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Enum 2969306523 - EnumValue 3703598467 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>All</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum A01 Agp Application Fees Type - EnumValue All - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 2969306523 - EnumValue 1451957218 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Not guaranteed by the company</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum A01 Agp Application Fees Type - EnumValue Not guaranteed by the company - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 551354237 - EnumValue 3703598467 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>All</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum A01 AGP Type of emp contr - EnumValue All - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 551354237 - EnumValue 1900259522 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>CDI</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum A01 AGP Type of emp contr - EnumValue CDI - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Enum 3822409918 - EnumValue 221910773 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Normal</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -12202,6 +12472,16 @@
           <source>Waiting for manager</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Enum A01 Approval Status - EnumValue Waiting for manager - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 2093157653 - EnumValue 591478195 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Company Guaranteed</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum A01 Commitment Type - EnumValue Company Guaranteed - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 2093157653 - EnumValue 1656985500 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>No Company Guaranteed</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum A01 Commitment Type - EnumValue No Company Guaranteed - Property Caption</note>
         </trans-unit>
         <trans-unit id="Enum 2474205286 - EnumValue 3844911025 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Canceled</source>

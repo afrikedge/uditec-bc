@@ -89,7 +89,6 @@ table 50024 "A01 Reposession Request"
             TableRelation = "A01 External User";
             DataClassification = CustomerContent;
             Editable = false;
-
         }
     }
     keys
