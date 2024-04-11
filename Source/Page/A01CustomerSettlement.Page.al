@@ -35,6 +35,18 @@ page 50057 "A01 Customer Settlement"
                 field("Responsibility Center"; Rec."Responsibility Center")
                 {
                 }
+                field(Amount; Rec.Amount)
+                {
+                }
+                field("Validated Amount"; Rec."Validated Amount")
+                {
+                }
+                field("Applies-to ID"; Rec."Applies-to ID")
+                {
+                }
+                field("External Document No."; Rec."External Document No.")
+                {
+                }
                 field(Status; Rec.Status)
                 {
                 }
@@ -51,5 +63,47 @@ page 50057 "A01 Customer Settlement"
                 UpdatePropagation = Both;
             }
         }
+
     }
+    actions
+    {
+        area(Processing)
+        {
+            action(Application)
+            {
+                Image = ApplyEntries;
+                ApplicationArea = Basic, Suite;
+                Caption = '&Application';
+                ShortCutKey = 'Shift+F11';
+                // Promoted = true;
+                // PromotedCategory = Process;
+                ToolTip = 'Apply the customer or vendor payment on the selected payment slip.';
+
+                trigger OnAction()
+                begin
+                    ApplyPayment();
+                end;
+            }
+            action(Pos)
+            {
+                Image = Post;
+                ApplicationArea = Basic, Suite;
+                Caption = '&Post';
+                ShortCutKey = 'Shift+F11';
+                // Promoted = true;
+                // PromotedCategory = Process;
+                //ToolTip = 'Apply the customer or vendor payment on the selected payment slip.';
+
+                trigger OnAction()
+                begin
+                    CODEUNIT.Run(CODEUNIT::"A01 Customer Settlement Post", Rec);
+                end;
+            }
+
+        }
+    }
+    local procedure ApplyPayment()
+    begin
+        CODEUNIT.Run(CODEUNIT::"A01 Doc Payment-Apply", Rec);
+    end;
 }

@@ -32,37 +32,37 @@ page 50056 "A01 Cust Settlement Subform"
                 // field("Applies-to Doc. No."; Rec."Applies-to Doc. No.")
                 // {
                 // }
-                field("Applies-to ID"; Rec."Applies-to ID")
-                {
-                }
+                // field("Applies-to ID"; Rec."Applies-to ID")
+                // {
+                // }
             }
         }
     }
 
-    actions
-    {
-        area(Processing)
-        {
+    // actions
+    // {
+    //     area(Processing)
+    //     {
 
-            action(Application)
-            {
-                Image = ApplyEntries;
-                ApplicationArea = Basic, Suite;
-                Caption = '&Application';
-                ShortCutKey = 'Shift+F11';
-                ToolTip = 'Apply the customer or vendor payment on the selected payment slip line.';
+    //         action(Application)
+    //         {
+    //             Image = ApplyEntries;
+    //             ApplicationArea = Basic, Suite;
+    //             Caption = '&Application';
+    //             ShortCutKey = 'Shift+F11';
+    //             ToolTip = 'Apply the customer or vendor payment on the selected payment slip line.';
 
-                trigger OnAction()
-                begin
-                    ApplyPayment();
-                end;
-            }
+    //             trigger OnAction()
+    //             begin
+    //                 ApplyPayment();
+    //             end;
+    //         }
 
-        }
-    }
+    //     }
+    // }
 
-    local procedure ApplyPayment()
-    begin
-        CODEUNIT.Run(CODEUNIT::"A01 Doc Payment-Apply", Rec);
-    end;
+    // local procedure ApplyPayment()
+    // begin
+    //     CODEUNIT.Run(CODEUNIT::"A01 Doc Payment Line-Apply", Rec);
+    // end;
 }

@@ -1,56 +1,51 @@
 /// <summary>
-/// Codeunit A01 Doc Payment-Apply (ID 50014).
+/// Codeunit A01 Doc Payment-Apply (ID 50012).
 /// </summary>
-codeunit 50014 "A01 Doc Payment-Apply"
+codeunit 50012 "A01 Doc Payment Line-Apply"
 {
 
     Permissions = TableData "Cust. Ledger Entry" = rm,
                   TableData "Vendor Ledger Entry" = rm;
-    TableNo = "A01 Payment Document";
+    TableNo = "A01 Payment Document Line";
 
     trigger OnRun()
     begin
         Apply(Rec);
     end;
 
-    local procedure Apply(var PaymentDoc: Record "A01 Payment Document")
+    local procedure Apply(var PaymentLine: Record "A01 Payment Document Line")
     var
+        PaymentHeader: Record "A01 Payment Document";
         PaymentToleranceMgt: Codeunit "Payment Tolerance Management";
     begin
+        PaymentHeader.Get(PaymentLine."Document No.");
 
-        PaymentDoc.CalcFields(Amount);
-        PaymentDoc.TestField(Amount);
-        PaymentDoc.TestField(Object);
-        PaymentDoc.TestField("No.");
-        PaymentDoc.TestField("Partner No.");
-
-        GenJnlLine."Account Type" := GenJnlLine."Account Type"::Customer;
-        GenJnlLine."Account No." := PaymentDoc."Partner No.";
-        GenJnlLine.Amount := PaymentDoc.Amount;
-        GenJnlLine."Amount (LCY)" := PaymentDoc."Amount";
-        GenJnlLine."Currency Code" := PaymentDoc."Currency Code";
-        GenJnlLine."Posting Date" := PaymentDoc."Posting Date";
+        GenJnlLine."Account Type" := PaymentLine."Account Type";
+        GenJnlLine."Account No." := PaymentLine."Account No.";
+        GenJnlLine.Amount := PaymentLine.Amount;
+        GenJnlLine."Amount (LCY)" := PaymentLine."Amount (LCY)";
+        GenJnlLine."Currency Code" := PaymentLine."Currency Code";
+        GenJnlLine."Posting Date" := PaymentHeader."Posting Date";
         GenJnlLine."Document Type" := GenJnlLine."Document Type"::Payment;
-        GenJnlLine."Applies-to ID" := PaymentDoc."Applies-to ID";
-        GenJnlLine."Applies-to Doc. No." := PaymentDoc."Applies-to Doc. No.";
-        GenJnlLine."Applies-to Doc. Type" := PaymentDoc."Applies-to Doc. Type";
+        GenJnlLine."Applies-to ID" := PaymentLine."Applies-to ID";
+        GenJnlLine."Applies-to Doc. No." := PaymentLine."Applies-to Doc. No.";
+        GenJnlLine."Applies-to Doc. Type" := PaymentLine."Applies-to Doc. Type";
 
-
-        PaymentDoc.GetCurrency();
+        PaymentLine.GetCurrency();
         AccType := GenJnlLine."Account Type";
         AccNo := GenJnlLine."Account No.";
         case AccType of
             AccType::Customer:
                 begin
-                    ApplyCustomer(PaymentDoc);
-                    if PaymentDoc.Amount <> 0 then
+                    ApplyCustomer(PaymentLine);
+                    if PaymentLine.Amount <> 0 then
                         if not PaymentToleranceMgt.PmtTolGenJnl(GenJnlLine) then
                             exit;
                 end;
             AccType::Vendor:
                 begin
-                    ApplyVendor(PaymentDoc);
-                    if PaymentDoc.Amount <> 0 then
+                    ApplyVendor(PaymentLine);
+                    if PaymentLine.Amount <> 0 then
                         if not PaymentToleranceMgt.PmtTolGenJnl(GenJnlLine) then
                             exit;
                 end;
@@ -60,16 +55,16 @@ codeunit 50014 "A01 Doc Payment-Apply"
                     GenJnlLine.FieldCaption("Account Type"), GenJnlLine.FieldCaption("Bal. Account Type"));
         end;
 
-        PaymentDoc."Applies-to Doc. Type" := GenJnlLine."Applies-to Doc. Type";
-        PaymentDoc."Applies-to Doc. No." := GenJnlLine."Applies-to Doc. No.";
-        PaymentDoc."Applies-to ID" := GenJnlLine."Applies-to ID";
-        PaymentDoc."Due Date" := GenJnlLine."Due Date";
-        //PaymentDoc.Amount := GenJnlLine.Amount;
-        //PaymentDoc."Amount (LCY)" := GenJnlLine."Amount (LCY)";
-        //PaymentDoc.Validate(Amount);
-        //PaymentDoc.Validate("Amount (LCY)");
-        // if (PaymentDoc."Direct Debit Mandate ID" = '') and (GenJnlLine."Direct Debit Mandate ID" <> '') then
-        //     PaymentDoc.Validate("Direct Debit Mandate ID", GenJnlLine."Direct Debit Mandate ID");
+        PaymentLine."Applies-to Doc. Type" := GenJnlLine."Applies-to Doc. Type";
+        PaymentLine."Applies-to Doc. No." := GenJnlLine."Applies-to Doc. No.";
+        PaymentLine."Applies-to ID" := GenJnlLine."Applies-to ID";
+        PaymentLine."Due Date" := GenJnlLine."Due Date";
+        PaymentLine.Amount := GenJnlLine.Amount;
+        PaymentLine."Amount (LCY)" := GenJnlLine."Amount (LCY)";
+        PaymentLine.Validate(Amount);
+        PaymentLine.Validate("Amount (LCY)");
+        // if (PaymentLine."Direct Debit Mandate ID" = '') and (GenJnlLine."Direct Debit Mandate ID" <> '') then
+        //     PaymentLine.Validate("Direct Debit Mandate ID", GenJnlLine."Direct Debit Mandate ID");
 
         OnAfterApply(GenJnlLine);
     end;
@@ -96,13 +91,13 @@ codeunit 50014 "A01 Doc Payment-Apply"
         Text007: Label 'All entries in one application must be in the same currency or one or more of the EMU currencies.';
 
 
-    local procedure ApplyCustomer(PaymentDoc: Record "A01 Payment Document")
+    local procedure ApplyCustomer(PaymentLine: Record "A01 Payment Document Line")
     begin
         //with GenJnlLine do begin
         CustLedgEntry.SetCurrentKey("Customer No.", Open, Positive);
         CustLedgEntry.SetRange("Customer No.", AccNo);
         CustLedgEntry.SetRange(Open, true);
-        GenJnlLine."Applies-to ID" := GetAppliesToID(GenJnlLine."Applies-to ID", PaymentDoc);
+        GenJnlLine."Applies-to ID" := GetAppliesToID(GenJnlLine."Applies-to ID", PaymentLine);
         ApplyCustEntries.SetGenJnlLine(GenJnlLine, GenJnlLine.FieldNo("Applies-to ID"));
         ApplyCustEntries.SetRecord(CustLedgEntry);
         ApplyCustEntries.SetTableView(CustLedgEntry);
@@ -173,13 +168,13 @@ codeunit 50014 "A01 Doc Payment-Apply"
         OnAfterApplyCustomer(CustLedgEntry, GenJnlLine);
     end;
 
-    local procedure ApplyVendor(PaymentDoc: Record "A01 Payment Document")
+    local procedure ApplyVendor(PaymentLine: Record "A01 Payment Document Line")
     begin
         //with GenJnlLine do begin
         VendLedgEntry.SetCurrentKey("Vendor No.", Open, Positive);
         VendLedgEntry.SetRange("Vendor No.", AccNo);
         VendLedgEntry.SetRange(Open, true);
-        GenJnlLine."Applies-to ID" := GetAppliesToID(GenJnlLine."Applies-to ID", PaymentDoc);
+        GenJnlLine."Applies-to ID" := GetAppliesToID(GenJnlLine."Applies-to ID", PaymentLine);
         ApplyVendEntries.SetGenJnlLine(GenJnlLine, GenJnlLine.FieldNo("Applies-to ID"));
         ApplyVendEntries.SetRecord(VendLedgEntry);
         ApplyVendEntries.SetTableView(VendLedgEntry);
@@ -343,7 +338,7 @@ codeunit 50014 "A01 Doc Payment-Apply"
     end;
 
     [Scope('OnPrem')]
-    procedure DeleteApply(Rec: Record "A01 Payment Document")
+    procedure DeleteApply(Rec: Record "A01 Payment Document Line")
     var
         IsHandled: Boolean;
     begin
@@ -355,8 +350,8 @@ codeunit 50014 "A01 Doc Payment-Apply"
         if Rec."Applies-to ID" = '' then
             exit;
 
-        case Rec."Partner Type" of
-            Rec."Partner Type"::Customer:
+        case Rec."Account Type" of
+            Rec."Account Type"::Customer:
                 begin
                     CustLedgEntry.Init();
                     CustLedgEntry.SetCurrentKey("Applies-to ID");
@@ -368,7 +363,7 @@ codeunit 50014 "A01 Doc Payment-Apply"
                     OnDeleteApplyOnBeforeCustLedgEntryModifyAll(Rec, CustLedgEntry);
                     CustLedgEntry.ModifyAll("Applies-to ID", '');
                 end;
-            Rec."Partner Type"::Vendor:
+            Rec."Account Type"::Vendor:
                 begin
                     VendLedgEntry.Init();
                     VendLedgEntry.SetCurrentKey("Applies-to ID");
@@ -396,13 +391,13 @@ codeunit 50014 "A01 Doc Payment-Apply"
         //end;
     end;
 
-    local procedure GetAppliesToID(AppliesToID: Code[50]; PaymentDoc: Record "A01 Payment Document"): Code[50]
+    local procedure GetAppliesToID(AppliesToID: Code[50]; PaymentLine: Record "A01 Payment Document Line"): Code[50]
     begin
         if AppliesToID = '' then
-            // if PaymentDoc."Document No." <> '' then
-            //     AppliesToID := PaymentDoc."No." + '/' + PaymentDoc."Document No."
+            // if PaymentLine."Document No." <> '' then
+            //     AppliesToID := PaymentLine."No." + '/' + PaymentLine."Document No."
             // else
-                AppliesToID := PaymentDoc."No.";
+                AppliesToID := PaymentLine."Document No." + '/' + Format(PaymentLine."Payment Method");
         exit(AppliesToID);
     end;
 
@@ -422,19 +417,18 @@ codeunit 50014 "A01 Doc Payment-Apply"
     end;
 
     [IntegrationEvent(false, false)]
-    local procedure OnBeforeDeleteApply(Rec: Record "A01 Payment Document"; CustLedgEntry: Record "Cust. Ledger Entry"; VendLedgEntry: Record "Vendor Ledger Entry"; var IsHandled: Boolean)
+    local procedure OnBeforeDeleteApply(Rec: Record "A01 Payment Document Line"; CustLedgEntry: Record "Cust. Ledger Entry"; VendLedgEntry: Record "Vendor Ledger Entry"; var IsHandled: Boolean)
     begin
     end;
 
     [IntegrationEvent(false, false)]
-    local procedure OnDeleteApplyOnBeforeCustLedgEntryModifyAll(PaymentDoc: Record "A01 Payment Document"; var CustLedgEntry: Record "Cust. Ledger Entry")
+    local procedure OnDeleteApplyOnBeforeCustLedgEntryModifyAll(PaymentLine: Record "A01 Payment Document Line"; var CustLedgEntry: Record "Cust. Ledger Entry")
     begin
     end;
 
     [IntegrationEvent(false, false)]
-    local procedure OnDeleteApplyOnBeforeVendLedgEntryModifyAll(PaymentDoc: Record "A01 Payment Document"; var VendLedgEntry: Record "Vendor Ledger Entry")
+    local procedure OnDeleteApplyOnBeforeVendLedgEntryModifyAll(PaymentLine: Record "A01 Payment Document Line"; var VendLedgEntry: Record "Vendor Ledger Entry")
     begin
     end;
 
 }
-

@@ -8,6 +8,7 @@ codeunit 50008 "A01 Api Interface Mgt"
         QuotesMgt: Codeunit "A01 WS QuotesMgt";
         OrdersMgt: Codeunit "A01 WS OrdersMgt";
         CreditMgt: Codeunit "A01 WS Credit Mgt";
+        MasterFilesMgt: Codeunit "A01WSMasterFilesMgt";
         LblUnknownParameter: Label 'Unkwnown parameter : %1', Comment = '%1 = parameter';
     /// <summary>
     /// 
@@ -80,6 +81,18 @@ codeunit 50008 "A01 Api Interface Mgt"
                 exit(CreditMgt.RunRPaymentPromise(input, false));
             'paymentPromises_delete':
                 exit(CreditMgt.RunRPaymentPromise(input, true));
+
+
+            'customers_modify':
+                exit(MasterFilesMgt.RunCustomers(input, false));
+            'leads_modify':
+                exit(MasterFilesMgt.RunLeads(input, false));
+            'leads_insert':
+                exit(MasterFilesMgt.RunLeads(input, false));
+            'contacts_insert':
+                exit(MasterFilesMgt.RunContacts(input, false));
+            'contacts_modify':
+                exit(MasterFilesMgt.RunContacts(input, false));
 
             else
                 exit(StrSubstNo(LblUnknownParameter, param));

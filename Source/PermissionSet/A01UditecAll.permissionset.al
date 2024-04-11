@@ -151,7 +151,7 @@ permissionset 50000 "A01 Uditec_All"
         report "A01 SalesInvoiceCreditPrint" = X,
         report "A01 SalesReturnReceiptPrint" = X,
         codeunit "A01 Customer Settlement Post" = X,
-        codeunit "A01 Doc Payment-Apply" = X,
+        codeunit "A01 Doc Payment Line-Apply" = X,
         codeunit "A01 WS Credit Mgt" = X,
         page "A01 Cust Settlement Subform" = X,
         page "A01 Customer Settlement" = X,

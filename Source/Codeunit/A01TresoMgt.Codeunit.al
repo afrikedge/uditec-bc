@@ -183,7 +183,7 @@ codeunit 50007 "A01 Treso Mgt"
     local procedure CreateNewPaymentDocFromSalesHeader(SalesHeader: Record "Sales Header";
         SalesPaymentLine: Record "A01 Sales Payment Method"; DocType: Enum "Gen. Journal Document Type"; DocNo: Code[20])
     var
-        PaymentCCConfig: Record "A01 Payment Type Configuration";
+        //PaymentCCConfig: Record "A01 Payment Type Configuration";
         PaymentClass: Record "Payment Class";
         PaymentHeader: Record "Payment Header";
         RCPaymentMethod: Record "A01 RC Payment Method";
@@ -214,7 +214,7 @@ codeunit 50007 "A01 Treso Mgt"
         PaymentLine.LockTable();
         PaymentHeader.Insert(true);
 
-        PaymentHeader.Validate("Payment Class", PaymentCCConfig."Payment Class");
+        //PaymentHeader.Validate("Payment Class", PaymentCCConfig."Payment Class");
         PaymentHeader.Validate("Currency Code", SalesHeader."Currency Code");
 
         Cust.GET(SalesHeader."Bill-to Customer No.");
@@ -263,7 +263,7 @@ codeunit 50007 "A01 Treso Mgt"
     procedure CreateNewPaymentDocFromCustomerSettlement(CustSettlement: Record "A01 Payment Document";
     CustSettlementLine: Record "A01 Payment Document Line")
     var
-        PaymentCCConfig: Record "A01 Payment Type Configuration";
+        //PaymentCCConfig: Record "A01 Payment Type Configuration";
         PaymentClass: Record "Payment Class";
         PaymentHeader: Record "Payment Header";
         RCPaymentMethod: Record "A01 RC Payment Method";
@@ -286,7 +286,7 @@ codeunit 50007 "A01 Treso Mgt"
 
         PaymentHeader.Init();
 
-        PaymentClass.TESTFIELD("Header No. Series");
+        PaymentClass.TestField("Header No. Series");
 
         NoSeriesManagement.InitSeries(PaymentClass."Header No. Series", '', 0D, PaymentHeader."No.", PaymentHeader."No. Series");
         PaymentHeader.Validate("Payment Class", PaymentClass.Code);
@@ -294,7 +294,7 @@ codeunit 50007 "A01 Treso Mgt"
         PaymentLine.LockTable();
         PaymentHeader.Insert(true);
 
-        PaymentHeader.Validate("Payment Class", PaymentCCConfig."Payment Class");
+        //PaymentHeader.Validate("Payment Class", PaymentCCConfig."Payment Class");
         PaymentHeader.Validate("Currency Code", CustSettlement."Currency Code");
 
         Cust.GET(CustSettlement."Partner No.");
@@ -303,13 +303,15 @@ codeunit 50007 "A01 Treso Mgt"
         PaymentHeader."A01 Customer Name" := Cust.Name;
         PaymentHeader."A01 Description" := CustSettlement.Object;
         PaymentHeader.VALIDATE("Posting Date", CustSettlement."Posting Date");
-        PaymentHeader."A01 Origin Document No." := CustSettlement."No.";
+        PaymentHeader."A01 Origin Document No." := CustSettlement."Posting No.";
+        //PaymentHeader."A01 Posted Document No." := CustSettlement."Posting No.";
 
         PaymentHeader.Modify();
 
 
         LineNum := 0;
         PaymentLine.Init();
+        PaymentClass.TestField("Line No. Series");
         PaymentLine."Document No." := NoSeriesMgt.GetNextNo(PaymentClass."Line No. Series", WorkDate(), true);
         PaymentLine."No." := PaymentHeader."No.";
         PaymentLine."Payment Class" := PaymentHeader."Payment Class";
@@ -325,6 +327,7 @@ codeunit 50007 "A01 Treso Mgt"
         PaymentLine.VALIDATE(Amount, -ABS(CustSettlementLine."Validated Amount"));
         //PaymentLine."Applies-to Doc. Type" := DocType;
         //PaymentLine."Applies-to Doc. No." := DocNo;
+        PaymentLine."Applies-to ID" := CustSettlement."Applies-to ID";
 
 
         // if ((GenJnlLine."A01 Payment Doc Type" = GenJnlLine."A01 Payment Doc Type"::"Direct Check")
@@ -437,7 +440,7 @@ codeunit 50007 "A01 Treso Mgt"
           CustSettlement."Dimension Set ID", '');
 
 
-        GenJnlLine.CopyDocumentFields(Enum::"Gen. Journal Document Type"::Payment, CustSettlement."No.", CustSettlement."External Document No.", SourceCodeSetup."Payment Journal", '');
+        GenJnlLine.CopyDocumentFields(Enum::"Gen. Journal Document Type"::Payment, CustSettlement."Posting No.", CustSettlement."External Document No.", SourceCodeSetup."Payment Journal", '');
         GenJnlLine."Account Type" := GenJnlLine."Account Type"::Customer;
         GenJnlLine."Account No." := CustSettlement."Partner No.";
 
@@ -450,7 +453,7 @@ codeunit 50007 "A01 Treso Mgt"
         GenJnlLine."Document Type" := GenJnlLine."Document Type"::Payment;
 
 
-        SetBalAccAndApplyToID(RCPaymentMethod, GenJnlLine, CustSettlementLine."Applies-to ID");
+        SetBalAccAndApplyToID(RCPaymentMethod, GenJnlLine, CustSettlement."Applies-to ID");
 
         SetAmountsForBalancingEntry(CustSettlementLine."Validated Amount", GenJnlLine);
 

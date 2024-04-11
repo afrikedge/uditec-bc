@@ -17,8 +17,8 @@ codeunit 50013 "A01 Customer Settlement Post"
         CustSettlementLine: Record "A01 Payment Document Line";
         PostedCustSettlementLine: Record "A01 Posted Payment Doc Line";
         SourceCodeSetup: Record "Source Code Setup";
-        //CustSetup: Record "A01 Afk Setup";
-        //NoSeriesMgt: Codeunit NoSeriesManagement;
+        AfkSetup: Record "A01 Afk Setup";
+        NoSeriesMgt: Codeunit NoSeriesManagement;
         DocumentErrorsMgt: Codeunit "Document Errors Mgt.";
         GenJnlPostLine: Codeunit "Gen. Jnl.-Post Line";
         TresoMgt: Codeunit "A01 Treso Mgt";
@@ -46,6 +46,8 @@ codeunit 50013 "A01 Customer Settlement Post"
         IsHandled: Boolean;
     begin
 
+        AfkSetup.Get();
+
         IsHandled := false;
         OnBeforeCode(CustomerSettlement, IsHandled);
         if IsHandled then
@@ -66,14 +68,14 @@ codeunit 50013 "A01 Customer Settlement Post"
 
         LockTables(CustomerSettlement, CustSettlementLine);
 
-        //SetPostingNosSeries();
+        SetPostingNosSeries();
 
         CheckDim();
 
         CheckLines();
 
         SourceCodeSetup.Get();
-        SourceCode := SourceCodeSetup."General Journal";
+        SourceCode := SourceCodeSetup."Cash Receipt Journal";
 
         // Insert posted header
         InsertPostedHeader(CustomerSettlement);
@@ -107,8 +109,8 @@ codeunit 50013 "A01 Customer Settlement Post"
         //                 PostedCustSettlement.TableCaption(), PostedCustSettlement."No."));
         // end;
 
-
-        PostedCustSettlement."No." := CustSettlement."No.";
+        CustSettlement.TestField("Posting No.");
+        PostedCustSettlement."No." := CustSettlement."Posting No.";
         if not HideProgressWindow then
             Window.Update(
                 1,
@@ -118,12 +120,12 @@ codeunit 50013 "A01 Customer Settlement Post"
 
 
         PostedCustSettlement."Source Code" := SourceCode;
-        PostedCustSettlement."User Id" := CopyStr(UserId(), 1, MaxStrLen(PostedCustSettlement."User Id"));
+        PostedCustSettlement."Settled By" := CopyStr(UserId(), 1, MaxStrLen(PostedCustSettlement."Settled By"));
         PostedCustSettlement."Settlement Date" := today;
         IsHandled := false;
         OnInsertPostedHeaderOnBeforeInsert(CustSettlement, PostedCustSettlement, IsHandled);
         if not IsHandled then
-            PostedCustSettlement.Insert();
+            PostedCustSettlement.Insert(true);
     end;
 
     local procedure SaveCustSettlementLine(SettlementLine: Record "A01 Payment Document Line")
@@ -153,6 +155,7 @@ codeunit 50013 "A01 Customer Settlement Post"
             repeat
                 TresoMgt.CreateNewPaymentDocFromCustomerSettlement(CustSettlement, SettlementLine);
                 TresoMgt.PostCustSettlementLine(CustSettlement, SettlementLine, GenJnlPostLine);
+
             until SettlementLine.Next() < 1;
 
 
@@ -194,6 +197,8 @@ codeunit 50013 "A01 Customer Settlement Post"
         CustSettlement.TestField("Partner No.");
         CustSettlement.TestField("No.");
         CustSettlement.TestField(Object);
+        CustSettlement.CalcFields("Validated Amount");
+        CustSettlement.TestField("Validated Amount");
 
     end;
 
@@ -203,24 +208,29 @@ codeunit 50013 "A01 Customer Settlement Post"
         SettlementLine.LockTable();
     end;
 
-    // local procedure SetPostingNosSeries()
-    // begin
-    //     ModifyHeader := false;
-    //     if CustomerSettlement."Posting No." = '' then begin
-    //         if CustomerSettlement."No. Series" <> '' then
-    //             CustomerSettlement.TestField("Posting No. Series");
-    //         if CustomerSettlement."No. Series" <> CustomerSettlement."Posting No. Series" then begin
-    //             CustomerSettlement."Posting No." := NoSeriesMgt.GetNextNo(CustomerSettlement."Posting No. Series", CustomerSettlement."Posting Date", true);
-    //             ModifyHeader := true;
-    //         end;
-    //     end;
+    local procedure SetPostingNosSeries()
+    var
+        ModifyHeader: Boolean;
+    begin
+        ModifyHeader := false;
+        if CustomerSettlement."Posting No." = '' then begin
+            AfkSetup.TestField("Posted Cust Settlement Nos");
+            CustomerSettlement."Posting No." := NoSeriesMgt.GetNextNo(AfkSetup."Posted Cust Settlement Nos", CustomerSettlement."Posting Date", true);
 
-    //     if ModifyHeader then begin
-    //         CustomerSettlement.Modify();
-    //         if not (SuppressCommit or PreviewMode) then
-    //             Commit();
-    //     end;
-    // end;
+            // if CustomerSettlement."No. Series" <> '' then
+            //     AfkSetup.TestField("Posted Cust Settlement Nos");
+            // if CustomerSettlement."No. Series" <> CustomerSettlement."Posting No. Series" then begin
+            //     CustomerSettlement."Posting No." := NoSeriesMgt.GetNextNo(CustomerSettlement."Posting No. Series", CustomerSettlement."Posting Date", true);
+            ModifyHeader := true;
+            // end;
+        end;
+
+        if ModifyHeader then begin
+            CustomerSettlement.Modify();
+            // if not (SuppressCommit or PreviewMode) then
+            //     Commit();
+        end;
+    end;
 
     local procedure FinalizePost(DocNo: Code[20])
     begin

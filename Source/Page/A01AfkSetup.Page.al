@@ -126,7 +126,7 @@ page 50040 "A01 Afk Setup"
 
                 field("AGP Min number of participants"; Rec."AGP Min number of participants")
                 {
-                    ToolTip = 'MIndicates the minimum number of employees required for an AGP contract';
+                    ToolTip = 'Indicates the minimum number of employees required for an AGP contract';
                 }
                 field("AGP Site visit"; Rec."AGP Site visit")
                 {
@@ -206,7 +206,10 @@ page 50040 "A01 Afk Setup"
                 field("Reposession request Nos"; Rec."Reposession request Nos")
                 {
                 }
-                field("Payment Document Nos"; Rec."Payment Document Nos")
+                field("Customer Settlement Nos"; Rec."Customer Settlement Nos")
+                {
+                }
+                field("Posted Cust Settlement Nos"; Rec."Posted Cust Settlement Nos")
                 {
                 }
                 field("AGP Contract Nos"; Rec."AGP Contract Nos")

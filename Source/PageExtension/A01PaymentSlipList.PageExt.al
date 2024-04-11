@@ -3,6 +3,19 @@
 /// </summary>
 pageextension 50013 "A01 Payment Slip List" extends "Payment Slip List"
 {
+
+    layout
+    {
+        addafter("Status Name")
+        {
+            field("A01 Origin Document No."; Rec."A01 Origin Document No.")
+            {
+                ApplicationArea = Basic, Suite;
+            }
+        }
+    }
+
+
     trigger OnOpenPage()
     var
     begin

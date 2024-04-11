@@ -59,28 +59,76 @@ table 50026 "A01 Posted Payment Document"
             Caption = 'Partner Name';
             Editable = false;
         }
+        field(15; "External Document No."; Code[35])
+        {
+            Caption = 'External Document No.';
+        }
+
+        field(16; "Applies-to ID"; Code[50])
+        {
+            Caption = 'Applies-to ID';
+            Editable = false;
+        }
+        field(17; "Applies-to Doc. Type"; Enum "Gen. Journal Document Type")
+        {
+            Caption = 'Applies-to Doc. Type';
+            Editable = false;
+        }
+        field(18; "Applies-to Doc. No."; Code[20])
+        {
+            Caption = 'Applies-to Doc. No.';
+            Editable = false;
+        }
+        field(19; "Amount"; Decimal)
+        {
+            Caption = 'Amount';
+            Editable = false;
+            FieldClass = FlowField;
+            CalcFormula = sum("A01 Posted Payment Doc Line".Amount where("Document No." = field("No.")));
+        }
+        field(20; "Validated Amount"; Decimal)
+        {
+            Caption = 'Validated Amount';
+            Editable = false;
+            FieldClass = FlowField;
+            CalcFormula = sum("A01 Posted Payment Doc Line"."Validated Amount" where("Document No." = field("No.")));
+        }
+
+
+
+        field(480; "Dimension Set ID"; Integer)
+        {
+            Caption = 'Dimension Set ID';
+            Editable = false;
+            TableRelation = "Dimension Set Entry";
+
+            // trigger OnLookup()
+            // begin
+            //     Rec.ShowDimensions();
+            // end;
+        }
         field(50000; "Currency Code"; Code[10])
         {
             Caption = 'Currency Code';
             TableRelation = Currency;
             Editable = false;
-
-            trigger OnValidate()
-            begin
-            end;
         }
 
         field(50100; "Settlement Date"; Date)
         {
             Caption = 'Settlement Date';
         }
-        field(50101; "User Id"; Code[50])
+        field(50101; "Settled By"; Code[50])
         {
-            Caption = 'User Id';
+            Caption = 'Settled By';
         }
         field(50102; "Source Code"; Code[20])
         {
             Caption = 'Source Code';
+        }
+        field(50103; "Original No."; Code[20])
+        {
+            Caption = 'Original No.';
         }
 
     }
@@ -91,5 +139,12 @@ table 50026 "A01 Posted Payment Document"
             Clustered = true;
         }
     }
-
+    procedure Navigate()
+    var
+        NavigatePage: Page Navigate;
+    begin
+        NavigatePage.SetDoc("Posting Date", "No.");
+        NavigatePage.SetRec(Rec);
+        NavigatePage.Run();
+    end;
 }

@@ -133,9 +133,9 @@ table 50017 "A01 Afk Setup"
             Caption = 'Payment Promise Nos';
             TableRelation = "No. Series";
         }
-        field(28; "Payment Document Nos"; Code[20])
+        field(28; "Customer Settlement Nos"; Code[20])
         {
-            Caption = 'Payment Document Nos';
+            Caption = 'Customer Settlement Nos';
             TableRelation = "No. Series";
         }
         field(29; "Discount Request Nos"; Code[20])
@@ -214,6 +214,11 @@ table 50017 "A01 Afk Setup"
         field(46; "AGP Contract Nos"; Code[20])
         {
             Caption = 'AGP Contract Nos';
+            TableRelation = "No. Series";
+        }
+        field(47; "Posted Cust Settlement Nos"; Code[20])
+        {
+            Caption = 'Posted Customer Settlement Nos';
             TableRelation = "No. Series";
         }
         //Banked or unbanked employee

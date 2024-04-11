@@ -33,9 +33,9 @@ page 50061 "A01 Post CustSettlementSubform"
                 // field("Applies-to Doc. No."; Rec."Applies-to Doc. No.")
                 // {
                 // }
-                field("Applies-to ID"; Rec."Applies-to ID")
-                {
-                }
+                // field("Applies-to ID"; Rec."Applies-to ID")
+                // {
+                // }
             }
         }
     }

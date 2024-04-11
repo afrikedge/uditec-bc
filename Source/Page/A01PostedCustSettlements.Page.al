@@ -9,6 +9,7 @@ page 50062 "A01 Posted Cust Settlements"
     SourceTable = "A01 Posted Payment Document";
     CardPageId = "A01 Posted Cust Settlement";
     UsageCategory = Lists;
+    Editable = false;
 
     layout
     {

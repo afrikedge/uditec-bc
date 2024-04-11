@@ -86,6 +86,16 @@ tableextension 50005 "A01 Contact" extends Contact
             Caption = 'ID Number';
             DataClassification = CustomerContent;
         }
+        field(50015; "A01 Created By"; Code[50])
+        {
+            Caption = 'Created By';
+            DataClassification = CustomerContent;
+        }
+        field(50016; "A01 Modified By"; Code[50])
+        {
+            Caption = 'Modified By';
+            DataClassification = CustomerContent;
+        }
 
 
 

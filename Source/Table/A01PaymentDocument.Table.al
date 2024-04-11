@@ -17,7 +17,7 @@ table 50032 "A01 Payment Document"
             begin
                 if "No." <> xRec."No." then begin
                     AddOnSetup.Get();
-                    NoSeriesManagement.TestManual(AddOnSetup."Payment Document Nos");
+                    NoSeriesManagement.TestManual(AddOnSetup."Customer Settlement Nos");
                     "No. Series" := '';
                 end;
             end;
@@ -141,6 +141,46 @@ table 50032 "A01 Payment Document"
         {
             Caption = 'External Document No.';
         }
+        field(16; "Applies-to ID"; Code[50])
+        {
+            Caption = 'Applies-to ID';
+            Editable = false;
+        }
+        field(17; "Applies-to Doc. Type"; Enum "Gen. Journal Document Type")
+        {
+            Caption = 'Applies-to Doc. Type';
+            Editable = false;
+        }
+        field(18; "Applies-to Doc. No."; Code[20])
+        {
+            Caption = 'Applies-to Doc. No.';
+            Editable = false;
+        }
+        field(19; "Amount"; Decimal)
+        {
+            Caption = 'Amount';
+            Editable = false;
+            FieldClass = FlowField;
+            CalcFormula = sum("A01 Payment Document Line".Amount where("Document No." = field("No.")));
+        }
+        field(20; "Validated Amount"; Decimal)
+        {
+            Caption = 'Validated Amount';
+            Editable = false;
+            FieldClass = FlowField;
+            CalcFormula = sum("A01 Payment Document Line"."Validated Amount" where("Document No." = field("No.")));
+        }
+        field(21; "Posting No."; Code[20])
+        {
+            Caption = 'Posting No.';
+            Editable = false;
+        }
+
+
+
+
+
+
         field(480; "Dimension Set ID"; Integer)
         {
             Caption = 'Dimension Set ID';
@@ -174,14 +214,24 @@ table 50032 "A01 Payment Document"
     begin
         if "No." = '' then begin
             AddOnSetup.Get();
-            AddOnSetup.TestField("Payment Document Nos");
-            NoSeriesManagement.InitSeries(AddOnSetup."Payment Document Nos", xRec."No. Series", 0D, "No.", "No. Series");
+            AddOnSetup.TestField("Customer Settlement Nos");
+            NoSeriesManagement.InitSeries(AddOnSetup."Customer Settlement Nos", xRec."No. Series", 0D, "No.", "No. Series");
         end;
         InitHeader();
     end;
 
+    trigger OnDelete()
+    var
+        DocLine: Record "A01 Payment Document Line";
+    begin
+        DocLine.SetRange(DocLine."Document No.", "No.");
+        if (not DocLine.IsEmpty) then
+            DocLine.DeleteAll();
+    end;
+
     var
         AddOnSetup: Record "A01 Afk Setup";
+        Currency: Record Currency;
         NoSeriesManagement: Codeunit NoSeriesManagement;
         DimensionManagement: Codeunit DimensionManagement;
         Text009: Label 'You may have changed a dimension.\\Do you want to update the lines?';
@@ -189,6 +239,8 @@ table 50032 "A01 Payment Document"
 
     local procedure InitHeader()
     begin
+        "Partner Type" := "Partner Type"::Customer;
+        "Posting Date" := WorkDate();
     end;
 
     local procedure DeleteLinesIfTheyExists()
@@ -250,5 +302,14 @@ table 50032 "A01 Payment Document"
                     PaymentLine.Modify();
                 end;
             until PaymentLine.Next() = 0;
+    end;
+
+    procedure GetCurrency()
+    begin
+        if ("Currency Code" = '') then begin
+            Clear(Currency);
+            Currency.InitRoundingPrecision();
+        end else
+            Currency.Get("Currency Code");
     end;
 }

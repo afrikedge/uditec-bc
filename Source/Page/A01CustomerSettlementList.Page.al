@@ -9,6 +9,7 @@ page 50059 "A01 Customer Settlement List"
     PageType = List;
     SourceTable = "A01 Payment Document";
     UsageCategory = Lists;
+    Editable = false;
     CardPageId = "A01 Customer Settlement";
 
     layout
