@@ -14,7 +14,7 @@ report 50016 "A01 PreparationOrderPrint"
         dataitem(Header; "Sales Header")
         {
             DataItemTableView = sorting("Document Type", "No.") where("Document Type" = const(Order));
-            RequestFilterFields = "No.", "Sell-to Customer No.";
+            RequestFilterFields = "No.", "Sell-to Customer No.", "Location Code";
             RequestFilterHeading = 'Preparation order';
             column(DocumentNo_; "No.")
             {
@@ -23,6 +23,9 @@ report 50016 "A01 PreparationOrderPrint"
             {
             }
             column(Order_Date; Format("Order Date"))
+            {
+            }
+            column(Shipment_Date; Format("Shipment Date"))
             {
             }
             column(CompanyName; COMPANYPROPERTY.DisplayName())
@@ -157,6 +160,9 @@ report 50016 "A01 PreparationOrderPrint"
                 column(Planned_Delivery_Date; Format("Planned Delivery Date"))
                 {
                 }
+                column(Bin_Code; "Bin Code")
+                {
+                }
                 dataitem("Tracking Specification"; "Tracking Specification")
                 {
                     DataItemLink = "Item No." = field("No."), "Source ID" = field("Document No."), "Source Ref. No." = field("Line No.");
@@ -166,15 +172,38 @@ report 50016 "A01 PreparationOrderPrint"
                     {
                     }
                 }
+                trigger OnPreDataItem()
+                begin
+                    SetRange(Type, Type::Item);
+                end;
+
+                trigger OnAfterGetRecord()
+                begin
+                    if "No." = 'MIR_FEES' then
+                        CurrReport.Skip();
+                    if "No." = 'mir_fees' then
+                        CurrReport.Skip();
+                    if "No." = 'MIR_INTEREST' then
+                        CurrReport.Skip();
+                    if "No." = 'mir_interest' then
+                        CurrReport.Skip();
+                end;
 
             }
             trigger OnAfterGetRecord()
             begin
-                if RespCenter.Get(Header."Responsibility Center") then begin
-                    UnitName := RespCenter.Name;
-                    UnitAddress := RespCenter.Address;
-                    UnitCity := RespCenter.City;
-                    UnitPostalCode := RespCenter."Post Code";
+                // if RespCenter.Get(Header."Responsibility Center") then begin
+                //     UnitName := RespCenter.Name;
+                //     UnitAddress := RespCenter.Address;
+                //     UnitCity := RespCenter.City;
+                //     UnitPostalCode := RespCenter."Post Code";
+                // end;
+
+                if LocRec.Get(Header."Location Code") then begin
+                    UnitName := LocRec.Name;
+                    UnitAddress := LocRec.Address;
+                    UnitCity := LocRec.City;
+                    UnitPostalCode := LocRec."Post Code";
                 end;
 
                 if Contact.Get(Header."Sell-to Contact No.") then begin
@@ -218,8 +247,9 @@ report 50016 "A01 PreparationOrderPrint"
 
     var
         CompanyInfo: Record "Company Information";
-        RespCenter: Record "Responsibility Center";
+        // RespCenter: Record "Responsibility Center";
         Contact: Record Contact;
+        LocRec: Record Location;
         // Ship: Record "Ship-to Address";
         UnitName: Text[100];
         UnitAddress: Text[100];
@@ -241,8 +271,8 @@ report 50016 "A01 PreparationOrderPrint"
         STATLbl: Label 'STAT :';
         RCSLbl: Label 'RCS :';
         CustPhoneLbl: Label 'Phone :';
-        PreparationOrderNumberLbl: Label 'Preparation order number :';
-        PreparationOrderDateLbl: Label 'preparation order date :';
+        PreparationOrderNumberLbl: Label 'Preparation order N° :';
+        PreparationOrderDateLbl: Label 'Date :';
         // OrderNumberLbl: Label 'Order number :';
         ProductCodeLbl: Label 'Product code';
         PlannedDeliveryDateLbl: Label 'Planned delivery date';
@@ -250,6 +280,6 @@ report 50016 "A01 PreparationOrderPrint"
         DesignationLbl: Label 'Designation';
         QtyToShipLbl: Label 'Quantity to ship';
         ProductLocationLbl: Label 'Product Location';
-        CustSignLbl: Label 'Customer signature';
-        CompanySignLbl: Label 'Company signature';
+        CustSignLbl: Label 'Logistique signature';
+        CompanySignLbl: Label 'Preparator signature';
 }

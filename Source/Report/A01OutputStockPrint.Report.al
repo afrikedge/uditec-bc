@@ -200,6 +200,36 @@ report 50013 "A01 OutputStockPrint"
                 column(NewLocationCodeFieldCaption; FieldCaption("New Location Code"))
                 {
                 }
+                column(UnitName; UnitName)
+                {
+                }
+                column(UnitAddress; UnitAddress)
+                {
+                }
+                column(UnitCity; UnitCity)
+                {
+                }
+                column(UnitPostalCode; UnitPostalCode)
+                {
+                }
+                column(UnitNameLbl; UnitNameLbl)
+                {
+                }
+                column(UnitAddressLbl; UnitAddressLbl)
+                {
+                }
+                column(UnitCityLbl; UnitCityLbl)
+                {
+                }
+                column(UnitPostalCodeLbl; UnitPostalCodeLbl)
+                {
+                }
+                column(WarehouseSignLbl; WarehouseSignLbl)
+                {
+                }
+                column(RecipientSignLbl; RecipientSignLbl)
+                {
+                }
                 trigger OnAfterGetRecord()
                 begin
                     AfkIsLine := 1;
@@ -236,6 +266,22 @@ report 50013 "A01 OutputStockPrint"
                     if ("Entry Type" <> "Entry Type"::Transfer) and
                        (ActivityType = ActivityType::Movement)
                     then
+                        CurrReport.Skip();
+
+                    if LocRec.Get("Item Journal Line"."Location Code") then begin
+                        UnitName := LocRec.Name;
+                        UnitAddress := LocRec.Address;
+                        UnitCity := LocRec.City;
+                        UnitPostalCode := LocRec."Post Code";
+                    end;
+
+                    if "No." = 'MIR_FEES' then
+                        CurrReport.Skip();
+                    if "No." = 'mir_fees' then
+                        CurrReport.Skip();
+                    if "No." = 'MIR_INTEREST' then
+                        CurrReport.Skip();
+                    if "No." = 'mir_interest' then
                         CurrReport.Skip();
                 end;
 
@@ -316,24 +362,36 @@ report 50013 "A01 OutputStockPrint"
     var
         ItemJnlTemplate: Record "Item Journal Template";
         CompanyInfo: Record "Company Information";
+        LocRec: Record Location;
         ItemJnlLineFilter: Text;
+        UnitName: Text[100];
+        UnitAddress: Text[100];
+        UnitCity: Text[50];
+        UnitPostalCode: Text[50];
         AfkIsLine: Integer;
         NumLigne: Integer;
         NumLigneText: Code[2];
         ActivityType: Option " ","Put-away",Pick,Movement;
         InventoryMovementCaptionLbl: Label 'Inventory Movement';
         PageCaptionLbl: Label 'Page';
-        DateOfPrintLbl: Label 'Date of print :';
+        DateOfPrintLbl: Label 'Date of print:';
         ActivityTypeCaptionLbl: Label 'Activity Type';
         PostingDateCaptionLbl: Label 'Posting Date';
         ReportTitleLbl: Label 'OUTPUT STOCK';
+        UnitNameLbl: Label 'Warehouse name :';
+        UnitAddressLbl: Label 'Warehouse address :';
+        UnitCityLbl: Label 'City';
+        UnitPostalCodeLbl: Label 'Postal code :';
+        WarehouseSignLbl: Label 'Warehouse signature';
+        RecipientSignLbl: Label 'Recipient signature';
+
 
         OutputDateLbl: Label 'Output date';
         ProductCodeLbl: Label 'Product code';
-        ProductVariantCodeLbl: Label 'Variant code';
+        ProductVariantCodeLbl: Label 'Variant';
         DesignationLbl: Label 'Designation';
-        QuantityOutputLbl: Label 'Quantity output';
-        WarehouseLbl: Label 'Warehouse code';
+        QuantityOutputLbl: Label 'Quantity';
+        WarehouseLbl: Label 'Location code';
         LocationLbl: Label 'Location';
 
 

@@ -96,6 +96,12 @@ report 50001 "A01 SalesQuotePrint"
             column(DateOfPrint; DateOfPrint)
             {
             }
+            column(Quote_Valid_Until_Date; Format("Quote Valid Until Date"))
+            {
+            }
+            column(AfkCurrCod; AfkCurrCod)
+            {
+            }
             column(CustomerName__Caption; CustomerName__Caption)
             {
             }
@@ -279,6 +285,11 @@ report 50001 "A01 SalesQuotePrint"
                 column(TotalTTC__Caption; TotalTTC__Caption)
                 {
                 }
+                column(A01DiscountedPrice; A01DiscountedPriceText)
+                {
+                    AutoFormatExpression = Header."Currency Code";
+                    AutoFormatType = 2;
+                }
 
                 // Line
                 trigger OnAfterGetRecord()
@@ -324,13 +335,25 @@ report 50001 "A01 SalesQuotePrint"
                     end;
                     A01LineQty := Line.Quantity;
                     A01LinePU := Round(tempPU, 0.000001, '<');
+                    A01DiscountedPrice := Round(tempPU - Line."Line Discount Amount", 0.001, '<');
 
                     A01LineQtyFormatted := Format(A01LineQty);
                     A01LinePUFormatted := Format(A01LinePU);
+                    A01DiscountedPriceText := Format(A01DiscountedPrice);
 
                     // InitializeShipmentLine();
-                    if Type = Type::"G/L Account" then
-                        // "No." := '';
+                    // if Type = Type::"G/L Account" then
+                    // "No." := '';
+                    // CurrReport.Skip();
+
+                    if "No." = 'MIR_FEES' then
+                        CurrReport.Skip();
+                    if "No." = 'mir_fees' then
+                        CurrReport.Skip();
+                    if "No." = 'MIR_INTEREST' then
+                        CurrReport.Skip();
+                    if "No." = 'mir_interest' then
+                        CurrReport.Skip();
 
                     OnBeforeLineOnAfterGetRecord(Header, Line);
 
@@ -385,6 +408,7 @@ report 50001 "A01 SalesQuotePrint"
                 trigger OnPreDataItem()
                 begin
                     VATAmountLine.DeleteAll();
+                    SetRange(Type, Type::Item);
                     MoreLines := Find('+');
                     while MoreLines and (Description = '') and ("No." = '') and (Quantity = 0) and (Amount = 0) do
                         MoreLines := Next(-1) <> 0;
@@ -713,13 +737,17 @@ report 50001 "A01 SalesQuotePrint"
                     AfkTotalAmountInclVAT_LCYText :=
                            Format(AfkTotalAmountInclVAT_LCY, 0,
                            AutoFormat.ResolveAutoFormat("Auto Format"::AmountFormat, AfkLocalCurrency.Code));
+                    AfkTotalAmountInclVAT_LCYText := Format(AfkTotalAmountInclVAT_LCY);
+
                     AfkTotalAmount_LCYText :=
                         Format(AfkTotalAmount_LCY, 0,
                         AutoFormat.ResolveAutoFormat("Auto Format"::AmountFormat, AfkLocalCurrency.Code));
-                    // AfkLocalCurrencyText := 'XAF';
+                    AfkTotalAmount_LCYText := Format(AfkTotalAmount_LCY);
+
                     AfkTotalVAT_LCYText :=
                         Format(AfkTotalVAT_LCY, 0,
                         AutoFormat.ResolveAutoFormat("Auto Format"::AmountFormat, AfkLocalCurrency.Code));
+                    AfkTotalVAT_LCYText := Format(AfkTotalVAT_LCY);
 
                     RepCheck.InitTextVariable();
                     RepCheck.FormatNoText(NoText, AfkTotalAmountInclVAT_LCY, AfkLocalCurrency.Code);
@@ -755,6 +783,7 @@ report 50001 "A01 SalesQuotePrint"
                 if not Cust.Get("Sell-to Customer No.") then
                     Clear(Cust);
 
+                AfkCurrCod := GLSetup."Local Currency Symbol";
                 AfkCurrCode := Header."Currency Code";
                 if (AfkCurrCode = '') then
                     AfkCurrCode := GLSetup."LCY Code";
@@ -1043,6 +1072,8 @@ report 50001 "A01 SalesQuotePrint"
         TotalAmountExclInclVATValue: Decimal;
         AfkTotalAmountInclVAT_LCY: Decimal;
         AfkTotalAmount_LCY: Decimal;
+        A01DiscountedPrice: Decimal;
+        A01DiscountedPriceText: Text[50];
         AfkTotalVAT_LCY: Decimal;
         CalculatedExchRate: Decimal;
         PrevLineAmount: Decimal;
@@ -1060,6 +1091,7 @@ report 50001 "A01 SalesQuotePrint"
         TotalVATAmountLCY: Decimal;
         TotalVATBaseLCY: Decimal;
         NumLigne: Integer;
+        AfkCurrCod: Code[20];
         AfkIsLine: Integer;
         // AfkLinesNumber: Integer;
         // CompanyLogoPosition: Integer;
@@ -1082,21 +1114,21 @@ report 50001 "A01 SalesQuotePrint"
         Document_No__Caption: Label 'Product code';
         Description__Caption: Label 'Designation';
         Quantity__Caption: Label 'Quantity';
-        UnitPrice__Caption: Label 'Unit price HT(AR)';
-        DiscountPercent__Caption: Label 'Discount(AR)';
-        DiscountAmount__Caption: Label 'Discounted price HT(AR)';
-        DevisNo__Caption: Label 'Quote No :';
+        UnitPrice__Caption: Label 'Unit price HT';
+        DiscountPercent__Caption: Label 'Discount';
+        DiscountAmount__Caption: Label 'Discounted price HT';
+        DevisNo__Caption: Label 'Reference :';
         DateOfPrint: Label 'Date of print :';
         CustomerName__Caption: Label 'Customer name :';
         CustomerIdentity__Caption: Label 'Customer identity :';
         CustomerAddress__Caption: Label 'Customer address :';
-        NIF__Caption: Label 'NIF :';
-        STAT__Caption: Label 'STAT :';
-        RCS__Caption: Label 'RCS :';
-        CustomerPhone__Caption: Label 'Phone :';
-        TotalHT__Caption: Label 'Total HT (AR) :';
-        TVA__Caption: Label 'VAT(20%)(AR) :';
-        TotalTTC__Caption: Label 'Total TTC(AR) :';
+        NIF__Caption: Label 'NIF:';
+        STAT__Caption: Label 'STAT:';
+        RCS__Caption: Label 'RCS:';
+        CustomerPhone__Caption: Label 'Phone:';
+        TotalHT__Caption: Label 'Total HT';
+        TVA__Caption: Label 'VAT(20%)';
+        TotalTTC__Caption: Label 'Total TTC';
         CustSignLbl: Label 'Customer signature';
         CompanySignLbl: Label 'Company signature';
         ArrestedSumLbl: Label 'Arrested at the sum of :';
