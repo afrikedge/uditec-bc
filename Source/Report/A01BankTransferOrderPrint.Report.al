@@ -115,6 +115,15 @@ report 50017 "A01 BankTransferOrderPrint"
             column(MGALbl; MGALbl)
             {
             }
+            column(AfkCurrCode; AfkCurrCode)
+            {
+            }
+            column(BankAccountNo; BankAccountNo)
+            {
+            }
+            column(AmountInc_LCY; AmountInc_LCY)
+            {
+            }
 
             trigger OnAfterGetRecord()
             begin
@@ -132,16 +141,39 @@ report 50017 "A01 BankTransferOrderPrint"
                 if BankAccRec.Get(Line."Bal. Account No.") then begin
                     BankName := BankAccRec.Name;
                     BankAddress := BankAccRec.Address;
+                    BankAccountNo := BankAccRec."Bank Branch No." + ' ' + BankAccRec."Agency Code" + ' ' + BankAccRec."Bank Account No." + ' ' + Format(BankAccRec."RIB Key");
+                end;
+
+                GLSetup.Get();
+                GLSetup.TestField("LCY Code");
+
+                AfkCurrCode := Line."Currency Code";
+                if (AfkCurrCode = '') then
+                    AfkCurrCode := GLSetup."LCY Code";
+
+                AfkCurrencyName := AfkCurrCode;
+                if AfkCurrency.Get(AfkCurrCode) then
+                    AfkCurrencyName := AfkCurrency.Description;
+
+                if (AfkLocalCurrency.Get(GLSetup."LCY Code") and (AfkCurrCode <> GLSetup."LCY Code")) then
+                    AfkLocalCurrencyName := AfkLocalCurrency.Description;
+
+                if "Currency Code" <> '' then begin
+                    CurrencyExchangeRate.FindCurrency("Posting Date", "Currency Code", 1);
+                    CalculatedExchRate :=
+                      Round(1 / "Currency Factor" * CurrencyExchangeRate."Exchange Rate Amount", 0.000001);
+                    ExchangeRateText := StrSubstNo(ExchangeRateTxt, CalculatedExchRate, CurrencyExchangeRate."Exchange Rate Amount");
                 end;
 
                 AmountInc_LCY := CurrencyExchangeRate.ExchangeAmtFCYToLCY(Line."Posting Date",
                                     Line."Currency Code", AmountInc_LCY, Line."Currency Factor");
                 AmountInc_LCY := "Amount (LCY)";
-                AmountInc_LCY := ROUND(AmountInc_LCY, LocalCurrency."Amount Rounding Precision");
-                AmountIn_LCYText := Format(AmountInc_LCY, 0, AutoFormat.ResolveAutoFormat("Auto Format"::AmountFormat, LocalCurrency.Code));
+                AmountInc_LCY := ROUND(AmountInc_LCY, AfkLocalCurrency."Amount Rounding Precision");
+                AmountIn_LCYText := Format(AmountInc_LCY, 0, AutoFormat.ResolveAutoFormat("Auto Format"::AmountFormat, AfkLocalCurrency.Code));
+                AmountIn_LCYText := Format(AmountInc_LCY);
 
                 RepCheck.InitTextVariable();
-                RepCheck.FormatNoText(NoText, AmountInc_LCY, LocalCurrency.Code);
+                RepCheck.FormatNoText(NoText, AmountInc_LCY, AfkLocalCurrency.Code);
 
                 NoText[1] := ReplaceString(NoText[1], '****');
                 NoText[1] := ReplaceString(NoText[1], 'AND 0/100');
@@ -175,22 +207,32 @@ report 50017 "A01 BankTransferOrderPrint"
     var
         CompanyInfo: Record "Company Information";
         VendorRec: Record Vendor;
+        GLSetup: Record "General Ledger Setup";
         CurrencyExchangeRate: Record "Currency Exchange Rate";
         VendorBanckAccRec: Record "Vendor Bank Account";
         BankAccRec: Record "Bank Account";
-        LocalCurrency: Record Currency;
+        // LocalCurrency: Record Currency;
+        AfkCurrency: Record Currency;
+        AfkLocalCurrency: Record Currency;
         RepCheck: Report Check;
         AutoFormat: Codeunit "Auto Format";
         AmountInc_LCY: Decimal;
+        CalculatedExchRate: Decimal;
+        ExchangeRateText: Text;
+        ExchangeRateTxt: Label 'Exchange rate: %1/%2', Comment = '%1 and %2 are both amounts.';
+        AfkLocalCurrencyName: Text;
+        AfkCurrCode: Code[20];
         AmountIn_LCYText: Text[50];
         NoText: array[2] of Text;
         AmountInWords: Text;
+        AfkCurrencyName: Text;
         BenAddress: Text[100];
         BankName: Text[100];
         BankAddress: Text[100];
         BenName: Text[100];
         Bank: Text[100];
         AccountNo: Text;
+        BankAccountNo: Text;
         RefLbl: Label 'Ref :';
         MGALbl: Label 'MGA';
         ObjetLbl: Label 'Object :';

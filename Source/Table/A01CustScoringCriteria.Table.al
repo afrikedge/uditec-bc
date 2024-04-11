@@ -16,7 +16,8 @@ table 50013 "A01 Cust Scoring Criteria"
         field(1; "Customer No."; Code[20])
         {
             Caption = 'Customer No.';
-            TableRelation = Customer;
+            TableRelation = if ("Account Type" = const("Customer")) Customer
+            else if ("Account Type" = const("Prospect")) Contact;
             Editable = false;
         }
         field(2; Criteria; Code[20])

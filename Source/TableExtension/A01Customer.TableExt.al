@@ -58,6 +58,47 @@ tableextension 50006 "A01 Customer" extends Customer
             Caption = 'Preferred Reminder Mode';
             DataClassification = CustomerContent;
         }
+        field(50009; "A01 Contract No."; Code[20])
+        {
+            Caption = 'Contract No.';
+            TableRelation = "A01 AGP Contrat";
+            DataClassification = CustomerContent;
+        }
+        field(50010; "A01 NIF"; Code[30])
+        {
+            Caption = 'NIF';
+            DataClassification = CustomerContent;
+        }
+        field(50011; "A01 STAT"; Code[30])
+        {
+            Caption = 'STAT';
+            DataClassification = CustomerContent;
+        }
+        field(50012; "A01 RCS"; Code[30])
+        {
+            Caption = 'RCS';
+            DataClassification = CustomerContent;
+        }
+        field(50013; "A01 CIF"; Code[30])
+        {
+            Caption = 'CIF';
+            DataClassification = CustomerContent;
+        }
+        field(50014; "A01 ID Number"; Code[30])
+        {
+            Caption = 'ID Number';
+            DataClassification = CustomerContent;
+        }
+        field(50015; "A01 Created By"; Code[50])
+        {
+            Caption = 'Created By';
+            DataClassification = CustomerContent;
+        }
+        field(50016; "A01 Modified By"; Code[50])
+        {
+            Caption = 'Modified By';
+            DataClassification = CustomerContent;
+        }
 
 
 
@@ -73,12 +114,12 @@ tableextension 50006 "A01 Customer" extends Customer
             DataClassification = CustomerContent;
             TableRelation = Contact;
         }
-        field(50101; "A01 Modified By"; Code[50])
-        {
-            Caption = 'Modified By';
-            DataClassification = CustomerContent;
-            TableRelation = "A01 External User";
-        }
+        // field(50101; "A01 Modified By"; Code[50])
+        // {
+        //     Caption = 'Modified By';
+        //     DataClassification = CustomerContent;
+        //     TableRelation = "A01 External User";
+        // }
 
 
         modify("Payment Terms Code")
@@ -92,4 +133,21 @@ tableextension 50006 "A01 Customer" extends Customer
             end;
         }
     }
+    trigger OnDelete()
+    var
+        CustRequirement: Record "A01 Cust Scoring Criteria";
+        CustScoring: Record "A01 Customer Scoring";
+    begin
+        CustRequirement.Reset();
+        CustRequirement.SetRange("Account Type", CustRequirement."Account Type"::Customer);
+        CustRequirement.SetRange("Customer No.", Rec."No.");
+        if (not CustRequirement.IsEmpty) then
+            CustRequirement.DeleteAll();
+
+        CustScoring.Reset();
+        CustScoring.SetRange("Account Type", CustScoring."Account Type"::Customer);
+        CustScoring.SetRange("Customer No.", Rec."No.");
+        if (not CustScoring.IsEmpty) then
+            CustScoring.DeleteAll();
+    end;
 }

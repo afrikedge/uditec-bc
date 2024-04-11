@@ -39,6 +39,35 @@ pageextension 50006 "A01 Customer Card" extends "Customer Card"
             {
                 ApplicationArea = Basic, Suite;
             }
+            field("A01 Contract No."; Rec."A01 Contract No.")
+            {
+                ApplicationArea = Basic, Suite;
+            }
+
+            field("A01 ID Number"; Rec."A01 ID Number")
+            {
+                ApplicationArea = Basic, Suite;
+            }
+        }
+
+        addafter("SIREN No.")
+        {
+            field("A01 NIF"; Rec."A01 NIF")
+            {
+                ApplicationArea = Basic, Suite;
+            }
+            field("A01 STAT"; Rec."A01 STAT")
+            {
+                ApplicationArea = Basic, Suite;
+            }
+            field("A01 CIF"; Rec."A01 CIF")
+            {
+                ApplicationArea = Basic, Suite;
+            }
+            field("A01 RCS"; Rec."A01 RCS")
+            {
+                ApplicationArea = Basic, Suite;
+            }
         }
     }
     actions
@@ -51,7 +80,7 @@ pageextension 50006 "A01 Customer Card" extends "Customer Card"
                 Caption = 'Scoring criteria';
                 Image = ViewDetails;
                 RunObject = Page "A01 Cust Scoring Criteria";
-                RunPageLink = "Customer No." = field("No.");
+                RunPageLink = "Customer No." = field("No."), "Account Type" = const(Customer);
             }
             action(A01Scoring)
             {

@@ -844,9 +844,9 @@ report 50008 "A01 PurchaseQuotePrint"
         A01ProductCode__Caption: Label 'Product code';
         A01Description__Caption: Label 'Designation';
         A01Quantity__Caption: Label 'Quantity';
-        A01UnitPrice__Caption: Label 'Unit price HT(AR)';
-        A01DiscountPercent__Caption: Label 'Discount(AR)';
-        A01DiscountAmount__Caption: Label 'Discounted price HT(AR)';
+        A01UnitPrice__Caption: Label 'Unit price HT';
+        A01DiscountPercent__Caption: Label 'Discount';
+        A01DiscountAmount__Caption: Label 'Discounted price HT';
         A01DevisNo__Caption: Label 'Reference :';
         A01VendorRef__Caption: Label 'Vendor reference';
         A01DateOfPrint: Label 'Date of print :';
@@ -859,9 +859,9 @@ report 50008 "A01 PurchaseQuotePrint"
         A01VendorPhone__Caption: Label 'Phone :';
         CustomerSignLbl: Label 'Customer signature';
         CompanySignLbl: Label 'Company signature';
-        A01TotalHT__Caption: Label 'Total HT (AR) :';
-        A01TVA__Caption: Label 'VAT(20%)(AR) :';
-        A01TotalTTC__Caption: Label 'Total TTC(AR) :';
+        A01TotalHT__Caption: Label 'Total HT';
+        A01TVA__Caption: Label 'VAT(20%)';
+        A01TotalTTC__Caption: Label 'Total TTC';
         // A01ArrestedSumLbl: Label 'Arrested at the sum of :';
         // ExpectedDateCaptionLbl: Label 'Expected Date';
         // QuoteNoCaptionLbl: Label 'Quote No.';

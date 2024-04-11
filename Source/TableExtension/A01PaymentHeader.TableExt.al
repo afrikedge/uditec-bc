@@ -41,5 +41,11 @@ tableextension 50010 "A01 Payment Header" extends "Payment Header"
             TableRelation = "Responsibility Center";
             Editable = false;
         }
+        // field(50006; "A01 Posted Document No."; Code[20])
+        // {
+        //     Caption = 'Posted Document No.';
+        //     DataClassification = CustomerContent;
+        //     Editable = false;
+        // }
     }
 }

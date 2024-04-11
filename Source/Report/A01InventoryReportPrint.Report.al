@@ -196,6 +196,37 @@ report 50015 "A01 InventoryReportPrint"
                     column(LineNo_ItemJournalLine; "Line No.")
                     {
                     }
+                    column(UnitName; UnitName)
+                    {
+                    }
+                    column(UnitAddress; UnitAddress)
+                    {
+                    }
+                    column(UnitCity; UnitCity)
+                    {
+                    }
+                    column(UnitPostalCode; UnitPostalCode)
+                    {
+                    }
+                    column(UnitNameLbl; UnitNameLbl)
+                    {
+                    }
+                    column(UnitAddressLbl; UnitAddressLbl)
+                    {
+                    }
+                    column(UnitCityLbl; UnitCityLbl)
+                    {
+                    }
+                    column(UnitPostalCodeLbl; UnitPostalCodeLbl)
+                    {
+                    }
+                    column(Reason_Code; "Reason Code")
+                    {
+                    }
+                    column(RaisonCodeLbl; RaisonCodeLbl)
+                    {
+                    }
+
                     dataitem(ItemTrackingSpecification; "Integer")
                     {
                         DataItemTableView = sorting(Number);
@@ -265,6 +296,22 @@ report 50015 "A01 InventoryReportPrint"
                                 end;
                             Clear(TempReservationEntryBuffer);
                         end;
+
+                        if LocRec.Get("Item Journal Line"."Location Code") then begin
+                            UnitName := LocRec.Name;
+                            UnitAddress := LocRec.Address;
+                            UnitCity := LocRec.City;
+                            UnitPostalCode := LocRec."Post Code";
+                        end;
+
+                        if "No." = 'MIR_FEES' then
+                            CurrReport.Skip();
+                        if "No." = 'mir_fees' then
+                            CurrReport.Skip();
+                        if "No." = 'MIR_INTEREST' then
+                            CurrReport.Skip();
+                        if "No." = 'mir_interest' then
+                            CurrReport.Skip();
                     end;
                 }
                 trigger OnAfterGetRecord()
@@ -333,6 +380,7 @@ report 50015 "A01 InventoryReportPrint"
         CompanyInfo: Record "Company Information";
         ItemJournalTemplate: Record "Item Journal Template";
         TempReservationEntryBuffer: Record "Reservation Entry" temporary;
+        LocRec: Record Location;
         ItemTrackingManagement: Codeunit "Item Tracking Management";
 
         Note: Text[1];
@@ -344,6 +392,16 @@ report 50015 "A01 InventoryReportPrint"
         GetLotNoCaption: Text;
         GetSerialNoCaption: Text;
         GetQuantityBaseCaption: Text;
+        UnitName: Text[100];
+        UnitAddress: Text[100];
+        UnitCity: Text[50];
+        UnitPostalCode: Text[50];
+
+        UnitNameLbl: Label 'Warehouse name :';
+        UnitAddressLbl: Label 'Warehouse address :';
+        UnitCityLbl: Label 'City';
+        UnitPostalCodeLbl: Label 'Postal code :';
+        RaisonCodeLbl: Label 'Reason code';
         Note1Lbl: Label '*Note:';
         SummaryPerItemLbl: Label 'Your system is set up to use Bin Mandatory and not Warehouse Item Tracking. Therefore, you will not see item tracking numbers by bin but merely as a summary per item.';
         PhysInventoryListCaptionLbl: Label 'Phys. Inventory List';
@@ -353,19 +411,19 @@ report 50015 "A01 InventoryReportPrint"
         SummaryperItemCaptionLbl: Label 'Summary per Item *';
 
         PostingDateCaptionLbl: Label 'Posting Date';
-        DateOfPrintLbl: Label 'Date of print :';
+        DateOfPrintLbl: Label 'Date of print:';
         ReportTitleLbl: Label 'INVENTORY REPORT';
         InventoryDateLbl: Label 'Inventory date';
         ProductCodeLbl: Label 'Product code';
-        ProductVariantCodeLbl: Label 'Variant code';
+        ProductVariantCodeLbl: Label 'Variant';
         DesignationLbl: Label 'Designation';
         QuantityCalculateLbl: Label 'Quantity (Calculated)';
         QuantityObservedLbl: Label 'Quantity (Observed)';
         EntryTypeLbl: Label 'Entry type';
-        DocumentNumberLbl: Label 'Document number';
+        DocumentNumberLbl: Label 'Document N°';
         UnitAmountLbl: Label 'Unit amount';
         AmountLbl: Label 'Amount';
-        WarehouseLbl: Label 'Warehouse code';
+        WarehouseLbl: Label 'Location code';
         LocationLbl: Label 'Location';
 
     protected var

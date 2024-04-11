@@ -17,7 +17,7 @@ report 50005 "A01 TransferOrderPrint"
         dataitem(Header; "Transfer Header")
         {
             DataItemTableView = sorting("No.");
-            RequestFilterFields = "No.";
+            RequestFilterFields = "No.", "Transfer-from Code", "Transfer-to Code";
             RequestFilterHeading = 'Transfer Order';
             column(DocumentNo_; "No.")
             {
@@ -127,6 +127,39 @@ report 50005 "A01 TransferOrderPrint"
             column(Transfer_to_Name; "Transfer-to Name")
             {
             }
+            column(LogistiqueSignLbl; LogistiqueSignLbl)
+            {
+            }
+            column(SecuritySignLbl; SecuritySignLbl)
+            {
+            }
+            column(NameSignLbl; NameSignLbl)
+            {
+            }
+            column(SignLbl; SignLbl)
+            {
+            }
+            column(DateSignLbl; DateSignLbl)
+            {
+            }
+            column(HourSignLbl; HourSignLbl)
+            {
+            }
+            column(OrigineLbl; OrigineLbl)
+            {
+            }
+            column(DestinationLbl; DestinationLbl)
+            {
+            }
+            column(OrderedQtyLbl; OrderedQtyLbl)
+            {
+            }
+            column(ShippedQtyLbl; ShippedQtyLbl)
+            {
+            }
+            column(ReceveidQtyLbl; ReceveidQtyLbl)
+            {
+            }
             dataitem(Line; "Transfer Line")
             {
                 DataItemLinkReference = Header;
@@ -145,6 +178,9 @@ report 50005 "A01 TransferOrderPrint"
                 {
                 }
                 column(Quantity; Quantity)
+                {
+                }
+                column(Quantity_Shipped; "Quantity Shipped")
                 {
                 }
                 column(Quantity_Line_Lbl; FieldCaption(Quantity))
@@ -174,6 +210,17 @@ report 50005 "A01 TransferOrderPrint"
                     {
                     }
                 }
+                trigger OnAfterGetRecord()
+                begin
+                    if "Item No." = 'MIR_FEES' then
+                        CurrReport.Skip();
+                    if "Item No." = 'mir_fees' then
+                        CurrReport.Skip();
+                    if "Item No." = 'MIR_INTEREST' then
+                        CurrReport.Skip();
+                    if "Item No." = 'mir_interest' then
+                        CurrReport.Skip();
+                end;
             }
         }
 
@@ -208,16 +255,27 @@ report 50005 "A01 TransferOrderPrint"
         UnitCityLbl: Label 'City';
         UnitPostalCodeLbl: Label 'Postal code :';
         TransferNumberLbl: Label 'Transfer order N° :';
-        DeleveryNoteDateLbl: Label 'Transfer date :';
+        DeleveryNoteDateLbl: Label 'Date :';
         ProductCodeLbl: Label 'Product code';
         ProductSerialNumberLbl: Label 'product serial number';
         DesignationLbl: Label 'Designation';
         ProductLocationLbl: Label 'Product Location';
         OriginLocationLbl: Label 'Transfer origin location';
         DestinationLocationLbl: Label 'Transfer destination location';
+        OrderedQtyLbl: Label 'Ordered quantity';
+        ShippedQtyLbl: Label 'Shipped quantity';
+        ReceveidQtyLbl: Label 'Received quantity';
         IssuerSignLbl: Label 'Issuer signature';
         ReceiverSignLbl: Label 'Receiver signature';
-        RequestUnitLbl: Label 'Name of requesting unit :';
+        LogistiqueSignLbl: Label 'Logistique signature';
+        SecuritySignLbl: Label 'Security signature';
+        NameSignLbl: Label 'Name';
+        OrigineLbl: Label 'Origine';
+        DestinationLbl: Label 'Destination';
+        SignLbl: Label 'Signature';
+        DateSignLbl: Label 'Date';
+        HourSignLbl: Label 'Hour';
+        RequestUnitLbl: Label 'Nameofrequesting unit :';
         RequesterLbl: Label 'Name of requester :';
         RequesterUnitLbl: Label 'Name of receiving unit :';
 

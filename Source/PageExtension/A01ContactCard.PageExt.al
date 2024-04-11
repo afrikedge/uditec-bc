@@ -59,6 +59,31 @@ pageextension 50005 "A01 Contact Card" extends "Contact Card"
             {
                 ApplicationArea = Basic, Suite;
             }
+
+            field("A01 Contract No."; Rec."A01 Contract No.")
+            {
+                ApplicationArea = Basic, Suite;
+            }
+            field("A01 NIF"; Rec."A01 NIF")
+            {
+                ApplicationArea = Basic, Suite;
+            }
+            field("A01 STAT"; Rec."A01 STAT")
+            {
+                ApplicationArea = Basic, Suite;
+            }
+            field("A01 CIF"; Rec."A01 CIF")
+            {
+                ApplicationArea = Basic, Suite;
+            }
+            field("A01 RCS"; Rec."A01 RCS")
+            {
+                ApplicationArea = Basic, Suite;
+            }
+            field("A01 ID Number"; Rec."A01 ID Number")
+            {
+                ApplicationArea = Basic, Suite;
+            }
         }
     }
     actions

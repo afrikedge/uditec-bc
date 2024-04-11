@@ -238,13 +238,13 @@ report 50011 "A01 PurchaseReceiptPrint"
 
         ReportTitleLbl: Label 'PURCHASE RECEIPT';
         PurchaseReceiptNumberLbl: Label 'Purchase receipt number :';
-        OrderNumberLbl: Label 'Order number :';
-        DateOfReceiptLbl: Label 'Date receipt :';
+        OrderNumberLbl: Label 'Order N° :';
+        DateOfReceiptLbl: Label 'Date:';
         OrderDateLbl: Label 'Order date :';
         UnitNameLbl: Label 'Warehouse name :';
         UnitAddressLbl: Label 'Warehouse address :';
-        UnitCityLbl: Label 'Warehouse City';
-        UnitPostalCodeLbl: Label 'Warehouse Postalcode :';
+        UnitCityLbl: Label 'City';
+        UnitPostalCodeLbl: Label 'Postalcode :';
         VendorNameLbl: Label 'Vendor name :';
         VendorIdentityLbl: Label 'Vendor identity :';
         VendorAddressLbl: Label 'Vendor address :';

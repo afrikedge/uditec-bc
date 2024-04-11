@@ -269,6 +269,18 @@ pageextension 50002 "A01 Order Processor RC" extends "Order Processor Role Cente
                     Caption = 'Payment Slip List Archive';
                     RunObject = Page "Payment Slip List Archive";
                 }
+                action(A01Compta_CustSettlment)
+                {
+                    ApplicationArea = Basic, Suite;
+                    Caption = 'Customer Settlements';
+                    RunObject = Page "A01 Customer Settlement List";
+                }
+                action(A01Compta_PostedCustSettlment)
+                {
+                    ApplicationArea = Basic, Suite;
+                    Caption = 'Posted Customer Settlements';
+                    RunObject = Page "A01 Posted Cust Settlements";
+                }
             }
             group(A01AfkCredit)
             {
@@ -283,6 +295,12 @@ pageextension 50002 "A01 Order Processor RC" extends "Order Processor Role Cente
                     ApplicationArea = Basic, Suite;
                     Caption = 'Deadlines Assigment';
                     RunObject = Page "A01 Deadline Assignment List";
+                }
+                action(A01PayPromises)
+                {
+                    ApplicationArea = Basic, Suite;
+                    Caption = 'Payment promise list';
+                    RunObject = Page "A01 Payment Promise List";
                 }
             }
         }

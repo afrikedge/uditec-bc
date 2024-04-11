@@ -21,10 +21,16 @@ page 50049 "A01 Deadline Assignment List"
                 field("Deadline No."; Rec."Deadline No.")
                 {
                 }
-                field("Document Date"; Rec."Document Date")
+                field("Document No."; Rec."Document No.")
                 {
                 }
                 field("Assigned to"; Rec."Assigned to")
+                {
+                }
+                field("Assigned on"; Rec."Assigned on")
+                {
+                }
+                field("Document Date"; Rec."Document Date")
                 {
                 }
                 field("Due Date"; Rec."Due Date")
@@ -45,11 +51,17 @@ page 50049 "A01 Deadline Assignment List"
                 field("Assigned by"; Rec."Assigned by")
                 {
                 }
-                field("Assigned on"; Rec."Assigned on")
+
+                field(SystemModifiedBy; GetUserNameFromSecurityId(Rec.SystemModifiedBy))
+                {
+                    Caption = 'Modify by';
+                }
+                field(SystemModifiedAt; Rec.SystemModifiedAt)
                 {
                 }
-                field(SystemModifiedBy; Rec.SystemModifiedBy)
+                field(SystemCreatedBy; GetUserNameFromSecurityId(Rec.SystemCreatedBy))
                 {
+                    Caption = 'Created by';
                 }
                 field(SystemCreatedAt; Rec.SystemCreatedAt)
                 {
@@ -58,4 +70,12 @@ page 50049 "A01 Deadline Assignment List"
             }
         }
     }
+
+    local procedure GetUserNameFromSecurityId(UserSecurityID: Guid): Code[50]
+    var
+        User: Record User;
+    begin
+        if (User.Get(UserSecurityID)) then
+            exit(User."User Name");
+    end;
 }
