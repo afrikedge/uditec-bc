@@ -841,7 +841,6 @@
                                           </Border>
                                         </Style>
                                       </Rectangle>
-                                      <rd:Selected>true</rd:Selected>
                                     </CellContents>
                                   </TablixCell>
                                 </TablixCells>
@@ -926,15 +925,16 @@
           </Style>
         </PageHeader>
         <PageFooter>
-          <Height>4.02166cm</Height>
+          <Height>1.34028in</Height>
           <PrintOnFirstPage>true</PrintOnFirstPage>
           <PrintOnLastPage>true</PrintOnLastPage>
           <ReportItems>
-            <Image Name="Image3">
+            <Image Name="Image2">
               <Source>Embedded</Source>
               <Value>PieddepageOV</Value>
-              <Sizing>FitProportional</Sizing>
-              <Height>3.96875cm</Height>
+              <Sizing>Fit</Sizing>
+              <Top>0.03528cm</Top>
+              <Height>3.36904cm</Height>
               <Width>19.5cm</Width>
               <Style>
                 <Border>
