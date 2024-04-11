@@ -600,6 +600,7 @@ codeunit 50007 "A01 Treso Mgt"
     var GenJnlPostLine: Codeunit "Gen. Jnl.-Post Line"; var IsHandled: Boolean)
     var
         PaymentCond: Record "Payment Terms";
+        CreditDueLine: Record "A01 Credit Depreciation Table";
         TotalLineAmtInclVAT: Decimal;
         TotalLineAmtInclVATLCY: Decimal;
         TotalLineAmtLCY: Decimal;
@@ -622,7 +623,13 @@ codeunit 50007 "A01 Treso Mgt"
 
         PaymentCond.Get(SalesHeader."Payment Terms Code");
 
+        CreditDueLine.Reset();
+        CreditDueLine.SetRange("Document Type", CreditDueLine."Document Type"::"Sales order");
+        //CreditDueLine
+
         LineDueDate := SalesHeader."Due Date";
+
+
 
         for i := 1 to SalesHeader."A01 Credit Duration (Month)" do begin
             if (i <> SalesHeader."A01 Credit Duration (Month)") then begin

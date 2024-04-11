@@ -57,14 +57,22 @@ table 50016 "A01 Credit Depreciation Table"
         field(100; "Archived"; Boolean)
         {
             Caption = 'Archived';
+            Editable = false;
         }
         field(101; "Cust Ledger Entry No."; Integer)
         {
             Caption = 'Cust Ledger Entry No.';
+            Editable = false;
         }
         field(102; "Due Date"; Date)
         {
             Caption = 'Due Date';
+            Editable = false;
+        }
+        field(103; "Interest Posted"; Date)
+        {
+            Caption = 'Interest Posted';
+            Editable = false;
         }
     }
     keys
