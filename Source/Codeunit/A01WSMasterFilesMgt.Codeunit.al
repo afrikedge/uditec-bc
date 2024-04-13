@@ -160,8 +160,8 @@ codeunit 50015 A01WSMasterFilesMgt
         if (Cust."A01 Identification Mode".AsInteger() <> WS.GetInt('Identification Mode', input)) then
             Cust.Validate("A01 Identification Mode", WS.GetInt('Identification Mode', input));
 
-        if (Cust."Location Code" <> WS.GetText('saleOrderLocationCode', input)) then
-            Cust.Validate("Location Code", WS.GetText('saleOrderLocationCode', input));
+        // if (Cust."Location Code" <> WS.GetText('saleOrderLocationCode', input)) then
+        //     Cust.Validate("Location Code", WS.GetText('saleOrderLocationCode', input));
 
         if (Cust."Address" <> WS.GetText('Address', input)) then
             Cust.Validate("Address", WS.GetText('Address', input));
@@ -190,8 +190,8 @@ codeunit 50015 A01WSMasterFilesMgt
         if (Cust."A01 Allowed Item Category" <> WS.GetText('Primary Contact No_', input)) then
             Cust.Validate("A01 Allowed Item Category", WS.GetText('Primary Contact No_', input));
 
-        // if (Cust."A01 Customer Type" <> WS.GetText('Activity Type', input)) then
-        // Cust.Validate("A01 Allowed Item Category", WS.GetText('Activity Type', input));
+        if (Cust."A01 Preferred Reminder Mode".AsInteger() <> WS.GetInt('Activity Type', input)) then
+            Cust.Validate("A01 Preferred Reminder Mode", WS.GetInt('Activity Type', input));
 
         if (Cust."A01 NIF" <> WS.GetText('NIF', input)) then
             Cust.Validate("A01 NIF", WS.GetText('NIF', input));
@@ -210,7 +210,6 @@ codeunit 50015 A01WSMasterFilesMgt
 
         if (Cust."A01 Contract No." <> WS.GetText('Contract No_', input)) then
             Cust.Validate("A01 Contract No.", WS.GetText('Contract No_', input));
-
 
 
 
@@ -268,7 +267,7 @@ codeunit 50015 A01WSMasterFilesMgt
         end;
     end;
 
-    local procedure ProcessCustScoringCriteria(Cust: Record "Customer"; CustCriteria: Record "A01 Cust Scoring Criteria"; input: JsonObject)
+    local procedure ProcessCustScoringCriteria(Cust: Record "Customer"; var CustCriteria: Record "A01 Cust Scoring Criteria"; input: JsonObject)
     begin
 
         if (CustCriteria."Account Type" <> CustCriteria."Account Type"::Customer) then
@@ -284,16 +283,16 @@ codeunit 50015 A01WSMasterFilesMgt
             CustCriteria."Criteria" := Copystr(WS.GetText('Criteria', input), 1, 20);
 
         // if (CustCriteria."Criteria Description" <> WS.GetText('Criteria Description', input)) then
-        //     CustCriteria.Validate("Criteria Description", WS.GetText('Criteria Description', input));
+        //    CustCriteria.Validate("Criteria Description", WS.GetText('Criteria Description', input));
 
-        if (CustCriteria."Type".AsInteger() <> WS.GetInt('Value Type', input)) then
-            CustCriteria.Validate("Type", WS.GetInt('Value Type', input));
+        // if (CustCriteria."Type".AsInteger() <> WS.GetInt('Value Type', input)) then
+        //     CustCriteria.Validate("Type", WS.GetInt('Value Type', input));
 
         // if (CustCriteria.va.AsInteger() <> WS.GetInt('Value Length', input)) then
         //             CustCriteria.Validate("Type", WS.GetInt('Value Length', input));
 
-        if (CustCriteria.Requirement.AsInteger() <> WS.GetInt('Requirement', input)) then
-            CustCriteria.Validate("Requirement", WS.GetInt('Requirement', input));
+        // if (CustCriteria.Requirement.AsInteger() <> WS.GetInt('Requirement', input)) then
+        //     CustCriteria.Validate("Requirement", WS.GetInt('Requirement', input));
 
         if (CustCriteria."Numeric Value" <> WS.GetDecimal('Numeric Value', input)) then
             CustCriteria.Validate("Numeric Value", WS.GetDecimal('Numeric Value', input));
@@ -301,17 +300,18 @@ codeunit 50015 A01WSMasterFilesMgt
         if (CustCriteria."Aplhanumeric Value" <> WS.GetText('Aplha Value', input)) then
             CustCriteria.Validate("Aplhanumeric Value", WS.GetText('Aplha Value', input));
 
-        if (CustCriteria.Validity.AsInteger() <> WS.GetInt('Validity', input)) then
-            CustCriteria.Validate("Validity", WS.GetInt('Validity', input));
+        // if (CustCriteria.Validity.AsInteger() <> WS.GetInt('Validity', input)) then
+        //     CustCriteria.Validate("Validity", WS.GetInt('Validity', input));
 
-        if (CustCriteria."Validity Date" <> WS.GetDate('Validity Date', input)) then
-            CustCriteria.Validate("Validity Date", WS.GetDate('Validity Date', input));
+        //TODO TEST JSON HERE
+        //if (CustCriteria."Validity Date" <> WS.GetDate('Validity Date', input)) then
+        //    CustCriteria.Validate("Validity Date", WS.GetDate('Validity Date', input));
 
-        if (CustCriteria."Document Required" <> WS.GetBool('Document required', input)) then
-            CustCriteria.Validate("Document Required", WS.GetBool('Document required', input));
+        // if (CustCriteria."Document Required" <> WS.GetBool('Document required', input)) then
+        //     CustCriteria.Validate("Document Required", WS.GetBool('Document required', input));
 
-        if (CustCriteria.DocumentLink <> WS.GetText('DocumentLink', input)) then
-            CustCriteria.Validate("DocumentLink", WS.GetText('DocumentLink', input));
+        if (CustCriteria.DocumentLink <> WS.GetText('Document Link', input)) then
+            CustCriteria.Validate("DocumentLink", WS.GetText('Document Link', input));
 
         if (CustCriteria.Valid <> WS.GetBool('Valid', input)) then
             CustCriteria.Validate("Valid", WS.GetBool('Valid', input));
@@ -346,7 +346,7 @@ codeunit 50015 A01WSMasterFilesMgt
         end;
     end;
 
-    local procedure ProcesCustomerScoring(Cust: Record "Customer"; CustScoring: Record "A01 Customer Scoring"; input: JsonObject)
+    local procedure ProcesCustomerScoring(Cust: Record "Customer"; var CustScoring: Record "A01 Customer Scoring"; input: JsonObject)
     begin
 
         if (CustScoring."Account Type" <> CustScoring."Account Type"::Customer) then
@@ -355,42 +355,22 @@ codeunit 50015 A01WSMasterFilesMgt
         if (CustScoring."Customer No." <> Cust."No.") then
             CustScoring."Customer No." := Cust."No.";
 
-        // if (CustCriteria.le <> WS.GetInt('Lead No', input)) then
-        //     CustCriteria."Lead No" := WS.GetInt('Lead No', input);
-
         if (CustScoring.Criteria <> WS.GetText('Criteria', input)) then
             CustScoring."Criteria" := Copystr(WS.GetText('Criteria', input), 1, 20);
 
-        // if (CustCriteria."Criteria Description" <> WS.GetText('Criteria Description', input)) then
-        //     CustCriteria.Validate("Criteria Description", WS.GetText('Criteria Description', input));
-
-        if (CustScoring."Type".AsInteger() <> WS.GetInt('Value Type', input)) then
-            CustScoring.Validate("Type", WS.GetInt('Value Type', input));
+        //TODO activate here
+        // if (CustScoring."Type".AsInteger() <> WS.GetInt('Value Type', input)) then
+        //     CustScoring.Validate("Type", WS.GetInt('Value Type', input));
 
 
-        // if (CustCriteria.list.AsInteger() <> WS.GetInt('List Value', input)) then
-        //     CustCriteria.Validate("Requirement", WS.GetInt('List Value', input));
-
-        // if (CustCriteria.v <> WS.GetDecimal('Value Description', input)) then
-        //     CustCriteria.Validate("Numeric Value", WS.GetDecimal('Value Description', input));
-
-        // if (CustCriteria.al <> WS.GetText('Aplha Value', input)) then
-        //     CustCriteria.Validate("Aplhanumeric Value", WS.GetText('Aplha Value', input));
-
-        //  if (CustScoring.num <> WS.GetText('Numeric Value', input)) then
-        //      CustScoring.Validate("Aplhanumeric Value", WS.GetText('Numeric Value', input));
-
-        if (CustScoring.Validity.AsInteger() <> WS.GetInt('Validity', input)) then
-            CustScoring.Validate("Validity", WS.GetInt('Validity', input));
+        if (CustScoring."Criteria Value" <> WS.GetText('Criteria Value', input)) then
+            CustScoring.Validate("Criteria Value", WS.GetText('Criteria Value', input));
 
         if (CustScoring."Validity Date" <> WS.GetDate('Validity Date', input)) then
             CustScoring.Validate("Validity Date", WS.GetDate('Validity Date', input));
 
-        if (CustScoring."Document Required" <> WS.GetBool('Document required', input)) then
-            CustScoring.Validate("Document Required", WS.GetBool('Document required', input));
-
-        if (CustScoring.DocumentLink <> WS.GetText('DocumentLink', input)) then
-            CustScoring.Validate("DocumentLink", WS.GetText('DocumentLink', input));
+        if (CustScoring.DocumentLink <> WS.GetText('Document Link', input)) then
+            CustScoring.Validate("DocumentLink", WS.GetText('Document Link', input));
 
         if (CustScoring.Valid <> WS.GetBool('Valid', input)) then
             CustScoring.Validate("Valid", WS.GetBool('Valid', input));
@@ -469,6 +449,10 @@ codeunit 50015 A01WSMasterFilesMgt
     local procedure ProcessLead(var Cont: Record "Contact"; input: JsonObject)
     begin
 
+
+        //if (Cont."Name" <> WS.GetText('Name', input)) then
+        //    Cont.Validate("Name", WS.GetText('Name', input));
+
         if (Cont."A01 Created By" = '') then
             Cont.Validate("A01 Created By", WS.GetText('webUserName', input));
 
@@ -515,11 +499,11 @@ codeunit 50015 A01WSMasterFilesMgt
         if (Cont."A01 Allowed Item Category" <> WS.GetText('Item Category', input)) then
             Cont.Validate("A01 Allowed Item Category", WS.GetText('Item Category', input));
 
-        if (Cont."A01 Allowed Item Category" <> WS.GetText('Primary Contact No_', input)) then
-            Cont.Validate("A01 Allowed Item Category", WS.GetText('Primary Contact No_', input));
+        if (Cont."A01 Main Contact" <> WS.GetText('Primary Contact No_', input)) then
+            Cont.Validate("A01 Main Contact", WS.GetText('Primary Contact No_', input));
 
-        // if (Cust."A01 Customer Type" <> WS.GetText('Activity Type', input)) then
-        // Cust.Validate("A01 Allowed Item Category", WS.GetText('Activity Type', input));
+        if (Cont."A01 Preferred Reminder Mode".AsInteger() <> WS.GetInt('Activity Type', input)) then
+            Cont.Validate("A01 Preferred Reminder Mode", WS.GetInt('Activity Type', input));
 
         if (Cont."A01 NIF" <> WS.GetText('NIF', input)) then
             Cont.Validate("A01 NIF", WS.GetText('NIF', input));
@@ -555,14 +539,14 @@ codeunit 50015 A01WSMasterFilesMgt
         if (Cont."A01 VAT Regime" <> WS.GetText('VAT Bus_ Posting Group', input)) then
             Cont.Validate("A01 VAT Regime", WS.GetText('VAT Bus_ Posting Group', input));
 
-        // if (Cont.A01 <> WS.GetDecimal('Prepayment _', input)) then
-        //     CuContst.Validate("Prepayment %", WS.GetDecimal('Prepayment _', input));
+        if (Cont."A01 Prepayment required" <> WS.GetDecimal('Prepayment _', input)) then
+            Cont.Validate("A01 Prepayment required", WS.GetDecimal('Prepayment _', input));
 
         if (Cont."A01 Risk Level" <> WS.GetText('Risk Level', input)) then
             Cont.Validate("A01 Risk Level", WS.GetText('Risk Level', input));
 
-        //if (Cont.A01 Sc  <> WS.GetDecimal('Score', input)) then
-        // Cont.Validate("Credit Limit (LCY)", WS.GetDecimal('Score', input));
+        if (Cont."A01 Score" <> WS.GetDecimal('Score', input)) then
+            Cont.Validate("A01 Score", WS.GetDecimal('Score', input));
 
 
         Cont.Modify();
@@ -588,12 +572,12 @@ codeunit 50015 A01WSMasterFilesMgt
         foreach c in LinesArray do begin
             LineInput := c.AsObject();
             NewCustCriteria.Init();
-            ProcessCustScoringCriteria(Cont, NewCustCriteria, LineInput);
+            ProcessLeadScoringCriteria(Cont, NewCustCriteria, LineInput);
             NewCustCriteria.Insert(true);
         end;
     end;
 
-    local procedure ProcessCustScoringCriteria(Cont: Record "Contact"; CustCriteria: Record "A01 Cust Scoring Criteria"; input: JsonObject)
+    local procedure ProcessLeadScoringCriteria(Cont: Record "Contact"; var CustCriteria: Record "A01 Cust Scoring Criteria"; input: JsonObject)
     begin
 
         if (CustCriteria."Account Type" <> CustCriteria."Account Type"::Prospect) then
@@ -611,14 +595,14 @@ codeunit 50015 A01WSMasterFilesMgt
         // if (CustCriteria."Criteria Description" <> WS.GetText('Criteria Description', input)) then
         //     CustCriteria.Validate("Criteria Description", WS.GetText('Criteria Description', input));
 
-        if (CustCriteria."Type".AsInteger() <> WS.GetInt('Value Type', input)) then
-            CustCriteria.Validate("Type", WS.GetInt('Value Type', input));
+        //if (CustCriteria."Type".AsInteger() <> WS.GetInt('Value Type', input)) then
+        //    CustCriteria.Validate("Type", WS.GetInt('Value Type', input));
 
         // if (CustCriteria.va.AsInteger() <> WS.GetInt('Value Length', input)) then
         //             CustCriteria.Validate("Type", WS.GetInt('Value Length', input));
 
-        if (CustCriteria.Requirement.AsInteger() <> WS.GetInt('Requirement', input)) then
-            CustCriteria.Validate("Requirement", WS.GetInt('Requirement', input));
+        // if (CustCriteria.Requirement.AsInteger() <> WS.GetInt('Requirement', input)) then
+        //     CustCriteria.Validate("Requirement", WS.GetInt('Requirement', input));
 
         if (CustCriteria."Numeric Value" <> WS.GetDecimal('Numeric Value', input)) then
             CustCriteria.Validate("Numeric Value", WS.GetDecimal('Numeric Value', input));
@@ -626,17 +610,18 @@ codeunit 50015 A01WSMasterFilesMgt
         if (CustCriteria."Aplhanumeric Value" <> WS.GetText('Aplha Value', input)) then
             CustCriteria.Validate("Aplhanumeric Value", WS.GetText('Aplha Value', input));
 
-        if (CustCriteria.Validity.AsInteger() <> WS.GetInt('Validity', input)) then
-            CustCriteria.Validate("Validity", WS.GetInt('Validity', input));
+        // if (CustCriteria.Validity.AsInteger() <> WS.GetInt('Validity', input)) then
+        //     CustCriteria.Validate("Validity", WS.GetInt('Validity', input));
 
-        if (CustCriteria."Validity Date" <> WS.GetDate('Validity Date', input)) then
-            CustCriteria.Validate("Validity Date", WS.GetDate('Validity Date', input));
+        //TODO REACTIVATE THIS CODE
+        //if (CustCriteria."Validity Date" <> WS.GetDate('Validity Date', input)) then
+        //    CustCriteria.Validate("Validity Date", WS.GetDate('Validity Date', input));
 
-        if (CustCriteria."Document Required" <> WS.GetBool('Document required', input)) then
-            CustCriteria.Validate("Document Required", WS.GetBool('Document required', input));
+        // if (CustCriteria."Document Required" <> WS.GetBool('Document required', input)) then
+        //     CustCriteria.Validate("Document Required", WS.GetBool('Document required', input));
 
-        if (CustCriteria.DocumentLink <> WS.GetText('DocumentLink', input)) then
-            CustCriteria.Validate("DocumentLink", WS.GetText('DocumentLink', input));
+        if (CustCriteria.DocumentLink <> WS.GetText('Document Link', input)) then
+            CustCriteria.Validate("DocumentLink", WS.GetText('Document Link', input));
 
         if (CustCriteria.Valid <> WS.GetBool('Valid', input)) then
             CustCriteria.Validate("Valid", WS.GetBool('Valid', input));
@@ -666,12 +651,12 @@ codeunit 50015 A01WSMasterFilesMgt
         foreach c in LinesArray do begin
             LineInput := c.AsObject();
             NewCustCriteria.Init();
-            ProcesCustomerScoring(Cont, NewCustCriteria, LineInput);
+            ProcesLeadScoring(Cont, NewCustCriteria, LineInput);
             NewCustCriteria.Insert(true);
         end;
     end;
 
-    local procedure ProcesCustomerScoring(Cont: Record "Contact"; CustScoring: Record "A01 Customer Scoring"; input: JsonObject)
+    local procedure ProcesLeadScoring(Cont: Record "Contact"; var CustScoring: Record "A01 Customer Scoring"; input: JsonObject)
     begin
 
         if (CustScoring."Account Type" <> CustScoring."Account Type"::Prospect) then
@@ -680,42 +665,17 @@ codeunit 50015 A01WSMasterFilesMgt
         if (CustScoring."Customer No." <> Cont."No.") then
             CustScoring."Customer No." := Cont."No.";
 
-        // if (CustCriteria.le <> WS.GetInt('Lead No', input)) then
-        //     CustCriteria."Lead No" := WS.GetInt('Lead No', input);
-
         if (CustScoring.Criteria <> WS.GetText('Criteria', input)) then
             CustScoring."Criteria" := Copystr(WS.GetText('Criteria', input), 1, 20);
 
-        // if (CustCriteria."Criteria Description" <> WS.GetText('Criteria Description', input)) then
-        //     CustCriteria.Validate("Criteria Description", WS.GetText('Criteria Description', input));
-
-        if (CustScoring."Type".AsInteger() <> WS.GetInt('Value Type', input)) then
-            CustScoring.Validate("Type", WS.GetInt('Value Type', input));
-
-
-        // if (CustCriteria.list.AsInteger() <> WS.GetInt('List Value', input)) then
-        //     CustCriteria.Validate("Requirement", WS.GetInt('List Value', input));
-
-        // if (CustCriteria.v <> WS.GetDecimal('Value Description', input)) then
-        //     CustCriteria.Validate("Numeric Value", WS.GetDecimal('Value Description', input));
-
-        // if (CustCriteria.al <> WS.GetText('Aplha Value', input)) then
-        //     CustCriteria.Validate("Aplhanumeric Value", WS.GetText('Aplha Value', input));
-
-        //  if (CustScoring.num <> WS.GetText('Numeric Value', input)) then
-        //      CustScoring.Validate("Aplhanumeric Value", WS.GetText('Numeric Value', input));
-
-        if (CustScoring.Validity.AsInteger() <> WS.GetInt('Validity', input)) then
-            CustScoring.Validate("Validity", WS.GetInt('Validity', input));
+        if (CustScoring."Criteria Value" <> WS.GetText('Criteria Value', input)) then
+            CustScoring.Validate("Criteria Value", WS.GetText('Criteria Value', input));
 
         if (CustScoring."Validity Date" <> WS.GetDate('Validity Date', input)) then
             CustScoring.Validate("Validity Date", WS.GetDate('Validity Date', input));
 
-        if (CustScoring."Document Required" <> WS.GetBool('Document required', input)) then
-            CustScoring.Validate("Document Required", WS.GetBool('Document required', input));
-
-        if (CustScoring.DocumentLink <> WS.GetText('DocumentLink', input)) then
-            CustScoring.Validate("DocumentLink", WS.GetText('DocumentLink', input));
+        if (CustScoring.DocumentLink <> WS.GetText('Document Link', input)) then
+            CustScoring.Validate("DocumentLink", WS.GetText('Document Link', input));
 
         if (CustScoring.Valid <> WS.GetBool('Valid', input)) then
             CustScoring.Validate("Valid", WS.GetBool('Valid', input));
@@ -764,22 +724,23 @@ codeunit 50015 A01WSMasterFilesMgt
         //SalesOrderLine.LockTable();
         Cust.Insert(true);
 
+        Cust.Type := Cust.Type::Person;
         ProcessContact(Cust, input);
 
         exit(Ws.CreateResponseSuccess(Cust."No."));
 
     end;
 
-    local procedure DeleteContact(CustNo: Text): Text
+    local procedure DeleteContact(ContNo: Text): Text
     var
-        Cust: Record "Contact";
+        Cont: Record "Contact";
     begin
 
-        Cust.Get(CustNo);
+        Cont.Get(ContNo);
 
-        Cust.Delete(true);
+        Cont.Delete(true);
 
-        exit(Ws.CreateResponseSuccess(Cust."No."));
+        exit(Ws.CreateResponseSuccess(Cont."No."));
 
     end;
 

@@ -52,8 +52,6 @@ table 50016 "A01 Credit Depreciation Table"
         }
 
 
-
-
         field(100; "Archived"; Boolean)
         {
             Caption = 'Archived';
@@ -69,7 +67,7 @@ table 50016 "A01 Credit Depreciation Table"
             Caption = 'Due Date';
             Editable = false;
         }
-        field(103; "Interest Posted"; Date)
+        field(103; "Interest Posted"; Boolean)
         {
             Caption = 'Interest Posted';
             Editable = false;

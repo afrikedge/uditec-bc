@@ -85,6 +85,12 @@ page 50040 "A01 Afk Setup"
                 {
                     ToolTip = 'Indicates whether the site visit is mandatory or not';
                 }
+                field("MIR Planned Interest Account"; Rec."MIR Planned Interest Account")
+                {
+                }
+                field("MIR Realised Interest Account"; Rec."MIR Realised Interest Account")
+                {
+                }
             }
             group(Logistics)
             {
@@ -216,6 +222,7 @@ page 50040 "A01 Afk Setup"
                 {
                 }
 
+
             }
             group("TestApi")
             {
@@ -254,6 +261,26 @@ page 50040 "A01 Afk Setup"
                     if (TestApiJsonInput <> '') then
                         TestApiJsonResponse := ApiInterface.Run(TestApiJsonInput);
                 end;
+            }
+            action(ProcessCustom)
+            {
+                ApplicationArea = All;
+                Caption = 'TestCustom';
+                Image = TestFile;
+                Ellipsis = true;
+                //ToolTip = 'Approve the requested changes.';
+                //Visible = OpenApprovalEntriesExistForCurrUser;
+
+                trigger OnAction()
+                var
+                    //apiMgt: Codeunit "A01 Api Mgt";
+                    dateT: DateTime;
+                begin
+
+                    Evaluate(dateT, '1753-01-01T00:00:00.000Z');
+    
+                    Message(format(dateT));
+               end;
             }
         }
     }

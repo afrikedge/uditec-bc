@@ -163,6 +163,16 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table A01 Afk Setup - Field MIR No of products per file - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Table 2685203037 - Field 2887882207 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>MIR Planned Interest Account</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table A01 Afk Setup - Field MIR Planned Interest Account - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2685203037 - Field 3734391684 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>MIR Realised Interest Account</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table A01 Afk Setup - Field MIR Realised Interest Account - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Table 2685203037 - Field 1338098086 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Required Deposit %</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -2682,6 +2692,11 @@
           <source>TestAPI</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page A01 Afk Setup - Action Process - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2685203037 - Action 3921549532 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>TestCustom</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page A01 Afk Setup - Action ProcessCustom - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 1820720969 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>AGP Contracts</source>
@@ -8378,6 +8393,56 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report A01 DeliveryNotePrint - NamedType VehicleNumberLbl</note>
         </trans-unit>
+        <trans-unit id="Report 3474292753 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Generate Insterest Entries</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 Generate Interest Entries - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 3474292753 - NamedType 412281570" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Sheet %1 must be empty to perform this operation!</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 Generate Interest Entries - NamedType LblErr001</note>
+        </trans-unit>
+        <trans-unit id="Report 3474292753 - NamedType 2794159015" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Processing @1@@@@@@@@@@@@@@@@@@@@@@@@@@@@\</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 Generate Interest Entries - NamedType LblErr002</note>
+        </trans-unit>
+        <trans-unit id="Report 3474292753 - NamedType 3431855632" size-unit="char" translate="yes" xml:space="preserve">
+          <source>End of process !</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 Generate Interest Entries - NamedType LblErr003</note>
+        </trans-unit>
+        <trans-unit id="Report 3474292753 - NamedType 2325371421" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Please enter valid dates</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 Generate Interest Entries - NamedType LblErr004</note>
+        </trans-unit>
+        <trans-unit id="Report 3474292753 - Control 2346885236 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Options</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 Generate Interest Entries - Control Options - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 3474292753 - Control 4164436950 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the fixed asset posting date to be used by the batch job. The batch job includes ledger entries up to this date. This date appears in the FA Posting Date field in the resulting journal lines. If the Use Same FA+G/L Posting Dates field has been activated in the depreciation book that is used in the batch job, then this date must be the same as the posting date entered in the Posting Date field.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 Generate Interest Entries - Control CalculateUntilDate - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Report 3474292753 - Control 4164436950 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Period Ending Date</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 Generate Interest Entries - Control CalculateUntilDate - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 3474292753 - Control 3037438984 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the fixed asset posting date to be used by the batch job. The batch job includes ledger entries up to this date. This date appears in the FA Posting Date field in the resulting journal lines. If the Use Same FA+G/L Posting Dates field has been activated in the depreciation book that is used in the batch job, then this date must be the same as the posting date entered in the Posting Date field.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 Generate Interest Entries - Control PostingDate - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Report 3474292753 - Control 3037438984 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>PostingDate</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 Generate Interest Entries - Control PostingDate - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Report 2641215427 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>A01 Inventory List print</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -11417,6 +11482,11 @@
           <source>Scoring</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension A01 Customer Card - Action A01Scoring - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 3607665817 - Action 1676837972 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2583272393">
+          <source>Generate interest lines</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension A01 General Journal - Action A01GenerateInterestLines - Property Caption</note>
         </trans-unit>
         <trans-unit id="PageExtension 423854963 - Action 943648489 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1434786627">
           <source>Warranty plans</source>

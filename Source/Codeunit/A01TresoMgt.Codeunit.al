@@ -601,19 +601,6 @@ codeunit 50007 "A01 Treso Mgt"
     var
         PaymentCond: Record "Payment Terms";
         CreditDueLine: Record "A01 Credit Depreciation Table";
-        TotalLineAmtInclVAT: Decimal;
-        TotalLineAmtInclVATLCY: Decimal;
-        TotalLineAmtLCY: Decimal;
-        TotalLineUnitCostLCY: Decimal;
-        TotalLineInvDiscountAmtLCY: Decimal;
-        TotalLinePmtDiscountAmt: Decimal;
-
-        LineAmtInclVAT: Decimal;
-        LineAmtInclVATLCY: Decimal;
-        LineAmtLCY: Decimal;
-        LineUnitCostLCY: Decimal;
-        LineInvDiscountAmtLCY: Decimal;
-        LinePmtDiscountAmt: Decimal;
         i: Integer;
         LineDueDate: Date;
 
@@ -623,47 +610,26 @@ codeunit 50007 "A01 Treso Mgt"
 
         PaymentCond.Get(SalesHeader."Payment Terms Code");
 
-        CreditDueLine.Reset();
-        CreditDueLine.SetRange("Document Type", CreditDueLine."Document Type"::"Sales order");
-        //CreditDueLine
+        CheckCreditDueLines(SalesHeader);
 
         LineDueDate := SalesHeader."Due Date";
 
+        i := 1;
+        CreditDueLine.Reset();
+        CreditDueLine.SetRange("Document Type", CreditDueLine."Document Type"::"Sales order");
+        CreditDueLine.SetRange("Document No.", SalesHeader."No.");
+        if CreditDueLine.FindSet() then
+            repeat
+                ProcessCreditDueLine(SalesHeader, CreditDueLine, TotalSalesLine2, TotalSalesLineLCY2, DocType, DocNo, ExtDocNo, SourceCode, GenJnlPostLine, i, LineDueDate);
+
+                LineDueDate := CalcDate('<1M>', LineDueDate);
+                i += 1;
+            until CreditDueLine.Next() < 1;
 
 
-        for i := 1 to SalesHeader."A01 Credit Duration (Month)" do begin
-            if (i <> SalesHeader."A01 Credit Duration (Month)") then begin
+        // for i := 1 to SalesHeader."A01 Credit Duration (Month)" do begin
 
-                LineAmtInclVAT := RoundAmount(TotalSalesLine2."Amount Including VAT" / SalesHeader."A01 Credit Duration (Month)");
-                LineAmtInclVATLCY := RoundAmount(TotalSalesLineLCY2."Amount Including VAT" / SalesHeader."A01 Credit Duration (Month)");
-                LineAmtLCY := RoundAmount(TotalSalesLineLCY2.Amount / SalesHeader."A01 Credit Duration (Month)");
-                LineUnitCostLCY := RoundAmount(TotalSalesLineLCY2."Unit Cost (LCY)" / SalesHeader."A01 Credit Duration (Month)");
-                LineInvDiscountAmtLCY := RoundAmount(TotalSalesLineLCY2."Inv. Discount Amount" / SalesHeader."A01 Credit Duration (Month)");
-                LinePmtDiscountAmt := RoundAmount(TotalSalesLine2."Pmt. Discount Amount" / SalesHeader."A01 Credit Duration (Month)");
-
-                TotalLineAmtInclVAT += LineAmtInclVAT;
-                TotalLineAmtInclVATLCY += LineAmtInclVATLCY;
-                TotalLineAmtLCY += LineAmtLCY;
-                TotalLineUnitCostLCY += LineUnitCostLCY;
-                TotalLineInvDiscountAmtLCY += LineInvDiscountAmtLCY;
-                TotalLinePmtDiscountAmt += LinePmtDiscountAmt;
-
-            end else begin
-
-                LineAmtInclVAT := Round(TotalSalesLine2."Amount Including VAT" - TotalLineAmtInclVAT);
-                LineAmtInclVATLCY := Round(TotalSalesLineLCY2."Amount Including VAT" - TotalLineAmtInclVATLCY);
-                LineAmtLCY := Round(TotalSalesLineLCY2.Amount - TotalLineAmtLCY);
-                LineUnitCostLCY := Round(TotalSalesLineLCY2."Unit Cost (LCY)" - TotalLineUnitCostLCY);
-                LineInvDiscountAmtLCY := Round(TotalSalesLineLCY2."Inv. Discount Amount" - TotalLineInvDiscountAmtLCY);
-                LinePmtDiscountAmt := Round(TotalSalesLine2."Pmt. Discount Amount" - TotalLinePmtDiscountAmt);
-
-            end;
-
-            PostMultiDeadlinesPayment(SalesHeader, DocType, DocNo, ExtDocNo, SourceCode, GenJnlPostLine, LineAmtInclVAT,
-                LineAmtInclVATLCY, LineAmtLCY, LineUnitCostLCY, LineInvDiscountAmtLCY, LinePmtDiscountAmt, LineDueDate, i);
-
-            LineDueDate := CalcDate('<1M>', LineDueDate);
-        end;
+        // end;
 
         IsHandled := true;
 
@@ -683,7 +649,8 @@ codeunit 50007 "A01 Treso Mgt"
     end;
 
     local procedure PostMultiDeadlinesPayment(var SalesHeader: Record "Sales Header";
-      DocType: Enum "Gen. Journal Document Type"; DocNo: Code[20];
+                var CreditDueLine: Record "A01 Credit Depreciation Table";
+                    DocType: Enum "Gen. Journal Document Type"; DocNo: Code[20];
                    ExtDocNo: Code[35];
                    SourceCode: Code[10];
                    var GenJnlPostLine: Codeunit "Gen. Jnl.-Post Line";
@@ -698,6 +665,7 @@ codeunit 50007 "A01 Treso Mgt"
     var
         PaymentCond: Record "Payment Terms";
         GenJnlLine: Record "Gen. Journal Line";
+        CustLedgEntry: Record "Cust. Ledger Entry";
     begin
         if (not PaymentCond.Get(SalesHeader."Payment Terms Code")) then
             exit;
@@ -756,7 +724,78 @@ codeunit 50007 "A01 Treso Mgt"
 
         //OnBeforePostCustomerEntry(GenJnlLine, SalesHeader, TotalSalesLine2, TotalSalesLineLCY2, SuppressCommit, PreviewMode, GenJnlPostLine);
         GenJnlPostLine.RunWithCheck(GenJnlLine);
+
+        CustLedgEntry.Reset();
+        CustLedgEntry.SetCurrentKey("Document No.");
+        //CustLedgEntry.SetRange("Document Type", GenJnlLine."Document Type");
+        CustLedgEntry.SetRange("Document No.", GenJnlLine."Document No.");
+        CustLedgEntry.FindLast();
+
+        CreditDueLine."Due Date" := CustLedgEntry."Due Date";
+        CreditDueLine."Cust Ledger Entry No." := CustLedgEntry."Entry No.";
+        CreditDueLine.Archived := true;
+        CreditDueLine.Modify();
         //OnAfterPostCustomerEntry(GenJnlLine, SalesHeader, TotalSalesLine2, TotalSalesLineLCY2, SuppressCommit, GenJnlPostLine);
+    end;
+
+    local procedure CheckCreditDueLines(var SalesHeader: Record "Sales Header")
+    var
+        CreditDueLine: Record "A01 Credit Depreciation Table";
+    begin
+        CreditDueLine.Reset();
+        CreditDueLine.SetRange("Document Type", CreditDueLine."Document Type"::"Sales order");
+        CreditDueLine.SetRange("Document No.", SalesHeader."No.");
+        if CreditDueLine.FindSet() then
+            repeat
+
+            until CreditDueLine.Next() < 1;
+        SalesHeader.TestField("A01 Credit Duration (Month)", CreditDueLine.Count);
+    end;
+
+    local procedure ProcessCreditDueLine(var SalesHeader: Record "Sales Header"; var CreditDueLine: Record "A01 Credit Depreciation Table"; var TotalSalesLine2: Record "Sales Line"; var TotalSalesLineLCY2: Record "Sales Line"; var DocType: Enum "Gen. Journal Document Type"; DocNo: Code[20]; ExtDocNo: Code[35]; SourceCode: Code[10]; var GenJnlPostLine: Codeunit "Gen. Jnl.-Post Line"; i: Integer; LineDueDate: Date)
+    var
+        TotalLineAmtInclVAT: Decimal;
+        TotalLineAmtInclVATLCY: Decimal;
+        TotalLineAmtLCY: Decimal;
+        TotalLineUnitCostLCY: Decimal;
+        TotalLineInvDiscountAmtLCY: Decimal;
+        TotalLinePmtDiscountAmt: Decimal;
+        LineAmtInclVAT: Decimal;
+        LineAmtInclVATLCY: Decimal;
+        LineAmtLCY: Decimal;
+        LineUnitCostLCY: Decimal;
+        LineInvDiscountAmtLCY: Decimal;
+        LinePmtDiscountAmt: Decimal;
+    begin
+        if (i <> SalesHeader."A01 Credit Duration (Month)") then begin
+
+            LineAmtInclVAT := RoundAmount(TotalSalesLine2."Amount Including VAT" / SalesHeader."A01 Credit Duration (Month)");
+            LineAmtInclVATLCY := RoundAmount(TotalSalesLineLCY2."Amount Including VAT" / SalesHeader."A01 Credit Duration (Month)");
+            LineAmtLCY := RoundAmount(TotalSalesLineLCY2.Amount / SalesHeader."A01 Credit Duration (Month)");
+            LineUnitCostLCY := RoundAmount(TotalSalesLineLCY2."Unit Cost (LCY)" / SalesHeader."A01 Credit Duration (Month)");
+            LineInvDiscountAmtLCY := RoundAmount(TotalSalesLineLCY2."Inv. Discount Amount" / SalesHeader."A01 Credit Duration (Month)");
+            LinePmtDiscountAmt := RoundAmount(TotalSalesLine2."Pmt. Discount Amount" / SalesHeader."A01 Credit Duration (Month)");
+
+            TotalLineAmtInclVAT += LineAmtInclVAT;
+            TotalLineAmtInclVATLCY += LineAmtInclVATLCY;
+            TotalLineAmtLCY += LineAmtLCY;
+            TotalLineUnitCostLCY += LineUnitCostLCY;
+            TotalLineInvDiscountAmtLCY += LineInvDiscountAmtLCY;
+            TotalLinePmtDiscountAmt += LinePmtDiscountAmt;
+
+        end else begin
+
+            LineAmtInclVAT := Round(TotalSalesLine2."Amount Including VAT" - TotalLineAmtInclVAT);
+            LineAmtInclVATLCY := Round(TotalSalesLineLCY2."Amount Including VAT" - TotalLineAmtInclVATLCY);
+            LineAmtLCY := Round(TotalSalesLineLCY2.Amount - TotalLineAmtLCY);
+            LineUnitCostLCY := Round(TotalSalesLineLCY2."Unit Cost (LCY)" - TotalLineUnitCostLCY);
+            LineInvDiscountAmtLCY := Round(TotalSalesLineLCY2."Inv. Discount Amount" - TotalLineInvDiscountAmtLCY);
+            LinePmtDiscountAmt := Round(TotalSalesLine2."Pmt. Discount Amount" - TotalLinePmtDiscountAmt);
+
+        end;
+
+        PostMultiDeadlinesPayment(SalesHeader, CreditDueLine, DocType, DocNo, ExtDocNo, SourceCode, GenJnlPostLine, LineAmtInclVAT,
+            LineAmtInclVATLCY, LineAmtLCY, LineUnitCostLCY, LineInvDiscountAmtLCY, LinePmtDiscountAmt, LineDueDate, i);
     end;
 
 }
