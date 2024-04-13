@@ -101,8 +101,8 @@ report 50019 "A01 Generate Interest Entries"
     var
         AddOnSetup: Record "A01 Afk Setup";
         NoSeriesMgt: Codeunit NoSeriesManagement;
-        JournalTemplate: code[20];
-        JournalCode: code[20];
+        JournalTemplate: code[10];
+        JournalCode: code[10];
         CalculateUntilDate: Date;
         PostingDate: Date;
         LineDescription: Text[100];
@@ -191,7 +191,7 @@ report 50019 "A01 Generate Interest Entries"
     /// </summary>
     /// <param name="JournalTemplate1">code[20].</param>
     /// <param name="JournalCode1">code[20].</param>
-    procedure SetJournal(JournalTemplate1: code[20]; JournalCode1: code[20])
+    procedure SetJournal(JournalTemplate1: code[10]; JournalCode1: code[10])
     begin
         JournalCode := JournalCode1;
         JournalTemplate := JournalTemplate1;

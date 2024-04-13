@@ -19,6 +19,10 @@ pageextension 50009 "A01 Payment Slip" extends "Payment Slip"
             {
                 ApplicationArea = Basic, Suite;
             }
+            field("A01 Payment Method"; Rec."A01 Payment Method")
+            {
+                ApplicationArea = Basic, Suite;
+            }
         }
     }
     actions

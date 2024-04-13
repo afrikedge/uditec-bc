@@ -347,7 +347,7 @@ codeunit 50009 "A01 WS OrdersMgt"
             SalesPayLine."Document Type" := SalesPayLine."Document Type"::Order;
 
         if (SalesPayLine."Payment Method" <> WS.GetText('Payment Method Code', input)) then
-            SalesPayLine."Payment Method" := CopyStr(WS.GetText('Payment Method Code', input), 1, 20);
+            SalesPayLine."Payment Method" := CopyStr(WS.GetText('Payment Method Code', input), 1, 10);
 
         if (SalesPayLine.Reference <> WS.GetText('Reference', input)) then
             SalesPayLine.Validate(Reference, WS.GetText('Reference', input));

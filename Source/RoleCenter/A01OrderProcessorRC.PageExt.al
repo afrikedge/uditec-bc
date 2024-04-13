@@ -137,12 +137,12 @@ pageextension 50002 "A01 Order Processor RC" extends "Order Processor Role Cente
                     Caption = 'Warranty plans';
                     RunObject = Page "A01 Warranty Plans";
                 }
-                action(A01Config_PaymentTypeConfig)
-                {
-                    ApplicationArea = Basic, Suite;
-                    Caption = 'Payment configuration types';
-                    RunObject = Page "A01 Payment Type Configuration";
-                }
+                // action(A01Config_PaymentTypeConfig)
+                // {
+                //     ApplicationArea = Basic, Suite;
+                //     Caption = 'Payment configuration types';
+                //     RunObject = Page "A01 Payment Type Configuration";
+                // }
                 action(A01Config_UserSetup)
                 {
                     ApplicationArea = Basic, Suite;

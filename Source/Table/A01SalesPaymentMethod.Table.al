@@ -16,7 +16,7 @@ table 50020 "A01 Sales Payment Method"
         {
             Caption = 'Document No.';
         }
-        field(4; "Payment Method"; Code[20])
+        field(4; "Payment Method"; Code[10])
         {
             Caption = 'Payment Method';
             TableRelation = "A01 RC Payment Method"."Payment Method" where("Responsability Center" = field("Responsibility Center"));

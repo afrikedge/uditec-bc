@@ -304,6 +304,8 @@ codeunit 50007 "A01 Treso Mgt"
         PaymentHeader."A01 Description" := CustSettlement.Object;
         PaymentHeader.VALIDATE("Posting Date", CustSettlement."Posting Date");
         PaymentHeader."A01 Origin Document No." := CustSettlement."Posting No.";
+        PaymentHeader."A01 Payment Method" := CustSettlementLine."Payment Method";
+
         //PaymentHeader."A01 Posted Document No." := CustSettlement."Posting No.";
 
         PaymentHeader.Modify();
@@ -451,6 +453,7 @@ codeunit 50007 "A01 Treso Mgt"
         //     GenJnlLine."Document Type" := GenJnlLine."Document Type"::Refund
         // else
         GenJnlLine."Document Type" := GenJnlLine."Document Type"::Payment;
+        GenJnlLine."Payment Method Code" := CustSettlementLine."Payment Method";
 
 
         SetBalAccAndApplyToID(RCPaymentMethod, GenJnlLine, CustSettlement."Applies-to ID");

@@ -178,11 +178,19 @@ codeunit 50013 "A01 Customer Settlement Post"
     end;
 
     local procedure CheckLines()
+    var
+        PayMethod: Record "Payment Method";
     begin
         CustSettlementLine.Reset();
         CustSettlementLine.SetRange("Document No.", CustomerSettlement."No.");
         if (CustSettlementLine.IsEmpty) then
             Error(DocumentErrorsMgt.GetNothingToPostErrorMsg());
+        if CustSettlementLine.FindSet() then
+            repeat
+                CustSettlementLine.TestField("Payment Method");
+                if (not PayMethod."A01 Approval required") then
+                    CustSettlementLine.TestField(Reference);
+            until CustSettlementLine.Next() < 1;
     end;
 
     local procedure CheckDim()

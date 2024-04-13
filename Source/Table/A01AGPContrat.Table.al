@@ -48,7 +48,7 @@ table 50035 "A01 AGP Contrat"
         {
             Caption = 'First Terms Date';
         }
-        field(11; "Payment Method Code"; Code[20])
+        field(11; "Payment Method Code"; Code[10])
         {
             Caption = 'Payment Method Code';
         }

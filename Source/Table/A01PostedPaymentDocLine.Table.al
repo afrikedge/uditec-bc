@@ -12,7 +12,7 @@ table 50034 "A01 Posted Payment Doc Line"
         {
             Caption = 'Document No.';
         }
-        field(2; "Payment Method"; Code[20])
+        field(2; "Payment Method"; Code[10])
         {
             Caption = 'Payment Method';
             TableRelation = "A01 RC Payment Method"."Payment Method" where("Responsability Center" = field("Responsibility Center"));

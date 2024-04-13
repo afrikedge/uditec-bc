@@ -41,6 +41,13 @@ tableextension 50012 "A01 Payment Header Archive" extends "Payment Header Archiv
             TableRelation = "Responsibility Center";
             Editable = false;
         }
+        field(50006; "A01 Payment Method"; Code[20])
+        {
+            Caption = 'Payment Method';
+            TableRelation = "Payment Method";
+            DataClassification = CustomerContent;
+            Editable = false;
+        }
         // field(50006; "A01 Posted Document No."; Code[20])
         // {
         //     Caption = 'Posted Document No.';

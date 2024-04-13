@@ -11568,11 +11568,6 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension A01 Order Processor RC - Action A01Config_DebtStatus - Property Caption</note>
         </trans-unit>
-        <trans-unit id="PageExtension 3250568499 - Action 265416847 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2747922353">
-          <source>Payment configuration types</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension A01 Order Processor RC - Action A01Config_PaymentTypeConfig - Property Caption</note>
-        </trans-unit>
         <trans-unit id="PageExtension 3250568499 - Action 3667924005 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2747922353">
           <source>Risk levels</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -12203,6 +12198,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension A01 Payment Header - Field A01 Origin Document No. - Property Caption</note>
         </trans-unit>
+        <trans-unit id="TableExtension 929764375 - Field 2932824535 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1018708135">
+          <source>Payment Method</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension A01 Payment Header - Field A01 Payment Method - Property Caption</note>
+        </trans-unit>
         <trans-unit id="TableExtension 929764375 - Field 3046274025 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1018708135">
           <source>Responsibility Center</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -12232,6 +12232,11 @@
           <source>Origin Document No.</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension A01 Payment Header Archive - Field A01 Origin Document No. - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 2943571689 - Field 2932824535 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 863615289">
+          <source>Payment Method</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension A01 Payment Header Archive - Field A01 Payment Method - Property Caption</note>
         </trans-unit>
         <trans-unit id="TableExtension 2943571689 - Field 3046274025 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 863615289">
           <source>Responsibility Center</source>
