@@ -281,6 +281,30 @@ pageextension 50002 "A01 Order Processor RC" extends "Order Processor Role Cente
                     Caption = 'Posted Customer Settlements';
                     RunObject = Page "A01 Posted Cust Settlements";
                 }
+                action(A01DiscountsRequests)
+                {
+                    ApplicationArea = Basic, Suite;
+                    Caption = 'Discount Requests';
+                    RunObject = Page "A01 Discount Requests";
+                }
+                action(A01UnblockingsRequests)
+                {
+                    ApplicationArea = Basic, Suite;
+                    Caption = 'Unblocking Requests';
+                    RunObject = Page "A01 Unblocking Requests";
+                }
+                action(A01POSPaymentRequests)
+                {
+                    ApplicationArea = Basic, Suite;
+                    Caption = 'POS Payment Requests';
+                    RunObject = Page "A01 POS Payment Requests";
+                }
+                action(A01PaymentRequests)
+                {
+                    ApplicationArea = Basic, Suite;
+                    Caption = 'Payment Requests';
+                    RunObject = Page "A01 Payment Requests";
+                }
             }
             group(A01AfkCredit)
             {

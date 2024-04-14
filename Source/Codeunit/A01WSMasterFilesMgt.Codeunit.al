@@ -4,8 +4,9 @@
 codeunit 50015 A01WSMasterFilesMgt
 {
     var
-        WS: codeunit "A01 Api Mgt";
+
         AddOnSetup: record "A01 Afk Setup";
+        WS: codeunit "A01 Api Mgt";
 
     /// <summary>
     /// RunCustomers.

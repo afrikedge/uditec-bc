@@ -1,7 +1,7 @@
 /// <summary>
 /// Enum A01 Request Sales Doc Type (ID 50042).
 /// </summary>
-enum 50042 "A01 Request Sales Doc Type"
+enum 50042 "A01 Request On Document Type"
 {
     Extensible = true;
 
@@ -12,5 +12,13 @@ enum 50042 "A01 Request Sales Doc Type"
     value(1; Unblocking)
     {
         Caption = 'Unblocking';
+    }
+    value(3; "POS Payment")
+    {
+        Caption = 'POS Payment';
+    }
+    value(4; "Payment Document")
+    {
+        Caption = 'Payment Document';
     }
 }
