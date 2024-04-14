@@ -720,7 +720,7 @@
                                                             <Paragraph>
                                                               <TextRuns>
                                                                 <TextRun>
-                                                                  <Value />
+                                                                  <Value>=Fields!nif.Value</Value>
                                                                   <Style>
                                                                     <FontSize>8pt</FontSize>
                                                                   </Style>
@@ -893,7 +893,7 @@
                                                             <Paragraph>
                                                               <TextRuns>
                                                                 <TextRun>
-                                                                  <Value />
+                                                                  <Value>=Fields!stat.Value</Value>
                                                                   <Style>
                                                                     <FontSize>8pt</FontSize>
                                                                   </Style>
@@ -1062,7 +1062,7 @@
                                                             <Paragraph>
                                                               <TextRuns>
                                                                 <TextRun>
-                                                                  <Value />
+                                                                  <Value>=Fields!rcs.Value</Value>
                                                                   <Style>
                                                                     <FontSize>8pt</FontSize>
                                                                   </Style>
@@ -1910,6 +1910,7 @@
                                           </Border>
                                         </Style>
                                       </Rectangle>
+                                      <rd:Selected>true</rd:Selected>
                                     </CellContents>
                                   </TablixCell>
                                 </TablixCells>
@@ -2824,6 +2825,15 @@ AAAAAAAAAECjsYAGAAAAAAAAAAAAAAAAjcYCGgAAAAAAAAAAAAAAADQaC2gAAAAAAAAAAAAAAADQaCyg
         </Field>
         <Field Name="CompanySignLbl">
           <DataField>CompanySignLbl</DataField>
+        </Field>
+        <Field Name="rcs">
+          <DataField>rcs</DataField>
+        </Field>
+        <Field Name="nif">
+          <DataField>nif</DataField>
+        </Field>
+        <Field Name="stat">
+          <DataField>stat</DataField>
         </Field>
         <Field Name="ItemNo_">
           <DataField>ItemNo_</DataField>

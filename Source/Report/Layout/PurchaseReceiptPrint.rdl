@@ -720,7 +720,7 @@
                                                             <Paragraph>
                                                               <TextRuns>
                                                                 <TextRun>
-                                                                  <Value />
+                                                                  <Value>=First(Fields!nif.Value, "DataSet_Result")</Value>
                                                                   <Style>
                                                                     <FontSize>8pt</FontSize>
                                                                   </Style>
@@ -893,7 +893,7 @@
                                                             <Paragraph>
                                                               <TextRuns>
                                                                 <TextRun>
-                                                                  <Value />
+                                                                  <Value>=First(Fields!stat.Value, "DataSet_Result")</Value>
                                                                   <Style>
                                                                     <FontSize>8pt</FontSize>
                                                                   </Style>
@@ -1062,7 +1062,7 @@
                                                             <Paragraph>
                                                               <TextRuns>
                                                                 <TextRun>
-                                                                  <Value />
+                                                                  <Value>=First(Fields!rcs.Value, "DataSet_Result")</Value>
                                                                   <Style>
                                                                     <FontSize>8pt</FontSize>
                                                                   </Style>
@@ -1841,7 +1841,6 @@
                                           </Border>
                                         </Style>
                                       </Rectangle>
-                                      <rd:Selected>true</rd:Selected>
                                     </CellContents>
                                   </TablixCell>
                                 </TablixCells>
@@ -2338,9 +2337,9 @@
                     </Paragraph>
                   </Paragraphs>
                   <Top>0.01389in</Top>
-                  <Left>1.45139in</Left>
+                  <Left>1.47917in</Left>
                   <Height>0.16888in</Height>
-                  <Width>2.04316in</Width>
+                  <Width>2.01538in</Width>
                   <ZIndex>6</ZIndex>
                   <Style>
                     <Border>
@@ -2374,7 +2373,7 @@
                   <Top>0.01389in</Top>
                   <Left>0.01389in</Left>
                   <Height>0.16888in</Height>
-                  <Width>1.4375in</Width>
+                  <Width>1.46528in</Width>
                   <ZIndex>7</ZIndex>
                   <Style>
                     <Border>
@@ -2714,6 +2713,15 @@ AAAAAAAAAECjsYAGAAAAAAAAAAAAAAAAjcYCGgAAAAAAAAAAAAAAADQaC2gAAAAAAAAAAAAAAADQaCyg
         </Field>
         <Field Name="VendorAddressLbl">
           <DataField>VendorAddressLbl</DataField>
+        </Field>
+        <Field Name="rcs">
+          <DataField>rcs</DataField>
+        </Field>
+        <Field Name="nif">
+          <DataField>nif</DataField>
+        </Field>
+        <Field Name="stat">
+          <DataField>stat</DataField>
         </Field>
         <Field Name="NIFLbl">
           <DataField>NIFLbl</DataField>

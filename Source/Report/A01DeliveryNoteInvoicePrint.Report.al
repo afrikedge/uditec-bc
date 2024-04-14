@@ -65,6 +65,15 @@ report 50009 "A01 DeliveryNoteInvoicePrint"
             column(RCSLbl; RCSLbl)
             {
             }
+            column(rcs; rcs)
+            {
+            }
+            column(nif; nif)
+            {
+            }
+            column(stat; stat)
+            {
+            }
             column(CustPhoneLbl; CustPhoneLbl)
             {
             }
@@ -344,6 +353,12 @@ report 50009 "A01 DeliveryNoteInvoicePrint"
                     UnitPostalCode := LocRec."Post Code";
                 end;
 
+                if Cust.Get("Sales Shipment Header"."Sell-to Customer No.") then begin
+                    rcs := Cust."A01 RCS";
+                    stat := Cust."A01 STAT";
+                    nif := Cust."A01 NIF";
+                end;
+
                 if Contact.Get("Sales Shipment Header"."Bill-to Contact No.") then begin
                     CustIdentity := Contact.Name;
                     CustPhone := Contact."Phone No.";
@@ -378,6 +393,7 @@ report 50009 "A01 DeliveryNoteInvoicePrint"
         CompanyInfo: Record "Company Information";
         // RespCenter: Record "Responsibility Center";
         LocRec: Record Location;
+        Cust: Record Customer;
         Contact: Record Contact;
         GLSetup: Record "General Ledger Setup";
         CurrencyExchangeRate: Record "Currency Exchange Rate";
@@ -394,6 +410,9 @@ report 50009 "A01 DeliveryNoteInvoicePrint"
         ExchangeRateText: Text;
         AfkLocalCurrencyName: Text;
         CurrCode: Code[20];
+        rcs: Code[30];
+        stat: Code[30];
+        nif: Code[30];
         AfkCurrencyName: Text;
         A01DiscountedPrice: Decimal;
         LineDiscount: Decimal;

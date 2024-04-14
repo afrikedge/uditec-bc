@@ -97,6 +97,15 @@ report 50016 "A01 PreparationOrderPrint"
             column(CustAddressLbl; CustAddressLbl)
             {
             }
+            column(rcs; rcs)
+            {
+            }
+            column(nif; nif)
+            {
+            }
+            column(stat; stat)
+            {
+            }
             column(NIFLbl; NIFLbl)
             {
             }
@@ -206,6 +215,12 @@ report 50016 "A01 PreparationOrderPrint"
                     UnitPostalCode := LocRec."Post Code";
                 end;
 
+                if Cust.Get(Header."Sell-to Customer No.") then begin
+                    rcs := Cust."A01 RCS";
+                    stat := Cust."A01 STAT";
+                    nif := Cust."A01 NIF";
+                end;
+
                 if Contact.Get(Header."Sell-to Contact No.") then begin
                     CustIdentity := Contact.Name;
                     CustPhone := Contact."Phone No.";
@@ -248,10 +263,14 @@ report 50016 "A01 PreparationOrderPrint"
     var
         CompanyInfo: Record "Company Information";
         // RespCenter: Record "Responsibility Center";
+        Cust: Record Customer;
         Contact: Record Contact;
         LocRec: Record Location;
         // Ship: Record "Ship-to Address";
         UnitName: Text[100];
+        rcs: Code[30];
+        stat: Code[30];
+        nif: Code[30];
         UnitAddress: Text[100];
         UnitCity: Text[50];
         UnitPostalCode: Text[50];

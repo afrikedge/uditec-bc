@@ -720,7 +720,7 @@
                                                             <Paragraph>
                                                               <TextRuns>
                                                                 <TextRun>
-                                                                  <Value />
+                                                                  <Value>=First(Fields!nif.Value, "DataSet_Result")</Value>
                                                                   <Style>
                                                                     <FontSize>8pt</FontSize>
                                                                   </Style>
@@ -893,7 +893,7 @@
                                                             <Paragraph>
                                                               <TextRuns>
                                                                 <TextRun>
-                                                                  <Value />
+                                                                  <Value>=First(Fields!stat.Value, "DataSet_Result")</Value>
                                                                   <Style>
                                                                     <FontSize>8pt</FontSize>
                                                                   </Style>
@@ -1062,7 +1062,7 @@
                                                             <Paragraph>
                                                               <TextRuns>
                                                                 <TextRun>
-                                                                  <Value />
+                                                                  <Value>=First(Fields!rcs.Value, "DataSet_Result")</Value>
                                                                   <Style>
                                                                     <FontSize>8pt</FontSize>
                                                                   </Style>
@@ -2343,9 +2343,10 @@
                                                             <Paragraph>
                                                               <TextRuns>
                                                                 <TextRun>
-                                                                  <Value />
+                                                                  <Value>=Fields!A01Balance_LCYText.Value</Value>
                                                                   <Style>
                                                                     <FontSize>7pt</FontSize>
+                                                                    <FontWeight>Bold</FontWeight>
                                                                   </Style>
                                                                 </TextRun>
                                                               </TextRuns>
@@ -2417,9 +2418,10 @@
                                                             <Paragraph>
                                                               <TextRuns>
                                                                 <TextRun>
-                                                                  <Value />
+                                                                  <Value>=Fields!A01Interest18_LCYText.Value</Value>
                                                                   <Style>
                                                                     <FontSize>7pt</FontSize>
+                                                                    <FontWeight>Bold</FontWeight>
                                                                   </Style>
                                                                 </TextRun>
                                                               </TextRuns>
@@ -2491,9 +2493,10 @@
                                                             <Paragraph>
                                                               <TextRuns>
                                                                 <TextRun>
-                                                                  <Value />
+                                                                  <Value>=Fields!A01VATInterest_LCYText.Value</Value>
                                                                   <Style>
                                                                     <FontSize>7pt</FontSize>
+                                                                    <FontWeight>Bold</FontWeight>
                                                                   </Style>
                                                                 </TextRun>
                                                               </TextRuns>
@@ -2565,9 +2568,10 @@
                                                             <Paragraph>
                                                               <TextRuns>
                                                                 <TextRun>
-                                                                  <Value />
+                                                                  <Value>=Fields!A01BalanceToPay_LCYText.Value</Value>
                                                                   <Style>
                                                                     <FontSize>7pt</FontSize>
+                                                                    <FontWeight>Bold</FontWeight>
                                                                   </Style>
                                                                 </TextRun>
                                                               </TextRuns>
@@ -2639,9 +2643,10 @@
                                                             <Paragraph>
                                                               <TextRuns>
                                                                 <TextRun>
-                                                                  <Value />
+                                                                  <Value>=Fields!A01TTCAmountOperation_LCYText.Value</Value>
                                                                   <Style>
                                                                     <FontSize>7pt</FontSize>
+                                                                    <FontWeight>Bold</FontWeight>
                                                                   </Style>
                                                                 </TextRun>
                                                               </TextRuns>
@@ -3630,6 +3635,15 @@ AAAAAAAAAECjsYAGAAAAAAAAAAAAAAAAjcYCGgAAAAAAAAAAAAAAADQaC2gAAAAAAAAAAAAAAADQaCyg
         <Field Name="A01respCenterCity">
           <DataField>A01respCenterCity</DataField>
         </Field>
+        <Field Name="rcs">
+          <DataField>rcs</DataField>
+        </Field>
+        <Field Name="nif">
+          <DataField>nif</DataField>
+        </Field>
+        <Field Name="stat">
+          <DataField>stat</DataField>
+        </Field>
         <Field Name="Salesperson_Code">
           <DataField>Salesperson_Code</DataField>
         </Field>
@@ -3782,6 +3796,51 @@ AAAAAAAAAECjsYAGAAAAAAAAAAAAAAAAjcYCGgAAAAAAAAAAAAAAADQaC2gAAAAAAAAAAAAAAADQaCyg
         </Field>
         <Field Name="AfkTotalDeposit_LCYText">
           <DataField>AfkTotalDeposit_LCYText</DataField>
+        </Field>
+        <Field Name="A01Balance">
+          <DataField>A01Balance</DataField>
+        </Field>
+        <Field Name="A01BalanceFormat">
+          <DataField>A01BalanceFormat</DataField>
+        </Field>
+        <Field Name="A01Balance_LCYText">
+          <DataField>A01Balance_LCYText</DataField>
+        </Field>
+        <Field Name="A01Interest18">
+          <DataField>A01Interest18</DataField>
+        </Field>
+        <Field Name="A01Interest18Format">
+          <DataField>A01Interest18Format</DataField>
+        </Field>
+        <Field Name="A01Interest18_LCYText">
+          <DataField>A01Interest18_LCYText</DataField>
+        </Field>
+        <Field Name="A01VATInterest">
+          <DataField>A01VATInterest</DataField>
+        </Field>
+        <Field Name="A01VATInterestFormat">
+          <DataField>A01VATInterestFormat</DataField>
+        </Field>
+        <Field Name="A01VATInterest_LCYText">
+          <DataField>A01VATInterest_LCYText</DataField>
+        </Field>
+        <Field Name="A01BalanceToPay">
+          <DataField>A01BalanceToPay</DataField>
+        </Field>
+        <Field Name="A01BalanceToPayFormat">
+          <DataField>A01BalanceToPayFormat</DataField>
+        </Field>
+        <Field Name="A01BalanceToPay_LCYText">
+          <DataField>A01BalanceToPay_LCYText</DataField>
+        </Field>
+        <Field Name="A01TTCAmountOperation">
+          <DataField>A01TTCAmountOperation</DataField>
+        </Field>
+        <Field Name="A01TTCAmountOperationFormat">
+          <DataField>A01TTCAmountOperationFormat</DataField>
+        </Field>
+        <Field Name="A01TTCAmountOperation_LCYText">
+          <DataField>A01TTCAmountOperation_LCYText</DataField>
         </Field>
         <Field Name="CompanyLogoPosition">
           <DataField>CompanyLogoPosition</DataField>

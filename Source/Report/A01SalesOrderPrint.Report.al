@@ -57,6 +57,15 @@ report 50007 "A01 SalesOrderPrint"
             column(A01CustomerPhone; CustomerPhone)
             {
             }
+            column(rcs; rcs)
+            {
+            }
+            column(nif; nif)
+            {
+            }
+            column(stat; stat)
+            {
+            }
             column(A01CustomerName; "Sell-to Customer Name")
             {
             }
@@ -810,6 +819,12 @@ report 50007 "A01 SalesOrderPrint"
                     CustomerPhone := ContactInfo."Phone No.";
                 end;
 
+                if Cust.Get(Header."Sell-to Customer No.") then begin
+                    rcs := Cust."A01 RCS";
+                    stat := Cust."A01 STAT";
+                    nif := Cust."A01 NIF";
+                end;
+
                 if ShipToAddr.Get(Header."Ship-to Code") then
                     CustAddress := ShipToAddr.Name;
 
@@ -891,6 +906,7 @@ report 50007 "A01 SalesOrderPrint"
         ResponsibilityInfo: Record "Responsibility Center";
         SalesPersonInfo: Record "Salesperson/Purchaser";
         Item: Record Item;
+        Cust: Record Customer;
         LineRec: Record "Sales Line";
         ContactInfo: Record Contact;
         ShipToAddr: Record "Ship-to Address";
@@ -902,6 +918,9 @@ report 50007 "A01 SalesOrderPrint"
         // Language: Codeunit Language;
         CalculatedExchRate: Decimal;
         AfkCurrCod: Code[20];
+        rcs: Code[30];
+        nif: Code[30];
+        stat: Code[30];
         PrevLineAmount: Decimal;
         Deposit: Decimal;
         TotalDeposit: Decimal;

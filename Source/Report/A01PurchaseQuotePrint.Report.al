@@ -70,6 +70,15 @@ report 50008 "A01 PurchaseQuotePrint"
             column(A01VendorAddress__Caption; A01VendorAddress__Caption)
             {
             }
+            column(rcs; rcs)
+            {
+            }
+            column(nif; nif)
+            {
+            }
+            column(stat; stat)
+            {
+            }
             column(A01NIF__Caption; A01NIF__Caption)
             {
             }
@@ -634,6 +643,12 @@ report 50008 "A01 PurchaseQuotePrint"
                     A01VendorIdentity := BuyFromContact.Name;
                 end;
 
+                if Vend.Get("Purchase Header"."Buy-from Vendor No.") then begin
+                    rcs := Vend."A01 RCS";
+                    stat := Vend."A01 STAT";
+                    nif := Vend."A01 NIF";
+                end;
+
                 if ShipToAddrr.Get("Purchase Header"."Ship-to Code") then
                     A01VendorAddress := ShipToAddrr.Name;
 
@@ -741,7 +756,7 @@ report 50008 "A01 PurchaseQuotePrint"
         PayToContact: Record Contact;
         CurrencyExchangeRate: Record "Currency Exchange Rate";
         AfkLocalCurrency: Record Currency;
-        // Vendor: Record Vendor;
+        Vend: Record Vendor;
         TempPurchLine: Record "Purchase Line" temporary;
         TempVATAmountLine: Record "VAT Amount Line" temporary;
         // TempPrepaymentInvLineBuffer: Record "Prepayment Inv. Line Buffer";
@@ -761,6 +776,9 @@ report 50008 "A01 PurchaseQuotePrint"
         ShipToAddr: array[8] of Text[100];
         CompanyAddr: array[8] of Text[100];
         PurchaserText: Text[50];
+        rcs: Code[30];
+        stat: Code[30];
+        nif: Code[30];
         A01VendorIdentity: Text[100];
         VATNoText: Text[80];
         FormattedVATPct: Text;

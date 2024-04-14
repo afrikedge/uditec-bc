@@ -36,6 +36,16 @@ report 50001 "A01 SalesQuotePrint"
             column(CompanyPhone; CompanyInfo."Phone No.")
             {
             }
+            column(rcs; rcs)
+            {
+            }
+            column(nif; nif)
+            {
+            }
+            column(stat; stat)
+            {
+            }
+
             column(UnitName; UnitName)
             {
             }
@@ -817,12 +827,20 @@ report 50001 "A01 SalesQuotePrint"
                         if ShipToAddr.Get(Header."Ship-to Code") then
                             CustomerAddress := ShipToAddr.Name;
 
-                        if Cust.Get(Header."Sell-to Customer No.") then
+                        if Cust.Get(Header."Sell-to Customer No.") then begin
                             CustomerName := Cust.Name;
-
+                            rcs := Cust."A01 RCS";
+                            stat := Cust."A01 STAT";
+                            nif := Cust."A01 NIF";
+                        end;
                     end else begin
-                        if Cust.Get(Header."Sell-to Customer No.") then
+                        if Cust.Get(Header."Sell-to Customer No.") then begin
                             CustomerName := Cust.Name;
+                            rcs := Cust."A01 RCS";
+                            stat := Cust."A01 STAT";
+                            nif := Cust."A01 NIF";
+                        end;
+
 
                         if ContactInfo.Get(Header."Sell-to Contact No.") then begin
                             CustIdentity := ContactInfo.Name;
@@ -1040,6 +1058,9 @@ report 50001 "A01 SalesQuotePrint"
         A01LinePUFormatted: Text[50];
         A01FormattedVAT: Text[50];
         UnitName: Text[100];
+        rcs: Code[30];
+        nif: Code[30];
+        stat: Code[30];
         A01FormattedLineDiscountAmount: Text[50];
         CustomerPhone: Text[30];
         CustomerName: Text[100];

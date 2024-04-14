@@ -578,6 +578,15 @@ report 50006 "A01 PurchaseOrderPrint"
             column(VendorOrderNo; "Vendor Order No.")
             {
             }
+            column(rcs; rcs)
+            {
+            }
+            column(nif; nif)
+            {
+            }
+            column(stat; stat)
+            {
+            }
             dataitem("Purchase Line"; "Purchase Line")
             {
                 DataItemLink = "Document Type" = field("Document Type"), "Document No." = field("No.");
@@ -1318,6 +1327,12 @@ report 50006 "A01 PurchaseOrderPrint"
                     A01VendorIdentity := BuyFromContact.Name;
                 end;
 
+                if Vend.Get("Purchase Header"."Buy-from Vendor No.") then begin
+                    rcs := Vend."A01 RCS";
+                    stat := Vend."A01 STAT";
+                    nif := Vend."A01 NIF";
+                end;
+
                 if ShipToAddrr.Get("Purchase Header"."Ship-to Code") then
                     A01VendorAddress := ShipToAddrr.Name;
 
@@ -1461,7 +1476,7 @@ report 50006 "A01 PurchaseOrderPrint"
         CurrencyExchangeRate: Record "Currency Exchange Rate";
         AfkLocalCurrency: Record Currency;
         ResponsibilityCenter: Record "Responsibility Center";
-        // Vendor: Record Vendor;
+        Vend: Record Vendor;
         AfkCurrency: Record Currency;
         // LanguageMgt: Codeunit Language;
         FormatAddr: Codeunit "Format Address";
@@ -1472,6 +1487,9 @@ report 50006 "A01 PurchaseOrderPrint"
         ArchiveManagement: Codeunit ArchiveManagement;
         AutoFormat: Codeunit "Auto Format";
         VATNoText: Text[80];
+        rcs: Code[30];
+        stat: Code[30];
+        nif: Code[30];
         A01PaymentTermName: Text[100];
         A01PaymentModeName: Text[100];
         A01VendorIdentity: Text[100];

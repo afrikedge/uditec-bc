@@ -99,7 +99,6 @@ page 50057 "A01 Customer Settlement"
                     CODEUNIT.Run(CODEUNIT::"A01 Customer Settlement Post", Rec);
                 end;
             }
-
         }
     }
     local procedure ApplyPayment()
