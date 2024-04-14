@@ -224,6 +224,7 @@ codeunit 50007 "A01 Treso Mgt"
         PaymentHeader."A01 Description" := SalesHeader."Posting Description";
         PaymentHeader.VALIDATE("Posting Date", SalesHeader."Posting Date");
         PaymentHeader."A01 Origin Document No." := SalesHeader."No.";
+        PaymentHeader."A01 Payment Method" := RCPaymentMethod."Payment Method";
 
         PaymentHeader.Modify();
 
@@ -736,7 +737,11 @@ codeunit 50007 "A01 Treso Mgt"
 
         CreditDueLine."Due Date" := CustLedgEntry."Due Date";
         CreditDueLine."Cust Ledger Entry No." := CustLedgEntry."Entry No.";
-        CreditDueLine.Archived := true;
+        CreditDueLine."Dimension Set ID" := SalesHeader."Dimension Set ID";
+        CreditDueLine."Document Type" := CreditDueLine."Document Type"::"Posted Sales invoice";
+        CreditDueLine."Order No." := SalesHeader."No.";
+        CreditDueLine."Document No." := DocNo;
+
         CreditDueLine.Modify();
         //OnAfterPostCustomerEntry(GenJnlLine, SalesHeader, TotalSalesLine2, TotalSalesLineLCY2, SuppressCommit, GenJnlPostLine);
     end;
@@ -800,5 +805,55 @@ codeunit 50007 "A01 Treso Mgt"
         PostMultiDeadlinesPayment(SalesHeader, CreditDueLine, DocType, DocNo, ExtDocNo, SourceCode, GenJnlPostLine, LineAmtInclVAT,
             LineAmtInclVATLCY, LineAmtLCY, LineUnitCostLCY, LineInvDiscountAmtLCY, LinePmtDiscountAmt, LineDueDate, i);
     end;
+
+    /// <summary>
+    /// ConfirmGenerationOnInterestOnCreditDue
+    /// </summary>
+    /// <param name="GenJnlLine"></param>
+    procedure ConfirmGenerationOnInterestOnCreditDue(GenJnlLine: Record "Gen. Journal Line")
+    var
+        CreditDueLine: Record "A01 Credit Depreciation Table";
+        pos: Integer;
+        CustEntryNo: Integer;
+        intValueStr: Text;
+    begin
+        //CustEntryNo := 0;
+        if (GenJnlLine."Message to Recipient" = '') then
+            exit;
+        pos := StrPos(GenJnlLine."Message to Recipient", 'AFKGIE');
+        if (pos > 0) then begin
+            intValueStr := CopyStr(GenJnlLine."Message to Recipient", 7);
+            Evaluate(CustEntryNo, intValueStr);
+            if (CustEntryNo > 0) then begin
+                CreditDueLine.SetRange("Cust Ledger Entry No.", CustEntryNo);
+                if (CreditDueLine.FindFirst()) then begin
+                    CreditDueLine."Interest Posted" := true;
+                    CreditDueLine.Modify();
+                end;
+            end;
+        end;
+    end;
+
+    /// <summary>
+    /// TransferCreditDueLinesFromQuoteToOrder.
+    /// </summary>
+    /// <param name="SalesOrderHeader">Record "Sales Header".</param>
+    /// <param name="SalesHeader">Record "Sales Header".</param>
+    procedure TransferCreditDueLinesFromQuoteToOrder(SalesOrderHeader: Record "Sales Header"; SalesHeader: Record "Sales Header")
+    var
+        CreditDueLine: Record "A01 Credit Depreciation Table";
+    begin
+        //CustEntryNo := 0;
+        CreditDueLine.SetRange("Document Type", CreditDueLine."Document Type"::"Sales Quote");
+        CreditDueLine.SetRange("Document No.", SalesHeader."No.");
+        if CreditDueLine.FindSet() then
+            repeat
+                CreditDueLine."Document Type" := CreditDueLine."Document Type"::"Sales order";
+                CreditDueLine."Document No." := SalesOrderHeader."No.";
+                CreditDueLine."Quote No." := SalesHeader."No.";
+                CreditDueLine.Modify();
+            until CreditDueLine.Next() < 1;
+    end;
+
 
 }

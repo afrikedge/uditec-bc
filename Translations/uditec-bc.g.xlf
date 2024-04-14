@@ -388,11 +388,6 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table A01 Credit Depreciation Table - Field Abandoned interests - Property Caption</note>
         </trans-unit>
-        <trans-unit id="Table 2925814558 - Field 57370450 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Archived</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Table A01 Credit Depreciation Table - Field Archived - Property Caption</note>
-        </trans-unit>
         <trans-unit id="Table 2925814558 - Field 579322992 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Calculation factor</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -407,6 +402,11 @@
           <source>Depreciation</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table A01 Credit Depreciation Table - Field Depreciation - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2925814558 - Field 3322554545 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Dimension Set ID</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table A01 Credit Depreciation Table - Field Dimension Set ID - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 2925814558 - Field 486908828 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Document No.</source>
@@ -443,10 +443,20 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table A01 Credit Depreciation Table - Field Monthly payment - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Table 2925814558 - Field 2202932243 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Dimension Set ID</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table A01 Credit Depreciation Table - Field Order No. - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Table 2925814558 - Field 2439978872 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Payment balance</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table A01 Credit Depreciation Table - Field Payment balance - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2925814558 - Field 1786097247 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Dimension Set ID</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table A01 Credit Depreciation Table - Field Quote No. - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 2925814558 - Field 1964312741 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Remaining debt</source>
@@ -8400,7 +8410,7 @@
         </trans-unit>
         <trans-unit id="Report 3474292753 - NamedType 412281570" size-unit="char" translate="yes" xml:space="preserve">
           <source>Sheet %1 must be empty to perform this operation!</source>
-          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Developer" annotates="general" priority="2">%1 journal</note>
           <note from="Xliff Generator" annotates="general" priority="3">Report A01 Generate Interest Entries - NamedType LblErr001</note>
         </trans-unit>
         <trans-unit id="Report 3474292753 - NamedType 2794159015" size-unit="char" translate="yes" xml:space="preserve">

@@ -123,5 +123,24 @@ tableextension 50000 "A01 Sales Header" extends "Sales Header"
             end;
         }
 
+
+
     }
+    trigger OnDelete()
+    var
+        CreditDueLine: Record "A01 Credit Depreciation Table";
+    begin
+        if ("Document Type" = Rec."Document Type"::Order) then begin
+            CreditDueLine.SetRange("Document Type", CreditDueLine."Document Type"::"Sales order");
+            CreditDueLine.SetRange("Document No.", Rec."No.");
+            if (not CreditDueLine.IsEmpty) then
+                CreditDueLine.DeleteAll();
+        end;
+        if ("Document Type" = Rec."Document Type"::Quote) then begin
+            CreditDueLine.SetRange("Document Type", CreditDueLine."Document Type"::"Sales Quote");
+            CreditDueLine.SetRange("Document No.", Rec."No.");
+            if (not CreditDueLine.IsEmpty) then
+                CreditDueLine.DeleteAll();
+        end;
+    end;
 }
