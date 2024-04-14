@@ -231,6 +231,11 @@ table 50017 "A01 Afk Setup"
             Caption = 'MIR Planned Interest Account';
             TableRelation = "G/L Account"."No." where("Direct Posting" = const(true));
         }
+        field(50; "ShipToAddress Code Nos"; Code[20])
+        {
+            Caption = 'ShipToAddress Code Nos';
+            TableRelation = "No. Series";
+        }
 
 
         //Banked or unbanked employee

@@ -85,14 +85,26 @@ codeunit 50008 "A01 Api Interface Mgt"
 
             'customers_modify':
                 exit(MasterFilesMgt.RunCustomers(input, false));
+
             'leads_modify':
                 exit(MasterFilesMgt.RunLeads(input, false));
             'leads_insert':
                 exit(MasterFilesMgt.RunLeads(input, false));
+
             'contacts_insert':
                 exit(MasterFilesMgt.RunContacts(input, false));
             'contacts_modify':
                 exit(MasterFilesMgt.RunContacts(input, false));
+
+            'creditContracts_insert':
+                exit(MasterFilesMgt.RunCreditContracts(input, false));
+            'creditContracts_modify':
+                exit(MasterFilesMgt.RunCreditContracts(input, false));
+
+            'shipToAddress_insert':
+                exit(MasterFilesMgt.RunShipToAddress(input, false));
+            'shipToAddress_modify':
+                exit(MasterFilesMgt.RunShipToAddress(input, false));
 
             else
                 exit(StrSubstNo(LblUnknownParameter, param));

@@ -85,5 +85,18 @@ tableextension 50007 "A01 Ship-to Address" extends "Ship-to Address"
             Caption = 'Ground plan';
             DataClassification = CustomerContent;
         }
+
+        field(50016; "A01 Created By"; Code[50])
+        {
+            Caption = 'Created By';
+            Editable = false;
+            DataClassification = CustomerContent;
+        }
+        field(50017; "A01 Modified By"; Code[50])
+        {
+            Caption = 'Modified By';
+            Editable = false;
+            DataClassification = CustomerContent;
+        }
     }
 }

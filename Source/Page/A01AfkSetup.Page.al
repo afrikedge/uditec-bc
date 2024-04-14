@@ -221,7 +221,10 @@ page 50040 "A01 Afk Setup"
                 field("AGP Contract Nos"; Rec."AGP Contract Nos")
                 {
                 }
+                field("ShipToAddress Code Nos"; Rec."ShipToAddress Code Nos")
+                {
 
+                }
 
             }
             group("TestApi")
@@ -278,9 +281,9 @@ page 50040 "A01 Afk Setup"
                 begin
 
                     Evaluate(dateT, '1753-01-01T00:00:00.000Z');
-    
+
                     Message(format(dateT));
-               end;
+                end;
             }
         }
     }

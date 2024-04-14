@@ -5,6 +5,7 @@ codeunit 50015 A01WSMasterFilesMgt
 {
     var
         WS: codeunit "A01 Api Mgt";
+        AddOnSetup: record "A01 Afk Setup";
 
     /// <summary>
     /// RunCustomers.
@@ -65,13 +66,9 @@ codeunit 50015 A01WSMasterFilesMgt
     procedure RunContacts(input: JsonObject; IsDeletion: Boolean): Text
     var
         RecNo: text;
-    //ToDelete: Boolean;
     begin
-        //input.ReadFrom(inputJson);
         RecNo := ws.GetText('No_', input);
         if (RecNo <> '') then begin
-
-            //ToDelete := ws.GetBool('IsDeletion', input);
             if (IsDeletion) then
                 exit(DeleteContact(RecNo))
             else
@@ -79,6 +76,44 @@ codeunit 50015 A01WSMasterFilesMgt
 
         end else
             exit(AddContact(input));
+    end;
+
+    /// <summary>
+    /// RunCreditContracts.
+    /// </summary>
+    /// <param name="input">JsonObject.</param>
+    /// <param name="IsDeletion">Boolean.</param>
+    /// <returns>Return value of type Text.</returns>
+    procedure RunCreditContracts(input: JsonObject; IsDeletion: Boolean): Text
+    var
+        RecNo: text;
+    begin
+        RecNo := ws.GetText('No_', input);
+        if (RecNo <> '') then begin
+            if (IsDeletion) then
+                exit(DeleteCreditContract(RecNo))
+            else
+                exit(ModifyCreditContract(RecNo, input))
+
+        end else
+            exit(AddCreditContract(input));
+    end;
+
+    procedure RunShipToAddress(input: JsonObject; IsDeletion: Boolean): Text
+    var
+        RecNo: text;
+        CustNo: text;
+    begin
+        RecNo := ws.GetText('No_', input);
+        CustNo := ws.GetText('Customer No_', input);
+        if (RecNo <> '') then begin
+            if (IsDeletion) then
+                exit(DeleteShipToAddress(CustNo, RecNo))
+            else
+                exit(ModifyShipToAddress(CustNo, RecNo, input))
+
+        end else
+            exit(AddShipToAddress(CustNo, input));
     end;
 
     #region Customers
@@ -696,7 +731,7 @@ codeunit 50015 A01WSMasterFilesMgt
 
     #endregion leads
 
-    #region Leads
+    #region Contacts
 
     local procedure ModifyContact(CustNo: Text; input: JsonObject): Text
     var
@@ -802,5 +837,229 @@ codeunit 50015 A01WSMasterFilesMgt
         Cont.Modify();
     end;
 
-    #endregion leads
+    #endregion contacts
+
+    #region Credit contract
+
+    local procedure ModifyCreditContract(CustNo: Text; input: JsonObject): Text
+    var
+        CreditContract: Record "A01 AGP Contrat";
+    begin
+
+        CreditContract.Get(CustNo);
+
+        ProcessCreditContract(CreditContract, input);
+
+        exit(Ws.CreateResponseSuccess(CreditContract."No."));
+
+    end;
+
+    local procedure AddCreditContract(input: JsonObject): Text
+    var
+        CreditContract: Record "A01 AGP Contrat";
+    begin
+
+        CreditContract.Init();
+        CreditContract."No." := '';
+
+        //SalesOrderLine.LockTable();
+        CreditContract.Insert(true);
+
+        ProcessCreditContract(CreditContract, input);
+
+        exit(Ws.CreateResponseSuccess(CreditContract."No."));
+
+    end;
+
+    local procedure DeleteCreditContract(ContNo: Text): Text
+    var
+        CreditContract: Record "A01 AGP Contrat";
+    begin
+
+        CreditContract.Get(ContNo);
+
+        CreditContract.Delete(true);
+
+        exit(Ws.CreateResponseSuccess(CreditContract."No."));
+
+    end;
+
+    local procedure ProcessCreditContract(var CreditContract: Record "A01 AGP Contrat"; input: JsonObject)
+    begin
+
+        if (CreditContract."Created By" = '') then
+            CreditContract.Validate("Created By", WS.GetText('webUserName', input));
+
+        if (CreditContract."Modified By" <> WS.GetText('webUserName', input)) then
+            CreditContract.Validate("Modified By", WS.GetText('webUserName', input));
+
+        if (CreditContract."Account Type".AsInteger() <> WS.GetInt('Account Type', input)) then
+            CreditContract.Validate("Account Type", WS.GetInt('Account Type', input));
+
+        if (CreditContract."Customer No." <> WS.GetText('Customer No_', input)) then
+            CreditContract.Validate("Customer No.", WS.GetText('Customer No_', input));
+
+        if (CreditContract."OP Starting Date" <> WS.GetDate('OP Starting Date', input)) then
+            CreditContract.Validate("OP Starting Date", WS.GetDate('OP Starting Date', input));
+
+        if (CreditContract."OP Duration (Month)" <> WS.GetInt('OP Duration (Month)', input)) then
+            CreditContract.Validate("OP Duration (Month)", WS.GetInt('OP Duration (Month)', input));
+
+        if (CreditContract."OP Ending Date" <> WS.GetDate('OP Ending Date', input)) then
+            CreditContract.Validate("OP Ending Date", WS.GetDate('OP Ending Date', input));
+
+        if (CreditContract."Duration (Month)" <> WS.GetInt('Duration (Month)', input)) then
+            CreditContract.Validate("Duration (Month)", WS.GetInt('Duration (Month)', input));
+
+        if (CreditContract."Commitment Type".AsInteger() <> WS.GetInt('Commitment Type', input)) then
+            CreditContract.Validate("Commitment Type", WS.GetInt('Commitment Type', input));
+
+        if (CreditContract."Payment Terms Code" <> WS.GetText('Payment Terms Code', input)) then
+            CreditContract.Validate("Payment Terms Code", WS.GetText('Payment Terms Code', input));
+
+        if (CreditContract."First Terms Date" <> WS.GetDate('First Terms Date', input)) then
+            CreditContract.Validate("First Terms Date", WS.GetDate('First Terms Date', input));
+
+        if (CreditContract."Payment Method Code" <> WS.GetText('Payment Method Code', input)) then
+            CreditContract.Validate("Payment Method Code", WS.GetText('Payment Method Code', input));
+
+        if (CreditContract."Approval Status".AsInteger() <> WS.GetInt('Approval Status', input)) then
+            CreditContract.Validate("Approval Status", WS.GetInt('Approval Status', input));
+
+        CreditContract.Modify();
+    end;
+
+    #endregion credit contract
+
+
+    #region Ship To Address
+
+    local procedure ModifyShipToAddress(CustNo: Text; Code: Text; input: JsonObject): Text
+    var
+        ShipTo: Record "Ship-to Address";
+    begin
+
+        ShipTo.Get(CustNo, Code);
+
+        ProcessShipToAddress(ShipTo, input);
+
+        exit(Ws.CreateResponseSuccess(ShipTo.Code));
+
+    end;
+
+    local procedure AddShipToAddress(CustNo: Text; input: JsonObject): Text
+    var
+        ShipTo: Record "Ship-to Address";
+        NosSeriesMgt: Codeunit NoSeriesManagement;
+    begin
+
+        ShipTo.Init();
+        ShipTo."Customer No." := CopyStr(CustNo, 1, 20);
+        AddOnSetup.Testfield("ShipToAddress Code Nos");
+        ShipTo."Code" := CopyStr(NosSeriesMgt.GetNextNo(AddOnSetup."ShipToAddress Code Nos", today, true), 1, 10);
+
+        ShipTo.Insert(true);
+
+        ProcessShipToAddress(ShipTo, input);
+
+        exit(Ws.CreateResponseSuccess(ShipTo."Code"));
+
+    end;
+
+    local procedure DeleteShipToAddress(CustNo: Text; Code: Text): Text
+    var
+        ShipTo: Record "Ship-to Address";
+    begin
+
+        ShipTo.Get(CustNo, Code);
+
+        ShipTo.Delete(true);
+
+        exit(Ws.CreateResponseSuccess(ShipTo."Code"));
+
+    end;
+
+    local procedure ProcessShipToAddress(var ShipTo: Record "Ship-to Address"; input: JsonObject)
+    begin
+
+        if (ShipTo."A01 Created By" = '') then
+            ShipTo.Validate("A01 Created By", WS.GetText('webUserName', input));
+
+        if (ShipTo."A01 Modified By" <> WS.GetText('webUserName', input)) then
+            ShipTo.Validate("A01 Modified By", WS.GetText('webUserName', input));
+
+        // if (ShipTo."Contact No." <> WS.GetText('Customer No_', input)) then
+        //     ShipTo.Validate("Contact No_", WS.GetText('Customer No_', input));
+
+        if (ShipTo.Name <> WS.GetText('Name', input)) then
+            ShipTo.Validate(Name, WS.GetText('Name', input));
+
+        if (ShipTo.Address <> WS.GetText('Address', input)) then
+            ShipTo.Validate(Address, WS.GetText('Address', input));
+
+        if (ShipTo."Address 2" <> WS.GetText('Address 2', input)) then
+            ShipTo.Validate("Address 2", WS.GetText('Address 2', input));
+
+        if (ShipTo."City" <> WS.GetText('City', input)) then
+            ShipTo.Validate("City", WS.GetText('City', input));
+
+        if (ShipTo."Phone No." <> WS.GetText('Phone No_', input)) then
+            ShipTo.Validate("Phone No.", WS.GetText('Phone No_', input));
+
+        // if (ShipTo.ph <> WS.GetText('Mobile Phone No_', input)) then
+        //     ShipTo.Validate("Mobile Phone No.", WS.GetText('Mobile Phone No_', input));
+
+        if (ShipTo."A01 Place" <> WS.GetText('Place', input)) then
+            ShipTo.Validate("A01 Place", WS.GetText('Place', input));
+
+        if (ShipTo."A01 Neighborhood" <> WS.GetText('Neighborhood', input)) then
+            ShipTo.Validate("A01 Neighborhood", WS.GetText('Neighborhood', input));
+
+        if (ShipTo."Service Zone Code" <> WS.GetText('Service Zone Code', input)) then
+            ShipTo.Validate("Service Zone Code", WS.GetText('Service Zone Code', input));
+
+        if (ShipTo."A01 Road Type".AsInteger() <> WS.GetInt('Road Type', input)) then
+            ShipTo.Validate("A01 Road Type", WS.GetInt('Road Type', input));
+
+        if (ShipTo."A01 Road Type (Others)" <> WS.GetText('Road Type (Others)', input)) then
+            ShipTo.Validate("A01 Road Type (Others)", WS.GetText('Road Type (Others)', input));
+
+        if (ShipTo."A01 Walking distance".AsInteger() <> WS.GetInt('Walking distance', input)) then
+            ShipTo.Validate("A01 Walking distance", WS.GetInt('Walking distance', input));
+
+        if (ShipTo."A01 Walking distance (Others)" <> WS.GetText('Walking distance (Others)', input)) then
+            ShipTo.Validate("A01 Walking distance (Others)", WS.GetText('Walking distance (Others)', input));
+
+        if (ShipTo."A01 Delivery Location".AsInteger() <> WS.GetInt('Delivery Location', input)) then
+            ShipTo.Validate("A01 Delivery Location", WS.GetInt('Delivery Location', input));
+
+        if (ShipTo."A01 Motorcycle Access" <> WS.GetBool('Motorcycle Access', input)) then
+            ShipTo.Validate("A01 Motorcycle Access", WS.GetBool('Motorcycle Access', input));
+
+        if (ShipTo."A01 Access Plan".AsInteger() <> WS.GetInt('Access Plan', input)) then
+            ShipTo.Validate("A01 Access Plan", WS.GetInt('Access Plan', input));
+
+        if (ShipTo."A01 Access Type".AsInteger() <> WS.GetInt('Access Type', input)) then
+            ShipTo.Validate("A01 Access Type", WS.GetInt('Access Type', input));
+
+        if (ShipTo."A01 Truck Type".AsInteger() <> WS.GetInt('Truck Type', input)) then
+            ShipTo.Validate("A01 Truck Type", WS.GetInt('Truck Type', input));
+
+        if (ShipTo."A01 Public parking presence" <> WS.GetBool('Public parking presence', input)) then
+            ShipTo.Validate("A01 Public parking presence", WS.GetBool('Public parking presence', input));
+
+        if (ShipTo."A01 Remarks" <> WS.GetText('Remarks', input)) then
+            ShipTo.Validate("A01 Remarks", WS.GetText('Remarks', input));
+
+        // if (ShipTo."A01 Ground plan" <> WS.GetText('Ground plan', input)) then
+        //     ShipTo.Validate("A01 Ground plan", WS.GetText('Ground plan', input));
+
+
+        ShipTo.Modify();
+    end;
+
+    #endregion ship to address
+
+
+
 }

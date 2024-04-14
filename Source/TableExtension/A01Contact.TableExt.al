@@ -146,7 +146,7 @@ tableextension 50005 "A01 Contact" extends Contact
                     Rec.TestField("A01 Sales Mode", PayTerms."A01 Sales Mode");
             end;
         }
-        field(50106; "A01 Payment Method"; Code[20])
+        field(50106; "A01 Payment Method"; Code[10])
         {
             Caption = 'Payment Method';
             DataClassification = CustomerContent;
