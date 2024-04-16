@@ -180,6 +180,7 @@ codeunit 50013 "A01 Customer Settlement Post"
     local procedure CheckLines()
     var
         PayMethod: Record "Payment Method";
+        LblValidated: Label 'All lines must be validated for this operation';
     begin
         CustSettlementLine.Reset();
         CustSettlementLine.SetRange("Document No.", CustomerSettlement."No.");
@@ -190,6 +191,8 @@ codeunit 50013 "A01 Customer Settlement Post"
                 CustSettlementLine.TestField("Payment Method");
                 if (PayMethod."A01 Reference required") then
                     CustSettlementLine.TestField(Reference);
+                if (CustSettlementLine.Amount <> CustSettlementLine."Validated Amount") then
+                    Error(LblValidated);
             until CustSettlementLine.Next() < 1;
     end;
 

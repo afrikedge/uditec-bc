@@ -334,15 +334,15 @@ codeunit 50015 A01WSMasterFilesMgt
         if (CustCriteria."Numeric Value" <> WS.GetDecimal('Numeric Value', input)) then
             CustCriteria.Validate("Numeric Value", WS.GetDecimal('Numeric Value', input));
 
-        if (CustCriteria."Aplhanumeric Value" <> WS.GetText('Aplha Value', input)) then
-            CustCriteria.Validate("Aplhanumeric Value", WS.GetText('Aplha Value', input));
+        if (CustCriteria."Aplhanumeric Value" <> WS.GetText('Alpha Value', input)) then
+            CustCriteria.Validate("Aplhanumeric Value", WS.GetText('Alpha Value', input));
 
         // if (CustCriteria.Validity.AsInteger() <> WS.GetInt('Validity', input)) then
         //     CustCriteria.Validate("Validity", WS.GetInt('Validity', input));
 
         //TODO TEST JSON HERE
-        //if (CustCriteria."Validity Date" <> WS.GetDate('Validity Date', input)) then
-        //    CustCriteria.Validate("Validity Date", WS.GetDate('Validity Date', input));
+        if (CustCriteria."Validity Date" <> WS.GetDate('Validity Date', input)) then
+            CustCriteria.Validate("Validity Date", WS.GetDate('Validity Date', input));
 
         // if (CustCriteria."Document Required" <> WS.GetBool('Document required', input)) then
         //     CustCriteria.Validate("Document Required", WS.GetBool('Document required', input));
@@ -500,6 +500,8 @@ codeunit 50015 A01WSMasterFilesMgt
         if (Cont."A01 Modified By" <> WS.GetText('webUserName', input)) then
             Cont.Validate("A01 Modified By", WS.GetText('webUserName', input));
 
+        cont."A01 Contact Type" := cont."A01 Contact Type"::Lead;
+
         if (Cont."Name" <> WS.GetText('Name', input)) then
             Cont.Validate("Name", WS.GetText('Name', input));
 
@@ -515,6 +517,8 @@ codeunit 50015 A01WSMasterFilesMgt
         if (Cont."A01 Identification Mode".AsInteger() <> WS.GetInt('Identification Mode', input)) then
             Cont.Validate("A01 Identification Mode", WS.GetInt('Identification Mode', input));
 
+        if (Cont."A01 Prospect Status".AsInteger() <> WS.GetInt('Approval Status', input)) then
+            Cont.Validate("A01 Prospect Status", WS.GetInt('Approval Status', input));
 
         if (Cont."Address" <> WS.GetText('Address', input)) then
             Cont.Validate("Address", WS.GetText('Address', input));
@@ -648,15 +652,15 @@ codeunit 50015 A01WSMasterFilesMgt
         if (CustCriteria."Numeric Value" <> WS.GetDecimal('Numeric Value', input)) then
             CustCriteria.Validate("Numeric Value", WS.GetDecimal('Numeric Value', input));
 
-        if (CustCriteria."Aplhanumeric Value" <> WS.GetText('Aplha Value', input)) then
-            CustCriteria.Validate("Aplhanumeric Value", WS.GetText('Aplha Value', input));
+        if (CustCriteria."Aplhanumeric Value" <> WS.GetText('Alpha Value', input)) then
+            CustCriteria.Validate("Aplhanumeric Value", WS.GetText('Alpha Value', input));
 
         // if (CustCriteria.Validity.AsInteger() <> WS.GetInt('Validity', input)) then
         //     CustCriteria.Validate("Validity", WS.GetInt('Validity', input));
 
         //TODO REACTIVATE THIS CODE
-        //if (CustCriteria."Validity Date" <> WS.GetDate('Validity Date', input)) then
-        //    CustCriteria.Validate("Validity Date", WS.GetDate('Validity Date', input));
+        if (CustCriteria."Validity Date" <> WS.GetDate('Validity Date', input)) then
+            CustCriteria.Validate("Validity Date", WS.GetDate('Validity Date', input));
 
         // if (CustCriteria."Document Required" <> WS.GetBool('Document required', input)) then
         //     CustCriteria.Validate("Document Required", WS.GetBool('Document required', input));
@@ -993,8 +997,8 @@ codeunit 50015 A01WSMasterFilesMgt
         if (ShipTo."A01 Modified By" <> WS.GetText('webUserName', input)) then
             ShipTo.Validate("A01 Modified By", WS.GetText('webUserName', input));
 
-        // if (ShipTo."Contact No." <> WS.GetText('Customer No_', input)) then
-        //     ShipTo.Validate("Contact No_", WS.GetText('Customer No_', input));
+        if (ShipTo."A01 Contact No." <> WS.GetText('Contact No_', input)) then
+            ShipTo.Validate("A01 Contact No.", WS.GetText('Contact No_', input));
 
         if (ShipTo.Name <> WS.GetText('Name', input)) then
             ShipTo.Validate(Name, WS.GetText('Name', input));
@@ -1011,8 +1015,8 @@ codeunit 50015 A01WSMasterFilesMgt
         if (ShipTo."Phone No." <> WS.GetText('Phone No_', input)) then
             ShipTo.Validate("Phone No.", WS.GetText('Phone No_', input));
 
-        // if (ShipTo.ph <> WS.GetText('Mobile Phone No_', input)) then
-        //     ShipTo.Validate("Mobile Phone No.", WS.GetText('Mobile Phone No_', input));
+        if (ShipTo."A01 Mobile Phone No." <> WS.GetText('Mobile Phone No_', input)) then
+            ShipTo.Validate("A01 Mobile Phone No.", WS.GetText('Mobile Phone No_', input));
 
         if (ShipTo."A01 Place" <> WS.GetText('Place', input)) then
             ShipTo.Validate("A01 Place", WS.GetText('Place', input));
@@ -1059,6 +1063,8 @@ codeunit 50015 A01WSMasterFilesMgt
         // if (ShipTo."A01 Ground plan" <> WS.GetText('Ground plan', input)) then
         //     ShipTo.Validate("A01 Ground plan", WS.GetText('Ground plan', input));
 
+        if (ShipTo."A01 Time preference".AsInteger() <> WS.GetInt('Time preference', input)) then
+            ShipTo.Validate("A01 Time preference", WS.GetInt('Time preference', input));
 
         ShipTo.Modify();
     end;

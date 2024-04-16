@@ -44,7 +44,7 @@ table 50013 "A01 Cust Scoring Criteria"
         {
             Caption = 'Numeric Value';
         }
-        field(6; "Aplhanumeric Value"; Code[20])
+        field(6; "Aplhanumeric Value"; Code[30])
         {
             Caption = 'Aplhanumeric Value';
         }

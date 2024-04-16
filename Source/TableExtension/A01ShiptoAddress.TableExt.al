@@ -98,5 +98,19 @@ tableextension 50007 "A01 Ship-to Address" extends "Ship-to Address"
             Editable = false;
             DataClassification = CustomerContent;
         }
+        field(50018; "A01 Contact No."; Code[20])
+        {
+            Caption = 'Contact No.';
+            Editable = false;
+            DataClassification = CustomerContent;
+            TableRelation = Contact;
+        }
+        field(50019; "A01 Mobile Phone No."; Text[50])
+        {
+            Caption = 'Mobile Phone No.';
+            Editable = false;
+            DataClassification = CustomerContent;
+        }
+
     }
 }

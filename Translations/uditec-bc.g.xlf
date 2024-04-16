@@ -2418,6 +2418,11 @@
           <note from="Developer" annotates="general" priority="2">%3 = counter</note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit A01 Customer Settlement Post - NamedType PostingLinesMsg</note>
         </trans-unit>
+        <trans-unit id="Codeunit 2721453659 - Method 2246256157 - NamedType 1170824388" size-unit="char" translate="yes" xml:space="preserve">
+          <source>All lines must be validated for this operation</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit A01 Customer Settlement Post - Method CheckLines - NamedType LblValidated</note>
+        </trans-unit>
         <trans-unit id="Codeunit 3438428471 - NamedType 3114637384" size-unit="char" translate="yes" xml:space="preserve">
           <source>The %1 in the %2 will be changed from %3 to %4.\</source>
           <note from="Developer" annotates="general" priority="2">%1 = ... %2 = ...%3 .. %4 ..</note>
@@ -12828,6 +12833,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension A01 Ship-to Address - Field A01 Area - Property Caption</note>
         </trans-unit>
+        <trans-unit id="TableExtension 3533721046 - Field 3584573665 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1187003046">
+          <source>Contact No.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension A01 Ship-to Address - Field A01 Contact No. - Property Caption</note>
+        </trans-unit>
         <trans-unit id="TableExtension 3533721046 - Field 1519415861 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1187003046">
           <source>Created By</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -12842,6 +12852,11 @@
           <source>Ground plan</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension A01 Ship-to Address - Field A01 Ground plan - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 3533721046 - Field 3241625405 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1187003046">
+          <source>Mobile Phone No.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension A01 Ship-to Address - Field A01 Mobile Phone No. - Property Caption</note>
         </trans-unit>
         <trans-unit id="TableExtension 3533721046 - Field 2885430638 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1187003046">
           <source>Modified By</source>

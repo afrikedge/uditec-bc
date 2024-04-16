@@ -1,7 +1,7 @@
 /// <summary>
-/// TableExtension AFK01 Sales Header (ID 50000) extends Record Sales Header.
+/// TableExtension A01 Sales Invoice Header (ID 50025) extends Record Sales Invoice Header.
 /// </summary>
-tableextension 50000 "A01 Sales Header" extends "Sales Header"
+tableextension 50025 "A01 Sales Invoice Header" extends "Sales Invoice Header"
 {
     fields
     {
@@ -60,10 +60,6 @@ tableextension 50000 "A01 Sales Header" extends "Sales Header"
             Caption = 'Sales Mode';
             TableRelation = "Dimension Value".Code where("Global Dimension No." = const(3));
             DataClassification = CustomerContent;
-            trigger OnValidate()
-            begin
-                Rec.ValidateShortcutDimCode(3, "A01 Sales Mode");
-            end;
         }
         field(50010; "A01 Interest rate"; Decimal)
         {
@@ -111,42 +107,6 @@ tableextension 50000 "A01 Sales Header" extends "Sales Header"
             DataClassification = CustomerContent;
             Editable = false;
         }
-        // field(50017; "A01 Eligible Amount"; Decimal)
-        // {
-        //     Caption = 'Eligible Amount';
-        //     DataClassification = CustomerContent;
-        //     Editable = false;
-        // }
-
-        modify("Sell-to Customer No.")
-        {
-            trigger OnAfterValidate()
-            var
-                Cust1: Record Customer;
-            begin
-                if (Cust1.Get("Sell-to Customer No.")) then begin
-                    Rec.validate("A01 Sales Mode", Cust1."A01 Sales Mode");
-                    rec.Validate("A01 AGP Contract No.", Cust1."A01 Contract No.");
-                end;
-            end;
-        }
     }
 
-    trigger OnDelete()
-    var
-        CreditDueLine: Record "A01 Credit Depreciation Table";
-    begin
-        if ("Document Type" = Rec."Document Type"::Order) then begin
-            CreditDueLine.SetRange("Document Type", CreditDueLine."Document Type"::"Sales order");
-            CreditDueLine.SetRange("Document No.", Rec."No.");
-            if (not CreditDueLine.IsEmpty) then
-                CreditDueLine.DeleteAll();
-        end;
-        if ("Document Type" = Rec."Document Type"::Quote) then begin
-            CreditDueLine.SetRange("Document Type", CreditDueLine."Document Type"::"Sales Quote");
-            CreditDueLine.SetRange("Document No.", Rec."No.");
-            if (not CreditDueLine.IsEmpty) then
-                CreditDueLine.DeleteAll();
-        end;
-    end;
 }
