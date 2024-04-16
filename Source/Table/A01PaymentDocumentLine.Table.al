@@ -12,7 +12,7 @@ table 50033 "A01 Payment Document Line"
         {
             Caption = 'Document No.';
         }
-        field(2; "Payment Method"; Code[20])
+        field(2; "Payment Method"; Code[10])
         {
             Caption = 'Payment Method';
             TableRelation = "A01 RC Payment Method"."Payment Method" where("Responsability Center" = field("Responsibility Center"));
@@ -24,10 +24,20 @@ table 50033 "A01 Payment Document Line"
         field(4; Amount; Decimal)
         {
             Caption = 'Amount';
+            trigger OnValidate()
+            var
+                PayMethod: Record "Payment Method";
+            begin
+                TestField("Payment Method");
+                PayMethod.Get("Payment Method");
+                if (not PayMethod."A01 Approval required") then
+                    "Validated Amount" := Amount;
+            end;
         }
         field(5; "Validated Amount"; Decimal)
         {
             Caption = 'Validated Amount';
+            Editable = false;
         }
         field(6; "Responsibility Center"; Code[20])
         {

@@ -26,8 +26,8 @@ codeunit 50014 "A01 Doc Payment-Apply"
 
         GenJnlLine."Account Type" := GenJnlLine."Account Type"::Customer;
         GenJnlLine."Account No." := PaymentDoc."Partner No.";
-        GenJnlLine.Amount := PaymentDoc.Amount;
-        GenJnlLine."Amount (LCY)" := PaymentDoc."Amount";
+        GenJnlLine.Amount := -PaymentDoc.Amount;
+        GenJnlLine."Amount (LCY)" := -PaymentDoc."Amount";
         GenJnlLine."Currency Code" := PaymentDoc."Currency Code";
         GenJnlLine."Posting Date" := PaymentDoc."Posting Date";
         GenJnlLine."Document Type" := GenJnlLine."Document Type"::Payment;

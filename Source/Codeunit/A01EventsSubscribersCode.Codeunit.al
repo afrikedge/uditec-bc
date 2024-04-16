@@ -109,22 +109,37 @@ codeunit 50002 "A01 EventsSubscribers_Code"
             SalesInvHeader."External Document No." := SalesInvHeader."No.";
     end;
 
-    // [Obsolete('Moved to Sales Invoice Posting implementation. Use the new event OnBeforePostLedgerEntry in codeunit 825 "Sales Post Invoice Events".', '19.0')]
-    // [IntegrationEvent(false, false)]
-    // local procedure OnBeforeRunPostCustomerEntry(var SalesHeader: Record "Sales Header"; var TotalSalesLine2: Record "Sales Line"; var TotalSalesLineLCY2: Record "Sales Line"; CommitIsSuppressed: Boolean; PreviewMode: Boolean; DocType: Enum "Gen. Journal Document Type"; DocNo: Code[20]; ExtDocNo: Code[35]; SourceCode: Code[10]; var GenJnlPostLine: Codeunit "Gen. Jnl.-Post Line"; var IsHandled: Boolean)
-    // begin
-    // end;
+    [EventSubscriber(ObjectType::Codeunit, Codeunit::"Gen. Jnl.-Post Line", 'OnAfterRunWithoutCheck', '', true, true)]
+    local procedure OnAfterRunWithoutCheck_GenJnlPostLine(var GenJnlLine: Record "Gen. Journal Line")
+    var
+        TresoMgt: Codeunit "A01 Treso Mgt";
+    begin
+        TresoMgt.ConfirmGenerationOnInterestOnCreditDue(GenJnlLine);
+    end;
 
-    // [IntegrationEvent(false, false)]
-    // local procedure OnBeforeSalesInvHeaderInsert(var SalesInvHeader: Record "Sales Invoice Header"; var SalesHeader: Record "Sales Header"; CommitIsSuppressed: Boolean; var IsHandled: Boolean; WhseShip: Boolean; WhseShptHeader: Record "Warehouse Shipment Header"; InvtPickPutaway: Boolean)
-    // begin
-    // end;
+    [EventSubscriber(ObjectType::Codeunit, Codeunit::"Sales-Quote to Order", 'OnAfterCreateSalesHeader', '', true, true)]
+    local procedure SalesQuoteToOrder_OnAfterCreateSalesHeader(var SalesOrderHeader: Record "Sales Header"; SalesHeader: Record "Sales Header")
+    var
+        TresoMgt: Codeunit "A01 Treso Mgt";
+    begin
+        TresoMgt.TransferCreditDueLinesFromQuoteToOrder(SalesOrderHeader, SalesHeader);
+    end;
 
+    [EventSubscriber(ObjectType::Codeunit, Codeunit::"Item Jnl.-Check Line", 'OnBeforeCheckLocation', '', true, true)]
+    local procedure ItemJnlCheckLine_OnBeforeCheckLocation(var ItemJournalLine: Record "Item Journal Line"; var IsHandled: Boolean)
+    var
+        SecMgt: Codeunit "A01 Security Mgt";
+    begin
+        SecMgt.CheckWharehouseUser(ItemJournalLine);
+    end;
 
-
-
-
-
+    [EventSubscriber(ObjectType::Codeunit, Codeunit::"Gen. Jnl.-Check Line", 'OnBeforeCheckAccountNo', '', true, true)]
+    local procedure GenJnlCheckLine_OnBeforeCheckAccountNo(var GenJnlLine: Record "Gen. Journal Line"; var CheckDone: Boolean)
+    var
+        SecMgt: Codeunit "A01 Security Mgt";
+    begin
+        SecMgt.CheckBankAccountUser(GenJnlLine);
+    end;
 
 
 

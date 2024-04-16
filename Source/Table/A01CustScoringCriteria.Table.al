@@ -44,7 +44,7 @@ table 50013 "A01 Cust Scoring Criteria"
         {
             Caption = 'Numeric Value';
         }
-        field(6; "Aplhanumeric Value"; Code[20])
+        field(6; "Aplhanumeric Value"; Code[30])
         {
             Caption = 'Aplhanumeric Value';
         }
@@ -82,6 +82,12 @@ table 50013 "A01 Cust Scoring Criteria"
         field(14; "Modified By"; Code[50])
         {
             Caption = 'Modified By';
+            TableRelation = "A01 External User";
+            DataClassification = CustomerContent;
+        }
+        field(15; "Created By"; Code[50])
+        {
+            Caption = 'Created By';
             TableRelation = "A01 External User";
             DataClassification = CustomerContent;
         }

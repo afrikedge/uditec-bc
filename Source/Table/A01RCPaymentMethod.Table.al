@@ -13,7 +13,7 @@ table 50018 "A01 RC Payment Method"
             Caption = 'Responsability Center';
             TableRelation = "Responsibility Center";
         }
-        field(2; "Payment Method"; Code[20])
+        field(2; "Payment Method"; Code[10])//Payment method code is 10
         {
             Caption = 'Payment Method';
             TableRelation = "Payment Method";

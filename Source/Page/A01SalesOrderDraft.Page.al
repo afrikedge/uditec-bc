@@ -1162,6 +1162,7 @@ page 50003 "A01 Sales Order - Draft"
                     RunObject = page "A01 Document Step Lines";
                     RunPageLink = "Document Type" = const("Sales Order"), "Document No." = field("No.");
                 }
+
                 action(Statistics)
                 {
                     ApplicationArea = Basic, Suite;
@@ -1499,6 +1500,20 @@ page 50003 "A01 Sales Order - Draft"
                         SalesOrderProcess: Codeunit "A01 Sales Order Processing";
                     begin
                         SalesOrderProcess.Run(Rec);
+                    end;
+                }
+                action("A01 Create DiscountRequest")
+                {
+                    ApplicationArea = All;
+                    Caption = 'Create discount request';
+                    Image = PickLines;
+                    trigger OnAction()
+                    var
+                        CreateDoc: Report "A01 Create Document Request";
+                    begin
+                        CreateDoc.SetRequestType("A01 Request On Document Type"::"Discount on order");
+                        CreateDoc.SetDoc(Rec);
+                        CreateDoc.runmodal();
                     end;
                 }
             }

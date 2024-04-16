@@ -53,7 +53,7 @@ table 50023 "A01 Revision Request"
         {
             Caption = 'Credit Limit';
         }
-        field(8; "Payment Method"; Code[20])
+        field(8; "Payment Method"; Code[10])
         {
             Caption = 'Payment Method';
             TableRelation = "Payment Method";
@@ -76,7 +76,7 @@ table 50023 "A01 Revision Request"
         {
             Caption = 'Credit Limit (Proposed)';
         }
-        field(13; "Payment Method (Proposed)"; Code[20])
+        field(13; "Payment Method (Proposed)"; Code[10])
         {
             Caption = 'Payment Method (Proposed)';
             TableRelation = "Payment Method";
@@ -101,7 +101,7 @@ table 50023 "A01 Revision Request"
         {
             Caption = 'Credit Limit (Validated)';
         }
-        field(18; "Payment Method (Validated)"; Code[20])
+        field(18; "Payment Method (Validated)"; Code[10])
         {
             Caption = 'Payment Method (Validated)';
             TableRelation = "Payment Method";

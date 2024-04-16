@@ -64,6 +64,15 @@ report 50004 "A01 CashReceiptPrint"
             column(CustAddressLbl; CustAddressLbl)
             {
             }
+            column(rcs; rcs)
+            {
+            }
+            column(nif; nif)
+            {
+            }
+            column(stat; stat)
+            {
+            }
             column(NIFLbl; NIFLbl)
             {
             }
@@ -208,6 +217,9 @@ report 50004 "A01 CashReceiptPrint"
 
                     if Cust.Get(Line."Account No.") then begin
                         CustName := Cust.Name;
+                        rcs := Cust."A01 RCS";
+                        stat := Cust."A01 STAT";
+                        nif := Cust."A01 NIF";
                         CustIdentity := Cust.Contact;
                         CustPhone := Cust."Phone No.";
                         CustAddress := Cust."Ship-to Code";
@@ -282,6 +294,9 @@ report 50004 "A01 CashReceiptPrint"
         Check: Report Check;
         AutoFormat: Codeunit "Auto Format";
         CustName: Text[100];
+        rcs: Code[30];
+        nif: Code[30];
+        stat: Code[30];
         AfkLocalCurrencyName: Text;
         AfkCurrCode: Code[20];
         CurrCode: Code[20];
@@ -312,7 +327,7 @@ report 50004 "A01 CashReceiptPrint"
         ArrestedSumLbl: Label 'Arrested at the sum of :';
         RefLbl: Label 'No';
         DesignationLbl: Label 'Designation';
-        ObjectLbl: Label 'Object';
+        ObjectLbl: Label 'Reference';
         PaymentModeLbl: Label 'Payment mode';
         AmountLbl: Label 'Amount';
         TotalAmountLbl: Label 'Total Amount';

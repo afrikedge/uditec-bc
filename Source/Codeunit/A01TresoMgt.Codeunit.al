@@ -9,7 +9,12 @@ codeunit 50007 "A01 Treso Mgt"
 
         NoSeriesManagement: Codeunit NoSeriesManagement;
         ErrText01: Label 'The payment document has not been configured for \template %1\sheet %2\type %3', comment = '%1=model,%2=journal,%3=type';
-
+        TotalLineAmtInclVAT: Decimal;
+        TotalLineAmtInclVATLCY: Decimal;
+        TotalLineAmtLCY: Decimal;
+        TotalLineUnitCostLCY: Decimal;
+        TotalLineInvDiscountAmtLCY: Decimal;
+        TotalLinePmtDiscountAmt: Decimal;
     /// <summary>
     /// A01_ProcessFeuilleReglementCCL.
     /// </summary>
@@ -224,6 +229,7 @@ codeunit 50007 "A01 Treso Mgt"
         PaymentHeader."A01 Description" := SalesHeader."Posting Description";
         PaymentHeader.VALIDATE("Posting Date", SalesHeader."Posting Date");
         PaymentHeader."A01 Origin Document No." := SalesHeader."No.";
+        PaymentHeader."A01 Payment Method" := RCPaymentMethod."Payment Method";
 
         PaymentHeader.Modify();
 
@@ -304,6 +310,8 @@ codeunit 50007 "A01 Treso Mgt"
         PaymentHeader."A01 Description" := CustSettlement.Object;
         PaymentHeader.VALIDATE("Posting Date", CustSettlement."Posting Date");
         PaymentHeader."A01 Origin Document No." := CustSettlement."Posting No.";
+        PaymentHeader."A01 Payment Method" := CustSettlementLine."Payment Method";
+
         //PaymentHeader."A01 Posted Document No." := CustSettlement."Posting No.";
 
         PaymentHeader.Modify();
@@ -349,6 +357,7 @@ codeunit 50007 "A01 Treso Mgt"
     var GenJnlPostLine: Codeunit "Gen. Jnl.-Post Line";
     DocNo: Code[20];
     ExtDocNo: Code[35];
+
                                                                                                                                              SourceCode: Code[10])
     var
         //CustLedgEntry: Record "Cust. Ledger Entry";
@@ -451,6 +460,7 @@ codeunit 50007 "A01 Treso Mgt"
         //     GenJnlLine."Document Type" := GenJnlLine."Document Type"::Refund
         // else
         GenJnlLine."Document Type" := GenJnlLine."Document Type"::Payment;
+        GenJnlLine."Payment Method Code" := CustSettlementLine."Payment Method";
 
 
         SetBalAccAndApplyToID(RCPaymentMethod, GenJnlLine, CustSettlement."Applies-to ID");
@@ -601,19 +611,6 @@ codeunit 50007 "A01 Treso Mgt"
     var
         PaymentCond: Record "Payment Terms";
         CreditDueLine: Record "A01 Credit Depreciation Table";
-        TotalLineAmtInclVAT: Decimal;
-        TotalLineAmtInclVATLCY: Decimal;
-        TotalLineAmtLCY: Decimal;
-        TotalLineUnitCostLCY: Decimal;
-        TotalLineInvDiscountAmtLCY: Decimal;
-        TotalLinePmtDiscountAmt: Decimal;
-
-        LineAmtInclVAT: Decimal;
-        LineAmtInclVATLCY: Decimal;
-        LineAmtLCY: Decimal;
-        LineUnitCostLCY: Decimal;
-        LineInvDiscountAmtLCY: Decimal;
-        LinePmtDiscountAmt: Decimal;
         i: Integer;
         LineDueDate: Date;
 
@@ -623,47 +620,39 @@ codeunit 50007 "A01 Treso Mgt"
 
         PaymentCond.Get(SalesHeader."Payment Terms Code");
 
-        CreditDueLine.Reset();
-        CreditDueLine.SetRange("Document Type", CreditDueLine."Document Type"::"Sales order");
-        //CreditDueLine
+        CheckCreditDueLines(SalesHeader);
 
         LineDueDate := SalesHeader."Due Date";
 
+        i := 1;
+        TotalLineAmtInclVAT := 0;
+        TotalLineAmtInclVATLCY := 0;
+        TotalLineAmtLCY := 0;
+        TotalLineUnitCostLCY := 0;
+        TotalLineInvDiscountAmtLCY := 0;
+        TotalLinePmtDiscountAmt := 0;
+        CreditDueLine.Reset();
+        CreditDueLine.SetRange("Document Type", CreditDueLine."Document Type"::"Sales order");
+        CreditDueLine.SetRange("Document No.", SalesHeader."No.");
+        if CreditDueLine.FindSet() then
+            repeat
+                ProcessCreditDueLine(SalesHeader, CreditDueLine, TotalSalesLine2, TotalSalesLineLCY2, DocType, DocNo, ExtDocNo, SourceCode, GenJnlPostLine, i, LineDueDate);
+
+                LineDueDate := CalcDate('<1M>', LineDueDate);
+                i += 1;
+            until CreditDueLine.Next() < 1;
 
 
-        for i := 1 to SalesHeader."A01 Credit Duration (Month)" do begin
-            if (i <> SalesHeader."A01 Credit Duration (Month)") then begin
+        // for i := 1 to SalesHeader."A01 Credit Duration (Month)" do begin
 
-                LineAmtInclVAT := RoundAmount(TotalSalesLine2."Amount Including VAT" / SalesHeader."A01 Credit Duration (Month)");
-                LineAmtInclVATLCY := RoundAmount(TotalSalesLineLCY2."Amount Including VAT" / SalesHeader."A01 Credit Duration (Month)");
-                LineAmtLCY := RoundAmount(TotalSalesLineLCY2.Amount / SalesHeader."A01 Credit Duration (Month)");
-                LineUnitCostLCY := RoundAmount(TotalSalesLineLCY2."Unit Cost (LCY)" / SalesHeader."A01 Credit Duration (Month)");
-                LineInvDiscountAmtLCY := RoundAmount(TotalSalesLineLCY2."Inv. Discount Amount" / SalesHeader."A01 Credit Duration (Month)");
-                LinePmtDiscountAmt := RoundAmount(TotalSalesLine2."Pmt. Discount Amount" / SalesHeader."A01 Credit Duration (Month)");
+        // end;
 
-                TotalLineAmtInclVAT += LineAmtInclVAT;
-                TotalLineAmtInclVATLCY += LineAmtInclVATLCY;
-                TotalLineAmtLCY += LineAmtLCY;
-                TotalLineUnitCostLCY += LineUnitCostLCY;
-                TotalLineInvDiscountAmtLCY += LineInvDiscountAmtLCY;
-                TotalLinePmtDiscountAmt += LinePmtDiscountAmt;
+        CreditDueLine.Reset();
+        CreditDueLine.SetRange("Document Type", CreditDueLine."Document Type"::"Sales order");
+        CreditDueLine.SetRange("Document No.", SalesHeader."No.");
+        if not CreditDueLine.IsEmpty() then
+            CreditDueLine.DeleteAll();
 
-            end else begin
-
-                LineAmtInclVAT := Round(TotalSalesLine2."Amount Including VAT" - TotalLineAmtInclVAT);
-                LineAmtInclVATLCY := Round(TotalSalesLineLCY2."Amount Including VAT" - TotalLineAmtInclVATLCY);
-                LineAmtLCY := Round(TotalSalesLineLCY2.Amount - TotalLineAmtLCY);
-                LineUnitCostLCY := Round(TotalSalesLineLCY2."Unit Cost (LCY)" - TotalLineUnitCostLCY);
-                LineInvDiscountAmtLCY := Round(TotalSalesLineLCY2."Inv. Discount Amount" - TotalLineInvDiscountAmtLCY);
-                LinePmtDiscountAmt := Round(TotalSalesLine2."Pmt. Discount Amount" - TotalLinePmtDiscountAmt);
-
-            end;
-
-            PostMultiDeadlinesPayment(SalesHeader, DocType, DocNo, ExtDocNo, SourceCode, GenJnlPostLine, LineAmtInclVAT,
-                LineAmtInclVATLCY, LineAmtLCY, LineUnitCostLCY, LineInvDiscountAmtLCY, LinePmtDiscountAmt, LineDueDate, i);
-
-            LineDueDate := CalcDate('<1M>', LineDueDate);
-        end;
 
         IsHandled := true;
 
@@ -683,7 +672,8 @@ codeunit 50007 "A01 Treso Mgt"
     end;
 
     local procedure PostMultiDeadlinesPayment(var SalesHeader: Record "Sales Header";
-      DocType: Enum "Gen. Journal Document Type"; DocNo: Code[20];
+                var CreditDueLine: Record "A01 Credit Depreciation Table";
+                    DocType: Enum "Gen. Journal Document Type"; DocNo: Code[20];
                    ExtDocNo: Code[35];
                    SourceCode: Code[10];
                    var GenJnlPostLine: Codeunit "Gen. Jnl.-Post Line";
@@ -697,7 +687,9 @@ codeunit 50007 "A01 Treso Mgt"
                    LineId: Integer)
     var
         PaymentCond: Record "Payment Terms";
+        CreditDueLineNew: Record "A01 Credit Depreciation Table";
         GenJnlLine: Record "Gen. Journal Line";
+        CustLedgEntry: Record "Cust. Ledger Entry";
     begin
         if (not PaymentCond.Get(SalesHeader."Payment Terms Code")) then
             exit;
@@ -756,7 +748,142 @@ codeunit 50007 "A01 Treso Mgt"
 
         //OnBeforePostCustomerEntry(GenJnlLine, SalesHeader, TotalSalesLine2, TotalSalesLineLCY2, SuppressCommit, PreviewMode, GenJnlPostLine);
         GenJnlPostLine.RunWithCheck(GenJnlLine);
+
+        CustLedgEntry.Reset();
+        CustLedgEntry.SetCurrentKey("Document No.");
+        //CustLedgEntry.SetRange("Document Type", GenJnlLine."Document Type");
+        CustLedgEntry.SetRange("Document No.", GenJnlLine."Document No.");
+        CustLedgEntry.FindLast();
+
+
+        CreditDueLineNew.Init();
+        CreditDueLineNew.TransferFields(CreditDueLine);
+        CreditDueLineNew."Due Date" := CustLedgEntry."Due Date";
+        CreditDueLineNew."Cust Ledger Entry No." := CustLedgEntry."Entry No.";
+        CreditDueLineNew."Dimension Set ID" := SalesHeader."Dimension Set ID";
+        CreditDueLineNew."Document Type" := CreditDueLine."Document Type"::"Posted Sales invoice";
+        CreditDueLineNew."Order No." := SalesHeader."No.";
+        CreditDueLineNew."Document No." := DocNo;
+
+        CreditDueLineNew.Insert(true);
         //OnAfterPostCustomerEntry(GenJnlLine, SalesHeader, TotalSalesLine2, TotalSalesLineLCY2, SuppressCommit, GenJnlPostLine);
     end;
+
+    local procedure CheckCreditDueLines(var SalesHeader: Record "Sales Header")
+    var
+        CreditDueLine: Record "A01 Credit Depreciation Table";
+    begin
+        CreditDueLine.Reset();
+        CreditDueLine.SetRange("Document Type", CreditDueLine."Document Type"::"Sales order");
+        CreditDueLine.SetRange("Document No.", SalesHeader."No.");
+        if CreditDueLine.FindSet() then
+            repeat
+
+            until CreditDueLine.Next() < 1;
+        SalesHeader.TestField("A01 Credit Duration (Month)", CreditDueLine.Count);
+    end;
+
+    local procedure ProcessCreditDueLine(var SalesHeader: Record "Sales Header"; var CreditDueLine: Record "A01 Credit Depreciation Table"; var TotalSalesLine2: Record "Sales Line"; var TotalSalesLineLCY2: Record "Sales Line"; var DocType: Enum "Gen. Journal Document Type"; DocNo: Code[20]; ExtDocNo: Code[35]; SourceCode: Code[10]; var GenJnlPostLine: Codeunit "Gen. Jnl.-Post Line"; i: Integer; LineDueDate: Date)
+    var
+
+
+        LineAmtInclVAT: Decimal;
+        LineAmtInclVATLCY: Decimal;
+        LineAmtLCY: Decimal;
+        LineUnitCostLCY: Decimal;
+        LineInvDiscountAmtLCY: Decimal;
+        LinePmtDiscountAmt: Decimal;
+    begin
+        if (i <> SalesHeader."A01 Credit Duration (Month)") then begin
+
+            LineAmtInclVAT := RoundAmount(TotalSalesLine2."Amount Including VAT" / SalesHeader."A01 Credit Duration (Month)");
+            LineAmtInclVATLCY := RoundAmount(TotalSalesLineLCY2."Amount Including VAT" / SalesHeader."A01 Credit Duration (Month)");
+            LineAmtLCY := RoundAmount(TotalSalesLineLCY2.Amount / SalesHeader."A01 Credit Duration (Month)");
+            LineUnitCostLCY := RoundAmount(TotalSalesLineLCY2."Unit Cost (LCY)" / SalesHeader."A01 Credit Duration (Month)");
+            LineInvDiscountAmtLCY := RoundAmount(TotalSalesLineLCY2."Inv. Discount Amount" / SalesHeader."A01 Credit Duration (Month)");
+            LinePmtDiscountAmt := RoundAmount(TotalSalesLine2."Pmt. Discount Amount" / SalesHeader."A01 Credit Duration (Month)");
+
+            TotalLineAmtInclVAT += LineAmtInclVAT;
+            TotalLineAmtInclVATLCY += LineAmtInclVATLCY;
+            TotalLineAmtLCY += LineAmtLCY;
+            TotalLineUnitCostLCY += LineUnitCostLCY;
+            TotalLineInvDiscountAmtLCY += LineInvDiscountAmtLCY;
+            TotalLinePmtDiscountAmt += LinePmtDiscountAmt;
+
+        end else begin
+
+            LineAmtInclVAT := Round(TotalSalesLine2."Amount Including VAT" - TotalLineAmtInclVAT);
+            LineAmtInclVATLCY := Round(TotalSalesLineLCY2."Amount Including VAT" - TotalLineAmtInclVATLCY);
+            LineAmtLCY := Round(TotalSalesLineLCY2.Amount - TotalLineAmtLCY);
+            LineUnitCostLCY := Round(TotalSalesLineLCY2."Unit Cost (LCY)" - TotalLineUnitCostLCY);
+            LineInvDiscountAmtLCY := Round(TotalSalesLineLCY2."Inv. Discount Amount" - TotalLineInvDiscountAmtLCY);
+            LinePmtDiscountAmt := Round(TotalSalesLine2."Pmt. Discount Amount" - TotalLinePmtDiscountAmt);
+
+        end;
+
+        PostMultiDeadlinesPayment(SalesHeader, CreditDueLine, DocType, DocNo, ExtDocNo, SourceCode, GenJnlPostLine, LineAmtInclVAT,
+            LineAmtInclVATLCY, LineAmtLCY, LineUnitCostLCY, LineInvDiscountAmtLCY, LinePmtDiscountAmt, LineDueDate, i);
+    end;
+
+    /// <summary>
+    /// ConfirmGenerationOnInterestOnCreditDue
+    /// </summary>
+    /// <param name="GenJnlLine"></param>
+    procedure ConfirmGenerationOnInterestOnCreditDue(GenJnlLine: Record "Gen. Journal Line")
+    var
+        CreditDueLine: Record "A01 Credit Depreciation Table";
+        pos: Integer;
+        CustEntryNo: Integer;
+        intValueStr: Text;
+    begin
+        //CustEntryNo := 0;
+        if (GenJnlLine."Message to Recipient" = '') then
+            exit;
+        pos := StrPos(GenJnlLine."Message to Recipient", 'AFKGIE');
+        if (pos > 0) then begin
+            intValueStr := CopyStr(GenJnlLine."Message to Recipient", 7);
+            Evaluate(CustEntryNo, intValueStr);
+            if (CustEntryNo > 0) then begin
+                CreditDueLine.SetRange("Cust Ledger Entry No.", CustEntryNo);
+                if (CreditDueLine.FindFirst()) then begin
+                    CreditDueLine."Interest Posted" := true;
+                    CreditDueLine.Modify();
+                end;
+            end;
+        end;
+    end;
+
+    /// <summary>
+    /// TransferCreditDueLinesFromQuoteToOrder.
+    /// </summary>
+    /// <param name="SalesOrderHeader">Record "Sales Header".</param>
+    /// <param name="SalesHeader">Record "Sales Header".</param>
+    procedure TransferCreditDueLinesFromQuoteToOrder(SalesOrderHeader: Record "Sales Header"; SalesHeader: Record "Sales Header")
+    var
+        CreditDueLine: Record "A01 Credit Depreciation Table";
+        CreditDueLineNew: Record "A01 Credit Depreciation Table";
+    begin
+        //CustEntryNo := 0;
+        CreditDueLine.SetRange("Document Type", CreditDueLine."Document Type"::"Sales Quote");
+        CreditDueLine.SetRange("Document No.", SalesHeader."No.");
+        if CreditDueLine.FindSet() then
+            repeat
+
+                CreditDueLineNew.Init();
+                CreditDueLineNew.TransferFields(CreditDueLine);
+                CreditDueLineNew."Document Type" := CreditDueLine."Document Type"::"Sales order";
+                CreditDueLineNew."Document No." := SalesOrderHeader."No.";
+                CreditDueLineNew."Quote No." := SalesHeader."No.";
+                CreditDueLineNew.Insert(true);
+
+            until CreditDueLine.Next() < 1;
+
+        CreditDueLine.Reset();
+        CreditDueLine.SetRange("Document Type", CreditDueLine."Document Type"::"Sales Quote");
+        CreditDueLine.SetRange("Document No.", SalesHeader."No.");
+        if (not CreditDueLine.IsEmpty) then
+            CreditDueLine.DeleteAll();
+    end;
+
 
 }

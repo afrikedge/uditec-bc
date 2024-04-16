@@ -105,6 +105,12 @@ tableextension 50000 "A01 Sales Header" extends "Sales Header"
             DataClassification = CustomerContent;
             Editable = false;
         }
+        field(50017; "A01 AGP Contract No."; Code[50])
+        {
+            Caption = 'AGP Contract No.';
+            DataClassification = CustomerContent;
+            Editable = false;
+        }
         // field(50017; "A01 Eligible Amount"; Decimal)
         // {
         //     Caption = 'Eligible Amount';
@@ -118,10 +124,29 @@ tableextension 50000 "A01 Sales Header" extends "Sales Header"
             var
                 Cust1: Record Customer;
             begin
-                if (Cust1.get("Sell-to Customer No.")) then
+                if (Cust1.Get("Sell-to Customer No.")) then begin
                     Rec.validate("A01 Sales Mode", Cust1."A01 Sales Mode");
+                    rec.Validate("A01 AGP Contract No.", Cust1."A01 Contract No.");
+                end;
             end;
         }
-
     }
+
+    trigger OnDelete()
+    var
+        CreditDueLine: Record "A01 Credit Depreciation Table";
+    begin
+        if ("Document Type" = Rec."Document Type"::Order) then begin
+            CreditDueLine.SetRange("Document Type", CreditDueLine."Document Type"::"Sales order");
+            CreditDueLine.SetRange("Document No.", Rec."No.");
+            if (not CreditDueLine.IsEmpty) then
+                CreditDueLine.DeleteAll();
+        end;
+        if ("Document Type" = Rec."Document Type"::Quote) then begin
+            CreditDueLine.SetRange("Document Type", CreditDueLine."Document Type"::"Sales Quote");
+            CreditDueLine.SetRange("Document No.", Rec."No.");
+            if (not CreditDueLine.IsEmpty) then
+                CreditDueLine.DeleteAll();
+        end;
+    end;
 }

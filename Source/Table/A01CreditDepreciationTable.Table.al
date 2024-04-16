@@ -50,15 +50,29 @@ table 50016 "A01 Credit Depreciation Table"
         {
             Caption = 'Interest';
         }
-
-
-
-
-        field(100; "Archived"; Boolean)
+        field(11; "Quote No."; Code[20])
         {
-            Caption = 'Archived';
+            Caption = 'Dimension Set ID';
             Editable = false;
         }
+        field(12; "Order No."; Code[20])
+        {
+            Caption = 'Dimension Set ID';
+            Editable = false;
+        }
+
+
+
+        field(408; "Dimension Set ID"; integer)
+        {
+            Caption = 'Dimension Set ID';
+        }
+
+        // field(100; "Archived"; Boolean)
+        // {
+        //     Caption = 'Archived';
+        //     Editable = false;
+        // }
         field(101; "Cust Ledger Entry No."; Integer)
         {
             Caption = 'Cust Ledger Entry No.';
@@ -69,7 +83,7 @@ table 50016 "A01 Credit Depreciation Table"
             Caption = 'Due Date';
             Editable = false;
         }
-        field(103; "Interest Posted"; Date)
+        field(103; "Interest Posted"; Boolean)
         {
             Caption = 'Interest Posted';
             Editable = false;

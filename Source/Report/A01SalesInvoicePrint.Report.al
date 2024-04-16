@@ -161,6 +161,15 @@ report 50002 "A01 SalesInvoicePrint"
             column(RCSLbl; RCSLbl)
             {
             }
+            column(rcs; rcs)
+            {
+            }
+            column(nif; nif)
+            {
+            }
+            column(stat; stat)
+            {
+            }
             column(CustomerPhoneLbl; CustomerPhoneLbl)
             {
             }
@@ -1304,6 +1313,12 @@ report 50002 "A01 SalesInvoicePrint"
                     UnitPhone := RespCenter."Phone No.";
                 end;
 
+                if Cust.Get(Header."Sell-to Customer No.") then begin
+                    rcs := Cust."A01 RCS";
+                    stat := Cust."A01 STAT";
+                    nif := Cust."A01 NIF";
+                end;
+
                 if SellToContact.Get(Header."Sell-to Contact No.") then begin
                     CustomerIdentity := SellToContact.Name;
                     CustomerPhone := SellToContact."Phone No.";
@@ -1479,6 +1494,9 @@ report 50002 "A01 SalesInvoicePrint"
         FormatDocument: Codeunit "Format Document";
         MoreLines: Boolean;
         CustomerIdentity: Text[100];
+        rcs: Code[30];
+        stat: Code[30];
+        nif: Code[30];
         TotalDeposit: Decimal;
         A01DiscountedPrice: Decimal;
         A01DiscountedPriceText: Text[50];

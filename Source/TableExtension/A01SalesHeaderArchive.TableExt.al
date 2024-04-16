@@ -100,5 +100,11 @@ tableextension 50002 "A01 Sales Header Archive" extends "Sales Header Archive"
             DataClassification = CustomerContent;
             Editable = false;
         }
+        field(50017; "A01 AGP Contract No."; Code[50])
+        {
+            Caption = 'AGP Contract No.';
+            DataClassification = CustomerContent;
+            Editable = false;
+        }
     }
 }

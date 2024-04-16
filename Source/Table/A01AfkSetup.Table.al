@@ -221,6 +221,28 @@ table 50017 "A01 Afk Setup"
             Caption = 'Posted Customer Settlement Nos';
             TableRelation = "No. Series";
         }
+        field(48; "MIR Realised Interest Account"; Code[20])
+        {
+            Caption = 'MIR Realised Interest Account';
+            TableRelation = "G/L Account"."No." where("Direct Posting" = const(true));
+        }
+        field(49; "MIR Planned Interest Account"; Code[20])
+        {
+            Caption = 'MIR Planned Interest Account';
+            TableRelation = "G/L Account"."No." where("Direct Posting" = const(true));
+        }
+        field(50; "ShipToAddress Code Nos"; Code[20])
+        {
+            Caption = 'ShipToAddress Code Nos';
+            TableRelation = "No. Series";
+        }
+        field(51; "Lead Nos"; Code[20])
+        {
+            Caption = 'Lead Nos';
+            TableRelation = "No. Series";
+        }
+
+
         //Banked or unbanked employee
         //Administrative fees (%)
         //Conditions of application application fees

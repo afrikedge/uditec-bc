@@ -720,7 +720,7 @@
                                                             <Paragraph>
                                                               <TextRuns>
                                                                 <TextRun>
-                                                                  <Value />
+                                                                  <Value>=First(Fields!nif.Value, "DataSet_Result")</Value>
                                                                   <Style>
                                                                     <FontSize>8pt</FontSize>
                                                                   </Style>
@@ -893,7 +893,7 @@
                                                             <Paragraph>
                                                               <TextRuns>
                                                                 <TextRun>
-                                                                  <Value />
+                                                                  <Value>=First(Fields!stat.Value, "DataSet_Result")</Value>
                                                                   <Style>
                                                                     <FontSize>8pt</FontSize>
                                                                   </Style>
@@ -1062,7 +1062,7 @@
                                                             <Paragraph>
                                                               <TextRuns>
                                                                 <TextRun>
-                                                                  <Value />
+                                                                  <Value>=First(Fields!rcs.Value, "DataSet_Result")</Value>
                                                                   <Style>
                                                                     <FontSize>8pt</FontSize>
                                                                   </Style>
@@ -3169,6 +3169,15 @@ AAAAAAAAAECjsYAGAAAAAAAAAAAAAAAAjcYCGgAAAAAAAAAAAAAAADQaC2gAAAAAAAAAAAAAAADQaCyg
         </Field>
         <Field Name="CompanyPhone">
           <DataField>CompanyPhone</DataField>
+        </Field>
+        <Field Name="rcs">
+          <DataField>rcs</DataField>
+        </Field>
+        <Field Name="nif">
+          <DataField>nif</DataField>
+        </Field>
+        <Field Name="stat">
+          <DataField>stat</DataField>
         </Field>
         <Field Name="UnitName">
           <DataField>UnitName</DataField>
