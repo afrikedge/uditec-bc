@@ -93,6 +93,15 @@ report 50011 "A01 PurchaseReceiptPrint"
             column(VendorAddressLbl; VendorAddressLbl)
             {
             }
+            column(rcs; rcs)
+            {
+            }
+            column(nif; nif)
+            {
+            }
+            column(stat; stat)
+            {
+            }
             column(NIFLbl; NIFLbl)
             {
             }
@@ -184,6 +193,12 @@ report 50011 "A01 PurchaseReceiptPrint"
                     UnitPostalCode := LocRec."Post Code";
                 end;
 
+                if Vend.Get("Purch. Rcpt. Header"."Buy-from Vendor No.") then begin
+                    rcs := Vend."A01 RCS";
+                    stat := Vend."A01 STAT";
+                    nif := Vend."A01 NIF";
+                end;
+
                 if Contact.Get("Purch. Rcpt. Header"."Buy-from Contact No.") then begin
                     VendorIdentity := Contact.Name;
                     VendorPhone := Contact."Phone No.";
@@ -224,10 +239,14 @@ report 50011 "A01 PurchaseReceiptPrint"
         CompanyInfo: Record "Company Information";
         // RespCenter: Record "Responsibility Center";
         Contact: Record Contact;
+        Vend: Record Vendor;
         // PurHeader: Record "Purchase Header";
         Ship: Record "Ship-to Address";
         LocRec: Record Location;
         UnitName: Text[100];
+        rcs: Code[30];
+        stat: Code[30];
+        nif: Code[30];
         OrderDate: Date;
         UnitAddress: Text[100];
         UnitCity: Text[50];

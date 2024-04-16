@@ -114,7 +114,6 @@ page 50057 "A01 Customer Settlement"
                     CreateDoc.AddPaymentRequest(Rec);//*******************
                 end;
             }
-
         }
     }
     local procedure ApplyPayment()

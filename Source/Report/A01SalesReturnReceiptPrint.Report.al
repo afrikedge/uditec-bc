@@ -135,6 +135,15 @@ report 50012 "A01 SalesReturnReceiptPrint"
             column(CompanySignLbl; CompanySignLbl)
             {
             }
+            column(rcs; rcs)
+            {
+            }
+            column(nif; nif)
+            {
+            }
+            column(stat; stat)
+            {
+            }
             dataitem("Return Receipt Line"; "Return Receipt Line")
             {
                 DataItemLink = "Document No." = field("No.");
@@ -192,6 +201,12 @@ report 50012 "A01 SalesReturnReceiptPrint"
                 //     UnitCity := RespCenter.City;
                 //     UnitPostalCode := RespCenter."Post Code";
                 // end;
+                if Cust.Get("Return Receipt Header"."Sell-to Customer No.") then begin
+                    rcs := Cust."A01 RCS";
+                    stat := Cust."A01 STAT";
+                    nif := Cust."A01 NIF";
+                end;
+
 
                 if LocRec.Get("Return Receipt Header"."Location Code") then begin
                     UnitName := LocRec.Name;
@@ -237,9 +252,13 @@ report 50012 "A01 SalesReturnReceiptPrint"
         CompanyInfo: Record "Company Information";
         // RespCenter: Record "Responsibility Center";
         Contact: Record Contact;
+        Cust: Record Customer;
         LocRec: Record Location;
         Ship: Record "Ship-to Address";
         UnitName: Text[100];
+        rcs: Code[30];
+        nif: Code[30];
+        stat: Code[30];
         UnitAddress: Text[100];
         UnitCity: Text[50];
         UnitPostalCode: Text[50];

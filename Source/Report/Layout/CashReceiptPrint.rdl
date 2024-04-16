@@ -24,7 +24,7 @@
               </TablixColumns>
               <TablixRows>
                 <TablixRow>
-                  <Height>8cm</Height>
+                  <Height>8.5cm</Height>
                   <TablixCells>
                     <TablixCell>
                       <CellContents>
@@ -37,7 +37,7 @@
                             </TablixColumns>
                             <TablixRows>
                               <TablixRow>
-                                <Height>8cm</Height>
+                                <Height>8.5cm</Height>
                                 <TablixCells>
                                   <TablixCell>
                                     <CellContents>
@@ -407,7 +407,7 @@
                                                                 </TextRun>
                                                               </TextRuns>
                                                               <Style>
-                                                                <TextAlign>Right</TextAlign>
+                                                                <TextAlign>Left</TextAlign>
                                                               </Style>
                                                             </Paragraph>
                                                           </Paragraphs>
@@ -452,7 +452,7 @@
                                                                 </TextRun>
                                                               </TextRuns>
                                                               <Style>
-                                                                <TextAlign>Right</TextAlign>
+                                                                <TextAlign>Left</TextAlign>
                                                               </Style>
                                                             </Paragraph>
                                                           </Paragraphs>
@@ -539,7 +539,7 @@
                                               </TablixMembers>
                                             </TablixRowHierarchy>
                                             <Top>3.21693cm</Top>
-                                            <Left>0.03515cm</Left>
+                                            <Left>0.03516cm</Left>
                                             <Height>1.00597cm</Height>
                                             <Width>19.86485cm</Width>
                                             <Style>
@@ -649,7 +649,7 @@
                                               </TablixMembers>
                                             </TablixRowHierarchy>
                                             <Top>4.46237cm</Top>
-                                            <Left>14.01211cm</Left>
+                                            <Left>14.01212cm</Left>
                                             <Height>0.44125cm</Height>
                                             <Width>5.88789cm</Width>
                                             <ZIndex>1</ZIndex>
@@ -676,8 +676,8 @@
                                               </Paragraph>
                                             </Paragraphs>
                                             <rd:DefaultName>Textbox52</rd:DefaultName>
-                                            <Top>5.32695cm</Top>
-                                            <Left>0.03522cm</Left>
+                                            <Top>5.00945cm</Top>
+                                            <Left>0.03523cm</Left>
                                             <Height>0.52944cm</Height>
                                             <Width>3.09972cm</Width>
                                             <ZIndex>2</ZIndex>
@@ -711,7 +711,7 @@
                                               </Paragraph>
                                             </Paragraphs>
                                             <rd:DefaultName>Textbox52</rd:DefaultName>
-                                            <Top>6.62931cm</Top>
+                                            <Top>6.29417cm</Top>
                                             <Height>0.44125cm</Height>
                                             <Width>3.98708cm</Width>
                                             <ZIndex>3</ZIndex>
@@ -745,8 +745,8 @@
                                               </Paragraph>
                                             </Paragraphs>
                                             <rd:DefaultName>Textbox52</rd:DefaultName>
-                                            <Top>6.61167cm</Top>
-                                            <Left>14.84144cm</Left>
+                                            <Top>6.29417cm</Top>
+                                            <Left>14.84145cm</Left>
                                             <Height>0.45888cm</Height>
                                             <Width>5.05856cm</Width>
                                             <ZIndex>4</ZIndex>
@@ -778,8 +778,8 @@
                                               </Paragraph>
                                             </Paragraphs>
                                             <rd:DefaultName>Textbox52</rd:DefaultName>
-                                            <Top>5.32695cm</Top>
-                                            <Left>3.13494cm</Left>
+                                            <Top>5.00945cm</Top>
+                                            <Left>3.13495cm</Left>
                                             <Height>0.52944cm</Height>
                                             <Width>16.66506cm</Width>
                                             <ZIndex>5</ZIndex>
@@ -1345,7 +1345,7 @@
                                                             <Paragraph>
                                                               <TextRuns>
                                                                 <TextRun>
-                                                                  <Value />
+                                                                  <Value>=First(Fields!nif.Value, "DataSet_Result")</Value>
                                                                   <Style>
                                                                     <FontSize>7pt</FontSize>
                                                                   </Style>
@@ -1486,7 +1486,7 @@
                                                             <Paragraph>
                                                               <TextRuns>
                                                                 <TextRun>
-                                                                  <Value />
+                                                                  <Value>=First(Fields!stat.Value, "DataSet_Result")</Value>
                                                                   <Style>
                                                                     <FontSize>7pt</FontSize>
                                                                   </Style>
@@ -1623,7 +1623,7 @@
                                                             <Paragraph>
                                                               <TextRuns>
                                                                 <TextRun>
-                                                                  <Value />
+                                                                  <Value>=First(Fields!rcs.Value, "DataSet_Result")</Value>
                                                                   <Style>
                                                                     <FontSize>7pt</FontSize>
                                                                   </Style>
@@ -1809,7 +1809,7 @@
                                               </TablixMembers>
                                             </TablixRowHierarchy>
                                             <Top>0.03528cm</Top>
-                                            <Left>8.58495cm</Left>
+                                            <Left>8.58496cm</Left>
                                             <Height>2.89471cm</Height>
                                             <Width>11.31504cm</Width>
                                             <ZIndex>6</ZIndex>
@@ -1953,7 +1953,7 @@
                                             </ReportItems>
                                             <KeepTogether>true</KeepTogether>
                                             <Top>0.03528cm</Top>
-                                            <Left>0.05293cm</Left>
+                                            <Left>0.05294cm</Left>
                                             <Height>1.8168cm</Height>
                                             <Width>8.46147cm</Width>
                                             <ZIndex>7</ZIndex>
@@ -2018,7 +2018,7 @@
             </TablixRowHierarchy>
             <Top>0.03528cm</Top>
             <Left>0.00001cm</Left>
-            <Height>8cm</Height>
+            <Height>8.5cm</Height>
             <Width>19.9cm</Width>
             <Style>
               <Border>
@@ -2027,7 +2027,7 @@
             </Style>
           </Tablix>
         </ReportItems>
-        <Height>8.03528cm</Height>
+        <Height>8.53528cm</Height>
         <Style />
       </Body>
       <Width>19.90001cm</Width>
@@ -2370,6 +2370,15 @@ AAAAAAAAAECjsYAGAAAAAAAAAAAAAAAAjcYCGgAAAAAAAAAAAAAAADQaC2gAAAAAAAAAAAAAAADQaCyg
         </Field>
         <Field Name="CustAddressLbl">
           <DataField>CustAddressLbl</DataField>
+        </Field>
+        <Field Name="rcs">
+          <DataField>rcs</DataField>
+        </Field>
+        <Field Name="nif">
+          <DataField>nif</DataField>
+        </Field>
+        <Field Name="stat">
+          <DataField>stat</DataField>
         </Field>
         <Field Name="NIFLbl">
           <DataField>NIFLbl</DataField>
