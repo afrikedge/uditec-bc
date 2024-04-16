@@ -1,7 +1,7 @@
 /// <summary>
 /// Report A01 CustomerSettlementPrint (ID 50019).
 /// </summary>
-report 50019 "A01 CustomerSettlementPrint"
+report 50021 "A01 CustomerSettlementPrint"
 {
     DefaultLayout = RDLC;
     Caption = 'A01 Customer Settlement print';
