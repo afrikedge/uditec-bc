@@ -239,6 +239,12 @@ pageextension 50002 "A01 Order Processor RC" extends "Order Processor Role Cente
                     Caption = 'Revision Request List';
                     RunObject = Page "A01 Revision Request List";
                 }
+                action(A01BankAccountUsers)
+                {
+                    ApplicationArea = Basic, Suite;
+                    Caption = 'Bank Account Users';
+                    RunObject = Page "A01 Bank Account Users";
+                }
             }
             group(A01_Compta)
             {

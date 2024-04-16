@@ -102,6 +102,7 @@ tableextension 50005 "A01 Contact" extends Contact
 
 
 
+
         field(50100; "A01 VAT Regime"; Code[20])
         {
             Caption = 'VAT Regime';
@@ -156,6 +157,12 @@ tableextension 50005 "A01 Contact" extends Contact
         {
             Caption = 'Credit Limit';
             DataClassification = CustomerContent;
+        }
+        field(50108; "A01 Contact Type"; Enum "A01 Contact Type")
+        {
+            Caption = 'Contact Type';
+            DataClassification = CustomerContent;
+            Editable = false;
         }
     }
 }

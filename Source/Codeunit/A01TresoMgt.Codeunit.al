@@ -9,7 +9,12 @@ codeunit 50007 "A01 Treso Mgt"
 
         NoSeriesManagement: Codeunit NoSeriesManagement;
         ErrText01: Label 'The payment document has not been configured for \template %1\sheet %2\type %3', comment = '%1=model,%2=journal,%3=type';
-
+        TotalLineAmtInclVAT: Decimal;
+        TotalLineAmtInclVATLCY: Decimal;
+        TotalLineAmtLCY: Decimal;
+        TotalLineUnitCostLCY: Decimal;
+        TotalLineInvDiscountAmtLCY: Decimal;
+        TotalLinePmtDiscountAmt: Decimal;
     /// <summary>
     /// A01_ProcessFeuilleReglementCCL.
     /// </summary>
@@ -352,6 +357,7 @@ codeunit 50007 "A01 Treso Mgt"
     var GenJnlPostLine: Codeunit "Gen. Jnl.-Post Line";
     DocNo: Code[20];
     ExtDocNo: Code[35];
+
                                                                                                                                              SourceCode: Code[10])
     var
         //CustLedgEntry: Record "Cust. Ledger Entry";
@@ -619,6 +625,12 @@ codeunit 50007 "A01 Treso Mgt"
         LineDueDate := SalesHeader."Due Date";
 
         i := 1;
+        TotalLineAmtInclVAT := 0;
+        TotalLineAmtInclVATLCY := 0;
+        TotalLineAmtLCY := 0;
+        TotalLineUnitCostLCY := 0;
+        TotalLineInvDiscountAmtLCY := 0;
+        TotalLinePmtDiscountAmt := 0;
         CreditDueLine.Reset();
         CreditDueLine.SetRange("Document Type", CreditDueLine."Document Type"::"Sales order");
         CreditDueLine.SetRange("Document No.", SalesHeader."No.");
@@ -634,6 +646,13 @@ codeunit 50007 "A01 Treso Mgt"
         // for i := 1 to SalesHeader."A01 Credit Duration (Month)" do begin
 
         // end;
+
+        CreditDueLine.Reset();
+        CreditDueLine.SetRange("Document Type", CreditDueLine."Document Type"::"Sales order");
+        CreditDueLine.SetRange("Document No.", SalesHeader."No.");
+        if not CreditDueLine.IsEmpty() then
+            CreditDueLine.DeleteAll();
+
 
         IsHandled := true;
 
@@ -668,6 +687,7 @@ codeunit 50007 "A01 Treso Mgt"
                    LineId: Integer)
     var
         PaymentCond: Record "Payment Terms";
+        CreditDueLineNew: Record "A01 Credit Depreciation Table";
         GenJnlLine: Record "Gen. Journal Line";
         CustLedgEntry: Record "Cust. Ledger Entry";
     begin
@@ -735,14 +755,17 @@ codeunit 50007 "A01 Treso Mgt"
         CustLedgEntry.SetRange("Document No.", GenJnlLine."Document No.");
         CustLedgEntry.FindLast();
 
-        CreditDueLine."Due Date" := CustLedgEntry."Due Date";
-        CreditDueLine."Cust Ledger Entry No." := CustLedgEntry."Entry No.";
-        CreditDueLine."Dimension Set ID" := SalesHeader."Dimension Set ID";
-        CreditDueLine."Document Type" := CreditDueLine."Document Type"::"Posted Sales invoice";
-        CreditDueLine."Order No." := SalesHeader."No.";
-        CreditDueLine."Document No." := DocNo;
 
-        CreditDueLine.Modify();
+        CreditDueLineNew.Init();
+        CreditDueLineNew.TransferFields(CreditDueLine);
+        CreditDueLineNew."Due Date" := CustLedgEntry."Due Date";
+        CreditDueLineNew."Cust Ledger Entry No." := CustLedgEntry."Entry No.";
+        CreditDueLineNew."Dimension Set ID" := SalesHeader."Dimension Set ID";
+        CreditDueLineNew."Document Type" := CreditDueLine."Document Type"::"Posted Sales invoice";
+        CreditDueLineNew."Order No." := SalesHeader."No.";
+        CreditDueLineNew."Document No." := DocNo;
+
+        CreditDueLineNew.Insert(true);
         //OnAfterPostCustomerEntry(GenJnlLine, SalesHeader, TotalSalesLine2, TotalSalesLineLCY2, SuppressCommit, GenJnlPostLine);
     end;
 
@@ -762,12 +785,8 @@ codeunit 50007 "A01 Treso Mgt"
 
     local procedure ProcessCreditDueLine(var SalesHeader: Record "Sales Header"; var CreditDueLine: Record "A01 Credit Depreciation Table"; var TotalSalesLine2: Record "Sales Line"; var TotalSalesLineLCY2: Record "Sales Line"; var DocType: Enum "Gen. Journal Document Type"; DocNo: Code[20]; ExtDocNo: Code[35]; SourceCode: Code[10]; var GenJnlPostLine: Codeunit "Gen. Jnl.-Post Line"; i: Integer; LineDueDate: Date)
     var
-        TotalLineAmtInclVAT: Decimal;
-        TotalLineAmtInclVATLCY: Decimal;
-        TotalLineAmtLCY: Decimal;
-        TotalLineUnitCostLCY: Decimal;
-        TotalLineInvDiscountAmtLCY: Decimal;
-        TotalLinePmtDiscountAmt: Decimal;
+
+
         LineAmtInclVAT: Decimal;
         LineAmtInclVATLCY: Decimal;
         LineAmtLCY: Decimal;
@@ -842,17 +861,28 @@ codeunit 50007 "A01 Treso Mgt"
     procedure TransferCreditDueLinesFromQuoteToOrder(SalesOrderHeader: Record "Sales Header"; SalesHeader: Record "Sales Header")
     var
         CreditDueLine: Record "A01 Credit Depreciation Table";
+        CreditDueLineNew: Record "A01 Credit Depreciation Table";
     begin
         //CustEntryNo := 0;
         CreditDueLine.SetRange("Document Type", CreditDueLine."Document Type"::"Sales Quote");
         CreditDueLine.SetRange("Document No.", SalesHeader."No.");
         if CreditDueLine.FindSet() then
             repeat
-                CreditDueLine."Document Type" := CreditDueLine."Document Type"::"Sales order";
-                CreditDueLine."Document No." := SalesOrderHeader."No.";
-                CreditDueLine."Quote No." := SalesHeader."No.";
-                CreditDueLine.Modify();
+
+                CreditDueLineNew.Init();
+                CreditDueLineNew.TransferFields(CreditDueLine);
+                CreditDueLineNew."Document Type" := CreditDueLine."Document Type"::"Sales order";
+                CreditDueLineNew."Document No." := SalesOrderHeader."No.";
+                CreditDueLineNew."Quote No." := SalesHeader."No.";
+                CreditDueLineNew.Insert(true);
+
             until CreditDueLine.Next() < 1;
+
+        CreditDueLine.Reset();
+        CreditDueLine.SetRange("Document Type", CreditDueLine."Document Type"::"Sales Quote");
+        CreditDueLine.SetRange("Document No.", SalesHeader."No.");
+        if (not CreditDueLine.IsEmpty) then
+            CreditDueLine.DeleteAll();
     end;
 
 

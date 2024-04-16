@@ -11,7 +11,8 @@ report 50020 "A01 Create Document Request"
             DataItemTableView = sorting(Number) where(Number = const(1));
             trigger OnAfterGetRecord()
             begin
-                if (CreatedDocType = "A01 Request On Document Type"::Discount) then begin
+                if ((CreatedDocType = "A01 Request On Document Type"::"Discount on quote")
+                        or (CreatedDocType = "A01 Request On Document Type"::"Discount on order")) then begin
                     if ((RequestedDiscount > 100) or (RequestedDiscount = 0)) then
                         Error(LblRequestedDiscountError);
                     RequestDoc.AddDiscountRequest(SalesHeader, RequestedDiscount);
@@ -48,9 +49,10 @@ report 50020 "A01 Create Document Request"
     }
     var
         SalesHeader: Record "Sales Header";
+        RequestDoc: Record "A01 Request On Document";
         RequestedDiscount: Decimal;
         CreatedDocType: Enum "A01 Request On Document Type";
-        RequestDoc: Record "A01 Request On Document";
+
         LblRequestedDiscountError: Label 'The percentage must be positive and less than 100';
         LblDocCreated: Label 'The request was created successfully';
 

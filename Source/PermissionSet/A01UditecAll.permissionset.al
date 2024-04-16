@@ -165,6 +165,24 @@ permissionset 50000 "A01 Uditec_All"
         tabledata "A01 Posted Payment Doc Line" = RIMD,
         table "A01 Posted Payment Doc Line" = X,
         tabledata "A01 AGP Contrat" = RIMD,
-        table "A01 AGP Contrat" = X;
+        table "A01 AGP Contrat" = X,
+        tabledata "A01 User Access" = RIMD,
+        table "A01 User Access" = X,
+        report "A01 Create Document Request" = X,
+        report "A01 Generate Interest Entries" = X,
+        codeunit "A01 Doc Payment-Apply" = X,
+        codeunit A01WSMasterFilesMgt = X,
+        page "A01 AGP Contracts" = X,
+        page "A01 Discount Request" = X,
+        page "A01 Discount Requests" = X,
+        page "A01 Payment Request" = X,
+        page "A01 Payment Requests" = X,
+        page "A01 POS Payment Request" = X,
+        page "A01 POS Payment Requests" = X,
+        page "A01 Post CustSettlementSubform" = X,
+        page "A01 Posted Cust Settlement" = X,
+        page "A01 Posted Cust Settlements" = X,
+        page "A01 UnBlocking Request" = X,
+        page "A01 Unblocking Requests" = X;
     //page "A01 Customer Settlements" = X;
 }

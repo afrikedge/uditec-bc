@@ -1511,7 +1511,7 @@ page 50003 "A01 Sales Order - Draft"
                     var
                         CreateDoc: Report "A01 Create Document Request";
                     begin
-                        CreateDoc.SetRequestType("A01 Request On Document Type"::Discount);
+                        CreateDoc.SetRequestType("A01 Request On Document Type"::"Discount on order");
                         CreateDoc.SetDoc(Rec);
                         CreateDoc.runmodal();
                     end;

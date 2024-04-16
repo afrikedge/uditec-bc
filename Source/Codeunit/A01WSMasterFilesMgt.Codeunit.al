@@ -7,6 +7,7 @@ codeunit 50015 A01WSMasterFilesMgt
 
         AddOnSetup: record "A01 Afk Setup";
         WS: codeunit "A01 Api Mgt";
+        NosSeriesMgt: Codeunit NoSeriesManagement;
 
     /// <summary>
     /// RunCustomers.
@@ -298,12 +299,12 @@ codeunit 50015 A01WSMasterFilesMgt
         foreach c in LinesArray do begin
             LineInput := c.AsObject();
             NewCustCriteria.Init();
-            ProcessCustScoringCriteria(Cust, NewCustCriteria, LineInput);
+            ProcessCustScoringCriteria(Cust, NewCustCriteria, '', LineInput);
             NewCustCriteria.Insert(true);
         end;
     end;
 
-    local procedure ProcessCustScoringCriteria(Cust: Record "Customer"; var CustCriteria: Record "A01 Cust Scoring Criteria"; input: JsonObject)
+    local procedure ProcessCustScoringCriteria(Cust: Record "Customer"; var CustCriteria: Record "A01 Cust Scoring Criteria"; WebUser: Code[20]; input: JsonObject)
     begin
 
         if (CustCriteria."Account Type" <> CustCriteria."Account Type"::Customer) then
@@ -352,8 +353,10 @@ codeunit 50015 A01WSMasterFilesMgt
         if (CustCriteria.Valid <> WS.GetBool('Valid', input)) then
             CustCriteria.Validate("Valid", WS.GetBool('Valid', input));
 
-        if (CustCriteria."Modified By" <> WS.GetText('Updated by', input)) then
-            CustCriteria.Validate("Modified By", WS.GetText('Updated by', input));
+        //if (CustCriteria."Modified By" <> WS.GetText('Updated by', input)) then
+        CustCriteria.Validate("Modified By", WebUser);
+        if (CustCriteria."Created By" = '') then
+            CustCriteria.Validate("Created By", WebUser);
 
     end;
 
@@ -450,22 +453,24 @@ codeunit 50015 A01WSMasterFilesMgt
 
     local procedure AddLead(input: JsonObject): Text
     var
-        Cust: Record "Contact";
+        Cont: Record "Contact";
     begin
 
-        Cust.Init();
-        Cust."No." := '';
-
+        Cont.Init();
+        //Cont."No." := '';
+        AddOnSetup.GetRecordOnce();
+        AddOnSetup.TestField("Lead Nos");
+        Cont."No." := NosSeriesMgt.GetNextNo(AddOnSetup."Lead Nos", Today, true);
         //SalesOrderLine.LockTable();
-        Cust.Insert(true);
+        Cont.Insert(true);
 
-        ProcessLead(Cust, input);
+        ProcessLead(Cont, input);
 
-        processLeadRequirements(Cust, input);
+        processLeadRequirements(Cont, input);
 
-        processLeadScorings(Cust, input);
+        processLeadScorings(Cont, input);
 
-        exit(Ws.CreateResponseSuccess(Cust."No."));
+        exit(Ws.CreateResponseSuccess(Cont."No."));
 
     end;
 
@@ -932,7 +937,6 @@ codeunit 50015 A01WSMasterFilesMgt
 
     #endregion credit contract
 
-
     #region Ship To Address
 
     local procedure ModifyShipToAddress(CustNo: Text; Code: Text; input: JsonObject): Text
@@ -951,7 +955,7 @@ codeunit 50015 A01WSMasterFilesMgt
     local procedure AddShipToAddress(CustNo: Text; input: JsonObject): Text
     var
         ShipTo: Record "Ship-to Address";
-        NosSeriesMgt: Codeunit NoSeriesManagement;
+    //NosSeriesMgt: Codeunit NoSeriesManagement;
     begin
 
         ShipTo.Init();
@@ -1060,7 +1064,5 @@ codeunit 50015 A01WSMasterFilesMgt
     end;
 
     #endregion ship to address
-
-
 
 }

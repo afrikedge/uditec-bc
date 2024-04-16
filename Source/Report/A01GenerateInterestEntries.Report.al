@@ -35,7 +35,7 @@ report 50019 "A01 Generate Interest Entries"
 
                 Window.OPEN(LblErr002);
 
-                IF ((PostingDateVar = 0D) OR (CalculateUntilDateVar = 0D)) then ERROR(LblErr004);
+                if ((PostingDateVar = 0D) or (CalculateUntilDateVar = 0D)) then ERROR(LblErr004);
 
                 GenJrnTableND.Get(JournalTemplate, JournalCode);
                 GenJrnTableND.TESTFIELD("No. Series");
@@ -125,11 +125,12 @@ report 50019 "A01 Generate Interest Entries"
         JournalCode: code[10];
         CalculateUntilDateVar: Date;
         PostingDateVar: Date;
-        LineDescription: Text[100];
+        //LineDescription: Text[100];
         LblErr001: Label 'Sheet %1 must be empty to perform this operation!', Comment = '%1 journal';
         LblErr002: Label 'Processing @1@@@@@@@@@@@@@@@@@@@@@@@@@@@@\';
         LblErr003: Label 'End of process !';
         LblErr004: Label 'Please enter valid dates';
+        LblDescr: Label 'Monthly interest';
         TotalLines: Integer;
         LineNo: Integer;
         Window: Dialog;
@@ -155,7 +156,7 @@ report 50019 "A01 Generate Interest Entries"
         GenJrnLine.Validate("Posting Date", PostingDateVar);
 
         GenJrnLine."Document No." := DocumentNo;
-        GenJrnLine."External Document No." := '';
+        GenJrnLine."External Document No." := CreditDueLine."Document No.";
 
         GenJrnLine."Account Type" := GenJrnLine."Account Type"::"G/L Account";
         GLAccNo := GetPlannedInterestAcc();
@@ -163,7 +164,7 @@ report 50019 "A01 Generate Interest Entries"
         GenJrnLine.Validate("Account No.", GLAccNo);
         //GenJrnLine.VALIDATE("VAT Prod. Posting Group", AddOnSetup."NoVAT Prod. Posting Group");
 
-        GenJrnLine.Description := LineDescription;
+        GenJrnLine.Description := LblDescr;
         //GenJrnLine.Description := BuildDescriptionProvision(PurchH."No.",PurchH."Buy-from Vendor Name");
 
 

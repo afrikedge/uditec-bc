@@ -204,7 +204,10 @@ table 50031 "A01 Request On Document"
         Request: Record "A01 Request On Document";
     begin
         Request.Init();
-        Request.Validate("Request Type", Request."Request Type"::Discount);
+        if (SalesHeader."Document Type" = SalesHeader."Document Type"::Quote) then
+            Request.Validate("Request Type", Request."Request Type"::"Discount on quote");
+        if (SalesHeader."Document Type" = SalesHeader."Document Type"::Order) then
+            Request.Validate("Request Type", Request."Request Type"::"Discount on order");
         Request.Validate("Request No.", SalesHeader."No.");
         Request.Validate("Customer No.", SalesHeader."Sell-to Customer No.");
         Request.Validate("Sales Person", SalesHeader."Salesperson Code");
@@ -217,6 +220,7 @@ table 50031 "A01 Request On Document"
     var
         Request: Record "A01 Request On Document";
     begin
+        SalesHeader.TestField("A01 Processing Status", SalesHeader."A01 Processing Status"::Blocked);
         Request.Init();
         Request.Validate("Request Type", Request."Request Type"::Unblocking);
         Request.Validate("Request No.", SalesHeader."No.");

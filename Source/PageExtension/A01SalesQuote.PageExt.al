@@ -61,5 +61,22 @@ pageextension 50017 "A01 Sales Quote" extends "Sales Quote"
             end;
 
         }
+        addafter(CalculateInvoiceDiscount)
+        {
+            action("A01 Create DiscountRequest")
+            {
+                ApplicationArea = All;
+                Caption = 'Create discount request';
+                Image = PickLines;
+                trigger OnAction()
+                var
+                    CreateDoc: Report "A01 Create Document Request";
+                begin
+                    CreateDoc.SetRequestType("A01 Request On Document Type"::"Discount on quote");
+                    CreateDoc.SetDoc(Rec);
+                    CreateDoc.runmodal();
+                end;
+            }
+        }
     }
 }

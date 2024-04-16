@@ -29,6 +29,7 @@ table 50033 "A01 Payment Document Line"
                 PayMethod: Record "Payment Method";
             begin
                 TestField("Payment Method");
+                PayMethod.Get("Payment Method");
                 if (not PayMethod."A01 Approval required") then
                     "Validated Amount" := Amount;
             end;
@@ -36,6 +37,7 @@ table 50033 "A01 Payment Document Line"
         field(5; "Validated Amount"; Decimal)
         {
             Caption = 'Validated Amount';
+            Editable = false;
         }
         field(6; "Responsibility Center"; Code[20])
         {

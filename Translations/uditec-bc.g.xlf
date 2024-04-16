@@ -103,6 +103,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table A01 Afk Setup - Field Discount Request Nos - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Table 2685203037 - Field 1622133658 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Lead Nos</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table A01 Afk Setup - Field Lead Nos - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Table 2685203037 - Field 631494446 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Minimum Delivery per trip</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -303,6 +308,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table A01 AGP Contrat - Field No. - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Table 2071928169 - Field 1351594800 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>No. Series</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table A01 AGP Contrat - Field No. Series - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Table 2071928169 - Field 2267289004 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>OP Duration (Month)</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -482,6 +492,11 @@
           <source>Aplhanumeric Value</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table A01 Cust Scoring Criteria - Field Aplhanumeric Value - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2653739505 - Field 2369664869 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Created By</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table A01 Cust Scoring Criteria - Field Created By - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 2653739505 - Field 2261575725 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Criteria</source>
@@ -2218,6 +2233,21 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table A01 Scoring Matrix - Field Weighted Point - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Table 2028740703 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>User Access</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table A01 User Access - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2028740703 - Field 1682139193 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Bank Account</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table A01 User Access - Field Bank Account - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2028740703 - Field 2708250016 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>User ID</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table A01 User Access - Field User ID - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Table 3733555018 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Warranty contract</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -2513,6 +2543,16 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit A01 Security Mgt - NamedType ErrNotAuthorizedAction</note>
         </trans-unit>
+        <trans-unit id="Codeunit 2075651460 - Method 1165684828 - NamedType 3024544721" size-unit="char" translate="yes" xml:space="preserve">
+          <source>You are not authorized to use this bank account : %1</source>
+          <note from="Developer" annotates="general" priority="2">%1=bank</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit A01 Security Mgt - Method CheckBankAccountUser - NamedType ErrLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 2075651460 - Method 1078160646 - NamedType 3024544721" size-unit="char" translate="yes" xml:space="preserve">
+          <source>You are not authorized to use this location : %1</source>
+          <note from="Developer" annotates="general" priority="2">%1=bank</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit A01 Security Mgt - Method CheckWharehouseUser - NamedType ErrLbl</note>
+        </trans-unit>
         <trans-unit id="Codeunit 62654211 - NamedType 836531995" size-unit="char" translate="yes" xml:space="preserve">
           <source>The payment document has not been configured for \template %1\sheet %2\type %3</source>
           <note from="Developer" annotates="general" priority="2">%1=model,%2=journal,%3=type</note>
@@ -2757,6 +2797,11 @@
           <source>Approval flows</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page A01 Approval flows - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2122441263 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Bank Account Users</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page A01 Bank Account Users - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 1698614240 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Cash Receipt Journals</source>
@@ -3347,6 +3392,16 @@
           <source>General</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page A01 Customer Settlement - Control General - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2686914651 - Action 483054734 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Create payment request</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page A01 Customer Settlement - Action A01 AddPaymentRequest - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2686914651 - Action 483054734 - Method 1377591017 - NamedType 743521724" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Do you want to create an payment request?</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page A01 Customer Settlement - Action A01 AddPaymentRequest - Method OnAction - NamedType QstLabel</note>
         </trans-unit>
         <trans-unit id="Page 2686914651 - Action 4181767958 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>Apply the customer or vendor payment on the selected payment slip.</source>
@@ -4543,11 +4598,6 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page A01 Sales Order - Draft - Action O&amp;rder - Property Caption</note>
         </trans-unit>
-        <trans-unit id="Page 3293973898 - Action 290875276 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Create discount request</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page A01 Sales Order - Draft - Action A01 Create DiscountRequest - Property Caption</note>
-        </trans-unit>
         <trans-unit id="Page 3293973898 - Action 2059274803 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Validation History</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -5232,6 +5282,11 @@
           <source>Processing</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page A01 Sales Order - Draft - Action Validation - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3293973898 - Action 290875276 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Create discount request</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page A01 Sales Order - Draft - Action A01 Create DiscountRequest - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 3293973898 - Action 2675496269 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Process</source>
@@ -6297,6 +6352,16 @@
           <source>O&amp;rder</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page A01 Sales Order - Workflow - Action O&amp;rder - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 1199470876 - Action 1136074910 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Create unblocking request</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page A01 Sales Order - Workflow - Action A01 AddUnBlockingRequest - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 1199470876 - Action 1136074910 - Method 1377591017 - NamedType 743521724" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Do you want to create an unblocking request?</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page A01 Sales Order - Workflow - Action A01 AddUnBlockingRequest - Method OnAction - NamedType QstLabel</note>
         </trans-unit>
         <trans-unit id="Page 1199470876 - Action 2059274803 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Validation History</source>
@@ -8537,6 +8602,11 @@
           <source>Generate Insterest Entries</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report A01 Generate Interest Entries - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 3474292753 - NamedType 971046427" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Monthly interest</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 Generate Interest Entries - NamedType LblDescr</note>
         </trans-unit>
         <trans-unit id="Report 3474292753 - NamedType 412281570" size-unit="char" translate="yes" xml:space="preserve">
           <source>Sheet %1 must be empty to perform this operation!</source>
@@ -11708,6 +11778,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension A01 Order Processor RC - Action A01ApprovalFlows - Property Caption</note>
         </trans-unit>
+        <trans-unit id="PageExtension 3250568499 - Action 2227350335 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2747922353">
+          <source>Bank Account Users</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension A01 Order Processor RC - Action A01BankAccountUsers - Property Caption</note>
+        </trans-unit>
         <trans-unit id="PageExtension 3250568499 - Action 4245857303 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2747922353">
           <source>Payment Class List</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -11933,6 +12008,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension A01 Responsability Center Card - Control A01Resp Center Media Factbox - Property Caption</note>
         </trans-unit>
+        <trans-unit id="PageExtension 4018691590 - Action 290875276 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 280137910">
+          <source>Create discount request</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension A01 Sales Quote - Action A01 Create DiscountRequest - Property Caption</note>
+        </trans-unit>
         <trans-unit id="PageExtension 4018691590 - Control 297921311 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 280137910">
           <source>Credit</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -11967,6 +12047,11 @@
           <source>CIF</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension A01 Contact - Field A01 CIF - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 1119515148 - Field 2457977452 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 3993128796">
+          <source>Contact Type</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension A01 Contact - Field A01 Contact Type - Property Caption</note>
         </trans-unit>
         <trans-unit id="TableExtension 1119515148 - Field 3611807799 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 3993128796">
           <source>Contract No.</source>
@@ -13108,6 +13193,16 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Enum A01 Commitment Type - EnumValue No Company Guaranteed - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Enum 2457977452 - EnumValue 3993128796 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Contact</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum A01 Contact Type - EnumValue Contact - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 2457977452 - EnumValue 2705892128 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Lead</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum A01 Contact Type - EnumValue Lead - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Enum 2474205286 - EnumValue 3844911025 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Canceled</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -13673,10 +13768,15 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Enum A01 Repossession Origin - EnumValue Voluntary - Property Caption</note>
         </trans-unit>
-        <trans-unit id="Enum 2608208617 - EnumValue 687971871 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Discount</source>
+        <trans-unit id="Enum 2608208617 - EnumValue 2943592166 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Discount on order</source>
           <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Enum A01 Request On Document Type - EnumValue Discount - Property Caption</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum A01 Request On Document Type - EnumValue Discount on order - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 2608208617 - EnumValue 3287455154 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Discount on quote</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum A01 Request On Document Type - EnumValue Discount on quote - Property Caption</note>
         </trans-unit>
         <trans-unit id="Enum 2608208617 - EnumValue 1413472151 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Payment Document</source>

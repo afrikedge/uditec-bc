@@ -11,6 +11,7 @@ table 50035 "A01 AGP Contrat"
         field(1; "No."; Code[20])
         {
             Caption = 'No.';
+            Editable = false;
         }
         field(2; "Account Type"; Enum "A01 Customer Account Type")
         {
@@ -66,6 +67,11 @@ table 50035 "A01 AGP Contrat"
             Caption = 'Modified By';
             Editable = false;
         }
+        field(15; "No. Series"; Code[20])
+        {
+            Caption = 'No. Series';
+            TableRelation = "No. Series";
+        }
     }
     keys
     {
@@ -74,4 +80,24 @@ table 50035 "A01 AGP Contrat"
             Clustered = true;
         }
     }
+    var
+        AddOnSetup: Record "A01 Afk Setup";
+        //Currency: Record Currency;
+        NoSeriesManagement: Codeunit NoSeriesManagement;
+
+    trigger OnInsert()
+    begin
+        if "No." = '' then begin
+            AddOnSetup.Get();
+            AddOnSetup.TestField("AGP Contract Nos");
+            NoSeriesManagement.InitSeries(AddOnSetup."AGP Contract Nos", xRec."No. Series", 0D, "No.", "No. Series");
+        end;
+        InitHeader();
+    end;
+
+    local procedure InitHeader()
+    begin
+        // "Partner Type" := "Partner Type"::Customer;
+        // "Posting Date" := WorkDate();
+    end;
 }

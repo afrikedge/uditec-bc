@@ -236,6 +236,11 @@ table 50017 "A01 Afk Setup"
             Caption = 'ShipToAddress Code Nos';
             TableRelation = "No. Series";
         }
+        field(51; "Lead Nos"; Code[20])
+        {
+            Caption = 'Lead Nos';
+            TableRelation = "No. Series";
+        }
 
 
         //Banked or unbanked employee

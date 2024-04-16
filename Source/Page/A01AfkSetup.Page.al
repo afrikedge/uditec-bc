@@ -223,7 +223,9 @@ page 50040 "A01 Afk Setup"
                 }
                 field("ShipToAddress Code Nos"; Rec."ShipToAddress Code Nos")
                 {
-
+                }
+                field("Lead Nos"; Rec."Lead Nos")
+                {
                 }
 
             }

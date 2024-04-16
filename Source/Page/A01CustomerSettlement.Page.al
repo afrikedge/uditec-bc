@@ -99,6 +99,21 @@ page 50057 "A01 Customer Settlement"
                     CODEUNIT.Run(CODEUNIT::"A01 Customer Settlement Post", Rec);
                 end;
             }
+            action("A01 AddPaymentRequest")
+            {
+                ApplicationArea = All;
+                Caption = 'Create payment request';
+                Image = PickLines;
+                trigger OnAction()
+                var
+                    CreateDoc: Record "A01 Request on Document";
+                    QstLabel: Label 'Do you want to create an payment request?';
+                begin
+                    if (not confirm(QstLabel)) then
+                        exit;
+                    CreateDoc.AddPaymentRequest(Rec);//*******************
+                end;
+            }
 
         }
     }

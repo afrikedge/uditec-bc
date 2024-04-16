@@ -125,16 +125,21 @@ codeunit 50002 "A01 EventsSubscribers_Code"
         TresoMgt.TransferCreditDueLinesFromQuoteToOrder(SalesOrderHeader, SalesHeader);
     end;
 
-    // [IntegrationEvent(false, false)]
-    // local procedure OnAfterCreateSalesHeader(var SalesOrderHeader: Record "Sales Header"; SalesHeader: Record "Sales Header")
-    // begin
-    // end;
+    [EventSubscriber(ObjectType::Codeunit, Codeunit::"Item Jnl.-Check Line", 'OnBeforeCheckLocation', '', true, true)]
+    local procedure ItemJnlCheckLine_OnBeforeCheckLocation(var ItemJournalLine: Record "Item Journal Line"; var IsHandled: Boolean)
+    var
+        SecMgt: Codeunit "A01 Security Mgt";
+    begin
+        SecMgt.CheckWharehouseUser(ItemJournalLine);
+    end;
 
-
-
-
-
-
+    [EventSubscriber(ObjectType::Codeunit, Codeunit::"Gen. Jnl.-Check Line", 'OnBeforeCheckAccountNo', '', true, true)]
+    local procedure GenJnlCheckLine_OnBeforeCheckAccountNo(var GenJnlLine: Record "Gen. Journal Line"; var CheckDone: Boolean)
+    var
+        SecMgt: Codeunit "A01 Security Mgt";
+    begin
+        SecMgt.CheckBankAccountUser(GenJnlLine);
+    end;
 
 
 

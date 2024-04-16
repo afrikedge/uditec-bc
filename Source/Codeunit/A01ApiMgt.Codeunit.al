@@ -204,9 +204,24 @@ codeunit 50006 "A01 Api Mgt"
         response: DateTime;
         responseDate: Date;
         responseTime: Time;
+        chain: Text;
     begin
+
+        chain := Token.AsValue().AsText();
+
+        //YYYY-MM-DD
+        if (StrLen(chain) = 10) then begin
+            Splits := chain.Split('-');
+            Evaluate(Day, Splits.Get(3));
+            Evaluate(Month, Splits.Get(2));
+            Evaluate(Year, Splits.Get(1));
+            if (Year = 1753) then
+                exit(CreateDateTime(0D, 0T));
+            exit(CreateDateTime(DMY2Date(Day, Month, Year), 0T));
+        end;
+
         //YYYY-MM-DDTHH:mm:ss.sssZ
-        Splits := Token.AsValue().AsText().Split('.');
+        Splits := chain.Split('.');
         DateTimePart := Splits.Get(1);
 
         Splits := DateTimePart.Split('T');
@@ -221,10 +236,6 @@ codeunit 50006 "A01 Api Mgt"
             exit(CreateDateTime(0D, 0T));
         responseDate := DMY2Date(Day, Month, Year);
 
-        // Splits := TimePart.Split('.');
-        // Evaluate(Hour, Splits.Get(1));
-        // Evaluate(Minute, Splits.Get(2));
-        // Evaluate(Seconds, Splits.Get(3));
         Evaluate(responseTime, TimePart);
 
         response := CreateDateTime(responseDate, responseTime);

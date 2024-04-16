@@ -5,11 +5,15 @@ enum 50042 "A01 Request On Document Type"
 {
     Extensible = true;
 
-    value(0; Discount)
+    value(0; "Discount on quote")
     {
-        Caption = 'Discount';
+        Caption = 'Discount on quote';
     }
-    value(1; Unblocking)
+    value(1; "Discount on order")
+    {
+        Caption = 'Discount on order';
+    }
+    value(2; "Unblocking")
     {
         Caption = 'Unblocking';
     }

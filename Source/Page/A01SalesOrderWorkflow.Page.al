@@ -1170,6 +1170,21 @@ page 50002 "A01 Sales Order - Workflow"
                     RunObject = page "A01 Document Step Lines";
                     RunPageLink = "Document Type" = const("Sales Order"), "Document No." = field("No.");
                 }
+                action("A01 AddUnBlockingRequest")
+                {
+                    ApplicationArea = All;
+                    Caption = 'Create unblocking request';
+                    Image = PickLines;
+                    trigger OnAction()
+                    var
+                        CreateDoc: Record "A01 Request on Document";
+                        QstLabel: Label 'Do you want to create an unblocking request?';
+                    begin
+                        if (not confirm(QstLabel)) then
+                            exit;
+                        CreateDoc.AddUnBlockingRequest(Rec);//*******************
+                    end;
+                }
                 action(Statistics)
                 {
                     ApplicationArea = Basic, Suite;

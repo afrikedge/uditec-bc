@@ -85,6 +85,12 @@ table 50013 "A01 Cust Scoring Criteria"
             TableRelation = "A01 External User";
             DataClassification = CustomerContent;
         }
+        field(15; "Created By"; Code[50])
+        {
+            Caption = 'Created By';
+            TableRelation = "A01 External User";
+            DataClassification = CustomerContent;
+        }
     }
     keys
     {
