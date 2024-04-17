@@ -360,9 +360,9 @@ codeunit 50000 "A01 Sales Order Processing"
     /// <param name="SalesH">VAR Record "Sales Header".</param>
     procedure SetStatusToCompletelyInvoiced(var SalesH: Record "Sales Header")
     begin
-        SalesH."A01 Processing Status" := SalesH."A01 Processing Status"::"Waiting for prepayment";
-        SalesH.Modify();
-        InsertNewStepShipOrInvoice(SalesH."No.", Format(SalesH."A01 Processing Status"::"Waiting for prepayment"), SalesH."Last Posting No.",
+        SalesH."A01 Processing Status" := SalesH."A01 Processing Status"::"Totally invoiced";
+        //SalesH.Modify();
+        InsertNewStepShipOrInvoice(SalesH."No.", Format(SalesH."A01 Processing Status"::"Totally invoiced"), SalesH."Last Posting No.",
           SalesH."Last Shipping No.", SalesH.Invoice, SalesH.Ship);
     end;
 
