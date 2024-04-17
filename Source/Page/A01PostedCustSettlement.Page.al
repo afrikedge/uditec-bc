@@ -106,7 +106,7 @@ page 50063 "A01 Posted Cust Settlement"
 
                 begin
                     CustomerSettlement.SetRange("No.", Rec."No.");
-                    Report.Run(50019, true, false, CustomerSettlement);
+                    Report.Run(50021, true, false, CustomerSettlement);
                 end;
 
             }

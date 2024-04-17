@@ -1014,7 +1014,7 @@ report 50007 "A01 SalesOrderPrint"
         A01CompanySignLbl: Label 'Company signature';
         A01ArrestedSumLbl: Label 'Arrested at the sum of :';
         A01OffreLbl: Label 'Offer subject to conditions. See in store';
-        A01ProformaLbl: Label 'This proforma invoice is valid for one week';
+        A01ProformaLbl: Label 'This proforma invoice is valid until';
         CountryOfManufactuctureLbl: Label 'Country';
         TotalWeightLbl: Label 'Total Weight';
         SalespersonPurchaserName: Text;

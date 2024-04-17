@@ -1611,7 +1611,7 @@ report 50002 "A01 SalesInvoicePrint"
         ExchangeRateTxt: Label 'Exchange rate: %1/%2', Comment = '%1 and %2 are both amounts.';
         PmtDiscTxt: Label 'If we receive the payment before %1, you are eligible for a %2% payment discount.', Comment = '%1 Discount Due Date %2 = value of Payment Discount % ';
         SalesInvoiceLbl: Label 'CREDIT SALES INVOICE';
-        InvNoLbl: Label 'Invoice_number :';
+        InvNoLbl: Label 'Invoice N° :';
         SalesPersonText: Text[50];
         UnitNameLbl: Label 'Unit name :';
         UnitAddressLbl: Label 'Unit address :';
