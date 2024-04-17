@@ -8,6 +8,7 @@ page 50058 "A01 Discount Requests"
     PageType = List;
     CardPageId = "A01 Discount Request";
     SourceTable = "A01 Request On Document";
+    SourceTableView = where("Request Type" = filter("Discount on order" | "Discount on quote"));
     UsageCategory = Lists;
     Editable = false;
 

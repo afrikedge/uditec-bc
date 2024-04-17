@@ -4,6 +4,7 @@ page 50064 "A01 Discount Request"
     Caption = 'Discount Request';
     PageType = Card;
     SourceTable = "A01 Request On Document";
+    SourceTableView = where("Request Type" = filter("Discount on order" | "Discount on quote"));
     UsageCategory = Lists;
 
     layout

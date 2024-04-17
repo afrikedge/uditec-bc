@@ -4,6 +4,7 @@ page 50070 "A01 Payment Request"
     Caption = 'Payment Request';
     PageType = Card;
     SourceTable = "A01 Request On Document";
+    SourceTableView = where("Request Type" = const("Payment Document"));
     UsageCategory = Lists;
 
     layout

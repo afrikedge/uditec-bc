@@ -374,7 +374,7 @@ report 50013 "A01 OutputStockPrint"
         ActivityType: Option " ","Put-away",Pick,Movement;
         InventoryMovementCaptionLbl: Label 'Inventory Movement';
         PageCaptionLbl: Label 'Page';
-        DateOfPrintLbl: Label 'Date of print:';
+        DateOfPrintLbl: Label 'Date :';
         ActivityTypeCaptionLbl: Label 'Activity Type';
         PostingDateCaptionLbl: Label 'Posting Date';
         ReportTitleLbl: Label 'OUTPUT STOCK';

@@ -5,6 +5,7 @@ page 50067 "A01 POS Payment Requests"
     PageType = List;
     CardPageId = "A01 POS Payment Request";
     SourceTable = "A01 Request On Document";
+    SourceTableView = where("Request Type" = const("POS Payment"));
     UsageCategory = Lists;
 
     layout

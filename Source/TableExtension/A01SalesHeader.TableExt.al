@@ -110,6 +110,13 @@ tableextension 50000 "A01 Sales Header" extends "Sales Header"
             Caption = 'AGP Contract No.';
             DataClassification = CustomerContent;
             Editable = false;
+            trigger OnValidate()
+            var
+                AGPContract: Record "A01 AGP Contrat";
+            begin
+                if (AGPContract.Get("A01 AGP Contract No.")) then
+                    Rec.Validate("A01 Credit Duration (Month)", AGPContract."Duration (Month)");
+            end;
         }
         // field(50017; "A01 Eligible Amount"; Decimal)
         // {
@@ -126,7 +133,8 @@ tableextension 50000 "A01 Sales Header" extends "Sales Header"
             begin
                 if (Cust1.Get("Sell-to Customer No.")) then begin
                     Rec.validate("A01 Sales Mode", Cust1."A01 Sales Mode");
-                    rec.Validate("A01 AGP Contract No.", Cust1."A01 Contract No.");
+                    Rec.Validate("A01 AGP Contract No.", Cust1."A01 Contract No.");
+                    //Rec.Validate("A01 Credit Duration (Month)",Cust1.dur)
                 end;
             end;
         }

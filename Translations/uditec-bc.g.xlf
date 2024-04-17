@@ -8779,7 +8779,7 @@
           <note from="Xliff Generator" annotates="general" priority="3">Report A01 InventoryListPrint - NamedType CurrReportPageNoCaptionLbl</note>
         </trans-unit>
         <trans-unit id="Report 2641215427 - NamedType 2251670122" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Date of print :</source>
+          <source>Date print :</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report A01 InventoryListPrint - NamedType DateOfPrintLbl</note>
         </trans-unit>
@@ -8899,7 +8899,7 @@
           <note from="Xliff Generator" annotates="general" priority="3">Report A01 InventoryReportPrint - NamedType CurrReportPageNoCaptionLbl</note>
         </trans-unit>
         <trans-unit id="Report 2076854159 - NamedType 2251670122" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Date of print:</source>
+          <source>Date print:</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report A01 InventoryReportPrint - NamedType DateOfPrintLbl</note>
         </trans-unit>
@@ -9034,7 +9034,7 @@
           <note from="Xliff Generator" annotates="general" priority="3">Report A01 OutputStockPrint - NamedType ActivityTypeCaptionLbl</note>
         </trans-unit>
         <trans-unit id="Report 1488983858 - NamedType 2251670122" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Date of print:</source>
+          <source>Date :</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report A01 OutputStockPrint - NamedType DateOfPrintLbl</note>
         </trans-unit>
@@ -10859,7 +10859,7 @@
           <note from="Xliff Generator" annotates="general" priority="3">Report A01 SalesInvoicePrint - NamedType InvDiscountAmtLbl</note>
         </trans-unit>
         <trans-unit id="Report 1919361468 - NamedType 259914550" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Invoice_number :</source>
+          <source>Invoice N° :</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report A01 SalesInvoicePrint - NamedType InvNoLbl</note>
         </trans-unit>
@@ -11129,7 +11129,7 @@
           <note from="Xliff Generator" annotates="general" priority="3">Report A01 SalesOrderPrint - NamedType A01ProductCode__Caption</note>
         </trans-unit>
         <trans-unit id="Report 3247732489 - NamedType 802789620" size-unit="char" translate="yes" xml:space="preserve">
-          <source>This proforma invoice is valid for one week</source>
+          <source>This proforma invoice is valid until</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report A01 SalesOrderPrint - NamedType A01ProformaLbl</note>
         </trans-unit>
@@ -11409,7 +11409,7 @@
           <note from="Xliff Generator" annotates="general" priority="3">Report A01 SalesQuotePrint - NamedType PricePerLbl</note>
         </trans-unit>
         <trans-unit id="Report 2502538013 - NamedType 385790588" size-unit="char" translate="yes" xml:space="preserve">
-          <source>This proforma invoice is valid for one week</source>
+          <source>This proforma invoice is valid until</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report A01 SalesQuotePrint - NamedType ProformaLbl</note>
         </trans-unit>

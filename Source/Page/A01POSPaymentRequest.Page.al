@@ -4,6 +4,7 @@ page 50068 "A01 POS Payment Request"
     Caption = 'POS Payment Request';
     PageType = Card;
     SourceTable = "A01 Request On Document";
+    SourceTableView = where("Request Type" = const("POS Payment"));
     UsageCategory = Lists;
 
     layout
