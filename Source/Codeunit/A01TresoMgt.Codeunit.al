@@ -780,7 +780,8 @@ codeunit 50007 "A01 Treso Mgt"
             repeat
 
             until CreditDueLine.Next() < 1;
-        SalesHeader.TestField("A01 Credit Duration (Month)", CreditDueLine.Count);
+        if (CreditDueLine.Count > 0) then
+            SalesHeader.TestField("A01 Credit Duration (Month)", CreditDueLine.Count);
     end;
 
     local procedure ProcessCreditDueLine(var SalesHeader: Record "Sales Header"; var CreditDueLine: Record "A01 Credit Depreciation Table"; var TotalSalesLine2: Record "Sales Line"; var TotalSalesLineLCY2: Record "Sales Line"; var DocType: Enum "Gen. Journal Document Type"; DocNo: Code[20]; ExtDocNo: Code[35]; SourceCode: Code[10]; var GenJnlPostLine: Codeunit "Gen. Jnl.-Post Line"; i: Integer; LineDueDate: Date)

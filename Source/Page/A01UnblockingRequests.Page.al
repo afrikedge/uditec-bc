@@ -5,6 +5,7 @@ page 50065 "A01 Unblocking Requests"
     PageType = List;
     CardPageId = "A01 UnBlocking Request";
     SourceTable = "A01 Request On Document";
+    SourceTableView = where("Request Type" = const(Unblocking));
     UsageCategory = Lists;
     Editable = false;
 
