@@ -1,5 +1,5 @@
 /// <summary>
-/// Report A01 CustomerSettlementPrint (ID 50019).
+/// Report A01 CustomerSettlementPrint (ID 50021).
 /// </summary>
 report 50021 "A01 CustomerSettlementPrint"
 {

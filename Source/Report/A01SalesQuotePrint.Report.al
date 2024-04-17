@@ -1154,7 +1154,7 @@ report 50001 "A01 SalesQuotePrint"
         CompanySignLbl: Label 'Company signature';
         ArrestedSumLbl: Label 'Arrested at the sum of :';
         OffreLbl: Label 'Offer subject to conditions. See in store';
-        ProformaLbl: Label 'This proforma invoice is valid for one week';
+        ProformaLbl: Label 'This proforma invoice is valid until';
         // SalesConfirmationLbl: Label 'Sales Quote';
         InvDiscountAmtLbl: Label 'Invoice Discount';
         SubtotalLbl: Label 'Subtotal';

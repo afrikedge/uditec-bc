@@ -411,7 +411,7 @@ report 50015 "A01 InventoryReportPrint"
         SummaryperItemCaptionLbl: Label 'Summary per Item *';
 
         PostingDateCaptionLbl: Label 'Posting Date';
-        DateOfPrintLbl: Label 'Date of print:';
+        DateOfPrintLbl: Label 'Date print:';
         ReportTitleLbl: Label 'INVENTORY REPORT';
         InventoryDateLbl: Label 'Inventory date';
         ProductCodeLbl: Label 'Product code';
