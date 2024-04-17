@@ -11,14 +11,16 @@ codeunit 50002 "A01 EventsSubscribers_Code"
         IsHandled := true;
     end;
 
-    [EventSubscriber(ObjectType::Codeunit, Codeunit::"Sales-Post", 'OnAfterUpdateAfterPosting', '', true, true)]
-    local procedure OnAfterUpdateAfterPosting_SalesPost(var SalesHeader: Record "Sales Header"; var TempSalesLine: Record "Sales Line" temporary)
+    [EventSubscriber(ObjectType::Codeunit, Codeunit::"Sales-Post", 'OnFinalizePostingOnBeforeDeleteApprovalEntries', '', true, true)]
+    local procedure SalesPost_OnFinalizePostingOnBeforeDeleteApprovalEntries(var SalesHeader: Record "Sales Header"; var EverythingInvoiced: Boolean)
     var
         SalesOrderProcess: Codeunit "A01 Sales Order Processing";
     begin
         //Set invoice or ship status
         SalesOrderProcess.ChangeStatusOnSalesPosting(SalesHeader)
     end;
+
+
 
     [EventSubscriber(ObjectType::Codeunit, Codeunit::"Sales-Post", 'OnDeleteAfterPostingOnBeforeDeleteSalesHeader', '', true, true)]
     local procedure OnDeleteAfterPostingOnBeforeDeleteSalesHeader_SalesPost(var SalesHeader: Record "Sales Header")
