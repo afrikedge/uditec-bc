@@ -83,6 +83,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table A01 Afk Setup - Field AGP Type of employee contract - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Table 2685203037 - Field 891900766 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Charge Account (Voucher)</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table A01 Afk Setup - Field Charge Account (Voucher) - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Table 2685203037 - Field 3004954119 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Code</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -102,6 +107,11 @@
           <source>Discount Request Nos</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table A01 Afk Setup - Field Discount Request Nos - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2685203037 - Field 2039060979 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Item Category Code (Voucher)</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table A01 Afk Setup - Field Item Category Code (Voucher) - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 2685203037 - Field 1622133658 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Lead Nos</source>
@@ -197,6 +207,11 @@
           <source>Site visit required</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table A01 Afk Setup - Field MIR Site visit required - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2685203037 - Field 830946440 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Payment Method (Voucher)</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table A01 Afk Setup - Field Payment Method (Voucher) - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 2685203037 - Field 386035625 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Payment Promise Nos</source>
@@ -873,6 +888,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table A01 External User - Field Email - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Table 2244191176 - Field 3060719555 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>GL Period Group</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table A01 External User - Field GL Period Group - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Table 2244191176 - Field 3342913478 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Last Used Company</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -932,6 +952,31 @@
           <source>User Code</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table A01 External User Company - Field User Code - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2906298628 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>GL Period User Group</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table A01 GL Period User Group - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2906298628 - Field 3865205833 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Allow Posting From</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table A01 GL Period User Group - Field Allow Posting From - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2906298628 - Field 1390204486 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Allow Posting To</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table A01 GL Period User Group - Field Allow Posting To - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2906298628 - Field 3004954119 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Code</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table A01 GL Period User Group - Field Code - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2906298628 - Field 2961552353 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Name</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table A01 GL Period User Group - Field Name - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 78023627 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Item Warranty</source>
@@ -1773,31 +1818,6 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table A01 Request On Document - Property Caption</note>
         </trans-unit>
-        <trans-unit id="Table 4167722193 - NamedType 2102311231" size-unit="char" translate="yes" xml:space="preserve">
-          <source>A pending request already exists for this document</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Table A01 Request On Document - NamedType LblAnotherRecExists</note>
-        </trans-unit>
-        <trans-unit id="Table 4167722193 - NamedType 1598520968" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Discount request</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Table A01 Request On Document - NamedType LblDescrDiscount</note>
-        </trans-unit>
-        <trans-unit id="Table 4167722193 - NamedType 2974736885" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Payment to validate</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Table A01 Request On Document - NamedType LblDescrPayment</note>
-        </trans-unit>
-        <trans-unit id="Table 4167722193 - NamedType 902406945" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Payment at POS to be validated</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Table A01 Request On Document - NamedType LblDescrPOSPayment</note>
-        </trans-unit>
-        <trans-unit id="Table 4167722193 - NamedType 690629365" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Unblocking request</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Table A01 Request On Document - NamedType LblDescrUnblocking</note>
-        </trans-unit>
         <trans-unit id="Table 4167722193 - Field 2369664869 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Modified By</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -1812,16 +1832,6 @@
           <source>Customer No.</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table A01 Request On Document - Field Customer No. - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Table 4167722193 - Field 486908828 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Document No.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Table A01 Request On Document - Field Document No. - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Table 4167722193 - Field 2363328873 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Document Type</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Table A01 Request On Document - Field Document Type - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 4167722193 - Field 1336271358 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Due Balance</source>
@@ -2482,6 +2492,51 @@
           <source>All entries in one application must be in the same currency or one or more of the EMU currencies.</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit A01 Doc Payment-Apply - NamedType Text007</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 2173010692 - NamedType 1598520968" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Discount request</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit A01 Document Request Mgt - NamedType LblDescrDiscount</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 2173010692 - NamedType 2974736885" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Payment to validate</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit A01 Document Request Mgt - NamedType LblDescrPayment</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 2173010692 - NamedType 902406945" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Payment at POS to be validated</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit A01 Document Request Mgt - NamedType LblDescrPOSPayment</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 2173010692 - NamedType 690629365" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Unblocking request</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit A01 Document Request Mgt - NamedType LblDescrUnblocking</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 2173010692 - Method 2956962224 - NamedType 992822970" size-unit="char" translate="yes" xml:space="preserve">
+          <source>The amount to validate does not exist on this document</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit A01 Document Request Mgt - Method CheckDocPaymentOnCreation - NamedType ErrLbl01</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 2173010692 - Method 4140990669 - NamedType 2102311231" size-unit="char" translate="yes" xml:space="preserve">
+          <source>A pending request already exists for this document</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit A01 Document Request Mgt - Method CheckIfValidationRequestExists - NamedType LblAnotherRecExists</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 2173010692 - Method 4140990669 - NamedType 2102311231" size-unit="char" translate="yes" xml:space="preserve">
+          <source>A pending request already exists for this document</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit A01 Document Request Mgt - Method CheckIfValidationRequestExists - NamedType LblAnotherRecExists</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 2173010692 - Method 270035348 - NamedType 992822970" size-unit="char" translate="yes" xml:space="preserve">
+          <source>The amount to validate does not exist on this document</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit A01 Document Request Mgt - Method CheckPOSPaymentOnCreation - NamedType ErrLbl01</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 2173010692 - Method 3789585885 - NamedType 2102311231" size-unit="char" translate="yes" xml:space="preserve">
+          <source>A pending request already exists for this document</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit A01 Document Request Mgt - Method CheckSameRequestAlreadyExists - NamedType LblAnotherRecExists</note>
         </trans-unit>
         <trans-unit id="Codeunit 3954644649 - Method 8486776 - NamedType 4139332484" size-unit="char" translate="yes" xml:space="preserve">
           <source>Do you want to suppress send dialog?</source>
@@ -3502,6 +3557,11 @@
           <source>External Users</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page A01 External Users - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2971086181 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>GL Period User Groups</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page A01 GL Period User Groups - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 1933752416 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Import Steps</source>
@@ -11968,6 +12028,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension A01 Order Processor RC - Action A01External_profiles - Property Caption</note>
         </trans-unit>
+        <trans-unit id="PageExtension 3250568499 - Action 1205365213 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2747922353">
+          <source>GL Period Group Users</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension A01 Order Processor RC - Action A01GLPeriodGroupUsers - Property Caption</note>
+        </trans-unit>
         <trans-unit id="PageExtension 3250568499 - Action 7403432 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2747922353">
           <source>Import Steps</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -13147,6 +13212,11 @@
           <source>Disable Resp Center filter</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension A01 User Setup - Field A01 Disable Resp Center Filter - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 4102593426 - Field 2617566227 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 337631938">
+          <source>GL Period Group</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension A01 User Setup - Field A01 GL Period Group - Property Caption</note>
         </trans-unit>
         <trans-unit id="TableExtension 4102593426 - Field 3176799908 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 337631938">
           <source>Sales Resp. Ctr. Filter 2</source>

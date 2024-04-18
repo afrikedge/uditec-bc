@@ -143,6 +143,49 @@ codeunit 50002 "A01 EventsSubscribers_Code"
         SecMgt.CheckBankAccountUser(GenJnlLine);
     end;
 
+    [EventSubscriber(ObjectType::Codeunit, Codeunit::"User Setup Management", 'OnBeforeIsPostingDateValidWithSetup', '', true, true)]
+    local procedure UserSetupManagement_OnBeforeIsPostingDateValidWithSetup(PostingDate: Date; var Result: Boolean; var IsHandled: Boolean; var SetupRecordID: RecordID)
+    var
+        UserSetup: Record "User Setup";
+        GLSetup: Record "General Ledger Setup";
+        GLPeriodUserGroup: Record "A01 GL Period User Group";
+        AllowPostingFrom: Date;
+        AllowPostingTo: Date;
+    begin
+        if UserId <> '' then
+            if UserSetup.Get(UserId) then begin
+                UserSetup.CheckAllowedPostingDates(1);
+                AllowPostingFrom := UserSetup."Allow Posting From";
+                AllowPostingTo := UserSetup."Allow Posting To";
+                SetupRecordID := UserSetup.RecordId;
+            end;
+
+        if (AllowPostingFrom = 0D) and (AllowPostingTo = 0D) then begin
+            if UserId <> '' then
+                if UserSetup.Get(UserId) then begin
+                    if GLPeriodUserGroup.Get(UserSetup."A01 GL Period Group") then begin
+                        GLPeriodUserGroup.CheckAllowedPostingDates(1);
+                        AllowPostingFrom := GLPeriodUserGroup."Allow Posting From";
+                        AllowPostingTo := GLPeriodUserGroup."Allow Posting To";
+                        SetupRecordID := GLPeriodUserGroup.RecordId;
+                    end;
+                end;
+        end;
+
+        if (AllowPostingFrom = 0D) and (AllowPostingTo = 0D) then begin
+            GLSetup.GetRecordOnce();
+            GLSetup.CheckAllowedPostingDates(1);
+            AllowPostingFrom := GLSetup."Allow Posting From";
+            AllowPostingTo := GLSetup."Allow Posting To";
+            SetupRecordID := GLSetup.RecordId;
+        end;
+        if AllowPostingTo = 0D then
+            AllowPostingTo := DMY2Date(31, 12, 9999);
+
+        Result := (PostingDate in [AllowPostingFrom .. AllowPostingTo]);
+        IsHandled := true;
+    end;
+
 
 
 

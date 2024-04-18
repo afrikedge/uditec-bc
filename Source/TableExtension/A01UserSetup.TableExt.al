@@ -49,5 +49,11 @@ tableextension 50001 "A01 User Setup" extends "User Setup"
             Caption = 'Disable Resp Center filter';
             DataClassification = CustomerContent;
         }
+        field(50009; "A01 GL Period Group"; Code[20])
+        {
+            Caption = 'GL Period Group';
+            TableRelation = "A01 GL Period User Group";
+            DataClassification = CustomerContent;
+        }
     }
 }

@@ -101,6 +101,12 @@
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Table A01 Afk Setup - Field AGP Type of employee contract - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Table 2685203037 - Field 891900766 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Charge Account (Voucher)</source>
+          <target state="needs-review-translation">Compte de charge (Bon d'achat)</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Table A01 Afk Setup - Field Charge Account (Voucher) - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Table 2685203037 - Field 3004954119 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Code</source>
           <target state="needs-review-translation">Code</target>
@@ -124,6 +130,12 @@
           <target state="needs-review-translation">N° Demande remise</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Table A01 Afk Setup - Field Discount Request Nos - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2685203037 - Field 2320633779 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Item Code (Voucher)</source>
+          <target state="needs-review-translation">Code article (Bon d'achat)</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Table A01 Afk Setup - Field Item Code (Voucher) - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 2685203037 - Field 1622133658 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Lead Nos</source>
@@ -238,6 +250,12 @@
           <target state="needs-review-translation">Visite de site réquise</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Table A01 Afk Setup - Field MIR Site visit required - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2685203037 - Field 830946440 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Payment Method (Voucher)</source>
+          <target state="needs-review-translation">Méthode de règlement (Bon d'achat)</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Table A01 Afk Setup - Field Payment Method (Voucher) - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 2685203037 - Field 386035625 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Payment Promise Nos</source>
@@ -1055,6 +1073,12 @@
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Table A01 External User - Field Email - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Table 2244191176 - Field 3060719555 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>GL Period Group</source>
+          <target state="needs-review-translation">Groupe période compta</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Table A01 External User - Field GL Period Group - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Table 2244191176 - Field 3342913478 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Last Used Company</source>
           <target state="needs-review-translation">Dernière société utilisée</target>
@@ -1126,6 +1150,36 @@
           <target state="needs-review-translation">Code d'utilisateur</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Table A01 External User Company - Field User Code - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2906298628 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>GL Period User Group</source>
+          <target state="needs-review-translation">Groupe période compta</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Table A01 GL Period User Group - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2906298628 - Field 3865205833 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Allow Posting From</source>
+          <target state="needs-review-translation">Date début validation</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Table A01 GL Period User Group - Field Allow Posting From - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2906298628 - Field 1390204486 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Allow Posting To</source>
+          <target state="needs-review-translation">Date fin validation</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Table A01 GL Period User Group - Field Allow Posting To - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2906298628 - Field 3004954119 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Code</source>
+          <target state="needs-review-translation">Code</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Table A01 GL Period User Group - Field Code - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2906298628 - Field 2961552353 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Name</source>
+          <target state="needs-review-translation">Nom</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Table A01 GL Period User Group - Field Name - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 78023627 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Item Warranty</source>
@@ -2184,18 +2238,6 @@
           <target state="needs-review-translation">N° Client</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Table A01 Request On Document - Field Customer No. - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Table 4167722193 - Field 486908828 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Document No.</source>
-          <target state="needs-review-translation">N° Document</target>
-          <note from="Developer" annotates="general" priority="2"/>
-          <note from="Xliff Generator" annotates="general" priority="3">Table A01 Request On Document - Field Document No. - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Table 4167722193 - Field 2363328873 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Document Type</source>
-          <target state="needs-review-translation">Type Document</target>
-          <note from="Developer" annotates="general" priority="2"/>
-          <note from="Xliff Generator" annotates="general" priority="3">Table A01 Request On Document - Field Document Type - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 4167722193 - Field 1336271358 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Due Balance</source>
@@ -4248,6 +4290,12 @@
           <target state="needs-review-translation">Utilisateurs externes</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Page A01 External Users - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2971086181 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>GL Period User Groups</source>
+          <target state="needs-review-translation">Groupes période compta</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Page A01 GL Period User Groups - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 1933752416 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Import Steps</source>
@@ -14558,6 +14606,12 @@
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension A01 Order Processor RC - Action A01External_profiles - Property Caption</note>
         </trans-unit>
+        <trans-unit id="PageExtension 3250568499 - Action 1205365213 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2747922353">
+          <source>GL Period Group Users</source>
+          <target state="needs-review-translation">Groupes période compta</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension A01 Order Processor RC - Action A01GLPeriodGroupUsers - Property Caption</note>
+        </trans-unit>
         <trans-unit id="PageExtension 3250568499 - Action 7403432 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2747922353">
           <source>Import Steps</source>
           <target state="needs-review-translation">Etapes d'importation</target>
@@ -15977,6 +16031,12 @@
           <target state="needs-review-translation">Désactiver le filtre du centre rde gestion</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension A01 User Setup - Field A01 Disable Resp Center Filter - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 4102593426 - Field 2617566227 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 337631938">
+          <source>GL Period Group</source>
+          <target state="needs-review-translation">Groupe période compta</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension A01 User Setup - Field A01 GL Period Group - Property Caption</note>
         </trans-unit>
         <trans-unit id="TableExtension 4102593426 - Field 3176799908 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 337631938">
           <source>Sales Resp. Ctr. Filter 2</source>

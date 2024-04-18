@@ -41,6 +41,9 @@ page 50022 "A01 External User"
                 field("Responsibility Center"; Rec."Responsibility Center")
                 {
                 }
+                field("GL Period Group"; Rec."GL Period Group")
+                {
+                }
             }
             part(Companies; "A01 External User Companies")
             {

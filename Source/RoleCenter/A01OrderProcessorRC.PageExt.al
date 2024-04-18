@@ -245,6 +245,12 @@ pageextension 50002 "A01 Order Processor RC" extends "Order Processor Role Cente
                     Caption = 'Bank Account Users';
                     RunObject = Page "A01 Bank Account Users";
                 }
+                action(A01GLPeriodGroupUsers)
+                {
+                    ApplicationArea = Basic, Suite;
+                    Caption = 'GL Period Group Users';
+                    RunObject = Page "A01 GL Period User Groups";
+                }
             }
             group(A01_Compta)
             {

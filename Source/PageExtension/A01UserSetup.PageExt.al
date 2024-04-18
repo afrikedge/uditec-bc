@@ -32,5 +32,12 @@ pageextension 50011 "A01 User Setup" extends "User Setup"
                 ApplicationArea = Basic, Suite;
             }
         }
+        addafter("Allow Posting To")
+        {
+            field("A01 GL Period Group"; Rec."A01 GL Period Group")
+            {
+                ApplicationArea = Basic, Suite;
+            }
+        }
     }
 }

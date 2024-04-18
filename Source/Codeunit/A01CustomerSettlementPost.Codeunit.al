@@ -22,6 +22,7 @@ codeunit 50013 "A01 Customer Settlement Post"
         DocumentErrorsMgt: Codeunit "Document Errors Mgt.";
         GenJnlPostLine: Codeunit "Gen. Jnl.-Post Line";
         TresoMgt: Codeunit "A01 Treso Mgt";
+        DocRequestMgt: Codeunit "A01 Document Request Mgt";
         DocumentTitleMsg: Label '#1################################\\', Comment = '%1 = Document description';
         CheckingLinesMsg: Label 'Checking lines        #2######\', Comment = '%2 = counter';
         PostingLinesMsg: Label 'Posting lines         #3######', Comment = '%3 = counter';
@@ -203,6 +204,9 @@ codeunit 50013 "A01 Customer Settlement Post"
 
     local procedure ValidateHeader(CustSettlement: Record "A01 Payment Document")
     begin
+
+        DocRequestMgt.CheckIfValidationRequestExists(CustSettlement);
+
         CustSettlement.TestField("Posting Date");
         CustSettlement.TestField("Responsibility Center");
         CustSettlement.TestField("Partner No.");
