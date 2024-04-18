@@ -294,7 +294,7 @@ report 50021 "A01 CustomerSettlementPrint"
         NoText: array[2] of Text;
         // ExchangeRateTxt: Label 'Exchange rate: %1/%2', Comment = '%1 and %2 are both amounts.';
         ReportTitleLbl: Label 'CASH RECEIPT';
-        DateOfPrintLbl: Label 'Date of print :';
+        DateOfPrintLbl: Label 'Date :';
         CustNameLbl: Label 'Customer name :';
         CustIdentityLbl: Label 'Customer identity :';
         CustAddressLbl: Label 'Customer address :';
