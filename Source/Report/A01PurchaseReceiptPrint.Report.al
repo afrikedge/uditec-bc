@@ -256,7 +256,7 @@ report 50011 "A01 PurchaseReceiptPrint"
         VendorPhone: Text[30];
 
         ReportTitleLbl: Label 'PURCHASE RECEIPT';
-        PurchaseReceiptNumberLbl: Label 'Purchase receipt number :';
+        PurchaseReceiptNumberLbl: Label 'Purchase N°:';
         OrderNumberLbl: Label 'Order N° :';
         DateOfReceiptLbl: Label 'Date:';
         OrderDateLbl: Label 'Order date :';

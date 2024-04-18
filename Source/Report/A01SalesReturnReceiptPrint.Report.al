@@ -270,8 +270,8 @@ report 50012 "A01 SalesReturnReceiptPrint"
         SalesReceiptNumberLbl: Label 'Sales Return receipt N° :';
         OrderNumberLbl: Label 'Sales return N° :';
         DateOfReceiptLbl: Label 'Date of return :';
-        UnitNameLbl: Label 'Unit name :';
-        UnitAddressLbl: Label 'Uni address :';
+        UnitNameLbl: Label 'Warehouse name : :';
+        UnitAddressLbl: Label 'Warehouse address :';
         UnitCityLbl: Label 'City';
         UnitPostalCodeLbl: Label 'Postal code :';
         CustomerNameLbl: Label 'Customer name :';
