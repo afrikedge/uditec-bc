@@ -100,6 +100,14 @@ table 50030 "A01 Payment Promise"
             TableRelation = "No. Series";
         }
         //Reminder date
+        field(19; "Honoration Date"; Date)
+        {
+            Caption = 'Honoration Date';
+        }
+        field(20; "Observations"; Text[250])
+        {
+            Caption = 'Observations';
+        }
     }
     keys
     {

@@ -120,11 +120,28 @@ table 50033 "A01 Payment Document Line"
             "Account Type" := "Account Type"::Vendor;
         "Account No." := PaymentDoc."Partner No.";
         "Currency Code" := PaymentDoc."Currency Code";
+
+        RequestMgt.CheckIfValidationRequestExists(PaymentDoc);
+    end;
+
+    trigger OnModify()
+    var
+    begin
+        GetHeader();
+        RequestMgt.CheckIfValidationRequestExists(PaymentDoc);
+    end;
+
+    trigger OnDelete()
+    var
+    begin
+        GetHeader();
+        RequestMgt.CheckIfValidationRequestExists(PaymentDoc);
     end;
 
     var
         PaymentDoc: record "A01 Payment Document";
         Currency: Record Currency;
+        RequestMgt: Codeunit "A01 Document Request Mgt";
     // CustLedgEntry: Record "Cust. Ledger Entry";
 
     [Scope('OnPrem')]

@@ -604,6 +604,13 @@ codeunit 50007 "A01 Treso Mgt"
         exit(true);
     end;
 
+    local procedure IsPostingWithoutDueCreditLine(SalesHeader: Record "Sales Header"): Boolean
+    var
+    //PaymentCond: Record "Payment Terms";
+    begin
+        exit(SalesHeader."A01 Interest rate" = 0);
+    end;
+
     procedure PostMultiDeadlinesPaymentLines(var SalesHeader: Record "Sales Header";
     var TotalSalesLine2: Record "Sales Line"; var TotalSalesLineLCY2: Record "Sales Line"; CommitIsSuppressed: Boolean;
     PreviewMode: Boolean; DocType: Enum "Gen. Journal Document Type"; DocNo: Code[20]; ExtDocNo: Code[35]; SourceCode: Code[10];
@@ -631,30 +638,45 @@ codeunit 50007 "A01 Treso Mgt"
         TotalLineUnitCostLCY := 0;
         TotalLineInvDiscountAmtLCY := 0;
         TotalLinePmtDiscountAmt := 0;
-        CreditDueLine.Reset();
-        CreditDueLine.SetRange("Document Type", CreditDueLine."Document Type"::"Sales order");
-        CreditDueLine.SetRange("Document No.", SalesHeader."No.");
-        if CreditDueLine.FindSet() then
-            repeat
+
+        if (IsPostingWithoutDueCreditLine(SalesHeader)) then begin
+
+            for i := 1 to SalesHeader."A01 Credit Duration (Month)" do begin
+
+                IsHandled := true;
+
                 ProcessCreditDueLine(SalesHeader, CreditDueLine, TotalSalesLine2, TotalSalesLineLCY2, DocType, DocNo, ExtDocNo, SourceCode, GenJnlPostLine, i, LineDueDate);
 
                 LineDueDate := CalcDate('<1M>', LineDueDate);
-                i += 1;
-            until CreditDueLine.Next() < 1;
+
+            end;
+
+        end else begin
+
+            CreditDueLine.Reset();
+            CreditDueLine.SetRange("Document Type", CreditDueLine."Document Type"::"Sales order");
+            CreditDueLine.SetRange("Document No.", SalesHeader."No.");
+            if CreditDueLine.FindSet() then
+                repeat
+
+                    IsHandled := true;
+
+                    ProcessCreditDueLine(SalesHeader, CreditDueLine, TotalSalesLine2, TotalSalesLineLCY2, DocType, DocNo, ExtDocNo, SourceCode, GenJnlPostLine, i, LineDueDate);
+
+                    LineDueDate := CalcDate('<1M>', LineDueDate);
+                    i += 1;
+                until CreditDueLine.Next() < 1;
+
+            CreditDueLine.Reset();
+            CreditDueLine.SetRange("Document Type", CreditDueLine."Document Type"::"Sales order");
+            CreditDueLine.SetRange("Document No.", SalesHeader."No.");
+            if not CreditDueLine.IsEmpty() then
+                CreditDueLine.DeleteAll();
+        end;
 
 
-        // for i := 1 to SalesHeader."A01 Credit Duration (Month)" do begin
-
-        // end;
-
-        CreditDueLine.Reset();
-        CreditDueLine.SetRange("Document Type", CreditDueLine."Document Type"::"Sales order");
-        CreditDueLine.SetRange("Document No.", SalesHeader."No.");
-        if not CreditDueLine.IsEmpty() then
-            CreditDueLine.DeleteAll();
 
 
-        IsHandled := true;
 
     end;
 
@@ -749,23 +771,25 @@ codeunit 50007 "A01 Treso Mgt"
         //OnBeforePostCustomerEntry(GenJnlLine, SalesHeader, TotalSalesLine2, TotalSalesLineLCY2, SuppressCommit, PreviewMode, GenJnlPostLine);
         GenJnlPostLine.RunWithCheck(GenJnlLine);
 
-        CustLedgEntry.Reset();
-        CustLedgEntry.SetCurrentKey("Document No.");
-        //CustLedgEntry.SetRange("Document Type", GenJnlLine."Document Type");
-        CustLedgEntry.SetRange("Document No.", GenJnlLine."Document No.");
-        CustLedgEntry.FindLast();
+        if (not IsPostingWithoutDueCreditLine(SalesHeader)) then begin
+            CustLedgEntry.Reset();
+            CustLedgEntry.SetCurrentKey("Document No.");
+            //CustLedgEntry.SetRange("Document Type", GenJnlLine."Document Type");
+            CustLedgEntry.SetRange("Document No.", GenJnlLine."Document No.");
+            CustLedgEntry.FindLast();
 
+            CreditDueLineNew.Init();
+            CreditDueLineNew.TransferFields(CreditDueLine);
+            CreditDueLineNew."Due Date" := CustLedgEntry."Due Date";
+            CreditDueLineNew."Cust Ledger Entry No." := CustLedgEntry."Entry No.";
+            CreditDueLineNew."Dimension Set ID" := SalesHeader."Dimension Set ID";
+            CreditDueLineNew."Document Type" := CreditDueLine."Document Type"::"Posted Sales invoice";
+            CreditDueLineNew."Order No." := SalesHeader."No.";
+            CreditDueLineNew."Document No." := DocNo;
 
-        CreditDueLineNew.Init();
-        CreditDueLineNew.TransferFields(CreditDueLine);
-        CreditDueLineNew."Due Date" := CustLedgEntry."Due Date";
-        CreditDueLineNew."Cust Ledger Entry No." := CustLedgEntry."Entry No.";
-        CreditDueLineNew."Dimension Set ID" := SalesHeader."Dimension Set ID";
-        CreditDueLineNew."Document Type" := CreditDueLine."Document Type"::"Posted Sales invoice";
-        CreditDueLineNew."Order No." := SalesHeader."No.";
-        CreditDueLineNew."Document No." := DocNo;
+            CreditDueLineNew.Insert(true);
+        end;
 
-        CreditDueLineNew.Insert(true);
         //OnAfterPostCustomerEntry(GenJnlLine, SalesHeader, TotalSalesLine2, TotalSalesLineLCY2, SuppressCommit, GenJnlPostLine);
     end;
 
@@ -780,14 +804,15 @@ codeunit 50007 "A01 Treso Mgt"
             repeat
 
             until CreditDueLine.Next() < 1;
-        if (CreditDueLine.Count > 0) then
-            SalesHeader.TestField("A01 Credit Duration (Month)", CreditDueLine.Count);
+
+
+        if (not IsPostingWithoutDueCreditLine(SalesHeader)) then
+            if ((CreditDueLine.Count > 0) or (SalesHeader."A01 Credit Duration (Month)" > 0)) then
+                SalesHeader.TestField("A01 Credit Duration (Month)", CreditDueLine.Count);
     end;
 
     local procedure ProcessCreditDueLine(var SalesHeader: Record "Sales Header"; var CreditDueLine: Record "A01 Credit Depreciation Table"; var TotalSalesLine2: Record "Sales Line"; var TotalSalesLineLCY2: Record "Sales Line"; var DocType: Enum "Gen. Journal Document Type"; DocNo: Code[20]; ExtDocNo: Code[35]; SourceCode: Code[10]; var GenJnlPostLine: Codeunit "Gen. Jnl.-Post Line"; i: Integer; LineDueDate: Date)
     var
-
-
         LineAmtInclVAT: Decimal;
         LineAmtInclVATLCY: Decimal;
         LineAmtLCY: Decimal;

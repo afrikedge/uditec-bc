@@ -241,6 +241,26 @@ table 50017 "A01 Afk Setup"
             Caption = 'Lead Nos';
             TableRelation = "No. Series";
         }
+        field(52; "Item Category Code (Voucher)"; Code[20])
+        {
+            Caption = 'Item Category Code (Voucher)';
+            TableRelation = "Item Category";
+        }
+        field(53; "Charge Account (Voucher)"; Code[20])
+        {
+            Caption = 'Charge Account (Voucher)';
+            TableRelation = "G/L Account"."No." where("Direct Posting" = const(true));
+        }
+        field(54; "Payment Method (Voucher)"; Code[20])
+        {
+            Caption = 'Payment Method (Voucher)';
+            TableRelation = "Payment Method";
+        }
+        field(55; "Reposession Risk Level"; Code[20])
+        {
+            Caption = 'Reposession Risk Level';
+            TableRelation = "A01 Parameter Record".Code where(Type = const(RiskLevel));
+        }
 
 
         //Banked or unbanked employee

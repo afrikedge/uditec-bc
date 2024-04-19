@@ -183,6 +183,10 @@ permissionset 50000 "A01 Uditec_All"
         page "A01 Posted Cust Settlement" = X,
         page "A01 Posted Cust Settlements" = X,
         page "A01 UnBlocking Request" = X,
-        page "A01 Unblocking Requests" = X;
+        page "A01 Unblocking Requests" = X,
+        tabledata "A01 GL Period User Group" = RIMD,
+        table "A01 GL Period User Group" = X,
+        report "A01 CustomerSettlementPrint" = X,
+        page "A01 Bank Account Users" = X;
     //page "A01 Customer Settlements" = X;
 }

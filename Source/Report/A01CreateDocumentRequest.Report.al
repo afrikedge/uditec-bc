@@ -15,7 +15,7 @@ report 50020 "A01 Create Document Request"
                         or (CreatedDocType = "A01 Request On Document Type"::"Discount on order")) then begin
                     if ((RequestedDiscount > 100) or (RequestedDiscount = 0)) then
                         Error(LblRequestedDiscountError);
-                    RequestDoc.AddDiscountRequest(SalesHeader, RequestedDiscount);
+                    RequestDocMgt.AddDiscountRequest(SalesHeader, RequestedDiscount);
                     Message(LblDocCreated);
                     exit;
                 end;
@@ -49,7 +49,7 @@ report 50020 "A01 Create Document Request"
     }
     var
         SalesHeader: Record "Sales Header";
-        RequestDoc: Record "A01 Request On Document";
+        RequestDocMgt: Codeunit "A01 Document Request Mgt";
         RequestedDiscount: Decimal;
         CreatedDocType: Enum "A01 Request On Document Type";
 

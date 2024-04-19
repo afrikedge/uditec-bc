@@ -194,6 +194,15 @@ report 50010 "A01 SalesInvoiceCreditPrint"
             column(DiscountAmountLbl; DiscountAmountLbl)
             {
             }
+            column(Total_LCYText; Total_LCYText)
+            {
+            }
+            column(TVA_LCYText; TVA_LCYText)
+            {
+            }
+            column(TotalTTC_LCYText; TotalTTC_LCYText)
+            {
+            }
             column(HTPriceLbl; HTPriceLbl)
             {
             }
@@ -1300,14 +1309,14 @@ report 50010 "A01 SalesInvoiceCreditPrint"
                     AfkTotalVAT_LCYText := Format(AfkTotalVAT_LCY);
                     AfkLocalCurrencyCaption := AfkDeviseLbl;
 
-                    RepCheck.InitTextVariable();
-                    RepCheck.FormatNoText(NoText, AfkTotalAmountInclVAT_LCY, AfkLocalCurrency.Code);
+                    // RepCheck.InitTextVariable();
+                    // RepCheck.FormatNoText(NoText, AfkTotalAmountInclVAT_LCY, AfkLocalCurrency.Code);
 
-                    NoText[1] := ReplaceString(NoText[1], '****');
-                    NoText[1] := ReplaceString(NoText[1], 'AND 0/100');
-                    NoText[2] := ReplaceString(NoText[2], '****');
-                    NoText[2] := ReplaceString(NoText[2], 'AND 0/100');
-                    Afk_AmountInWords := NoText[1] + ' ' + NoText[2];
+                    // NoText[1] := ReplaceString(NoText[1], '****');
+                    // NoText[1] := ReplaceString(NoText[1], 'AND 0/100');
+                    // NoText[2] := ReplaceString(NoText[2], '****');
+                    // NoText[2] := ReplaceString(NoText[2], 'AND 0/100');
+                    // Afk_AmountInWords := NoText[1] + ' ' + NoText[2];
 
                 end;
             }
@@ -1467,6 +1476,15 @@ report 50010 "A01 SalesInvoiceCreditPrint"
                      AutoFormat.ResolveAutoFormat("Auto Format"::AmountFormat, AfkLocalCurrency.Code));
                     TotalTTC_LCYText := Format(TotalTTC);
                 end;
+
+                RepCheck.InitTextVariable();
+                RepCheck.FormatNoText(NoText, TotalTTC, AfkLocalCurrency.Code);
+
+                NoText[1] := ReplaceString(NoText[1], '****');
+                NoText[1] := ReplaceString(NoText[1], 'AND 0/100');
+                NoText[2] := ReplaceString(NoText[2], '****');
+                NoText[2] := ReplaceString(NoText[2], 'AND 0/100');
+                Afk_AmountInWords := NoText[1] + ' ' + NoText[2];
 
                 A01Balance := CurrencyExchangeRate.ExchangeAmtFCYToLCY(Header."Posting Date",
                                    Header."Currency Code", A01Balance, Header."Currency Factor");

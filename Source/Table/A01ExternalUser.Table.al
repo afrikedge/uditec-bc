@@ -69,6 +69,11 @@ table 50001 "A01 External User"
             Caption = 'Responsibility Center';
             TableRelation = "Responsibility Center";
         }
+        field(13; "GL Period Group"; Code[20])
+        {
+            Caption = 'GL Period Group';
+            TableRelation = "A01 GL Period User Group";
+        }
 
     }
     keys

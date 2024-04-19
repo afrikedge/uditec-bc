@@ -250,8 +250,8 @@ report 50005 "A01 TransferOrderPrint"
         UnitCity: Text[50];
         UnitPostalCode: Text[50];
         ReportTitleLbl: Label 'TRANSFER ORDER';
-        UnitNameLbl: Label 'Unit name :';
-        UnitAddressLbl: Label 'Unit address :';
+        UnitNameLbl: Label 'Warehouse name :';
+        UnitAddressLbl: Label 'Warehouse address :';
         UnitCityLbl: Label 'City';
         UnitPostalCodeLbl: Label 'Postal code :';
         TransferNumberLbl: Label 'Transfer order N° :';

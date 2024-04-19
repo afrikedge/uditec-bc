@@ -106,12 +106,11 @@ page 50057 "A01 Customer Settlement"
                 Image = PickLines;
                 trigger OnAction()
                 var
-                    CreateDoc: Record "A01 Request on Document";
                     QstLabel: Label 'Do you want to create an payment request?';
                 begin
                     if (not confirm(QstLabel)) then
                         exit;
-                    CreateDoc.AddPaymentRequest(Rec);//*******************
+                    RequestMgt.AddPaymentRequest(Rec);//*******************
                 end;
             }
         }
@@ -120,4 +119,7 @@ page 50057 "A01 Customer Settlement"
     begin
         CODEUNIT.Run(CODEUNIT::"A01 Doc Payment-Apply", Rec);
     end;
+
+    var
+        RequestMgt: Codeunit "A01 Document Request Mgt";
 }

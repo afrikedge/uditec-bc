@@ -26,14 +26,14 @@ table 50031 "A01 Request On Document"
             Caption = 'Status';
             Editable = false;
         }
-        field(5; "Document Type"; Enum "Sales Document Type")
-        {
-            Caption = 'Document Type';
-        }
-        field(6; "Document No."; Code[20])
-        {
-            Caption = 'Document No.';
-        }
+        // field(5; "Document Type"; Enum "Sales Document Type")
+        // {
+        //     Caption = 'Document Type';
+        // }
+        // field(6; "Document No."; Code[20])
+        // {
+        //     Caption = 'Document No.';
+        // }
         field(7; "Modified By"; Code[50])
         {
             Caption = 'Modified By';
@@ -53,6 +53,7 @@ table 50031 "A01 Request On Document"
         {
             Caption = 'Customer No.';
             TableRelation = Customer;
+            Editable = false;
             trigger OnValidate()
             var
                 Cust: Record Customer;
@@ -69,6 +70,7 @@ table 50031 "A01 Request On Document"
         {
             Caption = 'Sales Person';
             TableRelation = "Salesperson/Purchaser";
+            Editable = false;
         }
         field(12; "Credit Limit"; Decimal)
         {
@@ -89,7 +91,7 @@ table 50031 "A01 Request On Document"
         {
             Caption = 'Worst Current Status';
             TableRelation = "A01 Customer Debt Status";
-
+            Editable = false;
         }
         field(16; "Gross exposure"; Decimal)
         {
@@ -127,17 +129,14 @@ table 50031 "A01 Request On Document"
         }
     }
     var
-        LblAnotherRecExists: label 'A pending request already exists for this document';
-        LblDescrDiscount: label 'Discount request';
-        LblDescrUnblocking: label 'Unblocking request';
-        LblDescrPayment: label 'Payment to validate';
-        LblDescrPOSPayment: label 'Payment at POS to be validated';
+        RequestMgt: codeunit "A01 Document Request Mgt";
+
 
     trigger OnInsert()
     var
 
     begin
-        CheckOtherRequestExists();
+        RequestMgt.CheckSameRequestAlreadyExists(Rec);
 
         if "Sequence No." = 0 then
             "Sequence No." := GetNextSequenceNo();
@@ -162,30 +161,21 @@ table 50031 "A01 Request On Document"
     // value(9; Canceled)
     // value(10; Rejected)
     // value(11; Closed)
-    local procedure CheckOtherRequestExists()
-    var
-        Request: Record "A01 Request On Document";
-    begin
-        Request.SetRange("Request Type", Rec."Request Type");
-        Request.SetRange("Document No.", Rec."Document No.");
-        if Request.FindSet() then
-            repeat
-                if (Request.IsOnHold()) then
-                    Error(LblAnotherRecExists);
-            until Request.Next() < 1;
-    end;
+
 
     local procedure GetNextSequenceNo(): Integer
     var
         Request: Record "A01 Request On Document";
     begin
         Request.SetRange("Request Type", Rec."Request Type");
-        Request.SetRange("Document No.", Rec."Document No.");
+        Request.SetRange("Request No.", Rec."Request No.");
         if Request.FindLast() then
             exit(Request."Sequence No." + 1)
         else
             exit(1);
     end;
+
+
 
     procedure IsOnHold(): Boolean
     begin
@@ -199,60 +189,5 @@ table 50031 "A01 Request On Document"
         if (Status = Status::"Validated") then exit(true);
     end;
 
-    procedure AddDiscountRequest(SalesHeader: Record "Sales Header"; RequestedDiscount: Decimal)
-    var
-        Request: Record "A01 Request On Document";
-    begin
-        Request.Init();
-        if (SalesHeader."Document Type" = SalesHeader."Document Type"::Quote) then
-            Request.Validate("Request Type", Request."Request Type"::"Discount on quote");
-        if (SalesHeader."Document Type" = SalesHeader."Document Type"::Order) then
-            Request.Validate("Request Type", Request."Request Type"::"Discount on order");
-        Request.Validate("Request No.", SalesHeader."No.");
-        Request.Validate("Customer No.", SalesHeader."Sell-to Customer No.");
-        Request.Validate("Sales Person", SalesHeader."Salesperson Code");
-        Request.Validate("Requested Discount (%)", RequestedDiscount);
-        Request.Object := LblDescrDiscount;
-        Request.Insert(true);
-    end;
 
-    procedure AddUnBlockingRequest(SalesHeader: Record "Sales Header")
-    var
-        Request: Record "A01 Request On Document";
-    begin
-        SalesHeader.TestField("A01 Processing Status", SalesHeader."A01 Processing Status"::Blocked);
-        Request.Init();
-        Request.Validate("Request Type", Request."Request Type"::Unblocking);
-        Request.Validate("Request No.", SalesHeader."No.");
-        Request.Validate("Customer No.", SalesHeader."Sell-to Customer No.");
-        Request.Validate("Sales Person", SalesHeader."Salesperson Code");
-        Request.Object := LblDescrUnblocking;
-        Request.Insert(true);
-    end;
-
-    procedure AddPOSPaymentRequest(SalesHeader: Record "Sales Header")
-    var
-        Request: Record "A01 Request On Document";
-    begin
-        Request.Init();
-        Request.Validate("Request Type", Request."Request Type"::"POS Payment");
-        Request.Validate("Request No.", SalesHeader."No.");
-        Request.Validate("Customer No.", SalesHeader."Sell-to Customer No.");
-        Request.Validate("Sales Person", SalesHeader."Salesperson Code");
-        Request.Object := LblDescrPOSPayment;
-        Request.Insert(true);
-    end;
-
-    procedure AddPaymentRequest(PaymentDoc: Record "A01 Payment Document")
-    var
-        Request: Record "A01 Request On Document";
-    begin
-        Request.Init();
-        Request.Validate("Request Type", Request."Request Type"::"Payment Document");
-        Request.Validate("Request No.", PaymentDoc."No.");
-        Request.Validate("Customer No.", PaymentDoc."Partner No.");
-        //Request.Validate("Sales Person",SalesHeader."Salesperson Code");
-        Request.Object := LblDescrPayment;
-        Request.Insert(true);
-    end;
 }

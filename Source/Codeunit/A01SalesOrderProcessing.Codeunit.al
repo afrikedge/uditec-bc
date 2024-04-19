@@ -361,7 +361,7 @@ codeunit 50000 "A01 Sales Order Processing"
     procedure SetStatusToCompletelyInvoiced(var SalesH: Record "Sales Header")
     begin
         SalesH."A01 Processing Status" := SalesH."A01 Processing Status"::"Totally invoiced";
-        //SalesH.Modify();
+        SalesH.Modify();
         InsertNewStepShipOrInvoice(SalesH."No.", Format(SalesH."A01 Processing Status"::"Totally invoiced"), SalesH."Last Posting No.",
           SalesH."Last Shipping No.", SalesH.Invoice, SalesH.Ship);
     end;

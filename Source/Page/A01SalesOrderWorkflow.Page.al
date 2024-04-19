@@ -1177,7 +1177,7 @@ page 50002 "A01 Sales Order - Workflow"
                     Image = PickLines;
                     trigger OnAction()
                     var
-                        CreateDoc: Record "A01 Request on Document";
+                        CreateDoc: codeunit "A01 Document Request Mgt";
                         QstLabel: Label 'Do you want to create an unblocking request?';
                     begin
                         if (not confirm(QstLabel)) then
