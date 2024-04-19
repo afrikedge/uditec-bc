@@ -17,4 +17,8 @@ enum 50044 "A01 Reposession Accept Status"
     {
         Caption = 'Cancelled';
     }
+    value(3; Closed)
+    {
+        Caption = 'Closed';
+    }
 }

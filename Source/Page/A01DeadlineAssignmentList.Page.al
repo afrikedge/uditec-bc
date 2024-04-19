@@ -4,7 +4,7 @@
 page 50049 "A01 Deadline Assignment List"
 {
     ApplicationArea = All;
-    Caption = 'Deadlines Assignment';
+    Caption = 'Customer Assignments';
     PageType = List;
     SourceTable = "A01 Deadline Assignment";
     UsageCategory = Lists;
@@ -15,27 +15,20 @@ page 50049 "A01 Deadline Assignment List"
         {
             repeater(General)
             {
+                field("No."; Rec."No.")
+                {
+                }
                 field("Customer No."; Rec."Customer No.")
                 {
                 }
-                field("Deadline No."; Rec."Deadline No.")
-                {
-                }
-                field("Document No."; Rec."Document No.")
-                {
-                }
+
                 field("Assigned to"; Rec."Assigned to")
                 {
                 }
                 field("Assigned on"; Rec."Assigned on")
                 {
                 }
-                field("Document Date"; Rec."Document Date")
-                {
-                }
-                field("Due Date"; Rec."Due Date")
-                {
-                }
+
                 field("Due status"; Rec."Due status")
                 {
                 }

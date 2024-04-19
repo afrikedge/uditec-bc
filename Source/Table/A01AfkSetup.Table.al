@@ -256,6 +256,11 @@ table 50017 "A01 Afk Setup"
             Caption = 'Payment Method (Voucher)';
             TableRelation = "Payment Method";
         }
+        field(55; "Reposession Risk Level"; Code[20])
+        {
+            Caption = 'Reposession Risk Level';
+            TableRelation = "A01 Parameter Record".Code where(Type = const(RiskLevel));
+        }
 
 
         //Banked or unbanked employee

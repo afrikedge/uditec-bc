@@ -28,6 +28,7 @@ page 50040 "A01 Afk Setup"
                 field("Payment Method (Voucher)"; Rec."Payment Method (Voucher)")
                 {
                 }
+
             }
             group(Mirindra)
             {
@@ -183,7 +184,9 @@ page 50040 "A01 Afk Setup"
                 {
                     ToolTip = 'Location code to use for returning repossessed items';
                 }
-
+                field("Reposession Risk Level"; Rec."Reposession Risk Level")
+                {
+                }
 
             }
             group("Numbering")

@@ -146,14 +146,14 @@ codeunit 50016 "A01 Document Request Mgt"
     procedure CheckIfValidationRequestExists(SalesHeader: Record "Sales Header")
     var
         Request: Record "A01 Request On Document";
-        LblAnotherRecExists: label 'A pending request already exists for this document';
+        LblAnotherRecExists02: label 'A pending request already exists for this document';
     begin
         Request.SetRange("Request Type", Request."Request Type"::"POS Payment");
         Request.SetRange("Request No.", SalesHeader."No.");
         if Request.FindSet() then
             repeat
                 if (Request.IsOnHold()) then
-                    Error(LblAnotherRecExists);
+                    Error(LblAnotherRecExists02);
             until Request.Next() < 1;
     end;
 

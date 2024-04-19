@@ -66,6 +66,14 @@ page 50055 "A01 Payment Promise"
                 field("Modified By"; Rec."Modified By")
                 {
                 }
+                field("Honoration Date"; Rec."Honoration Date")
+                {
+                }
+                field(Observations; Rec.Observations)
+                {
+                    MultiLine = true;
+                }
+
             }
         }
     }
