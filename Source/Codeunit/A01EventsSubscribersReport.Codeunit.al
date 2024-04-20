@@ -39,4 +39,6 @@ codeunit 50010 "A01 EventsSubscribers_Report"
         if ReportId = Report::"Phys. Inventory List" then
             NewReportId := Report::"A01 InventoryListPrint";
     end;
+
+
 }

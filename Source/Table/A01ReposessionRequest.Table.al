@@ -100,6 +100,18 @@ table 50024 "A01 Reposession Request"
         {
             Caption = 'Value';
         }
+        field(30; "Customer No."; Code[20])
+        {
+            Caption = 'Customer No.';
+            TableRelation = Customer;
+        }
+        field(31; "Customer Name"; Text[100])
+        {
+            Caption = 'Customer Name';
+            Editable = false;
+            FieldClass = FlowField;
+            CalcFormula = lookup(Customer.Name where("No." = field("Customer No.")));
+        }
 
     }
     keys
@@ -204,8 +216,8 @@ table 50024 "A01 Reposession Request"
     procedure CloseAction()
     var
         Cust: Record Customer;
-        SalesShipment: Record "Sales Shipment Header";
-        SalesInvoice: Record "Sales Invoice Header";
+        // SalesShipment: Record "Sales Shipment Header";
+        // SalesInvoice: Record "Sales Invoice Header";
         LblQst: Label 'Do you want to change the status to "Closed"?';
     begin
         TestField(Value);
@@ -215,19 +227,11 @@ table 50024 "A01 Reposession Request"
         if (not Confirm(LblQst)) then
             exit;
 
-        if ("Document Type" = "Document Type"::"Sales Shipment") then
-            if (SalesShipment.Get("Document No.")) then begin
-                Cust.get(SalesShipment."Sell-to Customer No.");
-            end;
-
-        if ("Document Type" = "Document Type"::"Sales Invoice") then
-            if (SalesInvoice.Get("Document No.")) then begin
-                Cust.get(SalesInvoice."Sell-to Customer No.");
-            end;
 
         AddOnSetup.GetRecordOnce();
         AddOnSetup.TestField("Reposession Risk Level");
-        Cust.TestField("No.");
+        TestField("Customer No.");
+        Cust.Get("Customer No.");
         Cust."A01 Risk Level" := AddOnSetup."Reposession Risk Level";
         Cust.Blocked := Cust.Blocked::All;
         Cust.Modify(true);
@@ -271,12 +275,48 @@ table 50024 "A01 Reposession Request"
 
         ItemJnlLine.Validate("Serial No.", DocRequest."Serial Number");
 
+
         //ItemJnlLine."Shortcut Dimension 1 Code" := AdjustLine."Shortcut Dimension 1 Code";
         //ItemJnlLine."Shortcut Dimension 2 Code" := AdjustLine."Shortcut Dimension 2 Code";
         //ItemJnlLine."Dimension Set ID" := AdjustLine."Dimension Set ID";
 
         //AmountToInvoice := ItemJnlLine.Amount;
+        ItemJnlLine.Validate(ItemJnlLine."Unit Amount", 0);
+        ItemJnlLine.Validate(ItemJnlLine."Unit Cost", 0);
+
+        //CreateReserv(ItemJnlLine);
 
         ItemJnlPostLine.RunWithCheck(ItemJnlLine);
     end;
+
+    // local procedure CreateReserv(ItemJnlLine: record "Item Journal Line")
+    // var
+    //     reserv: Record "Reservation Entry";
+    //     NextEntryNo: Integer;
+    // begin
+    //     if (reserv.FindLast()) then
+    //         NextEntryNo := reserv."Entry No." + 1
+    //     else
+    //         NextEntryNo := 1;
+
+    //     reserv.Init();
+    //     reserv."Entry No." := NextEntryNo;
+    //     reserv."Item No." := ItemJnlLine."Item No.";
+    //     reserv."Serial No." := ItemJnlLine."Serial No.";
+    //     reserv.Quantity := 1;
+    //     reserv."Quantity (Base)" := 1;
+    //     reserv."Qty. per Unit of Measure" := 1;
+    //     reserv."Item Tracking" := reserv."Item Tracking"::"Serial No.";
+    //     reserv.Positive := ItemJnlLine.Quantity > 0;
+    //     reserv."Location Code" := ItemJnlLine."Location Code";
+    //     reserv."Reservation Status" := reserv."Reservation Status"::Prospect;
+    //     reserv."Source Batch Name" := ItemJnlLine."Journal Batch Name";
+    //     reserv."Source ID" := ItemJnlLine."Journal Template Name";
+    //     reserv."Source Type" := DATABASE::"Item Journal Line";
+    //     reserv.Validate("Source Subtype", ItemJnlLine."Entry Type");
+    //     reserv."Source Ref. No." := ItemJnlLine."Line No.";
+
+
+    //     reserv.Insert();
+    // end;
 }

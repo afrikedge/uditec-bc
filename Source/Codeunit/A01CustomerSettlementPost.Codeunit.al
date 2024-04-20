@@ -190,6 +190,7 @@ codeunit 50013 "A01 Customer Settlement Post"
         if CustSettlementLine.FindSet() then
             repeat
                 CustSettlementLine.TestField("Payment Method");
+                PayMethod.get(CustSettlementLine."Payment Method");
                 if (PayMethod."A01 Reference required") then
                     CustSettlementLine.TestField(Reference);
                 if (CustSettlementLine.Amount <> CustSettlementLine."Validated Amount") then

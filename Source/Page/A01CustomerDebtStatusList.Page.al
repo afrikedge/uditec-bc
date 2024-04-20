@@ -30,6 +30,15 @@ page 50031 "A01 Customer Debt Status List"
                 field("Maximum (Days)"; Rec."Maximum (Days)")
                 {
                 }
+                field("Company fees (%)"; Rec."Company fees (%)")
+                {
+                }
+                field("Agent fees partial (%)"; Rec."Agent fees partial (%)")
+                {
+                }
+                field("Agent fees full (%)"; Rec."Agent fees full (%)")
+                {
+                }
             }
         }
     }

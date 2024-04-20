@@ -224,15 +224,25 @@ table 50032 "A01 Payment Document"
     var
         DocLine: Record "A01 Payment Document Line";
     begin
+        RequestMgt.CheckIfValidationRequestExists(Rec);
+
         DocLine.SetRange(DocLine."Document No.", "No.");
         if (not DocLine.IsEmpty) then
             DocLine.DeleteAll();
+    end;
+
+    trigger OnModify()
+    var
+
+    begin
+        RequestMgt.CheckIfValidationRequestExists(Rec);
     end;
 
     var
         AddOnSetup: Record "A01 Afk Setup";
         Currency: Record Currency;
         NoSeriesManagement: Codeunit NoSeriesManagement;
+        RequestMgt: Codeunit "A01 Document Request Mgt";
         DimensionManagement: Codeunit DimensionManagement;
         Text009: Label 'You may have changed a dimension.\\Do you want to update the lines?';
         LblQuestChangeRespCenter: Label 'The lines will be deleted. Do you want to continue ?';

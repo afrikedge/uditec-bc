@@ -35,7 +35,7 @@ codeunit 50001 "A01 EventsSubscribers_Table"
     begin
         IsHandled := true;
 
-        ReminderLevel.Get(IssuedReminderHeader."Reminder Level");
+        ReminderLevel.Get(IssuedReminderHeader."Reminder Terms Code", IssuedReminderHeader."Reminder Level");
 
         if SendAsEmail then begin
             ReminderHeader.Copy(IssuedReminderHeader);

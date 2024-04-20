@@ -911,5 +911,29 @@ codeunit 50007 "A01 Treso Mgt"
             CreditDueLine.DeleteAll();
     end;
 
+    procedure GetDueDays(CustLedgerEntry: Record "Cust. Ledger Entry"): Integer
+    var
+    begin
+        if (CustLedgerEntry."Closed at Date" <> 0D) then
+            exit(Days(CustLedgerEntry."Due Date", CustLedgerEntry."Closed at Date"))
+        else
+            exit(Days(CustLedgerEntry."Due Date", Today));
+    end;
+
+    local procedure Days(Day1: Date; Day2: Date): Integer
+    var
+    begin
+        if Day1 > Day2 then
+            exit(0);
+        if Day1 = 0D then
+            exit(0);
+        if Day2 = 0D then
+            exit(0);
+
+        exit(Day2 - Day1 + 1);
+    end;
+
+
+
 
 }
