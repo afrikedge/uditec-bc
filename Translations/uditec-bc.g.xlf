@@ -263,6 +263,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table A01 Afk Setup - Field ShipToAddress Code Nos - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Table 2685203037 - Field 1192949124 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Suspense Account (Voucher)</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table A01 Afk Setup - Field Suspense Account (Voucher) - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Table 2685203037 - Field 663898051 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Transport Voucher Nos</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -1673,6 +1678,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table A01 Purchase Voucher - Field Initial Amount - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Table 1706046837 - Field 3996731827 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Item Ledger Entry Id</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table A01 Purchase Voucher - Field Item Ledger Entry Id - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Table 1706046837 - Field 4200184881 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>No.</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -2717,6 +2727,11 @@
           <source>The payment document has not been configured for \template %1\sheet %2\type %3</source>
           <note from="Developer" annotates="general" priority="2">%1=model,%2=journal,%3=type</note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit A01 Treso Mgt - NamedType ErrText01</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 1376265650 - Method 2696953935 - NamedType 757060530" size-unit="char" translate="yes" xml:space="preserve">
+          <source>The voucher balance %1 is insufficient for this operation</source>
+          <note from="Developer" annotates="general" priority="2">%1)balance</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit A01 Voucher Mgt - Method PostVoucherConsumption - NamedType Err01Lbl</note>
         </trans-unit>
         <trans-unit id="Codeunit 2886873769 - NamedType 2994406387" size-unit="char" translate="yes" xml:space="preserve">
           <source>The order N° %1 does not exists</source>

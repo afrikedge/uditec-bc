@@ -12,7 +12,7 @@ table 50029 "A01 Purchase Voucher Entry"
         {
             Caption = 'Entry No.';
         }
-        field(2; "Voucher No."; Code[20])
+        field(2; "Voucher No."; Code[50])
         {
             Caption = 'Voucher No.';
         }
@@ -24,7 +24,7 @@ table 50029 "A01 Purchase Voucher Entry"
         {
             Caption = 'Amount';
         }
-        field(5; "Document Type"; Enum "Sales Document Type")
+        field(5; "Document Type"; Enum "Item Ledger Document Type")
         {
             Caption = 'Document Type';
         }

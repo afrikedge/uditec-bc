@@ -8,7 +8,7 @@ table 50028 "A01 Purchase Voucher"
 
     fields
     {
-        field(1; "No."; Code[20])
+        field(1; "No."; Code[50])
         {
             Caption = 'No.';
         }
@@ -44,6 +44,11 @@ table 50028 "A01 Purchase Voucher"
         field(8; Observation; Text[150])
         {
             Caption = 'Observation';
+        }
+        field(9; "Item Ledger Entry Id"; Integer)
+        {
+            Caption = 'Item Ledger Entry Id';
+            Editable = false;
         }
     }
     keys
