@@ -1,15 +1,12 @@
-/// <summary>
-/// Report A01 Reminder Letter 1 (ID 50009).
-/// </summary>
-report 50018 "A01 Reminder Letter 1"
+report 50023 "A01 Reminder Letter 3"
 {
-    Caption = 'Reminder Letter 1';
+    Caption = 'Reminder Letter 3';
     UsageCategory = ReportsAndAnalysis;
     ApplicationArea = All;
     DefaultLayout = RDLC;
     PreviewMode = PrintLayout;
     EnableHyperlinks = true;
-    RDLCLayout = './Source/Report/Layout/ReminderLetter1.rdl';
+    RDLCLayout = './Source/Report/Layout/ReminderLetter3.rdl';
 
     dataset
     {
@@ -224,6 +221,9 @@ report 50018 "A01 Reminder Letter 1"
                 column(BodyLabelText; BodyLabelText)
                 {
                 }
+                column(BodyLabelText2; BodyLabelText2)
+                {
+                }
                 column(ReminderLevelText; ReminderLevelText)
                 {
                 }
@@ -435,11 +435,15 @@ report 50018 "A01 Reminder Letter 1"
                 }
             }
 
-            trigger OnAfterGetRecord()
+            trigger OnAfterGetRecord()//"Issued Reminder Header"
             var
                 GLAcc: Record "G/L Account";
                 CustPostingGroup: Record "Customer Posting Group";
                 VATPostingSetup: Record "VAT Posting Setup";
+                //FirstReminderDate: Date;
+                FirstReminderDateText: Text;
+                SecondReminderDateText: Text;
+            //FirstReminderNo: Code[20];
             begin
                 // CurrReport.Language := LanguageRec.GetLanguageIdOrDefault("Language Code");
                 CurrReport.Language := 1036;
@@ -510,8 +514,11 @@ report 50018 "A01 Reminder Letter 1"
 
                 TotalRemainingAmtInLetters := NoText[1] + ' ' + NoText[2];
 
-                BodyLabelText := StrSubstNo(BodyLabel01, TotalRemainingAmtText, TotalRemainingAmtInLetters);
-                ReminderLevelText := StrSubstNo(ReminderLevelLbl, "Reminder Level");
+                SecondReminderDateText := '';
+                FirstReminderDateText := '';
+                BodyLabelText := StrSubstNo(BodyLabel01, FirstReminderDateText, SecondReminderDateText, TotalRemainingAmtText, TotalRemainingAmtInLetters);
+                BodyLabelText2 := StrSubstNo(BodyLabel02, TotalRemainingAmtText, TotalRemainingAmtInLetters);
+                //ReminderLevelText := 'Mise en démeure';
 
                 TotalVATAmount := "VAT Amount";
                 NNC_InterestAmountTotal := 0;
@@ -698,15 +705,17 @@ report 50018 "A01 Reminder Letter 1"
         ContactMobilePhoneNoLbl: Label 'Contact Mobile Phone No.';
         ContactEmailLbl: Label 'Contact E-Mail';
         RemainingAmt: Text;
-        BodyLabel01: Label '        Sauf erreur ou omission de notre part, nous n’avons pas reçu, à ce jour, le paiement d’un montant de %1 Ar (%2). Ce montant correspond au total de vos impayés et des frais de retard, relatifs à l’achat à crédit que vous avez effectué auprès de notre société, dont vous trouverez ci-dessous les détails :', Comment = '%1=...,%2=...';
+        BodyLabel01: Label '        Par les deux lettres de relance vous ayant été envoyées respectivement aux dates du %1 et du %2, nous vous avons demandé de procéder au règlement de la somme de %3 Ariary (%4).', Comment = '%1=...,%2=...%3=...%4=...';
+        BodyLabel02: Label '        Aussi, par la présente, nous vous mettons en demeure de nous verser la somme de %1 Ariary (%2) dans un délai de 48h à compter de la réception de la présente.', Comment = '%1=...,%2=...';
         BodyLabelText: Text;
+        BodyLabelText2: Text;
         DueDays: Integer;
         TotalRemainingAmt: Decimal;
         PaidAmount: Decimal;
         TotalRemainingAmtText: Text;
         TotalRemainingAmtInLetters: Text;
         ReminderLevelText: Text;
-        ReminderLevelLbl: Label 'Lettre de relance N° %1', Comment = '%1=num';
+        //ReminderLevelLbl: Label 'Lettre de relance N° %1', Comment = '%1=num';
 
         Lieu: Text;
 
@@ -762,4 +771,5 @@ report 50018 "A01 Reminder Letter 1"
     // begin
     // end;
 }
+
 

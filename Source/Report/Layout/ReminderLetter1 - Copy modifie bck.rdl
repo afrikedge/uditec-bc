@@ -19,165 +19,17 @@
             <TablixBody>
               <TablixColumns>
                 <TablixColumn>
-                  <Width>18.51004cm</Width>
+                  <Width>18.59005cm</Width>
                 </TablixColumn>
               </TablixColumns>
               <TablixRows>
                 <TablixRow>
-                  <Height>11.77458cm</Height>
+                  <Height>11.84514cm</Height>
                   <TablixCells>
                     <TablixCell>
                       <CellContents>
                         <Rectangle Name="ReminderCaption_Contents">
                           <ReportItems>
-                            <Tablix Name="Tablix1">
-                              <TablixBody>
-                                <TablixColumns>
-                                  <TablixColumn>
-                                    <Width>1.74579cm</Width>
-                                  </TablixColumn>
-                                  <TablixColumn>
-                                    <Width>1.56992cm</Width>
-                                  </TablixColumn>
-                                </TablixColumns>
-                                <TablixRows>
-                                  <TablixRow>
-                                    <Height>0.25603cm</Height>
-                                    <TablixCells>
-                                      <TablixCell>
-                                        <CellContents>
-                                          <Textbox Name="Addr">
-                                            <CanGrow>true</CanGrow>
-                                            <KeepTogether>true</KeepTogether>
-                                            <Paragraphs>
-                                              <Paragraph>
-                                                <TextRuns>
-                                                  <TextRun>
-                                                    <Value />
-                                                    <Style>
-                                                      <FontFamily>Segoe UI</FontFamily>
-                                                      <FontSize>8pt</FontSize>
-                                                      <Color>Red</Color>
-                                                    </Style>
-                                                  </TextRun>
-                                                </TextRuns>
-                                                <Style />
-                                              </Paragraph>
-                                            </Paragraphs>
-                                            <Visibility>
-                                              <Hidden>=Code.SetData(Cstr(Fields!CustAddr1.Value) + Chr(177) + 
-Cstr(Fields!CustAddr2.Value) + Chr(177) + 
-Cstr(Fields!CustAddr3.Value) + Chr(177) + 
-Cstr(Fields!CustAddr4.Value) + Chr(177) + 
-Cstr(Fields!CustAddr5.Value) + Chr(177) + 
-Cstr(Fields!CustAddr6.Value) + Chr(177) + 
-Cstr(Fields!CustAddr7.Value) + Chr(177) + 
-Cstr(Fields!CustAddr8.Value) + Chr(177) + 
-Cstr(Fields!CompanyAddr1.Value) + Chr(177) + 
-Cstr(Fields!CompanyAddr2.Value) + Chr(177) + 
-Cstr(Fields!CompanyAddr3.Value) + Chr(177) + 
-Cstr(Fields!CompanyAddr4.Value) + Chr(177) + 
-Cstr(Fields!CompanyAddr5.Value) + Chr(177) + 
-Cstr(Fields!CompanyAddr6.Value) + Chr(177) + 
-Cstr(Fields!DocDate_IssueReminderHdr.Value) + Chr(177) + 
-Cstr(Fields!No1_IssuedReminderHdr.Value) + Chr(177) + 
-Cstr(Fields!PostDate_IssuedReminderHdr.Value) + Chr(177) + 
-Cstr(Fields!DueDate_IssuedReminderHdr.Value) + Chr(177) + 
-Cstr(Fields!CustNo_IssueReminderHdr.Value) + Chr(177) + 
-Cstr(Fields!VatRegNo_IssueReminderHdr.Value) + Chr(177) + 
-Cstr(Fields!YourRef_IssueReminderHdr.Value) + Chr(177) + 
-Cstr(Fields!CompanyInfoPhoneNo.Value) + Chr(177) + 
-Cstr(Fields!CompanyInfoVATRegNo.Value) + Chr(177) + 
-Cstr(Fields!CompanyInfoGiroNo.Value) + Chr(177) + 
-Cstr(Fields!CompanyInfoBankName.Value) + Chr(177) + 
-Cstr(Fields!CompanyInfoIBAN.Value) + Chr(177) + 
-Cstr(Fields!ReminderCaption.Value) + Chr(177) + 
-Cstr(Fields!PageCaption.Value) + Chr(177) + 
-Cstr(Fields!PhoneNoCaption.Value) + Chr(177) + 
-Cstr(Fields!VATRegNoCaption.Value) + Chr(177) + 
-Cstr(Fields!GiroNoCaption.Value) + Chr(177) + 
-Cstr(Fields!BankNameCaption.Value) + Chr(177) + 
-Cstr(Fields!IBANCaption.Value) + Chr(177) + 
-Cstr(Fields!ReminderNoCaption.Value) + Chr(177) + 
-Cstr(Fields!PostingDateCaption.Value) + Chr(177) + 
-Cstr(Fields!DueDateCaption.Value) + Chr(177) + 
-Cstr(Fields!CustNo_IssueReminderHdrCaption.Value) + Chr(177) + 
-Cstr(Fields!VATNoText.Value) + Chr(177) + 
-Cstr(Fields!ReferenceText.Value) + Chr(177) + 
-Cstr(Fields!DocDateCaption.Value) + Chr(177) + 
-Cstr(Fields!HomePageCaption.Value) + Chr(177) + 
-Cstr(Fields!EMailCaption.Value) + Chr(177) + 
-Cstr(Fields!CompanyInfoHomePage.Value) + Chr(177) + 
-Cstr(Fields!CompanyInfoEMail.Value)+ Chr(177) + 
-Cstr(Fields!ReminderLevelText.Value) + Chr(177) + 
-Cstr(Fields!No1_IssuedReminderHdr.Value)  
-, 1)</Hidden>
-                                            </Visibility>
-                                            <Style>
-                                              <Border>
-                                                <Color>LightGrey</Color>
-                                                <Style>Solid</Style>
-                                              </Border>
-                                            </Style>
-                                          </Textbox>
-                                        </CellContents>
-                                      </TablixCell>
-                                      <TablixCell>
-                                        <CellContents>
-                                          <Textbox Name="Newpage">
-                                            <CanGrow>true</CanGrow>
-                                            <KeepTogether>true</KeepTogether>
-                                            <Paragraphs>
-                                              <Paragraph>
-                                                <TextRuns>
-                                                  <TextRun>
-                                                    <Value>=iif(Code.IsNewPage(Fields!No_IssuedReminderHeader.Value),TRUE,FALSE)</Value>
-                                                    <Style>
-                                                      <FontFamily>Segoe UI</FontFamily>
-                                                      <FontSize>8pt</FontSize>
-                                                      <Color>Red</Color>
-                                                    </Style>
-                                                  </TextRun>
-                                                </TextRuns>
-                                                <Style />
-                                              </Paragraph>
-                                            </Paragraphs>
-                                            <Style>
-                                              <Border>
-                                                <Style>None</Style>
-                                              </Border>
-                                            </Style>
-                                          </Textbox>
-                                        </CellContents>
-                                      </TablixCell>
-                                    </TablixCells>
-                                  </TablixRow>
-                                </TablixRows>
-                              </TablixBody>
-                              <TablixColumnHierarchy>
-                                <TablixMembers>
-                                  <TablixMember />
-                                  <TablixMember />
-                                </TablixMembers>
-                              </TablixColumnHierarchy>
-                              <TablixRowHierarchy>
-                                <TablixMembers>
-                                  <TablixMember />
-                                </TablixMembers>
-                              </TablixRowHierarchy>
-                              <Top>0.02116cm</Top>
-                              <Left>0.41015cm</Left>
-                              <Height>0.25603cm</Height>
-                              <Width>3.31571cm</Width>
-                              <Visibility>
-                                <Hidden>true</Hidden>
-                              </Visibility>
-                              <Style>
-                                <Border>
-                                  <Style>None</Style>
-                                </Border>
-                              </Style>
-                            </Tablix>
                             <Tablix Name="Tablix2">
                               <TablixBody>
                                 <TablixColumns>
@@ -1076,11 +928,10 @@ Cstr(Fields!No1_IssuedReminderHdr.Value)
                                 </TablixMembers>
                               </TablixRowHierarchy>
                               <DataSetName>DataSet_Result</DataSetName>
-                              <Top>3.28118cm</Top>
-                              <Left>0.00001cm</Left>
+                              <Top>3.17535cm</Top>
+                              <Left>0.08001cm</Left>
                               <Height>2.1175cm</Height>
                               <Width>18.51004cm</Width>
-                              <ZIndex>1</ZIndex>
                               <Style>
                                 <Border>
                                   <Style>None</Style>
@@ -1104,43 +955,11 @@ Cstr(Fields!No1_IssuedReminderHdr.Value)
                                 </Paragraph>
                               </Paragraphs>
                               <rd:DefaultName>Textbox28</rd:DefaultName>
-                              <Top>0.98302cm</Top>
-                              <Left>0.00001cm</Left>
+                              <Top>1.05358cm</Top>
+                              <Left>0.08001cm</Left>
                               <Height>1.97184cm</Height>
                               <Width>18.36701cm</Width>
-                              <ZIndex>2</ZIndex>
-                              <Style>
-                                <Border>
-                                  <Style>None</Style>
-                                </Border>
-                                <PaddingLeft>2pt</PaddingLeft>
-                                <PaddingRight>2pt</PaddingRight>
-                                <PaddingTop>2pt</PaddingTop>
-                                <PaddingBottom>2pt</PaddingBottom>
-                              </Style>
-                            </Textbox>
-                            <Textbox Name="Textbox35">
-                              <CanGrow>true</CanGrow>
-                              <KeepTogether>true</KeepTogether>
-                              <Paragraphs>
-                                <Paragraph>
-                                  <TextRuns>
-                                    <TextRun>
-                                      <Value>        Monsieur,Madame,</Value>
-                                      <Style>
-                                        <FontSize>9pt</FontSize>
-                                      </Style>
-                                    </TextRun>
-                                  </TextRuns>
-                                  <Style />
-                                </Paragraph>
-                              </Paragraphs>
-                              <rd:DefaultName>Textbox35</rd:DefaultName>
-                              <Top>0.38302cm</Top>
-                              <Left>0.00001cm</Left>
-                              <Height>0.6cm</Height>
-                              <Width>6.75598cm</Width>
-                              <ZIndex>3</ZIndex>
+                              <ZIndex>1</ZIndex>
                               <Style>
                                 <Border>
                                   <Style>None</Style>
@@ -1170,11 +989,11 @@ Cstr(Fields!No1_IssuedReminderHdr.Value)
                                 </Paragraph>
                               </Paragraphs>
                               <rd:DefaultName>Textbox29</rd:DefaultName>
-                              <Top>5.83cm</Top>
-                              <Left>0.00001cm</Left>
+                              <Top>5.90056cm</Top>
+                              <Left>0.08001cm</Left>
                               <Height>0.97042cm</Height>
                               <Width>18.51004cm</Width>
-                              <ZIndex>4</ZIndex>
+                              <ZIndex>2</ZIndex>
                               <Style>
                                 <Border>
                                   <Style>None</Style>
@@ -1205,11 +1024,11 @@ Cstr(Fields!No1_IssuedReminderHdr.Value)
                                 </Paragraph>
                               </Paragraphs>
                               <rd:DefaultName>Textbox29</rd:DefaultName>
-                              <Top>6.97681cm</Top>
-                              <Left>0.00001cm</Left>
+                              <Top>7.04737cm</Top>
+                              <Left>0.08001cm</Left>
                               <Height>0.57354cm</Height>
                               <Width>18.51004cm</Width>
-                              <ZIndex>5</ZIndex>
+                              <ZIndex>3</ZIndex>
                               <Style>
                                 <Border>
                                   <Style>None</Style>
@@ -1240,11 +1059,11 @@ Cstr(Fields!No1_IssuedReminderHdr.Value)
                                 </Paragraph>
                               </Paragraphs>
                               <rd:DefaultName>Textbox29</rd:DefaultName>
-                              <Top>7.69146cm</Top>
-                              <Left>0.00001cm</Left>
+                              <Top>7.76202cm</Top>
+                              <Left>0.08001cm</Left>
                               <Height>0.94396cm</Height>
                               <Width>18.51004cm</Width>
-                              <ZIndex>6</ZIndex>
+                              <ZIndex>4</ZIndex>
                               <Style>
                                 <Border>
                                   <Style>None</Style>
@@ -1275,11 +1094,11 @@ Cstr(Fields!No1_IssuedReminderHdr.Value)
                                 </Paragraph>
                               </Paragraphs>
                               <rd:DefaultName>Textbox29</rd:DefaultName>
-                              <Top>8.70597cm</Top>
-                              <Left>0.00001cm</Left>
+                              <Top>8.77653cm</Top>
+                              <Left>0.08001cm</Left>
                               <Height>0.65291cm</Height>
                               <Width>18.51004cm</Width>
-                              <ZIndex>7</ZIndex>
+                              <ZIndex>5</ZIndex>
                               <Style>
                                 <Border>
                                   <Style>None</Style>
@@ -1310,11 +1129,11 @@ Cstr(Fields!No1_IssuedReminderHdr.Value)
                                 </Paragraph>
                               </Paragraphs>
                               <rd:DefaultName>Textbox29</rd:DefaultName>
-                              <Top>9.5cm</Top>
-                              <Left>0.00001cm</Left>
+                              <Top>9.57056cm</Top>
+                              <Left>0.08001cm</Left>
                               <Height>0.57354cm</Height>
                               <Width>18.51004cm</Width>
-                              <ZIndex>8</ZIndex>
+                              <ZIndex>6</ZIndex>
                               <Style>
                                 <Border>
                                   <Style>None</Style>
@@ -1346,11 +1165,43 @@ Cstr(Fields!No1_IssuedReminderHdr.Value)
                                 </Paragraph>
                               </Paragraphs>
                               <rd:DefaultName>Textbox34</rd:DefaultName>
-                              <Top>11.17458cm</Top>
-                              <Left>12.7734cm</Left>
+                              <Top>11.24514cm</Top>
+                              <Left>12.8534cm</Left>
                               <Height>0.6cm</Height>
                               <Width>5.73664cm</Width>
-                              <ZIndex>9</ZIndex>
+                              <ZIndex>7</ZIndex>
+                              <Style>
+                                <Border>
+                                  <Style>None</Style>
+                                </Border>
+                                <PaddingLeft>2pt</PaddingLeft>
+                                <PaddingRight>2pt</PaddingRight>
+                                <PaddingTop>2pt</PaddingTop>
+                                <PaddingBottom>2pt</PaddingBottom>
+                              </Style>
+                            </Textbox>
+                            <Textbox Name="Textbox35">
+                              <CanGrow>true</CanGrow>
+                              <KeepTogether>true</KeepTogether>
+                              <Paragraphs>
+                                <Paragraph>
+                                  <TextRuns>
+                                    <TextRun>
+                                      <Value>        Monsieur,Madame,</Value>
+                                      <Style>
+                                        <FontSize>9pt</FontSize>
+                                      </Style>
+                                    </TextRun>
+                                  </TextRuns>
+                                  <Style />
+                                </Paragraph>
+                              </Paragraphs>
+                              <rd:DefaultName>Textbox35</rd:DefaultName>
+                              <Top>0.27719cm</Top>
+                              <Left>0.08001cm</Left>
+                              <Height>0.6cm</Height>
+                              <Width>6.75598cm</Width>
+                              <ZIndex>8</ZIndex>
                               <Style>
                                 <Border>
                                   <Style>None</Style>
@@ -1395,84 +1246,192 @@ Cstr(Fields!No1_IssuedReminderHdr.Value)
                 </TablixMember>
               </TablixMembers>
             </TablixRowHierarchy>
+            <DataSetName>DataSet_Result</DataSetName>
             <PageBreak>
               <BreakLocation>End</BreakLocation>
             </PageBreak>
-            <Height>11.77458cm</Height>
-            <Width>18.51004cm</Width>
+            <Top>0.43761in</Top>
+            <Height>11.84514cm</Height>
+            <Width>18.59005cm</Width>
             <Style>
               <FontFamily>Segoe UI</FontFamily>
               <FontSize>8pt</FontSize>
             </Style>
           </Tablix>
+          <Tablix Name="Tablix1">
+            <TablixBody>
+              <TablixColumns>
+                <TablixColumn>
+                  <Width>1.74579cm</Width>
+                </TablixColumn>
+                <TablixColumn>
+                  <Width>1.56992cm</Width>
+                </TablixColumn>
+                <TablixColumn>
+                  <Width>2.5cm</Width>
+                </TablixColumn>
+              </TablixColumns>
+              <TablixRows>
+                <TablixRow>
+                  <Height>0.6cm</Height>
+                  <TablixCells>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="Addr">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value />
+                                  <Style>
+                                    <FontFamily>Segoe UI</FontFamily>
+                                    <FontSize>8pt</FontSize>
+                                    <Color>Red</Color>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style />
+                            </Paragraph>
+                          </Paragraphs>
+                          <Visibility>
+                            <Hidden>=Code.SetData(Cstr(Fields!CustAddr1.Value) + Chr(177) + 
+Cstr(Fields!CustAddr2.Value) + Chr(177) + 
+Cstr(Fields!CustAddr3.Value) + Chr(177) + 
+Cstr(Fields!CustAddr4.Value) + Chr(177) + 
+Cstr(Fields!CustAddr5.Value) + Chr(177) + 
+Cstr(Fields!CustAddr6.Value) + Chr(177) + 
+Cstr(Fields!CustAddr7.Value) + Chr(177) + 
+Cstr(Fields!CustAddr8.Value) + Chr(177) + 
+Cstr(Fields!CompanyAddr1.Value) + Chr(177) + 
+Cstr(Fields!CompanyAddr2.Value) + Chr(177) + 
+Cstr(Fields!CompanyAddr3.Value) + Chr(177) + 
+Cstr(Fields!CompanyAddr4.Value) + Chr(177) + 
+Cstr(Fields!CompanyAddr5.Value) + Chr(177) + 
+Cstr(Fields!CompanyAddr6.Value) 
+, 1)</Hidden>
+                          </Visibility>
+                          <Style>
+                            <Border>
+                              <Color>LightGrey</Color>
+                              <Style>Solid</Style>
+                            </Border>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="Newpage">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>=iif(Code.IsNewPage(Fields!No_IssuedReminderHeader.Value),TRUE,FALSE)</Value>
+                                  <Style>
+                                    <FontFamily>Segoe UI</FontFamily>
+                                    <FontSize>8pt</FontSize>
+                                    <Color>Red</Color>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style />
+                            </Paragraph>
+                          </Paragraphs>
+                          <Style>
+                            <Border>
+                              <Style>None</Style>
+                            </Border>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="Textbox8">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value />
+                                  <Style>
+                                    <FontFamily>Segoe UI</FontFamily>
+                                    <FontSize>8pt</FontSize>
+                                    <Color>Red</Color>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style />
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>Textbox8</rd:DefaultName>
+                          <Visibility>
+                            <Hidden>=Code.SetGlobalData(Fields!GlobalData.Value)</Hidden>
+                          </Visibility>
+                          <Style>
+                            <Border>
+                              <Style>None</Style>
+                            </Border>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                  </TablixCells>
+                </TablixRow>
+              </TablixRows>
+            </TablixBody>
+            <TablixColumnHierarchy>
+              <TablixMembers>
+                <TablixMember />
+                <TablixMember />
+                <TablixMember />
+              </TablixMembers>
+            </TablixColumnHierarchy>
+            <TablixRowHierarchy>
+              <TablixMembers>
+                <TablixMember />
+              </TablixMembers>
+            </TablixRowHierarchy>
+            <Top>0.10583cm</Top>
+            <Left>0.08002cm</Left>
+            <Height>0.6cm</Height>
+            <Width>5.81571cm</Width>
+            <ZIndex>1</ZIndex>
+            <Visibility>
+              <Hidden>true</Hidden>
+            </Visibility>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+            </Style>
+          </Tablix>
         </ReportItems>
-        <Height>11.77458cm</Height>
+        <Height>12.95666cm</Height>
         <Style>
           <FontFamily>Segoe UI</FontFamily>
           <FontSize>8pt</FontSize>
         </Style>
       </Body>
-      <Width>18.55741cm</Width>
+      <Width>18.59006cm</Width>
       <Page>
         <PageHeader>
-          <Height>6.37521cm</Height>
+          <Height>6.29356cm</Height>
           <PrintOnFirstPage>true</PrintOnFirstPage>
           <PrintOnLastPage>true</PrintOnLastPage>
           <ReportItems>
-            <Image Name="ImageLeft">
-              <Source>Database</Source>
-              <Value>=Convert.ToBase64String(Fields!CompanyInfo1Picture.Value)</Value>
-              <MIMEType>image/bmp</MIMEType>
-              <Sizing>FitProportional</Sizing>
-              <Height>14mm</Height>
-              <Width>60mm</Width>
-              <Visibility>
-                <Hidden>true</Hidden>
-              </Visibility>
-              <Style>
-                <Border>
-                  <Style>None</Style>
-                </Border>
-              </Style>
-            </Image>
-            <Textbox Name="PageNumberTextBox">
-              <KeepTogether>true</KeepTogether>
-              <Paragraphs>
-                <Paragraph>
-                  <TextRuns>
-                    <TextRun>
-                      <Value>=Code.GetData(28,1) &amp; " " &amp; Code.GetGroupPageNumber(ReportItems!Newpage.Value, Globals!PageNumber)</Value>
-                      <Style>
-                        <FontFamily>Segoe UI</FontFamily>
-                        <FontSize>8pt</FontSize>
-                      </Style>
-                    </TextRun>
-                  </TextRuns>
-                  <Style>
-                    <FontFamily>Segoe UI</FontFamily>
-                    <FontSize>8pt</FontSize>
-                    <TextAlign>Right</TextAlign>
-                  </Style>
-                </Paragraph>
-              </Paragraphs>
-              <Top>0pt</Top>
-              <Left>11.56464cm</Left>
-              <Height>11pt</Height>
-              <Width>6.9454cm</Width>
-              <ZIndex>1</ZIndex>
-              <Style>
-                <FontFamily>Segoe UI</FontFamily>
-                <FontSize>8pt</FontSize>
-                <VerticalAlign>Middle</VerticalAlign>
-              </Style>
-            </Textbox>
             <Textbox Name="CustAddr1">
               <KeepTogether>true</KeepTogether>
               <Paragraphs>
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value>=Code.GetData(1,1)</Value>
+                      <Value>=Code.GetVal("CustAddress1")'</Value>
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>9pt</FontSize>
@@ -1487,11 +1446,10 @@ Cstr(Fields!No1_IssuedReminderHdr.Value)
                   </Style>
                 </Paragraph>
               </Paragraphs>
-              <Top>69.30726pt</Top>
-              <Left>3.62354in</Left>
-              <Height>0.4cm</Height>
-              <Width>9.30624cm</Width>
-              <ZIndex>2</ZIndex>
+              <Top>67.10002pt</Top>
+              <Left>3.80224in</Left>
+              <Height>11pt</Height>
+              <Width>8.78932cm</Width>
               <Style>
                 <Border />
                 <FontFamily>Segoe UI</FontFamily>
@@ -1519,11 +1477,11 @@ Cstr(Fields!No1_IssuedReminderHdr.Value)
                   </Style>
                 </Paragraph>
               </Paragraphs>
-              <Top>79.30726pt</Top>
-              <Left>3.62354in</Left>
-              <Height>0.4cm</Height>
-              <Width>9.30624cm</Width>
-              <ZIndex>3</ZIndex>
+              <Top>77.10002pt</Top>
+              <Left>3.80224in</Left>
+              <Height>11pt</Height>
+              <Width>8.78932cm</Width>
+              <ZIndex>1</ZIndex>
               <Style>
                 <Border />
                 <FontFamily>Segoe UI</FontFamily>
@@ -1551,11 +1509,11 @@ Cstr(Fields!No1_IssuedReminderHdr.Value)
                   </Style>
                 </Paragraph>
               </Paragraphs>
-              <Top>89.30726pt</Top>
-              <Left>3.62354in</Left>
-              <Height>0.4cm</Height>
-              <Width>9.30624cm</Width>
-              <ZIndex>4</ZIndex>
+              <Top>87.10002pt</Top>
+              <Left>3.80224in</Left>
+              <Height>11pt</Height>
+              <Width>8.78932cm</Width>
+              <ZIndex>2</ZIndex>
               <Style>
                 <Border />
                 <FontFamily>Segoe UI</FontFamily>
@@ -1583,11 +1541,11 @@ Cstr(Fields!No1_IssuedReminderHdr.Value)
                   </Style>
                 </Paragraph>
               </Paragraphs>
-              <Top>99.30726pt</Top>
-              <Left>3.62354in</Left>
-              <Height>0.4cm</Height>
-              <Width>9.30624cm</Width>
-              <ZIndex>5</ZIndex>
+              <Top>97.10002pt</Top>
+              <Left>3.80224in</Left>
+              <Height>11pt</Height>
+              <Width>8.78932cm</Width>
+              <ZIndex>3</ZIndex>
               <Style>
                 <Border />
                 <FontFamily>Segoe UI</FontFamily>
@@ -1615,11 +1573,11 @@ Cstr(Fields!No1_IssuedReminderHdr.Value)
                   </Style>
                 </Paragraph>
               </Paragraphs>
-              <Top>109.30726pt</Top>
-              <Left>3.62354in</Left>
-              <Height>0.4cm</Height>
-              <Width>9.30624cm</Width>
-              <ZIndex>6</ZIndex>
+              <Top>107.10002pt</Top>
+              <Left>3.80224in</Left>
+              <Height>11pt</Height>
+              <Width>8.78932cm</Width>
+              <ZIndex>4</ZIndex>
               <Style>
                 <Border />
                 <FontFamily>Segoe UI</FontFamily>
@@ -1647,11 +1605,11 @@ Cstr(Fields!No1_IssuedReminderHdr.Value)
                   </Style>
                 </Paragraph>
               </Paragraphs>
-              <Top>119.30729pt</Top>
-              <Left>3.62354in</Left>
-              <Height>0.4cm</Height>
-              <Width>9.30624cm</Width>
-              <ZIndex>7</ZIndex>
+              <Top>117.10005pt</Top>
+              <Left>3.80224in</Left>
+              <Height>11pt</Height>
+              <Width>8.78932cm</Width>
+              <ZIndex>5</ZIndex>
               <Style>
                 <Border />
                 <FontFamily>Segoe UI</FontFamily>
@@ -1679,11 +1637,11 @@ Cstr(Fields!No1_IssuedReminderHdr.Value)
                   </Style>
                 </Paragraph>
               </Paragraphs>
-              <Top>129.30728pt</Top>
-              <Left>3.62354in</Left>
-              <Height>0.4cm</Height>
-              <Width>9.30624cm</Width>
-              <ZIndex>8</ZIndex>
+              <Top>127.10004pt</Top>
+              <Left>3.80224in</Left>
+              <Height>11pt</Height>
+              <Width>8.78932cm</Width>
+              <ZIndex>6</ZIndex>
               <Style>
                 <Border />
                 <FontFamily>Segoe UI</FontFamily>
@@ -1711,11 +1669,11 @@ Cstr(Fields!No1_IssuedReminderHdr.Value)
                   </Style>
                 </Paragraph>
               </Paragraphs>
-              <Top>139.30729pt</Top>
-              <Left>3.62354in</Left>
-              <Height>0.4cm</Height>
-              <Width>9.30624cm</Width>
-              <ZIndex>9</ZIndex>
+              <Top>137.10005pt</Top>
+              <Left>3.80224in</Left>
+              <Height>11pt</Height>
+              <Width>8.78932cm</Width>
+              <ZIndex>7</ZIndex>
               <Style>
                 <Border />
                 <FontFamily>Segoe UI</FontFamily>
@@ -1723,48 +1681,13 @@ Cstr(Fields!No1_IssuedReminderHdr.Value)
                 <VerticalAlign>Middle</VerticalAlign>
               </Style>
             </Textbox>
-            <Textbox Name="Textbox62">
-              <CanGrow>true</CanGrow>
+            <Textbox Name="CustAddr9">
               <KeepTogether>true</KeepTogether>
               <Paragraphs>
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value>A l’attention de</Value>
-                      <Style>
-                        <FontFamily>Segoe UI</FontFamily>
-                        <FontSize>9pt</FontSize>
-                      </Style>
-                    </TextRun>
-                  </TextRuns>
-                  <Style>
-                    <TextAlign>Right</TextAlign>
-                  </Style>
-                </Paragraph>
-              </Paragraphs>
-              <rd:DefaultName>Textbox62</rd:DefaultName>
-              <Top>1.97445cm</Top>
-              <Left>9.20379cm</Left>
-              <Height>0.4cm</Height>
-              <Width>9.30625cm</Width>
-              <ZIndex>10</ZIndex>
-              <Style>
-                <Border>
-                  <Style>None</Style>
-                </Border>
-                <VerticalAlign>Middle</VerticalAlign>
-                <PaddingLeft>2pt</PaddingLeft>
-                <PaddingRight>2pt</PaddingRight>
-              </Style>
-            </Textbox>
-            <Textbox Name="Textbox63">
-              <CanGrow>true</CanGrow>
-              <KeepTogether>true</KeepTogether>
-              <Paragraphs>
-                <Paragraph>
-                  <TextRuns>
-                    <TextRun>
-                      <Value>Lettre avec accusé de réception</Value>
+                      <Value EvaluationMode="Constant">Lettre avec accusé de réception</Value>
                       <Style>
                         <FontStyle>Italic</FontStyle>
                         <FontFamily>Segoe UI</FontFamily>
@@ -1773,33 +1696,31 @@ Cstr(Fields!No1_IssuedReminderHdr.Value)
                     </TextRun>
                   </TextRuns>
                   <Style>
+                    <FontFamily>Segoe UI</FontFamily>
+                    <FontSize>8pt</FontSize>
                     <TextAlign>Right</TextAlign>
                   </Style>
                 </Paragraph>
               </Paragraphs>
-              <rd:DefaultName>Textbox62</rd:DefaultName>
-              <Top>5.4789cm</Top>
-              <Left>9.20379cm</Left>
-              <Height>0.4cm</Height>
-              <Width>9.30625cm</Width>
-              <ZIndex>11</ZIndex>
+              <Top>150.10005pt</Top>
+              <Left>3.80224in</Left>
+              <Height>11pt</Height>
+              <Width>8.78932cm</Width>
+              <ZIndex>8</ZIndex>
               <Style>
-                <Border>
-                  <Style>None</Style>
-                </Border>
+                <Border />
+                <FontFamily>Segoe UI</FontFamily>
+                <FontSize>8pt</FontSize>
                 <VerticalAlign>Middle</VerticalAlign>
-                <PaddingLeft>2pt</PaddingLeft>
-                <PaddingRight>2pt</PaddingRight>
               </Style>
             </Textbox>
-            <Textbox Name="Textbox64">
-              <CanGrow>true</CanGrow>
+            <Textbox Name="CustAddr10">
               <KeepTogether>true</KeepTogether>
               <Paragraphs>
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value>Antananarivo, le</Value>
+                      <Value>A l’attention de </Value>
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>9pt</FontSize>
@@ -1807,23 +1728,22 @@ Cstr(Fields!No1_IssuedReminderHdr.Value)
                     </TextRun>
                   </TextRuns>
                   <Style>
+                    <FontFamily>Segoe UI</FontFamily>
+                    <FontSize>8pt</FontSize>
                     <TextAlign>Right</TextAlign>
                   </Style>
                 </Paragraph>
               </Paragraphs>
-              <rd:DefaultName>Textbox62</rd:DefaultName>
-              <Top>1.04881cm</Top>
-              <Left>9.20379cm</Left>
-              <Height>0.4cm</Height>
-              <Width>7.48158cm</Width>
-              <ZIndex>12</ZIndex>
+              <Top>54.10002pt</Top>
+              <Left>3.80224in</Left>
+              <Height>11pt</Height>
+              <Width>8.78932cm</Width>
+              <ZIndex>9</ZIndex>
               <Style>
-                <Border>
-                  <Style>None</Style>
-                </Border>
+                <Border />
+                <FontFamily>Segoe UI</FontFamily>
+                <FontSize>8pt</FontSize>
                 <VerticalAlign>Middle</VerticalAlign>
-                <PaddingLeft>2pt</PaddingLeft>
-                <PaddingRight>2pt</PaddingRight>
               </Style>
             </Textbox>
             <Textbox Name="CustAddr11">
@@ -1843,15 +1763,15 @@ Cstr(Fields!No1_IssuedReminderHdr.Value)
                   <Style>
                     <FontFamily>Segoe UI</FontFamily>
                     <FontSize>8pt</FontSize>
-                    <TextAlign>Right</TextAlign>
+                    <TextAlign>Center</TextAlign>
                   </Style>
                 </Paragraph>
               </Paragraphs>
-              <Top>29.7301pt</Top>
-              <Left>6.51696in</Left>
+              <Top>24.45006pt</Top>
+              <Left>6.49215in</Left>
               <Height>11pt</Height>
               <Width>1.95697cm</Width>
-              <ZIndex>13</ZIndex>
+              <ZIndex>10</ZIndex>
               <Style>
                 <Border />
                 <FontFamily>Segoe UI</FontFamily>
@@ -1859,14 +1779,45 @@ Cstr(Fields!No1_IssuedReminderHdr.Value)
                 <VerticalAlign>Middle</VerticalAlign>
               </Style>
             </Textbox>
-            <Textbox Name="Textbox65">
-              <CanGrow>true</CanGrow>
+            <Textbox Name="CustAddr12">
               <KeepTogether>true</KeepTogether>
               <Paragraphs>
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value>Objet</Value>
+                      <Value EvaluationMode="Constant">Antananarivo, le</Value>
+                      <Style>
+                        <FontFamily>Segoe UI</FontFamily>
+                        <FontSize>9pt</FontSize>
+                      </Style>
+                    </TextRun>
+                  </TextRuns>
+                  <Style>
+                    <FontFamily>Segoe UI</FontFamily>
+                    <FontSize>8pt</FontSize>
+                    <TextAlign>Right</TextAlign>
+                  </Style>
+                </Paragraph>
+              </Paragraphs>
+              <Top>24.45006pt</Top>
+              <Left>5.36039in</Left>
+              <Height>11pt</Height>
+              <Width>2.78328cm</Width>
+              <ZIndex>11</ZIndex>
+              <Style>
+                <Border />
+                <FontFamily>Segoe UI</FontFamily>
+                <FontSize>8pt</FontSize>
+                <VerticalAlign>Middle</VerticalAlign>
+              </Style>
+            </Textbox>
+            <Textbox Name="CustAddr13">
+              <KeepTogether>true</KeepTogether>
+              <Paragraphs>
+                <Paragraph>
+                  <TextRuns>
+                    <TextRun>
+                      <Value EvaluationMode="Constant">Objet</Value>
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>9pt</FontSize>
@@ -1875,101 +1826,95 @@ Cstr(Fields!No1_IssuedReminderHdr.Value)
                     </TextRun>
                   </TextRuns>
                   <Style>
+                    <FontFamily>Segoe UI</FontFamily>
+                    <FontSize>8pt</FontSize>
+                    <TextAlign>Center</TextAlign>
+                  </Style>
+                </Paragraph>
+              </Paragraphs>
+              <Top>139.20004pt</Top>
+              <Left>0.0315in</Left>
+              <Height>11pt</Height>
+              <Width>1.57396cm</Width>
+              <ZIndex>12</ZIndex>
+              <Style>
+                <Border />
+                <FontFamily>Segoe UI</FontFamily>
+                <FontSize>8pt</FontSize>
+                <VerticalAlign>Middle</VerticalAlign>
+              </Style>
+            </Textbox>
+            <Textbox Name="CustAddr14">
+              <KeepTogether>true</KeepTogether>
+              <Paragraphs>
+                <Paragraph>
+                  <TextRuns>
+                    <TextRun>
+                      <Value EvaluationMode="Constant">Réf.</Value>
+                      <Style>
+                        <FontFamily>Segoe UI</FontFamily>
+                        <FontSize>9pt</FontSize>
+                      </Style>
+                    </TextRun>
+                  </TextRuns>
+                  <Style>
+                    <FontFamily>Segoe UI</FontFamily>
+                    <FontSize>8pt</FontSize>
+                    <TextAlign>Center</TextAlign>
+                  </Style>
+                </Paragraph>
+              </Paragraphs>
+              <Top>150.10005pt</Top>
+              <Left>0.0315in</Left>
+              <Height>11pt</Height>
+              <Width>1.57396cm</Width>
+              <ZIndex>13</ZIndex>
+              <Style>
+                <Border />
+                <FontFamily>Segoe UI</FontFamily>
+                <FontSize>8pt</FontSize>
+                <VerticalAlign>Middle</VerticalAlign>
+              </Style>
+            </Textbox>
+            <Textbox Name="CustAddr15">
+              <KeepTogether>true</KeepTogether>
+              <Paragraphs>
+                <Paragraph>
+                  <TextRuns>
+                    <TextRun>
+                      <Value EvaluationMode="Constant" />
+                      <Style>
+                        <FontFamily>Segoe UI</FontFamily>
+                        <FontSize>9pt</FontSize>
+                      </Style>
+                    </TextRun>
+                  </TextRuns>
+                  <Style>
+                    <FontFamily>Segoe UI</FontFamily>
+                    <FontSize>8pt</FontSize>
                     <TextAlign>Left</TextAlign>
                   </Style>
                 </Paragraph>
               </Paragraphs>
-              <rd:DefaultName>Textbox62</rd:DefaultName>
-              <Top>4.91445cm</Top>
-              <Left>0.00001cm</Left>
-              <Height>0.4cm</Height>
-              <Width>1.20354cm</Width>
+              <Top>139.20004pt</Top>
+              <Left>0.67895in</Left>
+              <Height>11pt</Height>
+              <Width>5.11146cm</Width>
               <ZIndex>14</ZIndex>
               <Style>
-                <Border>
-                  <Style>None</Style>
-                </Border>
+                <Border />
+                <FontFamily>Segoe UI</FontFamily>
+                <FontSize>8pt</FontSize>
                 <VerticalAlign>Middle</VerticalAlign>
-                <PaddingLeft>2pt</PaddingLeft>
-                <PaddingRight>2pt</PaddingRight>
               </Style>
             </Textbox>
-            <Textbox Name="Textbox66">
-              <CanGrow>true</CanGrow>
+            <Textbox Name="CustAddr16">
               <KeepTogether>true</KeepTogether>
               <Paragraphs>
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value>Ref.</Value>
-                      <Style>
-                        <FontFamily>Segoe UI</FontFamily>
-                        <FontSize>9pt</FontSize>
-                      </Style>
-                    </TextRun>
-                  </TextRuns>
-                  <Style>
-                    <TextAlign>Left</TextAlign>
-                  </Style>
-                </Paragraph>
-              </Paragraphs>
-              <rd:DefaultName>Textbox62</rd:DefaultName>
-              <Top>5.38501cm</Top>
-              <Left>0.00001cm</Left>
-              <Height>0.4cm</Height>
-              <Width>1.20354cm</Width>
-              <ZIndex>15</ZIndex>
-              <Style>
-                <Border>
-                  <Style>None</Style>
-                </Border>
-                <VerticalAlign>Middle</VerticalAlign>
-                <PaddingLeft>2pt</PaddingLeft>
-                <PaddingRight>2pt</PaddingRight>
-              </Style>
-            </Textbox>
-            <Textbox Name="Textbox67">
-              <CanGrow>true</CanGrow>
-              <KeepTogether>true</KeepTogether>
-              <Paragraphs>
-                <Paragraph>
-                  <TextRuns>
-                    <TextRun>
-                      <Value>=Code.GetData(45,1)</Value>
-                      <Style>
-                        <FontFamily>Segoe UI</FontFamily>
-                        <FontSize>9pt</FontSize>
-                      </Style>
-                    </TextRun>
-                  </TextRuns>
-                  <Style>
-                    <TextAlign>Left</TextAlign>
-                  </Style>
-                </Paragraph>
-              </Paragraphs>
-              <rd:DefaultName>Textbox62</rd:DefaultName>
-              <Top>4.91445cm</Top>
-              <Left>1.23883cm</Left>
-              <Height>0.4cm</Height>
-              <Width>5.51716cm</Width>
-              <ZIndex>16</ZIndex>
-              <Style>
-                <Border>
-                  <Style>None</Style>
-                </Border>
-                <VerticalAlign>Middle</VerticalAlign>
-                <PaddingLeft>2pt</PaddingLeft>
-                <PaddingRight>2pt</PaddingRight>
-              </Style>
-            </Textbox>
-            <Textbox Name="Textbox68">
-              <CanGrow>true</CanGrow>
-              <KeepTogether>true</KeepTogether>
-              <Paragraphs>
-                <Paragraph>
-                  <TextRuns>
-                    <TextRun>
-                      <Value>=Code.GetData(46,1)</Value>
+                      <Value EvaluationMode="Constant" />
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>9pt</FontSize>
@@ -1978,23 +1923,54 @@ Cstr(Fields!No1_IssuedReminderHdr.Value)
                     </TextRun>
                   </TextRuns>
                   <Style>
+                    <FontFamily>Segoe UI</FontFamily>
+                    <FontSize>8pt</FontSize>
                     <TextAlign>Left</TextAlign>
                   </Style>
                 </Paragraph>
               </Paragraphs>
-              <rd:DefaultName>Textbox62</rd:DefaultName>
-              <Top>5.38501cm</Top>
-              <Left>1.23883cm</Left>
-              <Height>0.4cm</Height>
-              <Width>5.51716cm</Width>
-              <ZIndex>17</ZIndex>
+              <Top>150.10005pt</Top>
+              <Left>0.65117in</Left>
+              <Height>11pt</Height>
+              <Width>5.18202cm</Width>
+              <ZIndex>15</ZIndex>
+              <Style>
+                <Border />
+                <FontFamily>Segoe UI</FontFamily>
+                <FontSize>8pt</FontSize>
+                <VerticalAlign>Middle</VerticalAlign>
+              </Style>
+            </Textbox>
+            <Textbox Name="Textbox10">
+              <CanGrow>true</CanGrow>
+              <KeepTogether>true</KeepTogether>
+              <Paragraphs>
+                <Paragraph>
+                  <TextRuns>
+                    <TextRun>
+                      <Value>=First(Fields!GlobalData.Value, "DataSet_Result")</Value>
+                      <Style>
+                        <FontSize>8pt</FontSize>
+                      </Style>
+                    </TextRun>
+                  </TextRuns>
+                  <Style />
+                </Paragraph>
+              </Paragraphs>
+              <rd:DefaultName>Textbox10</rd:DefaultName>
+              <Top>0cm</Top>
+              <Left>0.08002cm</Left>
+              <Height>4.51909cm</Height>
+              <Width>8.40337cm</Width>
+              <ZIndex>16</ZIndex>
               <Style>
                 <Border>
                   <Style>None</Style>
                 </Border>
-                <VerticalAlign>Middle</VerticalAlign>
                 <PaddingLeft>2pt</PaddingLeft>
                 <PaddingRight>2pt</PaddingRight>
+                <PaddingTop>2pt</PaddingTop>
+                <PaddingBottom>2pt</PaddingBottom>
               </Style>
             </Textbox>
           </ReportItems>
@@ -2007,10 +1983,10 @@ Cstr(Fields!No1_IssuedReminderHdr.Value)
         <PageWidth>21cm</PageWidth>
         <InteractiveHeight>11in</InteractiveHeight>
         <InteractiveWidth>8.5in</InteractiveWidth>
-        <LeftMargin>1.4cm</LeftMargin>
+        <LeftMargin>1cm</LeftMargin>
         <RightMargin>1cm</RightMargin>
         <TopMargin>1.05833cm</TopMargin>
-        <BottomMargin>1.48167cm</BottomMargin>
+        <BottomMargin>1.1cm</BottomMargin>
         <Style>
           <FontFamily>Segoe UI</FontFamily>
           <FontSize>8pt</FontSize>
@@ -2018,8 +1994,107 @@ Cstr(Fields!No1_IssuedReminderHdr.Value)
       </Page>
     </ReportSection>
   </ReportSections>
-  <Code>
-    Public Function BlankZero(ByVal Value As Decimal)
+  <Code>' Source: https://github.com/AndreasRascher/RDLCReport_CustomCode
+' Hidden Tablecell Property Hidden=Code.SetGlobalData(Fields!GlobalData.Value)
+' =================
+' Global variables
+' =================
+Shared GlobalDict As Microsoft.VisualBasic.Collection
+' ==========================
+' Get value by name or number
+' ==========================
+
+' Key = position number or name
+Public Function GetVal(Key as Object)
+  Return GetVal2(GlobalDict,Key)
+End Function
+
+Public Function GetVal2(ByRef Data as Object,Key as Object)
+  'if Key As Number
+  If IsNumeric(Key) then
+    Dim i as Long
+    Integer.TryParse(Key,i)
+    if (i=0) then
+    return "Index starts at 1"
+    end if
+    if (Data.Count = 0) OR (i = 0) OR (i &gt; Data.Count) then
+      Return "Invalid Index: '"+CStr(i)+"'! Collection Count = "+ CStr(Data.Count)
+    end if  
+    Return Data.Item(i)
+  end if
+ 
+  'if Key As String
+  Key = CStr(Key).ToUpper() ' Key is Case Insensitive
+  Select Case True
+    Case IsNothing(Data)
+      Return "CollectionEmpty"
+    Case IsNothing(Key)
+      Return "KeyEmpty"
+    Case (not Data.Contains(Key))
+      Return "?"+CStr(Key)+"?"  ' Not found
+    Case Data.Contains(Key)
+      Return Data.Item(Key)
+    Case else
+      Return "Something else failed"
+  End Select 
+ 
+End Function
+
+' ===========================================
+' Set global values from the body 
+' ===========================================
+
+Public Function SetGlobalData(KeyValueList as Object)
+  SetDataAsKeyValueList(GlobalDict,KeyValueList)
+  Return True 'Set Control to Hidden=true
+End Function
+ 
+Public Function SetDataAsKeyValueList(ByRef SharedData as Object,NewData as Object)
+  Dim i as integer
+  Dim words As String() = Split(CStr(NewData),Chr(177))
+  Dim Key As String
+  Dim Value As String
+  For i = 1 To UBound(words)   
+    if ((i mod 2) = 0) then
+      Key   = Cstr(Choose(i-1, Split(Cstr(NewData),Chr(177))))     
+      Value = Cstr(Choose(i, Split(Cstr(NewData),Chr(177))))
+      AddKeyValue(SharedData,Key,Value)
+    end if
+    ' If last item in list only has a key
+    if (i = UBound(words)) and ((i mod 2) = 1) then
+      Key   = Cstr(Choose(i, Split(Cstr(NewData),Chr(177))))     
+      Value = ""
+      AddKeyValue(SharedData,Key,Value)
+    end if
+  Next 
+End Function
+ 
+Public Function AddKeyValue(ByRef Data as Object, Key as Object,Value as Object)
+  if IsNothing(Data) then
+     Data = New Microsoft.VisualBasic.Collection
+  End if
+ 
+  Dim RealKey as String
+  if (CStr(Key) &lt;&gt; "") Then
+    RealKey = CStr(Key).ToUpper()
+  else
+    RealKey = CStr(Data.Count +1)
+  End if
+  ' Replace value if it already exists
+  if Data.Contains(RealKey) then
+     Data.Remove(RealKey)
+  End if
+ 
+  Data.Add(Value,RealKey)   
+ 
+  Return Data.Count
+End Function
+    
+
+
+
+
+Public Function BlankZero(ByVal Value As Decimal)
     if Value = 0 then
     Return ""
     end if
@@ -2180,6 +2255,9 @@ End Function
         </Field>
         <Field Name="ContactEmail">
           <DataField>ContactEmail</DataField>
+        </Field>
+        <Field Name="GlobalData">
+          <DataField>GlobalData</DataField>
         </Field>
         <Field Name="CompanyInfo1Picture">
           <DataField>CompanyInfo1Picture</DataField>

@@ -66,7 +66,7 @@ page 50053 "A01 Reposession Request"
                 field("Document Ref."; Rec."Document Ref.")
                 {
                 }
-                field(Value; Rec.Value)
+                field(Value; Rec."item Value")
                 {
                 }
             }

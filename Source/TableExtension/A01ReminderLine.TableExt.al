@@ -10,6 +10,7 @@ tableextension 50021 "A01 Reminder Line" extends "Reminder Line"
             Caption = 'Debt Status';
             DataClassification = CustomerContent;
             TableRelation = "A01 Customer Debt Status";
+            Editable = false;
         }
     }
 }

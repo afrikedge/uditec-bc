@@ -19,12 +19,12 @@
             <TablixBody>
               <TablixColumns>
                 <TablixColumn>
-                  <Width>18.51004cm</Width>
+                  <Width>18.55741cm</Width>
                 </TablixColumn>
               </TablixColumns>
               <TablixRows>
                 <TablixRow>
-                  <Height>11.77458cm</Height>
+                  <Height>11.66902cm</Height>
                   <TablixCells>
                     <TablixCell>
                       <CellContents>
@@ -1076,8 +1076,8 @@ Cstr(Fields!No1_IssuedReminderHdr.Value)
                                 </TablixMembers>
                               </TablixRowHierarchy>
                               <DataSetName>DataSet_Result</DataSetName>
-                              <Top>3.28118cm</Top>
-                              <Left>0.00001cm</Left>
+                              <Top>4.26042cm</Top>
+                              <Left>0.04737cm</Left>
                               <Height>2.1175cm</Height>
                               <Width>18.51004cm</Width>
                               <ZIndex>1</ZIndex>
@@ -1106,7 +1106,7 @@ Cstr(Fields!No1_IssuedReminderHdr.Value)
                               <rd:DefaultName>Textbox28</rd:DefaultName>
                               <Top>0.98302cm</Top>
                               <Left>0.00001cm</Left>
-                              <Height>1.97184cm</Height>
+                              <Height>1.73372cm</Height>
                               <Width>18.36701cm</Width>
                               <ZIndex>2</ZIndex>
                               <Style>
@@ -1158,7 +1158,7 @@ Cstr(Fields!No1_IssuedReminderHdr.Value)
                                 <Paragraph>
                                   <TextRuns>
                                     <TextRun>
-                                      <Value>        Par conséquent, l’échéance étant dépassée, nous vous prions de bien vouloir régulariser vos paiements, dans un délai de sept (7) jours au plus tard, dès la réception de cette lettre. </Value>
+                                      <Value>=Fields!BodyLabelText2.Value</Value>
                                       <Style>
                                         <FontSize>9pt</FontSize>
                                       </Style>
@@ -1170,16 +1170,16 @@ Cstr(Fields!No1_IssuedReminderHdr.Value)
                                 </Paragraph>
                               </Paragraphs>
                               <rd:DefaultName>Textbox29</rd:DefaultName>
-                              <Top>5.83cm</Top>
-                              <Left>0.00001cm</Left>
-                              <Height>0.97042cm</Height>
+                              <Top>6.7034cm</Top>
+                              <Left>0.04737cm</Left>
+                              <Height>1.20854cm</Height>
                               <Width>18.51004cm</Width>
                               <ZIndex>4</ZIndex>
                               <Style>
                                 <Border>
                                   <Style>None</Style>
                                 </Border>
-                                <VerticalAlign>Middle</VerticalAlign>
+                                <VerticalAlign>Top</VerticalAlign>
                                 <PaddingLeft>2pt</PaddingLeft>
                                 <PaddingRight>2pt</PaddingRight>
                                 <PaddingTop>2pt</PaddingTop>
@@ -1193,7 +1193,7 @@ Cstr(Fields!No1_IssuedReminderHdr.Value)
                                 <Paragraph>
                                   <TextRuns>
                                     <TextRun>
-                                      <Value>        En outre, vous trouverez en annexe à la présente le solde de votre compte.</Value>
+                                      <Value>        Dans le cas échéant, la société UMATEC s ’autorise à saisir la juridiction compétente afin d'obtenir le paiement la somme susvisée. </Value>
                                       <Style>
                                         <FontSize>9pt</FontSize>
                                       </Style>
@@ -1205,9 +1205,9 @@ Cstr(Fields!No1_IssuedReminderHdr.Value)
                                 </Paragraph>
                               </Paragraphs>
                               <rd:DefaultName>Textbox29</rd:DefaultName>
-                              <Top>6.97681cm</Top>
-                              <Left>0.00001cm</Left>
-                              <Height>0.57354cm</Height>
+                              <Top>8.01778cm</Top>
+                              <Left>0.04737cm</Left>
+                              <Height>0.99687cm</Height>
                               <Width>18.51004cm</Width>
                               <ZIndex>5</ZIndex>
                               <Style>
@@ -1228,7 +1228,7 @@ Cstr(Fields!No1_IssuedReminderHdr.Value)
                                 <Paragraph>
                                   <TextRuns>
                                     <TextRun>
-                                      <Value>        Aussi, dans le cas où vous auriez déjà effectué le paiement, merci de nous faire parvenir les accusés de règlement ou autres pièces justifiant ledit paiement. </Value>
+                                      <Value>        Comptant sur votre compréhension, veuillez agréer, Madame, Monsieur, l’expression de nos salutations distinguées.</Value>
                                       <Style>
                                         <FontSize>9pt</FontSize>
                                       </Style>
@@ -1240,81 +1240,11 @@ Cstr(Fields!No1_IssuedReminderHdr.Value)
                                 </Paragraph>
                               </Paragraphs>
                               <rd:DefaultName>Textbox29</rd:DefaultName>
-                              <Top>7.69146cm</Top>
+                              <Top>9.08521cm</Top>
                               <Left>0.00001cm</Left>
-                              <Height>0.94396cm</Height>
+                              <Height>0.83813cm</Height>
                               <Width>18.51004cm</Width>
                               <ZIndex>6</ZIndex>
-                              <Style>
-                                <Border>
-                                  <Style>None</Style>
-                                </Border>
-                                <VerticalAlign>Middle</VerticalAlign>
-                                <PaddingLeft>2pt</PaddingLeft>
-                                <PaddingRight>2pt</PaddingRight>
-                                <PaddingTop>2pt</PaddingTop>
-                                <PaddingBottom>2pt</PaddingBottom>
-                              </Style>
-                            </Textbox>
-                            <Textbox Name="Textbox32">
-                              <CanGrow>true</CanGrow>
-                              <KeepTogether>true</KeepTogether>
-                              <Paragraphs>
-                                <Paragraph>
-                                  <TextRuns>
-                                    <TextRun>
-                                      <Value>        Nous vous remercions de faire le nécessaire, tout en restant à votre entière disposition pour toute éventuelles questions. </Value>
-                                      <Style>
-                                        <FontSize>9pt</FontSize>
-                                      </Style>
-                                    </TextRun>
-                                  </TextRuns>
-                                  <Style>
-                                    <TextAlign>Left</TextAlign>
-                                  </Style>
-                                </Paragraph>
-                              </Paragraphs>
-                              <rd:DefaultName>Textbox29</rd:DefaultName>
-                              <Top>8.70597cm</Top>
-                              <Left>0.00001cm</Left>
-                              <Height>0.65291cm</Height>
-                              <Width>18.51004cm</Width>
-                              <ZIndex>7</ZIndex>
-                              <Style>
-                                <Border>
-                                  <Style>None</Style>
-                                </Border>
-                                <VerticalAlign>Middle</VerticalAlign>
-                                <PaddingLeft>2pt</PaddingLeft>
-                                <PaddingRight>2pt</PaddingRight>
-                                <PaddingTop>2pt</PaddingTop>
-                                <PaddingBottom>2pt</PaddingBottom>
-                              </Style>
-                            </Textbox>
-                            <Textbox Name="Textbox33">
-                              <CanGrow>true</CanGrow>
-                              <KeepTogether>true</KeepTogether>
-                              <Paragraphs>
-                                <Paragraph>
-                                  <TextRuns>
-                                    <TextRun>
-                                      <Value>        Dans l’attente, nous vous prions d’agréer, Monsieur, Madame, nos salutations les plus respectueuses. </Value>
-                                      <Style>
-                                        <FontSize>9pt</FontSize>
-                                      </Style>
-                                    </TextRun>
-                                  </TextRuns>
-                                  <Style>
-                                    <TextAlign>Left</TextAlign>
-                                  </Style>
-                                </Paragraph>
-                              </Paragraphs>
-                              <rd:DefaultName>Textbox29</rd:DefaultName>
-                              <Top>9.5cm</Top>
-                              <Left>0.00001cm</Left>
-                              <Height>0.57354cm</Height>
-                              <Width>18.51004cm</Width>
-                              <ZIndex>8</ZIndex>
                               <Style>
                                 <Border>
                                   <Style>None</Style>
@@ -1346,15 +1276,50 @@ Cstr(Fields!No1_IssuedReminderHdr.Value)
                                 </Paragraph>
                               </Paragraphs>
                               <rd:DefaultName>Textbox34</rd:DefaultName>
-                              <Top>11.17458cm</Top>
-                              <Left>12.7734cm</Left>
+                              <Top>11.06902cm</Top>
+                              <Left>12.82076cm</Left>
                               <Height>0.6cm</Height>
                               <Width>5.73664cm</Width>
-                              <ZIndex>9</ZIndex>
+                              <ZIndex>7</ZIndex>
                               <Style>
                                 <Border>
                                   <Style>None</Style>
                                 </Border>
+                                <PaddingLeft>2pt</PaddingLeft>
+                                <PaddingRight>2pt</PaddingRight>
+                                <PaddingTop>2pt</PaddingTop>
+                                <PaddingBottom>2pt</PaddingBottom>
+                              </Style>
+                            </Textbox>
+                            <Textbox Name="Textbox36">
+                              <CanGrow>true</CanGrow>
+                              <KeepTogether>true</KeepTogether>
+                              <Paragraphs>
+                                <Paragraph>
+                                  <TextRuns>
+                                    <TextRun>
+                                      <Value>        Néanmoins, nous constatons avec regret que vous n’avez toujours par réglé lesdites sommes correspondantes aux achats que vous avez effectué auprès de notre société. </Value>
+                                      <Style>
+                                        <FontSize>9pt</FontSize>
+                                      </Style>
+                                    </TextRun>
+                                  </TextRuns>
+                                  <Style>
+                                    <TextAlign>Left</TextAlign>
+                                  </Style>
+                                </Paragraph>
+                              </Paragraphs>
+                              <rd:DefaultName>Textbox29</rd:DefaultName>
+                              <Top>2.82257cm</Top>
+                              <Left>0.04737cm</Left>
+                              <Height>0.97042cm</Height>
+                              <Width>18.51004cm</Width>
+                              <ZIndex>8</ZIndex>
+                              <Style>
+                                <Border>
+                                  <Style>None</Style>
+                                </Border>
+                                <VerticalAlign>Middle</VerticalAlign>
                                 <PaddingLeft>2pt</PaddingLeft>
                                 <PaddingRight>2pt</PaddingRight>
                                 <PaddingTop>2pt</PaddingTop>
@@ -1398,15 +1363,15 @@ Cstr(Fields!No1_IssuedReminderHdr.Value)
             <PageBreak>
               <BreakLocation>End</BreakLocation>
             </PageBreak>
-            <Height>11.77458cm</Height>
-            <Width>18.51004cm</Width>
+            <Height>11.66902cm</Height>
+            <Width>18.55741cm</Width>
             <Style>
               <FontFamily>Segoe UI</FontFamily>
               <FontSize>8pt</FontSize>
             </Style>
           </Tablix>
         </ReportItems>
-        <Height>11.77458cm</Height>
+        <Height>11.66902cm</Height>
         <Style>
           <FontFamily>Segoe UI</FontFamily>
           <FontSize>8pt</FontSize>
@@ -1935,10 +1900,11 @@ Cstr(Fields!No1_IssuedReminderHdr.Value)
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value>=Code.GetData(45,1)</Value>
+                      <Value EvaluationMode="Constant">Mise en demeure</Value>
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>9pt</FontSize>
+                        <FontWeight>Bold</FontWeight>
                       </Style>
                     </TextRun>
                   </TextRuns>
@@ -2330,6 +2296,9 @@ End Function
         </Field>
         <Field Name="BodyLabelText">
           <DataField>BodyLabelText</DataField>
+        </Field>
+        <Field Name="BodyLabelText2">
+          <DataField>BodyLabelText2</DataField>
         </Field>
         <Field Name="ReminderLevelText">
           <DataField>ReminderLevelText</DataField>

@@ -96,7 +96,7 @@ table 50024 "A01 Reposession Request"
         {
             Caption = 'Document Ref.';
         }
-        field(29; "Value"; Decimal)
+        field(29; "item Value"; Decimal)
         {
             Caption = 'Value';
         }
@@ -210,6 +210,7 @@ table 50024 "A01 Reposession Request"
         if (not Confirm(LblQst)) then
             exit;
         "Reposession Item Status" := "Reposession Item Status"::"To be returned";
+        "Acceptance Status" := "Acceptance Status"::Cancelled;
         Modify(true);
     end;
 
@@ -220,7 +221,7 @@ table 50024 "A01 Reposession Request"
         // SalesInvoice: Record "Sales Invoice Header";
         LblQst: Label 'Do you want to change the status to "Closed"?';
     begin
-        TestField(Value);
+        TestField("item Value");
         TestField("Reposession Type", "Reposession Type"::Definitive);
         TestField("Acceptance Status", "Acceptance Status"::Accepted);
         TestField("Reposession Item Status", "Reposession Item Status"::Received);
@@ -236,7 +237,7 @@ table 50024 "A01 Reposession Request"
         Cust.Blocked := Cust.Blocked::All;
         Cust.Modify(true);
 
-        "Acceptance Status" := "Acceptance Status"::Accepted;
+        "Acceptance Status" := "Acceptance Status"::Closed;
         Modify(true);
     end;
 

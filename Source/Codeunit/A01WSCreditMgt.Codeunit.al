@@ -72,6 +72,11 @@ codeunit 50011 "A01 WS Credit Mgt"
             exit(AddPaymentPromise(input));
     end;
 
+
+
+
+
+
     local procedure ModifyRemindder(OrderNo: Text; input: JsonObject): Text
     var
         Reminder: Record "Reminder Header";
@@ -189,8 +194,14 @@ codeunit 50011 "A01 WS Credit Mgt"
         if (Reminder."A01 Observations" <> WS.GetText('Comment', input)) then
             Reminder.Validate("A01 Observations", WS.GetText('Comment', input));
 
+        if (Reminder."A01 Assignment No." <> WS.GetText('Assignment No_', input)) then
+            Reminder.Validate("A01 Assignment No.", WS.GetText('Assignment No_', input));
+
         if (Reminder."A01 Created By" <> WS.GetText('Created by', input)) then
             Reminder.Validate("A01 Created By", WS.GetText('Created by', input));
+
+        if (Reminder."Reminder Level" <> WS.GetInt('Activity Level', input)) then
+            Reminder.Validate("Reminder Level", WS.GetInt('Activity Level', input));
 
 
         Reminder.Modify();
@@ -207,31 +218,40 @@ codeunit 50011 "A01 WS Credit Mgt"
 
         ReminderLine.Type := ReminderLine.Type::"Customer Ledger Entry";
 
+
+        if (ReminderLine."Document Type".AsInteger() <> WS.GetInt('Document Type', input)) then
+            ReminderLine.Validate("Document Type", WS.GetInt('Document Type', input));
+
         if (ReminderLine."Document No." <> WS.GetText('Document No_', input)) then
-            ReminderLine."Document No." := Copystr(WS.GetText('Document No_', input), 1, 20);
+            ReminderLine.Validate("Document No.", Copystr(WS.GetText('Document No_', input), 1, 20));
 
-        // if (ReminderLine.Type.AsInteger() <> WS.GetInt('Type', input)) then
-        //     ReminderLine.Validate(Type, WS.GetInt('Type', input));
-        if (ReminderLine."Posting Date" > WS.GetDate('Posting Date', input)) then
-            ReminderLine."Posting Date" := WS.GetDate('Posting Date', input);
+        // if (ReminderLine."Posting Date" <> WS.GetDate('Posting Date', input)) then
+        //     ReminderLine."Posting Date" := WS.GetDate('Posting Date', input);
 
-        if (ReminderLine."Document Date" > WS.GetDate('Document Date', input)) then
-            ReminderLine."Document Date" := WS.GetDate('Document Date', input);
+        // if (ReminderLine."Due Date" <> WS.GetDate('Due Date', input)) then
+        //     ReminderLine."Due Date" := WS.GetDate('Due Date', input);
 
-        if (ReminderLine.Description > WS.GetText('Description', input)) then
+        // if (ReminderLine."Document Date" <> WS.GetDate('Document Date', input)) then
+        //     ReminderLine."Document Date" := WS.GetDate('Document Date', input);
+
+        if (ReminderLine.Description <> WS.GetText('Description', input)) then
             ReminderLine."Description" := Copystr(WS.GetText('Description', input), 1, 100);
 
-        if (ReminderLine."Original Amount" > WS.GetDecimal('Original Amount', input)) then
-            ReminderLine."Original Amount" := WS.GetDecimal('Original Amount', input);
+        // if (ReminderLine."Original Amount" <> WS.GetDecimal('Original Amount', input)) then
+        //     ReminderLine."Original Amount" := WS.GetDecimal('Original Amount', input);
 
-        if (ReminderLine."Remaining Amount" > WS.GetDecimal('Document Date', input)) then
-            ReminderLine."Remaining Amount" := WS.GetDecimal('Document Date', input);
+        // if (ReminderLine."Remaining Amount" <> WS.GetDecimal('Document Date', input)) then
+        //     ReminderLine."Remaining Amount" := WS.GetDecimal('Document Date', input);
 
-        if (ReminderLine."A01 Debt Status" > WS.GetText('Document Date', input)) then
-            ReminderLine."A01 Debt Status" := Copystr(WS.GetText('Document Date', input), 1, 20);
+        if (ReminderLine."A01 Debt Status" <> WS.GetText('Debt Status', input)) then
+            ReminderLine."A01 Debt Status" := Copystr(WS.GetText('Debt Status', input), 1, 20);
 
-        ReminderLine.insert();
+
+
+        ReminderLine.insert(true);
     end;
+
+
 
 
     local procedure ModifyReposession(OrderNo: Text; input: JsonObject): Text
@@ -276,48 +296,57 @@ codeunit 50011 "A01 WS Credit Mgt"
 
     end;
 
-    local procedure ProcessReposessionHeader(var Reminder: Record "A01 Reposession Request"; input: JsonObject)
+    local procedure ProcessReposessionHeader(var Repossession: Record "A01 Reposession Request"; input: JsonObject)
     begin
 
-        if (Reminder."Modified By" <> WS.GetText('webUserName', input)) then
-            Reminder.Validate("Modified By", WS.GetText('webUserName', input));
+        if (Repossession."Modified By" <> WS.GetText('webUserName', input)) then
+            Repossession.Validate("Modified By", WS.GetText('webUserName', input));
 
-        //if (Reminder."Customer No."<> WS.GetText('Customer No_', input)) then
-        //    Reminder.Validate("Customer No.", WS.GetText('Customer No_', input));
+        if (Repossession."Customer No." <> WS.GetText('Customer No_', input)) then
+            Repossession.Validate("Customer No.", WS.GetText('Customer No_', input));
 
-        if (Reminder."Created By" = '') then
-            Reminder.Validate("Created By", WS.GetText('webUserName', input));
+        if (Repossession."Created By" = '') then
+            Repossession.Validate("Created By", WS.GetText('webUserName', input));
 
-        if (Reminder."Document No." <> WS.GetText('Document No_', input)) then
-            Reminder.Validate("Document No.", WS.GetText('Document No_', input));
+        if (Repossession."Document No." <> WS.GetText('Document No_', input)) then
+            Repossession.Validate("Document No.", WS.GetText('Document No_', input));
 
-        if (Reminder."Item No." <> WS.GetText('Item No_', input)) then
-            Reminder.Validate("Item No.", WS.GetText('Item No_', input));
+        if (Repossession."Item No." <> WS.GetText('Item No_', input)) then
+            Repossession.Validate("Item No.", WS.GetText('Item No_', input));
 
-        if (Reminder."Serial Number" <> WS.GetText('Serial No_', input)) then
-            Reminder.Validate("Serial Number", WS.GetText('Serial No_', input));
+        if (Repossession."Serial Number" <> WS.GetText('Serial No_', input)) then
+            Repossession.Validate("Serial Number", WS.GetText('Serial No_', input));
 
-        if (Reminder.Origin.AsInteger() <> WS.GetInt('Reposs Source', input)) then
-            Reminder.Validate("Origin", WS.GetInt('Reposs Source', input));
+        if (Repossession.Origin.AsInteger() <> WS.GetInt('Reposs Source', input)) then
+            Repossession.Validate("Origin", WS.GetInt('Reposs Source', input));
 
         //if (Reminder. <> WS.GetText('Created by', input)) then
         //    Reminder.Validate("A01 Description", WS.GetText('Created by', input));
 
-        if (Reminder.Reason <> WS.GetText('Motivation', input)) then
-            Reminder.Validate(Reason, WS.GetText('Motivation', input));
+        if (Repossession.Reason <> WS.GetText('Motivation', input)) then
+            Repossession.Validate(Reason, WS.GetText('Motivation', input));
 
-        if (Reminder."Acceptance Status".AsInteger() <> WS.GetInt('Reposs Status', input)) then
-            Reminder.Validate("Acceptance Status", WS.GetInt('Reposs Status', input));
+        if (Repossession."Acceptance Status".AsInteger() <> WS.GetInt('Reposs Status', input)) then
+            Repossession.Validate("Acceptance Status", WS.GetInt('Reposs Status', input));
 
-        if (Reminder."Reposession Type".AsInteger() <> WS.GetInt('Reposs Type', input)) then
-            Reminder.Validate("Reposession Type", WS.GetInt('Reposs Type', input));
+        if (Repossession."Reposession Type".AsInteger() <> WS.GetInt('Reposs Type', input)) then
+            Repossession.Validate("Reposession Type", WS.GetInt('Reposs Type', input));
 
-        if (Reminder."Reposession Item Status".AsInteger() <> WS.GetInt('Reposs Item Status', input)) then
-            Reminder.Validate("Reposession Item Status", WS.GetInt('Reposs Item Status', input));
+        if (Repossession."Reposession Item Status".AsInteger() <> WS.GetInt('Reposs Item Status', input)) then
+            Repossession.Validate("Reposession Item Status", WS.GetInt('Reposs Item Status', input));
+
+        if (Repossession."Document Ref." <> WS.GetText('Document Ref.', input)) then
+            Repossession.Validate("Document Ref.", WS.GetText('Document Ref.', input));
+
+        if (Repossession."Item Value" <> WS.GetDecimal('Value', input)) then
+            Repossession.Validate("item Value", WS.GetDecimal('Value', input));
 
 
-        Reminder.Modify();
+        Repossession.Modify();
     end;
+
+
+
 
 
 
@@ -410,6 +439,15 @@ codeunit 50011 "A01 WS Credit Mgt"
 
         if (PaymentPromise.Status.AsInteger() <> WS.GetInt('Promise Status', input)) then
             PaymentPromise.Validate("Status", WS.GetInt('Promise Status', input));
+
+        if (PaymentPromise."Honoration Date" <> WS.GetDate('Honoration Date', input)) then
+            PaymentPromise.Validate("Honoration Date", WS.GetDate('Honoration Date', input));
+
+        if (PaymentPromise.Observations <> WS.GetText('Observations', input)) then
+            PaymentPromise.Validate("Observations", WS.GetText('Observations', input));
+
+
+
 
 
         PaymentPromise.Modify();

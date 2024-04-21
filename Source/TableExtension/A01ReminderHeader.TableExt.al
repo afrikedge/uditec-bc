@@ -71,6 +71,13 @@ tableextension 50019 "A01 Reminder Header" extends "Reminder Header"
             Caption = 'Subject';
             DataClassification = CustomerContent;
         }
+        field(50014; "A01 Assignment No."; Code[20])
+        {
+            Caption = 'Assignment No.';
+            DataClassification = CustomerContent;
+            TableRelation = "A01 Deadline Assignment";
+        }
+
 
     }
 }

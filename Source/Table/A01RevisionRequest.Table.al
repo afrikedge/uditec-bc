@@ -117,6 +117,16 @@ table 50023 "A01 Revision Request"
             MinValue = 0;
             MaxValue = 100;
         }
+        field(21; "Created By"; Code[50])
+        {
+            Caption = 'Created By';
+            Editable = false;
+        }
+        field(22; "Modified By"; Code[50])
+        {
+            Caption = 'Modified By';
+            Editable = false;
+        }
     }
     keys
     {
