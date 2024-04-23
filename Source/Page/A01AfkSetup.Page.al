@@ -25,7 +25,16 @@ page 50040 "A01 Afk Setup"
                 field("Charge Account (Voucher)"; Rec."Charge Account (Voucher)")
                 {
                 }
+                field("Suspense Account (Voucher)"; Rec."Suspense Account (Voucher)")
+                {
+                }
                 field("Payment Method (Voucher)"; Rec."Payment Method (Voucher)")
+                {
+                }
+                field("Transfer Acc (Bank-CashBox)"; Rec."Transfer Acc (Bank-CashBox)")
+                {
+                }
+                field("Transfer Acc (Inter-cash)"; Rec."Transfer Acc (Inter-cash)")
                 {
                 }
 

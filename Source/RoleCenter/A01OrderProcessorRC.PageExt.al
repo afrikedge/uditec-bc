@@ -317,6 +317,31 @@ pageextension 50002 "A01 Order Processor RC" extends "Order Processor Role Cente
                     Caption = 'Payment Requests';
                     RunObject = Page "A01 Payment Requests";
                 }
+                action(A01PurchVouchers)
+                {
+                    ApplicationArea = Basic, Suite;
+                    Caption = 'Purchase Voucher list';
+                    RunObject = Page "A01 Purchase Vouchers";
+                }
+                action(A01BankNotes)
+                {
+                    ApplicationArea = Basic, Suite;
+                    Caption = 'Bank Notes list';
+                    RunObject = Page "A01 Bank Notes List";
+                }
+                action(A01CashBoxClosings)
+                {
+                    ApplicationArea = Basic, Suite;
+                    Caption = 'Cashbox closing list';
+                    RunObject = Page "A01 Cashbox Closing List";
+                }
+                action(A01PostedCashBoxClosings)
+                {
+                    ApplicationArea = Basic, Suite;
+                    Caption = 'Posted Cashbox closing list';
+                    RunObject = Page "A01 Posted Cash Closing List";
+                }
+
             }
             group(A01AfkCredit)
             {
@@ -338,6 +363,8 @@ pageextension 50002 "A01 Order Processor RC" extends "Order Processor Role Cente
                     Caption = 'Payment promise list';
                     RunObject = Page "A01 Payment Promise List";
                 }
+
+
             }
         }
     }

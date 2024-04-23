@@ -111,12 +111,14 @@ codeunit 50002 "A01 EventsSubscribers_Code"
             SalesInvHeader."External Document No." := SalesInvHeader."No.";
     end;
 
-    [EventSubscriber(ObjectType::Codeunit, Codeunit::"Gen. Jnl.-Post Line", 'OnAfterRunWithoutCheck', '', true, true)]
-    local procedure OnAfterRunWithoutCheck_GenJnlPostLine(var GenJnlLine: Record "Gen. Journal Line")
+    [EventSubscriber(ObjectType::Codeunit, Codeunit::"Gen. Jnl.-Post Line", 'OnAfterRunWithCheck', '', true, true)]
+    local procedure GenJnlPostLine_OnAfterRunWithCheck(var GenJnlLine: Record "Gen. Journal Line")
     var
         TresoMgt: Codeunit "A01 Treso Mgt";
+        VoucherMgt: Codeunit "A01 Voucher Mgt";
     begin
         TresoMgt.ConfirmGenerationOnInterestOnCreditDue(GenJnlLine);
+        VoucherMgt.PostVoucherConsumption(GenJnlLine);
     end;
 
     [EventSubscriber(ObjectType::Codeunit, Codeunit::"Sales-Quote to Order", 'OnAfterCreateSalesHeader', '', true, true)]
@@ -187,6 +189,25 @@ codeunit 50002 "A01 EventsSubscribers_Code"
     end;
 
 
+    [EventSubscriber(ObjectType::Codeunit, Codeunit::"Item Jnl.-Post Line", 'OnAfterInsertValueEntry', '', true, true)]
+    local procedure ItemJnlPostLine_OnAfterInsertValueEntry(var ValueEntry: Record "Value Entry"; ItemJournalLine: Record "Item Journal Line"; var ItemLedgerEntry: Record "Item Ledger Entry"; var ValueEntryNo: Integer)
+    var
+        VoucherMgt: Codeunit "A01 Voucher Mgt";
+    begin
+        //ItemLedgerEntry.CalcFields("Sales Amount (Actual)");
+        //ItemLedgerEntry.TestField("Sales Amount (Actual)");
+        VoucherMgt.PostVoucherEmission(ItemLedgerEntry, Abs(ValueEntry."Sales Amount (Actual)"));
+    end;
 
+
+    // [IntegrationEvent(false, false)]
+    //     local procedure OnAfterInsertValueEntry(var ValueEntry: Record "Value Entry"; ItemJournalLine: Record "Item Journal Line"; var ItemLedgerEntry: Record "Item Ledger Entry"; var ValueEntryNo: Integer)
+    //     begin
+    //     end;
+
+    // [IntegrationEvent(false, false)]
+    //     local procedure OnAfterInsertItemLedgEntry(var ItemLedgerEntry: Record "Item Ledger Entry"; ItemJournalLine: Record "Item Journal Line"; var ItemLedgEntryNo: Integer; var ValueEntryNo: Integer; var ItemApplnEntryNo: Integer; GlobalValueEntry: Record "Value Entry"; TransferItem: Boolean; var InventoryPostingToGL: Codeunit "Inventory Posting To G/L"; var OldItemLedgerEntry: Record "Item Ledger Entry")
+    //     begin
+    //     end;
 
 }

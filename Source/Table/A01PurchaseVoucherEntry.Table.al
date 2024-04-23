@@ -5,6 +5,8 @@ table 50029 "A01 Purchase Voucher Entry"
 {
     Caption = 'Purchase Voucher Entry';
     DataClassification = CustomerContent;
+    LookupPageId = "A01 Purch Voucher Ledg Entries";
+    DrillDownPageId = "A01 Purch Voucher Ledg Entries";
 
     fields
     {
@@ -39,6 +41,11 @@ table 50029 "A01 Purchase Voucher Entry"
         field(8; "External User"; Code[20])
         {
             Caption = 'External User';
+        }
+        field(9; "Item Ledger Entry No."; Integer)
+        {
+            Caption = 'Item Ledger Entry No.';
+
         }
     }
     keys

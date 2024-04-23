@@ -11,6 +11,7 @@ table 50028 "A01 Purchase Voucher"
         field(1; "No."; Code[50])
         {
             Caption = 'No.';
+            Editable = false;
         }
         field(2; Reference; Text[30])
         {
@@ -19,6 +20,7 @@ table 50028 "A01 Purchase Voucher"
         field(3; "Initial Amount"; Decimal)
         {
             Caption = 'Initial Amount';
+            Editable = false;
         }
         field(4; Balance; Decimal)
         {

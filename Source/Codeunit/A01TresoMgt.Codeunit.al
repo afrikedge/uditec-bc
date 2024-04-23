@@ -461,6 +461,7 @@ codeunit 50007 "A01 Treso Mgt"
         // else
         GenJnlLine."Document Type" := GenJnlLine."Document Type"::Payment;
         GenJnlLine."Payment Method Code" := CustSettlementLine."Payment Method";
+        GenJnlLine."Payment Reference" := CustSettlementLine.Reference;
 
 
         SetBalAccAndApplyToID(RCPaymentMethod, GenJnlLine, CustSettlement."Applies-to ID");
@@ -749,7 +750,7 @@ codeunit 50007 "A01 Treso Mgt"
         GenJnlLine."Due Date" := LineDueDate;
         //GenJnlLine."Document No." := Copystr(GenJnlLine."Document No." + '/' + Format(LineId), 1, 20);
         if (LineId > 1) then
-            GenJnlLine."Document No." := Copystr(GenJnlLine."Document No." + '/' + Format(LineId), 1, 20);
+            GenJnlLine."Document No." := Copystr(GenJnlLine."Document No.", 1, 17) + '/' + Format(LineId);
         //GenJnlLine."External Document No." := Copystr(GenJnlLine."Document No." + '/' + Format(LineId), 1, 35);
         GenJnlLine."External Document No." := GenJnlLine."Document No.";
         //GenJnlLine."Document Type" := GenJnlLine."Document Type"::" ";

@@ -187,6 +187,18 @@ permissionset 50000 "A01 Uditec_All"
         tabledata "A01 GL Period User Group" = RIMD,
         table "A01 GL Period User Group" = X,
         report "A01 CustomerSettlementPrint" = X,
-        page "A01 Bank Account Users" = X;
+        page "A01 Bank Account Users" = X,
+        tabledata "A01 Cashbox closing" = RIMD,
+        tabledata "A01 Cashbox Closing Line" = RIMD,
+        table "A01 Cashbox closing" = X,
+        table "A01 Cashbox Closing Line" = X,
+        report "A01 Reminder Letter 2" = X,
+        report "A01 Reminder Letter 3" = X,
+        codeunit "A01 Document Request Mgt" = X,
+        codeunit "A01 Voucher Mgt" = X,
+        page "A01 GL Period User Groups" = X,
+        page "A01 Purch Voucher Ledg Entries" = X,
+        page "A01 Purchase Vouchers" = X,
+        page "A01 Voucher Card" = X;
     //page "A01 Customer Settlements" = X;
 }
