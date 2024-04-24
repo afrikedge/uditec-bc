@@ -9,24 +9,37 @@ codeunit 50016 "A01 Document Request Mgt"
         LblDescrPayment: label 'Payment to validate';
         LblDescrPOSPayment: label 'Payment at POS to be validated';
 
-    procedure AddDiscountRequest(SalesHeader: Record "Sales Header"; RequestedDiscount: Decimal)
+    procedure AddDiscountRequest(var SalesHeader: Record "Sales Header"; RequestedDiscount: Decimal;
+    WebUser: Text; Status: Enum "A01 Approval Status"): Code[20]
     var
-        Request: Record "A01 Request On Document";
+        RequestHdr: Record "A01 Request On Document";
+        ValidationOrder: Codeunit "A01 Sales Order Processing";
     begin
-        Request.Init();
+        RequestHdr.Init();
         if (SalesHeader."Document Type" = SalesHeader."Document Type"::Quote) then
-            Request.Validate("Request Type", Request."Request Type"::"Discount on quote");
+            RequestHdr.Validate("Request Type", RequestHdr."Request Type"::"Discount on quote");
         if (SalesHeader."Document Type" = SalesHeader."Document Type"::Order) then
-            Request.Validate("Request Type", Request."Request Type"::"Discount on order");
-        Request.Validate("Request No.", SalesHeader."No.");
-        Request.Validate("Customer No.", SalesHeader."Sell-to Customer No.");
-        Request.Validate("Sales Person", SalesHeader."Salesperson Code");
-        Request.Validate("Requested Discount (%)", RequestedDiscount);
-        Request.Object := LblDescrDiscount;
-        Request.Insert(true);
+            RequestHdr.Validate("Request Type", RequestHdr."Request Type"::"Discount on order");
+        RequestHdr.Validate("Request No.", SalesHeader."No.");
+        RequestHdr.Validate("Customer No.", SalesHeader."Sell-to Customer No.");
+        RequestHdr.Validate("Sales Person", SalesHeader."Salesperson Code");
+        RequestHdr.Validate("Requested Discount (%)", RequestedDiscount);
+        RequestHdr.Object := LblDescrDiscount;
+        RequestHdr."Created By" := CopyStr(WebUser, 1, 50);
+        RequestHdr.Status := Status;
+        RequestHdr.Insert(true);
+
+
+        ValidationOrder.SetIsWaitingForDiscount(SalesHeader);
+
+        SalesHeader."A01 Request Status" := Status;
+        SalesHeader.Modify();
+
+
+        exit(RequestHdr."Request No.");
     end;
 
-    procedure AddUnBlockingRequest(SalesHeader: Record "Sales Header")
+    procedure AddUnBlockingRequest(var SalesHeader: Record "Sales Header"; WebUser: Text; Status: Enum "A01 Approval Status"): Code[20]
     var
         Request: Record "A01 Request On Document";
     begin
@@ -37,10 +50,17 @@ codeunit 50016 "A01 Document Request Mgt"
         Request.Validate("Customer No.", SalesHeader."Sell-to Customer No.");
         Request.Validate("Sales Person", SalesHeader."Salesperson Code");
         Request.Object := LblDescrUnblocking;
+        Request."Created By" := CopyStr(WebUser, 1, 50);
+        Request.Status := Status;
         Request.Insert(true);
+
+        SalesHeader."A01 Request Status" := Status;
+        SalesHeader.Modify();
+
+        exit(Request."Request No.");
     end;
 
-    procedure AddPOSPaymentRequest(SalesHeader: Record "Sales Header")
+    procedure AddPOSPaymentRequest(var SalesHeader: Record "Sales Header"; WebUser: Text; Status: Enum "A01 Approval Status"): Code[20]
     var
         Request: Record "A01 Request On Document";
     begin
@@ -53,10 +73,17 @@ codeunit 50016 "A01 Document Request Mgt"
         Request.Validate("Customer No.", SalesHeader."Sell-to Customer No.");
         Request.Validate("Sales Person", SalesHeader."Salesperson Code");
         Request.Object := LblDescrPOSPayment;
+        Request."Created By" := CopyStr(WebUser, 1, 50);
+        Request.Status := Status;
         Request.Insert(true);
+
+        SalesHeader."A01 Request Status" := Status;
+        SalesHeader.Modify();
+
+        exit(Request."Request No.");
     end;
 
-    procedure AddPaymentRequest(PaymentDoc: Record "A01 Payment Document")
+    procedure AddPaymentRequest(var PaymentDoc: Record "A01 Payment Document")
     var
         Request: Record "A01 Request On Document";
     begin
@@ -69,7 +96,122 @@ codeunit 50016 "A01 Document Request Mgt"
         Request.Validate("Customer No.", PaymentDoc."Partner No.");
         //Request.Validate("Sales Person",SalesHeader."Salesperson Code");
         Request.Object := LblDescrPayment;
+        Request.Status := Request.Status::"Waiting for committee";
         Request.Insert(true);
+
+        //TODO Set Status here
+        PaymentDoc."Approval Status" := Request.Status;
+        PaymentDoc.Modify();
+
+    end;
+
+    procedure ModifyStatus(var Request: Record "A01 Request On Document"; WebUser: Text;
+    NewStatus: Enum "A01 Approval Status"): Code[20]
+    var
+        SalesOrder: Record "Sales Header";
+        PayDoc: Record "A01 Payment Document";
+    begin
+
+        Request.Status := NewStatus;
+        Request."Modified By" := CopyStr(WebUser, 1, 50);
+        Request.Modify();
+
+        if ((Request."Request Type" = Request."Request Type"::"Discount on order")
+         or (Request."Request Type" = Request."Request Type"::"Discount on quote")
+         or (Request."Request Type" = Request."Request Type"::"POS Payment")) then begin
+            SalesOrder.get(Request."Request No.");
+            SalesOrder."A01 Request Status" := NewStatus;
+            SalesOrder.Modify();
+        end;
+
+        if (Request."Request Type" = Request."Request Type"::"Payment Document") then begin
+            PayDoc.get(Request."Request No.");
+            PayDoc."Approval Status" := NewStatus;
+            PayDoc.Modify();
+        end;
+
+        if (Request.Status = Request.Status::Validated) then
+            CloseRequest(Request);
+
+        exit(Request."Request No.");
+    end;
+
+    local procedure CloseRequest(var Request: Record "A01 Request On Document")
+    var
+        SalesOrder: Record "Sales Header";
+        Salesline: Record "Sales Line";
+        POSPaymentLine: Record "A01 Sales Payment Method";
+        PaymentLine: Record "A01 Payment Document Line";
+        OrderValidationMgt: codeunit "A01 Sales Order Processing";
+    begin
+        case Request."Request Type" of
+            Request."Request Type"::"Discount on order":
+                begin
+                    SalesOrder.get(SalesOrder."Document Type"::Order, Request."Request No.");
+
+                    Salesline.Reset();
+                    Salesline.SetRange("Document Type", SalesOrder."Document Type");
+                    Salesline.SetRange("Document No.", Salesline."No.");
+                    if Salesline.FindSet(true) then
+                        repeat
+                            if (Salesline.Type <> Salesline.Type::" ") then
+                                Salesline.Validate(Salesline."Line Discount %", Request."Validated Discount (%)");
+                        until Salesline.Next() < 1;
+
+                    OrderValidationMgt.ValidateDraft(SalesOrder);
+
+                end;
+
+            Request."Request Type"::"Discount on quote":
+                begin
+                    SalesOrder.get(SalesOrder."Document Type"::Quote, Request."Request No.");
+
+                    Salesline.Reset();
+                    Salesline.SetRange("Document Type", SalesOrder."Document Type");
+                    Salesline.SetRange("Document No.", Salesline."No.");
+                    if Salesline.FindSet(true) then
+                        repeat
+                            if (Salesline.Type <> Salesline.Type::" ") then
+                                Salesline.Validate(Salesline."Line Discount %", Request."Validated Discount (%)");
+                        until Salesline.Next() < 1;
+                end;
+
+            Request."Request Type"::"Payment Document":
+
+                begin
+                    PaymentLine.Reset();
+                    PaymentLine.SetRange(PaymentLine."Document No.", Request."Request No.");
+                    if POSPaymentLine.FindSet(true) then
+                        repeat
+                            if (PaymentLine."Validated Amount" <> PaymentLine.Amount) then begin
+                                PaymentLine.Validate("Validated Amount", PaymentLine.Amount);
+                                PaymentLine.Modify();
+                            end;
+                        until PaymentLine.Next() < 1;
+                end;
+
+            Request."Request Type"::"POS Payment":
+                begin
+                    SalesOrder.get(SalesOrder."Document Type"::Order, Request."Request No.");
+
+                    POSPaymentLine.Reset();
+                    POSPaymentLine.SetRange(POSPaymentLine."Document Type", POSPaymentLine."Document Type"::Order);
+                    POSPaymentLine.SetRange(POSPaymentLine."Document No.", SalesOrder."No.");
+                    if POSPaymentLine.FindSet(true) then
+                        repeat
+                            if (POSPaymentLine."Validated Amount" <> POSPaymentLine.Amount) then begin
+                                POSPaymentLine.Validate("Validated Amount", POSPaymentLine.Amount);
+                                POSPaymentLine.Modify();
+                            end;
+                        until POSPaymentLine.Next() < 1;
+                end;
+            Request."Request Type"::Unblocking:
+                begin
+
+                end;
+            else
+                Error('Unknown Type');
+        end;
     end;
 
     local procedure PayNeedsValidation(PayHeader: Record "A01 Payment Document"): Boolean

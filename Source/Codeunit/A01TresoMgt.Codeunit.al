@@ -386,7 +386,7 @@ codeunit 50007 "A01 Treso Mgt"
           SalesHeader."Shortcut Dimension 1 Code", SalesHeader."Shortcut Dimension 2 Code",
           SalesHeader."Dimension Set ID", SalesHeader."Reason Code");
 
-
+        GenJnlLine.SetSuppressCommit(true);
         GenJnlLine.CopyDocumentFields(Enum::"Gen. Journal Document Type"::" ", DocNo, ExtDocNo, SourceCode, '');
         GenJnlLine."Account Type" := GenJnlLine."Account Type"::Customer;
         GenJnlLine."Account No." := SalesHeader."Bill-to Customer No.";
@@ -448,7 +448,7 @@ codeunit 50007 "A01 Treso Mgt"
           CustSettlement."Shortcut Dimension 1 Code", CustSettlement."Shortcut Dimension 2 Code",
           CustSettlement."Dimension Set ID", '');
 
-
+        GenJnlLine.SetSuppressCommit(true);
         GenJnlLine.CopyDocumentFields(Enum::"Gen. Journal Document Type"::Payment, CustSettlement."Posting No.", CustSettlement."External Document No.", SourceCodeSetup."Payment Journal", '');
         GenJnlLine."Account Type" := GenJnlLine."Account Type"::Customer;
         GenJnlLine."Account No." := CustSettlement."Partner No.";

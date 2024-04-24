@@ -1420,6 +1420,12 @@
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Table A01 Payment Document - Field Applies-to ID - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Table 516060391 - Field 1878856189 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>ApprovalStatus</source>
+          <target state="needs-review-translation">Statut approbation</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Table A01 Payment Document - Field Approval Status - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Table 516060391 - Field 4198939294 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Currency Code</source>
           <target state="needs-review-translation">Code devise</target>
@@ -1895,6 +1901,12 @@
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Table A01 Posted Payment Document - Field Applies-to ID - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Table 2155214808 - Field 1878856189 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>ApprovalStatus</source>
+          <target state="needs-review-translation">Statut approbation</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Table A01 Posted Payment Document - Field Approval Status - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Table 2155214808 - Field 4198939294 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Currency Code</source>
           <target state="needs-review-translation">Code devise</target>
@@ -1967,6 +1979,12 @@
           <target state="needs-review-translation">Date de comptabilisation</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Table A01 Posted Payment Document - Field Posting Date - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2155214808 - Field 514695969 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Posting No.</source>
+          <target state="needs-review-translation">N° validation</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Table A01 Posted Payment Document - Field Posting No. - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 2155214808 - Field 2247850105 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Responsibility Center</source>
@@ -3384,6 +3402,12 @@
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit A01 Sales Order Processing - NamedType QstSetAsDraft</note>
         </trans-unit>
+        <trans-unit id="Codeunit 4233996319 - Method 786011703 - NamedType 1412695557" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Order document %1 has no lines</source>
+          <target state="needs-review-translation">La commande %1 n'a pas de lignes</target>
+          <note from="Developer" annotates="general" priority="2">%1=rr</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit A01 Sales Order Processing - Method SetIsWaitingForDiscount - NamedType ErrLab01</note>
+        </trans-unit>
         <trans-unit id="Codeunit 2075651460 - NamedType 1145802899" size-unit="char" translate="yes" xml:space="preserve">
           <source>You are not authorized to use this feature.</source>
           <target state="needs-review-translation">Vous n'êtes pas autorisé à utiliser cette fonctionnalité.</target>
@@ -4421,7 +4445,8 @@
         </trans-unit>
         <trans-unit id="Page 3120123025 - Action 2282416948 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>&amp;amp;Post</source>
-          <target state="needs-review-translation">Valider la clôture</target>
+          <target state="needs-adaptation">Valider la clôture</target>
+          <note from="XLIFF Sync" annotates="general" priority="1">Source text has changed. Please review the translation.</note>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Page A01 Cashbox Closing - Action Post - Property Caption</note>
         </trans-unit>
@@ -12854,7 +12879,6 @@
         <trans-unit id="Report 3994419851 - NamedType 2900565025" size-unit="char" translate="yes" xml:space="preserve">
           <source>        Sauf erreur ou omission de notre part, nous n’avons pas reçu, à ce jour, le paiement d’un montant de %1 Ar (%2). Ce montant correspond au total de vos impayés et des frais de retard, relatifs à l’achat à crédit que vous avez effectué auprès de notre société, dont vous trouverez ci-dessous les détails :</source>
           <target state="needs-adaptation">Sauf erreur ou omission de notre part, nous n’avons pas reçu, à ce jour, le paiement d’un montant de %1 Ar (%2 ariary). Ce montant correspond au total de vos impayés et des frais de retard, relatifs à l’achat à crédit que vous avez effectué auprès de notre société, dont vous trouverez ci-dessous les détails :</target>
-          <note from="XLIFF Sync" annotates="general" priority="1">Source text has changed. Please review the translation.</note>
           <note from="Developer" annotates="general" priority="2">%1=...,%2=...</note>
           <note from="Xliff Generator" annotates="general" priority="3">Report A01 Reminder Letter 1 - NamedType BodyLabel01</note>
         </trans-unit>
@@ -15972,6 +15996,12 @@
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension A01 Issued Reminder Header - Field A01 Actual Start Datetime - Property Caption</note>
         </trans-unit>
+        <trans-unit id="TableExtension 1952135392 - Field 39020368 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1929467888">
+          <source>Assignment No.</source>
+          <target state="needs-review-translation">N° Affectation</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension A01 Issued Reminder Header - Field A01 Assignment No. - Property Caption</note>
+        </trans-unit>
         <trans-unit id="TableExtension 1952135392 - Field 1519415861 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1929467888">
           <source>Created By</source>
           <target state="needs-review-translation">Créé par</target>
@@ -16464,6 +16494,12 @@
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension A01 Sales Header - Field A01 Processing Status - Property Caption</note>
         </trans-unit>
+        <trans-unit id="TableExtension 1143019865 - Field 1389872895 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1192395785">
+          <source>Approval Status</source>
+          <target state="needs-review-translation">Statut approbation</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension A01 Sales Header - Field A01 Request Status - Property Caption</note>
+        </trans-unit>
         <trans-unit id="TableExtension 1143019865 - Field 930887970 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1192395785">
           <source>Return Reason</source>
           <target state="needs-review-translation">Raison du renvoi</target>
@@ -16572,6 +16608,12 @@
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension A01 Sales Header Archive - Field A01 Processing Status - Property Caption</note>
         </trans-unit>
+        <trans-unit id="TableExtension 2954665223 - Field 1389872895 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1948788855">
+          <source>Approval Status</source>
+          <target state="needs-review-translation">Statut approbation</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension A01 Sales Header Archive - Field A01 Request Status - Property Caption</note>
+        </trans-unit>
         <trans-unit id="TableExtension 2954665223 - Field 930887970 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1948788855">
           <source>Return Reason</source>
           <target state="needs-review-translation">Raison du renvoi</target>
@@ -16679,6 +16721,12 @@
           <target state="needs-review-translation">Statut traitement</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension A01 Sales Invoice Header - Field A01 Processing Status - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 1507475930 - Field 1389872895 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 809936682">
+          <source>Approval Status</source>
+          <target state="needs-review-translation">Statut approbation</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension A01 Sales Invoice Header - Field A01 Request Status - Property Caption</note>
         </trans-unit>
         <trans-unit id="TableExtension 1507475930 - Field 930887970 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 809936682">
           <source>Return Reason</source>

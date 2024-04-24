@@ -175,6 +175,11 @@ table 50032 "A01 Payment Document"
             Caption = 'Posting No.';
             Editable = false;
         }
+        field(22; "Approval Status"; Enum "A01 Approval Status")
+        {
+            Caption = 'ApprovalStatus';
+            Editable = false;
+        }
 
 
 

@@ -93,6 +93,16 @@ table 50026 "A01 Posted Payment Document"
             FieldClass = FlowField;
             CalcFormula = sum("A01 Posted Payment Doc Line"."Validated Amount" where("Document No." = field("No.")));
         }
+        field(21; "Posting No."; Code[20])
+        {
+            Caption = 'Posting No.';
+            Editable = false;
+        }
+        field(22; "Approval Status"; Enum "A01 Approval Status")
+        {
+            Caption = 'ApprovalStatus';
+            Editable = false;
+        }
 
 
 

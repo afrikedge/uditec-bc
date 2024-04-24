@@ -189,16 +189,31 @@ codeunit 50002 "A01 EventsSubscribers_Code"
     end;
 
 
-    [EventSubscriber(ObjectType::Codeunit, Codeunit::"Item Jnl.-Post Line", 'OnAfterInsertValueEntry', '', true, true)]
-    local procedure ItemJnlPostLine_OnAfterInsertValueEntry(var ValueEntry: Record "Value Entry"; ItemJournalLine: Record "Item Journal Line"; var ItemLedgerEntry: Record "Item Ledger Entry"; var ValueEntryNo: Integer)
+    //[EventSubscriber(ObjectType::Codeunit, Codeunit::"Item Jnl.-Post Line", 'OnAfterInsertValueEntry', '', true, true)]
+    // local procedure ItemJnlPostLine_OnAfterInsertValueEntry(var ValueEntry: Record "Value Entry"; ItemJournalLine: Record "Item Journal Line"; var ItemLedgerEntry: Record "Item Ledger Entry"; var ValueEntryNo: Integer)
+    // var
+    //     VoucherMgt: Codeunit "A01 Voucher Mgt";
+    // begin
+    //     //ItemLedgerEntry.CalcFields("Sales Amount (Actual)");
+    //     //ItemLedgerEntry.TestField("Sales Amount (Actual)");
+    //     VoucherMgt.PostVoucherEmission(ItemLedgerEntry, Abs(ValueEntry."Sales Amount (Actual)"));
+    // end;
+
+    [EventSubscriber(ObjectType::Codeunit, Codeunit::"Item Jnl.-Post Line", 'OnBeforeInsertValueEntry', '', true, true)]
+    local procedure ItemJnlPostLine_OnBeforeInsertValueEntry(var ValueEntry: Record "Value Entry"; ItemJournalLine: Record "Item Journal Line"; var ItemLedgerEntry: Record "Item Ledger Entry"; var ValueEntryNo: Integer; var InventoryPostingToGL: Codeunit "Inventory Posting To G/L"; CalledFromAdjustment: Boolean; var OldItemLedgEntry: Record "Item Ledger Entry"; var Item: Record Item; TransferItem: Boolean; var GlobalValueEntry: Record "Value Entry")
     var
         VoucherMgt: Codeunit "A01 Voucher Mgt";
     begin
         //ItemLedgerEntry.CalcFields("Sales Amount (Actual)");
         //ItemLedgerEntry.TestField("Sales Amount (Actual)");
-        VoucherMgt.PostVoucherEmission(ItemLedgerEntry, Abs(ValueEntry."Sales Amount (Actual)"));
+        VoucherMgt.PostVoucherEmission(ItemLedgerEntry, InventoryPostingToGL, Abs(ValueEntry."Sales Amount (Actual)"));
     end;
 
+
+    // [IntegrationEvent(false, false)]
+    //     local procedure OnBeforeInsertValueEntry(var ValueEntry: Record "Value Entry"; ItemJournalLine: Record "Item Journal Line"; var ItemLedgerEntry: Record "Item Ledger Entry"; var ValueEntryNo: Integer; var InventoryPostingToGL: Codeunit "Inventory Posting To G/L"; CalledFromAdjustment: Boolean; var OldItemLedgEntry: Record "Item Ledger Entry"; var Item: Record Item; TransferItem: Boolean; var GlobalValueEntry: Record "Value Entry")
+    //     begin
+    //     end;
 
     // [IntegrationEvent(false, false)]
     //     local procedure OnAfterInsertValueEntry(var ValueEntry: Record "Value Entry"; ItemJournalLine: Record "Item Journal Line"; var ItemLedgerEntry: Record "Item Ledger Entry"; var ValueEntryNo: Integer)

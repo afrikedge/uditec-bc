@@ -106,5 +106,11 @@ tableextension 50002 "A01 Sales Header Archive" extends "Sales Header Archive"
             DataClassification = CustomerContent;
             Editable = false;
         }
+        field(50018; "A01 Request Status"; Enum "A01 Approval Status")
+        {
+            Caption = 'Approval Status';
+            Editable = false;
+            DataClassification = CustomerContent;
+        }
     }
 }

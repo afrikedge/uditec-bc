@@ -15,7 +15,7 @@ report 50020 "A01 Create Document Request"
                         or (CreatedDocType = "A01 Request On Document Type"::"Discount on order")) then begin
                     if ((RequestedDiscount > 100) or (RequestedDiscount = 0)) then
                         Error(LblRequestedDiscountError);
-                    RequestDocMgt.AddDiscountRequest(SalesHeader, RequestedDiscount);
+                    RequestDocMgt.AddDiscountRequest(SalesHeader, RequestedDiscount, '', SalesHeader."A01 Request Status"::"Waiting for committee");
                     Message(LblDocCreated);
                     exit;
                 end;

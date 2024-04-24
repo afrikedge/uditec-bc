@@ -6,7 +6,7 @@ codeunit 50017 "A01 Voucher Mgt"
     var
         AddOnSetup: Record "A01 Afk Setup";
 
-    procedure PostVoucherEmission(ItemLedgerEntry: Record "Item Ledger Entry"; VoucherAmount: decimal)
+    procedure PostVoucherEmission(ItemLedgerEntry: Record "Item Ledger Entry"; var InventoryPostingToGL: Codeunit "Inventory Posting To G/L"; VoucherAmount: decimal)
     var
         VoucherLedgerEntry: Record "A01 Purchase Voucher Entry";
         Voucher: Record "A01 Purchase Voucher";
@@ -65,16 +65,16 @@ codeunit 50017 "A01 Voucher Mgt"
         //if (ItemLedgerEntry."Entry Type" = ItemLedgerEntry."Entry Type"::"Negative Adjmt.") then
         if (ItemLedgerEntry."Entry Type" = ItemLedgerEntry."Entry Type"::Sale) then
             if (ItemLedgerEntry."Document Type" = ItemLedgerEntry."Document Type"::" ") then
-                PostEmissionGLEntryOnNegAdjustment(ItemLedgerEntry, VoucherAmount);
+                PostEmissionGLEntryOnNegAdjustment(ItemLedgerEntry, InventoryPostingToGL, VoucherAmount);
 
     end;
 
-    local procedure PostEmissionGLEntryOnNegAdjustment(ItemLedgerEntry: Record "Item Ledger Entry"; VoucherAmount: decimal)
+    local procedure PostEmissionGLEntryOnNegAdjustment(ItemLedgerEntry: Record "Item Ledger Entry"; var InventoryPostingToGL: Codeunit "Inventory Posting To G/L"; VoucherAmount: decimal)
     var
         //VoucherLedgerEntry: Record "A01 Purchase Voucher Entry";
         GenJnlLine: Record "Gen. Journal Line";
         SourceCodeSetup: Record "Source Code Setup";
-        GenJnlPostLine: Codeunit "Gen. Jnl.-Post Line";
+
     begin
         AddOnSetup.GetRecordOnce();
         AddOnSetup.TestField(AddOnSetup."Charge Account (Voucher)");
@@ -108,7 +108,8 @@ codeunit 50017 "A01 Voucher Mgt"
         GenJnlLine."Shortcut Dimension 2 Code" := ItemLedgerEntry."Global Dimension 2 Code";
         GenJnlLine."Dimension Set ID" := ItemLedgerEntry."Dimension Set ID";
 
-        GenJnlPostLine.RunWithCheck(GenJnlLine);
+        //GenJnlPostLine.RunWithCheck(GenJnlLine);
+        InventoryPostingToGL.PostGenJnlLine(GenJnlLine);
 
     end;
 
