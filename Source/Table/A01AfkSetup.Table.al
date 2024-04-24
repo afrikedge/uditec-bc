@@ -261,6 +261,21 @@ table 50017 "A01 Afk Setup"
             Caption = 'Reposession Risk Level';
             TableRelation = "A01 Parameter Record".Code where(Type = const(RiskLevel));
         }
+        field(56; "Suspense Account (Voucher)"; Code[20])
+        {
+            Caption = 'Suspense Account (Voucher)';
+            TableRelation = "G/L Account"."No." where("Direct Posting" = const(true));
+        }
+        field(57; "Transfer Acc (Bank-CashBox)"; Code[20])
+        {
+            Caption = 'Transfer Acc (Bank-CashBox)';
+            TableRelation = "G/L Account"."No." where("Direct Posting" = const(true));
+        }
+        field(58; "Transfer Acc (Inter-cash)"; Code[20])
+        {
+            Caption = 'Transfer Acc (Inter-cash)';
+            TableRelation = "G/L Account"."No." where("Direct Posting" = const(true));
+        }
 
 
         //Banked or unbanked employee

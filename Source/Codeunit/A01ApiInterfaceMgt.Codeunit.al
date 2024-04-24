@@ -34,6 +34,8 @@ codeunit 50008 "A01 Api Interface Mgt"
                 exit(QuotesMgt.Run(input, true));
             'quotes_makeorder':
                 exit(QuotesMgt.MakeOrder(input));
+            'salesQuotes_reopen':
+                exit(QuotesMgt.Run_Open(input));
             'quotes_item_getPrice':
                 exit(QuotesMgt.GetUnitPrice(input));
             'quotes_requestApproval':
@@ -49,6 +51,8 @@ codeunit 50008 "A01 Api Interface Mgt"
                 exit(OrdersMgt.Run(input, false));
             'orders_delete':
                 exit(OrdersMgt.Run(input, true));
+            'salesOrders_reopen':
+                exit(OrdersMgt.Run_Open(input));
             'orders_requestApproval':
                 exit(OrdersMgt.ValidateDraft(input));
             'orders_item_getPrice':
@@ -57,6 +61,14 @@ codeunit 50008 "A01 Api Interface Mgt"
                 exit(OrdersMgt.SaveOrderPaymentLines(input));
             'orders_payment_validate':
                 exit(OrdersMgt.PostSalesOrder(input));
+            'salesOrderUnclocking_insert':
+                exit(OrdersMgt.Run_CreateUnBlockingRequest(input));
+            'discountRequest_insert':
+                exit(OrdersMgt.Run_CreateDiscountRequest(input));
+            'paymentRequest_insert':
+                exit(OrdersMgt.Run_CreatePOSPaymentRequest(input));
+            'request_validate':
+                exit(OrdersMgt.Run_ModifyRequestStatus(input));
 
 
             'recoveryActivities_insert':
@@ -105,6 +117,9 @@ codeunit 50008 "A01 Api Interface Mgt"
                 exit(MasterFilesMgt.RunShipToAddress(input, false));
             'shipToAddress_modify':
                 exit(MasterFilesMgt.RunShipToAddress(input, false));
+
+
+
 
             else
                 exit(StrSubstNo(LblUnknownParameter, param));

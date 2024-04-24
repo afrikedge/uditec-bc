@@ -33,6 +33,25 @@ codeunit 50005 "A01 WS QuotesMgt"
             exit(AddQuote(input));
     end;
 
+    procedure Run_Open(input: JsonObject): Text
+    var
+        SalesOrder: Record "Sales Header";
+        NoOrder: text;
+        WebUser: text;
+    begin
+        NoOrder := ws.GetText('No_', input);
+        WebUser := ws.GetText('webUserName', input);
+
+        SalesOrder.Get(SalesOrder."Document Type"::Quote, NoOrder);
+
+        SalesOrder."A01 Web User Id" := copystr(WebUser, 1, 50);
+
+        SalesOrder.PerformManualReopen(SalesOrder);
+
+        exit(Ws.CreateResponseSuccess(SalesOrder."No."));
+
+    end;
+
 
     /// <summary>
     /// ModifyQuote.

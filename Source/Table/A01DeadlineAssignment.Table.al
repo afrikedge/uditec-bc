@@ -32,6 +32,7 @@ table 50025 "A01 Deadline Assignment"
             begin
                 if (Cust.Get("Customer No.")) then begin
                     "Due status" := CalcCustStatus(Cust."No.");
+                    CheckAndModifyCustExistingAssigments();
                 end;
 
             end;
@@ -109,6 +110,11 @@ table 50025 "A01 Deadline Assignment"
             Caption = 'No. Series';
             TableRelation = "No. Series";
         }
+        field(13; "Assigment Status"; Enum "A01 Deadline Assigment Status")
+        {
+            Caption = 'Assigment Status';
+        }
+
         // field(12; "Customer Entry No."; Integer)
         // {
         //     Caption = 'Customer Entry No.';
@@ -139,25 +145,23 @@ table 50025 "A01 Deadline Assignment"
     var
         AddOnSetup: Record "A01 Afk Setup";
         NoSeriesManagement: Codeunit NoSeriesManagement;
+        TresoMgt: Codeunit "A01 Treso Mgt";
 
 
     trigger OnInsert()
     begin
         if "No." = '' then begin
             AddOnSetup.Get();
-            AddOnSetup.TestField("Customer Settlement Nos");
-            NoSeriesManagement.InitSeries(AddOnSetup."Customer Settlement Nos", xRec."No. Series", 0D, "No.", "No. Series");
+            AddOnSetup.TestField("Deadline Assignment Nos");
+            NoSeriesManagement.InitSeries(AddOnSetup."Deadline Assignment Nos", xRec."No. Series", 0D, "No.", "No. Series");
         end;
         InitHeader();
     end;
 
     trigger OnDelete()
     var
-        DocLine: Record "A01 Payment Document Line";
     begin
-        DocLine.SetRange(DocLine."Document No.", "No.");
-        if (not DocLine.IsEmpty) then
-            DocLine.DeleteAll();
+
     end;
 
     local procedure InitHeader()
@@ -188,14 +192,31 @@ table 50025 "A01 Deadline Assignment"
         CustLedgerEntry.SetRange(Positive, true);
         if CustLedgerEntry.FindSet() then
             repeat
-                DueDays := GetDueDays(CustLedgerEntry);
-                if (DueDays > MaxDueDays) then begin
+                DueDays := TresoMgt.GetDueDays(CustLedgerEntry);
+                if (DueDays >= MaxDueDays) then begin
                     RiskOfMaxDueDate := GetRiskLevel(DueDays);
                     MaxDueDays := DueDays;
                 end;
             until CustLedgerEntry.Next() < 1;
 
         exit(RiskOfMaxDueDate);
+
+    end;
+
+    local procedure CheckAndModifyCustExistingAssigments()
+    var
+        Assigment: Record "A01 Deadline Assignment";
+        QstLbl: Label 'Existing active assignments for this customer will be closed. Do you want to continue?';
+    begin
+        Assigment.Reset();
+        Assigment.SetFilter("No.", '<>%1', Rec."No.");
+        Assigment.SetRange("Customer No.", Rec."Customer No.");
+        Assigment.SetRange("Assigment Status", "Assigment Status"::Active);
+        if (Assigment.FindFirst()) then begin
+            if (not confirm(QstLbl)) then
+                Error('');
+            Assigment.ModifyAll("Assigment Status", "Assigment Status"::InActive);
+        end;
 
     end;
 
@@ -206,6 +227,7 @@ table 50025 "A01 Deadline Assignment"
         CustDebtStatus.Reset();
         CustDebtStatus.SetFilter("Minimum (Days)", '<%1', DueDays);
         CustDebtStatus.SetFilter("Minimum (Days)", '>=%1', DueDays);
+        CustDebtStatus.SetRange("Risk Level", '');
         if (CustDebtStatus.FindFirst()) then
             exit(CustDebtStatus.Code);
     end;
@@ -230,28 +252,6 @@ table 50025 "A01 Deadline Assignment"
     //         exit(CustDebtStatus."Risk Level");
 
     // end;
-
-    local procedure GetDueDays(CustLedgerEntry: Record "Cust. Ledger Entry"): Integer
-    var
-    begin
-        if (CustLedgerEntry."Closed at Date" <> 0D) then
-            exit(Days(CustLedgerEntry."Due Date", CustLedgerEntry."Closed at Date"))
-        else
-            exit(Days(CustLedgerEntry."Due Date", Today));
-    end;
-
-    local procedure Days(Day1: Date; Day2: Date): Integer
-    var
-    begin
-        if Day1 > Day2 then
-            exit(0);
-        if Day1 = 0D then
-            exit(0);
-        if Day2 = 0D then
-            exit(0);
-
-        exit(Day2 - Day1 + 1);
-    end;
 
 
 

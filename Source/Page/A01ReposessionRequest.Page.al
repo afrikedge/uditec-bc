@@ -8,7 +8,7 @@ page 50053 "A01 Reposession Request"
     PageType = Card;
     SourceTable = "A01 Reposession Request";
     UsageCategory = Documents;
-    Editable = false;
+    //Editable = false;
 
     layout
     {
@@ -19,6 +19,12 @@ page 50053 "A01 Reposession Request"
                 Caption = 'General';
 
                 field("No."; Rec."No.")
+                {
+                }
+                field("Customer No."; Rec."Customer No.")
+                {
+                }
+                field("Customer Name"; Rec."Customer Name")
                 {
                 }
                 field(Object; Rec.Object)
@@ -60,7 +66,7 @@ page 50053 "A01 Reposession Request"
                 field("Document Ref."; Rec."Document Ref.")
                 {
                 }
-                field(Value; Rec.Value)
+                field(Value; Rec."item Value")
                 {
                 }
             }

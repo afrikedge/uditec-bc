@@ -129,6 +129,18 @@ codeunit 50000 "A01 Sales Order Processing"
             CheckIsAwaitingPrepayment(SalesH);
     end;
 
+    procedure SetIsWaitingForDiscount(var SalesH: Record "Sales Header")
+    var
+        ErrLab01: label 'Order document %1 has no lines', Comment = '%1=rr';
+    begin
+        if (not LineExists(SalesH)) then
+            Error(ErrLab01, SalesH."No.");
+        SalesH.TestField("Sell-to Customer No.");
+        SalesH."A01 Processing Status" := SalesH."A01 Processing Status"::"Waiting for discount";
+        InsertNewStep(SalesH."No.", "A01 ActionStepHistory"::"Change Status", FORMAT(SalesH."A01 Processing Status"::"Waiting for discount"), '');
+        SalesH.Modify();
+    end;
+
     /// <summary>
     /// NeedPrepayment.
     /// </summary>
@@ -346,11 +358,20 @@ codeunit 50000 "A01 Sales Order Processing"
         SalesLine: Record "Sales Line";
     begin
         SalesLine.Reset();
-        ;
         SalesLine.SetRange("Document Type", SalesH."Document Type");
         SalesLine.SetRange("Document No.", SalesH."No.");
         SalesLine.SetFilter(Type, '<>%1', SalesLine.Type::" ");
         SalesLine.SetFilter("Quantity Shipped", '<>%1', 0);
+        exit(not SalesLine.IsEmpty);
+    end;
+
+    local procedure LineExists(SalesH: Record "Sales Header"): Boolean
+    var
+        SalesLine: Record "Sales Line";
+    begin
+        SalesLine.Reset();
+        SalesLine.SetRange("Document Type", SalesH."Document Type");
+        SalesLine.SetRange("Document No.", SalesH."No.");
         exit(not SalesLine.IsEmpty);
     end;
 

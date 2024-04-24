@@ -121,7 +121,7 @@
         </trans-unit>
         <trans-unit id="Table 2685203037 - Field 4156452989 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Deadline Assignment Nos</source>
-          <target state="needs-review-translation">N° Affectation échéance</target>
+          <target state="needs-review-translation">N° Affectation client</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Table A01 Afk Setup - Field Deadline Assignment Nos - Property Caption</note>
         </trans-unit>
@@ -317,6 +317,24 @@
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Table A01 Afk Setup - Field ShipToAddress Code Nos - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Table 2685203037 - Field 1192949124 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Suspense Account (Voucher)</source>
+          <target state="needs-review-translation">Compte encours (Bon d'achat)</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Table A01 Afk Setup - Field Suspense Account (Voucher) - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2685203037 - Field 629020416 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Transfer Acc (Bank-CashBox)</source>
+          <target state="needs-review-translation">Compte transfert (Banque-Caisse)</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Table A01 Afk Setup - Field Transfer Acc (Bank-CashBox) - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2685203037 - Field 997057909 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Transfer Acc (Inter-cash)</source>
+          <target state="needs-review-translation">Compte transfert (Caisse-Caisse)</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Table A01 Afk Setup - Field Transfer Acc (Inter-cash) - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Table 2685203037 - Field 663898051 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Transport Voucher Nos</source>
           <target state="needs-review-translation">N° Bon de transport</target>
@@ -500,6 +518,96 @@
           <target state="needs-review-translation">N° séquence</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Table A01 Approval Flow - Field Sequence No. - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2605503153 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Cashbox closing</source>
+          <target state="needs-review-translation">Clôture de caisse</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Table A01 Cashbox closing - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2605503153 - NamedType 150152479" size-unit="char" translate="yes" xml:space="preserve">
+          <source>The lines will be deleted. Do you want to continue ?</source>
+          <target state="needs-review-translation">Les lignes seront supprimées. Voulez-vous continuer?</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Table A01 Cashbox closing - NamedType LblQuestChangeRespCenter</note>
+        </trans-unit>
+        <trans-unit id="Table 2605503153 - NamedType 34247782" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Do you want to validate the closing of cashbox for the date of %1 ?</source>
+          <target state="needs-review-translation">Voulez-vous valider la clôture des caisses pour la date du %1</target>
+          <note from="Developer" annotates="general" priority="2">%1)</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table A01 Cashbox closing - NamedType LblQuestValidate</note>
+        </trans-unit>
+        <trans-unit id="Table 2605503153 - Field 3120492303 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Closing Balance</source>
+          <target state="needs-review-translation">Solde de clôture</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Table A01 Cashbox closing - Field Closing Balance - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2605503153 - Field 573373209 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Closing Date</source>
+          <target state="needs-review-translation">Date de clôture</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Table A01 Cashbox closing - Field Closing Date - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2605503153 - Field 513339096 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Status</source>
+          <target state="needs-review-translation">Statut</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Table A01 Cashbox closing - Field Status - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2605503153 - Field 1998138150 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Store Code</source>
+          <target state="needs-review-translation">Code point de vente</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Table A01 Cashbox closing - Field Store Code - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 530321003 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Cashbox Closing Line</source>
+          <target state="needs-review-translation">Ligne Clôture caisse</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Table A01 Cashbox Closing Line - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 530321003 - Field 1682139193 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Bank Account</source>
+          <target state="needs-review-translation">Caisse</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Table A01 Cashbox Closing Line - Field Bank Account - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 530321003 - Field 358812122 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Bank Note</source>
+          <target state="needs-review-translation">Coupure</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Table A01 Cashbox Closing Line - Field Bank Note - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 530321003 - Field 1595458327 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Bank Note Value</source>
+          <target state="needs-review-translation">Valeur coupure</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Table A01 Cashbox Closing Line - Field Bank Note Value - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 530321003 - Field 573373209 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Closing Date</source>
+          <target state="needs-review-translation">Date de clôture</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Table A01 Cashbox Closing Line - Field Closing Date - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 530321003 - Field 3670773175 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Line Value</source>
+          <target state="needs-review-translation">Valeur ligne</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Table A01 Cashbox Closing Line - Field Line Value - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 530321003 - Field 2704404533 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Quantity</source>
+          <target state="needs-review-translation">Nombre</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Table A01 Cashbox Closing Line - Field Quantity - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 530321003 - Field 1998138150 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Store Code</source>
+          <target state="needs-review-translation">Point de vente</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Table A01 Cashbox Closing Line - Field Store Code - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 2925814558 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Credit Depreciation Table</source>
@@ -742,11 +850,29 @@
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Table A01 Customer Debt Status - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Table 3938211033 - Field 668666397 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Agent fees full (%)</source>
+          <target state="needs-review-translation">Frais salarié Total (%)</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Table A01 Customer Debt Status - Field Agent fees full (%) - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3938211033 - Field 2236071141 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Agent fees partial (%)</source>
+          <target state="needs-review-translation">Frais salarié Partiel(%)</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Table A01 Customer Debt Status - Field Agent fees partial (%) - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Table 3938211033 - Field 3004954119 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Code</source>
           <target state="needs-review-translation">Code</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Table A01 Customer Debt Status - Field Code - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3938211033 - Field 214010482 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Company fees (%)</source>
+          <target state="needs-review-translation">Frais société (%)</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Table A01 Customer Debt Status - Field Company fees (%) - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 3938211033 - Field 3461834954 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Description</source>
@@ -876,9 +1002,21 @@
         </trans-unit>
         <trans-unit id="Table 576774419 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Customer assignment</source>
-          <target state="needs-adaptation">Affectation échéance</target>
+          <target state="needs-adaptation">Affectation client</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Table A01 Deadline Assignment - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 576774419 - Method 297157691 - NamedType 1076960424" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Existing active assignments for this customer will be closed. Do you want to continue?</source>
+          <target state="needs-review-translation">Il existe des affectations actives pour ce client qui seront clôturées. Voulez-vous continuer?</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Table A01 Deadline Assignment - Method CheckAndModifyCustExistingAssigments - NamedType QstLbl</note>
+        </trans-unit>
+        <trans-unit id="Table 576774419 - Field 4179038987 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Assigment Status</source>
+          <target state="needs-review-translation">Statut affectation</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Table A01 Deadline Assignment - Field Assigment Status - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 576774419 - Field 1046461469 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Assigned by</source>
@@ -918,7 +1056,7 @@
         </trans-unit>
         <trans-unit id="Table 576774419 - Field 233905188 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Due status</source>
-          <target state="needs-review-translation">Statut échéance</target>
+          <target state="needs-review-translation">Statut dette</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Table A01 Deadline Assignment - Field Due status - Property Caption</note>
         </trans-unit>
@@ -1281,6 +1419,12 @@
           <target state="needs-review-translation">ID Lettrage</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Table A01 Payment Document - Field Applies-to ID - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 516060391 - Field 1878856189 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>ApprovalStatus</source>
+          <target state="needs-review-translation">Statut approbation</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Table A01 Payment Document - Field Approval Status - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 516060391 - Field 4198939294 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Currency Code</source>
@@ -1757,6 +1901,12 @@
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Table A01 Posted Payment Document - Field Applies-to ID - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Table 2155214808 - Field 1878856189 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>ApprovalStatus</source>
+          <target state="needs-review-translation">Statut approbation</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Table A01 Posted Payment Document - Field Approval Status - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Table 2155214808 - Field 4198939294 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Currency Code</source>
           <target state="needs-review-translation">Code devise</target>
@@ -1829,6 +1979,12 @@
           <target state="needs-review-translation">Date de comptabilisation</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Table A01 Posted Payment Document - Field Posting Date - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2155214808 - Field 514695969 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Posting No.</source>
+          <target state="needs-review-translation">N° validation</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Table A01 Posted Payment Document - Field Posting No. - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 2155214808 - Field 2247850105 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Responsibility Center</source>
@@ -1986,6 +2142,12 @@
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Table A01 Purchase Voucher - Field Initial Amount - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Table 1706046837 - Field 3996731827 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Item Ledger Entry Id</source>
+          <target state="needs-review-translation">N° Ecriture article</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Table A01 Purchase Voucher - Field Item Ledger Entry Id - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Table 1706046837 - Field 4200184881 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>No.</source>
           <target state="needs-review-translation">N°</target>
@@ -2051,6 +2213,12 @@
           <target state="needs-review-translation">Utilisateur Externe</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Table A01 Purchase Voucher Entry - Field External User - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3414010865 - Field 2684044605 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Item Ledger Entry No.</source>
+          <target state="needs-review-translation">N° Ecriture article</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Table A01 Purchase Voucher Entry - Field Item Ledger Entry No. - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 3414010865 - Field 3710982960 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Posting Date</source>
@@ -2166,6 +2334,18 @@
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Table A01 Reposession Request - Field Created By - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Table 2661746449 - Field 1171137197 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Customer Name</source>
+          <target state="needs-review-translation">Nom du client</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Table A01 Reposession Request - Field Customer Name - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2661746449 - Field 4190130733 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Customer No.</source>
+          <target state="needs-review-translation">N° Client</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Table A01 Reposession Request - Field Customer No. - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Table 2661746449 - Field 486908828 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Document No.</source>
           <target state="needs-review-translation">N° Document</target>
@@ -2189,6 +2369,12 @@
           <target state="needs-review-translation">N° Article</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Table A01 Reposession Request - Field Item No. - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2661746449 - Field 35045114 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Value</source>
+          <target state="needs-review-translation">Valeur</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Table A01 Reposession Request - Field item Value - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 2661746449 - Field 596019230 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Modified By</source>
@@ -2243,12 +2429,6 @@
           <target state="needs-review-translation">Numéro de série</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Table A01 Reposession Request - Field Serial Number - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Table 2661746449 - Field 1131619133 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Value</source>
-          <target state="needs-review-translation">Valeur</target>
-          <note from="Developer" annotates="general" priority="2"/>
-          <note from="Xliff Generator" annotates="general" priority="3">Table A01 Reposession Request - Field Value - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 4167722193 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Request On Document</source>
@@ -2464,6 +2644,12 @@
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Table A01 Revision Request - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Table 1650926142 - Field 2369664869 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Created By</source>
+          <target state="needs-review-translation">Crée par</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Table A01 Revision Request - Field Created By - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Table 1650926142 - Field 2359550932 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Credit Limit</source>
           <target state="needs-review-translation">Limite de crédit</target>
@@ -2493,6 +2679,12 @@
           <target state="needs-review-translation">Code client</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Table A01 Revision Request - Field Customer No. - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 1650926142 - Field 596019230 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Modified By</source>
+          <target state="needs-review-translation">Modifié par</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Table A01 Revision Request - Field Modified By - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 1650926142 - Field 4200184881 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>No.</source>
@@ -3210,17 +3402,23 @@
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit A01 Sales Order Processing - NamedType QstSetAsDraft</note>
         </trans-unit>
+        <trans-unit id="Codeunit 4233996319 - Method 786011703 - NamedType 1412695557" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Order document %1 has no lines</source>
+          <target state="needs-review-translation">La commande %1 n'a pas de lignes</target>
+          <note from="Developer" annotates="general" priority="2">%1=rr</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit A01 Sales Order Processing - Method SetIsWaitingForDiscount - NamedType ErrLab01</note>
+        </trans-unit>
         <trans-unit id="Codeunit 2075651460 - NamedType 1145802899" size-unit="char" translate="yes" xml:space="preserve">
           <source>You are not authorized to use this feature.</source>
           <target state="needs-review-translation">Vous n'êtes pas autorisé à utiliser cette fonctionnalité.</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit A01 Security Mgt - NamedType ErrNotAuthorizedAction</note>
         </trans-unit>
-        <trans-unit id="Codeunit 2075651460 - Method 1165684828 - NamedType 3024544721" size-unit="char" translate="yes" xml:space="preserve">
+        <trans-unit id="Codeunit 2075651460 - Method 2320845636 - NamedType 3024544721" size-unit="char" translate="yes" xml:space="preserve">
           <source>You are not authorized to use this bank account : %1</source>
-          <target state="needs-review-translation">Vous n'êtes pas autorisé à utiliser ce compte bancaire : %1</target>
+          <target state="needs-review-translation">Vous n'etes pas autorisé à utiliser ce compte bancaire/caisse</target>
           <note from="Developer" annotates="general" priority="2">%1=bank</note>
-          <note from="Xliff Generator" annotates="general" priority="3">Codeunit A01 Security Mgt - Method CheckBankAccountUser - NamedType ErrLbl</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit A01 Security Mgt - Method CheckBankUserAccount - NamedType ErrLbl</note>
         </trans-unit>
         <trans-unit id="Codeunit 2075651460 - Method 1078160646 - NamedType 3024544721" size-unit="char" translate="yes" xml:space="preserve">
           <source>You are not authorized to use this location : %1</source>
@@ -3234,6 +3432,24 @@
           <target state="needs-review-translation">Aucun type de reglement n'a été configuré pour le modele %1 Feuille %2 Type %3</target>
           <note from="Developer" annotates="general" priority="2">%1=model,%2=journal,%3=type</note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit A01 Treso Mgt - NamedType ErrText01</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 1376265650 - Method 2696953935 - NamedType 757060530" size-unit="char" translate="yes" xml:space="preserve">
+          <source>The voucher balance %1 is insufficient for this operation</source>
+          <target state="needs-review-translation">Le solde du bon d'achat %1 est insuffisant pour cette opération</target>
+          <note from="Developer" annotates="general" priority="2">%1=balance</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit A01 Voucher Mgt - Method PostVoucherConsumption - NamedType Err01Lbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 1376265650 - Method 2696953935 - NamedType 2044410344" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Voucher %1 expired on %2</source>
+          <target state="needs-review-translation">Le bon d'achat %1 a expiré depuis le %2</target>
+          <note from="Developer" annotates="general" priority="2">%1=bon, %2=expiration</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit A01 Voucher Mgt - Method PostVoucherConsumption - NamedType Err01Lbl2</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 1376265650 - Method 2898153795 - NamedType 346306207" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Voucher %1 must not have a zero value</source>
+          <target state="needs-review-translation">Le bon d'achat %1 ne doit pas avoir une valeur nulle</target>
+          <note from="Developer" annotates="general" priority="2">%1=Bon</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit A01 Voucher Mgt - Method PostVoucherEmission - NamedType ErrLblNoValue</note>
         </trans-unit>
         <trans-unit id="Codeunit 2886873769 - NamedType 2994406387" size-unit="char" translate="yes" xml:space="preserve">
           <source>The order N° %1 does not exists</source>
@@ -3535,6 +3751,12 @@
           <target state="needs-review-translation">Utilisateurs compte bancaire</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Page A01 Bank Account Users - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3754628129 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Bank Notes List</source>
+          <target state="needs-review-translation">Liste des coupures</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Page A01 Bank Notes List - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 1698614240 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Cash Receipt Journals</source>
@@ -4203,6 +4425,43 @@
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Page A01 Cash Receipt Doc Journal - Action Category_Send Approval Request - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Page 3120123025 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Cashbox Closing</source>
+          <target state="needs-review-translation">Clôture de caisse</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Page A01 Cashbox Closing - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3120123025 - Control 2445482498 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>General</source>
+          <target state="needs-review-translation">Général</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Page A01 Cashbox Closing - Control General - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3120123025 - Control 2039904471 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Lines</source>
+          <target state="needs-review-translation">Lignes</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Page A01 Cashbox Closing - Control SalesLines - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3120123025 - Action 2282416948 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>&amp;amp;Post</source>
+          <target state="needs-adaptation">Valider la clôture</target>
+          <note from="XLIFF Sync" annotates="general" priority="1">Source text has changed. Please review the translation.</note>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Page A01 Cashbox Closing - Action Post - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 705541575 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Cashbox Closing List</source>
+          <target state="needs-review-translation">Clôtures de caisse validées</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Page A01 Cashbox Closing List - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3865896423 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Cashbox Closing Subform</source>
+          <target state="needs-review-translation">Lignes</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Page A01 Cashbox Closing Subform - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Page 2653739505 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Customer Scoring Criteria List</source>
           <target state="needs-review-translation">Critères de notation des clients</target>
@@ -4292,7 +4551,7 @@
         </trans-unit>
         <trans-unit id="Page 4034026045 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Customer Assignments</source>
-          <target state="needs-adaptation">Affectation d'échéance</target>
+          <target state="needs-adaptation">Affectations de client</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Page A01 Deadline Assignment List - Property Caption</note>
         </trans-unit>
@@ -4494,6 +4753,30 @@
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Page A01 Post CustSettlementSubform - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Page 1827202875 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Cashbox Closing List</source>
+          <target state="needs-review-translation">Clôtures de caisse</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Page A01 Posted Cash Closing List - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 4157042634 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Posted Cashbox Closing</source>
+          <target state="needs-review-translation">Clôture de caisse validée</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Page A01 Posted Cashbox Closing - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 4157042634 - Control 2445482498 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>General</source>
+          <target state="needs-review-translation">Général</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Page A01 Posted Cashbox Closing - Control General - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 4157042634 - Control 2039904471 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Lines</source>
+          <target state="needs-review-translation">Lignes</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Page A01 Posted Cashbox Closing - Control SalesLines - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Page 2187008607 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Posted Cust Settlement</source>
           <target state="needs-review-translation">Règlement client validé</target>
@@ -4544,11 +4827,23 @@
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Page A01 Posted Cust Settlements - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Page 2864689888 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Purch Voucher Ledg Entries</source>
+          <target state="needs-review-translation">Ecritures bon d'achat</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Page A01 Purch Voucher Ledg Entries - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Page 3566939433 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Purchase Import Steps</source>
           <target state="needs-review-translation">Etapes d'importation</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Page A01 Purchase Import Steps - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3600032012 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Purchase Vouchers</source>
+          <target state="needs-review-translation">Bons d'achat</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Page A01 Purchase Vouchers - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 3183800945 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Responsability center payment methods</source>
@@ -9967,6 +10262,18 @@
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Page A01 Unblocking Requests - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Page 866520448 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Voucher Card</source>
+          <target state="needs-review-translation">Bon d'achat</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Page A01 Voucher Card - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 866520448 - Control 2445482498 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>General</source>
+          <target state="needs-review-translation">Général</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Page A01 Voucher Card - Control General - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Page 1274754784 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Warranty Plans</source>
           <target state="needs-review-translation">Plans de garantie des articles</target>
@@ -12557,18 +12864,6 @@
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Report A01 Reminder Letter 1 - Property Caption</note>
         </trans-unit>
-        <trans-unit id="Report 3994419851 - NamedType 2248914289" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Amount Including VAT</source>
-          <target state="needs-review-translation">Montant TTC</target>
-          <note from="Developer" annotates="general" priority="2"/>
-          <note from="Xliff Generator" annotates="general" priority="3">Report A01 Reminder Letter 1 - NamedType AmountIncVATCaptionLbl</note>
-        </trans-unit>
-        <trans-unit id="Report 3994419851 - NamedType 3197031362" size-unit="char" translate="yes" xml:space="preserve">
-          <source>You are receiving this email to formally notify you that payment owed by you is past due. The payment was due on %1. Enclosed is a copy of invoice with the details of remaining amount.</source>
-          <target state="needs-review-translation">Vous recevez cet e-mail pour vous informer formellement que le paiement qui vous est dû est en souffrance. Le paiement était dû le %1. Ci-joint une copie de la facture avec le détail du montant restant.</target>
-          <note from="Developer" annotates="general" priority="2">%1 = A due date</note>
-          <note from="Xliff Generator" annotates="general" priority="3">Report A01 Reminder Letter 1 - NamedType AmtDueLbl</note>
-        </trans-unit>
         <trans-unit id="Report 3994419851 - NamedType 4233096702" size-unit="char" translate="yes" xml:space="preserve">
           <source>Account No.</source>
           <target state="needs-review-translation">N° compte</target>
@@ -12581,17 +12876,11 @@
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Report A01 Reminder Letter 1 - NamedType BankNameCaptionLbl</note>
         </trans-unit>
-        <trans-unit id="Report 3994419851 - NamedType 1908025102" size-unit="char" translate="yes" xml:space="preserve">
-          <source>If you have already made the payment, please disregard this email. Thank you for your business.</source>
-          <target state="needs-review-translation">Si vous avez déjà effectué le paiement, veuillez ignorer cet e-mail. Merci pour votre confiance.</target>
-          <note from="Developer" annotates="general" priority="2"/>
-          <note from="Xliff Generator" annotates="general" priority="3">Report A01 Reminder Letter 1 - NamedType BodyLbl</note>
-        </trans-unit>
-        <trans-unit id="Report 3994419851 - NamedType 2771379227" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Sincerely</source>
-          <target state="needs-review-translation">Cordialement</target>
-          <note from="Developer" annotates="general" priority="2"/>
-          <note from="Xliff Generator" annotates="general" priority="3">Report A01 Reminder Letter 1 - NamedType ClosingLbl</note>
+        <trans-unit id="Report 3994419851 - NamedType 2900565025" size-unit="char" translate="yes" xml:space="preserve">
+          <source>        Sauf erreur ou omission de notre part, nous n’avons pas reçu, à ce jour, le paiement d’un montant de %1 Ar (%2). Ce montant correspond au total de vos impayés et des frais de retard, relatifs à l’achat à crédit que vous avez effectué auprès de notre société, dont vous trouverez ci-dessous les détails :</source>
+          <target state="needs-adaptation">Sauf erreur ou omission de notre part, nous n’avons pas reçu, à ce jour, le paiement d’un montant de %1 Ar (%2 ariary). Ce montant correspond au total de vos impayés et des frais de retard, relatifs à l’achat à crédit que vous avez effectué auprès de notre société, dont vous trouverez ci-dessous les détails :</target>
+          <note from="Developer" annotates="general" priority="2">%1=...,%2=...</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 Reminder Letter 1 - NamedType BodyLabel01</note>
         </trans-unit>
         <trans-unit id="Report 3994419851 - NamedType 3451557426" size-unit="char" translate="yes" xml:space="preserve">
           <source>Contact E-Mail</source>
@@ -12610,24 +12899,6 @@
           <target state="needs-review-translation">N° téléphone contact</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Report A01 Reminder Letter 1 - NamedType ContactPhoneNoLbl</note>
-        </trans-unit>
-        <trans-unit id="Report 3994419851 - NamedType 4137192940" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Continued</source>
-          <target state="needs-review-translation">Suite</target>
-          <note from="Developer" annotates="general" priority="2"/>
-          <note from="Xliff Generator" annotates="general" priority="3">Report A01 Reminder Letter 1 - NamedType ContinuedCaption1Lbl</note>
-        </trans-unit>
-        <trans-unit id="Report 3994419851 - NamedType 4036938315" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Continued</source>
-          <target state="needs-review-translation">Suite</target>
-          <note from="Developer" annotates="general" priority="2"/>
-          <note from="Xliff Generator" annotates="general" priority="3">Report A01 Reminder Letter 1 - NamedType ContinuedCaptionLbl</note>
-        </trans-unit>
-        <trans-unit id="Report 3994419851 - NamedType 3569966352" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Description</source>
-          <target state="needs-review-translation">Description</target>
-          <note from="Developer" annotates="general" priority="2"/>
-          <note from="Xliff Generator" annotates="general" priority="3">Report A01 Reminder Letter 1 - NamedType DescriptionLbl</note>
         </trans-unit>
         <trans-unit id="Report 3994419851 - NamedType 3112881028" size-unit="char" translate="yes" xml:space="preserve">
           <source>Document Date</source>
@@ -12658,18 +12929,6 @@
           <target state="needs-review-translation">Giro No.</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Report A01 Reminder Letter 1 - NamedType GiroNoCaptionLbl</note>
-        </trans-unit>
-        <trans-unit id="Report 3994419851 - NamedType 514421613" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Hello</source>
-          <target state="needs-review-translation">Bonjour</target>
-          <note from="Developer" annotates="general" priority="2"/>
-          <note from="Xliff Generator" annotates="general" priority="3">Report A01 Reminder Letter 1 - NamedType GreetingLbl</note>
-        </trans-unit>
-        <trans-unit id="Report 3994419851 - NamedType 973567044" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Header Dimensions</source>
-          <target state="needs-review-translation">Entete axes analytiques</target>
-          <note from="Developer" annotates="general" priority="2"/>
-          <note from="Xliff Generator" annotates="general" priority="3">Report A01 Reminder Letter 1 - NamedType HeaderDimensionsCaptionLbl</note>
         </trans-unit>
         <trans-unit id="Report 3994419851 - NamedType 2862688884" size-unit="char" translate="yes" xml:space="preserve">
           <source>Home Page</source>
@@ -12713,6 +12972,12 @@
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Report A01 Reminder Letter 1 - NamedType ReminderCaptionLbl</note>
         </trans-unit>
+        <trans-unit id="Report 3994419851 - NamedType 2279540142" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Lettre de relance N° %1</source>
+          <target state="needs-review-translation">Lettre de relance N° %1</target>
+          <note from="Developer" annotates="general" priority="2">%1=num</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 Reminder Letter 1 - NamedType ReminderLevelLbl</note>
+        </trans-unit>
         <trans-unit id="Report 3994419851 - NamedType 1118993357" size-unit="char" translate="yes" xml:space="preserve">
           <source>Reminder No.</source>
           <target state="needs-review-translation">N° Relance</target>
@@ -12730,24 +12995,6 @@
           <target state="needs-review-translation">Total TTC %1</target>
           <note from="Developer" annotates="general" priority="2">%1 = amt</note>
           <note from="Xliff Generator" annotates="general" priority="3">Report A01 Reminder Letter 1 - NamedType Text001</note>
-        </trans-unit>
-        <trans-unit id="Report 3994419851 - NamedType 1026443335" size-unit="char" translate="yes" xml:space="preserve">
-          <source>VAT Amount Specification in </source>
-          <target state="needs-review-translation">Spécification TVA</target>
-          <note from="Developer" annotates="general" priority="2"/>
-          <note from="Xliff Generator" annotates="general" priority="3">Report A01 Reminder Letter 1 - NamedType Text011</note>
-        </trans-unit>
-        <trans-unit id="Report 3994419851 - NamedType 2939533186" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Local Currency</source>
-          <target state="needs-review-translation">Devise locale</target>
-          <note from="Developer" annotates="general" priority="2"/>
-          <note from="Xliff Generator" annotates="general" priority="3">Report A01 Reminder Letter 1 - NamedType Text012</note>
-        </trans-unit>
-        <trans-unit id="Report 3994419851 - NamedType 2301836569" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Exchange rate: %1/%2</source>
-          <target state="needs-review-translation">Taux de change: %1/%2</target>
-          <note from="Developer" annotates="general" priority="2">%1 = amt; %2 = amt</note>
-          <note from="Xliff Generator" annotates="general" priority="3">Report A01 Reminder Letter 1 - NamedType Text013</note>
         </trans-unit>
         <trans-unit id="Report 3994419851 - NamedType 626218360" size-unit="char" translate="yes" xml:space="preserve">
           <source>Page</source>
@@ -12767,29 +13014,11 @@
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Report A01 Reminder Letter 1 - NamedType VATAmountCaptionLbl</note>
         </trans-unit>
-        <trans-unit id="Report 3994419851 - NamedType 1396908878" size-unit="char" translate="yes" xml:space="preserve">
-          <source>VAT Amount Specification</source>
-          <target state="needs-review-translation">Spécification TVA</target>
-          <note from="Developer" annotates="general" priority="2"/>
-          <note from="Xliff Generator" annotates="general" priority="3">Report A01 Reminder Letter 1 - NamedType VATAmtSpecCaptionLbl</note>
-        </trans-unit>
         <trans-unit id="Report 3994419851 - NamedType 1303359398" size-unit="char" translate="yes" xml:space="preserve">
           <source>VAT Base</source>
           <target state="needs-review-translation">Base TVA</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Report A01 Reminder Letter 1 - NamedType VATBaseCaptionLbl</note>
-        </trans-unit>
-        <trans-unit id="Report 3994419851 - NamedType 3365690297" size-unit="char" translate="yes" xml:space="preserve">
-          <source>VAT Clause</source>
-          <target state="needs-review-translation">Clause TVA</target>
-          <note from="Developer" annotates="general" priority="2"/>
-          <note from="Xliff Generator" annotates="general" priority="3">Report A01 Reminder Letter 1 - NamedType VATClausesCap</note>
-        </trans-unit>
-        <trans-unit id="Report 3994419851 - NamedType 1071970054" size-unit="char" translate="yes" xml:space="preserve">
-          <source>VAT Identifier</source>
-          <target state="needs-review-translation">Identifiant TVA</target>
-          <note from="Developer" annotates="general" priority="2"/>
-          <note from="Xliff Generator" annotates="general" priority="3">Report A01 Reminder Letter 1 - NamedType VATIdentifierLbl</note>
         </trans-unit>
         <trans-unit id="Report 3994419851 - NamedType 969467040" size-unit="char" translate="yes" xml:space="preserve">
           <source>VAT %</source>
@@ -12856,6 +13085,462 @@
           <target state="needs-review-translation">Afficher les montant non échus</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Report A01 Reminder Letter 1 - Control ShowNotDueAmounts - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 1612542406 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Reminder Letter 2</source>
+          <target state="needs-review-translation">Lettre de relance 2</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 Reminder Letter 2 - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 1612542406 - NamedType 4233096702" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Account No.</source>
+          <target state="needs-review-translation">N° Compte</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 Reminder Letter 2 - NamedType BankAccNoCaptionLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 1612542406 - NamedType 2728952663" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Bank</source>
+          <target state="needs-review-translation">Banque</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 Reminder Letter 2 - NamedType BankNameCaptionLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 1612542406 - NamedType 2900565025" size-unit="char" translate="yes" xml:space="preserve">
+          <source>        Par notre première lettre de relance en date de référence %1  du %2 , sauf erreur ou omission de notre part, nous n’avons toujours pas reçu, à ce jour, le paiement d’un montant de %3 Ar (%4). Ce montant correspond au total de vos impayés et des frais de retard, relatifs à l’achat à crédit que vous avez effectué auprès de notre société, dont vous trouverez ci-dessous les détails :</source>
+          <target state="needs-review-translation">Par notre première lettre de relance en date de référence %1 du %2 , sauf erreur ou omission de notre part, nous n’avons toujours pas reçu, à ce jour, le paiement d’un montant de %3 Ar (%4). Ce montant correspond au total de vos impayés et des frais de retard, relatifs à l’achat à crédit que vous avez effectué auprès de notre société, dont vous trouverez ci-dessous les détails :</target>
+          <note from="Developer" annotates="general" priority="2">%1=...,%2=...%3=...%4=...</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 Reminder Letter 2 - NamedType BodyLabel01</note>
+        </trans-unit>
+        <trans-unit id="Report 1612542406 - NamedType 3451557426" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Contact E-Mail</source>
+          <target state="needs-review-translation"> E-Mail Contact</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 Reminder Letter 2 - NamedType ContactEmailLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 1612542406 - NamedType 1836485017" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Contact Mobile Phone No.</source>
+          <target state="needs-review-translation">N° téléphone mobile Contact</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 Reminder Letter 2 - NamedType ContactMobilePhoneNoLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 1612542406 - NamedType 1120550273" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Contact Phone No.</source>
+          <target state="needs-review-translation">N° téléphone Contact</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 Reminder Letter 2 - NamedType ContactPhoneNoLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 1612542406 - NamedType 3112881028" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Document Date</source>
+          <target state="needs-review-translation">Date du document</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 Reminder Letter 2 - NamedType DocDateCaptionLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 1612542406 - NamedType 343855514" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Document Date</source>
+          <target state="needs-review-translation">Date du document</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 Reminder Letter 2 - NamedType DocumentDateCaption1Lbl</note>
+        </trans-unit>
+        <trans-unit id="Report 1612542406 - NamedType 4092352280" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Due Date</source>
+          <target state="needs-review-translation">Date d'échéance</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 Reminder Letter 2 - NamedType DueDateCaptionLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 1612542406 - NamedType 595034892" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Email</source>
+          <target state="needs-review-translation">Email</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 Reminder Letter 2 - NamedType EMailCaptionLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 1612542406 - NamedType 13422290" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Giro No.</source>
+          <target state="needs-review-translation">Giro No.</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 Reminder Letter 2 - NamedType GiroNoCaptionLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 1612542406 - NamedType 2862688884" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Home Page</source>
+          <target state="needs-review-translation">Page d'accueil</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 Reminder Letter 2 - NamedType HomePageCaptionLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 1612542406 - NamedType 3556547100" size-unit="char" translate="yes" xml:space="preserve">
+          <source>IBAN</source>
+          <target state="needs-review-translation">IBAN</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 Reminder Letter 2 - NamedType IBANCaptionLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 1612542406 - NamedType 3208712818" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Interest Amount</source>
+          <target state="needs-review-translation">Montant interets</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 Reminder Letter 2 - NamedType InterestAmountCaptionLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 1612542406 - NamedType 650077689" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Page</source>
+          <target state="needs-review-translation">Page</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 Reminder Letter 2 - NamedType PageCaptionLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 1612542406 - NamedType 1928308579" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Phone No.</source>
+          <target state="needs-review-translation">Phone No.</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 Reminder Letter 2 - NamedType PhoneNoCaptionLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 1612542406 - NamedType 443421780" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Posting Date</source>
+          <target state="needs-review-translation">Date de comptabilisation</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 Reminder Letter 2 - NamedType PostingDateCaptionLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 1612542406 - NamedType 2320187798" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Reminder</source>
+          <target state="needs-review-translation">Relance</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 Reminder Letter 2 - NamedType ReminderCaptionLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 1612542406 - NamedType 2279540142" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Lettre de relance N° %1</source>
+          <target state="needs-review-translation">Lettre de relance N° %1</target>
+          <note from="Developer" annotates="general" priority="2">%1=num</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 Reminder Letter 2 - NamedType ReminderLevelLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 1612542406 - NamedType 1118993357" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Reminder No.</source>
+          <target state="needs-review-translation">Reminder No.</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 Reminder Letter 2 - NamedType ReminderNoCaptionLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 1612542406 - NamedType 2476940767" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Total %1</source>
+          <target state="needs-review-translation">Total %1</target>
+          <note from="Developer" annotates="general" priority="2">%1 = amt</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 Reminder Letter 2 - NamedType Text000</note>
+        </trans-unit>
+        <trans-unit id="Report 1612542406 - NamedType 3114637384" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Total %1 Incl. VAT</source>
+          <target state="needs-review-translation">Total %1 Incl. VAT</target>
+          <note from="Developer" annotates="general" priority="2">%1 = amt</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 Reminder Letter 2 - NamedType Text001</note>
+        </trans-unit>
+        <trans-unit id="Report 1612542406 - NamedType 626218360" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Page</source>
+          <target state="needs-review-translation">Page</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 Reminder Letter 2 - NamedType TextPageLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 1612542406 - NamedType 1583171122" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Total</source>
+          <target state="needs-review-translation">Total</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 Reminder Letter 2 - NamedType TotalCaptionLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 1612542406 - NamedType 3913295325" size-unit="char" translate="yes" xml:space="preserve">
+          <source>VAT Amount</source>
+          <target state="needs-review-translation">VAT Amount</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 Reminder Letter 2 - NamedType VATAmountCaptionLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 1612542406 - NamedType 1303359398" size-unit="char" translate="yes" xml:space="preserve">
+          <source>VAT Base</source>
+          <target state="needs-review-translation">VAT Base</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 Reminder Letter 2 - NamedType VATBaseCaptionLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 1612542406 - NamedType 969467040" size-unit="char" translate="yes" xml:space="preserve">
+          <source>VAT %</source>
+          <target state="needs-review-translation">VAT %</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 Reminder Letter 2 - NamedType VATPercentCaptionLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 1612542406 - ReportDataItem 1929467888 - Property 1806354803" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Reminder</source>
+          <target state="needs-review-translation">Reminder</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 Reminder Letter 2 - ReportDataItem Issued Reminder Header - Property RequestFilterHeading</note>
+        </trans-unit>
+        <trans-unit id="Report 1612542406 - Control 2346885236 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Options</source>
+          <target state="needs-review-translation">Options</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 Reminder Letter 2 - Control Options - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 1612542406 - Control 816368762 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies if you want the reminder that you print to be recorded as interaction, and to be added to the Interaction Log Entry table.</source>
+          <target state="needs-review-translation">Spécifie si vous souhaitez que le rappel que vous imprimez soit enregistré en tant qu'interaction et ajouté au tableau Entrée du journal d'interaction.</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 Reminder Letter 2 - Control LogInteraction - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Report 1612542406 - Control 816368762 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Log Interaction</source>
+          <target state="needs-review-translation">Log Interaction</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 Reminder Letter 2 - Control LogInteraction - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 1612542406 - Control 316520822 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies if you want the printed report to show information that is only for internal use.</source>
+          <target state="needs-review-translation">Spécifie si vous souhaitez que le rapport imprimé affiche des informations destinées uniquement à un usage interne.</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 Reminder Letter 2 - Control ShowInternalInfo - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Report 1612542406 - Control 316520822 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Show Internal Information</source>
+          <target state="needs-review-translation">Show Internal Information</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 Reminder Letter 2 - Control ShowInternalInfo - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 1612542406 - Control 4146528255 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies if you want multiple interest rate details for the journal lines to be included in the report.</source>
+          <target state="needs-review-translation">Spécifie si vous souhaitez que plusieurs détails de taux d'intérêt pour les lignes de journal soient inclus dans le rapport.</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 Reminder Letter 2 - Control ShowMIR - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Report 1612542406 - Control 4146528255 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Show MIR Detail</source>
+          <target state="needs-review-translation">Show MIR Detail</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 Reminder Letter 2 - Control ShowMIR - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 1612542406 - Control 2278817471 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies if you want to show amounts that are not due from customers.</source>
+          <target state="needs-review-translation">Spécifie si vous souhaitez afficher les montants qui ne sont pas dus par les clients.</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 Reminder Letter 2 - Control ShowNotDueAmounts - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Report 1612542406 - Control 2278817471 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Show Not Due Amounts</source>
+          <target state="needs-review-translation">Afficher les montants non dus</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 Reminder Letter 2 - Control ShowNotDueAmounts - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 974845789 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Reminder Letter 3</source>
+          <target state="needs-review-translation">Lettre de relance 3</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 Reminder Letter 3 - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 974845789 - NamedType 4233096702" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Account No.</source>
+          <target state="needs-review-translation">Account No.</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 Reminder Letter 3 - NamedType BankAccNoCaptionLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 974845789 - NamedType 2728952663" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Bank</source>
+          <target state="needs-review-translation">Bank</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 Reminder Letter 3 - NamedType BankNameCaptionLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 974845789 - NamedType 2900565025" size-unit="char" translate="yes" xml:space="preserve">
+          <source>        Par les deux lettres de relance vous ayant été envoyées respectivement aux dates du %1 et du %2, nous vous avons demandé de procéder au règlement de la somme de %3 Ariary (%4).</source>
+          <target state="needs-review-translation">Par les deux lettres de relance vous ayant été envoyées respectivement aux dates du %1 et du %2, nous vous avons demandé de procéder au règlement de la somme de %3 Ariary (%4).</target>
+          <note from="Developer" annotates="general" priority="2">%1=...,%2=...%3=...%4=...</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 Reminder Letter 3 - NamedType BodyLabel01</note>
+        </trans-unit>
+        <trans-unit id="Report 974845789 - NamedType 2262868408" size-unit="char" translate="yes" xml:space="preserve">
+          <source>        Aussi, par la présente, nous vous mettons en demeure de nous verser la somme de %1 Ariary (%2) dans un délai de 48h à compter de la réception de la présente.</source>
+          <target state="needs-review-translation">Aussi, par la présente, nous vous mettons en demeure de nous verser la somme de %1 Ariary (%2) dans un délai de 48h à compter de la réception de la présente.</target>
+          <note from="Developer" annotates="general" priority="2">%1=...,%2=...</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 Reminder Letter 3 - NamedType BodyLabel02</note>
+        </trans-unit>
+        <trans-unit id="Report 974845789 - NamedType 3451557426" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Contact E-Mail</source>
+          <target state="needs-review-translation">Contact E-Mail</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 Reminder Letter 3 - NamedType ContactEmailLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 974845789 - NamedType 1836485017" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Contact Mobile Phone No.</source>
+          <target state="needs-review-translation">Contact Mobile Phone No.</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 Reminder Letter 3 - NamedType ContactMobilePhoneNoLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 974845789 - NamedType 1120550273" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Contact Phone No.</source>
+          <target state="needs-review-translation">Contact Phone No.</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 Reminder Letter 3 - NamedType ContactPhoneNoLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 974845789 - NamedType 3112881028" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Document Date</source>
+          <target state="needs-review-translation">Date Document </target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 Reminder Letter 3 - NamedType DocDateCaptionLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 974845789 - NamedType 343855514" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Document Date</source>
+          <target state="needs-review-translation">Date Document </target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 Reminder Letter 3 - NamedType DocumentDateCaption1Lbl</note>
+        </trans-unit>
+        <trans-unit id="Report 974845789 - NamedType 4092352280" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Due Date</source>
+          <target state="needs-review-translation">Date d'échéance</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 Reminder Letter 3 - NamedType DueDateCaptionLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 974845789 - NamedType 595034892" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Email</source>
+          <target state="needs-review-translation">Email</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 Reminder Letter 3 - NamedType EMailCaptionLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 974845789 - NamedType 13422290" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Giro No.</source>
+          <target state="needs-review-translation">Giro No.</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 Reminder Letter 3 - NamedType GiroNoCaptionLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 974845789 - NamedType 2862688884" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Home Page</source>
+          <target state="needs-review-translation">Page d'accueil</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 Reminder Letter 3 - NamedType HomePageCaptionLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 974845789 - NamedType 3556547100" size-unit="char" translate="yes" xml:space="preserve">
+          <source>IBAN</source>
+          <target state="needs-review-translation">IBAN</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 Reminder Letter 3 - NamedType IBANCaptionLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 974845789 - NamedType 3208712818" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Interest Amount</source>
+          <target state="needs-review-translation">Montant interets</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 Reminder Letter 3 - NamedType InterestAmountCaptionLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 974845789 - NamedType 650077689" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Page</source>
+          <target state="needs-review-translation">Page</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 Reminder Letter 3 - NamedType PageCaptionLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 974845789 - NamedType 1928308579" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Phone No.</source>
+          <target state="needs-review-translation">Tél.</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 Reminder Letter 3 - NamedType PhoneNoCaptionLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 974845789 - NamedType 443421780" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Posting Date</source>
+          <target state="needs-review-translation">Date de comptabilisation</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 Reminder Letter 3 - NamedType PostingDateCaptionLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 974845789 - NamedType 2320187798" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Reminder</source>
+          <target state="needs-review-translation">Relance</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 Reminder Letter 3 - NamedType ReminderCaptionLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 974845789 - NamedType 1118993357" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Reminder No.</source>
+          <target state="needs-review-translation">N° Relance</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 Reminder Letter 3 - NamedType ReminderNoCaptionLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 974845789 - NamedType 2476940767" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Total %1</source>
+          <target state="needs-review-translation">Total %1</target>
+          <note from="Developer" annotates="general" priority="2">%1 = amt</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 Reminder Letter 3 - NamedType Text000</note>
+        </trans-unit>
+        <trans-unit id="Report 974845789 - NamedType 3114637384" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Total %1 Incl. VAT</source>
+          <target state="needs-review-translation">Total %1 Incl. VAT</target>
+          <note from="Developer" annotates="general" priority="2">%1 = amt</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 Reminder Letter 3 - NamedType Text001</note>
+        </trans-unit>
+        <trans-unit id="Report 974845789 - NamedType 626218360" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Page</source>
+          <target state="needs-review-translation">Page</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 Reminder Letter 3 - NamedType TextPageLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 974845789 - NamedType 1583171122" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Total</source>
+          <target state="needs-review-translation">Total</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 Reminder Letter 3 - NamedType TotalCaptionLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 974845789 - NamedType 3913295325" size-unit="char" translate="yes" xml:space="preserve">
+          <source>VAT Amount</source>
+          <target state="needs-review-translation">VAT Amount</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 Reminder Letter 3 - NamedType VATAmountCaptionLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 974845789 - NamedType 1303359398" size-unit="char" translate="yes" xml:space="preserve">
+          <source>VAT Base</source>
+          <target state="needs-review-translation">VAT Base</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 Reminder Letter 3 - NamedType VATBaseCaptionLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 974845789 - NamedType 969467040" size-unit="char" translate="yes" xml:space="preserve">
+          <source>VAT %</source>
+          <target state="needs-review-translation">VAT %</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 Reminder Letter 3 - NamedType VATPercentCaptionLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 974845789 - ReportDataItem 1929467888 - Property 1806354803" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Reminder</source>
+          <target state="needs-review-translation">Relance</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 Reminder Letter 3 - ReportDataItem Issued Reminder Header - Property RequestFilterHeading</note>
+        </trans-unit>
+        <trans-unit id="Report 974845789 - Control 2346885236 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Options</source>
+          <target state="needs-review-translation">Options</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 Reminder Letter 3 - Control Options - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 974845789 - Control 816368762 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies if you want the reminder that you print to be recorded as interaction, and to be added to the Interaction Log Entry table.</source>
+          <target state="needs-review-translation">Spécifie si vous souhaitez que le rappel que vous imprimez soit enregistré en tant qu'interaction et ajouté au tableau Entrée du journal d'interaction.</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 Reminder Letter 3 - Control LogInteraction - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Report 974845789 - Control 816368762 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Log Interaction</source>
+          <target state="needs-review-translation">Interaction du journal</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 Reminder Letter 3 - Control LogInteraction - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 974845789 - Control 316520822 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies if you want the printed report to show information that is only for internal use.</source>
+          <target state="needs-review-translation">Spécifie si vous souhaitez que le rapport imprimé affiche des informations destinées uniquement à un usage interne.</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 Reminder Letter 3 - Control ShowInternalInfo - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Report 974845789 - Control 316520822 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Show Internal Information</source>
+          <target state="needs-review-translation">Afficher les informations internes</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 Reminder Letter 3 - Control ShowInternalInfo - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 974845789 - Control 4146528255 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies if you want multiple interest rate details for the journal lines to be included in the report.</source>
+          <target state="needs-review-translation">Spécifie si vous souhaitez que plusieurs détails de taux d'intérêt pour les lignes de journal soient inclus dans le rapport.</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 Reminder Letter 3 - Control ShowMIR - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Report 974845789 - Control 4146528255 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Show MIR Detail</source>
+          <target state="needs-review-translation">Afficher les détails du MIR</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 Reminder Letter 3 - Control ShowMIR - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 974845789 - Control 2278817471 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies if you want to show amounts that are not due from customers.</source>
+          <target state="needs-review-translation">Spécifie si vous souhaitez afficher les montants qui ne sont pas dus par les clients.</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 Reminder Letter 3 - Control ShowNotDueAmounts - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Report 974845789 - Control 2278817471 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Show Not Due Amounts</source>
+          <target state="needs-review-translation">Afficher les montants non dus</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 Reminder Letter 3 - Control ShowNotDueAmounts - Property Caption</note>
         </trans-unit>
         <trans-unit id="Report 1604351383 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Sales Invoice Credit</source>
@@ -14591,6 +15276,18 @@
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension A01 Order Processor RC - Action A01_Compta - Property Caption</note>
         </trans-unit>
+        <trans-unit id="PageExtension 3250568499 - Action 792596695 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2747922353">
+          <source>Bank Notes list</source>
+          <target state="needs-review-translation">Liste des coupures</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension A01 Order Processor RC - Action A01BankNotes - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 3250568499 - Action 1918143752 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2747922353">
+          <source>Cashbox closing list</source>
+          <target state="needs-review-translation">Clôtures de caisse</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension A01 Order Processor RC - Action A01CashBoxClosings - Property Caption</note>
+        </trans-unit>
         <trans-unit id="PageExtension 3250568499 - Action 3167834574 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2747922353">
           <source>Customer Settlements</source>
           <target state="needs-review-translation">Règlements client
@@ -14634,6 +15331,18 @@
           <target state="needs-review-translation">Demande de validation paiement</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension A01 Order Processor RC - Action A01POSPaymentRequests - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 3250568499 - Action 3359874191 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2747922353">
+          <source>Posted Cashbox closing list</source>
+          <target state="needs-review-translation">Clôtures de caisse validées</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension A01 Order Processor RC - Action A01PostedCashBoxClosings - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 3250568499 - Action 3354210137 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2747922353">
+          <source>Purchase Voucher list</source>
+          <target state="needs-review-translation">Bons d'achat</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension A01 Order Processor RC - Action A01PurchVouchers - Property Caption</note>
         </trans-unit>
         <trans-unit id="PageExtension 3250568499 - Action 3974772133 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2747922353">
           <source>Unblocking Requests</source>
@@ -14965,6 +15674,12 @@
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension A01 Ship-to Address - Control A01 ShipToAdressMediaFactbox - Property Caption</note>
         </trans-unit>
+        <trans-unit id="TableExtension 1742308649 - Field 3247777777 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1682139193">
+          <source>A01 Bank Account Type</source>
+          <target state="needs-review-translation">Type caisse</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension A01 Bank Account - Field A01 Bank Account Type - Property Caption</note>
+        </trans-unit>
         <trans-unit id="TableExtension 1119515148 - Field 2909066091 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 3993128796">
           <source>Account Type</source>
           <target state="needs-review-translation">Type compte</target>
@@ -15281,6 +15996,12 @@
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension A01 Issued Reminder Header - Field A01 Actual Start Datetime - Property Caption</note>
         </trans-unit>
+        <trans-unit id="TableExtension 1952135392 - Field 39020368 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1929467888">
+          <source>Assignment No.</source>
+          <target state="needs-review-translation">N° Affectation</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension A01 Issued Reminder Header - Field A01 Assignment No. - Property Caption</note>
+        </trans-unit>
         <trans-unit id="TableExtension 1952135392 - Field 1519415861 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1929467888">
           <source>Created By</source>
           <target state="needs-review-translation">Créé par</target>
@@ -15587,6 +16308,12 @@
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension A01 Reminder Header - Field A01 Actual Start Datetime - Property Caption</note>
         </trans-unit>
+        <trans-unit id="TableExtension 1810155763 - Field 39020368 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1837124963">
+          <source>Assignment No.</source>
+          <target state="needs-review-translation">N° Affectation</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension A01 Reminder Header - Field A01 Assignment No. - Property Caption</note>
+        </trans-unit>
         <trans-unit id="TableExtension 1810155763 - Field 1519415861 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1837124963">
           <source>Created By</source>
           <target state="needs-review-translation">Crée par</target>
@@ -15767,6 +16494,12 @@
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension A01 Sales Header - Field A01 Processing Status - Property Caption</note>
         </trans-unit>
+        <trans-unit id="TableExtension 1143019865 - Field 1389872895 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1192395785">
+          <source>Approval Status</source>
+          <target state="needs-review-translation">Statut approbation</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension A01 Sales Header - Field A01 Request Status - Property Caption</note>
+        </trans-unit>
         <trans-unit id="TableExtension 1143019865 - Field 930887970 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1192395785">
           <source>Return Reason</source>
           <target state="needs-review-translation">Raison du renvoi</target>
@@ -15875,6 +16608,12 @@
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension A01 Sales Header Archive - Field A01 Processing Status - Property Caption</note>
         </trans-unit>
+        <trans-unit id="TableExtension 2954665223 - Field 1389872895 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1948788855">
+          <source>Approval Status</source>
+          <target state="needs-review-translation">Statut approbation</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension A01 Sales Header Archive - Field A01 Request Status - Property Caption</note>
+        </trans-unit>
         <trans-unit id="TableExtension 2954665223 - Field 930887970 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1948788855">
           <source>Return Reason</source>
           <target state="needs-review-translation">Raison du renvoi</target>
@@ -15982,6 +16721,12 @@
           <target state="needs-review-translation">Statut traitement</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension A01 Sales Invoice Header - Field A01 Processing Status - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 1507475930 - Field 1389872895 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 809936682">
+          <source>Approval Status</source>
+          <target state="needs-review-translation">Statut approbation</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension A01 Sales Invoice Header - Field A01 Request Status - Property Caption</note>
         </trans-unit>
         <trans-unit id="TableExtension 1507475930 - Field 930887970 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 809936682">
           <source>Return Reason</source>
@@ -16490,6 +17235,30 @@
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Enum A01 Approval Status - EnumValue Waiting for manager - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Enum 3247777777 - EnumValue 1682139193 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Bank Account</source>
+          <target state="needs-review-translation">Compte bancaire</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum A01 Bank Account Type - EnumValue Bank Account - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 3247777777 - EnumValue 3396863728 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>CashBox</source>
+          <target state="needs-review-translation">Caisse</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum A01 Bank Account Type - EnumValue CashBox - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 3607961405 - EnumValue 4259830144 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Open</source>
+          <target state="needs-review-translation">En saisie</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum A01 Cashbox closing Status - EnumValue Open - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 3607961405 - EnumValue 35450067 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Posted</source>
+          <target state="needs-review-translation">Validée</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum A01 Cashbox closing Status - EnumValue Posted - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Enum 2093157653 - EnumValue 591478195 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Company Guaranteed</source>
           <target state="needs-review-translation">Garantie par la société</target>
@@ -16652,6 +17421,18 @@
           <target state="needs-review-translation">Code du vendeur</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Enum A01 Customer Type - EnumValue Person - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 1352505093 - EnumValue 1090351696 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Active</source>
+          <target state="needs-review-translation">Actif</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum A01 Deadline Assigment Status - EnumValue Active - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 1352505093 - EnumValue 3594204533 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>InActive</source>
+          <target state="needs-review-translation">Inactif</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum A01 Deadline Assigment Status - EnumValue InActive - Property Caption</note>
         </trans-unit>
         <trans-unit id="Enum 3461064939 - EnumValue 3547341714 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>1st floor</source>
@@ -16924,6 +17705,12 @@
           </target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Enum A01 Parameter Record Type - EnumValue   - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 3132669536 - EnumValue 563014498 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>BankNote</source>
+          <target state="needs-review-translation">Coupure</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum A01 Parameter Record Type - EnumValue BankNote - Property Caption</note>
         </trans-unit>
         <trans-unit id="Enum 3132669536 - EnumValue 3011597373 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Brand</source>
@@ -17519,6 +18306,24 @@
           <target state="needs-review-translation">Fabricant</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Enum A01 Warranty Plan Type - EnumValue Manufacturer - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="EnumExtension 1369269849 - EnumValue 141247825 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Enum 2634834239">
+          <source>Reminder 1</source>
+          <target state="needs-review-translation">Relance N°1</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">EnumExtension A01 Report Sel Usage Reminder - EnumValue A01 Reminder 1 - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="EnumExtension 1369269849 - EnumValue 3798518504 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Enum 2634834239">
+          <source>Reminder 2</source>
+          <target state="needs-review-translation">Relance N°2</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">EnumExtension A01 Report Sel Usage Reminder - EnumValue A01 Reminder 2 - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="EnumExtension 1369269849 - EnumValue 3160821887 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Enum 2634834239">
+          <source>Reminder 3</source>
+          <target state="needs-review-translation">Relance N°3</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">EnumExtension A01 Report Sel Usage Reminder - EnumValue A01 Reminder 3 - Property Caption</note>
         </trans-unit>
         <trans-unit id="EnumExtension 1919807837 - EnumValue 141247825 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Enum 3528066925">
           <source>Reminder Level 1</source>

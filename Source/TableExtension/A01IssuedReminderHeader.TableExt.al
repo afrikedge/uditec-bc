@@ -45,10 +45,11 @@ tableextension 50023 "A01 Issued Reminder Header" extends "Issued Reminder Heade
             Caption = 'Reminder date and time';
             DataClassification = CustomerContent;
         }
-        field(50009; "A01 Related activity"; Integer)
+        field(50009; "A01 Related activity"; Code[20])
         {
             Caption = 'Related activity';
             DataClassification = CustomerContent;
+            TableRelation = "Reminder Header";
         }
         field(50010; "A01 Activity Status"; Enum "A01 Activity Status")
         {
@@ -69,6 +70,12 @@ tableextension 50023 "A01 Issued Reminder Header" extends "Issued Reminder Heade
         {
             Caption = 'Subject';
             DataClassification = CustomerContent;
+        }
+        field(50014; "A01 Assignment No."; Code[20])
+        {
+            Caption = 'Assignment No.';
+            DataClassification = CustomerContent;
+            TableRelation = "A01 Deadline Assignment";
         }
     }
 }

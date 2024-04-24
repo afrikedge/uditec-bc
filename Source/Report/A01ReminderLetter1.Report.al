@@ -21,6 +21,7 @@ report 50018 "A01 Reminder Letter 1"
             column(No_IssuedReminderHeader; "No.")
             {
             }
+
             column(DueDateCaption; DueDateCaptionLbl)
             {
             }
@@ -72,6 +73,7 @@ report 50018 "A01 Reminder Letter 1"
             dataitem("Integer"; "Integer")
             {
                 DataItemTableView = sorting(Number) where(Number = const(1));
+
                 column(CompanyInfo1Picture; CompanyInfo1.Picture)
                 {
                 }
@@ -219,55 +221,15 @@ report 50018 "A01 Reminder Letter 1"
                 column(CompanyVATRegistrationNoCaption; CompanyInfo.GetVATRegistrationNumberLbl())
                 {
                 }
-                dataitem(DimensionLoop; "Integer")
+                column(BodyLabelText; BodyLabelText)
                 {
-                    DataItemLinkReference = "Issued Reminder Header";
-                    DataItemTableView = sorting(Number) where(Number = filter(1 ..));
-                    column(DimText; DimText)
-                    {
-                    }
-                    column(Number_IntegerLine; Number)
-                    {
-                    }
-                    column(HeaderDimensionsCaption; HeaderDimensionsCaptionLbl)
-                    {
-                    }
-
-                    trigger OnAfterGetRecord()
-                    begin
-                        if Number = 1 then begin
-                            if not DimSetEntry.FindSet() then
-                                CurrReport.Break();
-                        end else
-                            if not Continue then
-                                CurrReport.Break();
-
-                        Clear(DimText);
-                        Continue := false;
-                        repeat
-                            OldDimText := Copystr(DimText, 1, 75);
-                            if DimText = '' then
-                                DimText := StrSubstNo('%1 - %2', DimSetEntry."Dimension Code", DimSetEntry."Dimension Value Code")
-                            else
-                                DimText := CopyStr(
-                                  StrSubstNo(
-                                    '%1; %2 - %3', DimText,
-                                    DimSetEntry."Dimension Code", DimSetEntry."Dimension Value Code"), 1, 120);
-                            if StrLen(DimText) > MaxStrLen(OldDimText) then begin
-                                DimText := OldDimText;
-                                Continue := true;
-                                exit;
-                            end;
-                        until DimSetEntry.Next() = 0;
-                    end;
-
-                    trigger OnPreDataItem()
-                    begin
-                        if not ShowInternalInfoVar then
-                            CurrReport.Break();
-                    end;
                 }
-                dataitem("Issued Reminder Line"; "Issued Reminder Line")
+                column(ReminderLevelText; ReminderLevelText)
+                {
+                }
+
+
+                dataitem("Issued Reminder Line"; "Issued Reminder Line") //Line
                 {
                     DataItemLink = "Reminder No." = field("No.");
                     DataItemLinkReference = "Issued Reminder Header";
@@ -307,6 +269,9 @@ report 50018 "A01 Reminder Letter 1"
                         AutoFormatType = 1;
                     }
                     column(DocType_IssuedReminderLine; "Document Type")
+                    {
+                    }
+                    column(PostingDate_IssuedReminderLine; "Issued Reminder Line"."Posting Date")
                     {
                     }
                     column(LineNo_IssuedReminderLine; "No.")
@@ -366,8 +331,24 @@ report 50018 "A01 Reminder Letter 1"
                     column(RemainingAmountText; RemainingAmt)
                     {
                     }
+                    column(DueDays; DueDays)
+                    {
+                    }
+                    column(Lieu; Lieu)
+                    {
+                    }
+                    column(PaidAmount; PaidAmount)
+                    {
+                    }
 
-                    trigger OnAfterGetRecord()
+
+
+
+                    trigger OnAfterGetRecord()//"Issued Reminder Line"
+                    var
+                        CustLedgEntry: Record "Cust. Ledger Entry";
+                        DimensionValue: Record "Dimension Value";
+
                     begin
                         if not "Detailed Interest Rates Entry" then begin
                             TempVATAmountLine.Init();
@@ -404,6 +385,9 @@ report 50018 "A01 Reminder Letter 1"
                             NNC_TotalInclVAT := NNC_RemainingAmountTotal + NNC_InterestAmountTotal + NNC_VATAmountTotal;
 
                             TotalRemAmt += "Remaining Amount";
+
+
+
                         end;
 
                         RemainingAmt := '';
@@ -412,6 +396,17 @@ report 50018 "A01 Reminder Letter 1"
                             RemainingAmt := ''
                         else
                             RemainingAmt := Format("Remaining Amount");
+
+                        PaidAmount := "Original Amount" - "Remaining Amount";
+                        if ("Remaining Amount" <= 0) then
+                            CurrReport.Skip();
+
+                        DueDays := 0;
+                        if (CustLedgEntry.Get("Entry No.")) then begin
+                            DueDays := TresoMgt.GetDueDays(CustLedgEntry);
+                            if (DimensionValue.Get(GLSetup."Global Dimension 1 Code", CustLedgEntry."Global Dimension 1 Code")) then
+                                Lieu := DimensionValue.Name;
+                        end;
                     end;
 
                     trigger OnPreDataItem()
@@ -438,231 +433,6 @@ report 50018 "A01 Reminder Letter 1"
                         SetFilter("Line No.", '<%1', EndLineNo);
                     end;
                 }
-                dataitem(IssuedReminderLine2; "Issued Reminder Line")
-                {
-                    DataItemLink = "Reminder No." = field("No.");
-                    DataItemLinkReference = "Issued Reminder Header";
-                    DataItemTableView = sorting("Reminder No.", "Line No.");
-                    column(Desc1_IssuedReminderLine; Description)
-                    {
-                    }
-                    column(LineNo1_IssuedReminderLine; "Line No.")
-                    {
-                    }
-
-                    trigger OnPreDataItem()
-                    begin
-                        SetFilter("Line No.", '>=%1', EndLineNo);
-                        if not ShowNotDueAmountsVar then begin
-                            SetFilter(Type, '<>%1', Type::" ");
-                            if FindFirst() then
-                                if "Line No." > EndLineNo then begin
-                                    SetRange(Type);
-                                    SetRange("Line No.", EndLineNo, "Line No." - 1); // find "Open Entries Not Due" line
-                                    if FindLast() then
-                                        SetRange("Line No.", EndLineNo, "Line No." - 1);
-                                end;
-                            SetRange(Type);
-                        end;
-                    end;
-                }
-                dataitem(VATCounter; "Integer")
-                {
-                    DataItemTableView = sorting(Number);
-                    column(VATAmtLineAmtIncludVAT; TempVATAmountLine."Amount Including VAT")
-                    {
-                        AutoFormatExpression = "Issued Reminder Line".GetCurrencyCodeFromHeader();
-                        AutoFormatType = 1;
-                    }
-                    column(VALVATAmount; VALVATAmount)
-                    {
-                        AutoFormatExpression = "Issued Reminder Line".GetCurrencyCodeFromHeader();
-                        AutoFormatType = 1;
-                    }
-                    column(VALVATBase; VALVATBase)
-                    {
-                        AutoFormatExpression = "Issued Reminder Line".GetCurrencyCodeFromHeader();
-                        AutoFormatType = 1;
-                    }
-                    column(VALVATBaseVALVATAmt; VALVATBase + VALVATAmount)
-                    {
-                        AutoFormatExpression = "Issued Reminder Line".GetCurrencyCodeFromHeader();
-                        AutoFormatType = 1;
-                    }
-                    column(VATAmtLineVAT; TempVATAmountLine."VAT %")
-                    {
-                    }
-                    column(AmountIncVATCaption; AmountIncVATCaptionLbl)
-                    {
-                    }
-                    column(VATAmtSpecCaption; VATAmtSpecCaptionLbl)
-                    {
-                    }
-                    column(ContinuedCaption; ContinuedCaptionLbl)
-                    {
-                    }
-
-                    trigger OnAfterGetRecord()
-                    begin
-                        TempVATAmountLine.GetLine(Number);
-                        VALVATBase := TempVATAmountLine."Amount Including VAT" / (1 + TempVATAmountLine."VAT %" / 100);
-                        VALVATAmount := TempVATAmountLine."Amount Including VAT" - VALVATBase;
-                    end;
-
-                    trigger OnPreDataItem()
-                    begin
-                        if TempVATAmountLine.GetTotalVATAmount() = 0 then
-                            CurrReport.Break();
-
-                        SetRange(Number, 1, TempVATAmountLine.Count);
-
-                        VALVATBase := 0;
-                        VALVATAmount := 0;
-                    end;
-                }
-                dataitem(VATClauseEntryCounter; "Integer")
-                {
-                    DataItemTableView = sorting(Number);
-                    column(VATClauseVATIdentifier; TempVATAmountLine."VAT Identifier")
-                    {
-                    }
-                    column(VATClauseCode; TempVATAmountLine."VAT Clause Code")
-                    {
-                    }
-                    column(VATClauseDescription; VATClauseText)
-                    {
-                    }
-                    column(VATClauseDescription2; VATClause."Description 2")
-                    {
-                    }
-                    column(VATClauseAmount; TempVATAmountLine."VAT Amount")
-                    {
-                        AutoFormatExpression = "Issued Reminder Header"."Currency Code";
-                        AutoFormatType = 1;
-                    }
-                    column(VATClausesCaption; VATClausesCap)
-                    {
-                    }
-                    column(VATClauseVATIdentifierCaption; VATIdentifierLbl)
-                    {
-                    }
-                    column(VATClauseVATAmtCaption; VATAmountCaptionLbl)
-                    {
-                    }
-
-                    trigger OnAfterGetRecord()
-                    begin
-                        TempVATAmountLine.GetLine(Number);
-                        if not VATClause.Get(TempVATAmountLine."VAT Clause Code") then
-                            CurrReport.Skip();
-                        VATClauseText := VATClause.GetDescriptionText("Issued Reminder Header");
-                    end;
-
-                    trigger OnPreDataItem()
-                    begin
-                        Clear(VATClause);
-                        SetRange(Number, 1, TempVATAmountLine.Count);
-                    end;
-                }
-                dataitem(VATCounterLCY; "Integer")
-                {
-                    DataItemTableView = sorting(Number);
-                    column(VALExchRate; VALExchRate)
-                    {
-                    }
-                    column(VALSpecLCYHeader; VALSpecLCYHeader)
-                    {
-                    }
-                    column(VALVATAmountLCY; VALVATAmountLCY)
-                    {
-                        AutoFormatType = 1;
-                    }
-                    column(VALVATBaseLCY; VALVATBaseLCY)
-                    {
-                        AutoFormatType = 1;
-                    }
-                    column(VATAmtLineVATCtrl107; TempVATAmountLine."VAT %")
-                    {
-                        DecimalPlaces = 0 : 5;
-                    }
-                    column(ContinuedCaption1; ContinuedCaption1Lbl)
-                    {
-                    }
-
-                    trigger OnAfterGetRecord()
-                    begin
-                        TempVATAmountLine.GetLine(Number);
-
-                        VALVATBaseLCY := Round(TempVATAmountLine."Amount Including VAT" / (1 + TempVATAmountLine."VAT %" / 100) / CurrFactor);
-                        VALVATAmountLCY := Round(TempVATAmountLine."Amount Including VAT" / CurrFactor - VALVATBaseLCY);
-                    end;
-
-                    trigger OnPreDataItem()
-                    begin
-                        if (not GLSetup."Print VAT specification in LCY") or
-                           ("Issued Reminder Header"."Currency Code" = '') or
-                           (TempVATAmountLine.GetTotalVATAmount() = 0)
-                        then
-                            CurrReport.Break();
-
-                        SetRange(Number, 1, TempVATAmountLine.Count);
-
-                        VALVATBaseLCY := 0;
-                        VALVATAmountLCY := 0;
-
-                        if GLSetup."LCY Code" = '' then
-                            VALSpecLCYHeader := Text011 + Text012
-                        else
-                            VALSpecLCYHeader := Text011 + Format(GLSetup."LCY Code");
-
-                        CurrExchRate.FindCurrency("Issued Reminder Header"."Posting Date", "Issued Reminder Header"."Currency Code", 1);
-                        CustEntry.SetRange("Customer No.", "Issued Reminder Header"."Customer No.");
-                        CustEntry.SetRange("Document Type", CustEntry."Document Type"::Reminder);
-                        CustEntry.SetRange("Document No.", "Issued Reminder Header"."No.");
-                        if CustEntry.FindFirst() then begin
-                            CustEntry.CalcFields("Amount (LCY)", Amount);
-                            CurrFactor := 1 / (CustEntry."Amount (LCY)" / CustEntry.Amount);
-                            VALExchRate := StrSubstNo(Text013, Round(1 / CurrFactor * 100, 0.000001), CurrExchRate."Exchange Rate Amount");
-                        end else begin
-                            CurrFactor := CurrExchRate.ExchangeRate("Issued Reminder Header"."Posting Date", "Issued Reminder Header"."Currency Code");
-                            VALExchRate := StrSubstNo(Text013, CurrExchRate."Relational Exch. Rate Amount", CurrExchRate."Exchange Rate Amount");
-                        end;
-                    end;
-                }
-                dataitem(LetterText; "Integer")
-                {
-                    DataItemTableView = sorting(Number) where(Number = const(1));
-                    column(GreetingText; GreetingLbl)
-                    {
-                    }
-                    column(AmtDueText; AmtDueTxt)
-                    {
-                    }
-                    column(BodyText; BodyLbl)
-                    {
-                    }
-                    column(ClosingText; ClosingLbl)
-                    {
-                    }
-                    column(DescriptionText; DescriptionLbl)
-                    {
-                    }
-                    column(TotalRemAmt_IssuedReminderLine; TotalRemAmt)
-                    {
-                    }
-                    column(FinalTotalInclVAT; NNC_TotalInclVAT)
-                    {
-                    }
-
-                    trigger OnPreDataItem()
-                    begin
-                        AmtDueTxt := '';
-                        if Format("Issued Reminder Header"."Due Date") <> '' then
-                            AmtDueTxt := StrSubstNo(AmtDueLbl, "Issued Reminder Header"."Due Date");
-
-                        OnLetterTextOnPreDataItemOnAfterSetAmtDueTxt("Issued Reminder Header", AmtDueTxt);
-                    end;
-                }
             }
 
             trigger OnAfterGetRecord()
@@ -672,6 +442,7 @@ report 50018 "A01 Reminder Letter 1"
                 VATPostingSetup: Record "VAT Posting Setup";
             begin
                 // CurrReport.Language := LanguageRec.GetLanguageIdOrDefault("Language Code");
+                CurrReport.Language := 1036;
                 CurrReport.FormatRegion := LanguageRec.GetFormatRegionOrDefault("Format Region");
                 FormatAddr.SetLanguageCode("Language Code");
 
@@ -724,6 +495,23 @@ report 50018 "A01 Reminder Letter 1"
                     Interest := "Interest Amount";
                     VATInterest := 0;
                 end;
+
+                "Issued Reminder Header".CalcFields("Remaining Amount");
+                TotalRemainingAmt := "Issued Reminder Header"."Remaining Amount";
+                TotalRemainingAmtText := Format(TotalRemainingAmt);
+
+
+                RepCheck.InitTextVariable();
+                RepCheck.FormatNoText(NoText, TotalRemainingAmt, GLSetup."LCY Code");
+                NoText[1] := ReplaceString(NoText[1], '****');
+                NoText[1] := ReplaceString(NoText[1], 'AND 0/100');
+                NoText[2] := ReplaceString(NoText[2], '****');
+                NoText[2] := ReplaceString(NoText[2], 'AND 0/100');
+
+                TotalRemainingAmtInLetters := NoText[1] + ' ' + NoText[2];
+
+                BodyLabelText := StrSubstNo(BodyLabel01, TotalRemainingAmtText, TotalRemainingAmtInLetters);
+                ReminderLevelText := StrSubstNo(ReminderLevelLbl, "Reminder Level");
 
                 TotalVATAmount := "VAT Amount";
                 NNC_InterestAmountTotal := 0;
@@ -850,51 +638,41 @@ report 50018 "A01 Reminder Letter 1"
 
     trigger OnPostReport()
     begin
-        if LogInteractionVar and not IsReportInPreviewMode() then
-            if "Issued Reminder Header".FindSet() then
-                repeat
-                    SegManagement.LogDocument(
-                      8, "Issued Reminder Header"."No.", 0, 0, DATABASE::Customer, "Issued Reminder Header"."Customer No.",
-                      '', '', "Issued Reminder Header"."Posting Description", '');
-                until "Issued Reminder Header".Next() = 0;
+        // if LogInteractionVar and not IsReportInPreviewMode() then
+        //     if "Issued Reminder Header".FindSet() then
+        //         repeat
+        //             SegManagement.LogDocument(
+        //               8, "Issued Reminder Header"."No.", 0, 0, DATABASE::Customer, "Issued Reminder Header"."Customer No.",
+        //               '', '', "Issued Reminder Header"."Posting Description", '');
+        //         until "Issued Reminder Header".Next() = 0;
     end;
 
     var
 
         PrimaryContact: Record Contact;
         Customer: Record Customer;
-        CustEntry: Record "Cust. Ledger Entry";
+        //CustEntry: Record "Cust. Ledger Entry";
         GLSetup: Record "General Ledger Setup";
         SalesSetup: Record "Sales & Receivables Setup";
         CompanyBankAccount: Record "Bank Account";
         DimSetEntry: Record "Dimension Set Entry";
-        CurrExchRate: Record "Currency Exchange Rate";
+        //CurrExchRate: Record "Currency Exchange Rate";
+        RepCheck: Report "Check";
         LanguageRec: Codeunit Language;
         FormatAddr: Codeunit "Format Address";
         SegManagement: Codeunit SegManagement;
+        TresoMgt: Codeunit "A01 Treso Mgt";
         CustAddr: array[8] of Text[100];
         CompanyAddr: array[8] of Text[100];
         ReminderInterestAmount: Decimal;
         Continue: Boolean;
-        DimText: Text[120];
-        OldDimText: Text[75];
-        VALVATBaseLCY: Decimal;
-        VALVATAmountLCY: Decimal;
-        VALSpecLCYHeader: Text[80];
-        VALExchRate: Text[50];
-        CurrFactor: Decimal;
-        Text011: Label 'VAT Amount Specification in ';
-        Text012: Label 'Local Currency';
-        Text013: Label 'Exchange rate: %1/%2', Comment = '%1 = amt; %2 = amt';
         Text000: Label 'Total %1', Comment = '%1 = amt';
         Text001: Label 'Total %1 Incl. VAT', Comment = '%1 = amt';
         AddFeeInclVAT: Decimal;
+        NoText: array[2] of Text;
         AddFeePerLineInclVAT: Decimal;
         TotalVATAmount: Decimal;
         VATInterest: Decimal;
-        VALVATBase: Decimal;
-        VALVATAmount: Decimal;
-        VATClauseText: Text;
         LogInteractionEnable: Boolean;
         TextPageLbl: Label 'Page';
         PostingDateCaptionLbl: Label 'Posting Date';
@@ -905,15 +683,8 @@ report 50018 "A01 Reminder Letter 1"
         GiroNoCaptionLbl: Label 'Giro No.';
         PhoneNoCaptionLbl: Label 'Phone No.';
         ReminderCaptionLbl: Label 'Reminder';
-        HeaderDimensionsCaptionLbl: Label 'Header Dimensions';
         DocumentDateCaption1Lbl: Label 'Document Date';
         InterestAmountCaptionLbl: Label 'Interest Amount';
-        AmountIncVATCaptionLbl: Label 'Amount Including VAT';
-        VATAmtSpecCaptionLbl: Label 'VAT Amount Specification';
-        VATClausesCap: Label 'VAT Clause';
-        VATIdentifierLbl: Label 'VAT Identifier';
-        ContinuedCaptionLbl: Label 'Continued';
-        ContinuedCaption1Lbl: Label 'Continued';
         DueDateCaptionLbl: Label 'Due Date';
         VATAmountCaptionLbl: Label 'VAT Amount';
         VATBaseCaptionLbl: Label 'VAT Base';
@@ -923,20 +694,25 @@ report 50018 "A01 Reminder Letter 1"
         DocDateCaptionLbl: Label 'Document Date';
         HomePageCaptionLbl: Label 'Home Page';
         EMailCaptionLbl: Label 'Email';
-        GreetingLbl: Label 'Hello';
-        AmtDueLbl: Label 'You are receiving this email to formally notify you that payment owed by you is past due. The payment was due on %1. Enclosed is a copy of invoice with the details of remaining amount.', Comment = '%1 = A due date';
-        BodyLbl: Label 'If you have already made the payment, please disregard this email. Thank you for your business.';
-        ClosingLbl: Label 'Sincerely';
-        DescriptionLbl: Label 'Description';
         ContactPhoneNoLbl: Label 'Contact Phone No.';
         ContactMobilePhoneNoLbl: Label 'Contact Mobile Phone No.';
         ContactEmailLbl: Label 'Contact E-Mail';
-        AmtDueTxt: Text;
         RemainingAmt: Text;
+        BodyLabel01: Label '        Sauf erreur ou omission de notre part, nous n’avons pas reçu, à ce jour, le paiement d’un montant de %1 Ar (%2). Ce montant correspond au total de vos impayés et des frais de retard, relatifs à l’achat à crédit que vous avez effectué auprès de notre société, dont vous trouverez ci-dessous les détails :', Comment = '%1=...,%2=...';
+        BodyLabelText: Text;
+        DueDays: Integer;
+        TotalRemainingAmt: Decimal;
+        PaidAmount: Decimal;
+        TotalRemainingAmtText: Text;
+        TotalRemainingAmtInLetters: Text;
+        ReminderLevelText: Text;
+        ReminderLevelLbl: Label 'Lettre de relance N° %1', Comment = '%1=num';
+
+        Lieu: Text;
 
     protected var
         TempVATAmountLine: Record "VAT Amount Line" temporary;
-        VATClause: Record "VAT Clause";
+        //VATClause: Record "VAT Clause";
         CompanyInfo: Record "Company Information";
         CompanyInfo1: Record "Company Information";
         CompanyInfo2: Record "Company Information";
@@ -967,9 +743,23 @@ report 50018 "A01 Reminder Letter 1"
         exit(CurrReport.Preview or MailManagement.IsHandlingGetEmailBody());
     end;
 
-    [IntegrationEvent(false, false)]
-    local procedure OnLetterTextOnPreDataItemOnAfterSetAmtDueTxt(var IssuedReminderHeader: Record "Issued Reminder Header"; var AmtDueTxt: Text)
+    local procedure ReplaceString(OriginString: Text; ReplaceString1: Text): Text
+    var
+        Rep: Text;
+        pos: Integer;
     begin
+        Rep := OriginString;
+        pos := StrPos(OriginString, ReplaceString1);
+        if (pos >= 1) then begin
+            Rep := DelStr(OriginString, pos, StrLen(ReplaceString1));
+        end;
+        exit(Rep);
     end;
+
+
+    // [IntegrationEvent(false, false)]
+    // local procedure OnLetterTextOnPreDataItemOnAfterSetAmtDueTxt(var IssuedReminderHeader: Record "Issued Reminder Header"; var AmtDueTxt: Text)
+    // begin
+    // end;
 }
 

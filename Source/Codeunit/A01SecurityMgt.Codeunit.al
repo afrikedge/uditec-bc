@@ -114,25 +114,15 @@ codeunit 50004 "A01 Security Mgt"
     procedure CheckBankAccountUser(GenJournalLine: Record "Gen. Journal Line")
     var
         BankAcc: Record "Bank Account";
-        BankAccUser: Record "A01 User Access";
-        ErrLbl: Label 'You are not authorized to use this bank account : %1', Comment = '%1=bank';
-
+    //BankAccUser: Record "A01 User Access";
     begin
         if (GenJournalLine."Account Type" = GenJournalLine."Account Type"::"Bank Account") then
             if (BankAcc.get(GenJournalLine."Account No.")) then begin
-                BankAccUser.Reset();
-                BankAccUser.SetRange("Bank Account", BankAcc."No.");
-                BankAccUser.SetRange("User Id", UserId);
-                if (BankAccUser.IsEmpty()) then
-                    Error(ErrLbl, BankAcc."No.");
+                CheckBankUserAccount(BankAcc."No.");
             end;
         if (GenJournalLine."Bal. Account Type" = GenJournalLine."Bal. Account Type"::"Bank Account") then
             if (BankAcc.get(GenJournalLine."Bal. Account No.")) then begin
-                BankAccUser.Reset();
-                BankAccUser.SetRange("Bank Account", BankAcc."No.");
-                BankAccUser.SetRange("User Id", UserId);
-                if (BankAccUser.IsEmpty()) then
-                    Error(ErrLbl, BankAcc."No.");
+                CheckBankUserAccount(BankAcc."No.");
             end;
     end;
 
@@ -151,5 +141,18 @@ codeunit 50004 "A01 Security Mgt"
                 if (WarehouseEmp.IsEmpty()) then
                     Error(ErrLbl, Location.Code);
             end;
+    end;
+
+    procedure CheckBankUserAccount(BankAccountNo: Code[20])
+    var
+        BankAccUser: Record "A01 User Access";
+        ErrLbl: Label 'You are not authorized to use this bank account : %1', Comment = '%1=bank';
+
+    begin
+        BankAccUser.Reset();
+        BankAccUser.SetRange("Bank Account", BankAccountNo);
+        BankAccUser.SetRange("User Id", UserId);
+        if (BankAccUser.IsEmpty()) then
+            Error(ErrLbl, BankAccountNo);
     end;
 }

@@ -29,4 +29,8 @@ enum 50017 "A01 Parameter Record Type"
     {
         Caption = 'Brand';
     }
+    value(6; BankNote)
+    {
+        Caption = 'BankNote';
+    }
 }

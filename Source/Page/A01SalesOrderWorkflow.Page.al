@@ -1182,7 +1182,7 @@ page 50002 "A01 Sales Order - Workflow"
                     begin
                         if (not confirm(QstLabel)) then
                             exit;
-                        CreateDoc.AddUnBlockingRequest(Rec);//*******************
+                        CreateDoc.AddUnBlockingRequest(Rec, '', Rec."A01 Request Status"::"Waiting for committee");//*******************
                     end;
                 }
                 action(Statistics)

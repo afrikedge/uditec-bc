@@ -386,7 +386,7 @@ codeunit 50007 "A01 Treso Mgt"
           SalesHeader."Shortcut Dimension 1 Code", SalesHeader."Shortcut Dimension 2 Code",
           SalesHeader."Dimension Set ID", SalesHeader."Reason Code");
 
-
+        GenJnlLine.SetSuppressCommit(true);
         GenJnlLine.CopyDocumentFields(Enum::"Gen. Journal Document Type"::" ", DocNo, ExtDocNo, SourceCode, '');
         GenJnlLine."Account Type" := GenJnlLine."Account Type"::Customer;
         GenJnlLine."Account No." := SalesHeader."Bill-to Customer No.";
@@ -448,7 +448,7 @@ codeunit 50007 "A01 Treso Mgt"
           CustSettlement."Shortcut Dimension 1 Code", CustSettlement."Shortcut Dimension 2 Code",
           CustSettlement."Dimension Set ID", '');
 
-
+        GenJnlLine.SetSuppressCommit(true);
         GenJnlLine.CopyDocumentFields(Enum::"Gen. Journal Document Type"::Payment, CustSettlement."Posting No.", CustSettlement."External Document No.", SourceCodeSetup."Payment Journal", '');
         GenJnlLine."Account Type" := GenJnlLine."Account Type"::Customer;
         GenJnlLine."Account No." := CustSettlement."Partner No.";
@@ -461,6 +461,7 @@ codeunit 50007 "A01 Treso Mgt"
         // else
         GenJnlLine."Document Type" := GenJnlLine."Document Type"::Payment;
         GenJnlLine."Payment Method Code" := CustSettlementLine."Payment Method";
+        GenJnlLine."Payment Reference" := CustSettlementLine.Reference;
 
 
         SetBalAccAndApplyToID(RCPaymentMethod, GenJnlLine, CustSettlement."Applies-to ID");
@@ -749,7 +750,7 @@ codeunit 50007 "A01 Treso Mgt"
         GenJnlLine."Due Date" := LineDueDate;
         //GenJnlLine."Document No." := Copystr(GenJnlLine."Document No." + '/' + Format(LineId), 1, 20);
         if (LineId > 1) then
-            GenJnlLine."Document No." := Copystr(GenJnlLine."Document No." + '/' + Format(LineId), 1, 20);
+            GenJnlLine."Document No." := Copystr(GenJnlLine."Document No.", 1, 17) + '/' + Format(LineId);
         //GenJnlLine."External Document No." := Copystr(GenJnlLine."Document No." + '/' + Format(LineId), 1, 35);
         GenJnlLine."External Document No." := GenJnlLine."Document No.";
         //GenJnlLine."Document Type" := GenJnlLine."Document Type"::" ";
@@ -910,6 +911,30 @@ codeunit 50007 "A01 Treso Mgt"
         if (not CreditDueLine.IsEmpty) then
             CreditDueLine.DeleteAll();
     end;
+
+    procedure GetDueDays(CustLedgerEntry: Record "Cust. Ledger Entry"): Integer
+    var
+    begin
+        if (CustLedgerEntry."Closed at Date" <> 0D) then
+            exit(Days(CustLedgerEntry."Due Date", CustLedgerEntry."Closed at Date"))
+        else
+            exit(Days(CustLedgerEntry."Due Date", Today));
+    end;
+
+    local procedure Days(Day1: Date; Day2: Date): Integer
+    var
+    begin
+        if Day1 > Day2 then
+            exit(0);
+        if Day1 = 0D then
+            exit(0);
+        if Day2 = 0D then
+            exit(0);
+
+        exit(Day2 - Day1 + 1);
+    end;
+
+
 
 
 }

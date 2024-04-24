@@ -21,15 +21,16 @@ page 50049 "A01 Deadline Assignment List"
                 field("Customer No."; Rec."Customer No.")
                 {
                 }
-
+                field("Due status"; Rec."Due status")
+                {
+                }
+                field("Assigment Status"; Rec."Assigment Status")
+                {
+                }
                 field("Assigned to"; Rec."Assigned to")
                 {
                 }
                 field("Assigned on"; Rec."Assigned on")
-                {
-                }
-
-                field("Due status"; Rec."Due status")
                 {
                 }
                 field("Required action"; Rec."Required action")

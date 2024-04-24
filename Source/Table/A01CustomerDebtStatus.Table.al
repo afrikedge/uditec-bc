@@ -31,6 +31,24 @@ table 50009 "A01 Customer Debt Status"
             Caption = 'Maximum (Days)';
             MinValue = 0;
         }
+        field(6; "Company fees (%)"; Decimal)
+        {
+            Caption = 'Company fees (%)';
+            MinValue = 0;
+            MaxValue = 100;
+        }
+        field(7; "Agent fees partial (%)"; Decimal)
+        {
+            Caption = 'Agent fees partial (%)';
+            MinValue = 0;
+            MaxValue = 100;
+        }
+        field(8; "Agent fees full (%)"; Decimal)
+        {
+            Caption = 'Agent fees full (%)';
+            MinValue = 0;
+            MaxValue = 100;
+        }
     }
     keys
     {

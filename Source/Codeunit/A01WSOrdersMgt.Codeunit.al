@@ -29,6 +29,119 @@ codeunit 50009 "A01 WS OrdersMgt"
             exit(AddOrder(input));
     end;
 
+    procedure Run_Open(input: JsonObject): Text
+    var
+        SalesOrder: Record "Sales Header";
+        NoOrder: text;
+        WebUser: text;
+    begin
+        NoOrder := ws.GetText('No_', input);
+        WebUser := ws.GetText('webUserName', input);
+
+        SalesOrder.Get(SalesOrder."Document Type"::Order, NoOrder);
+        SalesOrder."A01 Web User Id" := copystr(WebUser, 1, 50);
+
+        SalesOrder.PerformManualReopen(SalesOrder);
+
+        exit(Ws.CreateResponseSuccess(SalesOrder."No."));
+
+    end;
+
+    procedure Run_CreateDiscountRequest(input: JsonObject): Text
+    var
+        SalesOrder: Record "Sales Header";
+        DocRequestMgt: Codeunit "A01 Document Request Mgt";
+        NoOrder: text;
+        WebUser: text;
+        RequestNo: Code[20];
+        DiscoutRequested: Decimal;
+        DiscoutStatus: Enum "A01 Approval Status";
+    begin
+        NoOrder := ws.GetText('No_', input);
+        WebUser := ws.GetText('webUserName', input);
+        DiscoutRequested := ws.GetDecimal('Discount %', input);
+        Evaluate(DiscoutStatus, Format(ws.GetInt('Approval Status', input)));
+
+        SalesOrder.Get(SalesOrder."Document Type"::Order, NoOrder);
+
+        RequestNo := DocRequestMgt.AddDiscountRequest(SalesOrder, DiscoutRequested, WebUser, DiscoutStatus);
+
+        exit(Ws.CreateResponseSuccess(RequestNo));
+
+    end;
+
+    procedure Run_CreateUnBlockingRequest(input: JsonObject): Text
+    var
+        SalesOrder: Record "Sales Header";
+        DocRequestMgt: Codeunit "A01 Document Request Mgt";
+        NoOrder: text;
+        WebUser: text;
+        RequestNo: Code[20];
+        DocStatus: Enum "A01 Approval Status";
+    begin
+        NoOrder := ws.GetText('No_', input);
+        WebUser := ws.GetText('webUserName', input);
+        Evaluate(DocStatus, Format(ws.GetInt('Approval Status', input)));
+
+        SalesOrder.Get(SalesOrder."Document Type"::Order, NoOrder);
+
+        RequestNo := DocRequestMgt.AddUnBlockingRequest(SalesOrder, WebUser, DocStatus);
+
+        exit(Ws.CreateResponseSuccess(RequestNo));
+
+    end;
+
+    procedure Run_CreatePOSPaymentRequest(input: JsonObject): Text
+    var
+        SalesOrder: Record "Sales Header";
+        DocRequestMgt: Codeunit "A01 Document Request Mgt";
+        NoOrder: text;
+        WebUser: text;
+        RequestNo: Code[20];
+        DocStatus: Enum "A01 Approval Status";
+    begin
+        NoOrder := ws.GetText('No_', input);
+        WebUser := ws.GetText('webUserName', input);
+        Evaluate(DocStatus, Format(ws.GetInt('Approval Status', input)));
+
+        SalesOrder.Get(SalesOrder."Document Type"::Order, NoOrder);
+
+        RequestNo := DocRequestMgt.AddPOSPaymentRequest(SalesOrder, WebUser, DocStatus);
+
+        exit(Ws.CreateResponseSuccess(RequestNo));
+
+    end;
+
+    procedure Run_ModifyRequestStatus(input: JsonObject): Text
+    var
+        Request: Record "A01 Request On Document";
+        DocRequestMgt: Codeunit "A01 Document Request Mgt";
+        DocNo: text;
+        WebUser: text;
+        RequestNo: Code[20];
+        DocStatus: Enum "A01 Approval Status";
+        RequestType: Enum "A01 Request On Document Type";
+    begin
+        DocNo := ws.GetText('No_', input);
+        WebUser := ws.GetText('webUserName', input);
+        Evaluate(DocStatus, Format(ws.GetInt('Approval Status', input)));
+        Evaluate(RequestType, Format(ws.GetInt('Request Type', input)));
+
+        if (RequestType = "A01 Request On Document Type"::"Discount on order") then
+            Request.Get(Request."Request Type"::"Discount on order", DocNo);
+        if (RequestType = "A01 Request On Document Type"::"Discount on quote") then
+            Request.Get(Request."Request Type"::"Discount on quote", DocNo);
+        if (RequestType = "A01 Request On Document Type"::"Payment Document") then
+            Request.Get(Request."Request Type"::"Payment Document", DocNo);
+        if (RequestType = "A01 Request On Document Type"::"POS Payment") then
+            Request.Get(Request."Request Type"::"POS Payment", DocNo);
+
+        RequestNo := DocRequestMgt.ModifyStatus(Request, WebUser, DocStatus);
+
+        exit(Ws.CreateResponseSuccess(RequestNo));
+
+    end;
+
     local procedure ModifyOrder(OrderNo: Text; input: JsonObject): Text
     var
         SalesOrder: Record "Sales Header";

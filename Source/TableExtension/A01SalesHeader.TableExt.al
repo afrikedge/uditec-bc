@@ -118,6 +118,12 @@ tableextension 50000 "A01 Sales Header" extends "Sales Header"
                     Rec.Validate("A01 Credit Duration (Month)", AGPContract."Duration (Month)");
             end;
         }
+        field(50018; "A01 Request Status"; Enum "A01 Approval Status")
+        {
+            Caption = 'Approval Status';
+            Editable = false;
+            DataClassification = CustomerContent;
+        }
         // field(50017; "A01 Eligible Amount"; Decimal)
         // {
         //     Caption = 'Eligible Amount';
