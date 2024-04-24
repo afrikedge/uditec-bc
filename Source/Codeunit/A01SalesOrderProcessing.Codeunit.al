@@ -84,7 +84,7 @@ codeunit 50000 "A01 Sales Order Processing"
     procedure ValidateDraft(var SalesH: Record "Sales Header")
     begin
         SalesH.TestField("Sell-to Customer No.");
-        SalesH.TestField("Ship-to Code");
+        //SalesH.TestField("Ship-to Code");
         //SalesH.TestField("Shipment Method Code");
         //SalesH.TestField("Requested Delivery Date");
         //SalesH.TestField("Currency Code");
@@ -221,6 +221,8 @@ codeunit 50000 "A01 Sales Order Processing"
         SalesL.SetRange(SalesL."Document No.", SalesH."No.");
         if SalesL.FindSet() then
             repeat
+                if (SalesL.Type <> SalesL.Type::" ") then
+                    SalesL.TestField("Unit Price");
                 if (SalesL.Type = SalesL.Type::Item) then begin
                     SalesL.TestField("Location Code");
                     SalesL.TestField(Quantity);

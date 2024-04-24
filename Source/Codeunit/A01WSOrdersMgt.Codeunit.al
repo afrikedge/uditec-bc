@@ -56,13 +56,19 @@ codeunit 50009 "A01 WS OrdersMgt"
         RequestNo: Code[20];
         DiscoutRequested: Decimal;
         DiscoutStatus: Enum "A01 Approval Status";
+        RequestType: Enum "A01 Request On Document Type";
     begin
         NoOrder := ws.GetText('No_', input);
         WebUser := ws.GetText('webUserName', input);
         DiscoutRequested := ws.GetDecimal('Discount %', input);
         Evaluate(DiscoutStatus, Format(ws.GetInt('Approval Status', input)));
+        Evaluate(RequestType, Format(ws.GetInt('Request Type', input)));
 
-        SalesOrder.Get(SalesOrder."Document Type"::Order, NoOrder);
+        if (RequestType = "A01 Request On Document Type"::"Discount on quote") then
+            SalesOrder.Get(SalesOrder."Document Type"::Quote, NoOrder);
+
+        if (RequestType = "A01 Request On Document Type"::"Discount on order") then
+            SalesOrder.Get(SalesOrder."Document Type"::Order, NoOrder);
 
         RequestNo := DocRequestMgt.AddDiscountRequest(SalesOrder, DiscoutRequested, WebUser, DiscoutStatus);
 
