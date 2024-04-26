@@ -131,6 +131,18 @@
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Table A01 Afk Setup - Field Discount Request Nos - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Table 2685203037 - Field 841213051 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Exempt Post Invoices Nos</source>
+          <target state="needs-review-translation">Nos factures enregistrés (Exempt)</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Table A01 Afk Setup - Field Exempt Post Invoices Nos - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2685203037 - Field 842840013 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Exempt Post Shipment Nos</source>
+          <target state="needs-review-translation">Nos expéditions ventes (Exempt)</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Table A01 Afk Setup - Field Exempt Post Shipment Nos - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Table 2685203037 - Field 2039060979 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Item Category Code (Voucher)</source>
           <target state="needs-review-translation">Code catégorie article (Bon d'achat)</target>
@@ -262,6 +274,12 @@
           <target state="needs-review-translation">N° Promesse de règlement</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Table A01 Afk Setup - Field Payment Promise Nos - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2685203037 - Field 2374228914 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Petty Cash Payment Method</source>
+          <target state="needs-review-translation">Mode de paiement Petty Cash</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Table A01 Afk Setup - Field Petty Cash Pay Mode - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 2685203037 - Field 807179977 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Posted Customer Settlement Nos</source>
@@ -602,6 +620,12 @@
           <target state="needs-review-translation">Nombre</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Table A01 Cashbox Closing Line - Field Quantity - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 530321003 - Field 513339096 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Status</source>
+          <target state="needs-review-translation">Statut</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Table A01 Cashbox Closing Line - Field Status - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 530321003 - Field 1998138150 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Store Code</source>
@@ -2968,11 +2992,23 @@
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Table A01 User Access - Property Caption</note>
         </trans-unit>
-        <trans-unit id="Table 2028740703 - Field 1682139193 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Bank Account</source>
-          <target state="needs-review-translation">Compte bancaire</target>
+        <trans-unit id="Table 2028740703 - Field 3680813464 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Access Type</source>
+          <target state="needs-review-translation">Type accès</target>
           <note from="Developer" annotates="general" priority="2"/>
-          <note from="Xliff Generator" annotates="general" priority="3">Table A01 User Access - Field Bank Account - Property Caption</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table A01 User Access - Field Access Type - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2028740703 - Field 3891806711 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Ressource Code 1</source>
+          <target state="needs-review-translation">Code ressource 1</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Table A01 User Access - Field Ressource Code 1 - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2028740703 - Field 1509929266 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Ressource Code 2</source>
+          <target state="needs-review-translation">Code ressource 2</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Table A01 User Access - Field Ressource Code 2 - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 2028740703 - Field 2708250016 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>User ID</source>
@@ -3331,6 +3367,18 @@
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit A01 EventsSubscribers_Table - Method OnBeforePrintRecords_IssuedReminderHeader - NamedType SuppresSendDialogQst</note>
         </trans-unit>
+        <trans-unit id="Codeunit 3788762471 - Method 302331668 - NamedType 4139067752" size-unit="char" translate="yes" xml:space="preserve">
+          <source>You cannot validate this operation on this date. There is a cash closing validated on the %1 for this point of sale.</source>
+          <target state="needs-review-translation">Vous ne pouvez pas valider cette opération à cette date. Il existe une clôture de caisse validée à la date du %1 pour ce point de vente.</target>
+          <note from="Developer" annotates="general" priority="2">%1=date</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit A01 General Legder Mgt - Method CheckCashboxClosingDateOnCustSettlement - NamedType Err001</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 3788762471 - Method 3619656634 - NamedType 4139067752" size-unit="char" translate="yes" xml:space="preserve">
+          <source>You cannot validate this operation on this date. There is a cash closing validated on the %1 for this point of sale.</source>
+          <target state="needs-review-translation">Vous ne pouvez pas valider cette opération à cette date. Il existe une clôture de caisse validée à la date du %1 pour ce point de vente.</target>
+          <note from="Developer" annotates="general" priority="2">%1=date</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit A01 General Legder Mgt - Method CheckCashboxClosingDateOnGenJnlLine - NamedType Err001</note>
+        </trans-unit>
         <trans-unit id="Codeunit 4233996319 - NamedType 3523952544" size-unit="char" translate="yes" xml:space="preserve">
           <source>The document is not at a status where it can be validated.</source>
           <target state="needs-review-translation">Le document n'est pas dans un statut permettant de le valider.</target>
@@ -3419,6 +3467,12 @@
           <target state="needs-review-translation">Vous n'etes pas autorisé à utiliser ce compte bancaire/caisse</target>
           <note from="Developer" annotates="general" priority="2">%1=bank</note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit A01 Security Mgt - Method CheckBankUserAccount - NamedType ErrLbl</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 2075651460 - Method 974493626 - NamedType 3024544721" size-unit="char" translate="yes" xml:space="preserve">
+          <source>You are not authorized to use this journal : %1 - %2</source>
+          <target state="needs-review-translation">Vous n'êtes pas autorisés à valider sur cette feuille : %1 - %2</target>
+          <note from="Developer" annotates="general" priority="2">%1=tmpl , %2=journal</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit A01 Security Mgt - Method CheckJournalUser - NamedType ErrLbl</note>
         </trans-unit>
         <trans-unit id="Codeunit 2075651460 - Method 1078160646 - NamedType 3024544721" size-unit="char" translate="yes" xml:space="preserve">
           <source>You are not authorized to use this location : %1</source>
@@ -3751,6 +3805,12 @@
           <target state="needs-review-translation">Utilisateurs compte bancaire</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Page A01 Bank Account Users - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2122441263 - Control 1682139193 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Bank Account</source>
+          <target state="needs-review-translation">Compte bancaire</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Page A01 Bank Account Users - Control Bank Account - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 3754628129 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Bank Notes List</source>
@@ -4510,6 +4570,18 @@
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Page A01 Customer Settlement - Control General - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Page 2686914651 - Action 2173385693 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>View or change the dimension settings for this payment slip. If you change the dimension, you can update all lines on the payment slip.</source>
+          <target state="needs-review-translation">Informations sur les axes analytiques</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Page A01 Customer Settlement - Action Dimensions - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2686914651 - Action 2173385693 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Dimensions</source>
+          <target state="needs-review-translation">Axes analytiques</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Page A01 Customer Settlement - Action Dimensions - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Page 2686914651 - Action 483054734 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Create payment request</source>
           <target state="needs-review-translation">Créer une demande de paiement</target>
@@ -4669,6 +4741,24 @@
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Page A01 Item Warranty Plans - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Page 2160119901 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Journal Users</source>
+          <target state="needs-review-translation">Utilisateurs de feuille</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Page A01 Journal Users - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2160119901 - Control 3891806711 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Journal Template Name</source>
+          <target state="needs-review-translation">Modèle de feuille</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Page A01 Journal Users - Control Ressource Code 1 - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2160119901 - Control 1509929266 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Journal Batch Name</source>
+          <target state="needs-review-translation">Nom de feuille</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Page A01 Journal Users - Control Ressource Code 2 - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Page 2755153026 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Objects</source>
           <target state="needs-review-translation">Objets (Circuits)</target>
@@ -4728,6 +4818,378 @@
           <target state="needs-review-translation">Configuration du type de reglement</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Page A01 Payment Type Configuration - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 417080824 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Cash Receipt Journals</source>
+          <target state="needs-review-translation">Journal Petty Cash</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Page A01 Petty Cash Journal - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 417080824 - Property 3863440606" size-unit="char" translate="yes" xml:space="preserve">
+          <source>customer payment</source>
+          <target state="needs-review-translation">Règlement client</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Page A01 Petty Cash Journal - Property AdditionalSearchTerms</note>
+        </trans-unit>
+        <trans-unit id="Page 417080824 - Control 4213264591 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Applied (Yes/No)</source>
+          <target state="needs-review-translation">Lettré (Oui/Non)</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Page A01 Petty Cash Journal - Control Applied (Yes/No) - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 417080824 - Control 874212758 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Batch Name</source>
+          <target state="needs-review-translation">Nom feuille</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Page A01 Petty Cash Journal - Control CurrentJnlBatchName - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 417080824 - Control 3513878709 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Approval Status</source>
+          <target state="needs-review-translation">Statut approbation</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Page A01 Petty Cash Journal - Control GenJnlBatchApprovalStatus - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 417080824 - Control 2588032914 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Account Name</source>
+          <target state="needs-review-translation">Nom du compte</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Page A01 Petty Cash Journal - Control Account Name - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 417080824 - Control 777301097 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Bal. Account Name</source>
+          <target state="needs-review-translation">Compte contrepartie</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Page A01 Petty Cash Journal - Control Bal. Account Name - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 417080824 - Control 1287395299 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Bal. Account Name</source>
+          <target state="needs-review-translation">Nom compte de contrepartie</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Page A01 Petty Cash Journal - Control BalAccName - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 417080824 - Control 2200380698 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Balance</source>
+          <target state="needs-review-translation">Solde</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Page A01 Petty Cash Journal - Control Control1900545401 - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 417080824 - Control 25700210 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Balance</source>
+          <target state="needs-review-translation">Solde</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Page A01 Petty Cash Journal - Control Balance - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 417080824 - Control 1993866289 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Number of Lines</source>
+          <target state="needs-review-translation">Nombre de lignes</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Page A01 Petty Cash Journal - Control Number of Lines - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 417080824 - Control 1038316384 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Total Balance</source>
+          <target state="needs-review-translation">Total solde</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Page A01 Petty Cash Journal - Control Total Balance - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 417080824 - Control 938567880 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Total Balance</source>
+          <target state="needs-review-translation">Total solde</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Page A01 Petty Cash Journal - Control TotalBalance - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 417080824 - Control 677350589 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Batch Workflows</source>
+          <target state="needs-review-translation">Batch Workflows</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Page A01 Petty Cash Journal - Control WorkflowStatusBatch - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 417080824 - Control 716229979 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Line Workflows</source>
+          <target state="needs-review-translation">Line Workflows</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Page A01 Petty Cash Journal - Control WorkflowStatusLine - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 417080824 - Action 1402615620 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>&amp;amp;Line</source>
+          <target state="needs-review-translation">Ligne</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Page A01 Petty Cash Journal - Action &amp;amp;Line - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 417080824 - Action 2173385693 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Dimensions</source>
+          <target state="needs-review-translation">Axes analytiques</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Page A01 Petty Cash Journal - Action Dimensions - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 417080824 - Action 1892509601 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>A&amp;amp;ccount</source>
+          <target state="needs-review-translation">Compte</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Page A01 Petty Cash Journal - Action A&amp;amp;ccount - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 417080824 - Action 4125097576 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Card</source>
+          <target state="needs-review-translation">Fiche</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Page A01 Petty Cash Journal - Action Card - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 417080824 - Action 1111476699 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Ledger E&amp;amp;ntries</source>
+          <target state="needs-review-translation">Ecritures</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Page A01 Petty Cash Journal - Action Ledger E&amp;amp;ntries - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 417080824 - Action 3860314472 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Approvals</source>
+          <target state="needs-review-translation">Approbation</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Page A01 Petty Cash Journal - Action Approvals - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 417080824 - Action 2687027117 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Errors</source>
+          <target state="needs-review-translation">Erreurs</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Page A01 Petty Cash Journal - Action Errors - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 417080824 - Action 2110709833 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Show All Lines</source>
+          <target state="needs-review-translation">Voir toutes les lignes</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Page A01 Petty Cash Journal - Action ShowAllLines - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 417080824 - Action 438152601 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Show Lines with Issues</source>
+          <target state="needs-review-translation">Voir toutes les lignes avec érreurs</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Page A01 Petty Cash Journal - Action ShowLinesWithErrors - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 417080824 - Action 227370865 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Approval</source>
+          <target state="needs-review-translation">Approbation</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Page A01 Petty Cash Journal - Action Approval - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 417080824 - Action 803889193 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Approve</source>
+          <target state="needs-review-translation">Approuver</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Page A01 Petty Cash Journal - Action Approve - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 417080824 - Action 2790486453 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Comments</source>
+          <target state="needs-review-translation">Commentaires</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Page A01 Petty Cash Journal - Action Comment - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 417080824 - Action 1013253961 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Delegate</source>
+          <target state="needs-review-translation">Déléguer</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Page A01 Petty Cash Journal - Action Delegate - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 417080824 - Action 113888489 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Reject</source>
+          <target state="needs-review-translation">Rejeter</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Page A01 Petty Cash Journal - Action Reject - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 417080824 - Action 3106002577 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>F&amp;amp;unctions</source>
+          <target state="needs-review-translation">Fonctions</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Page A01 Petty Cash Journal - Action F&amp;amp;unctions - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 417080824 - Action 608506184 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Action1120000</source>
+          <target state="needs-review-translation">Action1120000</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Page A01 Petty Cash Journal - Action Action1120000 - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 417080824 - Action 2474225426 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Apply Entries</source>
+          <target state="needs-review-translation">Lettrer les écritures</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Page A01 Petty Cash Journal - Action Apply Entries - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 417080824 - Action 2297931729 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Insert Conv. LCY Rndg. Lines</source>
+          <target state="needs-review-translation">Insérer lignes arrondis</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Page A01 Petty Cash Journal - Action Insert Conv. LCY Rndg. Lines - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 417080824 - Action 463104501 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Print Check Remittance Report</source>
+          <target state="needs-review-translation">Imprimer le chèque</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Page A01 Petty Cash Journal - Action PrintCheckRemittanceReport - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 417080824 - Action 2541273125 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Renumber Document Numbers</source>
+          <target state="needs-review-translation">Rénumeroter les documents</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Page A01 Petty Cash Journal - Action Renumber Document Numbers - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 417080824 - Action 2245087378 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>P&amp;amp;osting</source>
+          <target state="needs-review-translation">Validation</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Page A01 Petty Cash Journal - Action P&amp;amp;osting - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 417080824 - Action 2282416948 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>P&amp;amp;ost</source>
+          <target state="needs-review-translation">Valider</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Page A01 Petty Cash Journal - Action Post - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 417080824 - Action 1333595352 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Post and &amp;amp;Print</source>
+          <target state="needs-review-translation">Valider et imprimer</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Page A01 Petty Cash Journal - Action Post and &amp;amp;Print - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 417080824 - Action 4266201246 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Preview Posting</source>
+          <target state="needs-review-translation">Apercu compta</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Page A01 Petty Cash Journal - Action Preview - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 417080824 - Action 4130217538 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Reconcile</source>
+          <target state="needs-review-translation">Rapprocher</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Page A01 Petty Cash Journal - Action Reconcile - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 417080824 - Action 3150094508 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Test Report</source>
+          <target state="needs-review-translation">Etat test</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Page A01 Petty Cash Journal - Action Test Report - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 417080824 - Action 438909893 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Page</source>
+          <target state="needs-review-translation">Page</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Page A01 Petty Cash Journal - Action Page - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 417080824 - Action 2364670106 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Request Approval</source>
+          <target state="needs-review-translation">Approbation demande</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Page A01 Petty Cash Journal - Action Request Approval - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 417080824 - Action 858296388 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Cancel Approval Request</source>
+          <target state="needs-review-translation">Annuler la demande d'approbation</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Page A01 Petty Cash Journal - Action CancelApprovalRequest - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 417080824 - Action 140439479 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Journal Batch</source>
+          <target state="needs-review-translation">Feuille</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Page A01 Petty Cash Journal - Action CancelApprovalRequestJournalBatch - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 417080824 - Action 286452233 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Selected Journal Lines</source>
+          <target state="needs-review-translation">Lignes sélectionnées</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Page A01 Petty Cash Journal - Action CancelApprovalRequestJournalLine - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 417080824 - Action 1475970794 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Create a Power Automate approval flow</source>
+          <target state="needs-review-translation">Créer une flow d'approbation Power automate</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Page A01 Petty Cash Journal - Action CreateFlow - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 417080824 - Action 2424806812 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Create approval flow</source>
+          <target state="needs-review-translation">Créer une flow d'approbation</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Page A01 Petty Cash Journal - Action CreateFlowFromTemplate - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 417080824 - Action 4289635518 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>See my flows</source>
+          <target state="needs-review-translation">Voir mes flows</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Page A01 Petty Cash Journal - Action SeeFlows - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 417080824 - Action 383335270 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Send Approval Request</source>
+          <target state="needs-review-translation">Envoyer une demande d'approbation</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Page A01 Petty Cash Journal - Action SendApprovalRequest - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 417080824 - Action 2014229241 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Journal Batch</source>
+          <target state="needs-review-translation">Feuille</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Page A01 Petty Cash Journal - Action SendApprovalRequestJournalBatch - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 417080824 - Action 2036791095 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Selected Journal Lines</source>
+          <target state="needs-review-translation">Lignes sélectionnées</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Page A01 Petty Cash Journal - Action SendApprovalRequestJournalLine - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 417080824 - Action 1587086413 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Approve</source>
+          <target state="needs-review-translation">Approuver</target>
+          <note from="Developer" annotates="general" priority="2">Generated from the PromotedActionCategories property index 3.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page A01 Petty Cash Journal - Action Category_Category4 - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 417080824 - Action 2224783030 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Page</source>
+          <target state="needs-review-translation">Page</target>
+          <note from="Developer" annotates="general" priority="2">Generated from the PromotedActionCategories property index 4.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page A01 Petty Cash Journal - Action Category_Category5 - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 417080824 - Action 949389796 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Line</source>
+          <target state="needs-review-translation">Ligne</target>
+          <note from="Developer" annotates="general" priority="2">Generated from the PromotedActionCategories property index 6.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page A01 Petty Cash Journal - Action Category_Category7 - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 417080824 - Action 2524661601 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Account</source>
+          <target state="needs-review-translation">Compte</target>
+          <note from="Developer" annotates="general" priority="2">Generated from the PromotedActionCategories property index 7.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page A01 Petty Cash Journal - Action Category_Category8 - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 417080824 - Action 3383493608 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Process</source>
+          <target state="needs-review-translation">Traitement</target>
+          <note from="Developer" annotates="general" priority="2">Generated from the PromotedActionCategories property index 1.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page A01 Petty Cash Journal - Action Category_Process - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 417080824 - Action 311693179 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Post/Print</source>
+          <target state="needs-review-translation">Valider/Imprimer</target>
+          <note from="Developer" annotates="general" priority="2">Generated from the PromotedActionCategories property index 5.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page A01 Petty Cash Journal - Action Category_Category6 - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 417080824 - Action 2234406979 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Report</source>
+          <target state="needs-review-translation">Etat</target>
+          <note from="Developer" annotates="general" priority="2">Generated from the PromotedActionCategories property index 2.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page A01 Petty Cash Journal - Action Category_Report - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 417080824 - Action 2879026819 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Request Approval</source>
+          <target state="needs-review-translation">Demande d'approbation</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Page A01 Petty Cash Journal - Action Category_Request Approval - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 417080824 - Action 1599615865 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Cancel Approval Request</source>
+          <target state="needs-review-translation">Annuler une demande d'approbation</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Page A01 Petty Cash Journal - Action Category_Cancel Approval Request - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 417080824 - Action 1897540983 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Send Approval Request</source>
+          <target state="needs-review-translation">Envoyer une demande d'approbation</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Page A01 Petty Cash Journal - Action Category_Send Approval Request - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 953559825 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>POS Payment Request</source>
@@ -15326,6 +15788,12 @@
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension A01 Order Processor RC - Action A01PaymentRequests - Property Caption</note>
         </trans-unit>
+        <trans-unit id="PageExtension 3250568499 - Action 1435421976 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2747922353">
+          <source>Afk Petty Cash Journal</source>
+          <target state="needs-review-translation">Feuille Petty Cash</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension A01 Order Processor RC - Action A01PettyCashJournal - Property Caption</note>
+        </trans-unit>
         <trans-unit id="PageExtension 3250568499 - Action 4106710960 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2747922353">
           <source>POS Payment Requests</source>
           <target state="needs-review-translation">Demande de validation paiement</target>
@@ -15469,6 +15937,12 @@
           <target state="needs-review-translation">Marques</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension A01 Order Processor RC - Action A01ItemBrands - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 3250568499 - Action 3720097301 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2747922353">
+          <source>Journal Users</source>
+          <target state="needs-review-translation">Utilisateurs de feuille</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension A01 Order Processor RC - Action A01JournalUsers - Property Caption</note>
         </trans-unit>
         <trans-unit id="PageExtension 3250568499 - Action 1050834039 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2747922353">
           <source>Objects</source>
@@ -16512,6 +16986,12 @@
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension A01 Sales Header - Field A01 Sales Mode - Property Caption</note>
         </trans-unit>
+        <trans-unit id="TableExtension 1143019865 - Field 2804539058 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1192395785">
+          <source>Sales Order Type</source>
+          <target state="needs-review-translation">Type commande vente</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension A01 Sales Header - Field A01 Sales Order Type - Property Caption</note>
+        </trans-unit>
         <trans-unit id="TableExtension 1143019865 - Field 3900111559 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1192395785">
           <source>System Decision</source>
           <target state="needs-review-translation">Décision Système</target>
@@ -16626,6 +17106,12 @@
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension A01 Sales Header Archive - Field A01 Sales Mode - Property Caption</note>
         </trans-unit>
+        <trans-unit id="TableExtension 2954665223 - Field 2804539058 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1948788855">
+          <source>Sales Order Type</source>
+          <target state="needs-review-translation">Type commande vente</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension A01 Sales Header Archive - Field A01 Sales Order Type - Property Caption</note>
+        </trans-unit>
         <trans-unit id="TableExtension 2954665223 - Field 3900111559 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1948788855">
           <source>System Decision</source>
           <target state="needs-review-translation">Décision Système</target>
@@ -16739,6 +17225,12 @@
           <target state="needs-review-translation">Mode de vente</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension A01 Sales Invoice Header - Field A01 Sales Mode - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 1507475930 - Field 2804539058 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 809936682">
+          <source>Sales Order Type</source>
+          <target state="needs-review-translation">Type commande vente</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension A01 Sales Invoice Header - Field A01 Sales Order Type - Property Caption</note>
         </trans-unit>
         <trans-unit id="TableExtension 1507475930 - Field 3900111559 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 809936682">
           <source>System Decision</source>
@@ -18037,6 +18529,18 @@
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Enum A01 Road Conditions - EnumValue Tar - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Enum 2804539058 - EnumValue 3882107947 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Exempt</source>
+          <target state="needs-review-translation">Exempté</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum A01 Sales Order Type - EnumValue Exempt - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 2804539058 - EnumValue 221910773 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Normal</source>
+          <target state="needs-review-translation">Normal</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum A01 Sales Order Type - EnumValue Normal - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Enum 2812498158 - EnumValue 851580361 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Alphanumeric</source>
           <target state="needs-review-translation">Alphanumérique</target>
@@ -18234,6 +18738,18 @@
           <target state="needs-review-translation">Avant midi</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Enum A01 Time Slot - EnumValue Before noon - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 2660174279 - EnumValue 1682139193 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Bank Account</source>
+          <target state="needs-review-translation">Compte bancaire</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum A01 User Access Type - EnumValue Bank Account - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 2660174279 - EnumValue 1368504227 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Journal</source>
+          <target state="needs-review-translation">Feuille</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum A01 User Access Type - EnumValue Journal - Property Caption</note>
         </trans-unit>
         <trans-unit id="Enum 2547817590 - EnumValue 3464055124 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Less than 100 meters</source>

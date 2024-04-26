@@ -32,6 +32,7 @@ table 50039 "A01 Cashbox Closing Line"
             var
                 DecVal: Decimal;
             begin
+                TestField("Bank Account");
                 if (Evaluate(DecVal, "Bank Note")) then begin
                     "Bank Note Value" := DecVal;
                     Validate("Quantity");
@@ -44,6 +45,7 @@ table 50039 "A01 Cashbox Closing Line"
             trigger OnValidate()
             var
             begin
+                TestField("Bank Account");
                 "Line Value" := Quantity * "Bank Note Value";
             end;
         }
@@ -56,6 +58,11 @@ table 50039 "A01 Cashbox Closing Line"
         field(7; "Line Value"; Decimal)
         {
             Caption = 'Line Value';
+            Editable = false;
+        }
+        field(8; Status; Enum "A01 Cashbox closing Status")
+        {
+            Caption = 'Status';
             Editable = false;
         }
 

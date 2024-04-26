@@ -124,6 +124,16 @@ tableextension 50000 "A01 Sales Header" extends "Sales Header"
             Editable = false;
             DataClassification = CustomerContent;
         }
+        field(50019; "A01 Sales Order Type"; Enum "A01 Sales Order Type")
+        {
+            Caption = 'Sales Order Type';
+            DataClassification = CustomerContent;
+            trigger OnValidate()
+            var
+            begin
+                SOMgt.ChangePostingNosSeries(Rec);
+            end;
+        }
         // field(50017; "A01 Eligible Amount"; Decimal)
         // {
         //     Caption = 'Eligible Amount';
@@ -163,4 +173,7 @@ tableextension 50000 "A01 Sales Header" extends "Sales Header"
                 CreditDueLine.DeleteAll();
         end;
     end;
+
+    var
+        SOMgt: codeunit "A01 Sales Order Processing";
 }

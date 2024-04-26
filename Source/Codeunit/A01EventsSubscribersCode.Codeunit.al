@@ -142,7 +142,7 @@ codeunit 50002 "A01 EventsSubscribers_Code"
     var
         SecMgt: Codeunit "A01 Security Mgt";
     begin
-        SecMgt.CheckBankAccountUser(GenJnlLine);
+        SecMgt.ChecksOnBeforePosting(GenJnlLine);
     end;
 
     [EventSubscriber(ObjectType::Codeunit, Codeunit::"User Setup Management", 'OnBeforeIsPostingDateValidWithSetup', '', true, true)]

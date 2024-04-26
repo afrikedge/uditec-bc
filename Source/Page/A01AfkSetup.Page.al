@@ -37,6 +37,9 @@ page 50040 "A01 Afk Setup"
                 field("Transfer Acc (Inter-cash)"; Rec."Transfer Acc (Inter-cash)")
                 {
                 }
+                field("Petty Cash Pay Mode"; Rec."Petty Cash Pay Mode")
+                {
+                }
 
             }
             group(Mirindra)
@@ -245,6 +248,12 @@ page 50040 "A01 Afk Setup"
                 {
                 }
                 field("Lead Nos"; Rec."Lead Nos")
+                {
+                }
+                field("Exempt Post Invoices Nos"; Rec."Exempt Post Invoices Nos")
+                {
+                }
+                field("Exempt Post Shipment Nos"; Rec."Exempt Post Shipment Nos")
                 {
                 }
 

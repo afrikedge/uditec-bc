@@ -276,6 +276,21 @@ table 50017 "A01 Afk Setup"
             Caption = 'Transfer Acc (Inter-cash)';
             TableRelation = "G/L Account"."No." where("Direct Posting" = const(true));
         }
+        field(59; "Exempt Post Invoices Nos"; Code[20])
+        {
+            Caption = 'Exempt Post Invoices Nos';
+            TableRelation = "No. Series";
+        }
+        field(60; "Exempt Post Shipment Nos"; Code[20])
+        {
+            Caption = 'Exempt Post Shipment Nos';
+            TableRelation = "No. Series";
+        }
+        field(61; "Petty Cash Pay Mode"; Code[10])
+        {
+            Caption = 'Petty Cash Payment Method';
+            TableRelation = "Payment Method";
+        }
 
 
         //Banked or unbanked employee

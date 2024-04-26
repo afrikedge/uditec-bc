@@ -19,6 +19,7 @@ codeunit 50013 "A01 Customer Settlement Post"
         SourceCodeSetup: Record "Source Code Setup";
         AfkSetup: Record "A01 Afk Setup";
         NoSeriesMgt: Codeunit NoSeriesManagement;
+        GLMgt: Codeunit "A01 General Legder Mgt";
         DocumentErrorsMgt: Codeunit "Document Errors Mgt.";
         GenJnlPostLine: Codeunit "Gen. Jnl.-Post Line";
         TresoMgt: Codeunit "A01 Treso Mgt";
@@ -205,6 +206,8 @@ codeunit 50013 "A01 Customer Settlement Post"
 
     local procedure ValidateHeader(CustSettlement: Record "A01 Payment Document")
     begin
+
+        GLMgt.CheckCashboxClosingDateOnCustSettlement(CustSettlement);
 
         DocRequestMgt.CheckIfValidationRequestExists(CustSettlement);
 

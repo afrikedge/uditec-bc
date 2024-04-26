@@ -112,5 +112,11 @@ tableextension 50002 "A01 Sales Header Archive" extends "Sales Header Archive"
             Editable = false;
             DataClassification = CustomerContent;
         }
+        field(50019; "A01 Sales Order Type"; Enum "A01 Sales Order Type")
+        {
+            Caption = 'Sales Order Type';
+            Editable = false;
+            DataClassification = CustomerContent;
+        }
     }
 }
