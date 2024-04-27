@@ -291,6 +291,11 @@ table 50017 "A01 Afk Setup"
             Caption = 'Petty Cash Payment Method';
             TableRelation = "Payment Method";
         }
+        field(62; "Exempt VAT Bus. Posting Group"; Code[20])
+        {
+            Caption = 'Exempt VAT Business Posting Group';
+            TableRelation = "VAT Business Posting Group";
+        }
 
 
         //Banked or unbanked employee

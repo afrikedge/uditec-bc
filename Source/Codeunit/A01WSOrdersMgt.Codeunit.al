@@ -417,13 +417,15 @@ codeunit 50009 "A01 WS OrdersMgt"
     var
         QuoteNo: Code[20];
         itemCode: Code[20];
+        Quantity: Decimal;
     begin
         QuoteNo := CopyStr(ws.GetText('OrderNo', input), 1, 20);
         itemCode := CopyStr(ws.GetText('itemCode', input), 1, 20);
-        exit(GetPrice(QuoteNo, itemCode));
+        Quantity := ws.GetDecimal('Quantity', input);
+        exit(GetPrice(QuoteNo, itemCode, Quantity));
     end;
 
-    local procedure GetPrice(OrderNo: Code[20]; ItemNo: Code[20]): Text
+    local procedure GetPrice(OrderNo: Code[20]; ItemNo: Code[20]; Quantity: Decimal): Text
     var
         TempSalesLine: Record "Sales Line" temporary;
         PriceText: Code[20];
@@ -435,6 +437,7 @@ codeunit 50009 "A01 WS OrdersMgt"
 
         TempSalesLine.Validate(Type, TempSalesLine.Type::Item);
         TempSalesLine.Validate("No.", ItemNo);
+        TempSalesLine.Validate(Quantity, Quantity);
 
         PriceText := Format(TempSalesLine."Unit Price");
         exit(Ws.CreateResponseSuccess(PriceText));

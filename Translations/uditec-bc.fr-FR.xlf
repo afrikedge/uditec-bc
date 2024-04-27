@@ -143,6 +143,12 @@
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Table A01 Afk Setup - Field Exempt Post Shipment Nos - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Table 2685203037 - Field 2938074217 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Exempt VAT Business Posting Group</source>
+          <target state="needs-review-translation">Groupe compta TVA ventes exempt</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Table A01 Afk Setup - Field Exempt VAT Bus. Posting Group - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Table 2685203037 - Field 2039060979 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Item Category Code (Voucher)</source>
           <target state="needs-review-translation">Code catégorie article (Bon d'achat)</target>
@@ -4911,7 +4917,8 @@
         </trans-unit>
         <trans-unit id="Page 417080824 - Action 1402615620 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>&amp;amp;Line</source>
-          <target state="needs-review-translation">Ligne</target>
+          <target state="needs-adaptation">Ligne</target>
+          <note from="XLIFF Sync" annotates="general" priority="1">Source text has changed. Please review the translation.</note>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Page A01 Petty Cash Journal - Action &amp;amp;Line - Property Caption</note>
         </trans-unit>
@@ -4923,7 +4930,8 @@
         </trans-unit>
         <trans-unit id="Page 417080824 - Action 1892509601 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>A&amp;amp;ccount</source>
-          <target state="needs-review-translation">Compte</target>
+          <target state="needs-adaptation">Compte</target>
+          <note from="XLIFF Sync" annotates="general" priority="1">Source text has changed. Please review the translation.</note>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Page A01 Petty Cash Journal - Action A&amp;amp;ccount - Property Caption</note>
         </trans-unit>
@@ -4935,7 +4943,8 @@
         </trans-unit>
         <trans-unit id="Page 417080824 - Action 1111476699 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Ledger E&amp;amp;ntries</source>
-          <target state="needs-review-translation">Ecritures</target>
+          <target state="needs-adaptation">Ecritures</target>
+          <note from="XLIFF Sync" annotates="general" priority="1">Source text has changed. Please review the translation.</note>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Page A01 Petty Cash Journal - Action Ledger E&amp;amp;ntries - Property Caption</note>
         </trans-unit>
@@ -4995,7 +5004,8 @@
         </trans-unit>
         <trans-unit id="Page 417080824 - Action 3106002577 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>F&amp;amp;unctions</source>
-          <target state="needs-review-translation">Fonctions</target>
+          <target state="needs-adaptation">Fonctions</target>
+          <note from="XLIFF Sync" annotates="general" priority="1">Source text has changed. Please review the translation.</note>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Page A01 Petty Cash Journal - Action F&amp;amp;unctions - Property Caption</note>
         </trans-unit>
@@ -5031,19 +5041,22 @@
         </trans-unit>
         <trans-unit id="Page 417080824 - Action 2245087378 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>P&amp;amp;osting</source>
-          <target state="needs-review-translation">Validation</target>
+          <target state="needs-adaptation">Validation</target>
+          <note from="XLIFF Sync" annotates="general" priority="1">Source text has changed. Please review the translation.</note>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Page A01 Petty Cash Journal - Action P&amp;amp;osting - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 417080824 - Action 2282416948 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>P&amp;amp;ost</source>
-          <target state="needs-review-translation">Valider</target>
+          <target state="needs-adaptation">Valider</target>
+          <note from="XLIFF Sync" annotates="general" priority="1">Source text has changed. Please review the translation.</note>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Page A01 Petty Cash Journal - Action Post - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 417080824 - Action 1333595352 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Post and &amp;amp;Print</source>
-          <target state="needs-review-translation">Valider et imprimer</target>
+          <target state="needs-adaptation">Valider et imprimer</target>
+          <note from="XLIFF Sync" annotates="general" priority="1">Source text has changed. Please review the translation.</note>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Page A01 Petty Cash Journal - Action Post and &amp;amp;Print - Property Caption</note>
         </trans-unit>

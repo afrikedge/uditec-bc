@@ -40,6 +40,9 @@ page 50040 "A01 Afk Setup"
                 field("Petty Cash Pay Mode"; Rec."Petty Cash Pay Mode")
                 {
                 }
+                field("Exempt VAT Bus. Posting Group"; Rec."Exempt VAT Bus. Posting Group")
+                {
+                }
 
             }
             group(Mirindra)
