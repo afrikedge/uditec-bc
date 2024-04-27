@@ -7,6 +7,7 @@ page 50071 "A01 Bank Account Users"
     Caption = 'Bank Account Users';
     PageType = List;
     SourceTable = "A01 User Access";
+    SourceTableView = where("Access Type" = const("Bank Account"));
     UsageCategory = Lists;
 
     layout
@@ -19,8 +20,9 @@ page 50071 "A01 Bank Account Users"
                 {
                     LookupPageID = "User Lookup";
                 }
-                field("Bank Account"; Rec."Bank Account")
+                field("Bank Account"; Rec."Ressource Code 1")
                 {
+                    Caption = 'Bank Account';
                 }
             }
         }

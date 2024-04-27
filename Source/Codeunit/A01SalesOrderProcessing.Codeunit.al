@@ -84,7 +84,7 @@ codeunit 50000 "A01 Sales Order Processing"
     procedure ValidateDraft(var SalesH: Record "Sales Header")
     begin
         SalesH.TestField("Sell-to Customer No.");
-        SalesH.TestField("Ship-to Code");
+        //SalesH.TestField("Ship-to Code");
         //SalesH.TestField("Shipment Method Code");
         //SalesH.TestField("Requested Delivery Date");
         //SalesH.TestField("Currency Code");
@@ -221,6 +221,8 @@ codeunit 50000 "A01 Sales Order Processing"
         SalesL.SetRange(SalesL."Document No.", SalesH."No.");
         if SalesL.FindSet() then
             repeat
+                if (SalesL.Type <> SalesL.Type::" ") then
+                    SalesL.TestField("Unit Price");
                 if (SalesL.Type = SalesL.Type::Item) then begin
                     SalesL.TestField("Location Code");
                     SalesL.TestField(Quantity);
@@ -472,4 +474,30 @@ codeunit 50000 "A01 Sales Order Processing"
         StepEntry."Action Date" := CREATEDATETIME(TODAY, TIME);
         StepEntry.Insert();
     end;
+
+    procedure ChangePostingNosSeries(var SalesHeader: Record "Sales Header")
+    var
+        AfkSetup: Record "A01 Afk Setup";
+        GLSetup: Record "General Ledger Setup";
+        SalesSetup: Record "Sales & Receivables Setup";
+        NoSeriesMgt: Codeunit NoSeriesManagement;
+    begin
+        GLSetup.GetRecordOnce();
+        if GLSetup."Journal Templ. Name Mandatory" then exit;
+
+        if ((SalesHeader."A01 Sales Order Type" = SalesHeader."A01 Sales Order Type"::Exempt)
+                and (SalesHeader."Document Type" = SalesHeader."Document Type"::Order)) then begin
+            AfkSetup.GetRecordOnce();
+            NoSeriesMgt.SetDefaultSeries(SalesHeader."Posting No. Series", AfkSetup."Exempt Post Invoices Nos");
+            NoSeriesMgt.SetDefaultSeries(SalesHeader."Shipping No. Series", AfkSetup."Exempt Post Shipment Nos");
+        end;
+        if ((SalesHeader."A01 Sales Order Type" = SalesHeader."A01 Sales Order Type"::Normal)
+                and (SalesHeader."Document Type" = SalesHeader."Document Type"::Order)) then begin
+            SalesSetup.GetRecordOnce();
+            NoSeriesMgt.SetDefaultSeries(SalesHeader."Posting No. Series", SalesSetup."Posted Invoice Nos.");
+            NoSeriesMgt.SetDefaultSeries(SalesHeader."Shipping No. Series", SalesSetup."Posted Shipment Nos.");
+        end;
+    end;
+
+
 }

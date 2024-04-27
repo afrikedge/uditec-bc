@@ -41,8 +41,10 @@ page 50079 "A01 Cashbox Closing"
                 UpdatePropagation = Both;
             }
         }
-        
+
     }
+
+
     actions
     {
         area(Processing)
@@ -64,4 +66,11 @@ page 50079 "A01 Cashbox Closing"
             }
         }
     }
+    trigger OnNewRecord(BelowxRec: Boolean)
+    var
+        SecMgt: Codeunit "A01 Security Mgt";
+    begin
+        Rec.Validate("Store Code", SecMgt.GetMainUserResponsibilityCenterStore());
+        Rec."Closing Date" := WorkDate();
+    end;
 }

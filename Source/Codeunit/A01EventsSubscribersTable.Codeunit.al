@@ -58,6 +58,37 @@ codeunit 50001 "A01 EventsSubscribers_Table"
     end;
 
 
+    // [EventSubscriber(ObjectType::Table, Database::"Sales Header", 'OnAfterInitPostingNoSeries', '', true, true)]
+    // local procedure SalesHeader_OnAfterInitPostingNoSeries(var SalesHeader: Record "Sales Header"; xSalesHeader: Record "Sales Header")
+    // var
+    //     AfkSetup: Record "A01 Afk Setup";
+    //     GLSetup: Record "General Ledger Setup";
+    //     SalesSetup: Record "Sales & Receivables Setup";
+    //     NoSeriesMgt: Codeunit NoSeriesManagement;
+    // begin
+    //     GLSetup.GetRecordOnce();
+
+    //     if GLSetup."Journal Templ. Name Mandatory" then exit;
+
+    //     if ((SalesHeader."A01 Sales Order Type" = SalesHeader."A01 Sales Order Type"::Exempt)
+    //             and (SalesHeader."Document Type" = SalesHeader."Document Type"::Order)) then begin
+    //         AfkSetup.GetRecordOnce();
+    //         NoSeriesMgt.SetDefaultSeries(SalesHeader."Posting No. Series", AfkSetup."Exempt Post Invoices Nos");
+    //         NoSeriesMgt.SetDefaultSeries(SalesHeader."Shipping No. Series", AfkSetup."Exempt Post Shipment Nos");
+    //     end;
+    //     if ((SalesHeader."A01 Sales Order Type" = SalesHeader."A01 Sales Order Type"::Normal)
+    //             and (SalesHeader."Document Type" = SalesHeader."Document Type"::Order)) then begin
+    //         SalesSetup.GetRecordOnce();
+    //         NoSeriesMgt.SetDefaultSeries(SalesHeader."Posting No. Series", AfkSetup."Exempt Post Invoices Nos");
+    //         NoSeriesMgt.SetDefaultSeries(SalesHeader."Shipping No. Series", AfkSetup."Exempt Post Shipment Nos");
+    //     end;
+    // end;
+
+    // [IntegrationEvent(false, false)]
+    //     local procedure OnAfterInitPostingNoSeries(var SalesHeader: Record "Sales Header"; xSalesHeader: Record "Sales Header")
+    //     begin
+    //     end;
+
 
 
 }

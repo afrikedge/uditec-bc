@@ -113,6 +113,12 @@ tableextension 50025 "A01 Sales Invoice Header" extends "Sales Invoice Header"
             Editable = false;
             DataClassification = CustomerContent;
         }
+        field(50019; "A01 Sales Order Type"; Enum "A01 Sales Order Type")
+        {
+            Caption = 'Sales Order Type';
+            Editable = false;
+            DataClassification = CustomerContent;
+        }
     }
 
 }

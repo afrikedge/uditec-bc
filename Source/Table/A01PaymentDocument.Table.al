@@ -82,6 +82,7 @@ table 50032 "A01 Payment Document"
 
                 if (Rec."Responsibility Center" <> xRec."Responsibility Center") then begin
                     DeleteLinesIfTheyExists();
+                    CreateDimFromDefaultDim(Rec.FieldNo("Responsibility Center"));
                 end;
             end;
         }
@@ -249,13 +250,17 @@ table 50032 "A01 Payment Document"
         NoSeriesManagement: Codeunit NoSeriesManagement;
         RequestMgt: Codeunit "A01 Document Request Mgt";
         DimensionManagement: Codeunit DimensionManagement;
+        SecMgt: Codeunit "A01 Security Mgt";
         Text009: Label 'You may have changed a dimension.\\Do you want to update the lines?';
         LblQuestChangeRespCenter: Label 'The lines will be deleted. Do you want to continue ?';
+    //DoYouWantToKeepExistingDimensionsQst: Label 'This will change the dimension specified on the document. Do you want to recalculate/update dimensions?';
+
 
     local procedure InitHeader()
     begin
         "Partner Type" := "Partner Type"::Customer;
         "Posting Date" := WorkDate();
+        Rec.Validate("Responsibility Center", SecMgt.GetMainUserResponsibilityCenter());
     end;
 
     local procedure DeleteLinesIfTheyExists()
@@ -317,6 +322,116 @@ table 50032 "A01 Payment Document"
                     PaymentLine.Modify();
                 end;
             until PaymentLine.Next() = 0;
+    end;
+
+    procedure CreateDimFromDefaultDim(FieldNo: Integer)
+    var
+        DefaultDimSource: List of [Dictionary of [Integer, Code[20]]];
+    begin
+        InitDefaultDimensionSources(DefaultDimSource, FieldNo);
+        CreateDim(DefaultDimSource);
+    end;
+
+    local procedure InitDefaultDimensionSources(var DefaultDimSource: List of [Dictionary of [Integer, Code[20]]]; FieldNo: Integer)
+    begin
+        //OnBeforeInitDefaultDimensionSources(Rec, DefaultDimSource, FieldNo);
+
+        // DimMgt.AddDimSource(DefaultDimSource, Database::Customer, Rec."Bill-to Customer No.", FieldNo = Rec.FieldNo("Bill-to Customer No."));
+        // DimMgt.AddDimSource(DefaultDimSource, Database::"Salesperson/Purchaser", Rec."Salesperson Code", FieldNo = Rec.FieldNo("Salesperson Code"));
+        // DimMgt.AddDimSource(DefaultDimSource, Database::Campaign, Rec."Campaign No.", FieldNo = Rec.FieldNo("Campaign No."));
+        DimensionManagement.AddDimSource(DefaultDimSource, Database::"Responsibility Center", Rec."Responsibility Center", FieldNo = Rec.FieldNo("Responsibility Center"));
+        // DimMgt.AddDimSource(DefaultDimSource, Database::"Customer Templ.", Rec."Bill-to Customer Templ. Code", FieldNo = Rec.FieldNo("Bill-to Customer Templ. Code"));
+        // DimMgt.AddDimSource(DefaultDimSource, Database::Location, Rec."Location Code", FieldNo = Rec.FieldNo("Location Code"));
+
+        //OnAfterInitDefaultDimensionSources(Rec, DefaultDimSource, FieldNo);
+    end;
+
+    procedure CreateDim(DefaultDimSource: List of [Dictionary of [Integer, Code[20]]])
+    var
+        SourceCodeSetup: Record "Source Code Setup";
+        OldDimSetID: Integer;
+        IsHandled: Boolean;
+    begin
+        IsHandled := false;
+        //OnBeforeCreateDim(Rec, IsHandled, DefaultDimSource);
+        if IsHandled then
+            exit;
+
+        SourceCodeSetup.Get();
+
+        "Shortcut Dimension 1 Code" := '';
+        "Shortcut Dimension 2 Code" := '';
+        OldDimSetID := "Dimension Set ID";
+        "Dimension Set ID" :=
+          DimensionManagement.GetRecDefaultDimID(
+            Rec, CurrFieldNo, DefaultDimSource, SourceCodeSetup.Sales, "Shortcut Dimension 1 Code", "Shortcut Dimension 2 Code", 0, 0);
+
+        //OnCreateDimOnBeforeUpdateLines(Rec, xRec, CurrFieldNo, OldDimSetID, DefaultDimSource);
+
+        if (OldDimSetID <> "Dimension Set ID") and (OldDimSetID <> 0) and GuiAllowed and not GetHideValidationDialog() then
+            if CouldDimensionsBeKept() then
+                if not ConfirmKeepExistingDimensions() then begin
+                    "Dimension Set ID" := OldDimSetID;
+                    DimensionManagement.UpdateGlobalDimFromDimSetID(Rec."Dimension Set ID", Rec."Shortcut Dimension 1 Code", Rec."Shortcut Dimension 2 Code");
+                end;
+
+        if (OldDimSetID <> "Dimension Set ID") and PaymentLinesExist() then begin
+            //OnCreateDimOnBeforeModify(Rec, xRec, CurrFieldNo, OldDimSetID);
+            Modify();
+            UpdateAllLineDim("Dimension Set ID", OldDimSetID);
+        end;
+    end;
+
+    local procedure ConfirmKeepExistingDimensions() Confirmed: Boolean
+    var
+    //IsHandled: Boolean;
+    begin
+        //Confirmed := Confirm(DoYouWantToKeepExistingDimensionsQst);
+        Confirmed := true;
+    end;
+
+    local procedure CouldDimensionsBeKept(): Boolean;
+    var
+        IsHandled: Boolean;
+    begin
+        IsHandled := false;
+        //OnBeforeCouldDimensionsBeKept(Rec, xRec, Result, IsHandled);
+        if not IsHandled then begin
+            // if (xRec."Sell-to Customer No." <> '') and (xRec."Sell-to Customer No." <> Rec."Sell-to Customer No.") then
+            //     exit(false);
+            // if (xRec."Bill-to Customer No." <> '') and (xRec."Bill-to Customer No." <> Rec."Bill-to Customer No.") then
+            //     exit(false);
+
+            // if (xRec."Location Code" <> Rec."Location Code") and (xRec."Bill-to Customer No." <> '') then
+            //     exit(true);
+            // if (xRec."Salesperson Code" <> '') and (xRec."Salesperson Code" <> Rec."Salesperson Code") then
+            //     exit(true);
+            if (xRec."Responsibility Center" <> '') and (xRec."Responsibility Center" <> Rec."Responsibility Center") then
+                exit(true);
+        end;
+        //OnAfterCouldDimensionsBeKept(Rec, xRec, Result);
+    end;
+
+    procedure GetHideValidationDialog(): Boolean
+    begin
+        exit(false);
+    end;
+
+    procedure ShowDocDim()
+    var
+        OldDimSetID: Integer;
+    begin
+        OldDimSetID := "Dimension Set ID";
+        "Dimension Set ID" :=
+          DimensionManagement.EditDimensionSet(
+            "Dimension Set ID", StrSubstNo('%1 %2', 'Payment: ', "No."),
+            "Shortcut Dimension 1 Code", "Shortcut Dimension 2 Code");
+
+        if OldDimSetID <> "Dimension Set ID" then begin
+            Modify();
+            if PaymentLinesExist() then
+                UpdateAllLineDim("Dimension Set ID", OldDimSetID);
+        end;
     end;
 
     procedure GetCurrency()

@@ -37,7 +37,7 @@ table 50033 "A01 Payment Document Line"
         field(5; "Validated Amount"; Decimal)
         {
             Caption = 'Validated Amount';
-            //Editable = false;
+            Editable = false;
         }
         field(6; "Responsibility Center"; Code[20])
         {

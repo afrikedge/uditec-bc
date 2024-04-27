@@ -50,6 +50,12 @@ page 50057 "A01 Customer Settlement"
                 field(Status; Rec.Status)
                 {
                 }
+                // field("Shortcut Dimension 1 Code"; Rec."Shortcut Dimension 1 Code")
+                // {
+                // }
+                // field("Shortcut Dimension 2 Code"; Rec."Shortcut Dimension 2 Code")
+                // {
+                // }
                 field("Modified By"; Rec."Modified By")
                 {
                 }
@@ -114,7 +120,30 @@ page 50057 "A01 Customer Settlement"
                 end;
             }
         }
+        area(navigation)
+        {
+            action(Dimensions)
+            {
+                ApplicationArea = Basic, Suite;
+                Caption = 'Dimensions';
+                Image = Dimensions;
+                ToolTip = 'View or change the dimension settings for this payment slip. If you change the dimension, you can update all lines on the payment slip.';
+
+                trigger OnAction()
+                begin
+                    Rec.ShowDocDim();
+                    CurrPage.SaveRecord();
+                end;
+            }
+        }
     }
+    trigger OnNewRecord(BelowxRec: Boolean)
+    var
+    //SecMgt: Codeunit "A01 Security Mgt";
+    begin
+        //Rec.Validate("Responsibility Center", SecMgt.GetMainUserResponsibilityCenter());
+    end;
+
     local procedure ApplyPayment()
     begin
         CODEUNIT.Run(CODEUNIT::"A01 Doc Payment-Apply", Rec);

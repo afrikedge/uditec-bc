@@ -192,8 +192,8 @@ page 50001 "A01 SalesOrderList-Draft"
     trigger OnOpenPage()
     begin
         SetFiltreCentreGestion();
-        Rec.SetRange("A01 User Id", UserId);
-        Rec.SetRange("Date Filter", 0D, WorkDate());
+        //Rec.SetRange("A01 User Id", UserId);
+        //Rec.SetRange("Date Filter", 0D, WorkDate());
     end;
 
     local procedure SetFiltreCentreGestion()

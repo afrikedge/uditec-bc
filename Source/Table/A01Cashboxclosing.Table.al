@@ -51,10 +51,24 @@ table 50038 "A01 Cashbox closing"
         }
     }
 
+
+    trigger OnInsert()
+    begin
+        InitHeader();
+    end;
+
     var
         SecMgt: Codeunit "A01 Security Mgt";
         LblQuestChangeRespCenter: Label 'The lines will be deleted. Do you want to continue ?';
         LblQuestValidate: Label 'Do you want to validate the closing of cashbox for the date of %1 ?', Comment = '%1)';
+
+
+
+    local procedure InitHeader()
+    begin
+
+        //Validate("Store Code", SecMgt.GetMainUserResponsibilityCenterStore());
+    end;
 
     local procedure DeleteLinesIfTheyExists()
     var
@@ -75,6 +89,7 @@ table 50038 "A01 Cashbox closing"
         if (not Confirm(StrSubstNo(LblQuestValidate, "Closing Date"))) then
             exit;
 
+        DocLine.Reset();
         DocLine.SetRange("Store Code", "Store Code");
         DocLine.SetRange("Closing Date", "Closing Date");
         if DocLine.FindSet() then
@@ -84,5 +99,10 @@ table 50038 "A01 Cashbox closing"
 
         Rec.Status := rec.Status::Posted;
         Modify();
+
+        DocLine.Reset();
+        DocLine.SetRange("Store Code", "Store Code");
+        DocLine.SetRange("Closing Date", "Closing Date");
+        DocLine.ModifyAll(Status, rec.Status::Posted);
     end;
 }

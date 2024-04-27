@@ -124,6 +124,19 @@ tableextension 50000 "A01 Sales Header" extends "Sales Header"
             Editable = false;
             DataClassification = CustomerContent;
         }
+        field(50019; "A01 Sales Order Type"; Enum "A01 Sales Order Type")
+        {
+            Caption = 'Sales Order Type';
+            DataClassification = CustomerContent;
+            trigger OnValidate()
+            var
+            begin
+                SOMgt.ChangePostingNosSeries(Rec);
+                AfkSetup.GetRecordOnce();
+                if ("A01 Sales Order Type" = "A01 Sales Order Type"::Exempt) then
+                    Rec.Validate("VAT Bus. Posting Group", AfkSetup."Exempt VAT Bus. Posting Group");
+            end;
+        }
         // field(50017; "A01 Eligible Amount"; Decimal)
         // {
         //     Caption = 'Eligible Amount';
@@ -140,7 +153,7 @@ tableextension 50000 "A01 Sales Header" extends "Sales Header"
                 if (Cust1.Get("Sell-to Customer No.")) then begin
                     Rec.validate("A01 Sales Mode", Cust1."A01 Sales Mode");
                     Rec.Validate("A01 AGP Contract No.", Cust1."A01 Contract No.");
-                    //Rec.Validate("A01 Credit Duration (Month)",Cust1.dur)
+
                 end;
             end;
         }
@@ -163,4 +176,8 @@ tableextension 50000 "A01 Sales Header" extends "Sales Header"
                 CreditDueLine.DeleteAll();
         end;
     end;
+
+    var
+        AfkSetup: Record "A01 Afk Setup";
+        SOMgt: codeunit "A01 Sales Order Processing";
 }

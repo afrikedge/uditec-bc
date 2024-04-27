@@ -111,19 +111,27 @@ codeunit 50004 "A01 Security Mgt"
         ExternalUser.Modify();
     end;
 
-    procedure CheckBankAccountUser(GenJournalLine: Record "Gen. Journal Line")
+    procedure ChecksOnBeforePosting(GenJournalLine: Record "Gen. Journal Line")
     var
         BankAcc: Record "Bank Account";
-    //BankAccUser: Record "A01 User Access";
+        GLMgt: Codeunit "A01 General Legder Mgt";
     begin
+
         if (GenJournalLine."Account Type" = GenJournalLine."Account Type"::"Bank Account") then
             if (BankAcc.get(GenJournalLine."Account No.")) then begin
                 CheckBankUserAccount(BankAcc."No.");
             end;
+
         if (GenJournalLine."Bal. Account Type" = GenJournalLine."Bal. Account Type"::"Bank Account") then
             if (BankAcc.get(GenJournalLine."Bal. Account No.")) then begin
                 CheckBankUserAccount(BankAcc."No.");
             end;
+
+        GLMgt.CheckCashboxClosingDateOnGenJnlLine(GenJournalLine);
+
+        if (GenJournalLine."Journal Batch Name" <> '') then
+            CheckJournalUser(GenJournalLine."Journal Template Name", GenJournalLine."Journal Batch Name")
+
     end;
 
     procedure CheckWharehouseUser(ItemJournalLine: Record "Item Journal Line")
@@ -150,9 +158,44 @@ codeunit 50004 "A01 Security Mgt"
 
     begin
         BankAccUser.Reset();
-        BankAccUser.SetRange("Bank Account", BankAccountNo);
+        BankAccUser.SetRange("Access Type", BankAccUser."Access Type"::"Bank Account");
         BankAccUser.SetRange("User Id", UserId);
+        BankAccUser.SetRange("Ressource Code 1", BankAccountNo);
         if (BankAccUser.IsEmpty()) then
             Error(ErrLbl, BankAccountNo);
+    end;
+
+    procedure CheckJournalUser(JournalTempl: Code[20]; JournalCode: Code[20])
+    var
+        JournalUser: Record "A01 User Access";
+        ErrLbl: Label 'You are not authorized to use this journal : %1 - %2', Comment = '%1=tmpl , %2=journal';
+
+    begin
+        JournalUser.Reset();
+        JournalUser.SetRange("Access Type", JournalUser."Access Type"::Journal);
+        JournalUser.SetRange("User Id", UserId);
+        JournalUser.SetRange("Ressource Code 1", JournalTempl);
+        JournalUser.SetRange("Ressource Code 2", JournalCode);
+        if (JournalUser.IsEmpty()) then
+            Error(ErrLbl, JournalTempl, JournalCode);
+    end;
+
+    procedure GetMainUserResponsibilityCenter(): Code[20]
+    var
+    begin
+        UserSetup.Get(UserId);
+        UserSetup.TestField("Sales Resp. Ctr. Filter");
+        exit(UserSetup."Sales Resp. Ctr. Filter");
+    end;
+
+    procedure GetMainUserResponsibilityCenterStore(): Code[20]
+    var
+        resposibilityCenter: Record "Responsibility Center";
+    begin
+        UserSetup.Get(UserId);
+        UserSetup.TestField("Sales Resp. Ctr. Filter");
+        resposibilityCenter.get(UserSetup."Sales Resp. Ctr. Filter");
+        resposibilityCenter.TestField("Global Dimension 1 Code");
+        exit(resposibilityCenter."Global Dimension 1 Code");
     end;
 }

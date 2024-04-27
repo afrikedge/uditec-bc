@@ -225,6 +225,11 @@ page 50003 "A01 Sales Order - Draft"
                     Importance = Promoted;
                     ToolTip = 'Specifies the date when the related document was created.';
                 }
+                field("A01 Sales Order Type"; Rec."A01 Sales Order Type")
+                {
+                    ApplicationArea = Basic, Suite;
+                    Importance = Promoted;
+                }
                 field("Posting Date"; Rec."Posting Date")
                 {
                     ApplicationArea = Basic, Suite;
