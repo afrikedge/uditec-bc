@@ -11,7 +11,7 @@ report 50021 "A01 CustomerSettlementPrint"
     RDLCLayout = './Source/Report/Layout/CustomerSettlementPrint.rdl';
     dataset
     {
-        dataitem("A01 Posted Payment Document"; "A01 Posted Payment Document")
+        dataitem("A01 Payment Document"; "A01 Payment Document")
         {
             DataItemTableView = sorting("No.");
             RequestFilterFields = "No.";
@@ -45,7 +45,7 @@ report 50021 "A01 CustomerSettlementPrint"
             }
             column(Validated_Amount; "Validated Amount")
             {
-                AutoFormatExpression = "A01 Posted Payment Document"."Currency Code";
+                AutoFormatExpression = "A01 Payment Document"."Currency Code";
                 AutoFormatType = 1;
             }
             column(Partner_No_; "Partner No.")
@@ -135,10 +135,10 @@ report 50021 "A01 CustomerSettlementPrint"
             column(stat; stat)
             {
             }
-            dataitem("A01 Posted Payment Doc Line"; "A01 Posted Payment Doc Line")
+            dataitem("A01 Payment Document Line"; "A01 Payment Document Line")
             {
                 DataItemTableView = sorting("Document No.");
-                DataItemLinkReference = "A01 Posted Payment Document";
+                DataItemLinkReference = "A01 Payment Document";
                 DataItemLink = "Document No." = field("No.");
                 column(Document_No_; "Document No.")
                 {
@@ -148,12 +148,12 @@ report 50021 "A01 CustomerSettlementPrint"
                 }
                 column(Credit_Amount; Amount)
                 {
-                    AutoFormatExpression = "A01 Posted Payment Document"."Currency Code";
+                    AutoFormatExpression = "A01 Payment Document"."Currency Code";
                     AutoFormatType = 1;
                 }
                 column(ValidatedAmount_; "Validated Amount")
                 {
-                    AutoFormatExpression = "A01 Posted Payment Document"."Currency Code";
+                    AutoFormatExpression = "A01 Payment Document"."Currency Code";
                     AutoFormatType = 1;
                 }
                 column(Payment_Method; "Payment Method")
@@ -164,12 +164,12 @@ report 50021 "A01 CustomerSettlementPrint"
                 }
                 column(TotalAmount; TotalAmount)
                 {
-                    AutoFormatExpression = "A01 Posted Payment Document"."Currency Code";
+                    AutoFormatExpression = "A01 Payment Document"."Currency Code";
                     AutoFormatType = 1;
                 }
                 column(A01Total_LCY; A01Total_LCY)
                 {
-                    AutoFormatExpression = "A01 Posted Payment Document"."Currency Code";
+                    AutoFormatExpression = "A01 Payment Document"."Currency Code";
                     AutoFormatType = 1;
                 }
                 column(A01Total_LCYText; A01Total_LCYText)
@@ -180,7 +180,7 @@ report 50021 "A01 CustomerSettlementPrint"
                 }
                 column(MontantTotal; MontantTotal)
                 {
-                    AutoFormatExpression = "A01 Posted Payment Document"."Currency Code";
+                    AutoFormatExpression = "A01 Payment Document"."Currency Code";
                     AutoFormatType = 1;
                 }
                 column(Reference; Reference)
@@ -198,7 +198,7 @@ report 50021 "A01 CustomerSettlementPrint"
                 GLSetup.TestField("LCY Code");
 
                 AfkCurrCode := GLSetup."Local Currency Symbol";
-                if Cust.Get("A01 Posted Payment Document"."Partner No.") then begin
+                if Cust.Get("A01 Payment Document"."Partner No.") then begin
                     CustName := Cust.Name;
                     CustIdentity := Cust.Contact;
                     CustPhone := Cust."Phone No.";
@@ -208,7 +208,7 @@ report 50021 "A01 CustomerSettlementPrint"
                     nif := Cust."A01 NIF";
                 end;
 
-                CurrCode := "A01 Posted Payment Document"."Currency Code";
+                CurrCode := "A01 Payment Document"."Currency Code";
                 if (CurrCode = '') then
                     CurrCode := GLSetup."LCY Code";
 

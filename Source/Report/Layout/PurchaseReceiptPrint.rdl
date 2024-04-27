@@ -107,6 +107,7 @@
                                                                   <Value />
                                                                   <Style>
                                                                     <FontSize>8pt</FontSize>
+                                                                    <Format>#,0;(#,0)</Format>
                                                                   </Style>
                                                                 </TextRun>
                                                               </TextRuns>
@@ -1392,9 +1393,10 @@
                                                             <Paragraph>
                                                               <TextRuns>
                                                                 <TextRun>
-                                                                  <Value>=Fields!Quantity.Value</Value>
+                                                                  <Value>=Fields!Quantity_Invoiced.Value</Value>
                                                                   <Style>
                                                                     <FontSize>8pt</FontSize>
+                                                                    <Format>#,0;(#,0)</Format>
                                                                   </Style>
                                                                 </TextRun>
                                                               </TextRuns>
@@ -1442,10 +1444,9 @@
                                                             <Paragraph>
                                                               <TextRuns>
                                                                 <TextRun>
-                                                                  <Value>=Fields!Quantity_Invoiced.Value</Value>
+                                                                  <Value>=Fields!Quantity.Value</Value>
                                                                   <Style>
                                                                     <FontSize>8pt</FontSize>
-                                                                    <Format>#,0;(#,0)</Format>
                                                                   </Style>
                                                                 </TextRun>
                                                               </TextRuns>

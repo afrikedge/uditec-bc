@@ -616,6 +616,7 @@ report 50008 "A01 PurchaseQuotePrint"
                     // PrepmtVATAmount := TempPrepmtVATAmountLine.GetTotalVATAmount();
                     // PrepmtVATBaseAmount := TempPrepmtVATAmountLine.GetTotalVATBase();
                     // PrepmtTotalAmountInclVAT := TempPrepmtVATAmountLine.GetTotalAmountInclVAT();
+
                 end;
             }
 
@@ -664,6 +665,7 @@ report 50008 "A01 PurchaseQuotePrint"
                 if not IsReportInPreviewMode() then
                     if ArchiveDocument then
                         ArchiveManagement.StorePurchDocument("Purchase Header", LogInteraction);
+
 
                 TotalSubTotal := 0;
                 // TotalInvDiscAmount := 0;
@@ -878,7 +880,7 @@ report 50008 "A01 PurchaseQuotePrint"
         CustomerSignLbl: Label 'Customer signature';
         CompanySignLbl: Label 'Company signature';
         A01TotalHT__Caption: Label 'Total HT';
-        A01TVA__Caption: Label 'VAT(20%)';
+        A01TVA__Caption: Label 'VAT';
         A01TotalTTC__Caption: Label 'Total TTC';
         // A01ArrestedSumLbl: Label 'Arrested at the sum of :';
         // ExpectedDateCaptionLbl: Label 'Expected Date';

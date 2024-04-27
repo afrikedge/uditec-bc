@@ -1899,7 +1899,7 @@
                                                             <Paragraph>
                                                               <TextRuns>
                                                                 <TextRun>
-                                                                  <Value>=Fields!A01TotalVAT__Lbl.Value &amp;"(" &amp; Fields!AfkCurrCode.Value &amp;")"</Value>
+                                                                  <Value>=Fields!VATText.Value &amp;"(" &amp; Fields!AfkCurrCode.Value &amp;")"</Value>
                                                                   <Style>
                                                                     <FontSize>8pt</FontSize>
                                                                     <FontWeight>Bold</FontWeight>
@@ -2367,6 +2367,7 @@
                                           </Border>
                                         </Style>
                                       </Rectangle>
+                                      <rd:Selected>true</rd:Selected>
                                     </CellContents>
                                   </TablixCell>
                                 </TablixCells>
@@ -3125,6 +3126,9 @@ AAAAAAAAAECjsYAGAAAAAAAAAAAAAAAAjcYCGgAAAAAAAAAAAAAAADQaC2gAAAAAAAAAAAAAAADQaCyg
         </Field>
         <Field Name="Amount_Lbl">
           <DataField>Amount_Lbl</DataField>
+        </Field>
+        <Field Name="VATText">
+          <DataField>VATText</DataField>
         </Field>
         <Field Name="PurchLineInvDiscAmt_Lbl">
           <DataField>PurchLineInvDiscAmt_Lbl</DataField>

@@ -95,21 +95,6 @@ page 50063 "A01 Posted Cust Settlement"
                     Rec.Navigate();
                 end;
             }
-            action(Print)
-            {
-                Image = PrintForm;
-                ApplicationArea = Basic, Suite;
-                Caption = '&Print';
-                trigger OnAction()
-                var
-                    CustomerSettlement: Record "A01 Posted Payment Document";
-
-                begin
-                    CustomerSettlement.SetRange("No.", Rec."No.");
-                    Report.Run(50021, true, false, CustomerSettlement);
-                end;
-
-            }
         }
     }
 }

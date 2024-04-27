@@ -10456,8 +10456,7 @@
         </trans-unit>
         <trans-unit id="Report 619717468 - NamedType 3947230309" size-unit="char" translate="yes" xml:space="preserve">
           <source>Payment mode</source>
-          <target state="needs-review-translation">Mode de règlemen
-          </target>
+          <target state="needs-review-translation">Mode de règlement</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Report A01 CustomerSettlementPrint - NamedType PaymentModeLbl</note>
         </trans-unit>
@@ -11586,8 +11585,9 @@
           <note from="Xliff Generator" annotates="general" priority="3">Report A01 PurchaseOrderPrint - NamedType A01TotalTTC__Lbl</note>
         </trans-unit>
         <trans-unit id="Report 1114081792 - NamedType 122672005" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Total VAT</source>
-          <target state="needs-adaptation">Total TVA </target>
+          <source>VAT</source>
+          <target state="needs-adaptation">TVA </target>
+          <note from="XLIFF Sync" annotates="general" priority="1">Source text has changed. Please review the translation.</note>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Report A01 PurchaseOrderPrint - NamedType A01TotalVAT__Lbl</note>
         </trans-unit>
@@ -12180,7 +12180,7 @@
           <note from="Xliff Generator" annotates="general" priority="3">Report A01 PurchaseQuotePrint - NamedType A01TotalTTC__Caption</note>
         </trans-unit>
         <trans-unit id="Report 1130738388 - NamedType 3450611127" size-unit="char" translate="yes" xml:space="preserve">
-          <source>VAT(20%)</source>
+          <source>VAT</source>
           <target state="needs-adaptation">TVA (20%)</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Report A01 PurchaseQuotePrint - NamedType A01TVA__Caption</note>

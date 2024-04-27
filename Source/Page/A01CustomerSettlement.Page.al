@@ -113,6 +113,21 @@ page 50057 "A01 Customer Settlement"
                     RequestMgt.AddPaymentRequest(Rec);//*******************
                 end;
             }
+            action(Print)
+            {
+                Image = PrintForm;
+                ApplicationArea = Basic, Suite;
+                Caption = '&Print';
+                trigger OnAction()
+                var
+                    CustomerSettlement: Record "A01 Payment Document";
+
+                begin
+                    CustomerSettlement.SetRange("No.", Rec."No.");
+                    Report.Run(50021, true, false, CustomerSettlement);
+                end;
+
+            }
         }
     }
     local procedure ApplyPayment()
