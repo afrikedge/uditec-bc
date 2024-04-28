@@ -1,7 +1,4 @@
-/// <summary>
-/// TableExtension A01 Sales Line Archive (ID 50014) extends Record Sales Line Archive.
-/// </summary>
-tableextension 50014 "A01 Sales Line Archive" extends "Sales Line Archive"
+tableextension 50027 "A01 Sales Invoice Line" extends "Sales Invoice Line"
 {
     fields
     {

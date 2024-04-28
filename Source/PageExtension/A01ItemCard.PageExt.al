@@ -52,6 +52,34 @@ pageextension 50003 "A01 Item Card" extends "Item Card"
                 ApplicationArea = Basic, Suite;
             }
         }
+        // addafter(Warehouse)
+        // {
+        //     group(A01Promotion)
+        //     {
+        //         Caption = 'Promotion';
+        //         field("A01 Promotion Activated"; Rec."A01 Promotion Activated")
+        //         {
+        //             ApplicationArea = Basic, Suite;
+        //         }
+        //         field("A01 Promotion Starting Date"; Rec."A01 Promotion Starting Date")
+        //         {
+        //             ApplicationArea = Basic, Suite;
+        //         }
+        //         field("A01 Promotion Ending Date"; Rec."A01 Promotion Ending Date")
+        //         {
+        //             ApplicationArea = Basic, Suite;
+        //         }
+        //         field("A01 Promotion Add Items Nomber"; Rec."A01 Promotion Add Items Nomber")
+        //         {
+        //             ApplicationArea = Basic, Suite;
+        //         }
+        //         field("A01 Promo Resp Center Filter"; Rec."A01 Promo Resp Center Filter")
+        //         {
+        //             ApplicationArea = Basic, Suite;
+        //             MultiLine = true;
+        //         }
+        //     }
+        // }
     }
     actions
     {

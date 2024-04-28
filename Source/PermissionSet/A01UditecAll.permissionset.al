@@ -199,6 +199,20 @@ permissionset 50000 "A01 Uditec_All"
         page "A01 GL Period User Groups" = X,
         page "A01 Purch Voucher Ledg Entries" = X,
         page "A01 Purchase Vouchers" = X,
-        page "A01 Voucher Card" = X;
+        page "A01 Voucher Card" = X,
+        tabledata "A01 Promo Additionnal Item" = RIMD,
+        table "A01 Promo Additionnal Item" = X,
+        codeunit "A01 General Legder Mgt" = X,
+        page "A01 Bank Notes List" = X,
+        page "A01 Cashbox Closing" = X,
+        page "A01 Cashbox Closing List" = X,
+        page "A01 Cashbox Closing Subform" = X,
+        page "A01 Journal Users" = X,
+        page "A01 Petty Cash Journal" = X,
+        page "A01 Posted Cash Closing List" = X,
+        page "A01 Posted Cashbox Closing" = X,
+        tabledata "A01 Item Promotion" = RIMD,
+        table "A01 Item Promotion" = X,
+        page "A01 Promotion Add Items" = X;
     //page "A01 Customer Settlements" = X;
 }

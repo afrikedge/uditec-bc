@@ -137,12 +137,12 @@ tableextension 50000 "A01 Sales Header" extends "Sales Header"
                     Rec.Validate("VAT Bus. Posting Group", AfkSetup."Exempt VAT Bus. Posting Group");
             end;
         }
-        // field(50017; "A01 Eligible Amount"; Decimal)
-        // {
-        //     Caption = 'Eligible Amount';
-        //     DataClassification = CustomerContent;
-        //     Editable = false;
-        // }
+        field(50020; "A01 Monthly Capacity"; Decimal)
+        {
+            Caption = 'Monthly Capacity';
+            DataClassification = CustomerContent;
+            Editable = false;
+        }
 
         modify("Sell-to Customer No.")
         {

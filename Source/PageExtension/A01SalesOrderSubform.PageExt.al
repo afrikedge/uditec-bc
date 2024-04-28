@@ -12,5 +12,12 @@ pageextension 50015 "A01 Sales Order Subform" extends "Sales Order Subform"
                 ApplicationArea = Basic, Suite;
             }
         }
+        addafter("Promised Delivery Date")
+        {
+            field("A01 Promotion Line No."; Rec."A01 Promotion Line No.")
+            {
+                ApplicationArea = Basic, Suite;
+            }
+        }
     }
 }

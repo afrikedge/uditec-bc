@@ -348,6 +348,12 @@ pageextension 50002 "A01 Order Processor RC" extends "Order Processor Role Cente
                     Caption = 'Posted Cashbox closing list';
                     RunObject = Page "A01 Posted Cash Closing List";
                 }
+                action(A01ItemPromotionList)
+                {
+                    ApplicationArea = Basic, Suite;
+                    Caption = 'Item Promotion List';
+                    RunObject = Page "A01 Item Promotion List";
+                }
 
             }
             group(A01AfkCredit)
