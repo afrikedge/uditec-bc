@@ -441,6 +441,8 @@ report 50023 "A01 Reminder Letter 3"
                 CustPostingGroup: Record "Customer Posting Group";
                 VATPostingSetup: Record "VAT Posting Setup";
                 //FirstReminderDate: Date;
+                IssuedReminder1: Record "Issued Reminder Header";
+                IssuedReminder2: Record "Issued Reminder Header";
                 FirstReminderDateText: Text;
                 SecondReminderDateText: Text;
             //FirstReminderNo: Code[20];
@@ -516,6 +518,23 @@ report 50023 "A01 Reminder Letter 3"
 
                 SecondReminderDateText := '';
                 FirstReminderDateText := '';
+
+                IssuedReminder1.Reset();
+                IssuedReminder1.SetCurrentKey("Customer No.", "Posting Date");
+                IssuedReminder1.SetRange("Customer No.", "Issued Reminder Header"."Customer No.");
+                IssuedReminder1.SetRange("Reminder Level", 1);
+                IssuedReminder1.SetRange(Canceled, false);
+                if (IssuedReminder1.FindFirst()) then
+                    FirstReminderDateText := format(IssuedReminder1."Document Date");
+
+                IssuedReminder2.Reset();
+                IssuedReminder2.SetCurrentKey("Customer No.", "Posting Date");
+                IssuedReminder2.SetRange("Customer No.", "Issued Reminder Header"."Customer No.");
+                IssuedReminder2.SetRange("Reminder Level", 2);
+                IssuedReminder2.SetRange(Canceled, false);
+                if (IssuedReminder2.FindFirst()) then
+                    SecondReminderDateText := format(IssuedReminder2."Document Date");
+
                 BodyLabelText := StrSubstNo(BodyLabel01, FirstReminderDateText, SecondReminderDateText, TotalRemainingAmtText, TotalRemainingAmtInLetters);
                 BodyLabelText2 := StrSubstNo(BodyLabel02, TotalRemainingAmtText, TotalRemainingAmtInLetters);
                 //ReminderLevelText := 'Mise en démeure';

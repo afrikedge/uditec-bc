@@ -11,6 +11,12 @@ tableextension 50013 "A01 Sales Line" extends "Sales Line"
             TableRelation = "Shipment Method";
             DataClassification = CustomerContent;
         }
+        field(50001; "A01 Promotion Line No."; integer)
+        {
+            Caption = 'Promotion Line No.';
+            Editable = false;
+            DataClassification = CustomerContent;
+        }
         modify("No.")
         {
             trigger OnAfterValidate()

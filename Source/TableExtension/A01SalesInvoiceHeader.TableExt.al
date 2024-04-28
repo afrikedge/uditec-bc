@@ -119,6 +119,12 @@ tableextension 50025 "A01 Sales Invoice Header" extends "Sales Invoice Header"
             Editable = false;
             DataClassification = CustomerContent;
         }
+        field(50020; "A01 Monthly Capacity"; Decimal)
+        {
+            Caption = 'Monthly Capacity';
+            DataClassification = CustomerContent;
+            Editable = false;
+        }
     }
 
 }

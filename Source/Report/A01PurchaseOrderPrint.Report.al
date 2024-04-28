@@ -269,6 +269,9 @@ report 50006 "A01 PurchaseOrderPrint"
             column(Amount_Lbl; AmountCaptionLbl)
             {
             }
+            column(VATText; VATText)
+            {
+            }
             column(PurchLineInvDiscAmt_Lbl; PurchLineInvDiscAmtCaptionLbl)
             {
             }
@@ -1355,6 +1358,11 @@ report 50006 "A01 PurchaseOrderPrint"
                 if PaymentMethodRec.Get("Purchase Header"."Payment Method Code") then
                     A01PaymentModeName := PaymentMethodRec.Description;
 
+                PurchLineRec.Reset();
+                PurchLineRec.SetRange("Document No.", "Purchase Header"."No.");
+                if PurchLineRec.FindFirst() then
+                    VATText := A01TotalVAT__Lbl + '(' + Format(PurchLineRec."VAT %") + ')';
+
                 TotalSubTotal := 0;
                 // TotalInvDiscAmount := 0;
                 TotalAmount := 0;
@@ -1477,6 +1485,7 @@ report 50006 "A01 PurchaseOrderPrint"
         AfkLocalCurrency: Record Currency;
         ResponsibilityCenter: Record "Responsibility Center";
         Vend: Record Vendor;
+        PurchLineRec: Record "Purchase Line";
         AfkCurrency: Record Currency;
         // LanguageMgt: Codeunit Language;
         FormatAddr: Codeunit "Format Address";
@@ -1487,6 +1496,7 @@ report 50006 "A01 PurchaseOrderPrint"
         ArchiveManagement: Codeunit ArchiveManagement;
         AutoFormat: Codeunit "Auto Format";
         VATNoText: Text[80];
+        VATText: Text[50];
         rcs: Code[30];
         stat: Code[30];
         nif: Code[30];
@@ -1570,7 +1580,7 @@ report 50006 "A01 PurchaseOrderPrint"
         A01UditecInvoiceNo__Lbl: Label 'Vendor proforma reference :';
         AuthoriseSignLbl: Label 'Authorized signatures';
         A01TotalHT__Lbl: Label 'Total HT';
-        A01TotalVAT__Lbl: Label 'Total VAT';
+        A01TotalVAT__Lbl: Label 'VAT';
         A01TotalTTC__Lbl: Label 'Total TTC';
         // A01Sgnature__Lbl: Label 'Signature :';
         A01ProductCodeLbl: Label 'Product code';

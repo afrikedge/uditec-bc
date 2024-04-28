@@ -437,6 +437,7 @@ report 50022 "A01 Reminder Letter 2"
                 GLAcc: Record "G/L Account";
                 CustPostingGroup: Record "Customer Posting Group";
                 VATPostingSetup: Record "VAT Posting Setup";
+                IssuedReminder1: Record "Issued Reminder Header";
                 //FirstReminderDate: Date;
                 FirstReminderDateText: Text;
                 FirstReminderNo: Code[20];
@@ -512,6 +513,17 @@ report 50022 "A01 Reminder Letter 2"
 
                 FirstReminderNo := '';
                 FirstReminderDateText := '';
+                IssuedReminder1.Reset();
+                IssuedReminder1.SetCurrentKey("Customer No.", "Posting Date");
+                IssuedReminder1.SetRange("Customer No.", "Issued Reminder Header"."Customer No.");
+                IssuedReminder1.SetRange("Reminder Level", 1);
+                IssuedReminder1.SetRange(Canceled, false);
+                if (IssuedReminder1.FindFirst()) then begin
+                    FirstReminderNo := IssuedReminder1."No.";
+                    FirstReminderDateText := format(IssuedReminder1."Document Date");
+                end;
+
+
                 BodyLabelText := StrSubstNo(BodyLabel01, FirstReminderNo, FirstReminderDateText, TotalRemainingAmtText, TotalRemainingAmtInLetters);
                 ReminderLevelText := StrSubstNo(ReminderLevelLbl, "Reminder Level");
 

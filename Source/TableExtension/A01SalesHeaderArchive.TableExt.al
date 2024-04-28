@@ -118,5 +118,11 @@ tableextension 50002 "A01 Sales Header Archive" extends "Sales Header Archive"
             Editable = false;
             DataClassification = CustomerContent;
         }
+        field(50020; "A01 Monthly Capacity"; Decimal)
+        {
+            Caption = 'Monthly Capacity';
+            DataClassification = CustomerContent;
+            Editable = false;
+        }
     }
 }

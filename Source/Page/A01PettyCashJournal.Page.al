@@ -116,13 +116,13 @@ page 50083 "A01 Petty Cash Journal"
                     //Visible = DebitCreditVisible;
 
                 }
-                field("Credit Amount"; Rec."Credit Amount")
-                {
-                    //Caption = 'Amount';
-                    ApplicationArea = Basic, Suite;
-                    //ToolTip = 'Specifies the total of the ledger entries that represent credits.';
-                    //Visible = DebitCreditVisible;
-                }
+                // field("Credit Amount"; Rec."Credit Amount")
+                // {
+                //     //Caption = 'Amount';
+                //     ApplicationArea = Basic, Suite;
+                //     //ToolTip = 'Specifies the total of the ledger entries that represent credits.';
+                //     //Visible = DebitCreditVisible;
+                // }
 
                 field("Applied (Yes/No)"; Rec.IsApplied())
                 {
@@ -149,12 +149,12 @@ page 50083 "A01 Petty Cash Journal"
                     //ToolTip = 'Specifies the ID of entries that will be applied to when you choose the Apply Entries action.';
                     Visible = false;
                 }
-                field("Shortcut Dimension 1 Code"; Rec."Shortcut Dimension 1 Code")
-                {
-                    ApplicationArea = Dimensions;
-                    //ToolTip = 'Specifies the code for Shortcut Dimension 1, which is one of two global dimension codes that you set up in the General Ledger Setup window.';
-                    Visible = DimVisible1;
-                }
+                // field("Shortcut Dimension 1 Code"; Rec."Shortcut Dimension 1 Code")
+                // {
+                //     ApplicationArea = Dimensions;
+                //     //ToolTip = 'Specifies the code for Shortcut Dimension 1, which is one of two global dimension codes that you set up in the General Ledger Setup window.';
+                //     Visible = DimVisible1;
+                // }
                 field("Shortcut Dimension 2 Code"; Rec."Shortcut Dimension 2 Code")
                 {
                     ApplicationArea = Dimensions;
@@ -1042,6 +1042,7 @@ page 50083 "A01 Petty Cash Journal"
         Rec."Document Type" := Rec."Document Type"::Payment;//**************
         Rec."Account Type" := Rec."Account Type"::"Allocation Account";//**************
         rec."Payment Method Code" := AfkSetup."Petty Cash Pay Mode";
+        rec.Validate("Shortcut Dimension 1 Code", SecMgt.GetMainUserResponsibilityCenterStore());
     end;
 
     trigger OnOpenPage()
@@ -1097,7 +1098,9 @@ page 50083 "A01 Petty Cash Journal"
         PrivacyNotice: Codeunit "Privacy Notice";
         PrivacyNoticeRegistrations: Codeunit "Privacy Notice Registrations";
         ApprovalMgmt: Codeunit "Approvals Mgmt.";
+        SecMgt: codeunit "A01 Security Mgt";
         ChangeExchangeRate: Page "Change Exchange Rate";
+
         AccName: Text[100];
         BalAccName: Text[100];
         GenJnlBatchApprovalStatus: Text[20];
