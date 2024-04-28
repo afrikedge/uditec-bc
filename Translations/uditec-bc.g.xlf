@@ -3888,6 +3888,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page A01 Customer Settlement - Action Pos - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Page 2686914651 - Action 1002420131 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>&amp;Print</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page A01 Customer Settlement - Action Print - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Page 3688579397 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Customer Settlement List</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -4447,11 +4452,6 @@
           <source>Find entries...</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page A01 Posted Cust Settlement - Action &amp;Navigate - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Page 2187008607 - Action 1002420131 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>&amp;Print</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page A01 Posted Cust Settlement - Action Print - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 3891314634 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Posted Cust Settlements</source>
@@ -9323,10 +9323,10 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report A01 CustomerSettlementPrint - NamedType TotalAmountLbl</note>
         </trans-unit>
-        <trans-unit id="Report 619717468 - ReportDataItem 2155214808 - Property 1806354803" size-unit="char" translate="yes" xml:space="preserve">
+        <trans-unit id="Report 619717468 - ReportDataItem 516060391 - Property 1806354803" size-unit="char" translate="yes" xml:space="preserve">
           <source>Cash Receipt</source>
           <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Report A01 CustomerSettlementPrint - ReportDataItem A01 Posted Payment Document - Property RequestFilterHeading</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 CustomerSettlementPrint - ReportDataItem A01 Payment Document - Property RequestFilterHeading</note>
         </trans-unit>
         <trans-unit id="Report 3097000432 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Delivery Note Invoice Print</source>
@@ -10229,7 +10229,7 @@
           <note from="Xliff Generator" annotates="general" priority="3">Report A01 PurchaseOrderPrint - NamedType A01TotalTTC__Lbl</note>
         </trans-unit>
         <trans-unit id="Report 1114081792 - NamedType 122672005" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Total VAT</source>
+          <source>VAT</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report A01 PurchaseOrderPrint - NamedType A01TotalVAT__Lbl</note>
         </trans-unit>
@@ -10724,7 +10724,7 @@
           <note from="Xliff Generator" annotates="general" priority="3">Report A01 PurchaseQuotePrint - NamedType A01TotalTTC__Caption</note>
         </trans-unit>
         <trans-unit id="Report 1130738388 - NamedType 3450611127" size-unit="char" translate="yes" xml:space="preserve">
-          <source>VAT(20%)</source>
+          <source>VAT</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report A01 PurchaseQuotePrint - NamedType A01TVA__Caption</note>
         </trans-unit>
