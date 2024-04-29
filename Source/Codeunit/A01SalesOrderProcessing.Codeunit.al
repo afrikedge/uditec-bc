@@ -510,11 +510,6 @@ codeunit 50000 "A01 Sales Order Processing"
         SalesPostYNPrepmt.PostPrepmtInvoiceYN(SalesHeader, false);
     end;
 
-    procedure CheckCanPostGL()
-    var
-        myInt: Integer;
-    begin
 
-    end;
 
 }

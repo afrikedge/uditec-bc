@@ -116,9 +116,17 @@ page 50057 "A01 Customer Settlement"
                 //ToolTip = 'Apply the customer or vendor payment on the selected payment slip.';
 
                 trigger OnAction()
+                var
+                    CustPaymentPost: Codeunit "A01 Customer Settlement Post";
                 begin
-                    CODEUNIT.Run(CODEUNIT::"A01 Customer Settlement Post", Rec);
+                    CustPaymentPost.SetToPrint(true);
+                    CustPaymentPost.Run(Rec);
                 end;
+
+                // trigger OnAction()
+                // begin
+                //     CODEUNIT.Run(CODEUNIT::"A01 Customer Settlement Post", Rec);
+                // end;
             }
             action("A01 AddPaymentRequest")
             {

@@ -9,6 +9,12 @@ codeunit 50013 "A01 Customer Settlement Post"
         Rec := CustomerSettlement;
 
         OnAfterOnRun(Rec, PostedCustSettlement);
+
+        if (PrintPostedDoc) then begin
+            Commit();
+            PostedCustSettlement.get(CustomerSettlement."Posting No.");
+            PostedCustSettlement.PrintRecords(false);
+        end;
     end;
 
     var
@@ -35,6 +41,7 @@ codeunit 50013 "A01 Customer Settlement Post"
         //ErrorText: Text[250];
         SourceCode: Code[10];
         LineCount: Integer;
+        PrintPostedDoc: Boolean;
     //ModifyHeader: Boolean;
     //LinesToPost: Boolean;
     //SuppressCommit: Boolean;
@@ -291,6 +298,12 @@ codeunit 50013 "A01 Customer Settlement Post"
             repeat
                 SaveCustSettlementLine(CustSettlementLine);
             until CustSettlementLine.Next() = 0;
+    end;
+
+    procedure SetToPrint(print: Boolean)
+    var
+    begin
+        PrintPostedDoc := print;
     end;
 
     [IntegrationEvent(false, false)]

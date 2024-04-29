@@ -58,6 +58,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table A01 Afk Setup - Field AGP Operation duration (Month) - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Table 2685203037 - Field 3990771488 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>AGP Payment Terms Code</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table A01 Afk Setup - Field AGP Payment Terms Code - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Table 2685203037 - Field 3517464869 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>AGP Sales minimum value</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -323,6 +328,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table A01 AGP Contrat - Field Account Type - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Table 2071928169 - Field 4244075430 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Application fees %</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table A01 AGP Contrat - Field Application fees % - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Table 2071928169 - Field 1878856189 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Approval Status</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -337,6 +347,11 @@
           <source>Created By</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table A01 AGP Contrat - Field Created By - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2071928169 - Field 4077272413 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Credit Limit Mode</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table A01 AGP Contrat - Field Credit Limit Mode - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 2071928169 - Field 4190130733 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Customer No.</source>
@@ -392,6 +407,16 @@
           <source>Payment Terms Code</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table A01 AGP Contrat - Field Payment Terms Code - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2071928169 - Field 3747278597 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Standard Credit Limit</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table A01 AGP Contrat - Field Standard Credit Limit - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2071928169 - Field 189052797 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Transferable part %</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table A01 AGP Contrat - Field Transferable part % - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 1931418295 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Approval flow</source>
@@ -3883,15 +3908,15 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page A01 Customer Settlement - Action Application - Property Caption</note>
         </trans-unit>
-        <trans-unit id="Page 2686914651 - Action 3353335960 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+        <trans-unit id="Page 2686914651 - Action 2282416948 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>&amp;Post</source>
           <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page A01 Customer Settlement - Action Pos - Property Caption</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page A01 Customer Settlement - Action Post - Property Caption</note>
         </trans-unit>
-        <trans-unit id="Page 2686914651 - Action 1002420131 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>&amp;Print</source>
+        <trans-unit id="Page 2686914651 - Action 513012614 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>&amp;Post and print</source>
           <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page A01 Customer Settlement - Action Print - Property Caption</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page A01 Customer Settlement - Action PostAndPrint - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 3688579397 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Customer Settlement List</source>
@@ -4467,6 +4492,11 @@
           <source>Find entries...</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page A01 Posted Cust Settlement - Action &amp;Navigate - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2187008607 - Action 1344672713 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Print</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page A01 Posted Cust Settlement - Action &amp;Print - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 3891314634 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Posted Cust Settlements</source>
@@ -14797,6 +14827,21 @@
           <source>Not guaranteed by the company</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Enum A01 Agp Application Fees Type - EnumValue Not guaranteed by the company - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 1665138559 - EnumValue 1508634494 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Manual</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum A01 AGP Credit Limit Mode - EnumValue Manual - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 1665138559 - EnumValue 3900201624 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Salary</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum A01 AGP Credit Limit Mode - EnumValue Salary - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 1665138559 - EnumValue 2672704373 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Standard</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum A01 AGP Credit Limit Mode - EnumValue Standard - Property Caption</note>
         </trans-unit>
         <trans-unit id="Enum 551354237 - EnumValue 3703598467 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>All</source>

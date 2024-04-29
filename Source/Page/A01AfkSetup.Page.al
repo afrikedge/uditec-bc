@@ -128,7 +128,10 @@ page 50040 "A01 Afk Setup"
             group("Grouped purchase")
             {
                 Caption = 'Grouped purchase';
+                field("AGP Payment Terms Code"; Rec."AGP Payment Terms Code")
+                {
 
+                }
                 field("AGP Discounts allowed"; Rec."AGP Discounts allowed")
                 {
                     ToolTip = 'Indicates whether discounts are allowed for credit sales by AGP';

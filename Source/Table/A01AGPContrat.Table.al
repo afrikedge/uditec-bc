@@ -72,6 +72,24 @@ table 50035 "A01 AGP Contrat"
             Caption = 'No. Series';
             TableRelation = "No. Series";
         }
+        field(16; "Transferable part %"; Decimal)
+        {
+            Caption = 'Transferable part %';
+        }
+        field(17; "Credit Limit Mode"; Enum "A01 AGP Credit Limit Mode")
+        {
+            Caption = 'Credit Limit Mode';
+        }
+        field(18; "Standard Credit Limit"; Decimal)
+        {
+            Caption = 'Standard Credit Limit';
+        }
+        field(19; "Application fees %"; Decimal)
+        {
+            Caption = 'Application fees %';
+        }
+
+
     }
     keys
     {

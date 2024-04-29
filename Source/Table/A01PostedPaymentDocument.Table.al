@@ -174,8 +174,8 @@ table 50026 "A01 Posted Payment Document"
         // if not IsHandled then
         PostedPayment."No." := Rec."No.";
         PostedPayment.SetRecFilter();
-        PostedPayment.PrintRecords(false);
-        REPORT.RunModal(50022, ShowRequestPage, false, PostedPayment);
+        //PostedPayment.PrintRecords(false);
+        REPORT.RunModal(50024, ShowRequestPage, false, PostedPayment);
         // DocumentSendingProfile.TrySendToPrinter(
         //   DummyReportSelections.Usage::"S.Invoice".AsInteger(), Rec, FieldNo("Partner No."), ShowRequestPage);
     end;
