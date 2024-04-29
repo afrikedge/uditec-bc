@@ -296,6 +296,12 @@ table 50017 "A01 Afk Setup"
             Caption = 'Exempt VAT Business Posting Group';
             TableRelation = "VAT Business Posting Group";
         }
+        field(63; "AGP Payment Terms Code"; Code[20])
+        {
+            Caption = 'AGP Payment Terms Code';
+            TableRelation = "Payment terms";
+        }
+
 
 
         //Banked or unbanked employee

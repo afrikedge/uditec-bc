@@ -2636,7 +2636,8 @@ page 50002 "A01 Sales Order - Workflow"
         VATReportingDateMgt: Codeunit "VAT Reporting Date Mgt";
         ApplicationAreaMgmtFacade: Codeunit "Application Area Mgmt. Facade";
     begin
-        Rec.SetSecurityFilterOnRespCenter();
+        //Rec.SetSecurityFilterOnRespCenter();//************************************************
+        SetFiltreCentreGestion();
 
         Rec.SetRange("Date Filter", 0D, WorkDate());
 
@@ -2997,6 +2998,24 @@ page 50002 "A01 Sales Order - Workflow"
             exit(LocationsQuery.Read());
         end;
         exit(false);
+    end;
+
+    local procedure SetFiltreCentreGestion()
+    var
+        //UserMgt1: codeunit "User Setup Management";
+        SecMgt: codeunit "A01 Security Mgt";
+        FiltreCG: Text[1024];
+    begin
+
+        if UserMgt.GetSalesFilter() <> '' then begin
+
+            FiltreCG := SecMgt.GetSalesRespCenterFilter();
+            if FiltreCG <> '' then begin
+                Rec.FILTERGROUP(2);
+                Rec.SETFILTER("Responsibility Center", FiltreCG);
+                Rec.FILTERGROUP(0);
+            end;
+        end;
     end;
 
     procedure CalculateShipToBillToOptions()

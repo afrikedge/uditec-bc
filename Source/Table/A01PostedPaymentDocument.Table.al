@@ -157,4 +157,26 @@ table 50026 "A01 Posted Payment Document"
         NavigatePage.SetRec(Rec);
         NavigatePage.Run();
     end;
+
+    /// <summary>
+    /// PrintRecords.
+    /// </summary>
+    /// <param name="ShowRequestPage">Boolean.</param>
+    procedure PrintRecords(ShowRequestPage: Boolean)
+    var
+        //DocumentSendingProfile: Record "Document Sending Profile";
+        //DummyReportSelections: Record "Report Selections";
+        //IsHandled: Boolean;
+        PostedPayment: Record "A01 Posted Payment Document";
+    begin
+        // IsHandled := false;
+        // OnBeforePrintRecords(DummyReportSelections, Rec, ShowRequestPage, IsHandled);
+        // if not IsHandled then
+        PostedPayment."No." := Rec."No.";
+        PostedPayment.SetRecFilter();
+        //PostedPayment.PrintRecords(false);
+        REPORT.RunModal(50024, ShowRequestPage, false, PostedPayment);
+        // DocumentSendingProfile.TrySendToPrinter(
+        //   DummyReportSelections.Usage::"S.Invoice".AsInteger(), Rec, FieldNo("Partner No."), ShowRequestPage);
+    end;
 }

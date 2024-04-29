@@ -256,8 +256,8 @@ codeunit 50015 A01WSMasterFilesMgt
         // if (Cust."Payment Terms Code" <> WS.GetText('Payment Terms Code', input)) then
         //     Cust.Validate("Payment Terms Code", WS.GetText('Payment Terms Code', input));
 
-        // if (Cust."Credit Limit (LCY)" <> WS.GetDecimal('Credit limit (LCY)', input)) then
-        //     Cust.Validate("Credit Limit (LCY)", WS.GetDecimal('Credit limit (LCY)', input));
+        if (Cust."Credit Limit (LCY)" <> WS.GetDecimal('Credit limit (LCY)', input)) then
+            Cust.Validate("Credit Limit (LCY)", WS.GetDecimal('Credit limit (LCY)', input));
 
         // if (Cust."Payment Method Code" <> WS.GetText('Payment Method Code', input)) then
         //     Cust.Validate("Payment Method Code", WS.GetText('Payment Method Code', input));

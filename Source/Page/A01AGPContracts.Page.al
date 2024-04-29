@@ -51,6 +51,20 @@ page 50060 "A01 AGP Contracts"
                 field("Payment Terms Code"; Rec."Payment Terms Code")
                 {
                 }
+
+                field("Transferable part %"; Rec."Transferable part %")
+                {
+                }
+                field("Credit Limit Mode"; Rec."Credit Limit Mode")
+                {
+                }
+                field("Standard Credit Limit"; Rec."Standard Credit Limit")
+                {
+                }
+                field("Application fees %"; Rec."Application fees %")
+                {
+                }
+
                 field("Created By"; Rec."Created By")
                 {
                 }

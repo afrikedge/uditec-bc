@@ -90,7 +90,7 @@ page 50057 "A01 Customer Settlement"
                     ApplyPayment();
                 end;
             }
-            action(Pos)
+            action(Post)
             {
                 Image = Post;
                 ApplicationArea = Basic, Suite;
@@ -104,6 +104,29 @@ page 50057 "A01 Customer Settlement"
                 begin
                     CODEUNIT.Run(CODEUNIT::"A01 Customer Settlement Post", Rec);
                 end;
+            }
+            action(PostAndPrint)
+            {
+                Image = Post;
+                ApplicationArea = Basic, Suite;
+                Caption = '&Post and print';
+                ShortCutKey = 'Shift+F11';
+                // Promoted = true;
+                // PromotedCategory = Process;
+                //ToolTip = 'Apply the customer or vendor payment on the selected payment slip.';
+
+                trigger OnAction()
+                var
+                    CustPaymentPost: Codeunit "A01 Customer Settlement Post";
+                begin
+                    CustPaymentPost.SetToPrint(true);
+                    CustPaymentPost.Run(Rec);
+                end;
+
+                // trigger OnAction()
+                // begin
+                //     CODEUNIT.Run(CODEUNIT::"A01 Customer Settlement Post", Rec);
+                // end;
             }
             action("A01 AddPaymentRequest")
             {
@@ -119,21 +142,20 @@ page 50057 "A01 Customer Settlement"
                     RequestMgt.AddPaymentRequest(Rec);//*******************
                 end;
             }
-            action(Print)
-            {
-                Image = PrintForm;
-                ApplicationArea = Basic, Suite;
-                Caption = '&Print';
-                trigger OnAction()
-                var
-                    CustomerSettlement: Record "A01 Payment Document";
+            // action(Print)
+            // {
+            //     Image = PrintForm;
+            //     ApplicationArea = Basic, Suite;
+            //     Caption = '&Print';
+            //     trigger OnAction()
+            //     var
+            //         CustomerSettlement: Record "A01 Payment Document";
 
-                begin
-                    CustomerSettlement.SetRange("No.", Rec."No.");
-                    Report.Run(50021, true, false, CustomerSettlement);
-                end;
-
-            }
+            //     begin
+            //         CustomerSettlement.SetRange("No.", Rec."No.");
+            //         Report.Run(50021, true, false, CustomerSettlement);
+            //     end;
+            // }
         }
         area(navigation)
         {

@@ -27,5 +27,16 @@ pageextension 50000 "A01 Posted Sales Invoice" extends "Posted Sales Invoice"
                 end;
             }
         }
+        addafter(Statistics)
+        {
+            action("A01AGPDueLine")
+            {
+                ApplicationArea = All;
+                Image = AllLines;
+                Caption = 'Credit Amortisation Lines';
+                RunObject = page "A01 Posted Credit Amort Lines";
+                RunPageLink = "Document Type" = const("Posted Sales invoice"), "Document No." = field("No.");
+            }
+        }
     }
 }
