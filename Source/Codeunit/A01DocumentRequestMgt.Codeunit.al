@@ -136,7 +136,7 @@ codeunit 50016 "A01 Document Request Mgt"
         exit(Request."Request No.");
     end;
 
-    local procedure CloseRequest(var Request: Record "A01 Request On Document")
+    procedure CloseRequest(var Request: Record "A01 Request On Document")
     var
         SalesOrder: Record "Sales Header";
         Salesline: Record "Sales Line";
@@ -207,7 +207,7 @@ codeunit 50016 "A01 Document Request Mgt"
                 end;
             Request."Request Type"::Unblocking:
                 begin
-
+                    OrderValidationMgt.CheckIsAwaitingPrepayment(SalesOrder);
                 end;
             else
                 Error('Unknown Type');

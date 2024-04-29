@@ -151,6 +151,7 @@ codeunit 50000 "A01 Sales Order Processing"
     begin
         if NeedPrepayment(SalesH) then begin
             if (SalesH."A01 Processing Status" <> SalesH."A01 Processing Status"::"Waiting for prepayment") then begin
+                PostPrePayment(SalesH);
                 SalesH."A01 Processing Status" := SalesH."A01 Processing Status"::"Waiting for prepayment";
                 InsertNewStep(SalesH."No.", "A01 ActionStepHistory"::"Change Status", FORMAT(SalesH."A01 Processing Status"::"Waiting for prepayment"), '');
                 SalesH.Modify();
@@ -216,9 +217,12 @@ codeunit 50000 "A01 Sales Order Processing"
     local procedure CheckLocaltionOnLines(SalesH: Record "Sales Header"): Boolean
     var
         SalesL: Record "Sales Line";
+        DocumentErrorsMgt: Codeunit "Document Errors Mgt.";
     begin
         SalesL.SetRange(SalesL."Document Type", SalesH."Document Type");
         SalesL.SetRange(SalesL."Document No.", SalesH."No.");
+        if (SalesL.IsEmpty) then
+            Error(DocumentErrorsMgt.GetNothingToPostErrorMsg());
         if SalesL.FindSet() then
             repeat
                 if (SalesL.Type <> SalesL.Type::" ") then
@@ -499,5 +503,18 @@ codeunit 50000 "A01 Sales Order Processing"
         end;
     end;
 
+    local procedure PostPrePayment(var SalesHeader: Record "Sales Header")
+    var
+        SalesPostYNPrepmt: Codeunit "Sales-Post Prepayment (Yes/No)";
+    begin
+        SalesPostYNPrepmt.PostPrepmtInvoiceYN(SalesHeader, false);
+    end;
+
+    procedure CheckCanPostGL()
+    var
+        myInt: Integer;
+    begin
+
+    end;
 
 }

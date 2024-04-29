@@ -3923,6 +3923,16 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page A01 Discount Request - Control General - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Page 3914987280 - Action 2675496269 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Process</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page A01 Discount Request - Action Process - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3914987280 - Action 3657829122 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Validate</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page A01 Discount Request - Action Validate - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Page 277818161 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Discount Requests</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -4422,6 +4432,11 @@
           <source>Lines</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page A01 Posted Cashbox Closing - Control SalesLines - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 4168693976 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Posted Credit Amort Lines</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page A01 Posted Credit Amort Lines - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 2187008607 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Posted Cust Settlement</source>
@@ -13338,6 +13353,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension A01 Posted Sales Invoice - Action A01 Sales Invoice Credit - Property Caption</note>
         </trans-unit>
+        <trans-unit id="PageExtension 1803151204 - Action 3181782880 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2420212404">
+          <source>Credit Amortisation Lines</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension A01 Posted Sales Invoice - Action A01AGPDueLine - Property Caption</note>
+        </trans-unit>
         <trans-unit id="PageExtension 175916819 - Action 2633101996 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 3373253667">
           <source>Print BL/Invoice</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -13397,6 +13417,16 @@
           <source>A01 Bank Account Type</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension A01 Bank Account - Field A01 Bank Account Type - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 2689845239 - Field 3629772320 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 400793991">
+          <source>Unit of Measure Code</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension A01 Bin - Field A01 Capacity - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 2689845239 - Field 848655270 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 400793991">
+          <source>Unit of Measure Code</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension A01 Bin - Field A01 Unit of Measure Code - Property Caption</note>
         </trans-unit>
         <trans-unit id="TableExtension 1119515148 - Field 2909066091 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 3993128796">
           <source>Account Type</source>
@@ -13777,6 +13807,11 @@
           <source>Required Prepayment % (Mirindra)</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension A01 Item Category - Field A01 MIR Required Prepayment % - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 437216527 - Field 2945672636 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 3891454143">
+          <source>Sales Blocked</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension A01 Location - Field A01 Sales Blocked - Property Caption</note>
         </trans-unit>
         <trans-unit id="TableExtension 1099935616 - Field 2932824535 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 4099490416">
           <source>Payment Method</source>

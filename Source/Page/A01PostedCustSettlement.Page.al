@@ -96,5 +96,24 @@ page 50063 "A01 Posted Cust Settlement"
                 end;
             }
         }
+        area(Reporting)
+        {
+            action("&Print")
+            {
+                ApplicationArea = Basic, Suite;
+                Caption = 'Print';
+                Image = PrintForm;
+                // ShortCutKey = 'Ctrl+Alt+Q';
+                // AboutTitle = 'Get detailed posting details';
+                // AboutText = 'Here, you can look up the ledger entries that were created when this invoice was posted, as well as any related documents.';
+                // ToolTip = 'Find entries and documents that exist for the document number and posting date on the selected document. (Formerly this action was named Navigate.)';
+                //Visible = NOT IsOfficeAddin;
+
+                trigger OnAction()
+                begin
+                    Rec.PrintRecords(true);
+                end;
+            }
+        }
     }
 }

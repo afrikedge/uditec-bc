@@ -4711,6 +4711,12 @@
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Page A01 Customer Settlement - Action Pos - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Page 2686914651 - Action 1002420131 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>&amp;amp;Print</source>
+          <target state="needs-review-translation">Imprimer</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Page A01 Customer Settlement - Action Print - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Page 3688579397 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Customer Settlement List</source>
           <target state="needs-review-translation">Liste de règlements client</target>
@@ -4746,6 +4752,18 @@
           <target state="needs-review-translation">Général</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Page A01 Discount Request - Control General - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3914987280 - Action 2675496269 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Process</source>
+          <target state="needs-review-translation">Traiter</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Page A01 Discount Request - Action Process - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3914987280 - Action 3657829122 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Validate</source>
+          <target state="needs-review-translation">Valider</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Page A01 Discount Request - Action Validate - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 277818161 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Discount Requests</source>
@@ -5354,6 +5372,12 @@
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Page A01 Posted Cashbox Closing - Control SalesLines - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Page 4168693976 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Posted Credit Amort Lines</source>
+          <target state="needs-review-translation">Tableau d'amortissement crédit</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Page A01 Posted Credit Amort Lines - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Page 2187008607 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Posted Cust Settlement</source>
           <target state="needs-review-translation">Règlement client validé</target>
@@ -5390,13 +5414,6 @@
           <target state="needs-review-translation">Recherche des écritures</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Page A01 Posted Cust Settlement - Action &amp;amp;Navigate - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Page 2187008607 - Action 1002420131 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>&amp;amp;Print</source>
-          <target state="needs-adaptation">Imprimer</target>
-          <note from="XLIFF Sync" annotates="general" priority="1">Source text has changed. Please review the translation.</note>
-          <note from="Developer" annotates="general" priority="2"/>
-          <note from="Xliff Generator" annotates="general" priority="3">Page A01 Posted Cust Settlement - Action Print - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 3891314634 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Posted Cust Settlements</source>
@@ -11384,12 +11401,11 @@
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Report A01 CustomerSettlementPrint - NamedType TotalAmountLbl</note>
         </trans-unit>
-        <trans-unit id="Report 619717468 - ReportDataItem 2155214808 - Property 1806354803" size-unit="char" translate="yes" xml:space="preserve">
+        <trans-unit id="Report 619717468 - ReportDataItem 516060391 - Property 1806354803" size-unit="char" translate="yes" xml:space="preserve">
           <source>Cash Receipt</source>
-          <target state="needs-review-translation">Reçu d'encaissement
-          </target>
+          <target state="needs-review-translation">Recu de caisse</target>
           <note from="Developer" annotates="general" priority="2"/>
-          <note from="Xliff Generator" annotates="general" priority="3">Report A01 CustomerSettlementPrint - ReportDataItem A01 Posted Payment Document - Property RequestFilterHeading</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 CustomerSettlementPrint - ReportDataItem A01 Payment Document - Property RequestFilterHeading</note>
         </trans-unit>
         <trans-unit id="Report 3097000432 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Delivery Note Invoice Print</source>
@@ -12477,7 +12493,6 @@
         <trans-unit id="Report 1114081792 - NamedType 122672005" size-unit="char" translate="yes" xml:space="preserve">
           <source>VAT</source>
           <target state="needs-adaptation">TVA </target>
-          <note from="XLIFF Sync" annotates="general" priority="1">Source text has changed. Please review the translation.</note>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Report A01 PurchaseOrderPrint - NamedType A01TotalVAT__Lbl</note>
         </trans-unit>
@@ -16208,6 +16223,12 @@
           <target state="needs-review-translation">Imprimer la facture vente à crédit</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension A01 Posted Sales Invoice - Action A01 Sales Invoice Credit - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 1803151204 - Action 3181782880 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2420212404">
+          <source>Credit Amortisation Lines</source>
+          <target state="needs-review-translation">Tableau d'amortissement crédit</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension A01 Posted Sales Invoice - Action A01AGPDueLine - Property Caption</note>
         </trans-unit>
         <trans-unit id="PageExtension 175916819 - Action 2633101996 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 3373253667">
           <source>Print BL/Invoice</source>

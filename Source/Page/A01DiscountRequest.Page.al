@@ -45,4 +45,28 @@ page 50064 "A01 Discount Request"
             }
         }
     }
+    actions
+    {
+        area(navigation)
+        {
+            group(Process)
+            {
+                action(Validate)
+                {
+                    ApplicationArea = All;
+                    Image = Create;
+                    Caption = 'Validate';
+                    //Promoted = true;
+                    //PromotedCategory = Process;
+                    trigger OnAction()
+                    var
+                        DocRequestMgt: Codeunit "A01 Document Request Mgt";
+                    begin
+                        Rec.Status := Rec.Status::Validated;
+                        DocRequestMgt.CloseRequest(Rec);
+                    end;
+                }
+            }
+        }
+    }
 }
