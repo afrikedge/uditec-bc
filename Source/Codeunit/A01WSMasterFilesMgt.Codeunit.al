@@ -964,6 +964,7 @@ codeunit 50015 A01WSMasterFilesMgt
 
         ShipTo.Init();
         ShipTo."Customer No." := CopyStr(CustNo, 1, 20);
+        AddOnSetup.GetRecordOnce();
         AddOnSetup.Testfield("ShipToAddress Code Nos");
         ShipTo."Code" := CopyStr(NosSeriesMgt.GetNextNo(AddOnSetup."ShipToAddress Code Nos", today, true), 1, 10);
 

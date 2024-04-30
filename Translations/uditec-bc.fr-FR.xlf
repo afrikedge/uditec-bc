@@ -15941,8 +15941,7 @@
         </trans-unit>
         <trans-unit id="PageExtension 3250568499 - Action 101988348 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2747922353">
           <source>Payment Requests</source>
-          <target state="needs-review-translation">Demande de validation paiement
-          </target>
+          <target state="needs-review-translation">Demande de validation paiement</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension A01 Order Processor RC - Action A01PaymentRequests - Property Caption</note>
         </trans-unit>
@@ -15954,7 +15953,7 @@
         </trans-unit>
         <trans-unit id="PageExtension 3250568499 - Action 4106710960 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2747922353">
           <source>POS Payment Requests</source>
-          <target state="needs-review-translation">Demande de validation paiement</target>
+          <target state="needs-review-translation">Demande de validation paiement (POS)</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension A01 Order Processor RC - Action A01POSPaymentRequests - Property Caption</note>
         </trans-unit>
@@ -18152,7 +18151,7 @@
         </trans-unit>
         <trans-unit id="Enum 3407316512 - EnumValue 741541503 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Person</source>
-          <target state="needs-review-translation">Code du vendeur</target>
+          <target state="needs-review-translation">Personne</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Enum A01 Customer Type - EnumValue Person - Property Caption</note>
         </trans-unit>

@@ -107,11 +107,11 @@ table 50031 "A01 Request On Document"
         {
             Caption = 'Exceeding';
         }
-        field(19; "Sequence No."; Integer)
-        {
-            Caption = 'Sequence No.';
-            Editable = false;
-        }
+        // field(19; "Sequence No."; Integer)
+        // {
+        //     Caption = 'Sequence No.';
+        //     Editable = false;
+        // }
         field(20; "Created By"; Code[50])
         {
             Caption = 'Modified By';
@@ -123,7 +123,7 @@ table 50031 "A01 Request On Document"
     }
     keys
     {
-        key(PK; "Request Type", "Request No.", "Sequence No.")
+        key(PK; "Request Type", "Request No.")
         {
             Clustered = true;
         }
@@ -138,8 +138,8 @@ table 50031 "A01 Request On Document"
     begin
         RequestMgt.CheckSameRequestAlreadyExists(Rec);
 
-        if "Sequence No." = 0 then
-            "Sequence No." := GetNextSequenceNo();
+        // if "Sequence No." = 0 then
+        //     "Sequence No." := GetNextSequenceNo();
 
         InitHeader();
     end;
@@ -163,17 +163,17 @@ table 50031 "A01 Request On Document"
     // value(11; Closed)
 
 
-    local procedure GetNextSequenceNo(): Integer
-    var
-        Request: Record "A01 Request On Document";
-    begin
-        Request.SetRange("Request Type", Rec."Request Type");
-        Request.SetRange("Request No.", Rec."Request No.");
-        if Request.FindLast() then
-            exit(Request."Sequence No." + 1)
-        else
-            exit(1);
-    end;
+    // local procedure GetNextSequenceNo(): Integer
+    // var
+    //     Request: Record "A01 Request On Document";
+    // begin
+    //     Request.SetRange("Request Type", Rec."Request Type");
+    //     Request.SetRange("Request No.", Rec."Request No.");
+    //     if Request.FindLast() then
+    //         exit(Request."Sequence No." + 1)
+    //     else
+    //         exit(1);
+    // end;
 
 
 

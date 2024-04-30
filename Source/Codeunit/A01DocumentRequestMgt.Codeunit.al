@@ -119,7 +119,12 @@ codeunit 50016 "A01 Document Request Mgt"
         if ((Request."Request Type" = Request."Request Type"::"Discount on order")
          or (Request."Request Type" = Request."Request Type"::"Discount on quote")
          or (Request."Request Type" = Request."Request Type"::"POS Payment")) then begin
-            SalesOrder.get(Request."Request No.");
+            if (Request."Request Type" = Request."Request Type"::"Discount on order") then
+                SalesOrder.get(SalesOrder."Document Type"::order, Request."Request No.");
+            if (Request."Request Type" = Request."Request Type"::"Discount on quote") then
+                SalesOrder.get(SalesOrder."Document Type"::Quote, Request."Request No.");
+            if (Request."Request Type" = Request."Request Type"::"POS Payment") then
+                SalesOrder.get(SalesOrder."Document Type"::order, Request."Request No.");
             SalesOrder."A01 Request Status" := NewStatus;
             SalesOrder.Modify();
         end;
@@ -151,11 +156,13 @@ codeunit 50016 "A01 Document Request Mgt"
 
                     Salesline.Reset();
                     Salesline.SetRange("Document Type", SalesOrder."Document Type");
-                    Salesline.SetRange("Document No.", Salesline."No.");
+                    Salesline.SetRange("Document No.", SalesOrder."No.");
                     if Salesline.FindSet(true) then
                         repeat
-                            if (Salesline.Type <> Salesline.Type::" ") then
+                            if (Salesline.Type <> Salesline.Type::" ") then begin
                                 Salesline.Validate(Salesline."Line Discount %", Request."Validated Discount (%)");
+                                Salesline.Modify();
+                            end;
                         until Salesline.Next() < 1;
 
                     OrderValidationMgt.ValidateDraft(SalesOrder);
@@ -168,11 +175,13 @@ codeunit 50016 "A01 Document Request Mgt"
 
                     Salesline.Reset();
                     Salesline.SetRange("Document Type", SalesOrder."Document Type");
-                    Salesline.SetRange("Document No.", Salesline."No.");
+                    Salesline.SetRange("Document No.", SalesOrder."No.");
                     if Salesline.FindSet(true) then
                         repeat
-                            if (Salesline.Type <> Salesline.Type::" ") then
+                            if (Salesline.Type <> Salesline.Type::" ") then begin
                                 Salesline.Validate(Salesline."Line Discount %", Request."Validated Discount (%)");
+                                Salesline.Modify();
+                            end;
                         until Salesline.Next() < 1;
                 end;
 
@@ -180,7 +189,7 @@ codeunit 50016 "A01 Document Request Mgt"
 
                 begin
                     PaymentLine.Reset();
-                    PaymentLine.SetRange(PaymentLine."Document No.", Request."Request No.");
+                    PaymentLine.SetRange("Document No.", Request."Request No.");
                     if POSPaymentLine.FindSet(true) then
                         repeat
                             if (PaymentLine."Validated Amount" <> PaymentLine.Amount) then begin
@@ -195,8 +204,8 @@ codeunit 50016 "A01 Document Request Mgt"
                     SalesOrder.get(SalesOrder."Document Type"::Order, Request."Request No.");
 
                     POSPaymentLine.Reset();
-                    POSPaymentLine.SetRange(POSPaymentLine."Document Type", POSPaymentLine."Document Type"::Order);
-                    POSPaymentLine.SetRange(POSPaymentLine."Document No.", SalesOrder."No.");
+                    POSPaymentLine.SetRange("Document Type", POSPaymentLine."Document Type"::Order);
+                    POSPaymentLine.SetRange("Document No.", SalesOrder."No.");
                     if POSPaymentLine.FindSet(true) then
                         repeat
                             if (POSPaymentLine."Validated Amount" <> POSPaymentLine.Amount) then begin
@@ -207,6 +216,7 @@ codeunit 50016 "A01 Document Request Mgt"
                 end;
             Request."Request Type"::Unblocking:
                 begin
+                    SalesOrder.get(SalesOrder."Document Type"::Order, Request."Request No.");
                     OrderValidationMgt.CheckIsAwaitingPrepayment(SalesOrder);
                 end;
             else

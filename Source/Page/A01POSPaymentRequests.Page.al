@@ -32,9 +32,9 @@ page 50067 "A01 POS Payment Requests"
                 field("Sales Person"; Rec."Sales Person")
                 {
                 }
-                field("Sequence No."; Rec."Sequence No.")
-                {
-                }
+                // field("Sequence No."; Rec."Sequence No.")
+                // {
+                // }
                 field("Risk level"; Rec."Risk level")
                 {
                 }

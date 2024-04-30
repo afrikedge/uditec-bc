@@ -124,21 +124,27 @@ codeunit 50009 "A01 WS OrdersMgt"
         DocRequestMgt: Codeunit "A01 Document Request Mgt";
         DocNo: text;
         WebUser: text;
+        //Sequence: Integer;
         RequestNo: Code[20];
         DocStatus: Enum "A01 Approval Status";
         RequestType: Enum "A01 Request On Document Type";
     begin
         DocNo := ws.GetText('No_', input);
         WebUser := ws.GetText('webUserName', input);
+        //Sequence := 0;
+        //Sequence := ws.Getint('Sequence', input);
         Evaluate(DocStatus, Format(ws.GetInt('Approval Status', input)));
         Evaluate(RequestType, Format(ws.GetInt('Request Type', input)));
 
         if (RequestType = "A01 Request On Document Type"::"Discount on order") then
             Request.Get(Request."Request Type"::"Discount on order", DocNo);
+
         if (RequestType = "A01 Request On Document Type"::"Discount on quote") then
             Request.Get(Request."Request Type"::"Discount on quote", DocNo);
+
         if (RequestType = "A01 Request On Document Type"::"Payment Document") then
             Request.Get(Request."Request Type"::"Payment Document", DocNo);
+
         if (RequestType = "A01 Request On Document Type"::"POS Payment") then
             Request.Get(Request."Request Type"::"POS Payment", DocNo);
 
@@ -235,8 +241,8 @@ codeunit 50009 "A01 WS OrdersMgt"
         if (SalesOrder."Sell-to Customer No." <> WS.GetText('saleOrderCustomerNo', input)) then
             SalesOrder.Validate("Sell-to Customer No.", WS.GetText('saleOrderCustomerNo', input));
 
-        if (SalesOrder."Sell-to Contact No." <> WS.GetText('saleOrderCustomerContactCode', input)) then
-            SalesOrder.Validate("Sell-to Contact No.", WS.GetText('saleOrderCustomerContactCode', input));
+        if (SalesOrder."A01 Miscellaneous Contact" <> WS.GetText('saleOrderCustomerContactCode', input)) then
+            SalesOrder.Validate("A01 Miscellaneous Contact", WS.GetText('saleOrderCustomerContactCode', input));
 
         if (SalesOrder."Responsibility Center" <> WS.GetText('saleOrderResponsibilityCenter', input)) then
             SalesOrder.Validate("Responsibility Center", WS.GetText('saleOrderResponsibilityCenter', input));

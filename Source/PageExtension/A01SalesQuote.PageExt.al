@@ -2,6 +2,13 @@ pageextension 50017 "A01 Sales Quote" extends "Sales Quote"
 {
     layout
     {
+        addafter("Sell-to Customer No.")
+        {
+            field("A01 Miscellaneous Contact"; Rec."A01 Miscellaneous Contact")
+            {
+                ApplicationArea = Basic, Suite;
+            }
+        }
         addafter("Foreign Trade")
         {
             group(A01Credit)
