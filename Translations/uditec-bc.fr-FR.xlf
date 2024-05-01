@@ -2673,12 +2673,6 @@
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Table A01 Request On Document - Field Sales Person - Property Caption</note>
         </trans-unit>
-        <trans-unit id="Table 4167722193 - Field 3014885516 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Sequence No.</source>
-          <target state="needs-review-translation">N° Séquence</target>
-          <note from="Developer" annotates="general" priority="2"/>
-          <note from="Xliff Generator" annotates="general" priority="3">Table A01 Request On Document - Field Sequence No. - Property Caption</note>
-        </trans-unit>
         <trans-unit id="Table 4167722193 - Field 513339096 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Status</source>
           <target state="needs-review-translation">Statut</target>
@@ -3319,7 +3313,7 @@
         </trans-unit>
         <trans-unit id="Codeunit 2721453659 - NamedType 2245961371" size-unit="char" translate="yes" xml:space="preserve">
           <source>%1 %2 -&gt; %3 %4</source>
-          <target state="needs-review-translation">%1 %2 -&amp;gt; %3 %4
+          <target state="needs-review-translation">%1 %2 -- %3 %4
           </target>
           <note from="Developer" annotates="general" priority="2">%1,%2 = table captions, %3,%4 = Order No.</note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit A01 Customer Settlement Post - NamedType CopyFromToMsg</note>
@@ -4709,28 +4703,33 @@
         </trans-unit>
         <trans-unit id="Page 2686914651 - Action 4181767958 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>Apply the customer or vendor payment on the selected payment slip.</source>
-          <target state="needs-review-translation">Lettrer le pa</target>
+          <target state="needs-review-translation">Lettrer le paiement</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Page A01 Customer Settlement - Action Application - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 2686914651 - Action 4181767958 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>&amp;amp;Application</source>
-          <target state="needs-adaptation">Lettrer le paiement client ou fournisseur sur le bordereau de versement sélectionné.
-          </target>
+          <source>Application</source>
+          <target state="needs-adaptation">Lettrer</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Page A01 Customer Settlement - Action Application - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 2686914651 - Action 2282416948 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>&amp;amp;Post</source>
-          <target state="needs-review-translation">Valider</target>
+          <target state="needs-adaptation">Valider</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Page A01 Customer Settlement - Action Post - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 2686914651 - Action 513012614 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>&amp;amp;Post and print</source>
-          <target state="needs-review-translation">Valider et Imprimer</target>
+          <target state="needs-adaptation">Valider et Imprimer</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Page A01 Customer Settlement - Action PostAndPrint - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2686914651 - Action 2833600590 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Preview Posting</source>
+          <target state="needs-review-translation">Apercu compta.</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Page A01 Customer Settlement - Action PostPreview - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 3688579397 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Customer Settlement List</source>
@@ -4767,12 +4766,6 @@
           <target state="needs-review-translation">Général</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Page A01 Discount Request - Control General - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Page 3914987280 - Action 2675496269 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Process</source>
-          <target state="needs-review-translation">Traiter</target>
-          <note from="Developer" annotates="general" priority="2"/>
-          <note from="Xliff Generator" annotates="general" priority="3">Page A01 Discount Request - Action Process - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 3914987280 - Action 3657829122 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Validate</source>
@@ -4947,6 +4940,12 @@
           <target state="needs-review-translation">Général</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Page A01 Payment Request - Control General - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3543361749 - Action 3657829122 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Validate</source>
+          <target state="needs-review-translation">Valider</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Page A01 Payment Request - Action Validate - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 1866370476 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Payment Requests</source>
@@ -5343,6 +5342,12 @@
           <target state="needs-review-translation">Général</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Page A01 POS Payment Request - Control General - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 953559825 - Action 3657829122 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Validate</source>
+          <target state="needs-review-translation">Valider</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Page A01 POS Payment Request - Action Validate - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 491128008 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>POS Payment Requests</source>
@@ -8789,6 +8794,12 @@
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Page A01 Sales Order - Workflow - Action A01 AddUnBlockingRequest - Method OnAction - NamedType QstLabel</note>
         </trans-unit>
+        <trans-unit id="Page 1199470876 - Action 3066358977 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Print Preparation Order</source>
+          <target state="needs-review-translation">Imprimer l'ordre de préparation</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Page A01 Sales Order - Workflow - Action A01 Preparation Order - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Page 1199470876 - Action 2059274803 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Validation History</source>
           <target state="needs-review-translation">Historique des validations</target>
@@ -10746,6 +10757,12 @@
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Page A01 UnBlocking Request - Control General - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Page 575045181 - Action 3657829122 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Validate</source>
+          <target state="needs-review-translation">Valider</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Page A01 UnBlocking Request - Action Validate - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Page 460160052 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Unblocking Requests</source>
           <target state="needs-review-translation">Demandes de déblocage</target>
@@ -12154,7 +12171,7 @@
         </trans-unit>
         <trans-unit id="Report 2743542944 - NamedType 3000703146" size-unit="char" translate="yes" xml:space="preserve">
           <source>Company signature</source>
-          <target state="needs-review-translation">Signature du client</target>
+          <target state="needs-review-translation">Signature de la société</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Report A01 PostedCustSettlementPrint - NamedType CompanySignLbl</note>
         </trans-unit>
@@ -17130,6 +17147,12 @@
           <target state="needs-review-translation">Avis Enquêteur</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension A01 Sales Header - Field A01 Investigator Opinion - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 1143019865 - Field 2236380998 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1192395785">
+          <source>Miscellaneous Contact</source>
+          <target state="needs-review-translation">Contact divers</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension A01 Sales Header - Field A01 Miscellaneous Contact - Property Caption</note>
         </trans-unit>
         <trans-unit id="TableExtension 1143019865 - Field 1899859051 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1192395785">
           <source>Monthly Capacity</source>

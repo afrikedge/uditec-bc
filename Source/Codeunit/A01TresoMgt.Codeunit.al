@@ -15,6 +15,9 @@ codeunit 50007 "A01 Treso Mgt"
         TotalLineUnitCostLCY: Decimal;
         TotalLineInvDiscountAmtLCY: Decimal;
         TotalLinePmtDiscountAmt: Decimal;
+    //ApplyToDocType: integer;
+    //ApplyToDocNo: Code[20];
+
     /// <summary>
     /// A01_ProcessFeuilleReglementCCL.
     /// </summary>
@@ -414,7 +417,7 @@ codeunit 50007 "A01 Treso Mgt"
 
     procedure PostCustSettlementLine(CustSettlement: Record "A01 Payment Document";
         CustSettlementLine: Record "A01 Payment Document Line";
-        var GenJnlPostLine: Codeunit "Gen. Jnl.-Post Line")
+        var GenJnlPostLine: Codeunit "Gen. Jnl.-Post Line"; ApplyToNo: Code[20]; ApplyType: integer)
     var
         //CustLedgEntry: Record "Cust. Ledger Entry";
         GenJnlLine: Record "Gen. Journal Line";
@@ -464,7 +467,7 @@ codeunit 50007 "A01 Treso Mgt"
         GenJnlLine."Payment Reference" := CustSettlementLine.Reference;
 
 
-        SetBalAccAndApplyToID(RCPaymentMethod, GenJnlLine, CustSettlement."Applies-to ID");
+        SetBalAccAndApplyToID(RCPaymentMethod, GenJnlLine, ApplyToNo, ApplyType);
 
         SetAmountsForBalancingEntry(CustSettlementLine."Validated Amount", GenJnlLine);
 
@@ -560,7 +563,10 @@ codeunit 50007 "A01 Treso Mgt"
 
     end;
 
-    local procedure SetBalAccAndApplyToID(PayMethod: Record "A01 RC Payment Method"; var GenJnlLine: Record "Gen. Journal Line"; ApplyToID: Code[50])
+    local procedure SetBalAccAndApplyToID(PayMethod: Record "A01 RC Payment Method";
+    var GenJnlLine: Record "Gen. Journal Line"; ApplyToNo: Code[20]; ApplyType: integer)
+    var
+    //CustLedgEntry: Record "Cust. Ledger Entry";
     begin
 
         if PayMethod."Bal. Account Type" = PayMethod."Bal. Account Type"::"Bank Account" then
@@ -568,9 +574,17 @@ codeunit 50007 "A01 Treso Mgt"
         if PayMethod."Bal. Account Type" = PayMethod."Bal. Account Type"::"G/L Account" then
             GenJnlLine."Bal. Account Type" := GenJnlLine."Bal. Account Type"::"G/L Account";
         GenJnlLine."Bal. Account No." := PayMethod."Bal. Account No.";
-        GenJnlLine."Applies-to Doc. Type" := GenJnlLine."Applies-to Doc. Type"::" ";
-        GenJnlLine."Applies-to Doc. No." := '';
-        GenJnlLine."Applies-to ID" := ApplyToID;
+
+        if (ApplyToNo <> '') then begin
+            GenJnlLine.Validate("Applies-to Doc. Type", ApplyType);
+            GenJnlLine.Validate("Applies-to Doc. No.", ApplyToNo);
+        end;
+
+
+
+        // GenJnlLine."Applies-to Doc. Type" := GenJnlLine."Applies-to Doc. Type"::" ";
+        // GenJnlLine."Applies-to Doc. No." := '';
+        // GenJnlLine."Applies-to ID" := ApplyToID;
 
     end;
 

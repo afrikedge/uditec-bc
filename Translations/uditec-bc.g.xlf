@@ -3899,7 +3899,7 @@
           <note from="Xliff Generator" annotates="general" priority="3">Page A01 Customer Settlement - Action Application - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 2686914651 - Action 4181767958 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>&amp;Application</source>
+          <source>Application</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page A01 Customer Settlement - Action Application - Property Caption</note>
         </trans-unit>
@@ -3912,6 +3912,11 @@
           <source>&amp;Post and print</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page A01 Customer Settlement - Action PostAndPrint - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2686914651 - Action 2833600590 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Preview Posting</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page A01 Customer Settlement - Action PostPreview - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 3688579397 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Customer Settlement List</source>

@@ -224,6 +224,19 @@ codeunit 50002 "A01 EventsSubscribers_Code"
         SalesOrderValidation.CheckCanPostSalesOrder(SalesHeader);
     end;
 
+    [EventSubscriber(ObjectType::Codeunit, Codeunit::"Gen. Jnl.-Post Preview", 'OnRunPreview', '', false, false)]
+    local procedure OnRunPreview(var Result: Boolean; Subscriber: Variant; RecVar: Variant)
+    var
+        OpHeader: Record "A01 Payment Document";
+        PayPost: Codeunit "A01 Customer Settlement Post";
+    Begin
+
+        OpHeader.Copy(RecVar);
+        PayPost.SetPreviewMode(true);
+        Result := PayPost.RUN(OpHeader);
+
+    end;
+
     // [IntegrationEvent(false, false)]
     // local procedure OnBeforeConfirmSalesPost(var SalesHeader: Record "Sales Header"; var HideDialog: Boolean; var IsHandled: Boolean; var DefaultOption: Integer; var PostAndSend: Boolean)
     // begin

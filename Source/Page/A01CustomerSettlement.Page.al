@@ -79,7 +79,7 @@ page 50057 "A01 Customer Settlement"
             {
                 Image = ApplyEntries;
                 ApplicationArea = Basic, Suite;
-                Caption = '&Application';
+                Caption = 'Application';
                 ShortCutKey = 'Shift+F11';
                 // Promoted = true;
                 // PromotedCategory = Process;
@@ -105,9 +105,22 @@ page 50057 "A01 Customer Settlement"
                     CODEUNIT.Run(CODEUNIT::"A01 Customer Settlement Post", Rec);
                 end;
             }
+            action(PostPreview)
+            {
+                ApplicationArea = All;
+                Caption = 'Preview Posting';
+                Image = PreviewChecks;
+
+                trigger OnAction()
+                var
+                    CustPaymentPost: Codeunit "A01 Customer Settlement Post";
+                begin
+                    CustPaymentPost.Preview(Rec);
+                end;
+            }
             action(PostAndPrint)
             {
-                Image = Post;
+                Image = PostPrint;
                 ApplicationArea = Basic, Suite;
                 Caption = '&Post and print';
                 ShortCutKey = 'Shift+F11';

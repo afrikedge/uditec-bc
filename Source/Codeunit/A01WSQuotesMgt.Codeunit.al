@@ -287,8 +287,8 @@ codeunit 50005 "A01 WS QuotesMgt"
         if (SalesQuote."A01 Credit Validation Status".AsInteger() <> WS.Getint('Approval Status', input)) then
             SalesQuote.Validate("A01 Credit Validation Status", WS.Getint('Approval Status', input));
 
-        if (SalesQuote."A01 Interest rate" <> WS.Getint('Interest rate', input)) then
-            SalesQuote.Validate("A01 Interest rate", WS.Getint('Interest rate', input));
+        if (SalesQuote."A01 Interest rate" <> WS.GetDecimal('Interest rate', input)) then
+            SalesQuote.Validate("A01 Interest rate", WS.GetDecimal('Interest rate', input));
 
         if (SalesQuote."A01 Credit Duration (Month)" <> WS.Getint('Duration (Month)', input)) then
             SalesQuote.Validate("A01 Credit Duration (Month)", WS.Getint('Duration (Month)', input));
