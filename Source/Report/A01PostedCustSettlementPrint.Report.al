@@ -1,5 +1,5 @@
 /// <summary>
-/// Report A01 Posted Customer Settlement Print (ID 50022).
+/// Report A01 Posted Customer Settlement Print (ID 50024).
 /// </summary>
 report 50024 "A01 PostedCustSettlementPrint"
 {
@@ -135,6 +135,18 @@ report 50024 "A01 PostedCustSettlementPrint"
             column(stat; stat)
             {
             }
+            column(DocNumberLbl; DocNumberLbl)
+            {
+            }
+            column(AppliedAmountLbl; AppliedAmountLbl)
+            {
+            }
+            column(DescriptionLbl; DescriptionLbl)
+            {
+            }
+            column(InitialAmountLbl; InitialAmountLbl)
+            {
+            }
             dataitem("A01 Posted Payment Doc Line"; "A01 Posted Payment Doc Line")
             {
                 DataItemTableView = sorting("Document No.");
@@ -186,12 +198,59 @@ report 50024 "A01 PostedCustSettlementPrint"
                 column(Reference; Reference)
                 {
                 }
+                dataitem("Detailed Cust. Ledg. Entry"; "Detailed Cust. Ledg. Entry")
+                {
+                    DataItemTableView = sorting("Document No.", "Entry Type") where("Entry Type" = filter(2), Amount = filter(< 0));
+                    DataItemLinkReference = "A01 Posted Payment Document";
+                    DataItemLink = "Document No." = field("No.");
+                    column(CreditAmount; "Credit Amount")
+                    {
+                        AutoFormatExpression = "A01 Posted Payment Document"."Currency Code";
+                        AutoFormatType = 1;
+                    }
+                    column(TotalAmt_LCYText; TotalAmt_LCYText)
+                    {
+                    }
+                    dataitem("Cust. Ledger Entry"; "Cust. Ledger Entry")
+                    {
+                        DataItemTableView = sorting("Entry No.", "Document Type") where("Document Type" = filter(2));
+                        DataItemLinkReference = "Detailed Cust. Ledg. Entry";
+                        DataItemLink = "Entry No." = field("Cust. Ledger Entry No.");
+                        column(DocumentNo; "Document No.")
+                        {
+                        }
+                        column(Description; Description)
+                        {
+                        }
+                        column(Original_Amount; "Original Amount")
+                        {
+                            AutoFormatExpression = "A01 Posted Payment Document"."Currency Code";
+                            AutoFormatType = 1;
+                        }
+                        column(OriginAmt_LCYText; OriginAmt_LCYText)
+                        {
+                        }
+                        trigger OnAfterGetRecord()
+                        begin
+                            OriginAmt := ROUND("Original Amount", AfkLocalCurrency."Amount Rounding Precision");
+                            OriginAmt_LCYText := Format(OriginAmt, 0, AutoFormat.ResolveAutoFormat("Auto Format"::AmountFormat, AfkLocalCurrency.Code));
+                            OriginAmt_LCYText := Format(OriginAmt);
+                        end;
+                    }
+                    trigger OnAfterGetRecord()
+                    begin
+                        TotalAmt := ROUND("Credit Amount", AfkLocalCurrency."Amount Rounding Precision");
+                        TotalAmt_LCYText := Format(TotalAmt, 0, AutoFormat.ResolveAutoFormat("Auto Format"::AmountFormat, AfkLocalCurrency.Code));
+                        TotalAmt_LCYText := Format(TotalAmt);
+                    end;
+                }
                 // trigger OnAfterGetRecord()
                 // begin
                 //     "A01 Posted Payment Doc Line".Reset();
                 //     "A01 Posted Payment Doc Line".SetRange("Document No.", "A01 Posted Payment Document"."No.");
                 // end;
             }
+
             trigger OnAfterGetRecord()
             begin
                 GLSetup.Get();
@@ -226,8 +285,6 @@ report 50024 "A01 PostedCustSettlementPrint"
                     // ExchangeRateText := StrSubstNo(ExchangeRateTxt, CalculatedExchRate, CurrencyExchangeRate."Exchange Rate Amount");
                 end;
 
-                // A01Total_LCY := CurrencyExchangeRate.ExchangeAmtFCYToLCY("A01 Payment Document"."Posting Date",
-                //    "A01 Payment Document"."Currency Code", "Validated Amount", "A01 Payment Document"."Currency Factor");
                 A01Total_LCY := ROUND("Validated Amount", AfkLocalCurrency."Amount Rounding Precision");
                 A01Total_LCYText :=
                   Format(A01Total_LCY, 0,
@@ -272,12 +329,14 @@ report 50024 "A01 PostedCustSettlementPrint"
         // Currency: Record Currency;
         AfkLocalCurrency: Record Currency;
         AfkCurrency: Record Currency;
+        // DetailCustLedgEntr: Record "Detailed Cust. Ledg. Entry";
         Check: Report Check;
         AutoFormat: Codeunit "Auto Format";
         CustName: Text[100];
         AfkLocalCurrencyName: Text;
         AfkCurrCode: Code[20];
         CurrCode: Code[20];
+        TotalAmt_LCYText: Text[50];
         AfkCurrencyName: Text;
         CustAddressName: Text[100];
         // CalculatedExchRate: Decimal;
@@ -291,6 +350,8 @@ report 50024 "A01 PostedCustSettlementPrint"
         rcs: Code[30];
         nif: Code[30];
         stat: Code[30];
+        OriginAmt_LCYText: Text[50];
+        OriginAmt: Decimal;
         NoText: array[2] of Text;
         // ExchangeRateTxt: Label 'Exchange rate: %1/%2', Comment = '%1 and %2 are both amounts.';
         ReportTitleLbl: Label 'CASH RECEIPT';
@@ -312,9 +373,14 @@ report 50024 "A01 PostedCustSettlementPrint"
         PaymentModeLbl: Label 'Payment mode';
         AmountLbl: Label 'Amount';
         TotalAmountLbl: Label 'Total Amount';
+        DocNumberLbl: Label 'Document N°';
+        DescriptionLbl: Label 'Description';
+        InitialAmountLbl: Label 'Initial Amount';
+        AppliedAmountLbl: Label 'Applied Amount';
 
         Total: Decimal;
         MontantTotal: Decimal;
+        TotalAmt: Decimal;
         AmountInWords: Text;
 
 
