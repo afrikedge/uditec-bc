@@ -58,6 +58,23 @@ codeunit 50001 "A01 EventsSubscribers_Table"
     end;
 
 
+    [EventSubscriber(ObjectType::Table, Database::"Sales Header", 'OnCheckCustomerCreatedOnBeforeConfirmProcess', '', true, true)]
+    local procedure SalesHeader_OnCheckCustomerCreatedOnBeforeConfirmProcess(SalesHeader: Record "Sales Header"; var Prompt: Boolean; var Result: Boolean; var IsHandled: Boolean)
+    begin
+        //Prevent normal deletion of order
+        if (SalesHeader."A01 Web User Id" <> '') then begin
+            Prompt := false;
+            IsHandled := false;
+        end;
+
+    end;
+
+    // [IntegrationEvent(false, false)]
+    // local procedure OnCheckCustomerCreatedOnBeforeConfirmProcess(SalesHeader: Record "Sales Header"; var Prompt: Boolean; var Result: Boolean; var IsHandled: Boolean)
+    // begin
+    // end;
+
+
     // [EventSubscriber(ObjectType::Table, Database::"Sales Header", 'OnAfterInitPostingNoSeries', '', true, true)]
     // local procedure SalesHeader_OnAfterInitPostingNoSeries(var SalesHeader: Record "Sales Header"; xSalesHeader: Record "Sales Header")
     // var
