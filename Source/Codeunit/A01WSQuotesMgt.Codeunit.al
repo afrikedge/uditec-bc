@@ -142,6 +142,7 @@ codeunit 50005 "A01 WS QuotesMgt"
         processQuotesLines(SalesQuote, SalesQuoteLine, input);
         processCreditAmortisationLines(SalesQuote, input);
         processCustScoringLines(SalesQuote, input);
+        processCustomerRequirements(SalesQuote, input);
 
         exit(Ws.CreateResponseSuccess(SalesQuote."No."));
 
@@ -426,11 +427,19 @@ codeunit 50005 "A01 WS QuotesMgt"
         LineInput: JsonObject;
     begin
 
-        CustScoring.Reset();
-        CustScoring.SetRange("Customer No.", SalesQuote."Sell-to Customer No.");
-        //CustScoring.SetRange("Document No.", SalesQuote."No.");
-        if (not CustScoring.IsEmpty) then
-            CustScoring.DeleteAll();
+        if (SalesQuote."Sell-to Customer No." <> '') then begin
+            CustScoring.Reset();
+            CustScoring.SetRange("Customer No.", SalesQuote."Sell-to Customer No.");
+            //CustScoring.SetRange("Document No.", SalesQuote."No.");
+            if (not CustScoring.IsEmpty) then
+                CustScoring.DeleteAll();
+        end else begin
+            CustScoring.Reset();
+            CustScoring.SetRange("Customer No.", SalesQuote."Sell-to Contact No.");
+            //CustScoring.SetRange("Document No.", SalesQuote."No.");
+            if (not CustScoring.IsEmpty) then
+                CustScoring.DeleteAll();
+        end;
 
         input.Get('CustomerScoring', c);
         LinesArray := c.AsArray();
@@ -446,37 +455,62 @@ codeunit 50005 "A01 WS QuotesMgt"
         CustCriteria: record "A01 Cust Scoring Criteria";
         NewCustCriteria: record "A01 Cust Scoring Criteria";
         Cust: Record "Customer";
+        Cont: Record "Contact";
         c: JsonToken;
         LinesArray: JsonArray;
         LineInput: JsonObject;
+        IsCust: Boolean;
+        CustContactNo: Code[20];
     begin
 
-        Cust.Get(SalesQuote."Sell-to Customer No.");
+        IsCust := SalesQuote."Sell-to Customer No." <> '';
+        if (IsCust) then begin
+            CustContactNo := SalesQuote."Sell-to Customer No.";
+            Cust.Get(CustContactNo);
+        end else begin
+            CustContactNo := SalesQuote."Sell-to Contact No.";
+            Cont.Get(CustContactNo);
+        end;
 
-        CustCriteria.Reset();
-        CustCriteria.SetRange("Account Type", CustCriteria."Account Type"::Customer);
-        CustCriteria.SetRange("Customer No.", Cust."No.");
-        if (not CustCriteria.IsEmpty) then
-            CustCriteria.DeleteAll();
+        //Cust.Get(SalesQuote."Sell-to Customer No.");
+        if (IsCust) then begin
+            CustCriteria.Reset();
+            CustCriteria.SetRange("Account Type", CustCriteria."Account Type"::Customer);
+            CustCriteria.SetRange("Customer No.", CustContactNo);
+            if (not CustCriteria.IsEmpty) then
+                CustCriteria.DeleteAll();
+        end else begin
+            CustCriteria.Reset();
+            CustCriteria.SetRange("Account Type", CustCriteria."Account Type"::Prospect);
+            CustCriteria.SetRange("Customer No.", CustContactNo);
+            if (not CustCriteria.IsEmpty) then
+                CustCriteria.DeleteAll();
+        end;
+
 
         input.Get('CustomerRequirement', c);
         LinesArray := c.AsArray();
         foreach c in LinesArray do begin
             LineInput := c.AsObject();
             NewCustCriteria.Init();
-            ProcessCustScoringCriteria(Cust, NewCustCriteria, '', LineInput);
+            ProcessCustScoringCriteria(IsCust, CustContactNo, NewCustCriteria, '', LineInput);
             NewCustCriteria.Insert(true);
         end;
     end;
 
-    local procedure ProcessCustScoringCriteria(Cust: Record "Customer"; var CustScoringCriteria: Record "A01 Cust Scoring Criteria"; WebUser: Code[20]; input: JsonObject)
+    local procedure ProcessCustScoringCriteria(IsCust: Boolean; CustContactNo: Code[20]; var CustScoringCriteria: Record "A01 Cust Scoring Criteria"; WebUser: Code[20]; input: JsonObject)
     begin
 
-        if (CustScoringCriteria."Account Type" <> CustScoringCriteria."Account Type"::Customer) then
-            CustScoringCriteria."Account Type" := CustScoringCriteria."Account Type"::Customer;
+        if (IsCust) then
+            if (CustScoringCriteria."Account Type" <> CustScoringCriteria."Account Type"::Customer) then
+                CustScoringCriteria."Account Type" := CustScoringCriteria."Account Type"::Customer;
 
-        if (CustScoringCriteria."Customer No." <> Cust."No.") then
-            CustScoringCriteria."Customer No." := Cust."No.";
+        if (not IsCust) then
+            if (CustScoringCriteria."Account Type" <> CustScoringCriteria."Account Type"::Prospect) then
+                CustScoringCriteria."Account Type" := CustScoringCriteria."Account Type"::Prospect;
+
+        if (CustScoringCriteria."Customer No." <> CustContactNo) then
+            CustScoringCriteria."Customer No." := CustContactNo;
 
         // if (CustCriteria.le <> WS.GetInt('Lead No', input)) then
         //     CustCriteria."Lead No" := WS.GetInt('Lead No', input);
