@@ -366,8 +366,8 @@ codeunit 50005 "A01 WS QuotesMgt"
             if (SalesLine."Unit Price" <> WS.GetDecimal('Unit Price', input)) then
                 SalesLine.Validate("Unit Price", WS.GetDecimal('Unit Price', input));
 
-            if (SalesLine."Prepayment %" <> WS.GetDecimal('Prepayment _', input)) then
-                SalesLine.Validate("Prepayment %", WS.GetDecimal('Prepayment _', input));
+            if (SalesLine."Prepayment %" <> WS.GetDecimal('Prepayment _', input)) then
+                SalesLine.Validate("Prepayment %", WS.GetDecimal('Prepayment _', input));
 
             //if (SalesLine."Line Discount %" <> WS.GetDecimal('Line Discount _', input)) then
             //    SalesLine.Validate("Line Discount %", WS.GetDecimal('Line Discount _', input));
