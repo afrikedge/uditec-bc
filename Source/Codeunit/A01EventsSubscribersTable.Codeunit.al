@@ -69,6 +69,42 @@ codeunit 50001 "A01 EventsSubscribers_Table"
 
     end;
 
+
+    [EventSubscriber(ObjectType::Table, Database::"Contact", 'OnCreateCustomerOnBeforeCustomerModify', '', true, true)]
+    local procedure SalesHeader_OnCreateCustomerOnBeforeCustomerModify(var Customer: Record Customer; Contact: Record Contact)
+    var
+        ScoringCriteria: Record "A01 Cust Scoring Criteria";
+        CustScoring: Record "A01 Customer Scoring";
+    begin
+
+        ScoringCriteria.Reset();
+        ScoringCriteria.SetRange("Account Type", ScoringCriteria."Account Type"::Prospect);
+        ScoringCriteria.SetRange("Customer No.", Contact."No.");
+        if ScoringCriteria.FindSet(true) then
+            repeat
+                ScoringCriteria."Account Type" := ScoringCriteria."Account Type"::Customer;
+                ScoringCriteria."Customer No." := Customer."No.";
+                ScoringCriteria.Modify();
+            until ScoringCriteria.Next() < 1;
+
+        CustScoring.Reset();
+        CustScoring.SetRange("Account Type", CustScoring."Account Type"::Prospect);
+        CustScoring.SetRange("Customer No.", Contact."No.");
+        if CustScoring.FindSet(true) then
+            repeat
+                CustScoring."Account Type" := CustScoring."Account Type"::Customer;
+                CustScoring."Customer No." := Customer."No.";
+                CustScoring.Modify();
+            until CustScoring.Next() < 1;
+
+    end;
+
+
+    // [IntegrationEvent(false, false)]
+    // local procedure OnCreateCustomerOnBeforeCustomerModify(var Customer: Record Customer; Contact: Record Contact)
+    // begin
+    // end;
+
     // [IntegrationEvent(false, false)]
     // local procedure OnCheckCustomerCreatedOnBeforeConfirmProcess(SalesHeader: Record "Sales Header"; var Prompt: Boolean; var Result: Boolean; var IsHandled: Boolean)
     // begin

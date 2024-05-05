@@ -314,6 +314,8 @@ codeunit 50005 "A01 WS QuotesMgt"
 
         if (SalesQuote."A01 Credit Duration (Month)" <> WS.Getint('Duration (Month)', input)) then
             SalesQuote.Validate("A01 Credit Duration (Month)", WS.Getint('Duration (Month)', input));
+
+            
     end;
 
     local procedure processSalesQuoteLine(SalesQuote: Record "Sales Header"; var SalesLine: Record "Sales Line"; input: JsonObject)
@@ -610,9 +612,16 @@ codeunit 50005 "A01 WS QuotesMgt"
                 SalesQuote."A01 Order Web User Id" := CopyStr(WebUserId, 1, 50);
                 SalesQuote.Modify();
 
+                if SalesQuote.CheckCustomerCreated(false) then
+                    SalesQuote.Get(SalesQuote."Document Type"::Quote, SalesQuote."No.")
+                else
+                    exit;
+
+                //Copy scoring and criteria
+
                 SalesQuoteToOrder.Run(SalesQuote);
                 SalesQuoteToOrder.GetSalesOrderHeader(SalesOrder);
-                Commit();
+                //Commit();
                 exit(Ws.CreateResponseSuccess(SalesOrder."No."));
             end
 

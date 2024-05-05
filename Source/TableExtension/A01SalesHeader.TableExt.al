@@ -114,8 +114,10 @@ tableextension 50000 "A01 Sales Header" extends "Sales Header"
             var
                 AGPContract: Record "A01 AGP Contrat";
             begin
-                if (AGPContract.Get("A01 AGP Contract No.")) then
+                if (AGPContract.Get("A01 AGP Contract No.")) then begin
                     Rec.Validate("A01 Credit Duration (Month)", AGPContract."Duration (Month)");
+                end;
+
             end;
         }
         field(50018; "A01 Request Status"; Enum "A01 Approval Status")
@@ -168,7 +170,6 @@ tableextension 50000 "A01 Sales Header" extends "Sales Header"
                             "Sell-to County" := Contact1.County;
                         end;
                 end;
-
             end;
         }
 

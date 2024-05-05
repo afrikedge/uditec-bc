@@ -237,6 +237,29 @@ codeunit 50002 "A01 EventsSubscribers_Code"
 
     end;
 
+    [EventSubscriber(ObjectType::Codeunit, Codeunit::"Sales-Quote to Order (Yes/No)", 'OnBeforeConfirmConvertToOrder', '', false, false)]
+    local procedure SalesQuotetoOrderYesNo_OnBeforeConfirmConvertToOrder(SalesHeader: Record "Sales Header"; var Result: Boolean; var IsHandled: Boolean)
+    var
+    // OpHeader: Record "A01 Payment Document";
+    // PayPost: Codeunit "A01 Customer Settlement Post";
+    Begin
+
+        // if (SalesHeader."A01 Web User Id" <> '') then begin
+        //     IsHandled := true;
+        //     Result := true;
+        // end;
+
+        //PayPost.SetPreviewMode(true);
+        //Result := PayPost.RUN(OpHeader);
+
+    end;
+
+    // [IntegrationEvent(false, false)]
+    // local procedure OnBeforeConfirmConvertToOrder(SalesHeader: Record "Sales Header"; var Result: Boolean; var IsHandled: Boolean)
+    // begin
+
+    // end;
+
     // [IntegrationEvent(false, false)]
     // local procedure OnBeforeConfirmSalesPost(var SalesHeader: Record "Sales Header"; var HideDialog: Boolean; var IsHandled: Boolean; var DefaultOption: Integer; var PostAndSend: Boolean)
     // begin

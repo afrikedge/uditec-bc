@@ -936,6 +936,20 @@ codeunit 50015 A01WSMasterFilesMgt
         if (CreditContract."Approval Status".AsInteger() <> WS.GetInt('Approval Status', input)) then
             CreditContract.Validate("Approval Status", WS.GetInt('Approval Status', input));
 
+        if (CreditContract."Application fees %" <> WS.GetDecimal('Application fees_', input)) then
+            CreditContract.Validate("Application fees %", WS.GetDecimal('Application fees_', input));
+
+        if (CreditContract."Transferable part %" <> WS.GetDecimal('Transferable part _', input)) then
+            CreditContract.Validate("Transferable part %", WS.GetDecimal('Transferable part _', input));
+
+        if (CreditContract."Standard Credit Limit" <> WS.GetDecimal('Standard Credit Limit', input)) then
+            CreditContract.Validate("Standard Credit Limit", WS.GetDecimal('Standard Credit Limit', input));
+
+        if (CreditContract."Credit Limit Mode".AsInteger() <> WS.GetInt('Credit Limit Mode', input)) then
+            CreditContract.Validate("Credit Limit Mode", WS.GetInt('Credit Limit Mode', input));
+
+        //[Application fees_] , [ransferable part _] , [Standard Credit Limit] , [Credit Limit Mode]
+
         CreditContract.Modify();
     end;
 

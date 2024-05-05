@@ -108,12 +108,19 @@ tableextension 50006 "A01 Customer" extends Customer
 
 
         //Specific on customer
-        field(50100; "A01 Prospect No."; Code[20])
+        field(50200; "A01 Prospect No."; Code[20])
         {
             Caption = 'Prospect No.';
             DataClassification = CustomerContent;
             TableRelation = Contact;
         }
+        field(50201; "A01 Proposed Credit Limit"; Decimal)
+        {
+            Caption = 'Proposed Credit Limit';
+            DataClassification = CustomerContent;
+            //TableRelation = Contact;
+        }
+
         // field(50101; "A01 Modified By"; Code[50])
         // {
         //     Caption = 'Modified By';
