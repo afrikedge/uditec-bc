@@ -10003,6 +10003,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report A01 OrderPreparationPrint - NamedType NIFLbl</note>
         </trans-unit>
+        <trans-unit id="Report 3361626914 - NamedType 3046308225" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Order N°</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 OrderPreparationPrint - NamedType OrderNumberLbl</note>
+        </trans-unit>
         <trans-unit id="Report 3361626914 - NamedType 1617834282" size-unit="char" translate="yes" xml:space="preserve">
           <source>Planned delivery date</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -13672,11 +13677,6 @@
           <source>Credit</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension A01 Sales Quote - Control A01Credit - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 1231206854 - Action 3066358977 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1673401186">
-          <source>Print Preparation Order</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension A01 SalesOrderCard - Action A01 Preparation Order - Property Caption</note>
         </trans-unit>
         <trans-unit id="PageExtension 3533721046 - Action 590890931 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1187003046">
           <source>Import Ground plan</source>
