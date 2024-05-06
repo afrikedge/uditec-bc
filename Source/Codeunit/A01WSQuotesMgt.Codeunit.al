@@ -315,7 +315,7 @@ codeunit 50005 "A01 WS QuotesMgt"
         if (SalesQuote."A01 Credit Duration (Month)" <> WS.Getint('Duration (Month)', input)) then
             SalesQuote.Validate("A01 Credit Duration (Month)", WS.Getint('Duration (Month)', input));
 
-            
+
     end;
 
     local procedure processSalesQuoteLine(SalesQuote: Record "Sales Header"; var SalesLine: Record "Sales Line"; input: JsonObject)
@@ -474,7 +474,7 @@ codeunit 50005 "A01 WS QuotesMgt"
             Cont.Get(CustContactNo);
         end;
 
-        //Cust.Get(SalesQuote."Sell-to Customer No.");
+        //Cust.Get(SalesQuote."Sell-to Customer No.");//
         if (IsCust) then begin
             CustCriteria.Reset();
             CustCriteria.SetRange("Account Type", CustCriteria."Account Type"::Customer);
