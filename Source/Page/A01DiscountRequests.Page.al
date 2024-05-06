@@ -43,9 +43,9 @@ page 50058 "A01 Discount Requests"
                 field(Status; Rec.Status)
                 {
                 }
-                field("Sequence No."; Rec."Sequence No.")
-                {
-                }
+                // field("Sequence No."; Rec."Sequence No.")
+                // {
+                // }
                 field("Created By"; Rec."Created By")
                 {
                 }

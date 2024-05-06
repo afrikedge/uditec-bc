@@ -1,20 +1,32 @@
 codeunit 50013 "A01 Customer Settlement Post"
 {
+    EventSubscriberInstance = Manual;
     TableNo = "A01 Payment Document";
 
     trigger OnRun()
     begin
+
+        if (not PreviewMode) then
+            if not ConfirmPosting(CustomerSettlement) then
+                exit;
+
+
         CustomerSettlement.Copy(Rec);
         Code();
         Rec := CustomerSettlement;
 
         OnAfterOnRun(Rec, PostedCustSettlement);
 
+        if PreviewMode Then
+            GenJnlPostPreview.ThrowError();
+
         if (PrintPostedDoc) then begin
             Commit();
             PostedCustSettlement.get(CustomerSettlement."Posting No.");
             PostedCustSettlement.PrintRecords(false);
         end;
+
+
     end;
 
     var
@@ -28,8 +40,10 @@ codeunit 50013 "A01 Customer Settlement Post"
         GLMgt: Codeunit "A01 General Legder Mgt";
         DocumentErrorsMgt: Codeunit "Document Errors Mgt.";
         GenJnlPostLine: Codeunit "Gen. Jnl.-Post Line";
+        GenJnlPostPreview: Codeunit "Gen. Jnl.-Post Preview";
         TresoMgt: Codeunit "A01 Treso Mgt";
         DocRequestMgt: Codeunit "A01 Document Request Mgt";
+        PreviewMode: Boolean;
         DocumentTitleMsg: Label '#1################################\\', Comment = '%1 = Document description';
         CheckingLinesMsg: Label 'Checking lines        #2######\', Comment = '%2 = counter';
         PostingLinesMsg: Label 'Posting lines         #3######', Comment = '%3 = counter';
@@ -64,8 +78,7 @@ codeunit 50013 "A01 Customer Settlement Post"
 
         ValidateHeader(CustomerSettlement);
 
-        if not ConfirmPosting(CustomerSettlement) then
-            exit;
+
 
         if not HideProgressWindow then begin
             Window.Open(
@@ -152,18 +165,30 @@ codeunit 50013 "A01 Customer Settlement Post"
     local procedure PostJournalLinesAndPaymentDocs(CustSettlement: Record "A01 Payment Document")
     var
         SettlementLine: Record "A01 Payment Document Line";
+        CustLedgEntry: record "Cust. Ledger Entry";
         IsHandled: Boolean;
+        ApplyToDocType: Integer;
+        ApplyToDocNo: code[20];
     begin
 
         OnBeforeCreateJournalLines(CustSettlement, GenJnlPostLine, IsHandled);
         if IsHandled then
             exit;
 
+        if (CustSettlement."Applies-to ID" <> '') then begin
+            CustLedgEntry.SetCurrentKey("Applies-to ID");
+            CustLedgEntry.SetRange("Applies-to ID", CustSettlement."Applies-to ID");
+            if (CustLedgEntry.FindFirst()) then begin
+                ApplyToDocType := CustLedgEntry."Document Type".AsInteger();
+                ApplyToDocNo := CustLedgEntry."Document No.";
+            end;
+        end;
+
         SettlementLine.SetRange("Document No.", CustSettlement."No.");
         if SettlementLine.FindSet() then
             repeat
                 TresoMgt.CreateNewPaymentDocFromCustomerSettlement(CustSettlement, SettlementLine);
-                TresoMgt.PostCustSettlementLine(CustSettlement, SettlementLine, GenJnlPostLine);
+                TresoMgt.PostCustSettlementLine(CustSettlement, SettlementLine, GenJnlPostLine, ApplyToDocNo, ApplyToDocType);
 
             until SettlementLine.Next() < 1;
 
@@ -300,10 +325,24 @@ codeunit 50013 "A01 Customer Settlement Post"
             until CustSettlementLine.Next() = 0;
     end;
 
+    procedure SetPreviewMode(NewPreviewMode: Boolean)
+    Begin
+        PreviewMode := NewPreviewMode;
+    end;
+
     procedure SetToPrint(print: Boolean)
     var
     begin
         PrintPostedDoc := print;
+    end;
+
+    procedure Preview(var PaymentHeader: Record "A01 Payment Document")
+    var
+        CustPaymentPost: Codeunit "A01 Customer Settlement Post";
+        GenJnlPostPreview2: Codeunit "Gen. Jnl.-Post Preview";
+    Begin
+        BindSubscription(CustPaymentPost);
+        GenJnlPostPreview2.Preview(CustPaymentPost, PaymentHeader);
     end;
 
     [IntegrationEvent(false, false)]

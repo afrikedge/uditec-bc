@@ -9,39 +9,39 @@ enum 50003 "A01 Legal Status"
     {
         Caption = ' ';
     }
-    value(1; "Limited Company")
+    value(1; "SA")
     {
-        Caption = 'Limited Company';
+        Caption = 'SA';
     }
     value(2; SARL)
     {
         Caption = 'SARL';
     }
-    value(3; SAS)
+    value(3; SARLU)
     {
-        Caption = 'SAS';
+        Caption = 'SARLU';
     }
-    value(4; Admin)
+    value(4; Administration)
     {
         Caption = 'Administration';
     }
-    value(5; "Individual Company")
-    {
-        Caption = 'Individual Company';
-    }
-    value(6; NGO)
-    {
-        Caption = 'Non Gouv Organisation';
-    }
-    value(7; Diplomatic)
+    value(5; Diplomatic)
     {
         Caption = 'Diplomatic representation';
     }
-    value(8; Association)
+    value(6; NGO)
     {
-        Caption = 'Association';
+        Caption = 'Non Gouv Organisation/Association';
     }
-    value(9; Person)
+    value(7; "Individual Company")
+    {
+        Caption = 'Individual Company';
+    }
+    value(8; "Informal Entrepreneur")
+    {
+        Caption = 'Informal Entrepreneur';
+    }
+    value(9; "Individual Person")
     {
         Caption = 'Individual Person';
     }

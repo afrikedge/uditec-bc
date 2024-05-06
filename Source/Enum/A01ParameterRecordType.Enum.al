@@ -33,4 +33,8 @@ enum 50017 "A01 Parameter Record Type"
     {
         Caption = 'BankNote';
     }
+    value(7; WebFunction)
+    {
+        Caption = 'Web Function';
+    }
 }

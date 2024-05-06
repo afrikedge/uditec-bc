@@ -53,6 +53,11 @@ page 50002 "A01 Sales Order - Workflow"
                         CurrPage.Update();
                     end;
                 }
+                field("A01 Miscellaneous Contact"; Rec."A01 Miscellaneous Contact")
+                {
+                    ApplicationArea = Basic, Suite;
+                    //Caption = 'Misc contacto.';
+                }
                 field("Sell-to Customer Name"; Rec."Sell-to Customer Name")
                 {
                     ApplicationArea = Basic, Suite;
@@ -1188,6 +1193,20 @@ page 50002 "A01 Sales Order - Workflow"
                         if (not confirm(QstLabel)) then
                             exit;
                         CreateDoc.AddUnBlockingRequest(Rec, '', Rec."A01 Request Status"::"Waiting for committee");//*******************
+                    end;
+                }
+                action("A01 Preparation Order")
+                {
+                    ApplicationArea = All;
+                    Image = PrintForm;
+                    Caption = 'Print Preparation Order';
+                    trigger OnAction()
+                    var
+                        SalesOrderRec: Record "Sales Header";
+                    begin
+                        SalesOrderRec.SetRange("No.", Rec."No.");
+                        SalesOrderRec.SetRange("Sell-to Customer No.", Rec."Sell-to Customer No.");
+                        Report.Run(50016, true, false, SalesOrderRec);
                     end;
                 }
                 action(Statistics)

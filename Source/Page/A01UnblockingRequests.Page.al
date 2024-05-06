@@ -48,9 +48,9 @@ page 50065 "A01 Unblocking Requests"
                 field("Sales Person"; Rec."Sales Person")
                 {
                 }
-                field("Sequence No."; Rec."Sequence No.")
-                {
-                }
+                // field("Sequence No."; Rec."Sequence No.")
+                // {
+                // }
                 field(Status; Rec.Status)
                 {
                 }

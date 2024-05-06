@@ -141,7 +141,8 @@ codeunit 50005 "A01 WS QuotesMgt"
 
         processQuotesLines(SalesQuote, SalesQuoteLine, input);
         processCreditAmortisationLines(SalesQuote, input);
-        processCreditRequestCriteriaLines(SalesQuote, input);
+        processCustScoringLines(SalesQuote, input);
+        processCustomerRequirements(SalesQuote, input);
 
         exit(Ws.CreateResponseSuccess(SalesQuote."No."));
 
@@ -167,7 +168,8 @@ codeunit 50005 "A01 WS QuotesMgt"
 
         processQuotesLines(SalesQuote, SalesQuoteLine, input);
         processCreditAmortisationLines(SalesQuote, input);
-        processCreditRequestCriteriaLines(SalesQuote, input);
+        processCustScoringLines(SalesQuote, input);
+        processCustomerRequirements(SalesQuote, input);
 
         exit(Ws.CreateResponseSuccess(SalesQuote."No."));
 
@@ -222,8 +224,14 @@ codeunit 50005 "A01 WS QuotesMgt"
         if (SalesQuote."A01 Web User Id" <> WS.GetText('webUserName', input)) then
             SalesQuote.Validate("A01 Web User Id", WS.GetText('webUserName', input));
 
+        if (SalesQuote."Sell-to Customer Templ. Code" <> WS.GetText('Customer Template Code', input)) then
+            SalesQuote.Validate("Sell-to Customer Templ. Code", WS.GetText('Customer Template Code', input));
+
         if (SalesQuote."Sell-to Customer No." <> WS.GetText('saleQuoteCustomerNo', input)) then
             SalesQuote.Validate("Sell-to Customer No.", WS.GetText('saleQuoteCustomerNo', input));
+
+        if (SalesQuote."A01 Miscellaneous Contact" <> WS.GetText('saleQuoteCustomerContactCode', input)) then
+            SalesQuote.Validate("A01 Miscellaneous Contact", WS.GetText('saleQuoteCustomerContactCode', input));
 
         if (SalesQuote."Sell-to Contact No." <> WS.GetText('saleQuoteCustomerContactCode', input)) then
             SalesQuote.Validate("Sell-to Contact No.", WS.GetText('saleQuoteCustomerContactCode', input));
@@ -280,6 +288,20 @@ codeunit 50005 "A01 WS QuotesMgt"
             SalesQuote.Validate("Shipment Method Code", WS.GetText('saleQuoteShipmentMethodCode', input));
 
 
+        if (SalesQuote."A01 Analyst comments" <> WS.GetText('Analyst comments', input)) then
+            SalesQuote.Validate("A01 Analyst comments", WS.GetText('Analyst comments', input));
+
+        if (SalesQuote."A01 System Decision".AsInteger() <> WS.GetInt('System Decision', input)) then
+            SalesQuote.Validate("A01 System Decision", WS.GetInt('System Decision', input));
+
+        if (SalesQuote."A01 Analyst Opinion".AsInteger() <> WS.GetInt('Analyst Opinion', input)) then
+            SalesQuote.Validate("A01 Analyst Opinion", WS.GetInt('Analyst Opinion', input));
+
+        if (SalesQuote."A01 Investigator Opinion".AsInteger() <> WS.GetInt('Investigator Opinion', input)) then
+            SalesQuote.Validate("A01 Investigator Opinion", WS.GetInt('Investigator Opinion', input));
+
+
+
     end;
 
     local procedure ProcessCreditRequestFields(var SalesQuote: Record "Sales Header"; input: JsonObject)
@@ -287,11 +309,13 @@ codeunit 50005 "A01 WS QuotesMgt"
         if (SalesQuote."A01 Credit Validation Status".AsInteger() <> WS.Getint('Approval Status', input)) then
             SalesQuote.Validate("A01 Credit Validation Status", WS.Getint('Approval Status', input));
 
-        if (SalesQuote."A01 Interest rate" <> WS.Getint('Interest rate', input)) then
-            SalesQuote.Validate("A01 Interest rate", WS.Getint('Interest rate', input));
+        if (SalesQuote."A01 Interest rate" <> WS.GetDecimal('Interest rate', input)) then
+            SalesQuote.Validate("A01 Interest rate", WS.GetDecimal('Interest rate', input));
 
         if (SalesQuote."A01 Credit Duration (Month)" <> WS.Getint('Duration (Month)', input)) then
             SalesQuote.Validate("A01 Credit Duration (Month)", WS.Getint('Duration (Month)', input));
+
+
     end;
 
     local procedure processSalesQuoteLine(SalesQuote: Record "Sales Header"; var SalesLine: Record "Sales Line"; input: JsonObject)
@@ -344,6 +368,9 @@ codeunit 50005 "A01 WS QuotesMgt"
             if (SalesLine."Unit Price" <> WS.GetDecimal('Unit Price', input)) then
                 SalesLine.Validate("Unit Price", WS.GetDecimal('Unit Price', input));
 
+            if (SalesLine."Prepayment %" <> WS.GetDecimal('Prepayment _', input)) then
+                SalesLine.Validate("Prepayment %", WS.GetDecimal('Prepayment _', input));
+
             //if (SalesLine."Line Discount %" <> WS.GetDecimal('Line Discount _', input)) then
             //    SalesLine.Validate("Line Discount %", WS.GetDecimal('Line Discount _', input));
 
@@ -394,7 +421,7 @@ codeunit 50005 "A01 WS QuotesMgt"
         end;
     end;
 
-    local procedure processCreditRequestCriteriaLines(SalesQuote: Record "Sales Header"; input: JsonObject)
+    local procedure processCustScoringLines(SalesQuote: Record "Sales Header"; input: JsonObject)
     var
         CustScoring: Record "A01 Customer Scoring";
         c: JsonToken;
@@ -402,18 +429,136 @@ codeunit 50005 "A01 WS QuotesMgt"
         LineInput: JsonObject;
     begin
 
-        CustScoring.Reset();
-        CustScoring.SetRange("Customer No.", SalesQuote."Sell-to Customer No.");
-        //CustScoring.SetRange("Document No.", SalesQuote."No.");
-        if (not CustScoring.IsEmpty) then
-            CustScoring.DeleteAll();
+        if (SalesQuote."Sell-to Customer No." <> '') then begin
+            CustScoring.Reset();
+            CustScoring.SetRange("Customer No.", SalesQuote."Sell-to Customer No.");
+            //CustScoring.SetRange("Document No.", SalesQuote."No.");
+            if (not CustScoring.IsEmpty) then
+                CustScoring.DeleteAll();
+        end else begin
+            CustScoring.Reset();
+            CustScoring.SetRange("Customer No.", SalesQuote."Sell-to Contact No.");
+            //CustScoring.SetRange("Document No.", SalesQuote."No.");
+            if (not CustScoring.IsEmpty) then
+                CustScoring.DeleteAll();
+        end;
 
-        input.Get('MirindraRequestCriteria', c);
+        input.Get('CustomerScoring', c);
         LinesArray := c.AsArray();
         foreach c in LinesArray do begin
             LineInput := c.AsObject();
-            AddCreditRequestCriteria(LineInput);
+            AddCustScoring(LineInput);
         end;
+    end;
+
+
+    local procedure processCustomerRequirements(SalesQuote: Record "Sales Header"; input: JsonObject)
+    var
+        CustCriteria: record "A01 Cust Scoring Criteria";
+        NewCustCriteria: record "A01 Cust Scoring Criteria";
+        Cust: Record "Customer";
+        Cont: Record "Contact";
+        c: JsonToken;
+        LinesArray: JsonArray;
+        LineInput: JsonObject;
+        IsCust: Boolean;
+        CustContactNo: Code[20];
+    begin
+
+        IsCust := SalesQuote."Sell-to Customer No." <> '';
+        if (IsCust) then begin
+            CustContactNo := SalesQuote."Sell-to Customer No.";
+            Cust.Get(CustContactNo);
+        end else begin
+            CustContactNo := SalesQuote."Sell-to Contact No.";
+            Cont.Get(CustContactNo);
+        end;
+
+        //Cust.Get(SalesQuote."Sell-to Customer No.");//
+        if (IsCust) then begin
+            CustCriteria.Reset();
+            CustCriteria.SetRange("Account Type", CustCriteria."Account Type"::Customer);
+            CustCriteria.SetRange("Customer No.", CustContactNo);
+            if (not CustCriteria.IsEmpty) then
+                CustCriteria.DeleteAll();
+        end else begin
+            CustCriteria.Reset();
+            CustCriteria.SetRange("Account Type", CustCriteria."Account Type"::Prospect);
+            CustCriteria.SetRange("Customer No.", CustContactNo);
+            if (not CustCriteria.IsEmpty) then
+                CustCriteria.DeleteAll();
+        end;
+
+
+        input.Get('CustomerRequirement', c);
+        LinesArray := c.AsArray();
+        foreach c in LinesArray do begin
+            LineInput := c.AsObject();
+            NewCustCriteria.Init();
+            ProcessCustScoringCriteria(IsCust, CustContactNo, NewCustCriteria, '', LineInput);
+            NewCustCriteria.Insert(true);
+        end;
+    end;
+
+    local procedure ProcessCustScoringCriteria(IsCust: Boolean; CustContactNo: Code[20]; var CustScoringCriteria: Record "A01 Cust Scoring Criteria"; WebUser: Code[20]; input: JsonObject)
+    begin
+
+        if (IsCust) then
+            if (CustScoringCriteria."Account Type" <> CustScoringCriteria."Account Type"::Customer) then
+                CustScoringCriteria."Account Type" := CustScoringCriteria."Account Type"::Customer;
+
+        if (not IsCust) then
+            if (CustScoringCriteria."Account Type" <> CustScoringCriteria."Account Type"::Prospect) then
+                CustScoringCriteria."Account Type" := CustScoringCriteria."Account Type"::Prospect;
+
+        if (CustScoringCriteria."Customer No." <> CustContactNo) then
+            CustScoringCriteria."Customer No." := CustContactNo;
+
+        // if (CustCriteria.le <> WS.GetInt('Lead No', input)) then
+        //     CustCriteria."Lead No" := WS.GetInt('Lead No', input);
+
+        if (CustScoringCriteria.Criteria <> WS.GetText('Criteria', input)) then
+            CustScoringCriteria."Criteria" := Copystr(WS.GetText('Criteria', input), 1, 20);
+
+        // if (CustCriteria."Criteria Description" <> WS.GetText('Criteria Description', input)) then
+        //    CustCriteria.Validate("Criteria Description", WS.GetText('Criteria Description', input));
+
+        // if (CustCriteria."Type".AsInteger() <> WS.GetInt('Value Type', input)) then
+        //     CustCriteria.Validate("Type", WS.GetInt('Value Type', input));
+
+        // if (CustCriteria.va.AsInteger() <> WS.GetInt('Value Length', input)) then
+        //             CustCriteria.Validate("Type", WS.GetInt('Value Length', input));
+
+        // if (CustCriteria.Requirement.AsInteger() <> WS.GetInt('Requirement', input)) then
+        //     CustCriteria.Validate("Requirement", WS.GetInt('Requirement', input));
+
+        if (CustScoringCriteria."Numeric Value" <> WS.GetDecimal('Numeric Value', input)) then
+            CustScoringCriteria.Validate("Numeric Value", WS.GetDecimal('Numeric Value', input));
+
+        if (CustScoringCriteria."Aplhanumeric Value" <> WS.GetText('Alpha Value', input)) then
+            CustScoringCriteria.Validate("Aplhanumeric Value", WS.GetText('Alpha Value', input));
+
+        // if (CustCriteria.Validity.AsInteger() <> WS.GetInt('Validity', input)) then
+        //     CustCriteria.Validate("Validity", WS.GetInt('Validity', input));
+
+        //TODO TEST JSON HERE
+        if (CustScoringCriteria."Validity Date" <> WS.GetDate('Validity Date', input)) then
+            CustScoringCriteria.Validate("Validity Date", WS.GetDate('Validity Date', input));
+
+        // if (CustCriteria."Document Required" <> WS.GetBool('Document required', input)) then
+        //     CustCriteria.Validate("Document Required", WS.GetBool('Document required', input));
+
+        if (CustScoringCriteria.DocumentLink <> WS.GetText('Document Link', input)) then
+            CustScoringCriteria.Validate("DocumentLink", WS.GetText('Document Link', input));
+
+        if (CustScoringCriteria.Valid <> WS.GetBool('Valid', input)) then
+            CustScoringCriteria.Validate("Valid", WS.GetBool('Valid', input));
+
+        //if (CustCriteria."Modified By" <> WS.GetText('Updated by', input)) then
+        CustScoringCriteria.Validate("Modified By", WebUser);
+        if (CustScoringCriteria."Created By" = '') then
+            CustScoringCriteria.Validate("Created By", WebUser);
+
     end;
 
     /// ///JSON conversion devis renvoie le numéro de la commande générée
@@ -467,9 +612,16 @@ codeunit 50005 "A01 WS QuotesMgt"
                 SalesQuote."A01 Order Web User Id" := CopyStr(WebUserId, 1, 50);
                 SalesQuote.Modify();
 
+                if SalesQuote.CheckCustomerCreated(false) then
+                    SalesQuote.Get(SalesQuote."Document Type"::Quote, SalesQuote."No.")
+                else
+                    exit;
+
+                //Copy scoring and criteria
+
                 SalesQuoteToOrder.Run(SalesQuote);
                 SalesQuoteToOrder.GetSalesOrderHeader(SalesOrder);
-                Commit();
+                //Commit();
                 exit(Ws.CreateResponseSuccess(SalesOrder."No."));
             end
 
@@ -601,16 +753,16 @@ codeunit 50005 "A01 WS QuotesMgt"
 
     end;
 
-    local procedure AddCreditRequestCriteria(input: JsonObject)
+    local procedure AddCustScoring(input: JsonObject)
     var
         CustScoring: Record "A01 Customer Scoring";
     begin
         CustScoring.Init();
-        processCreditRequestCriteria(CustScoring, input);
+        processCustomerScoring(CustScoring, input);
         CustScoring.Insert();
     end;
 
-    local procedure processCreditRequestCriteria(var CustScoring: Record "A01 Customer Scoring"; input: JsonObject)
+    local procedure processCustomerScoring(var CustScoring: Record "A01 Customer Scoring"; input: JsonObject)
     var
         CustRec: Record Customer;
         ContactRec: Record Contact;
@@ -652,14 +804,14 @@ codeunit 50005 "A01 WS QuotesMgt"
         // if (CustScoring.Type <> WS.GetText('Type', input)) then
         //CustScoring."Type" := WS.GetText('Type', input);
 
-        if (CustScoring."DocumentLink" <> WS.GetText('DocumentLink', input)) then
-            CustScoring."DocumentLink" := CopyStr(WS.GetText('DocumentLink', input), 1, 100);
+        if (CustScoring."DocumentLink" <> WS.GetText('Document Link', input)) then
+            CustScoring."DocumentLink" := CopyStr(WS.GetText('Document Link', input), 1, 100);
 
         if (CustScoring.Precision <> WS.GetText('Precision', input)) then
             CustScoring."Precision" := CopyStr(WS.GetText('Precision', input), 1, 50);
 
-        if (CustScoring."Criteria Value" <> WS.GetText('List value', input)) then
-            CustScoring."Criteria Value" := CopyStr(WS.GetText('List value', input), 1, 20);
+        if (CustScoring."Criteria Value" <> WS.GetText('List Value', input)) then
+            CustScoring."Criteria Value" := CopyStr(WS.GetText('List Value', input), 1, 20);
 
         if (CustScoring.Score <> WS.GetDecimal('Point', input)) then
             CustScoring."Score" := WS.GetDecimal('Point', input);

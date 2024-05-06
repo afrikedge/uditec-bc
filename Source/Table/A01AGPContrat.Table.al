@@ -118,4 +118,45 @@ table 50035 "A01 AGP Contrat"
         // "Partner Type" := "Partner Type"::Customer;
         // "Posting Date" := WorkDate();
     end;
+
+    procedure CalcSalesFirstDueDate(PostingDate: Date): Date
+    var
+        DueDate: Date;
+    begin
+        DueDate := "First Terms Date";
+        while (DueDate < "OP Ending Date") do begin
+            if (PostingDate <= DueDate) then
+                exit(DueDate);
+            DueDate := CalcDate('<1M>', DueDate);
+        end;
+        exit(DueDate);
+    end;
+
+    procedure CalcSalesCreditDuration(PostingDate: Date): Integer
+    var
+        StartingDate1: Date;
+        EndingDate1: Date;
+        NumMonths: Integer;
+    begin
+        StartingDate1 := "OP Starting Date";
+        NumMonths := "Duration (Month)";
+        EndingDate1 := CalcDate('<1M>', StartingDate1);
+
+        if (PostingDate >= "OP Ending Date") then
+            exit(0);
+
+        //if (EndingDate1 >= "OP Ending Date") then
+        //    exit(0);
+
+        while (EndingDate1 < "OP Ending Date") do begin
+            if (PostingDate <= EndingDate1) then
+                exit(NumMonths);
+            NumMonths := NumMonths - 1;
+            EndingDate1 := CalcDate('<1M>', EndingDate1);
+        end;
+
+        if (NumMonths < 0) then
+            exit(0);
+        exit(NumMonths);
+    end;
 }

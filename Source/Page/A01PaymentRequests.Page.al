@@ -26,9 +26,9 @@ page 50069 "A01 Payment Requests"
                 field(Status; Rec.Status)
                 {
                 }
-                field("Sequence No."; Rec."Sequence No.")
-                {
-                }
+                // field("Sequence No."; Rec."Sequence No.")
+                // {
+                // }
                 field("Created By"; Rec."Created By")
                 {
                 }

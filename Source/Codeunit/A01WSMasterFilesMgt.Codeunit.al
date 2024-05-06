@@ -118,6 +118,18 @@ codeunit 50015 A01WSMasterFilesMgt
             exit(AddShipToAddress(CustNo, input));
     end;
 
+    procedure RunCreateCustomer(input: JsonObject): Text
+    var
+        TemplCode: Code[20];
+        ContactNo: Code[20];
+        CustNo: Code[20];
+    begin
+        ContactNo := Copystr(ws.GetText('Lead No_', input), 1, 20);
+        TemplCode := Copystr(ws.GetText('Cust Template No_', input), 1, 20);
+        CustNo := ConvertLeadToCustomer(ContactNo, TemplCode);
+        exit(Ws.CreateResponseSuccess(CustNo));
+    end;
+
     #region Customers
 
     local procedure ModifyCustomer(CustNo: Text; input: JsonObject): Text
@@ -936,6 +948,20 @@ codeunit 50015 A01WSMasterFilesMgt
         if (CreditContract."Approval Status".AsInteger() <> WS.GetInt('Approval Status', input)) then
             CreditContract.Validate("Approval Status", WS.GetInt('Approval Status', input));
 
+        if (CreditContract."Application fees %" <> WS.GetDecimal('Application fees_', input)) then
+            CreditContract.Validate("Application fees %", WS.GetDecimal('Application fees_', input));
+
+        if (CreditContract."Transferable part %" <> WS.GetDecimal('Transferable part _', input)) then
+            CreditContract.Validate("Transferable part %", WS.GetDecimal('Transferable part _', input));
+
+        if (CreditContract."Standard Credit Limit" <> WS.GetDecimal('Standard Credit Limit', input)) then
+            CreditContract.Validate("Standard Credit Limit", WS.GetDecimal('Standard Credit Limit', input));
+
+        if (CreditContract."Credit Limit Mode".AsInteger() <> WS.GetInt('Credit Limit Mode', input)) then
+            CreditContract.Validate("Credit Limit Mode", WS.GetInt('Credit Limit Mode', input));
+
+        //[Application fees_] , [ransferable part _] , [Standard Credit Limit] , [Credit Limit Mode]
+
         CreditContract.Modify();
     end;
 
@@ -964,6 +990,7 @@ codeunit 50015 A01WSMasterFilesMgt
 
         ShipTo.Init();
         ShipTo."Customer No." := CopyStr(CustNo, 1, 20);
+        AddOnSetup.GetRecordOnce();
         AddOnSetup.Testfield("ShipToAddress Code Nos");
         ShipTo."Code" := CopyStr(NosSeriesMgt.GetNextNo(AddOnSetup."ShipToAddress Code Nos", today, true), 1, 10);
 
@@ -1070,5 +1097,14 @@ codeunit 50015 A01WSMasterFilesMgt
     end;
 
     #endregion ship to address
+
+
+    local procedure ConvertLeadToCustomer(LeadNo: Code[20]; CustTemplateCode: Code[20]): Code[20]
+    var
+        Cont: record Contact;
+    begin
+        Cont.get(LeadNo);
+        exit(Cont.CreateCustomerFromTemplate(CustTemplateCode));
+    end;
 
 }

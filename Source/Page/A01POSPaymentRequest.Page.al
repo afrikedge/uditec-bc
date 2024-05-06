@@ -60,4 +60,23 @@ page 50068 "A01 POS Payment Request"
             }
         }
     }
+    actions
+    {
+        area(navigation)
+        {
+            action(Validate)
+            {
+                ApplicationArea = All;
+                Image = Create;
+                Caption = 'Validate';
+                trigger OnAction()
+                var
+                    DocRequestMgt: Codeunit "A01 Document Request Mgt";
+                begin
+                    DocRequestMgt.ModifyStatus(Rec, '', Rec.Status::Validated);
+                    Message('Modification terminée');
+                end;
+            }
+        }
+    }
 }

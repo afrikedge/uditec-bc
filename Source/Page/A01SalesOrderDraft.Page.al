@@ -51,6 +51,11 @@ page 50003 "A01 Sales Order - Draft"
                         CurrPage.Update();
                     end;
                 }
+                field("A01 Miscellaneous Contact"; Rec."A01 Miscellaneous Contact")
+                {
+                    ApplicationArea = Basic, Suite;
+                    //Caption = 'Misc contacto.';
+                }
                 field("Sell-to Customer Name"; Rec."Sell-to Customer Name")
                 {
                     ApplicationArea = Basic, Suite;

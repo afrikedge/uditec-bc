@@ -45,7 +45,7 @@ tableextension 50025 "A01 Sales Invoice Header" extends "Sales Invoice Header"
             DataClassification = CustomerContent;
             Editable = false;
         }
-        field(50007; "A01 Credit Validation Status"; Enum "A01 Credit Validation Status")
+        field(50007; "A01 Credit Validation Status"; Enum "A01 Approval Status")
         {
             Caption = 'Validation Status';
             DataClassification = CustomerContent;

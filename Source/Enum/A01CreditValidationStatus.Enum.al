@@ -53,4 +53,8 @@ enum 50024 "A01 Credit Validation Status"
     {
         Caption = 'Closed';
     }
+    value(12; AwaitingVerification)
+    {
+        Caption = 'Awaiting Verification';
+    }
 }

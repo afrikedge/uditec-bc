@@ -84,11 +84,15 @@ table 50025 "A01 Deadline Assignment"
         field(7; "Assigned on"; Date)
         {
             Caption = 'Assigned on';
+            Editable = false;
         }
         field(8; "Assigned by"; Code[50])
         {
             Caption = 'Assigned by';
-            TableRelation = "A01 External User";
+            //TableRelation = "A01 External User";
+            FieldClass = FlowField;
+            CalcFormula = lookup("A01 External User".Code where(BCUserId = field("Created By")));
+            Editable = false;
         }
 
         field(9; "Due status"; Code[20])
@@ -126,12 +130,13 @@ table 50025 "A01 Deadline Assignment"
         //     TableRelation = "A01 External User";
         //     DataClassification = CustomerContent;
         // }
-        // field(14; "Created By"; Code[50])
-        // {
-        //     Caption = 'Created By';
-        //     TableRelation = "A01 External User";
-        //     DataClassification = CustomerContent;
-        // }
+        field(14; "Created By"; Code[50])
+        {
+            Caption = 'Created By';
+            TableRelation = User;
+            DataClassification = CustomerContent;
+            Editable = false;
+        }
     }
     keys
     {
@@ -166,6 +171,8 @@ table 50025 "A01 Deadline Assignment"
 
     local procedure InitHeader()
     begin
+        "Created By" := CopyStr(UserId, 1, 50);
+        "Assigned on" := Today;
     end;
 
     local procedure CalcCustStatus(CustNo: Code[20]): Code[20]

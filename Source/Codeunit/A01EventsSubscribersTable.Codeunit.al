@@ -58,6 +58,65 @@ codeunit 50001 "A01 EventsSubscribers_Table"
     end;
 
 
+    [EventSubscriber(ObjectType::Table, Database::"Sales Header", 'OnCheckCustomerCreatedOnBeforeConfirmProcess', '', true, true)]
+    local procedure SalesHeader_OnCheckCustomerCreatedOnBeforeConfirmProcess(SalesHeader: Record "Sales Header"; var Prompt: Boolean; var Result: Boolean; var IsHandled: Boolean)
+    begin
+        //Prevent normal deletion of order
+        if (SalesHeader."A01 Web User Id" <> '') then begin
+            Prompt := false;
+            IsHandled := false;
+        end;
+
+    end;
+
+
+    [EventSubscriber(ObjectType::Table, Database::"Contact", 'OnCreateCustomerOnBeforeCustomerModify', '', true, true)]
+    local procedure SalesHeader_OnCreateCustomerOnBeforeCustomerModify(var Customer: Record Customer; Contact: Record Contact)
+    var
+        ScoringCriteria: Record "A01 Cust Scoring Criteria";
+        CustScoring: Record "A01 Customer Scoring";
+        ScoringCriteriaNew: Record "A01 Cust Scoring Criteria";
+        CustScoringNew: Record "A01 Customer Scoring";
+    begin
+
+        ScoringCriteria.Reset();
+        ScoringCriteria.SetRange("Account Type", ScoringCriteria."Account Type"::Prospect);
+        ScoringCriteria.SetRange("Customer No.", Contact."No.");
+        if ScoringCriteria.FindSet(true) then
+            repeat
+                ScoringCriteriaNew.Init();
+                ScoringCriteriaNew.TransferFields(ScoringCriteria);
+                ScoringCriteriaNew."Account Type" := ScoringCriteria."Account Type"::Customer;
+                ScoringCriteriaNew."Customer No." := Customer."No.";
+                ScoringCriteriaNew.insert();
+            until ScoringCriteria.Next() < 1;
+
+        CustScoring.Reset();
+        CustScoring.SetRange("Account Type", CustScoring."Account Type"::Prospect);
+        CustScoring.SetRange("Customer No.", Contact."No.");
+        if CustScoring.FindSet(true) then
+            repeat
+                CustScoringNew.Init();
+                CustScoringNew.TransferFields(CustScoring);
+                CustScoringNew."Account Type" := CustScoring."Account Type"::Customer;
+                CustScoringNew."Customer No." := Customer."No.";
+                CustScoringNew.insert();
+            until CustScoring.Next() < 1;
+
+    end;
+
+
+    // [IntegrationEvent(false, false)]
+    // local procedure OnCreateCustomerOnBeforeCustomerModify(var Customer: Record Customer; Contact: Record Contact)
+    // begin
+    // end;
+
+    // [IntegrationEvent(false, false)]
+    // local procedure OnCheckCustomerCreatedOnBeforeConfirmProcess(SalesHeader: Record "Sales Header"; var Prompt: Boolean; var Result: Boolean; var IsHandled: Boolean)
+    // begin
+    // end;
+
+
     // [EventSubscriber(ObjectType::Table, Database::"Sales Header", 'OnAfterInitPostingNoSeries', '', true, true)]
     // local procedure SalesHeader_OnAfterInitPostingNoSeries(var SalesHeader: Record "Sales Header"; xSalesHeader: Record "Sales Header")
     // var

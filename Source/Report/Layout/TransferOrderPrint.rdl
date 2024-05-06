@@ -2950,15 +2950,6 @@ AAAAAAAAAECjsYAGAAAAAAAAAAAAAAAAjcYCGgAAAAAAAAAAAAAAADQaC2gAAAAAAAAAAAAAAADQaCyg
         <Field Name="Quantity_Line_Lbl">
           <DataField>Quantity_Line_Lbl</DataField>
         </Field>
-        <Field Name="Serial_No_">
-          <DataField>Serial_No_</DataField>
-        </Field>
-        <Field Name="Quantity_">
-          <DataField>Quantity_</DataField>
-        </Field>
-        <Field Name="Quantity_Format">
-          <DataField>Quantity_Format</DataField>
-        </Field>
       </Fields>
       <Query>
         <DataSourceName>DataSource</DataSourceName>

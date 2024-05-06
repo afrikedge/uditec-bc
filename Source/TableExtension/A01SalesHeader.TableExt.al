@@ -45,7 +45,7 @@ tableextension 50000 "A01 Sales Header" extends "Sales Header"
             DataClassification = CustomerContent;
             Editable = false;
         }
-        field(50007; "A01 Credit Validation Status"; Enum "A01 Credit Validation Status")
+        field(50007; "A01 Credit Validation Status"; Enum "A01 Approval Status")
         {
             Caption = 'Validation Status';
             DataClassification = CustomerContent;
@@ -114,8 +114,11 @@ tableextension 50000 "A01 Sales Header" extends "Sales Header"
             var
                 AGPContract: Record "A01 AGP Contrat";
             begin
-                if (AGPContract.Get("A01 AGP Contract No.")) then
-                    Rec.Validate("A01 Credit Duration (Month)", AGPContract."Duration (Month)");
+                if (AGPContract.Get("A01 AGP Contract No.")) then begin
+                    Rec.Validate("A01 Credit Duration (Month)", AGPContract.CalcSalesCreditDuration("Posting Date"));
+                    Rec.Validate("Due Date", AGPContract.CalcSalesFirstDueDate("Posting Date"));
+                end;
+
             end;
         }
         field(50018; "A01 Request Status"; Enum "A01 Approval Status")
@@ -142,6 +145,44 @@ tableextension 50000 "A01 Sales Header" extends "Sales Header"
             Caption = 'Monthly Capacity';
             DataClassification = CustomerContent;
             Editable = false;
+        }
+        field(50021; "A01 Miscellaneous Contact"; Code[20])
+        {
+            Caption = 'Miscellaneous Contact';
+            DataClassification = CustomerContent;
+            TableRelation = Contact;
+            //Editable = false;
+            trigger OnValidate()
+            var
+                Contact1: Record Contact;
+                Cust: Record Customer;
+            begin
+                if (Cust.Get("Sell-to Customer No.")) then begin
+                    if (Cust."A01 Customer Type" = Cust."A01 Customer Type"::Miscellaneous) then
+                        if (Contact1.Get("A01 Miscellaneous Contact")) then begin
+                            "Sell-to Customer Name" := Contact1.Name;
+                            "Sell-to Address" := Contact1.Address;
+                            "Sell-to Address 2" := Contact1."Address 2";
+                            "Sell-to City" := Contact1.City;
+                            "Sell-to Country/Region Code" := Contact1."Country/Region Code";
+                            "Sell-to E-Mail" := Contact1."E-Mail";
+                            "Sell-to Phone No." := Contact1."Phone No.";
+                            "Sell-to Post Code" := Contact1."Post Code";
+                            "Sell-to County" := Contact1.County;
+                        end;
+                end;
+            end;
+        }
+        field(50022; "A01 Joint Type"; Enum "A01 Credit Joint Type")
+        {
+            Caption = 'Joint Type';
+            DataClassification = CustomerContent;
+        }
+        field(50023; "A01 Joint Code"; Code[20])
+        {
+            Caption = 'Joint Code';
+            DataClassification = CustomerContent;
+            TableRelation = if ("A01 Joint Type" = const(Contact)) Contact else if ("A01 Joint Type" = const(Customer)) Customer;
         }
 
         modify("Sell-to Customer No.")
