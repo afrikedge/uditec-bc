@@ -198,11 +198,11 @@ report 50024 "A01 PostedCustSettlementPrint"
                 column(Reference; Reference)
                 {
                 }
-                dataitem("Detailed Cust. Ledg. Entry"; "Detailed Cust. Ledg. Entry")
+                dataitem("Cust. Ledger Entry"; "Cust. Ledger Entry")
                 {
-                    DataItemTableView = sorting("Document No.", "Entry Type") where("Entry Type" = filter(2), Amount = filter(< 0));
+                    DataItemTableView = sorting("Document No.", "Document Type") where("Document Type" = filter(1), Open = filter(0));
                     DataItemLinkReference = "A01 Posted Payment Document";
-                    DataItemLink = "Document No." = field("No.");
+                    DataItemLink = "Document No." = field("No."), "Customer No." = field("Partner No.");
                     column(CreditAmount; "Credit Amount")
                     {
                         AutoFormatExpression = "A01 Posted Payment Document"."Currency Code";
@@ -211,11 +211,11 @@ report 50024 "A01 PostedCustSettlementPrint"
                     column(TotalAmt_LCYText; TotalAmt_LCYText)
                     {
                     }
-                    dataitem("Cust. Ledger Entry"; "Cust. Ledger Entry")
+                    dataitem(CustLedgerEntry; "Cust. Ledger Entry")
                     {
-                        DataItemTableView = sorting("Entry No.", "Document Type") where("Document Type" = filter(2));
-                        DataItemLinkReference = "Detailed Cust. Ledg. Entry";
-                        DataItemLink = "Entry No." = field("Cust. Ledger Entry No.");
+                        DataItemTableView = sorting("Document No.", "Document Type") where("Document Type" = filter(2), Open = filter(0));
+                        DataItemLinkReference = "Cust. Ledger Entry";
+                        DataItemLink = "Closed by Entry No." = field("Entry No."), "Customer No." = field("Customer No.");
                         column(DocumentNo; "Document No.")
                         {
                         }
@@ -230,8 +230,16 @@ report 50024 "A01 PostedCustSettlementPrint"
                         column(OriginAmt_LCYText; OriginAmt_LCYText)
                         {
                         }
+                        column(Closed_by_Amount; "Closed by Amount")
+                        {
+                        }
                         trigger OnAfterGetRecord()
                         begin
+                            CustLedgerEntry.Reset();
+                            CustLedgerEntry.SetRange("Closed by Entry No.", "Cust. Ledger Entry"."Entry No.");
+                            CustLedgerEntry.SetRange("Customer No.", "Cust. Ledger Entry"."Customer No.");
+                            // CustLedgerEntry.SetRange("Global Dimension 1 Code", "Cust. Ledger Entry"."Global Dimension 1 Code");
+
                             OriginAmt := ROUND("Original Amount", AfkLocalCurrency."Amount Rounding Precision");
                             OriginAmt_LCYText := Format(OriginAmt, 0, AutoFormat.ResolveAutoFormat("Auto Format"::AmountFormat, AfkLocalCurrency.Code));
                             OriginAmt_LCYText := Format(OriginAmt);
@@ -239,6 +247,13 @@ report 50024 "A01 PostedCustSettlementPrint"
                     }
                     trigger OnAfterGetRecord()
                     begin
+                        "Cust. Ledger Entry".Reset();
+                        "Cust. Ledger Entry".SetRange("Document No.", "A01 Posted Payment Doc Line"."Document No.");
+                        "Cust. Ledger Entry".SetRange("Payment Method Code", "A01 Posted Payment Doc Line"."Payment Method");
+                        "Cust. Ledger Entry".SetRange("Entry No.", "Cust. Ledger Entry"."Closed by Entry No.");
+                        "Cust. Ledger Entry".SetRange("Customer No.", CustLedgerEntry."Customer No.");
+                        // "Cust. Ledger Entry".SetRange("Global Dimension 1 Code", CustLedgerEntry."Global Dimension 1 Code");
+
                         TotalAmt := ROUND("Credit Amount", AfkLocalCurrency."Amount Rounding Precision");
                         TotalAmt_LCYText := Format(TotalAmt, 0, AutoFormat.ResolveAutoFormat("Auto Format"::AmountFormat, AfkLocalCurrency.Code));
                         TotalAmt_LCYText := Format(TotalAmt);

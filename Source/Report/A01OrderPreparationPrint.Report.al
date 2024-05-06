@@ -8,7 +8,7 @@ report 50025 "A01 OrderPreparationPrint"
     PreviewMode = PrintLayout;
     UsageCategory = ReportsAndAnalysis;
     ApplicationArea = All;
-    // RDLCLayout = './Source/Report/Layout/OrderPreparationPrint.rdl';
+    RDLCLayout = './Source/Report/Layout/OrderPreparationPrint.rdl';
     dataset
     {
         dataitem(Header; "Warehouse Shipment Header")
@@ -139,16 +139,16 @@ report 50025 "A01 OrderPreparationPrint"
             column(PlannedDeliveryDateLbl; PlannedDeliveryDateLbl)
             {
             }
+            column(OrderNumberLbl; OrderNumberLbl)
+            {
+            }
             dataitem(Line; "Warehouse Shipment Line")
             {
                 DataItemLink = "No." = field("No.");
                 DataItemLinkReference = Header;
                 DataItemTableView = sorting("No.", "Line No.");
                 // RequestFilterFields = "Location Code", "Qty. to Ship";
-                column(LineNo_Line; "Line No.")
-                {
-                }
-                column(ItemNo_Line; "No.")
+                column(Source_No_; "Source No.")
                 {
                 }
                 column(Item_No_; "Item No.")
@@ -160,10 +160,10 @@ report 50025 "A01 OrderPreparationPrint"
                 column(Location_Code; "Location Code")
                 {
                 }
-                column(Qty__to_Ship; "Qty. to Ship")
+                column(Shelf_No_; "Shelf No.")
                 {
                 }
-                column(Bin_Code; "Bin Code")
+                column(Qty__to_Ship; "Qty. to Ship")
                 {
                 }
                 // dataitem("Tracking Specification"; "Tracking Specification")
@@ -175,22 +175,18 @@ report 50025 "A01 OrderPreparationPrint"
                 //     {
                 //     }
                 // }
-                // trigger OnPreDataItem()
-                // begin
-                //     SetRange(Type, Type::Item);
-                // end;
 
-                // trigger OnAfterGetRecord()
-                // begin
-                //     if "No." = 'MIR_FEES' then
-                //         CurrReport.Skip();
-                //     if "No." = 'mir_fees' then
-                //         CurrReport.Skip();
-                //     if "No." = 'MIR_INTEREST' then
-                //         CurrReport.Skip();
-                //     if "No." = 'mir_interest' then
-                //         CurrReport.Skip();
-                // end;
+                trigger OnAfterGetRecord()
+                begin
+                    if "No." = 'MIR_FEES' then
+                        CurrReport.Skip();
+                    if "No." = 'mir_fees' then
+                        CurrReport.Skip();
+                    if "No." = 'MIR_INTEREST' then
+                        CurrReport.Skip();
+                    if "No." = 'mir_interest' then
+                        CurrReport.Skip();
+                end;
             }
             trigger OnAfterGetRecord()
             begin
@@ -230,16 +226,6 @@ report 50025 "A01 OrderPreparationPrint"
     {
         layout
         {
-            // area(Content)
-            // {
-            //     group(GroupName)
-            //     {
-            //         field(Name; SourceExpression)
-            //         {
-            //             ApplicationArea = All;
-            //         }
-            //     }
-            // }
         }
 
         actions
@@ -259,6 +245,7 @@ report 50025 "A01 OrderPreparationPrint"
         // Cust: Record Customer;
         // Contact: Record Contact;
         LocRec: Record Location;
+        // Order: Record "Sales Line";
         // Ship: Record "Ship-to Address";
         UnitName: Text[100];
         rcs: Code[30];
@@ -286,6 +273,7 @@ report 50025 "A01 OrderPreparationPrint"
         PreparationOrderNumberLbl: Label 'Preparation order N° :';
         PreparationOrderDateLbl: Label 'Date :';
         // OrderNumberLbl: Label 'Order number :';
+        OrderNumberLbl: Label 'Order N°';
         ProductCodeLbl: Label 'Product code';
         PlannedDeliveryDateLbl: Label 'Planned delivery date';
         ProductSerialNumberLbl: Label 'product serial number';

@@ -198,18 +198,18 @@ report 50005 "A01 TransferOrderPrint"
                 //     {
                 //     }
                 // }
-                dataitem("Item Ledger Entry"; "Item Ledger Entry")
-                {
-                    DataItemTableView = sorting("Document Type", "Entry Type") where("Document Type" = filter(9), "Entry Type" = const(Transfer));
-                    DataItemLinkReference = Line;
-                    DataItemLink = "Item No." = field("Item No."), "Order No." = field("Document No.");
-                    column(Serial_No_; "Serial No.")
-                    {
-                    }
-                    column(Quantity_; Quantity)
-                    {
-                    }
-                }
+                // dataitem("Item Ledger Entry"; "Item Ledger Entry")
+                // {
+                //     DataItemTableView = sorting("Document Type", "Entry Type") where("Document Type" = filter(9), "Entry Type" = const(Transfer));
+                //     DataItemLinkReference = Line;
+                //     DataItemLink = "Item No." = field("Item No."), "Order No." = field("Document No.");
+                //     column(Serial_No_; "Serial No.")
+                //     {
+                //     }
+                //     column(Quantity_; Quantity)
+                //     {
+                //     }
+                // }
                 trigger OnAfterGetRecord()
                 begin
                     if "Item No." = 'MIR_FEES' then
