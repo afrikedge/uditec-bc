@@ -913,6 +913,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table A01 Deadline Assignment - Field Comment - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Table 576774419 - Field 2369664869 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Created By</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table A01 Deadline Assignment - Field Created By - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Table 576774419 - Field 1171137197 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Customer Name</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -2737,6 +2742,66 @@
           <source>Type</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table A01 Warranty Plan - Field Type - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 176252001 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Web Link Document</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table A01 Web Link Document - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 176252001 - Field 1451970916 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Document Name</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table A01 Web Link Document - Field Document Name - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 176252001 - Field 3817506388 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Link</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table A01 Web Link Document - Field Link - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 176252001 - Field 1829115764 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Record Id</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table A01 Web Link Document - Field Record Id - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 1664882828 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Web Profile Permission</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table A01 Web Profile Permission - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 1664882828 - Field 2414990744 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Deletion</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table A01 Web Profile Permission - Field Deletion - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 1664882828 - Field 3991974766 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Execution</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table A01 Web Profile Permission - Field Execution - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 1664882828 - Field 980589417 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Insertion</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table A01 Web Profile Permission - Field Insertion - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 1664882828 - Field 3835915570 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Modification</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table A01 Web Profile Permission - Field Modification - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 1664882828 - Field 2119658478 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Read</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table A01 Web Profile Permission - Field Read - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 1664882828 - Field 485301670 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Web Function</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table A01 Web Profile Permission - Field Web Function - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 1664882828 - Field 3495436069 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Web Profile</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table A01 Web Profile Permission - Field Web Profile - Property Caption</note>
         </trans-unit>
         <trans-unit id="Codeunit 2699059229 - NamedType 2982778573" size-unit="char" translate="yes" xml:space="preserve">
           <source>Unkwnown parameter : %1</source>
@@ -8963,6 +9028,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page A01 Warranty Plans - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Page 1032539181 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Web Profile Permissions</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page A01 Web Profile Permissions - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Page 1436162306 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Images</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -13498,6 +13568,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension A01 Order Processor RC - Action A01Config_WarrantyPlans - Property Caption</note>
         </trans-unit>
+        <trans-unit id="PageExtension 3250568499 - Action 1175438826 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2747922353">
+          <source>External profile permissions</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension A01 Order Processor RC - Action A01ExternalProfilePermissions - Property Caption</note>
+        </trans-unit>
         <trans-unit id="PageExtension 3250568499 - Action 2818827793 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2747922353">
           <source>External users</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -14388,6 +14463,16 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension A01 Sales Header - Field A01 Investigator Opinion - Property Caption</note>
         </trans-unit>
+        <trans-unit id="TableExtension 1143019865 - Field 1083394501 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1192395785">
+          <source>Joint Code</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension A01 Sales Header - Field A01 Joint Code - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 1143019865 - Field 2959124146 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1192395785">
+          <source>Joint Type</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension A01 Sales Header - Field A01 Joint Type - Property Caption</note>
+        </trans-unit>
         <trans-unit id="TableExtension 1143019865 - Field 2236380998 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1192395785">
           <source>Miscellaneous Contact</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -15028,6 +15113,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Enum A01 Approval Flow Method - EnumValue OTP - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Enum 1845479245 - EnumValue 2206777117 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Awaiting Verification</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum A01 Approval Status - EnumValue AwaitingVerification - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Enum 1845479245 - EnumValue 3844911025 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Canceled</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -15127,6 +15217,21 @@
           <source>Lead</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Enum A01 Contact Type - EnumValue Lead - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 1030292957 - EnumValue 3993128796 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Contact</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum A01 Credit Joint Type - EnumValue Contact - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 1030292957 - EnumValue 1994964448 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Customer</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum A01 Credit Joint Type - EnumValue Customer - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 2474205286 - EnumValue 2206777117 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Awaiting Verification</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum A01 Credit Validation Status - EnumValue AwaitingVerification - Property Caption</note>
         </trans-unit>
         <trans-unit id="Enum 2474205286 - EnumValue 3844911025 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Canceled</source>
@@ -15507,6 +15612,11 @@
           <source>TicketFormat</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Enum A01 Parameter Record Type - EnumValue TicketFormat - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 3132669536 - EnumValue 3570762238 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Web Function</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum A01 Parameter Record Type - EnumValue WebFunction - Property Caption</note>
         </trans-unit>
         <trans-unit id="Enum 1029511672 - EnumValue 1994964448 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Customer</source>

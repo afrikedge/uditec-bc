@@ -53,4 +53,8 @@ enum 50037 "A01 Approval Status"
     {
         Caption = 'Closed';
     }
+    value(12; AwaitingVerification)
+    {
+        Caption = 'Awaiting Verification';
+    }
 }

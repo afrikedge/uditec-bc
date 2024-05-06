@@ -45,7 +45,7 @@ tableextension 50000 "A01 Sales Header" extends "Sales Header"
             DataClassification = CustomerContent;
             Editable = false;
         }
-        field(50007; "A01 Credit Validation Status"; Enum "A01 Credit Validation Status")
+        field(50007; "A01 Credit Validation Status"; Enum "A01 Approval Status")
         {
             Caption = 'Validation Status';
             DataClassification = CustomerContent;
@@ -115,7 +115,8 @@ tableextension 50000 "A01 Sales Header" extends "Sales Header"
                 AGPContract: Record "A01 AGP Contrat";
             begin
                 if (AGPContract.Get("A01 AGP Contract No.")) then begin
-                    Rec.Validate("A01 Credit Duration (Month)", AGPContract."Duration (Month)");
+                    Rec.Validate("A01 Credit Duration (Month)", AGPContract.CalcSalesCreditDuration("Posting Date"));
+                    Rec.Validate("Due Date", AGPContract.CalcSalesFirstDueDate("Posting Date"));
                 end;
 
             end;
@@ -171,6 +172,17 @@ tableextension 50000 "A01 Sales Header" extends "Sales Header"
                         end;
                 end;
             end;
+        }
+        field(50022; "A01 Joint Type"; Enum "A01 Credit Joint Type")
+        {
+            Caption = 'Joint Type';
+            DataClassification = CustomerContent;
+        }
+        field(50023; "A01 Joint Code"; Code[20])
+        {
+            Caption = 'Joint Code';
+            DataClassification = CustomerContent;
+            TableRelation = if ("A01 Joint Type" = const(Contact)) Contact else if ("A01 Joint Type" = const(Customer)) Customer;
         }
 
         modify("Sell-to Customer No.")

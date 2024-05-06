@@ -146,6 +146,7 @@ codeunit 50016 "A01 Document Request Mgt"
         SalesOrder: Record "Sales Header";
         Salesline: Record "Sales Line";
         POSPaymentLine: Record "A01 Sales Payment Method";
+        PaymentHeader: Record "A01 Payment Document";
         PaymentLine: Record "A01 Payment Document Line";
         OrderValidationMgt: codeunit "A01 Sales Order Processing";
     begin
@@ -153,6 +154,8 @@ codeunit 50016 "A01 Document Request Mgt"
             Request."Request Type"::"Discount on order":
                 begin
                     SalesOrder.get(SalesOrder."Document Type"::Order, Request."Request No.");
+                    SalesOrder."A01 Request Status" := SalesOrder."A01 Request Status"::Validated;
+                    SalesOrder.Modify();
 
                     Salesline.Reset();
                     Salesline.SetRange("Document Type", SalesOrder."Document Type");
@@ -172,6 +175,8 @@ codeunit 50016 "A01 Document Request Mgt"
             Request."Request Type"::"Discount on quote":
                 begin
                     SalesOrder.get(SalesOrder."Document Type"::Quote, Request."Request No.");
+                    SalesOrder."A01 Request Status" := SalesOrder."A01 Request Status"::Validated;
+                    SalesOrder.Modify();
 
                     Salesline.Reset();
                     Salesline.SetRange("Document Type", SalesOrder."Document Type");
@@ -188,6 +193,10 @@ codeunit 50016 "A01 Document Request Mgt"
             Request."Request Type"::"Payment Document":
 
                 begin
+                    PaymentHeader.get(Request."Request No.");
+                    PaymentHeader."Approval Status" := PaymentHeader."Approval Status"::Validated;
+                    PaymentHeader.Modify();
+
                     PaymentLine.Reset();
                     PaymentLine.SetRange("Document No.", Request."Request No.");
                     if POSPaymentLine.FindSet(true) then
@@ -202,6 +211,8 @@ codeunit 50016 "A01 Document Request Mgt"
             Request."Request Type"::"POS Payment":
                 begin
                     SalesOrder.get(SalesOrder."Document Type"::Order, Request."Request No.");
+                    SalesOrder."A01 Request Status" := SalesOrder."A01 Request Status"::Validated;
+                    SalesOrder.Modify();
 
                     POSPaymentLine.Reset();
                     POSPaymentLine.SetRange("Document Type", POSPaymentLine."Document Type"::Order);

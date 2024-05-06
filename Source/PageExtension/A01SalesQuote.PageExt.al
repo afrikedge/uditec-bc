@@ -47,6 +47,14 @@ pageextension 50017 "A01 Sales Quote" extends "Sales Quote"
                 {
                     ApplicationArea = Basic, Suite;
                 }
+                field("A01 Joint Type"; Rec."A01 Joint Type")
+                {
+                    ApplicationArea = Basic, Suite;
+                }
+                field("A01 Joint Code"; Rec."A01 Joint Code")
+                {
+                    ApplicationArea = Basic, Suite;
+                }
             }
         }
     }

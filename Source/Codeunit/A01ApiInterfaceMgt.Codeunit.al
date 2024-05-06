@@ -102,6 +102,8 @@ codeunit 50008 "A01 Api Interface Mgt"
                 exit(MasterFilesMgt.RunLeads(input, false));
             'leads_insert':
                 exit(MasterFilesMgt.RunLeads(input, false));
+            'leads_createcustomer':
+                exit(MasterFilesMgt.RunCreateCustomer(input));
 
             'contacts_insert':
                 exit(MasterFilesMgt.RunContacts(input, false));

@@ -120,8 +120,16 @@ table 50035 "A01 AGP Contrat"
     end;
 
     procedure CalcSalesFirstDueDate(PostingDate: Date): Date
+    var
+        DueDate: Date;
     begin
-
+        DueDate := "First Terms Date";
+        while (DueDate < "OP Ending Date") do begin
+            if (PostingDate <= DueDate) then
+                exit(DueDate);
+            DueDate := CalcDate('<1M>', DueDate);
+        end;
+        exit(DueDate);
     end;
 
     procedure CalcSalesCreditDuration(PostingDate: Date): Integer

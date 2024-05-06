@@ -213,6 +213,15 @@ permissionset 50000 "A01 Uditec_All"
         page "A01 Posted Cashbox Closing" = X,
         tabledata "A01 Item Promotion" = RIMD,
         table "A01 Item Promotion" = X,
-        page "A01 Promotion Add Items" = X;
+        page "A01 Promotion Add Items" = X,
+        tabledata "A01 Web Profile Permission" = RIMD,
+        table "A01 Web Profile Permission" = X,
+        report "A01 OrderPreparationPrint" = X,
+        report "A01 PostedCustSettlementPrint" = X,
+        page "A01 Item Promotion List" = X,
+        page "A01 Posted Credit Amort Lines" = X,
+        tabledata "A01 Web Link Document" = RIMD,
+        table "A01 Web Link Document" = X,
+        page "A01 Web Profile Permissions" = X;
     //page "A01 Customer Settlements" = X;
 }

@@ -118,6 +118,18 @@ codeunit 50015 A01WSMasterFilesMgt
             exit(AddShipToAddress(CustNo, input));
     end;
 
+    procedure RunCreateCustomer(input: JsonObject): Text
+    var
+        TemplCode: Code[20];
+        ContactNo: Code[20];
+        CustNo: Code[20];
+    begin
+        ContactNo := Copystr(ws.GetText('Lead No_', input), 1, 20);
+        TemplCode := Copystr(ws.GetText('Cust Template No_', input), 1, 20);
+        CustNo := ConvertLeadToCustomer(ContactNo, TemplCode);
+        exit(Ws.CreateResponseSuccess(CustNo));
+    end;
+
     #region Customers
 
     local procedure ModifyCustomer(CustNo: Text; input: JsonObject): Text
@@ -1085,5 +1097,14 @@ codeunit 50015 A01WSMasterFilesMgt
     end;
 
     #endregion ship to address
+
+
+    local procedure ConvertLeadToCustomer(LeadNo: Code[20]; CustTemplateCode: Code[20]): Code[20]
+    var
+        Cont: record Contact;
+    begin
+        Cont.get(LeadNo);
+        exit(Cont.CreateCustomerFromTemplate(CustTemplateCode));
+    end;
 
 }

@@ -75,6 +75,8 @@ codeunit 50001 "A01 EventsSubscribers_Table"
     var
         ScoringCriteria: Record "A01 Cust Scoring Criteria";
         CustScoring: Record "A01 Customer Scoring";
+        ScoringCriteriaNew: Record "A01 Cust Scoring Criteria";
+        CustScoringNew: Record "A01 Customer Scoring";
     begin
 
         ScoringCriteria.Reset();
@@ -82,9 +84,11 @@ codeunit 50001 "A01 EventsSubscribers_Table"
         ScoringCriteria.SetRange("Customer No.", Contact."No.");
         if ScoringCriteria.FindSet(true) then
             repeat
-                ScoringCriteria."Account Type" := ScoringCriteria."Account Type"::Customer;
-                ScoringCriteria."Customer No." := Customer."No.";
-                ScoringCriteria.Modify();
+                ScoringCriteriaNew.Init();
+                ScoringCriteriaNew.TransferFields(ScoringCriteria);
+                ScoringCriteriaNew."Account Type" := ScoringCriteria."Account Type"::Customer;
+                ScoringCriteriaNew."Customer No." := Customer."No.";
+                ScoringCriteriaNew.insert();
             until ScoringCriteria.Next() < 1;
 
         CustScoring.Reset();
@@ -92,9 +96,11 @@ codeunit 50001 "A01 EventsSubscribers_Table"
         CustScoring.SetRange("Customer No.", Contact."No.");
         if CustScoring.FindSet(true) then
             repeat
-                CustScoring."Account Type" := CustScoring."Account Type"::Customer;
-                CustScoring."Customer No." := Customer."No.";
-                CustScoring.Modify();
+                CustScoringNew.Init();
+                CustScoringNew.TransferFields(CustScoring);
+                CustScoringNew."Account Type" := CustScoring."Account Type"::Customer;
+                CustScoringNew."Customer No." := Customer."No.";
+                CustScoringNew.insert();
             until CustScoring.Next() < 1;
 
     end;
