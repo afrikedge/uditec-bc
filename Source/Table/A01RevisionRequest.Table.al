@@ -11,6 +11,16 @@ table 50023 "A01 Revision Request"
         field(1; "No."; Code[20])
         {
             Caption = 'No.';
+            Editable = false;
+
+            trigger OnValidate()
+            begin
+                if "No." <> xRec."No." then begin
+                    AddOnSetup.Get();
+                    NoSeriesManagement.TestManual(AddOnSetup."Revision Request Nos");
+                    "No. Series" := '';
+                end;
+            end;
         }
         field(2; Status; Enum "A01 Propect Validation Status")
         {
@@ -127,6 +137,11 @@ table 50023 "A01 Revision Request"
             Caption = 'Modified By';
             Editable = false;
         }
+        field(23; "No. Series"; Code[20])
+        {
+            Caption = 'No. Series';
+            TableRelation = "No. Series";
+        }
     }
     keys
     {
@@ -135,4 +150,22 @@ table 50023 "A01 Revision Request"
             Clustered = true;
         }
     }
+
+    trigger OnInsert()
+    begin
+        if "No." = '' then begin
+            AddOnSetup.Get();
+            AddOnSetup.TestField("Revision Request Nos");
+            NoSeriesManagement.InitSeries(AddOnSetup."Revision Request Nos", xRec."No. Series", 0D, "No.", "No. Series");
+        end;
+        InitHeader();
+    end;
+
+    var
+        AddOnSetup: Record "A01 Afk Setup";
+        NoSeriesManagement: Codeunit NoSeriesManagement;
+
+    local procedure InitHeader()
+    begin
+    end;
 }

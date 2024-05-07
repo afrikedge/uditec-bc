@@ -1,9 +1,9 @@
 page 50083 "A01 Petty Cash Journal"
 {
-    AdditionalSearchTerms = 'customer payment';
+    AdditionalSearchTerms = 'vendor payment';
     ApplicationArea = Basic, Suite;
     AutoSplitKey = true;
-    Caption = 'Cash Receipt Journals';
+    Caption = 'Cash payment Journals';
     DataCaptionExpression = Rec.DataCaption();
     DelayedInsert = true;
     PageType = Worksheet;
@@ -1074,8 +1074,8 @@ page 50083 "A01 Petty Cash Journal"
         OnOnOpenPageOnBeforeTemplateSelection(Rec, JnlSelected, CurrentJnlBatchName, IsHandled);
         if IsHandled then
             exit;
-
-        GenJnlManagement.TemplateSelection(PAGE::"Cash Receipt Journal", "Gen. Journal Template Type"::"Cash Receipts", false, Rec, JnlSelected);
+        //***********************
+        GenJnlManagement.TemplateSelection(PAGE::"Payment Journal", "Gen. Journal Template Type"::Payments, false, Rec, JnlSelected);
         if not JnlSelected then
             Error('');
         GenJnlManagement.OpenJnl(CurrentJnlBatchName, Rec);

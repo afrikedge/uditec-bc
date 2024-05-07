@@ -304,6 +304,7 @@ table 50017 "A01 Afk Setup"
 
 
 
+
         //Banked or unbanked employee
         //Administrative fees (%)
         //Conditions of application application fees

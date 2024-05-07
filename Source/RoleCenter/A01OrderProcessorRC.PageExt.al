@@ -185,6 +185,12 @@ pageextension 50002 "A01 Order Processor RC" extends "Order Processor Role Cente
                     Caption = 'External users';
                     RunObject = Page "A01 External Users";
                 }
+                action(A01ExternalFunctions)
+                {
+                    ApplicationArea = Basic, Suite;
+                    Caption = 'External functionnalities';
+                    RunObject = Page "A01 Web Functions";
+                }
                 action(A01ExternalProfilePermissions)
                 {
                     ApplicationArea = Basic, Suite;
