@@ -1,7 +1,7 @@
 /// <summary>
 /// Table A01 Cashbox closing (ID 50038).
 /// </summary>
-table 50038 "A01 Cashbox closing"
+table 50038 "A01 Cashbox Closing"
 {
     Caption = 'Cashbox closing';
     DataClassification = CustomerContent;

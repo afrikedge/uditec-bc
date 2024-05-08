@@ -61,11 +61,11 @@ table 50032 "A01 Payment Document"
         {
             Caption = 'Posting Date';
         }
-        field(6; Status; Enum "A01 Approval Status")
-        {
-            Caption = 'Status';
-            Editable = false;
-        }
+        // field(6; Status; Enum "A01 Approval Status")
+        // {
+        //     Caption = 'Status';
+        //     Editable = false;
+        // }
         field(7; "Modified By"; Code[50])
         {
             Caption = 'Modified By';

@@ -157,6 +157,7 @@ tableextension 50005 "A01 Contact" extends Contact
         {
             Caption = 'Credit Limit';
             DataClassification = CustomerContent;
+            InitValue = 1;
         }
         field(50108; "A01 Contact Type"; Enum "A01 Contact Type")
         {

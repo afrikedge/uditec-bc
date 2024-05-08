@@ -100,7 +100,7 @@ codeunit 50016 "A01 Document Request Mgt"
         Request.Insert(true);
 
         //TODO Set Status here
-        PaymentDoc."Approval Status" := Request.Status;
+        PaymentDoc."Approval Status" := PaymentDoc."Approval Status"::"Waiting for committee";
         PaymentDoc.Modify();
 
     end;
@@ -228,7 +228,10 @@ codeunit 50016 "A01 Document Request Mgt"
             Request."Request Type"::Unblocking:
                 begin
                     SalesOrder.get(SalesOrder."Document Type"::Order, Request."Request No.");
-                    OrderValidationMgt.CheckIsAwaitingPrepayment(SalesOrder);
+                    SalesOrder."A01 Request Status" := SalesOrder."A01 Request Status"::Validated;
+                    SalesOrder.Modify();
+
+                    OrderValidationMgt.CheckIsDeliverable(SalesOrder);
                 end;
             else
                 Error('Unknown Type');

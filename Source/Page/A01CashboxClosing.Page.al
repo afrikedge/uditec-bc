@@ -6,7 +6,7 @@ page 50079 "A01 Cashbox Closing"
     ApplicationArea = All;
     Caption = 'Cashbox Closing';
     PageType = Card;
-    SourceTable = "A01 Cashbox closing";
+    SourceTable = "A01 Cashbox Closing";
     SourceTableView = where(Status = const(Open));
     UsageCategory = Documents;
 

@@ -20,7 +20,7 @@ pageextension 50018 "A01 Item Category Card" extends "Item Category Card"
             {
                 ApplicationArea = Basic, Suite;
             }
-            field("A01 MIR Eligible Products"; Rec."A01 MIR Eligible Products")
+            field("A01 Non Eligible credit sales"; Rec."A01 Non Eligible credit sales")
             {
                 ApplicationArea = Basic, Suite;
             }

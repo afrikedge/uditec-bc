@@ -113,12 +113,13 @@ codeunit 50000 "A01 Sales Order Processing"
                 SalesH.Modify();
             end;
         end else
-            CheckIsBlocked(SalesH);
+            //CheckIsBlocked(SalesH);
+            CheckIsAwaitingPrepayment(SalesH);
     end;
 
     local procedure CheckIsBlocked(var SalesH: Record "Sales Header")
     begin
-        if IsOutOfCreditLimit(SalesH) then begin
+        if ((IsOutOfCreditLimit(SalesH)) and (not CustomerIsMisc(SalesH))) then begin
             if (SalesH."A01 Processing Status" <> SalesH."A01 Processing Status"::"Blocked") then begin
                 SalesH."A01 Processing Status" := SalesH."A01 Processing Status"::Blocked;
                 SalesH.Modify();
@@ -126,7 +127,8 @@ codeunit 50000 "A01 Sales Order Processing"
                 InsertNewStep(SalesH."No.", "A01 ActionStepHistory"::"Change Status", FORMAT(SalesH."A01 Processing Status"::Blocked), '');
             end;
         end else
-            CheckIsAwaitingPrepayment(SalesH);
+            //CheckIsAwaitingPrepayment(SalesH);
+            CheckIsDeliverable(SalesH);
     end;
 
     procedure SetIsWaitingForDiscount(var SalesH: Record "Sales Header")
@@ -151,13 +153,18 @@ codeunit 50000 "A01 Sales Order Processing"
     begin
         if NeedPrepayment(SalesH) then begin
             if (SalesH."A01 Processing Status" <> SalesH."A01 Processing Status"::"Waiting for prepayment") then begin
-                PostPrePayment(SalesH);
+
+                SalesH."Prepmt. Posting Description" := CopyStr(SalesH."Prepmt. Posting Description" + '/' + SalesH."Sell-to Customer Name", 1, 100);
                 SalesH."A01 Processing Status" := SalesH."A01 Processing Status"::"Waiting for prepayment";
-                InsertNewStep(SalesH."No.", "A01 ActionStepHistory"::"Change Status", FORMAT(SalesH."A01 Processing Status"::"Waiting for prepayment"), '');
                 SalesH.Modify();
+
+                PostPrePayment(SalesH);
+
+                InsertNewStep(SalesH."No.", "A01 ActionStepHistory"::"Change Status", FORMAT(SalesH."A01 Processing Status"::"Waiting for prepayment"), '');
+                //SalesH.Modify();
             end;
         end else
-            CheckIsDeliverable(SalesH);
+            CheckIsBlocked(SalesH);
     end;
 
     local procedure NeedPrepayment(SalesH: Record "Sales Header"): Boolean
@@ -510,6 +517,12 @@ codeunit 50000 "A01 Sales Order Processing"
         SalesPostYNPrepmt.PostPrepmtInvoiceYN(SalesHeader, false);
     end;
 
-
+    local procedure CustomerIsMisc(SalesHeader: Record "Sales Header"): Boolean
+    var
+        Cust: Record "Customer";
+    begin
+        Cust.Get(SalesHeader."Sell-to Customer No.");
+        exit(Cust."A01 Customer Type" = Cust."A01 Customer Type"::Miscellaneous);
+    end;
 
 }

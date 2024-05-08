@@ -269,6 +269,12 @@ pageextension 50002 "A01 Order Processor RC" extends "Order Processor Role Cente
                     Caption = 'Journal Users';
                     RunObject = Page "A01 Journal Users";
                 }
+                action(A01ImportationSteps)
+                {
+                    ApplicationArea = Basic, Suite;
+                    Caption = 'Importation Steps';
+                    RunObject = Page "A01 Importation Steps";
+                }
 
             }
             group(A01_Compta)

@@ -330,6 +330,7 @@ codeunit 50007 "A01 Treso Mgt"
         PaymentHeader."A01 Origin Document No." := CustSettlement."Posting No.";
         PaymentHeader."A01 Payment Method" := CustSettlementLine."Payment Method";
 
+
         //PaymentHeader."A01 Posted Document No." := CustSettlement."Posting No.";
 
         PaymentHeader.Modify();
@@ -354,6 +355,7 @@ codeunit 50007 "A01 Treso Mgt"
         //PaymentLine."Applies-to Doc. Type" := DocType;
         //PaymentLine."Applies-to Doc. No." := DocNo;
         PaymentLine."Applies-to ID" := CustSettlement."Applies-to ID";
+        PaymentLine.Validate("Due Date", CustSettlementLine."Due Date");
 
 
         // if ((GenJnlLine."A01 Payment Doc Type" = GenJnlLine."A01 Payment Doc Type"::"Direct Check")
@@ -1002,7 +1004,7 @@ codeunit 50007 "A01 Treso Mgt"
     var
         SalesPaymentLine: Record "A01 Sales Payment Method";
         TotalPayment: Decimal;
-        LabelPayAmt: Label 'The total amount to be paid is different from the order amount. Do you want to continue the posting?';
+        LabelPayAmt: Label 'The total amount to be paid %1 is different from the order %2', comment = '%1=xx %2=xxx';
     begin
         SalesPaymentLine.Reset();
         SalesPaymentLine.SetRange("Document Type", SalesPaymentLine."Document Type"::Order);
@@ -1015,8 +1017,8 @@ codeunit 50007 "A01 Treso Mgt"
 
         SalesHeader.CalcFields("Amount Including VAT");
         if (SalesHeader."Amount Including VAT" <> TotalPayment) then
-            if (not confirm(LabelPayAmt)) then
-                error('');
+            //if (not confirm(LabelPayAmt)) then
+                error(LabelPayAmt, TotalPayment, SalesHeader."Amount Including VAT");
 
     end;
 

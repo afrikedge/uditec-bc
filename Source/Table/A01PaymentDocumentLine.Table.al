@@ -99,7 +99,7 @@ table 50033 "A01 Payment Document Line"
         field(50004; "Due Date"; Date)
         {
             Caption = 'Due Date';
-            Editable = false;
+            //Editable = false;
         }
 
 

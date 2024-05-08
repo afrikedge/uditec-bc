@@ -21,12 +21,19 @@ table 50008 "A01 Parameter Record"
         {
             Caption = 'Description';
         }
+        field(4; "Line Order"; Code[10])
+        {
+            Caption = 'Order';
+        }
     }
     keys
     {
         key(PK; "Type", "Code")
         {
             Clustered = true;
+        }
+        key(PK2; "Line Order")
+        {
         }
     }
 }

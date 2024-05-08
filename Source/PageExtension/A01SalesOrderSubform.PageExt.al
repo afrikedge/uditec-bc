@@ -18,6 +18,10 @@ pageextension 50015 "A01 Sales Order Subform" extends "Sales Order Subform"
             {
                 ApplicationArea = Basic, Suite;
             }
+            field("A01Quantity (Base)"; Rec."Quantity (Base)")
+            {
+                ApplicationArea = all;
+            }
         }
     }
 }

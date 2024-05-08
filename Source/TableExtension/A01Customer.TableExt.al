@@ -157,4 +157,11 @@ tableextension 50006 "A01 Customer" extends Customer
         if (not CustScoring.IsEmpty) then
             CustScoring.DeleteAll();
     end;
+
+    trigger OnInsert()
+    var
+    begin
+        if ("Credit Limit (LCY)" = 0) then
+            "Credit Limit (LCY)" := 1;
+    end;
 }

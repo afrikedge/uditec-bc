@@ -46,4 +46,12 @@ page 50045 "A01 Purchase Import Steps"
             }
         }
     }
+    actions
+    {
+        area(Processing)
+        {
+
+        }
+
+    }
 }
