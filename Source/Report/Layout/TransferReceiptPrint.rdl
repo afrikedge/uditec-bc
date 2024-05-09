@@ -311,7 +311,7 @@
                                                             <Paragraph>
                                                               <TextRuns>
                                                                 <TextRun>
-                                                                  <Value>=First(Fields!Shipment_Date.Value, "DataSet_Result")</Value>
+                                                                  <Value>=First(Fields!Receipt_Date.Value, "DataSet_Result")</Value>
                                                                   <Style>
                                                                     <FontSize>8pt</FontSize>
                                                                   </Style>
@@ -583,13 +583,13 @@
                                             <TablixBody>
                                               <TablixColumns>
                                                 <TablixColumn>
-                                                  <Width>1.23709in</Width>
+                                                  <Width>1.23418in</Width>
                                                 </TablixColumn>
                                                 <TablixColumn>
-                                                  <Width>5.16051in</Width>
+                                                  <Width>5.13968in</Width>
                                                 </TablixColumn>
                                                 <TablixColumn>
-                                                  <Width>1.05014in</Width>
+                                                  <Width>1.07388in</Width>
                                                 </TablixColumn>
                                               </TablixColumns>
                                               <TablixRows>
@@ -695,14 +695,14 @@
                                                     </TablixCell>
                                                     <TablixCell>
                                                       <CellContents>
-                                                        <Textbox Name="Textbox1">
+                                                        <Textbox Name="Textbox51">
                                                           <CanGrow>true</CanGrow>
                                                           <KeepTogether>true</KeepTogether>
                                                           <Paragraphs>
                                                             <Paragraph>
                                                               <TextRuns>
                                                                 <TextRun>
-                                                                  <Value>=Fields!ShippedQtyLbl.Value</Value>
+                                                                  <Value>=Fields!ReceveidQtyLbl.Value</Value>
                                                                   <Style>
                                                                     <FontSize>8pt</FontSize>
                                                                     <FontWeight>Bold</FontWeight>
@@ -714,7 +714,7 @@
                                                               </Style>
                                                             </Paragraph>
                                                           </Paragraphs>
-                                                          <rd:DefaultName>Textbox1</rd:DefaultName>
+                                                          <rd:DefaultName>Textbox51</rd:DefaultName>
                                                           <Style>
                                                             <Border>
                                                               <Style>Solid</Style>
@@ -846,7 +846,7 @@
                                                     </TablixCell>
                                                     <TablixCell>
                                                       <CellContents>
-                                                        <Textbox Name="Textbox5">
+                                                        <Textbox Name="Textbox52">
                                                           <CanGrow>true</CanGrow>
                                                           <KeepTogether>true</KeepTogether>
                                                           <Paragraphs>
@@ -864,28 +864,11 @@
                                                               </Style>
                                                             </Paragraph>
                                                           </Paragraphs>
-                                                          <rd:DefaultName>Textbox5</rd:DefaultName>
+                                                          <rd:DefaultName>Textbox52</rd:DefaultName>
                                                           <Style>
                                                             <Border>
-                                                              <Color>LightGrey</Color>
                                                               <Style>Solid</Style>
                                                             </Border>
-                                                            <TopBorder>
-                                                              <Color>Black</Color>
-                                                              <Style>Solid</Style>
-                                                            </TopBorder>
-                                                            <BottomBorder>
-                                                              <Color>Black</Color>
-                                                              <Style>Solid</Style>
-                                                            </BottomBorder>
-                                                            <LeftBorder>
-                                                              <Color>Black</Color>
-                                                              <Style>Solid</Style>
-                                                            </LeftBorder>
-                                                            <RightBorder>
-                                                              <Color>Black</Color>
-                                                              <Style>Solid</Style>
-                                                            </RightBorder>
                                                             <PaddingLeft>2pt</PaddingLeft>
                                                             <PaddingRight>2pt</PaddingRight>
                                                             <PaddingTop>2pt</PaddingTop>
@@ -2604,11 +2587,11 @@ AAAAAAAAAECjsYAGAAAAAAAAAAAAAAAAjcYCGgAAAAAAAAAAAAAAADQaC2gAAAAAAAAAAAAAAADQaCyg
         <Field Name="Transfer_Order_No_">
           <DataField>Transfer_Order_No_</DataField>
         </Field>
+        <Field Name="Receipt_Date">
+          <DataField>Receipt_Date</DataField>
+        </Field>
         <Field Name="Transfer_Order_Date">
           <DataField>Transfer_Order_Date</DataField>
-        </Field>
-        <Field Name="Shipment_Date">
-          <DataField>Shipment_Date</DataField>
         </Field>
         <Field Name="Posting_Date">
           <DataField>Posting_Date</DataField>
@@ -2730,8 +2713,8 @@ AAAAAAAAAECjsYAGAAAAAAAAAAAAAAAAjcYCGgAAAAAAAAAAAAAAADQaC2gAAAAAAAAAAAAAAADQaCyg
         <Field Name="DestinationLbl">
           <DataField>DestinationLbl</DataField>
         </Field>
-        <Field Name="ShippedQtyLbl">
-          <DataField>ShippedQtyLbl</DataField>
+        <Field Name="ReceveidQtyLbl">
+          <DataField>ReceveidQtyLbl</DataField>
         </Field>
         <Field Name="LineNo_Line">
           <DataField>LineNo_Line</DataField>
