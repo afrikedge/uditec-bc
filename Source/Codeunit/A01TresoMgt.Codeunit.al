@@ -418,6 +418,8 @@ codeunit 50007 "A01 Treso Mgt"
         else
             GenJnlLine."Document Type" := GenJnlLine."Document Type"::Payment;
 
+        GenJnlLine.Validate("Payment Method Code", RCPaymentMethod."Payment Method");
+        GenJnlLine."Payment Reference" := SalesPaymentLine.Reference;
 
         SetBalAccAndApplyToDocNo(RCPaymentMethod, GenJnlLine, DocType, DocNo);
 
@@ -976,8 +978,8 @@ codeunit 50007 "A01 Treso Mgt"
 
         if (RCPaymentMethod."Bal. Account No." = '') then
             exit(false);
-        if (SalesPaymentLine."Validated Amount" <= 0) then
-            exit(false);
+        //if (SalesPaymentLine."Validated Amount" <= 0) then
+        //    exit(false);
         if (SalesPaymentLine."Validated Amount" <> SalesPaymentLine.Amount) then
             exit(false);
         exit(true);

@@ -151,12 +151,13 @@ codeunit 50000 "A01 Sales Order Processing"
     procedure CheckIsAwaitingPrepayment(var SalesH: Record "Sales Header")
     var
         DescrLabel: Label '%1 %2/%3', Comment = '%1=x,%2=x,%3=x,';
+        LabelOrder: Label 'Order';
         DescrText: Text;
     begin
         if NeedPrepayment(SalesH) then begin
             if (SalesH."A01 Processing Status" <> SalesH."A01 Processing Status"::"Waiting for prepayment") then begin
 
-                DescrText := StrSubstNo(DescrLabel, Format(SalesH."Document Type"), SalesH."No.", SalesH."Sell-to Customer Name");
+                DescrText := StrSubstNo(DescrLabel, LabelOrder, SalesH."No.", SalesH."Sell-to Customer Name");
                 SalesH."Prepmt. Posting Description" := CopyStr(DescrText, 1, 100);
                 SalesH."A01 Processing Status" := SalesH."A01 Processing Status"::"Waiting for prepayment";
                 SalesH.Modify();

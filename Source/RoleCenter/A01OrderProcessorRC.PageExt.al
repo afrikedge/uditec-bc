@@ -375,9 +375,16 @@ pageextension 50002 "A01 Order Processor RC" extends "Order Processor Role Cente
                 action(A01ReinitCreditLimit)
                 {
                     ApplicationArea = Basic, Suite;
-                    Caption = 'Item Promotion List';
+                    Caption = 'Reset Credit Limit';
                     RunObject = Report "A01 Renitialise Credit Limit";
                 }
+                action(A01ApprovTransfertList)
+                {
+                    ApplicationArea = Basic, Suite;
+                    Caption = 'Transfer list to approve';
+                    RunObject = Page "A01 Approv Transfert List";
+                }
+
             }
             group(A01AfkCredit)
             {

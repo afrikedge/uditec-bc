@@ -134,15 +134,21 @@ codeunit 50004 "A01 Security Mgt"
 
     end;
 
-    procedure CheckWharehouseUser(ItemJournalLine: Record "Item Journal Line")
+    procedure CheckWharehouseUserOnJournal(ItemJournalLine: Record "Item Journal Line")
+    var
+    begin
+        CheckWharehouseUser(ItemJournalLine."Location Code");
+    end;
+
+    procedure CheckWharehouseUser(LocationCode: Code[20])
     var
         Location: Record Location;
         WarehouseEmp: Record "Warehouse Employee";
         ErrLbl: Label 'You are not authorized to use this location : %1', Comment = '%1=bank';
 
     begin
-        if (ItemJournalLine."Location Code" <> '') then
-            if (Location.get(ItemJournalLine."Location Code")) then begin
+        if (LocationCode <> '') then
+            if (Location.get(LocationCode)) then begin
                 WarehouseEmp.Reset();
                 WarehouseEmp.SetRange("Location Code", Location.Code);
                 WarehouseEmp.SetRange("User Id", UserId);
