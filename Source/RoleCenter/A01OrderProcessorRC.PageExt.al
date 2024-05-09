@@ -372,7 +372,12 @@ pageextension 50002 "A01 Order Processor RC" extends "Order Processor Role Cente
                     Caption = 'Item Promotion List';
                     RunObject = Page "A01 Item Promotion List";
                 }
-
+                action(A01ReinitCreditLimit)
+                {
+                    ApplicationArea = Basic, Suite;
+                    Caption = 'Item Promotion List';
+                    RunObject = Report "A01 Renitialise Credit Limit";
+                }
             }
             group(A01AfkCredit)
             {

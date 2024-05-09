@@ -29,10 +29,24 @@ table 50012 "A01 Cust Scoring Requirement"
         {
             Caption = 'Requirement Status';
         }
+        field(6; "Sales Mode"; Code[20])
+        {
+            Caption = 'Sales Mode';
+            TableRelation = "Dimension Value".Code where("Global Dimension No." = const(3));
+            DataClassification = CustomerContent;
+        }
+        // field(7; "Criteria Status"; Enum "A01 Customer Criteria Status")
+        // {
+        //     Caption = 'Criteria Status';
+        // }
+        field(8; "Income Orientation"; Enum "A01 Cust Criteria Income Dir")
+        {
+            Caption = 'Income Orientation';
+        }
     }
     keys
     {
-        key(PK; "Customer Type", "Legal Form", "Identification Mode", "Scoring Criteria")
+        key(PK; "Customer Type", "Legal Form", "Identification Mode", "Scoring Criteria", "Sales Mode")
         {
             Clustered = true;
         }

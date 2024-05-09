@@ -83,12 +83,12 @@ tableextension 50000 "A01 Sales Header" extends "Sales Header"
             Caption = 'System Decision';
             DataClassification = CustomerContent;
         }
-        field(50013; "A01 Analyst Opinion"; Enum "A01 Eligibility Opinion")
+        field(50013; "A01 Analyst Opinion"; Enum "A01 Credit Request Opinion")
         {
             Caption = 'Analyst Opinion';
             DataClassification = CustomerContent;
         }
-        field(50014; "A01 Investigator Opinion"; Enum "A01 Eligibility Opinion")
+        field(50014; "A01 Investigator Opinion"; Enum "A01 Credit Request Opinion")
         {
             Caption = 'Investigator Opinion';
             DataClassification = CustomerContent;
@@ -184,6 +184,33 @@ tableextension 50000 "A01 Sales Header" extends "Sales Header"
             DataClassification = CustomerContent;
             TableRelation = if ("A01 Joint Type" = const(Contact)) Contact else if ("A01 Joint Type" = const(Customer)) Customer;
         }
+        field(50024; "A01 Collection Opinion"; Enum "A01 Credit Request Opinion")
+        {
+            Caption = 'Collection Opinion';
+            DataClassification = CustomerContent;
+        }
+        field(50025; "A01 Manager Opinion"; Enum "A01 Credit Request Opinion")
+        {
+            Caption = 'Manager Opinion';
+            DataClassification = CustomerContent;
+        }
+        field(50026; "A01 Manager Comments"; Text[200])
+        {
+            Caption = 'Manager Comments';
+            DataClassification = CustomerContent;
+        }
+        field(50027; "A01 Collection Comments"; Text[200])
+        {
+            Caption = 'Collection Comments';
+            DataClassification = CustomerContent;
+        }
+        field(50028; "A01 Investigator Comments"; Text[200])
+        {
+            Caption = 'Collection Comments';
+            DataClassification = CustomerContent;
+        }
+
+
 
         modify("Sell-to Customer No.")
         {

@@ -38,5 +38,12 @@ tableextension 50003 "A01 Responsibility Center" extends "Responsibility Center"
             FieldClass = FlowField;
             CalcFormula = count("A01 Resp Center Item Category" where("Responsability Center Code" = field(Code)));
         }
+        field(50006; "A01 Customer Price Group"; Code[10])
+        {
+            Caption = 'Customer Price Group';
+            TableRelation = "Customer Price Group";
+            DataClassification = CustomerContent;
+        }
+
     }
 }

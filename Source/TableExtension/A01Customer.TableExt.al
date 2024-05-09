@@ -139,6 +139,19 @@ tableextension 50006 "A01 Customer" extends Customer
                     Rec.TestField("A01 Sales Mode", PayTerms."A01 Sales Mode");
             end;
         }
+        modify("Responsibility Center")
+        {
+            trigger OnAfterValidate()
+            var
+                RespCenter: Record "Responsibility Center";
+            begin
+                if (RespCenter.Get("Responsibility Center")) then begin
+                    if (RespCenter."A01 Customer Price Group" <> '') then
+                        if ("Customer Price Group" = '') then
+                            Rec.Validate("Customer Price Group", RespCenter."A01 Customer Price Group");
+                end;
+            end;
+        }
     }
     trigger OnDelete()
     var

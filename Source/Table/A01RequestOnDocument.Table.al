@@ -185,7 +185,19 @@ table 50031 "A01 Request On Document"
         if (Status = Status::"Waiting for investigation") then exit(true);
         if (Status = Status::"Waiting for collection") then exit(true);
         if (Status = Status::"Waiting for manager") then exit(true);
-        if (Status = Status::"Waiting for committee") then exit(true);
+        if (Status = Status::"Waiting for validation") then exit(true);
+        //if (Status = Status::"Validated") then exit(true);
+    end;
+
+    procedure IsOnHoldOrValidated(): Boolean
+    begin
+        if (Status = Status::Initialization) then exit(true);
+        if (Status = Status::"File on hold") then exit(true);
+        if (Status = Status::"Waiting for Analyst") then exit(true);
+        if (Status = Status::"Waiting for investigation") then exit(true);
+        if (Status = Status::"Waiting for collection") then exit(true);
+        if (Status = Status::"Waiting for manager") then exit(true);
+        if (Status = Status::"Waiting for validation") then exit(true);
         if (Status = Status::"Validated") then exit(true);
     end;
 

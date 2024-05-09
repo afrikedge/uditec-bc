@@ -117,7 +117,7 @@ codeunit 50000 "A01 Sales Order Processing"
             CheckIsAwaitingPrepayment(SalesH);
     end;
 
-    local procedure CheckIsBlocked(var SalesH: Record "Sales Header")
+    procedure CheckIsBlocked(var SalesH: Record "Sales Header")
     begin
         if ((IsOutOfCreditLimit(SalesH)) and (not CustomerIsMisc(SalesH))) then begin
             if (SalesH."A01 Processing Status" <> SalesH."A01 Processing Status"::"Blocked") then begin
@@ -150,11 +150,14 @@ codeunit 50000 "A01 Sales Order Processing"
     /// <returns>Return value of type Boolean.</returns>
     procedure CheckIsAwaitingPrepayment(var SalesH: Record "Sales Header")
     var
+        DescrLabel: Label '%1 %2/%3', Comment = '%1=x,%2=x,%3=x,';
+        DescrText: Text;
     begin
         if NeedPrepayment(SalesH) then begin
             if (SalesH."A01 Processing Status" <> SalesH."A01 Processing Status"::"Waiting for prepayment") then begin
 
-                SalesH."Prepmt. Posting Description" := CopyStr(SalesH."Prepmt. Posting Description" + '/' + SalesH."Sell-to Customer Name", 1, 100);
+                DescrText := StrSubstNo(DescrLabel, Format(SalesH."Document Type"), SalesH."No.", SalesH."Sell-to Customer Name");
+                SalesH."Prepmt. Posting Description" := CopyStr(DescrText, 1, 100);
                 SalesH."A01 Processing Status" := SalesH."A01 Processing Status"::"Waiting for prepayment";
                 SalesH.Modify();
 

@@ -78,12 +78,12 @@ tableextension 50002 "A01 Sales Header Archive" extends "Sales Header Archive"
             Caption = 'System Decision';
             DataClassification = CustomerContent;
         }
-        field(50013; "A01 Analyst Opinion"; Enum "A01 Eligibility Opinion")
+        field(50013; "A01 Analyst Opinion"; Enum "A01 Credit Request Opinion")
         {
             Caption = 'Analyst Opinion';
             DataClassification = CustomerContent;
         }
-        field(50014; "A01 Investigator Opinion"; Enum "A01 Eligibility Opinion")
+        field(50014; "A01 Investigator Opinion"; Enum "A01 Credit Request Opinion")
         {
             Caption = 'Investigator Opinion';
             DataClassification = CustomerContent;
@@ -123,6 +123,48 @@ tableextension 50002 "A01 Sales Header Archive" extends "Sales Header Archive"
             Caption = 'Monthly Capacity';
             DataClassification = CustomerContent;
             Editable = false;
+        }
+        field(50021; "A01 Miscellaneous Contact"; Code[20])
+        {
+            Caption = 'Miscellaneous Contact';
+            DataClassification = CustomerContent;
+            TableRelation = Contact;
+        }
+        field(50022; "A01 Joint Type"; Enum "A01 Credit Joint Type")
+        {
+            Caption = 'Joint Type';
+            DataClassification = CustomerContent;
+        }
+        field(50023; "A01 Joint Code"; Code[20])
+        {
+            Caption = 'Joint Code';
+            DataClassification = CustomerContent;
+            TableRelation = if ("A01 Joint Type" = const(Contact)) Contact else if ("A01 Joint Type" = const(Customer)) Customer;
+        }
+        field(50024; "A01 Collection Opinion"; Enum "A01 Credit Request Opinion")
+        {
+            Caption = 'Collection Opinion';
+            DataClassification = CustomerContent;
+        }
+        field(50025; "A01 Manager Opinion"; Enum "A01 Credit Request Opinion")
+        {
+            Caption = 'Manager Opinion';
+            DataClassification = CustomerContent;
+        }
+        field(50026; "A01 Manager Comments"; Text[200])
+        {
+            Caption = 'Manager Comments';
+            DataClassification = CustomerContent;
+        }
+        field(50027; "A01 Collection Comments"; Text[200])
+        {
+            Caption = 'Collection Comments';
+            DataClassification = CustomerContent;
+        }
+        field(50028; "A01 Investigator Comments"; Text[200])
+        {
+            Caption = 'Collection Comments';
+            DataClassification = CustomerContent;
         }
     }
 }

@@ -11,11 +11,17 @@ table 50033 "A01 Payment Document Line"
         field(1; "Document No."; Code[20])
         {
             Caption = 'Document No.';
+            Editable = false;
         }
         field(2; "Payment Method"; Code[10])
         {
             Caption = 'Payment Method';
             TableRelation = "A01 RC Payment Method"."Payment Method" where("Responsability Center" = field("Responsibility Center"));
+            trigger OnValidate()
+            var
+            begin
+                Validate(Amount);
+            end;
         }
         field(3; Reference; Text[30])
         {
@@ -28,21 +34,25 @@ table 50033 "A01 Payment Document Line"
             var
                 PayMethod: Record "Payment Method";
             begin
+                CheckRequestStatus();
                 TestField("Payment Method");
                 PayMethod.Get("Payment Method");
                 if (not PayMethod."A01 Approval required") then
-                    "Validated Amount" := Amount;
+                    "Validated Amount" := Amount
+                else
+                    "Validated Amount" := 0;
             end;
         }
         field(5; "Validated Amount"; Decimal)
         {
             Caption = 'Validated Amount';
-            //Editable = false;
+            Editable = false;
         }
         field(6; "Responsibility Center"; Code[20])
         {
             Caption = 'Responsibility Center';
             TableRelation = "Responsibility Center";
+            Editable = false;
         }
         field(7; "Applies-to ID"; Code[50])
         {
@@ -121,21 +131,27 @@ table 50033 "A01 Payment Document Line"
         "Account No." := PaymentDoc."Partner No.";
         "Currency Code" := PaymentDoc."Currency Code";
 
-        RequestMgt.CheckIfValidationRequestExists(PaymentDoc);
+        RequestMgt.CheckOnHoldRequestAlreadyExists(PaymentDoc);
     end;
 
     trigger OnModify()
     var
     begin
+
+    end;
+
+    local procedure CheckRequestStatus()
+    var
+    begin
         GetHeader();
-        RequestMgt.CheckIfValidationRequestExists(PaymentDoc);
+        RequestMgt.CheckOnHoldRequestAlreadyExists(PaymentDoc);
     end;
 
     trigger OnDelete()
     var
     begin
         GetHeader();
-        RequestMgt.CheckIfValidationRequestExists(PaymentDoc);
+        RequestMgt.CheckOnHoldRequestAlreadyExists(PaymentDoc);
     end;
 
     var

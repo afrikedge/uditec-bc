@@ -78,7 +78,7 @@ codeunit 50002 "A01 EventsSubscribers_Code"
                     if (PostedSalesH."Prepayment Invoice") then
                         if (SalesHeader.Get(SalesHeader."Document Type"::Order, PostedSalesH."Prepayment Order No.")) then
                             if (SalesHeader.Status = SalesHeader.Status::"Pending Prepayment") then
-                                SalesOrderMgt.CheckIsDeliverable(SalesHeader);
+                                SalesOrderMgt.CheckIsBlocked(SalesHeader);
     end;
 
 
@@ -91,7 +91,7 @@ codeunit 50002 "A01 EventsSubscribers_Code"
         TresoMgt: Codeunit "A01 Treso Mgt";
 
     begin
-        TresoMgt.PostBalancingEntries(SalesHeader, GenJnlLineDocNo, GenJnlLineExtDocNo, SrcCode, GenJnlPostLine);
+        TresoMgt.PostBalancingEntriesFromPOS(SalesHeader, GenJnlLineDocNo, GenJnlLineExtDocNo, SrcCode, GenJnlPostLine);
     end;
 
     [EventSubscriber(ObjectType::Codeunit, Codeunit::"Sales-Post", 'OnBeforeRunPostCustomerEntry', '', true, true)]

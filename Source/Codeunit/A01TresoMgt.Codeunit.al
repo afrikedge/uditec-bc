@@ -171,7 +171,7 @@ codeunit 50007 "A01 Treso Mgt"
     /// <param name="PostedInvoiceNo">Code[20].</param>
     /// <param name="ExtDocNo">Code[35].</param>
     /// <param name="SourceCode">Code[10].</param>
-    procedure PostBalancingEntries(SalesHeader: Record "Sales Header"; PostedInvoiceNo: Code[20]; ExtDocNo: Code[35];
+    procedure PostBalancingEntriesFromPOS(SalesHeader: Record "Sales Header"; PostedInvoiceNo: Code[20]; ExtDocNo: Code[35];
     SourceCode: Code[10]; var GenJnlPostLine: Codeunit "Gen. Jnl.-Post Line")
     var
         SalesPaymentLine: Record "A01 Sales Payment Method";
@@ -425,7 +425,8 @@ codeunit 50007 "A01 Treso Mgt"
 
         // GenJnlLine."Orig. Pmt. Disc. Possible" := TotalSalesLine2."Pmt. Discount Amount";
         // GenJnlLine."Orig. Pmt. Disc. Possible(LCY)" :=
-        //     CurrExchRate.ExchangeAmtFCYToLCY(
+        //     CurrExchRate.ExchangeAmtFCYToLCY(7
+
         //         SalesHeader.GetUseDate(), SalesHeader."Currency Code", TotalSalesLine2."Pmt. Discount Amount", SalesHeader."Currency Factor");
 
         GenJnlPostLine.RunWithCheck(GenJnlLine);

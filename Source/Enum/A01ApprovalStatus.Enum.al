@@ -29,9 +29,9 @@ enum 50037 "A01 Approval Status"
     {
         Caption = 'Waiting for manager';
     }
-    value(6; "Waiting for committee")
+    value(6; "Waiting for validation")
     {
-        Caption = 'Waiting for committee';
+        Caption = 'Waiting for validation';
     }
     value(7; "Validated under conditions")
     {

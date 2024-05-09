@@ -24,6 +24,10 @@ pageextension 50018 "A01 Item Category Card" extends "Item Category Card"
             {
                 ApplicationArea = Basic, Suite;
             }
+            field("A01 Point"; Rec."A01 Point")
+            {
+                ApplicationArea = Basic, Suite;
+            }
         }
     }
 }

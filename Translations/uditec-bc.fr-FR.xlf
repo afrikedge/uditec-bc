@@ -886,6 +886,12 @@
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Table A01 Cust Scoring Requirement - Field Identification Mode - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Table 1676149853 - Field 3448325599 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Income Orientation</source>
+          <target state="needs-review-translation">Sens du revenu</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Table A01 Cust Scoring Requirement - Field Income Orientation - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Table 1676149853 - Field 1236099967 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Legal Form</source>
           <target state="needs-review-translation">Forme juridique</target>
@@ -897,6 +903,12 @@
           <target state="needs-review-translation">Statut de l'exigence</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Table A01 Cust Scoring Requirement - Field Requirement Status - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 1676149853 - Field 261420221 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Sales Mode</source>
+          <target state="needs-review-translation">Mode de vente</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Table A01 Cust Scoring Requirement - Field Sales Mode - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 1676149853 - Field 3656532586 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Scoring Criteria</source>
@@ -957,6 +969,18 @@
           <target state="needs-review-translation">Niveau de risque</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Table A01 Customer Debt Status - Field Risk Level - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3938211033 - Field 1117990278 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>WSCA Point</source>
+          <target state="needs-review-translation">Point WSCA </target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Table A01 Customer Debt Status - Field WSCA Point - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3938211033 - Field 2971608374 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>WSSA Point</source>
+          <target state="needs-review-translation">Point WSSA </target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Table A01 Customer Debt Status - Field WSSA Point - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 1951690395 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Customer Scoring</source>
@@ -3541,17 +3565,17 @@
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit A01 Document Request Mgt - Method CheckDocPaymentOnCreation - NamedType ErrLbl01</note>
         </trans-unit>
-        <trans-unit id="Codeunit 2173010692 - Method 4140990669 - NamedType 2102311231" size-unit="char" translate="yes" xml:space="preserve">
+        <trans-unit id="Codeunit 2173010692 - Method 1611294656 - NamedType 2102311231" size-unit="char" translate="yes" xml:space="preserve">
           <source>A pending request already exists for this document</source>
           <target state="needs-review-translation">Une demande encours existe déjà pour ce document</target>
           <note from="Developer" annotates="general" priority="2"/>
-          <note from="Xliff Generator" annotates="general" priority="3">Codeunit A01 Document Request Mgt - Method CheckIfValidationRequestExists - NamedType LblAnotherRecExists</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit A01 Document Request Mgt - Method CheckNonValidatedRequestAlreadyExists - NamedType LblAnotherRecExists</note>
         </trans-unit>
-        <trans-unit id="Codeunit 2173010692 - Method 4140990669 - NamedType 3165315473" size-unit="char" translate="yes" xml:space="preserve">
+        <trans-unit id="Codeunit 2173010692 - Method 3439628369 - NamedType 2102311231" size-unit="char" translate="yes" xml:space="preserve">
           <source>A pending request already exists for this document</source>
           <target state="needs-review-translation">Une demande encours existe déjà pour ce document</target>
           <note from="Developer" annotates="general" priority="2"/>
-          <note from="Xliff Generator" annotates="general" priority="3">Codeunit A01 Document Request Mgt - Method CheckIfValidationRequestExists - NamedType LblAnotherRecExists02</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit A01 Document Request Mgt - Method CheckOnHoldRequestAlreadyExists - NamedType LblAnotherRecExists</note>
         </trans-unit>
         <trans-unit id="Codeunit 2173010692 - Method 270035348 - NamedType 992822970" size-unit="char" translate="yes" xml:space="preserve">
           <source>The amount to validate does not exist on this document</source>
@@ -3659,6 +3683,12 @@
           <target state="needs-review-translation">La commande sera retournée en saisie. Voulez-vous continuer ?</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit A01 Sales Order Processing - NamedType QstSetAsDraft</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 4233996319 - Method 4062852933 - NamedType 1671038783" size-unit="char" translate="yes" xml:space="preserve">
+          <source>%1 %2/%3</source>
+          <target state="needs-review-translation">%1 %2/%3</target>
+          <note from="Developer" annotates="general" priority="2">%1=x,%2=x,%3=x,</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit A01 Sales Order Processing - Method CheckIsAwaitingPrepayment - NamedType DescrLabel</note>
         </trans-unit>
         <trans-unit id="Codeunit 4233996319 - Method 786011703 - NamedType 1412695557" size-unit="char" translate="yes" xml:space="preserve">
           <source>Order document %1 has no lines</source>
@@ -16859,6 +16889,12 @@
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension A01 Contact - Field A01 Credit Limit - Property Caption</note>
         </trans-unit>
+        <trans-unit id="TableExtension 1119515148 - Field 1506815378 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 3993128796">
+          <source>Customer Price Group</source>
+          <target state="needs-review-translation">Code groupe de prix</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension A01 Contact - Field A01 Customer Price Group - Property Caption</note>
+        </trans-unit>
         <trans-unit id="TableExtension 1119515148 - Field 3407316512 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 3993128796">
           <source>Customer Type</source>
           <target state="needs-review-translation">Type client</target>
@@ -17277,6 +17313,12 @@
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension A01 Item Category - Field A01 Non Eligible credit sales - Property Caption</note>
         </trans-unit>
+        <trans-unit id="TableExtension 734924759 - Field 2137574776 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1487222247">
+          <source>Point</source>
+          <target state="needs-review-translation">Point</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension A01 Item Category - Field A01 Point - Property Caption</note>
+        </trans-unit>
         <trans-unit id="TableExtension 437216527 - Field 2945672636 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 3891454143">
           <source>Sales Blocked</source>
           <target state="needs-review-translation">Bloquer les ventes</target>
@@ -17523,6 +17565,12 @@
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension A01 Reminder Line - Field A01 Debt Status - Property Caption</note>
         </trans-unit>
+        <trans-unit id="TableExtension 3046274025 - Field 1506815378 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 2247850105">
+          <source>Customer Price Group</source>
+          <target state="needs-review-translation">Code groupe de prix</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension A01 Responsibility Center - Field A01 Customer Price Group - Property Caption</note>
+        </trans-unit>
         <trans-unit id="TableExtension 3046274025 - Field 919133785 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 2247850105">
           <source>Default Customer</source>
           <target state="needs-review-translation">Client par défaut</target>
@@ -17583,6 +17631,18 @@
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension A01 Sales Header - Field A01 Analyst Opinion - Property Caption</note>
         </trans-unit>
+        <trans-unit id="TableExtension 1143019865 - Field 732484250 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1192395785">
+          <source>Collection Comments</source>
+          <target state="needs-review-translation">Commentaires Recouvrement</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension A01 Sales Header - Field A01 Collection Comments - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 1143019865 - Field 933231442 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1192395785">
+          <source>Collection Opinion</source>
+          <target state="needs-review-translation">Avis Recouvrement</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension A01 Sales Header - Field A01 Collection Opinion - Property Caption</note>
+        </trans-unit>
         <trans-unit id="TableExtension 1143019865 - Field 2992570782 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1192395785">
           <source>Credit Duration (Month)</source>
           <target state="needs-review-translation">Durée du crédit (Mois)</target>
@@ -17613,6 +17673,12 @@
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension A01 Sales Header - Field A01 Interest rate - Property Caption</note>
         </trans-unit>
+        <trans-unit id="TableExtension 1143019865 - Field 1088331751 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1192395785">
+          <source>Collection Comments</source>
+          <target state="needs-review-translation">Commentaires Recouvrement</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension A01 Sales Header - Field A01 Investigator Comments - Property Caption</note>
+        </trans-unit>
         <trans-unit id="TableExtension 1143019865 - Field 881529799 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1192395785">
           <source>Investigator Opinion</source>
           <target state="needs-review-translation">Avis Enquêteur</target>
@@ -17630,6 +17696,18 @@
           <target state="needs-review-translation">Type joint</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension A01 Sales Header - Field A01 Joint Type - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 1143019865 - Field 2858025237 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1192395785">
+          <source>Manager Comments</source>
+          <target state="needs-review-translation">Commentaires Responsable</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension A01 Sales Header - Field A01 Manager Comments - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 1143019865 - Field 2515840389 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1192395785">
+          <source>Manager Opinion</source>
+          <target state="needs-review-translation">Avis Responsable</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension A01 Sales Header - Field A01 Manager Opinion - Property Caption</note>
         </trans-unit>
         <trans-unit id="TableExtension 1143019865 - Field 2236380998 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1192395785">
           <source>Miscellaneous Contact</source>
@@ -17727,6 +17805,18 @@
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension A01 Sales Header Archive - Field A01 Analyst Opinion - Property Caption</note>
         </trans-unit>
+        <trans-unit id="TableExtension 2954665223 - Field 732484250 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1948788855">
+          <source>Collection Comments</source>
+          <target state="needs-review-translation">Commentaires Recouvrement</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension A01 Sales Header Archive - Field A01 Collection Comments - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 2954665223 - Field 933231442 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1948788855">
+          <source>Collection Opinion</source>
+          <target state="needs-review-translation">Avis Recouvrement</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension A01 Sales Header Archive - Field A01 Collection Opinion - Property Caption</note>
+        </trans-unit>
         <trans-unit id="TableExtension 2954665223 - Field 2992570782 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1948788855">
           <source>Credit Duration (Month)</source>
           <target state="needs-review-translation">Durée du crédit (Mois)</target>
@@ -17757,11 +17847,47 @@
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension A01 Sales Header Archive - Field A01 Interest rate - Property Caption</note>
         </trans-unit>
+        <trans-unit id="TableExtension 2954665223 - Field 1088331751 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1948788855">
+          <source>Collection Comments</source>
+          <target state="needs-review-translation">Commentaires Recouvrement</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension A01 Sales Header Archive - Field A01 Investigator Comments - Property Caption</note>
+        </trans-unit>
         <trans-unit id="TableExtension 2954665223 - Field 881529799 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1948788855">
           <source>Investigator Opinion</source>
           <target state="needs-review-translation">Avis Enquêteur</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension A01 Sales Header Archive - Field A01 Investigator Opinion - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 2954665223 - Field 1083394501 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1948788855">
+          <source>Joint Code</source>
+          <target state="needs-review-translation">Code Garant</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension A01 Sales Header Archive - Field A01 Joint Code - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 2954665223 - Field 2959124146 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1948788855">
+          <source>Joint Type</source>
+          <target state="needs-review-translation">Type Garant</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension A01 Sales Header Archive - Field A01 Joint Type - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 2954665223 - Field 2858025237 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1948788855">
+          <source>Manager Comments</source>
+          <target state="needs-review-translation">Commentaires Responsable</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension A01 Sales Header Archive - Field A01 Manager Comments - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 2954665223 - Field 2515840389 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1948788855">
+          <source>Manager Opinion</source>
+          <target state="needs-review-translation">Avis Responsable</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension A01 Sales Header Archive - Field A01 Manager Opinion - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 2954665223 - Field 2236380998 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1948788855">
+          <source>Miscellaneous Contact</source>
+          <target state="needs-review-translation">Contact divers</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension A01 Sales Header Archive - Field A01 Miscellaneous Contact - Property Caption</note>
         </trans-unit>
         <trans-unit id="TableExtension 2954665223 - Field 1899859051 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1948788855">
           <source>Monthly Capacity</source>
@@ -17853,6 +17979,18 @@
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension A01 Sales Invoice Header - Field A01 Analyst Opinion - Property Caption</note>
         </trans-unit>
+        <trans-unit id="TableExtension 1507475930 - Field 732484250 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 809936682">
+          <source>Collection Comments</source>
+          <target state="needs-review-translation">Commentaires Recouvrement</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension A01 Sales Invoice Header - Field A01 Collection Comments - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 1507475930 - Field 933231442 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 809936682">
+          <source>Collection Opinion</source>
+          <target state="needs-review-translation">Avis Recouvrement</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension A01 Sales Invoice Header - Field A01 Collection Opinion - Property Caption</note>
+        </trans-unit>
         <trans-unit id="TableExtension 1507475930 - Field 2992570782 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 809936682">
           <source>Credit Duration (Month)</source>
           <target state="needs-review-translation">Durée du crédit (Mois)</target>
@@ -17883,11 +18021,47 @@
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension A01 Sales Invoice Header - Field A01 Interest rate - Property Caption</note>
         </trans-unit>
+        <trans-unit id="TableExtension 1507475930 - Field 1088331751 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 809936682">
+          <source>Collection Comments</source>
+          <target state="needs-review-translation">Commentaires Recouvrement</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension A01 Sales Invoice Header - Field A01 Investigator Comments - Property Caption</note>
+        </trans-unit>
         <trans-unit id="TableExtension 1507475930 - Field 881529799 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 809936682">
           <source>Investigator Opinion</source>
           <target state="needs-review-translation">Opinion de l'enquêteur</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension A01 Sales Invoice Header - Field A01 Investigator Opinion - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 1507475930 - Field 1083394501 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 809936682">
+          <source>Joint Code</source>
+          <target state="needs-review-translation">Code Garant</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension A01 Sales Invoice Header - Field A01 Joint Code - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 1507475930 - Field 2959124146 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 809936682">
+          <source>Joint Type</source>
+          <target state="needs-review-translation">Type Garant</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension A01 Sales Invoice Header - Field A01 Joint Type - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 1507475930 - Field 2858025237 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 809936682">
+          <source>Manager Comments</source>
+          <target state="needs-review-translation">Commentaires Responsable</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension A01 Sales Invoice Header - Field A01 Manager Comments - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 1507475930 - Field 2515840389 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 809936682">
+          <source>Manager Opinion</source>
+          <target state="needs-review-translation">Avis Responsable</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension A01 Sales Invoice Header - Field A01 Manager Opinion - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 1507475930 - Field 2236380998 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 809936682">
+          <source>Miscellaneous Contact</source>
+          <target state="needs-review-translation">Contact divers</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension A01 Sales Invoice Header - Field A01 Miscellaneous Contact - Property Caption</note>
         </trans-unit>
         <trans-unit id="TableExtension 1507475930 - Field 1899859051 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 809936682">
           <source>Monthly Capacity</source>
@@ -18462,12 +18636,6 @@
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Enum A01 Approval Status - EnumValue Waiting for collection - Property Caption</note>
         </trans-unit>
-        <trans-unit id="Enum 1845479245 - EnumValue 990284919 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Waiting for committee</source>
-          <target state="needs-review-translation">Attente Comité</target>
-          <note from="Developer" annotates="general" priority="2"/>
-          <note from="Xliff Generator" annotates="general" priority="3">Enum A01 Approval Status - EnumValue Waiting for committee - Property Caption</note>
-        </trans-unit>
         <trans-unit id="Enum 1845479245 - EnumValue 1942421940 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Waiting for investigation</source>
           <target state="needs-review-translation">Attente enquête</target>
@@ -18479,6 +18647,12 @@
           <target state="needs-review-translation">Attente manager</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Enum A01 Approval Status - EnumValue Waiting for manager - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 1845479245 - EnumValue 3076058365 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Waiting for validation</source>
+          <target state="needs-review-translation">Attente validation</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum A01 Approval Status - EnumValue Waiting for validation - Property Caption</note>
         </trans-unit>
         <trans-unit id="Enum 3247777777 - EnumValue 1682139193 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Bank Account</source>
@@ -18540,6 +18714,31 @@
           <target state="needs-review-translation">Client</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Enum A01 Credit Joint Type - EnumValue Customer - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 342674544 - EnumValue 1371923692 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source> </source>
+          <target state="needs-translation">
+          </target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum A01 Credit Request Opinion - EnumValue   - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 342674544 - EnumValue 832063177 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Doubtful</source>
+          <target state="needs-review-translation">Douteux</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum A01 Credit Request Opinion - EnumValue Doubtful - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 342674544 - EnumValue 1842024162 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Favorable</source>
+          <target state="needs-review-translation">Favorable</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum A01 Credit Request Opinion - EnumValue Favorable - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 342674544 - EnumValue 2815170053 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Not Favorable</source>
+          <target state="needs-review-translation">Non favorable</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum A01 Credit Request Opinion - EnumValue Not Favorable - Property Caption</note>
         </trans-unit>
         <trans-unit id="Enum 2474205286 - EnumValue 2206777117 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Awaiting Verification</source>
@@ -18619,6 +18818,18 @@
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Enum A01 Credit Validation Status - EnumValue Waiting for manager - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Enum 3348533842 - EnumValue 2274978501 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Negative</source>
+          <target state="needs-review-translation">Négatif</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum A01 Cust Criteria Income Dir - EnumValue Negative - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 3348533842 - EnumValue 629037869 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Positive</source>
+          <target state="needs-review-translation">Positif</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum A01 Cust Criteria Income Dir - EnumValue Positive - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Enum 3921875396 - EnumValue 1371923692 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Not applied</source>
           <target state="needs-review-translation">Non appliqué</target>
@@ -18642,6 +18853,24 @@
           <target state="needs-review-translation">Carte de résidence</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Enum A01 Cust Identification Mode - EnumValue Residency card - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 154337366 - EnumValue 904185626 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Conditional</source>
+          <target state="needs-review-translation">Conditionnel</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum A01 Cust Requirement Status - EnumValue Conditional - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 154337366 - EnumValue 1957380309 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Income</source>
+          <target state="needs-review-translation">Revenu</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum A01 Cust Requirement Status - EnumValue Income - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 154337366 - EnumValue 4162458754 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Joint</source>
+          <target state="needs-review-translation">Garant</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum A01 Cust Requirement Status - EnumValue Joint - Property Caption</note>
         </trans-unit>
         <trans-unit id="Enum 154337366 - EnumValue 1461151337 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Mandatory</source>
@@ -19485,6 +19714,13 @@
           <target state="needs-review-translation">En attente acompte</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Enum A01 SO Processing Status - EnumValue Waiting for prepayment - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 3900111559 - EnumValue 1371923692 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source> </source>
+          <target state="needs-translation">
+          </target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum A01 System Decision - EnumValue   - Property Caption</note>
         </trans-unit>
         <trans-unit id="Enum 3900111559 - EnumValue 2377523349 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Arbitration</source>

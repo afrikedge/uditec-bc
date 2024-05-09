@@ -35,5 +35,10 @@ tableextension 50015 "A01 Item Category" extends "Item Category"
             Caption = 'Non Eligible for credit sales';
             DataClassification = CustomerContent;
         }
+        field(50011; "A01 Point"; Decimal)
+        {
+            Caption = 'Point';
+            DataClassification = CustomerContent;
+        }
     }
 }
