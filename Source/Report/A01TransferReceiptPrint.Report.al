@@ -1,36 +1,35 @@
 /// <summary>
-/// Report A01 Transfer Order Print (ID 50005).
+/// Report A01 Transfer Receipt Print (ID 50026).
 /// </summary>
-report 50005 "A01 TransferOrderPrint"
+report 50026 "A01 TransferReceiptPrint"
 {
-    Caption = 'A01 Transfer order print';
+    Caption = 'A01 Transfer receipt print';
     UsageCategory = ReportsAndAnalysis;
     ApplicationArea = All;
     DefaultLayout = RDLC;
     PreviewMode = PrintLayout;
     EnableHyperlinks = true;
     WordMergeDataItem = Header;
-    RDLCLayout = './Source/Report/Layout/TransferOrderPrint.rdl';
+    RDLCLayout = './Source/Report/Layout/TransferReceiptPrint.rdl';
 
     dataset
     {
-        dataitem(Header; "Transfer Shipment Header")
+        dataitem(Header; "Transfer Receipt Header")
         {
             DataItemTableView = sorting("No.");
             RequestFilterFields = "No.", "Transfer-from Code", "Transfer-to Code";
-            RequestFilterHeading = 'Transfer Order';
+            RequestFilterHeading = 'Transfer Receipt';
             column(DocumentNo_; "No.")
             {
             }
             column(Transfer_Order_No_; "Transfer Order No.")
             {
             }
-            column(Transfer_Order_Date; Format("Transfer Order Date"))
+            column(Receipt_Date; Format("Receipt Date"))
             {
             }
-            column(Shipment_Date; Format("Shipment Date"))
+            column(Transfer_Order_Date; Format("Transfer Order Date"))
             {
-
             }
             column(Posting_Date; Format("Posting Date"))
             {
@@ -152,10 +151,10 @@ report 50005 "A01 TransferOrderPrint"
             column(DestinationLbl; DestinationLbl)
             {
             }
-            column(ShippedQtyLbl; ShippedQtyLbl)
+            column(ReceveidQtyLbl; ReceveidQtyLbl)
             {
             }
-            dataitem(Line; "Transfer Shipment Line")
+            dataitem(Line; "Transfer Receipt Line")
             {
                 DataItemLinkReference = Header;
                 DataItemLink = "Document No." = field("No.");
@@ -215,20 +214,20 @@ report 50005 "A01 TransferOrderPrint"
         UnitAddress: Text[100];
         UnitCity: Text[50];
         UnitPostalCode: Text[50];
-        ReportTitleLbl: Label 'TRANSFER ORDER';
+        ReportTitleLbl: Label 'TRANSFER RECEIPT';
         UnitNameLbl: Label 'Warehouse name :';
         UnitAddressLbl: Label 'Warehouse address :';
         UnitCityLbl: Label 'City';
         UnitPostalCodeLbl: Label 'Postal code :';
         TransferNumberLbl: Label 'Transfer order N° :';
-        DeleveryNoteDateLbl: Label 'Transfer date :';
+        DeleveryNoteDateLbl: Label 'Receipt date :';
         ProductCodeLbl: Label 'Product code';
         ProductSerialNumberLbl: Label 'product serial number';
         DesignationLbl: Label 'Designation';
         ProductLocationLbl: Label 'Product Location';
         OriginLocationLbl: Label 'Transfer origin location';
         DestinationLocationLbl: Label 'Transfer destination location';
-        ShippedQtyLbl: Label 'Shipped quantity';
+        ReceveidQtyLbl: Label 'Received quantity';
         IssuerSignLbl: Label 'Issuer signature';
         ReceiverSignLbl: Label 'Receiver signature';
         LogistiqueSignLbl: Label 'Logistique signature';
