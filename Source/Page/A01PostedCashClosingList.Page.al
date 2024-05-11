@@ -6,7 +6,7 @@ page 50078 "A01 Posted Cash Closing List"
     ApplicationArea = All;
     Caption = 'Cashbox Closing List';
     PageType = List;
-    SourceTable = "A01 Cashbox closing";
+    SourceTable = "A01 Cashbox Closing";
     SourceTableView = where(Status = const(Posted));
     CardPageId = "A01 Posted Cashbox Closing";
     UsageCategory = Lists;

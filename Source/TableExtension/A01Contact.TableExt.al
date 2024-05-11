@@ -157,6 +157,7 @@ tableextension 50005 "A01 Contact" extends Contact
         {
             Caption = 'Credit Limit';
             DataClassification = CustomerContent;
+            InitValue = 1;
         }
         field(50108; "A01 Contact Type"; Enum "A01 Contact Type")
         {
@@ -164,5 +165,23 @@ tableextension 50005 "A01 Contact" extends Contact
             DataClassification = CustomerContent;
             Editable = false;
         }
+        field(50109; "A01 Customer Price Group"; Code[10])
+        {
+            Caption = 'Customer Price Group';
+            TableRelation = "Customer Price Group";
+            DataClassification = CustomerContent;
+        }
+
     }
+    trigger OnInsert()
+    var
+        ParamUser: Record "User Setup";
+        RespCenter: Record "Responsibility Center";
+    begin
+        if (ParamUser.Get(UserId)) then
+            if (RespCenter.Get(ParamUser."Sales Resp. Ctr. Filter")) then
+                if (RespCenter."A01 Customer Price Group" <> '') then
+                    if ("A01 Customer Price Group" = '') then
+                        "A01 Customer Price Group" := RespCenter."A01 Customer Price Group";
+    end;
 }

@@ -8,6 +8,14 @@ pageextension 50036 "A01 Location Card" extends "Location Card"
             {
                 ApplicationArea = Basic, Suite;
             }
+            field("A01 Transfer Val Required"; Rec."A01 Transfer Val Required")
+            {
+                ApplicationArea = Basic, Suite;
+            }
+            field("A01 Transfer Val Manager"; Rec."A01 Transfer Val Manager")
+            {
+                ApplicationArea = Basic, Suite;
+            }
         }
     }
 }

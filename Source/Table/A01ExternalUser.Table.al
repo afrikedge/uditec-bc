@@ -58,6 +58,15 @@ table 50001 "A01 External User"
         {
             Editable = false;
             Caption = 'BC User Id';
+            TableRelation = User."User Name";
+            ValidateTableRelation = false;
+
+            trigger OnValidate()
+            var
+                UserSelection: Codeunit "User Selection";
+            begin
+                UserSelection.ValidateUserName("BCUserId");
+            end;
         }
         field(11; "Sales Person Code"; Code[20])
         {

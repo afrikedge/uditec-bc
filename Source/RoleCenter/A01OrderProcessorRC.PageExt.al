@@ -185,6 +185,12 @@ pageextension 50002 "A01 Order Processor RC" extends "Order Processor Role Cente
                     Caption = 'External users';
                     RunObject = Page "A01 External Users";
                 }
+                action(A01ExternalFunctions)
+                {
+                    ApplicationArea = Basic, Suite;
+                    Caption = 'External functionnalities';
+                    RunObject = Page "A01 Web Functions";
+                }
                 action(A01ExternalProfilePermissions)
                 {
                     ApplicationArea = Basic, Suite;
@@ -262,6 +268,12 @@ pageextension 50002 "A01 Order Processor RC" extends "Order Processor Role Cente
                     ApplicationArea = Basic, Suite;
                     Caption = 'Journal Users';
                     RunObject = Page "A01 Journal Users";
+                }
+                action(A01ImportationSteps)
+                {
+                    ApplicationArea = Basic, Suite;
+                    Caption = 'Importation Steps';
+                    RunObject = Page "A01 Importation Steps";
                 }
 
             }
@@ -359,6 +371,18 @@ pageextension 50002 "A01 Order Processor RC" extends "Order Processor Role Cente
                     ApplicationArea = Basic, Suite;
                     Caption = 'Item Promotion List';
                     RunObject = Page "A01 Item Promotion List";
+                }
+                action(A01ReinitCreditLimit)
+                {
+                    ApplicationArea = Basic, Suite;
+                    Caption = 'Reset Credit Limit';
+                    RunObject = Report "A01 Renitialise Credit Limit";
+                }
+                action(A01ApprovTransfertList)
+                {
+                    ApplicationArea = Basic, Suite;
+                    Caption = 'Transfer list to approve';
+                    RunObject = Page "A01 Approv Transfert List";
                 }
 
             }

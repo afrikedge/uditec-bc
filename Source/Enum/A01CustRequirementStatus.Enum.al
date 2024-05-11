@@ -10,4 +10,16 @@ enum 50022 "A01 Cust Requirement Status"
     {
         Caption = 'Recommended';
     }
+    value(2; Conditional)
+    {
+        Caption = 'Conditional';
+    }
+    value(3; Income)
+    {
+        Caption = 'Income';
+    }
+    value(4; Joint)
+    {
+        Caption = 'Joint';
+    }
 }

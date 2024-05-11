@@ -39,6 +39,12 @@ page 50031 "A01 Customer Debt Status List"
                 field("Agent fees full (%)"; Rec."Agent fees full (%)")
                 {
                 }
+                field("WSCA Point"; Rec."WSCA Point")
+                {
+                }
+                field("WSSA Point"; Rec."WSSA Point")
+                {
+                }
             }
         }
     }

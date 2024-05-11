@@ -15,8 +15,8 @@ codeunit 50010 "A01 EventsSubscribers_Report"
         if ReportId = Report::"Sales - Shipment" then
             NewReportId := Report::"A01 DeliveryNotePrint";
 
-        if ReportId = Report::"Transfer Order" then
-            NewReportId := Report::"A01 TransferOrderPrint";
+        // if ReportId = Report::"Transfer Order" then
+        //     NewReportId := Report::"A01 TransferOrderPrint";
 
         if ReportId = Report::"Standard Purchase - Order" then
             NewReportId := Report::"A01 PurchaseOrderPrint";

@@ -96,11 +96,11 @@ codeunit 50016 "A01 Document Request Mgt"
         Request.Validate("Customer No.", PaymentDoc."Partner No.");
         //Request.Validate("Sales Person",SalesHeader."Salesperson Code");
         Request.Object := LblDescrPayment;
-        Request.Status := Request.Status::"Waiting for committee";
+        Request.Status := Request.Status::"Waiting for validation";
         Request.Insert(true);
 
         //TODO Set Status here
-        PaymentDoc."Approval Status" := Request.Status;
+        PaymentDoc."Approval Status" := PaymentDoc."Approval Status"::"Waiting for validation";
         PaymentDoc.Modify();
 
     end;
@@ -228,7 +228,10 @@ codeunit 50016 "A01 Document Request Mgt"
             Request."Request Type"::Unblocking:
                 begin
                     SalesOrder.get(SalesOrder."Document Type"::Order, Request."Request No.");
-                    OrderValidationMgt.CheckIsAwaitingPrepayment(SalesOrder);
+                    SalesOrder."A01 Request Status" := SalesOrder."A01 Request Status"::Validated;
+                    SalesOrder.Modify();
+
+                    OrderValidationMgt.CheckIsDeliverable(SalesOrder);
                 end;
             else
                 Error('Unknown Type');
@@ -287,12 +290,12 @@ codeunit 50016 "A01 Document Request Mgt"
         Request.SetRange("Request No.", OriginDoc."Request No.");
         if Request.FindSet() then
             repeat
-                if (Request.IsOnHold()) then
+                if (Request.IsOnHoldOrValidated()) then
                     Error(LblAnotherRecExists);
             until Request.Next() < 1;
     end;
 
-    procedure CheckIfValidationRequestExists(PayDoc: Record "A01 Payment Document")
+    procedure CheckNonValidatedRequestAlreadyExists(PayDoc: Record "A01 Payment Document")
     var
         Request: Record "A01 Request On Document";
         LblAnotherRecExists: label 'A pending request already exists for this document';
@@ -306,18 +309,32 @@ codeunit 50016 "A01 Document Request Mgt"
             until Request.Next() < 1;
     end;
 
-    procedure CheckIfValidationRequestExists(SalesHeader: Record "Sales Header")
+    procedure CheckOnHoldRequestAlreadyExists(PayDoc: Record "A01 Payment Document")
     var
         Request: Record "A01 Request On Document";
-        LblAnotherRecExists02: label 'A pending request already exists for this document';
+        LblAnotherRecExists: label 'A pending request already exists for this document';
     begin
-        Request.SetRange("Request Type", Request."Request Type"::"POS Payment");
-        Request.SetRange("Request No.", SalesHeader."No.");
+        Request.SetRange("Request Type", Request."Request Type"::"Payment Document");
+        Request.SetRange("Request No.", PayDoc."No.");
         if Request.FindSet() then
             repeat
-                if (Request.IsOnHold()) then
-                    Error(LblAnotherRecExists02);
+                if (Request.IsOnHoldOrValidated()) then
+                    Error(LblAnotherRecExists);
             until Request.Next() < 1;
     end;
+
+    // procedure CheckIfValidationRequestExists(SalesHeader: Record "Sales Header")
+    // var
+    //     Request: Record "A01 Request On Document";
+    //     LblAnotherRecExists02: label 'A pending request already exists for this document';
+    // begin
+    //     Request.SetRange("Request Type", Request."Request Type"::"POS Payment");
+    //     Request.SetRange("Request No.", SalesHeader."No.");
+    //     if Request.FindSet() then
+    //         repeat
+    //             if (Request.IsOnHold()) then
+    //                 Error(LblAnotherRecExists02);
+    //         until Request.Next() < 1;
+    // end;
 
 }

@@ -61,11 +61,11 @@ table 50032 "A01 Payment Document"
         {
             Caption = 'Posting Date';
         }
-        field(6; Status; Enum "A01 Approval Status")
-        {
-            Caption = 'Status';
-            Editable = false;
-        }
+        // field(6; Status; Enum "A01 Approval Status")
+        // {
+        //     Caption = 'Status';
+        //     Editable = false;
+        // }
         field(7; "Modified By"; Code[50])
         {
             Caption = 'Modified By';
@@ -230,7 +230,7 @@ table 50032 "A01 Payment Document"
     var
         DocLine: Record "A01 Payment Document Line";
     begin
-        RequestMgt.CheckIfValidationRequestExists(Rec);
+        RequestMgt.CheckOnHoldRequestAlreadyExists(Rec);
 
         DocLine.SetRange(DocLine."Document No.", "No.");
         if (not DocLine.IsEmpty) then
@@ -241,7 +241,7 @@ table 50032 "A01 Payment Document"
     var
 
     begin
-        RequestMgt.CheckIfValidationRequestExists(Rec);
+        RequestMgt.CheckOnHoldRequestAlreadyExists(Rec);
     end;
 
     var

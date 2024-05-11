@@ -10,5 +10,9 @@ tableextension 50017 "A01 Purchase Header" extends "Purchase Header"
             Caption = 'Purchase Order Type';
             DataClassification = CustomerContent;
         }
+        // modify("Buy-from Vendor No.")
+        // {
+
+        // }
     }
 }

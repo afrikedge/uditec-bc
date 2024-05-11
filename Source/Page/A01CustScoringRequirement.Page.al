@@ -30,6 +30,15 @@ page 50036 "A01 Cust Scoring Requirement"
                 field("Requirement Status"; Rec."Requirement Status")
                 {
                 }
+                field("Sales Mode"; Rec."Sales Mode")
+                {
+                }
+                // field("Criteria Status"; Rec."Criteria Status")
+                // {
+                // }
+                field("Income Orientation"; Rec."Income Orientation")
+                {
+                }
             }
         }
     }

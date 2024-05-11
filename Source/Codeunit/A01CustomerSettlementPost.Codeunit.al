@@ -241,7 +241,7 @@ codeunit 50013 "A01 Customer Settlement Post"
 
         GLMgt.CheckCashboxClosingDateOnCustSettlement(CustSettlement);
 
-        DocRequestMgt.CheckIfValidationRequestExists(CustSettlement);
+        DocRequestMgt.CheckNonValidatedRequestAlreadyExists(CustSettlement);
 
         CustSettlement.TestField("Posting Date");
         CustSettlement.TestField("Responsibility Center");

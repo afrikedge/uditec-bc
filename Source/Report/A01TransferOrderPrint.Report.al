@@ -14,13 +14,23 @@ report 50005 "A01 TransferOrderPrint"
 
     dataset
     {
-        dataitem(Header; "Transfer Header")
+        dataitem(Header; "Transfer Shipment Header")
         {
             DataItemTableView = sorting("No.");
             RequestFilterFields = "No.", "Transfer-from Code", "Transfer-to Code";
             RequestFilterHeading = 'Transfer Order';
             column(DocumentNo_; "No.")
             {
+            }
+            column(Transfer_Order_No_; "Transfer Order No.")
+            {
+            }
+            column(Transfer_Order_Date; Format("Transfer Order Date"))
+            {
+            }
+            column(Shipment_Date; Format("Shipment Date"))
+            {
+
             }
             column(Posting_Date; Format("Posting Date"))
             {
@@ -91,15 +101,6 @@ report 50005 "A01 TransferOrderPrint"
             column(TransferNumberLbl; TransferNumberLbl)
             {
             }
-            column(RequesterLbl; RequesterLbl)
-            {
-            }
-            column(RequesterUnitLbl; RequesterUnitLbl)
-            {
-            }
-            column(RequestUnitLbl; RequestUnitLbl)
-            {
-            }
             column(OriginLocationLbl; OriginLocationLbl)
             {
             }
@@ -151,20 +152,14 @@ report 50005 "A01 TransferOrderPrint"
             column(DestinationLbl; DestinationLbl)
             {
             }
-            column(OrderedQtyLbl; OrderedQtyLbl)
-            {
-            }
             column(ShippedQtyLbl; ShippedQtyLbl)
             {
             }
-            column(ReceveidQtyLbl; ReceveidQtyLbl)
-            {
-            }
-            dataitem(Line; "Transfer Line")
+            dataitem(Line; "Transfer Shipment Line")
             {
                 DataItemLinkReference = Header;
                 DataItemLink = "Document No." = field("No.");
-                DataItemTableView = sorting("Document No.", "Line No.") where("Derived From Line No." = const(0));
+                DataItemTableView = sorting("Document No.", "Line No.");
                 column(LineNo_Line; "Line No.")
                 {
                 }
@@ -180,24 +175,6 @@ report 50005 "A01 TransferOrderPrint"
                 column(Quantity; Quantity)
                 {
                 }
-                column(Quantity_Shipped; "Quantity Shipped")
-                {
-                }
-                column(Quantity_Line_Lbl; FieldCaption(Quantity))
-                {
-                }
-                // dataitem("Tracking Specification"; "Tracking Specification")
-                // {
-                //     DataItemTableView = sorting("Serial No.");
-                //     DataItemLinkReference = Line;
-                //     DataItemLink = "Item No." = field("Item No."), "Source Ref. No." = field("Line No.");
-                //     column(Serial_No_; "Serial No.")
-                //     {
-                //     }
-                //     column(Quantity__Base_; "Quantity (Base)")
-                //     {
-                //     }
-                // }
                 // dataitem("Item Ledger Entry"; "Item Ledger Entry")
                 // {
                 //     DataItemTableView = sorting("Document Type", "Entry Type") where("Document Type" = filter(9), "Entry Type" = const(Transfer));
@@ -210,17 +187,6 @@ report 50005 "A01 TransferOrderPrint"
                 //     {
                 //     }
                 // }
-                trigger OnAfterGetRecord()
-                begin
-                    if "Item No." = 'MIR_FEES' then
-                        CurrReport.Skip();
-                    if "Item No." = 'mir_fees' then
-                        CurrReport.Skip();
-                    if "Item No." = 'MIR_INTEREST' then
-                        CurrReport.Skip();
-                    if "Item No." = 'mir_interest' then
-                        CurrReport.Skip();
-                end;
             }
         }
 
@@ -255,16 +221,14 @@ report 50005 "A01 TransferOrderPrint"
         UnitCityLbl: Label 'City';
         UnitPostalCodeLbl: Label 'Postal code :';
         TransferNumberLbl: Label 'Transfer order N° :';
-        DeleveryNoteDateLbl: Label 'Date :';
+        DeleveryNoteDateLbl: Label 'Transfer date :';
         ProductCodeLbl: Label 'Product code';
         ProductSerialNumberLbl: Label 'product serial number';
         DesignationLbl: Label 'Designation';
         ProductLocationLbl: Label 'Product Location';
         OriginLocationLbl: Label 'Transfer origin location';
         DestinationLocationLbl: Label 'Transfer destination location';
-        OrderedQtyLbl: Label 'Ordered quantity';
         ShippedQtyLbl: Label 'Shipped quantity';
-        ReceveidQtyLbl: Label 'Received quantity';
         IssuerSignLbl: Label 'Issuer signature';
         ReceiverSignLbl: Label 'Receiver signature';
         LogistiqueSignLbl: Label 'Logistique signature';
@@ -275,8 +239,5 @@ report 50005 "A01 TransferOrderPrint"
         SignLbl: Label 'Signature';
         DateSignLbl: Label 'Date';
         HourSignLbl: Label 'Hour';
-        RequestUnitLbl: Label 'Nameofrequesting unit :';
-        RequesterLbl: Label 'Name of requester :';
-        RequesterUnitLbl: Label 'Name of receiving unit :';
 
 }

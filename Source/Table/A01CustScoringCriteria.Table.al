@@ -91,6 +91,8 @@ table 50013 "A01 Cust Scoring Criteria"
             TableRelation = "A01 External User";
             DataClassification = CustomerContent;
         }
+
+
     }
     keys
     {

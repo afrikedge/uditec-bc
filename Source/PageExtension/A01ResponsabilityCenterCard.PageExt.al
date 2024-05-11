@@ -23,6 +23,10 @@ pageextension 50001 "A01 Responsability Center Card" extends "Responsibility Cen
             {
                 ApplicationArea = Basic, Suite;
             }
+            field("A01 Customer Price Group"; Rec."A01 Customer Price Group")
+            {
+                ApplicationArea = Basic, Suite;
+            }
         }
         addbefore(Control1900383207)
         {

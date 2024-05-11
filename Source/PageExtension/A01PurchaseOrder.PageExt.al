@@ -24,4 +24,22 @@ pageextension 50020 "A01 Purchase Order" extends "Purchase Order"
             }
         }
     }
+    actions
+    {
+        addafter(Statistics)
+        {
+            action("A01FillImportationSteps")
+            {
+                Image = ImportCodes;
+                ApplicationArea = all;
+                Caption = 'Load import steps';
+                trigger OnAction()
+                var
+                    PurchMgt: codeunit "A01 Purchase Op Mgt";
+                begin
+                    PurchMgt.FillImportationSteps(Rec);
+                end;
+            }
+        }
+    }
 }

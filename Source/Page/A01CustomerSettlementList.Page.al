@@ -33,7 +33,7 @@ page 50059 "A01 Customer Settlement List"
                 field("Responsibility Center"; Rec."Responsibility Center")
                 {
                 }
-                field(Status; Rec.Status)
+                field(Status; Rec."Approval Status")
                 {
                 }
                 field("Modified By"; Rec."Modified By")

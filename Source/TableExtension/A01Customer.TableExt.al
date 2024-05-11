@@ -139,6 +139,19 @@ tableextension 50006 "A01 Customer" extends Customer
                     Rec.TestField("A01 Sales Mode", PayTerms."A01 Sales Mode");
             end;
         }
+        modify("Responsibility Center")
+        {
+            trigger OnAfterValidate()
+            var
+                RespCenter: Record "Responsibility Center";
+            begin
+                if (RespCenter.Get("Responsibility Center")) then begin
+                    if (RespCenter."A01 Customer Price Group" <> '') then
+                        if ("Customer Price Group" = '') then
+                            Rec.Validate("Customer Price Group", RespCenter."A01 Customer Price Group");
+                end;
+            end;
+        }
     }
     trigger OnDelete()
     var
@@ -156,5 +169,12 @@ tableextension 50006 "A01 Customer" extends Customer
         CustScoring.SetRange("Customer No.", Rec."No.");
         if (not CustScoring.IsEmpty) then
             CustScoring.DeleteAll();
+    end;
+
+    trigger OnInsert()
+    var
+    begin
+        if ("Credit Limit (LCY)" = 0) then
+            "Credit Limit (LCY)" := 1;
     end;
 }

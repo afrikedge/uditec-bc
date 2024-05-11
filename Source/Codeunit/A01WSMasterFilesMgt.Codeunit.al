@@ -118,6 +118,23 @@ codeunit 50015 A01WSMasterFilesMgt
             exit(AddShipToAddress(CustNo, input));
     end;
 
+    procedure RunCustomerRevisionRequest(input: JsonObject): Text
+    var
+        RecNo: text;
+    begin
+        RecNo := ws.GetText('No_', input);
+        if (RecNo <> '') then begin
+
+            // //ToDelete := ws.GetBool('IsDeletion', input);
+            // if (IsDeletion) then
+            //     exit(DeleteCustomer(RecNo))
+            // else
+            //     exit(ModifyCustomer(RecNo, input))
+
+        end else
+            exit(AddCustomerRevisionRequest(input));
+    end;
+
     procedure RunCreateCustomer(input: JsonObject): Text
     var
         TemplCode: Code[20];
@@ -1106,5 +1123,55 @@ codeunit 50015 A01WSMasterFilesMgt
         Cont.get(LeadNo);
         exit(Cont.CreateCustomerFromTemplate(CustTemplateCode));
     end;
+
+    local procedure AddCustomerRevisionRequest(input: JsonObject): Text
+    var
+        RevRequest: Record "A01 Revision Request";
+    begin
+
+        RevRequest.Init();
+        RevRequest."No." := '';
+
+        //SalesOrderLine.LockTable();
+        RevRequest.Insert(true);
+
+        ProcessCustomerRevisionRequest(RevRequest, input);
+
+        exit(Ws.CreateResponseSuccess(RevRequest."No."));
+
+    end;
+
+    local procedure ProcessCustomerRevisionRequest(var RevRequest: Record "A01 Revision Request"; input: JsonObject)
+    begin
+
+        if (RevRequest."Created By" = '') then
+            RevRequest.Validate("Created By", WS.GetText('webUserName', input));
+
+        if (RevRequest."Modified By" <> WS.GetText('webUserName', input)) then
+            RevRequest.Validate("Modified By", WS.GetText('webUserName', input));
+
+        if (RevRequest."Customer No." <> WS.GetText('Customer No_', input)) then
+            RevRequest.Validate("Customer No.", WS.GetText('Customer No_', input));
+
+        if (RevRequest."Payment Terms (Proposed)" <> WS.GetText('New Payment Terms Code', input)) then
+            RevRequest.Validate("Payment Terms (Proposed)", WS.GetText('New Payment Terms Code', input));
+
+        if (RevRequest."Credit Limit (Proposed)" <> WS.GetDecimal('New Credit limit (LCY)', input)) then
+            RevRequest.Validate("Credit Limit (Proposed)", WS.GetDecimal('New Credit limit (LCY)', input));
+
+        if (RevRequest."Payment Method (Proposed)" <> WS.GetText('New Payment Method Code', input)) then
+            RevRequest.Validate("Payment Method (Proposed)", WS.GetText('New Payment Method Code', input));
+
+        if (RevRequest."VAT Regime (Proposed)" <> WS.GetText('New VAT Bus_ Posting Group', input)) then
+            RevRequest.Validate("VAT Regime (Proposed)", WS.GetText('New VAT Bus_ Posting Group', input));
+
+        if (RevRequest."Prepayment Required (Proposed)" <> WS.GetDecimal('New Prepayment _', input)) then
+            RevRequest.Validate("Prepayment Required (Proposed)", WS.GetDecimal('New Prepayment _', input));
+
+
+        RevRequest.Modify();
+    end;
+
+
 
 }

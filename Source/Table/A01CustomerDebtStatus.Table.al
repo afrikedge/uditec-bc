@@ -49,6 +49,14 @@ table 50009 "A01 Customer Debt Status"
             MinValue = 0;
             MaxValue = 100;
         }
+        field(9; "WSSA Point"; Decimal)
+        {
+            Caption = 'WSSA Point';
+        }
+        field(10; "WSCA Point"; Decimal)
+        {
+            Caption = 'WSCA Point';
+        }
     }
     keys
     {

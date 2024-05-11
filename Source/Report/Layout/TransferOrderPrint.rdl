@@ -238,7 +238,7 @@
                                                             <Paragraph>
                                                               <TextRuns>
                                                                 <TextRun>
-                                                                  <Value>=Fields!DocumentNo_.Value</Value>
+                                                                  <Value>=First(Fields!Transfer_Order_No_.Value, "DataSet_Result")</Value>
                                                                   <Style>
                                                                     <FontSize>8pt</FontSize>
                                                                   </Style>
@@ -311,7 +311,7 @@
                                                             <Paragraph>
                                                               <TextRuns>
                                                                 <TextRun>
-                                                                  <Value>=Fields!Posting_Date.Value</Value>
+                                                                  <Value>=First(Fields!Shipment_Date.Value, "DataSet_Result")</Value>
                                                                   <Style>
                                                                     <FontSize>8pt</FontSize>
                                                                   </Style>
@@ -583,19 +583,13 @@
                                             <TablixBody>
                                               <TablixColumns>
                                                 <TablixColumn>
-                                                  <Width>1.01159in</Width>
+                                                  <Width>1.23709in</Width>
                                                 </TablixColumn>
                                                 <TablixColumn>
-                                                  <Width>3.43722in</Width>
+                                                  <Width>5.16051in</Width>
                                                 </TablixColumn>
                                                 <TablixColumn>
-                                                  <Width>1.0763in</Width>
-                                                </TablixColumn>
-                                                <TablixColumn>
-                                                  <Width>0.94597in</Width>
-                                                </TablixColumn>
-                                                <TablixColumn>
-                                                  <Width>0.97666in</Width>
+                                                  <Width>1.05014in</Width>
                                                 </TablixColumn>
                                               </TablixColumns>
                                               <TablixRows>
@@ -701,52 +695,6 @@
                                                     </TablixCell>
                                                     <TablixCell>
                                                       <CellContents>
-                                                        <Textbox Name="Textbox49">
-                                                          <CanGrow>true</CanGrow>
-                                                          <KeepTogether>true</KeepTogether>
-                                                          <Paragraphs>
-                                                            <Paragraph>
-                                                              <TextRuns>
-                                                                <TextRun>
-                                                                  <Value>=Fields!OrderedQtyLbl.Value</Value>
-                                                                  <Style>
-                                                                    <FontSize>8pt</FontSize>
-                                                                    <FontWeight>Bold</FontWeight>
-                                                                  </Style>
-                                                                </TextRun>
-                                                              </TextRuns>
-                                                              <Style>
-                                                                <TextAlign>Center</TextAlign>
-                                                              </Style>
-                                                            </Paragraph>
-                                                          </Paragraphs>
-                                                          <rd:DefaultName>Textbox49</rd:DefaultName>
-                                                          <Style>
-                                                            <Border>
-                                                              <Style>Solid</Style>
-                                                            </Border>
-                                                            <TopBorder>
-                                                              <Style>Solid</Style>
-                                                            </TopBorder>
-                                                            <BottomBorder>
-                                                              <Style>Solid</Style>
-                                                            </BottomBorder>
-                                                            <LeftBorder>
-                                                              <Style>Solid</Style>
-                                                            </LeftBorder>
-                                                            <RightBorder>
-                                                              <Style>Solid</Style>
-                                                            </RightBorder>
-                                                            <PaddingLeft>2pt</PaddingLeft>
-                                                            <PaddingRight>2pt</PaddingRight>
-                                                            <PaddingTop>2pt</PaddingTop>
-                                                            <PaddingBottom>2pt</PaddingBottom>
-                                                          </Style>
-                                                        </Textbox>
-                                                      </CellContents>
-                                                    </TablixCell>
-                                                    <TablixCell>
-                                                      <CellContents>
                                                         <Textbox Name="Textbox1">
                                                           <CanGrow>true</CanGrow>
                                                           <KeepTogether>true</KeepTogether>
@@ -767,52 +715,6 @@
                                                             </Paragraph>
                                                           </Paragraphs>
                                                           <rd:DefaultName>Textbox1</rd:DefaultName>
-                                                          <Style>
-                                                            <Border>
-                                                              <Style>Solid</Style>
-                                                            </Border>
-                                                            <TopBorder>
-                                                              <Style>Solid</Style>
-                                                            </TopBorder>
-                                                            <BottomBorder>
-                                                              <Style>Solid</Style>
-                                                            </BottomBorder>
-                                                            <LeftBorder>
-                                                              <Style>Solid</Style>
-                                                            </LeftBorder>
-                                                            <RightBorder>
-                                                              <Style>Solid</Style>
-                                                            </RightBorder>
-                                                            <PaddingLeft>2pt</PaddingLeft>
-                                                            <PaddingRight>2pt</PaddingRight>
-                                                            <PaddingTop>2pt</PaddingTop>
-                                                            <PaddingBottom>2pt</PaddingBottom>
-                                                          </Style>
-                                                        </Textbox>
-                                                      </CellContents>
-                                                    </TablixCell>
-                                                    <TablixCell>
-                                                      <CellContents>
-                                                        <Textbox Name="Textbox51">
-                                                          <CanGrow>true</CanGrow>
-                                                          <KeepTogether>true</KeepTogether>
-                                                          <Paragraphs>
-                                                            <Paragraph>
-                                                              <TextRuns>
-                                                                <TextRun>
-                                                                  <Value>=Fields!ReceveidQtyLbl.Value</Value>
-                                                                  <Style>
-                                                                    <FontSize>8pt</FontSize>
-                                                                    <FontWeight>Bold</FontWeight>
-                                                                  </Style>
-                                                                </TextRun>
-                                                              </TextRuns>
-                                                              <Style>
-                                                                <TextAlign>Center</TextAlign>
-                                                              </Style>
-                                                            </Paragraph>
-                                                          </Paragraphs>
-                                                          <rd:DefaultName>Textbox51</rd:DefaultName>
                                                           <Style>
                                                             <Border>
                                                               <Style>Solid</Style>
@@ -944,56 +846,6 @@
                                                     </TablixCell>
                                                     <TablixCell>
                                                       <CellContents>
-                                                        <Textbox Name="Textbox50">
-                                                          <CanGrow>true</CanGrow>
-                                                          <KeepTogether>true</KeepTogether>
-                                                          <Paragraphs>
-                                                            <Paragraph>
-                                                              <TextRuns>
-                                                                <TextRun>
-                                                                  <Value>=Fields!Quantity.Value</Value>
-                                                                  <Style>
-                                                                    <FontSize>8pt</FontSize>
-                                                                  </Style>
-                                                                </TextRun>
-                                                              </TextRuns>
-                                                              <Style>
-                                                                <TextAlign>Right</TextAlign>
-                                                              </Style>
-                                                            </Paragraph>
-                                                          </Paragraphs>
-                                                          <rd:DefaultName>Textbox50</rd:DefaultName>
-                                                          <Style>
-                                                            <Border>
-                                                              <Color>LightGrey</Color>
-                                                              <Style>Solid</Style>
-                                                            </Border>
-                                                            <TopBorder>
-                                                              <Color>Black</Color>
-                                                              <Style>Solid</Style>
-                                                            </TopBorder>
-                                                            <BottomBorder>
-                                                              <Color>Black</Color>
-                                                              <Style>Solid</Style>
-                                                            </BottomBorder>
-                                                            <LeftBorder>
-                                                              <Color>Black</Color>
-                                                              <Style>Solid</Style>
-                                                            </LeftBorder>
-                                                            <RightBorder>
-                                                              <Color>Black</Color>
-                                                              <Style>Solid</Style>
-                                                            </RightBorder>
-                                                            <PaddingLeft>2pt</PaddingLeft>
-                                                            <PaddingRight>2pt</PaddingRight>
-                                                            <PaddingTop>2pt</PaddingTop>
-                                                            <PaddingBottom>2pt</PaddingBottom>
-                                                          </Style>
-                                                        </Textbox>
-                                                      </CellContents>
-                                                    </TablixCell>
-                                                    <TablixCell>
-                                                      <CellContents>
                                                         <Textbox Name="Textbox5">
                                                           <CanGrow>true</CanGrow>
                                                           <KeepTogether>true</KeepTogether>
@@ -1001,7 +853,7 @@
                                                             <Paragraph>
                                                               <TextRuns>
                                                                 <TextRun>
-                                                                  <Value>=Fields!Quantity_Shipped.Value</Value>
+                                                                  <Value>=Fields!Quantity.Value</Value>
                                                                   <Style>
                                                                     <FontSize>8pt</FontSize>
                                                                   </Style>
@@ -1042,48 +894,12 @@
                                                         </Textbox>
                                                       </CellContents>
                                                     </TablixCell>
-                                                    <TablixCell>
-                                                      <CellContents>
-                                                        <Textbox Name="Textbox52">
-                                                          <CanGrow>true</CanGrow>
-                                                          <KeepTogether>true</KeepTogether>
-                                                          <Paragraphs>
-                                                            <Paragraph>
-                                                              <TextRuns>
-                                                                <TextRun>
-                                                                  <Value />
-                                                                  <Style>
-                                                                    <FontSize>8pt</FontSize>
-                                                                    <Format>#,0;(#,0)</Format>
-                                                                  </Style>
-                                                                </TextRun>
-                                                              </TextRuns>
-                                                              <Style>
-                                                                <TextAlign>Right</TextAlign>
-                                                              </Style>
-                                                            </Paragraph>
-                                                          </Paragraphs>
-                                                          <rd:DefaultName>Textbox52</rd:DefaultName>
-                                                          <Style>
-                                                            <Border>
-                                                              <Style>Solid</Style>
-                                                            </Border>
-                                                            <PaddingLeft>2pt</PaddingLeft>
-                                                            <PaddingRight>2pt</PaddingRight>
-                                                            <PaddingTop>2pt</PaddingTop>
-                                                            <PaddingBottom>2pt</PaddingBottom>
-                                                          </Style>
-                                                        </Textbox>
-                                                      </CellContents>
-                                                    </TablixCell>
                                                   </TablixCells>
                                                 </TablixRow>
                                               </TablixRows>
                                             </TablixBody>
                                             <TablixColumnHierarchy>
                                               <TablixMembers>
-                                                <TablixMember />
-                                                <TablixMember />
                                                 <TablixMember />
                                                 <TablixMember />
                                                 <TablixMember />
@@ -2785,6 +2601,15 @@ AAAAAAAAAECjsYAGAAAAAAAAAAAAAAAAjcYCGgAAAAAAAAAAAAAAADQaC2gAAAAAAAAAAAAAAADQaCyg
         <Field Name="DocumentNo_">
           <DataField>DocumentNo_</DataField>
         </Field>
+        <Field Name="Transfer_Order_No_">
+          <DataField>Transfer_Order_No_</DataField>
+        </Field>
+        <Field Name="Transfer_Order_Date">
+          <DataField>Transfer_Order_Date</DataField>
+        </Field>
+        <Field Name="Shipment_Date">
+          <DataField>Shipment_Date</DataField>
+        </Field>
         <Field Name="Posting_Date">
           <DataField>Posting_Date</DataField>
         </Field>
@@ -2854,15 +2679,6 @@ AAAAAAAAAECjsYAGAAAAAAAAAAAAAAAAjcYCGgAAAAAAAAAAAAAAADQaC2gAAAAAAAAAAAAAAADQaCyg
         <Field Name="TransferNumberLbl">
           <DataField>TransferNumberLbl</DataField>
         </Field>
-        <Field Name="RequesterLbl">
-          <DataField>RequesterLbl</DataField>
-        </Field>
-        <Field Name="RequesterUnitLbl">
-          <DataField>RequesterUnitLbl</DataField>
-        </Field>
-        <Field Name="RequestUnitLbl">
-          <DataField>RequestUnitLbl</DataField>
-        </Field>
         <Field Name="OriginLocationLbl">
           <DataField>OriginLocationLbl</DataField>
         </Field>
@@ -2914,14 +2730,8 @@ AAAAAAAAAECjsYAGAAAAAAAAAAAAAAAAjcYCGgAAAAAAAAAAAAAAADQaC2gAAAAAAAAAAAAAAADQaCyg
         <Field Name="DestinationLbl">
           <DataField>DestinationLbl</DataField>
         </Field>
-        <Field Name="OrderedQtyLbl">
-          <DataField>OrderedQtyLbl</DataField>
-        </Field>
         <Field Name="ShippedQtyLbl">
           <DataField>ShippedQtyLbl</DataField>
-        </Field>
-        <Field Name="ReceveidQtyLbl">
-          <DataField>ReceveidQtyLbl</DataField>
         </Field>
         <Field Name="LineNo_Line">
           <DataField>LineNo_Line</DataField>
@@ -2940,15 +2750,6 @@ AAAAAAAAAECjsYAGAAAAAAAAAAAAAAAAjcYCGgAAAAAAAAAAAAAAADQaC2gAAAAAAAAAAAAAAADQaCyg
         </Field>
         <Field Name="QuantityFormat">
           <DataField>QuantityFormat</DataField>
-        </Field>
-        <Field Name="Quantity_Shipped">
-          <DataField>Quantity_Shipped</DataField>
-        </Field>
-        <Field Name="Quantity_ShippedFormat">
-          <DataField>Quantity_ShippedFormat</DataField>
-        </Field>
-        <Field Name="Quantity_Line_Lbl">
-          <DataField>Quantity_Line_Lbl</DataField>
         </Field>
       </Fields>
       <Query>

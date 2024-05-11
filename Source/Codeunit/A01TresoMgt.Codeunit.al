@@ -6,7 +6,6 @@ codeunit 50007 "A01 Treso Mgt"
     var
         CurrExchRate: Record "Currency Exchange Rate";
         AddOnSetup: Record "A01 Afk Setup";
-
         NoSeriesManagement: Codeunit NoSeriesManagement;
         ErrText01: Label 'The payment document has not been configured for \template %1\sheet %2\type %3', comment = '%1=model,%2=journal,%3=type';
         TotalLineAmtInclVAT: Decimal;
@@ -172,20 +171,36 @@ codeunit 50007 "A01 Treso Mgt"
     /// <param name="PostedInvoiceNo">Code[20].</param>
     /// <param name="ExtDocNo">Code[35].</param>
     /// <param name="SourceCode">Code[10].</param>
-    procedure PostBalancingEntries(SalesHeader: Record "Sales Header"; PostedInvoiceNo: Code[20]; ExtDocNo: Code[35];
+    procedure PostBalancingEntriesFromPOS(SalesHeader: Record "Sales Header"; PostedInvoiceNo: Code[20]; ExtDocNo: Code[35];
     SourceCode: Code[10]; var GenJnlPostLine: Codeunit "Gen. Jnl.-Post Line")
     var
         SalesPaymentLine: Record "A01 Sales Payment Method";
         GenJnlLine: Record "Gen. Journal Line";
+    //LblErrPayment : Label 'No valid payment action for the line %1'
     begin
+
+        CheckPaymentAmount(SalesHeader);
+
         SalesPaymentLine.Reset();
         SalesPaymentLine.SetRange("Document Type", SalesPaymentLine."Document Type"::Order);
         SalesPaymentLine.SetRange("Document No.", SalesHeader."No.");
         if (SalesPaymentLine.FindSet()) then
             repeat
+                //CheckPaymentAction(SalesHeader, SalesPaymentLine);
                 CreateNewPaymentDocFromSalesHeader(SalesHeader, SalesPaymentLine, GenJnlLine."Applies-to Doc. Type"::Invoice, PostedInvoiceNo);
                 PostBalancingEntry(SalesHeader, SalesPaymentLine, GenJnlLine."Applies-to Doc. Type"::Invoice, GenJnlPostLine, PostedInvoiceNo, ExtDocNo, SourceCode);
             until SalesPaymentLine.Next() < 1;
+    end;
+
+    local procedure CheckPaymentAction(SalesHeader: Record "Sales Header"; SalesPaymentLine: Record "A01 Sales Payment Method")
+    var
+        LblErrPayment: Label 'No valid payment action for the line %1', Comment = '%1=xxx';
+    begin
+        if (IsPOSGenLedgerPayment(SalesHeader, SalesPaymentLine)) then
+            exit;
+        if (IsPOSDocumentPayment(SalesHeader, SalesPaymentLine)) then
+            exit;
+        error(LblErrPayment, SalesPaymentLine."Payment Method");
     end;
 
     local procedure CreateNewPaymentDocFromSalesHeader(SalesHeader: Record "Sales Header";
@@ -315,6 +330,7 @@ codeunit 50007 "A01 Treso Mgt"
         PaymentHeader."A01 Origin Document No." := CustSettlement."Posting No.";
         PaymentHeader."A01 Payment Method" := CustSettlementLine."Payment Method";
 
+
         //PaymentHeader."A01 Posted Document No." := CustSettlement."Posting No.";
 
         PaymentHeader.Modify();
@@ -339,6 +355,7 @@ codeunit 50007 "A01 Treso Mgt"
         //PaymentLine."Applies-to Doc. Type" := DocType;
         //PaymentLine."Applies-to Doc. No." := DocNo;
         PaymentLine."Applies-to ID" := CustSettlement."Applies-to ID";
+        PaymentLine.Validate("Due Date", CustSettlementLine."Due Date");
 
 
         // if ((GenJnlLine."A01 Payment Doc Type" = GenJnlLine."A01 Payment Doc Type"::"Direct Check")
@@ -401,6 +418,8 @@ codeunit 50007 "A01 Treso Mgt"
         else
             GenJnlLine."Document Type" := GenJnlLine."Document Type"::Payment;
 
+        GenJnlLine.Validate("Payment Method Code", RCPaymentMethod."Payment Method");
+        GenJnlLine."Payment Reference" := SalesPaymentLine.Reference;
 
         SetBalAccAndApplyToDocNo(RCPaymentMethod, GenJnlLine, DocType, DocNo);
 
@@ -408,7 +427,8 @@ codeunit 50007 "A01 Treso Mgt"
 
         // GenJnlLine."Orig. Pmt. Disc. Possible" := TotalSalesLine2."Pmt. Discount Amount";
         // GenJnlLine."Orig. Pmt. Disc. Possible(LCY)" :=
-        //     CurrExchRate.ExchangeAmtFCYToLCY(
+        //     CurrExchRate.ExchangeAmtFCYToLCY(7
+
         //         SalesHeader.GetUseDate(), SalesHeader."Currency Code", TotalSalesLine2."Pmt. Discount Amount", SalesHeader."Currency Factor");
 
         GenJnlPostLine.RunWithCheck(GenJnlLine);
@@ -947,6 +967,64 @@ codeunit 50007 "A01 Treso Mgt"
 
         exit(Day2 - Day1 + 1);
     end;
+
+
+    local procedure IsPOSGenLedgerPayment(SalesHeader: Record "Sales Header"; SalesPaymentLine: Record "A01 Sales Payment Method"): Boolean
+    var
+        RCPaymentMethod: Record "A01 RC Payment Method";
+    begin
+        if not RCPaymentMethod.get(SalesHeader."Responsibility Center", SalesPaymentLine."Payment Method") then
+            exit(false);
+
+        if (RCPaymentMethod."Bal. Account No." = '') then
+            exit(false);
+        //if (SalesPaymentLine."Validated Amount" <= 0) then
+        //    exit(false);
+        if (SalesPaymentLine."Validated Amount" <> SalesPaymentLine.Amount) then
+            exit(false);
+        exit(true);
+    end;
+
+    local procedure IsPOSDocumentPayment(SalesHeader: Record "Sales Header"; SalesPaymentLine: Record "A01 Sales Payment Method"): Boolean
+    var
+        RCPaymentMethod: Record "A01 RC Payment Method";
+    begin
+        if not RCPaymentMethod.get(SalesHeader."Responsibility Center", SalesPaymentLine."Payment Method") then
+            exit(false);
+
+        if (RCPaymentMethod."Payment Class") = '' then
+            exit(false);
+
+        if (SalesPaymentLine."Validated Amount" <= 0) then
+            exit(false);
+
+        if (SalesPaymentLine."Validated Amount" <> SalesPaymentLine.Amount) then
+            exit(false);
+        exit(true);
+    end;
+
+    procedure CheckPaymentAmount(SalesHeader: Record "Sales Header")
+    var
+        SalesPaymentLine: Record "A01 Sales Payment Method";
+        TotalPayment: Decimal;
+        LabelPayAmt: Label 'The total amount to be paid %1 is different from the order %2', comment = '%1=xx %2=xxx';
+    begin
+        SalesPaymentLine.Reset();
+        SalesPaymentLine.SetRange("Document Type", SalesPaymentLine."Document Type"::Order);
+        SalesPaymentLine.SetRange("Document No.", SalesHeader."No.");
+        if (SalesPaymentLine.FindSet()) then
+            repeat
+                CheckPaymentAction(SalesHeader, SalesPaymentLine);
+                TotalPayment := TotalPayment + SalesPaymentLine."Validated Amount";
+            until SalesPaymentLine.Next() < 1;
+
+        SalesHeader.CalcFields("Amount Including VAT");
+        if (SalesHeader."Amount Including VAT" <> TotalPayment) then
+            //if (not confirm(LabelPayAmt)) then
+                error(LabelPayAmt, TotalPayment, SalesHeader."Amount Including VAT");
+
+    end;
+
 
 
 

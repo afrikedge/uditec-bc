@@ -48,6 +48,7 @@ page 50037 "A01 Cust Scoring Criteria"
                 field(Valid; Rec.Valid)
                 {
                 }
+
             }
         }
     }

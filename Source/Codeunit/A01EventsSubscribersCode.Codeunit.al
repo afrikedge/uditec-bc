@@ -78,7 +78,7 @@ codeunit 50002 "A01 EventsSubscribers_Code"
                     if (PostedSalesH."Prepayment Invoice") then
                         if (SalesHeader.Get(SalesHeader."Document Type"::Order, PostedSalesH."Prepayment Order No.")) then
                             if (SalesHeader.Status = SalesHeader.Status::"Pending Prepayment") then
-                                SalesOrderMgt.CheckIsDeliverable(SalesHeader);
+                                SalesOrderMgt.CheckIsBlocked(SalesHeader);
     end;
 
 
@@ -91,7 +91,7 @@ codeunit 50002 "A01 EventsSubscribers_Code"
         TresoMgt: Codeunit "A01 Treso Mgt";
 
     begin
-        TresoMgt.PostBalancingEntries(SalesHeader, GenJnlLineDocNo, GenJnlLineExtDocNo, SrcCode, GenJnlPostLine);
+        TresoMgt.PostBalancingEntriesFromPOS(SalesHeader, GenJnlLineDocNo, GenJnlLineExtDocNo, SrcCode, GenJnlPostLine);
     end;
 
     [EventSubscriber(ObjectType::Codeunit, Codeunit::"Sales-Post", 'OnBeforeRunPostCustomerEntry', '', true, true)]
@@ -134,7 +134,7 @@ codeunit 50002 "A01 EventsSubscribers_Code"
     var
         SecMgt: Codeunit "A01 Security Mgt";
     begin
-        SecMgt.CheckWharehouseUser(ItemJournalLine);
+        SecMgt.CheckWharehouseUserOnJournal(ItemJournalLine);
     end;
 
     [EventSubscriber(ObjectType::Codeunit, Codeunit::"Gen. Jnl.-Check Line", 'OnBeforeCheckAccountNo', '', true, true)]
@@ -229,45 +229,27 @@ codeunit 50002 "A01 EventsSubscribers_Code"
     var
         OpHeader: Record "A01 Payment Document";
         PayPost: Codeunit "A01 Customer Settlement Post";
+        recordRef: RecordRef;
     Begin
 
-        OpHeader.Copy(RecVar);
-        PayPost.SetPreviewMode(true);
-        Result := PayPost.RUN(OpHeader);
-
+        recordref.GetTable(RecVar);
+        if (recordref.Number = Database::"A01 Payment Document") then begin
+            OpHeader.Copy(RecVar);
+            PayPost.SetPreviewMode(true);
+            Result := PayPost.RUN(OpHeader);
+        end;
     end;
 
-    [EventSubscriber(ObjectType::Codeunit, Codeunit::"Sales-Quote to Order (Yes/No)", 'OnBeforeConfirmConvertToOrder', '', false, false)]
-    local procedure SalesQuotetoOrderYesNo_OnBeforeConfirmConvertToOrder(SalesHeader: Record "Sales Header"; var Result: Boolean; var IsHandled: Boolean)
+    [EventSubscriber(ObjectType::Codeunit, Codeunit::"TransferOrder-Post Shipment", 'OnBeforeTransferOrderPostShipment', '', true, true)]
+    local procedure TransferOrderPostShipment_OnBeforeConfirmSalesPost(var TransferHeader: Record "Transfer Header"; var CommitIsSuppressed: Boolean)
     var
-    // OpHeader: Record "A01 Payment Document";
-    // PayPost: Codeunit "A01 Customer Settlement Post";
-    Begin
-
-        // if (SalesHeader."A01 Web User Id" <> '') then begin
-        //     IsHandled := true;
-        //     Result := true;
-        // end;
-
-        //PayPost.SetPreviewMode(true);
-        //Result := PayPost.RUN(OpHeader);
-
+        ItemMgt: Codeunit "A01 Inventory Mgt";
+    begin
+        ItemMgt.CheckValidation(TransferHeader);
     end;
 
-    // [IntegrationEvent(false, false)]
-    // local procedure OnBeforeConfirmConvertToOrder(SalesHeader: Record "Sales Header"; var Result: Boolean; var IsHandled: Boolean)
-    // begin
-
-    // end;
-
-    // [IntegrationEvent(false, false)]
-    // local procedure OnBeforeConfirmSalesPost(var SalesHeader: Record "Sales Header"; var HideDialog: Boolean; var IsHandled: Boolean; var DefaultOption: Integer; var PostAndSend: Boolean)
-    // begin
-    // end;
-
-
-    //    [IntegrationEvent(false, false)]
-    //     local procedure OnPostPrepmtInvoiceYNOnBeforeConfirm(var SalesHeader: Record "Sales Header"; var IsHandled: Boolean);
+    // [IntegrationEvent(true, false)]
+    //     local procedure OnBeforeTransferOrderPostShipment(var TransferHeader: Record "Transfer Header"; var CommitIsSuppressed: Boolean)
     //     begin
     //     end;
 

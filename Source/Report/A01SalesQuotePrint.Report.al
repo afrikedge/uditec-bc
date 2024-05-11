@@ -364,6 +364,10 @@ report 50001 "A01 SalesQuotePrint"
                         CurrReport.Skip();
                     if "No." = 'mir_interest' then
                         CurrReport.Skip();
+                    if "No." = 'AGP_FEES' then
+                        CurrReport.Skip();
+                    if "No." = 'agp_fees' then
+                        CurrReport.Skip();
 
                     OnBeforeLineOnAfterGetRecord(Header, Line);
 

@@ -5,15 +5,20 @@ enum 50028 "A01 System Decision"
 {
     Extensible = true;
 
-    value(0; "Not eligible")
+    value(0; " ")
     {
-        Caption = 'Not eligible';
+        Caption = ' ';
     }
     value(1; Eligible)
     {
         Caption = 'Eligible';
     }
-    value(2; Arbitration)
+    value(2; "Not eligible")
+    {
+        Caption = 'Not eligible';
+    }
+
+    value(3; Arbitration)
     {
         Caption = 'Arbitration';
     }

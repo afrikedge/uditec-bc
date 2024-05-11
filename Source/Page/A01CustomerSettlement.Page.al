@@ -47,7 +47,7 @@ page 50057 "A01 Customer Settlement"
                 field("External Document No."; Rec."External Document No.")
                 {
                 }
-                field(Status; Rec.Status)
+                field(Status; Rec."Approval Status")
                 {
                 }
                 // field("Shortcut Dimension 1 Code"; Rec."Shortcut Dimension 1 Code")
