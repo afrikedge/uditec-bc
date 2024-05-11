@@ -44,6 +44,11 @@ tableextension 50003 "A01 Responsibility Center" extends "Responsibility Center"
             TableRelation = "Customer Price Group";
             DataClassification = CustomerContent;
         }
-
+        field(50007; "A01 Current Promotion"; Code[10])
+        {
+            Caption = 'Current Promotion';
+            TableRelation = Campaign;
+            DataClassification = CustomerContent;
+        }
     }
 }
