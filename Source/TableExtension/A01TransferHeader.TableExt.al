@@ -26,7 +26,8 @@ tableextension 50030 "A01 Transfer Header" extends "Transfer Header"
             var
                 itemMgt: Codeunit "A01 Inventory Mgt";
             begin
-                itemMgt.CheckModification(Rec);
+                if (xRec."Transfer-from Code" <> '') then
+                    itemMgt.CheckModification(xRec);
             end;
         }
         modify("Transfer-to Code")

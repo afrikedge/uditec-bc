@@ -3633,13 +3633,13 @@
         </trans-unit>
         <trans-unit id="Codeunit 57460744 - NamedType 90523671" size-unit="char" translate="yes" xml:space="preserve">
           <source>&amp;amp;Send to approval</source>
-          <target state="needs-review-translation">&amp;amp;Envoyer en validation</target>
+          <target>&amp;amp;Envoyer en validation</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit A01 Inventory Mgt - NamedType LblAction01</note>
         </trans-unit>
         <trans-unit id="Codeunit 57460744 - NamedType 2003613522" size-unit="char" translate="yes" xml:space="preserve">
           <source>&amp;amp;Approve,&amp;amp;Return to draft</source>
-          <target state="needs-review-translation">&amp;amp;Approuver,&amp;amp;Renvoyer en saisie</target>
+          <target>&amp;amp;Approuver,&amp;amp;Renvoyer en saisie</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit A01 Inventory Mgt - NamedType LblAction02</note>
         </trans-unit>
@@ -19735,7 +19735,7 @@
         </trans-unit>
         <trans-unit id="Enum 1777650380 - EnumValue 2764915579 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Awaiting Approbation</source>
-          <target state="needs-review-translation">Attente epprobation</target>
+          <target state="needs-review-translation">Attente approbation</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Enum A01 Transfer Approval Status - EnumValue Awaiting Approbation - Property Caption</note>
         </trans-unit>

@@ -34,6 +34,7 @@ pageextension 50040 "A01 Transfer Order" extends "Transfer Order"
                     ItemMgt: Codeunit "A01 Inventory Mgt";
                 begin
                     ItemMgt.ValidateItemTransfer(Rec);
+                    Close();
                 end;
             }
         }

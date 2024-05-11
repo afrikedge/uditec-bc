@@ -1,4 +1,4 @@
-report 50026 "A01 Renitialise Credit Limit"
+report 50029 "A01 Renitialise Credit Limit"
 {
     ApplicationArea = All;
     Caption = 'Renitialise Credit Limit';
