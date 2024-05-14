@@ -118,6 +118,21 @@ codeunit 50015 A01WSMasterFilesMgt
             exit(AddShipToAddress(CustNo, input));
     end;
 
+    procedure RunLinkDocument(input: JsonObject; IsDeletion: Boolean): Text
+    var
+    begin
+        //RecNo := ws.GetText('No_', input);
+        //CustNo := ws.GetText('Customer No_', input);
+        //if (RecNo <> '') then begin
+        if (IsDeletion) then
+            exit(DeleteLinkDocument(input))
+        else
+            exit(AddLinkDocument(input));
+
+        // end else
+        //     exit(AddLinkDocument(CustNo, input));
+    end;
+
     procedure RunCustomerRevisionRequest(input: JsonObject): Text
     var
         RecNo: text;
@@ -1173,5 +1188,52 @@ codeunit 50015 A01WSMasterFilesMgt
     end;
 
 
+    local procedure AddLinkDocument(input: JsonObject): Text
+    var
+        LinkDoc: Record "A01 Web Link Document";
+    begin
+
+        LinkDoc.Init();
+
+        if (LinkDoc."Document No." <> WS.GetText('No_', input)) then
+            LinkDoc.Validate("Document No.", WS.GetText('No_', input));
+
+        if (LinkDoc."Function Code" <> WS.GetText('Function', input)) then
+            LinkDoc.Validate("Function Code", WS.GetText('Function', input));
+
+        if (LinkDoc."Document Name" <> WS.GetText('Document Name', input)) then
+            LinkDoc.Validate("Document Name", WS.GetText('Document Name', input));
+
+        if (LinkDoc.Link <> WS.GetText('Link', input)) then
+            LinkDoc.Validate(Link, WS.GetText('Link', input));
+
+        if (LinkDoc."Created By" <> WS.GetText('webUserName', input)) then
+            LinkDoc.Validate("Created By", WS.GetText('webUserName', input));
+
+        LinkDoc.Insert(true);
+
+        exit(Ws.CreateResponseSuccess(LinkDoc."Document No."));
+
+    end;
+
+    local procedure DeleteLinkDocument(input: JsonObject): Text
+    var
+        LinkDoc: Record "A01 Web Link Document";
+        DocNo: Code[20];
+        FunctionNo: Code[20];
+        DocName: Text[100];
+    begin
+        DocNo := CopyStr(WS.GetText('No_', input), 1, 20);
+        FunctionNo := CopyStr(WS.GetText('Function', input), 1, 20);
+        DocName := CopyStr(WS.GetText('Document Name', input), 1, 20);
+
+        if (LinkDoc.Get(FunctionNo, DocNo, DocName)) then
+            LinkDoc.Delete(true);
+
+        exit(Ws.CreateResponseSuccess(LinkDoc."Document No."));
+
+    end;
+
 
 }
+

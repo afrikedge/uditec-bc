@@ -248,6 +248,9 @@ codeunit 50007 "A01 Treso Mgt"
         PaymentHeader.VALIDATE("Posting Date", SalesHeader."Posting Date");
         PaymentHeader."A01 Origin Document No." := SalesHeader."No.";
         PaymentHeader."A01 Payment Method" := RCPaymentMethod."Payment Method";
+        SalesHeader.Testfield("Responsibility Center");
+        PaymentHeader."A01 Responsibility Center" := SalesHeader."Responsibility Center";
+
 
         PaymentHeader.Modify();
 
@@ -329,6 +332,9 @@ codeunit 50007 "A01 Treso Mgt"
         PaymentHeader.VALIDATE("Posting Date", CustSettlement."Posting Date");
         PaymentHeader."A01 Origin Document No." := CustSettlement."Posting No.";
         PaymentHeader."A01 Payment Method" := CustSettlementLine."Payment Method";
+        CustSettlement.Testfield("Responsibility Center");
+        PaymentHeader."A01 Responsibility Center" := CustSettlement."Responsibility Center";
+
 
 
         //PaymentHeader."A01 Posted Document No." := CustSettlement."Posting No.";
@@ -364,7 +370,7 @@ codeunit 50007 "A01 Treso Mgt"
         //     GenJnlLine.TESTFIELD("A01 Check No.");
 
         PaymentLine."Drawee Reference" := CopyStr(PaymentHeader."A01 Check No.", 1, 10);
-        PaymentLine."Due Date" := CustSettlement."Due Date";
+        //PaymentLine."Due Date" := CustSettlement."Due Date";
 
         PaymentLine."Dimension Set ID" := CustSettlementLine."Dimension Set ID";
         PaymentLine.Modify();
