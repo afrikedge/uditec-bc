@@ -233,6 +233,11 @@ permissionset 50000 "A01 Uditec_All"
         codeunit "A01 Purchase Op Mgt" = X,
         page "A01 Approv Transfert List" = X,
         page "A01 Importation Steps" = X,
-        page "A01 Web Functions" = X;
+        page "A01 Web Functions" = X,
+        tabledata "A01 Posted Customer Scoring" = RIMD,
+        table "A01 Posted Customer Scoring" = X,
+        xmlport "A01 Import Affectations" = X,
+        tabledata "A01 Post Cust Scoring Criteria" = RIMD,
+        table "A01 Post Cust Scoring Criteria" = X;
     //page "A01 Customer Settlements" = X;
 }

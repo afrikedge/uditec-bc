@@ -531,114 +531,118 @@ codeunit 50015 A01WSMasterFilesMgt
 
     end;
 
-    local procedure ProcessLead(var Cont: Record "Contact"; input: JsonObject)
+    local procedure ProcessLead(var Lead: Record "Contact"; input: JsonObject)
     begin
 
 
         //if (Cont."Name" <> WS.GetText('Name', input)) then
         //    Cont.Validate("Name", WS.GetText('Name', input));
 
-        if (Cont."A01 Created By" = '') then
-            Cont.Validate("A01 Created By", WS.GetText('webUserName', input));
+        if (Lead."A01 Created By" = '') then
+            Lead.Validate("A01 Created By", WS.GetText('webUserName', input));
 
-        if (Cont."A01 Modified By" <> WS.GetText('webUserName', input)) then
-            Cont.Validate("A01 Modified By", WS.GetText('webUserName', input));
+        if (Lead."A01 Modified By" <> WS.GetText('webUserName', input)) then
+            Lead.Validate("A01 Modified By", WS.GetText('webUserName', input));
 
-        cont."A01 Contact Type" := cont."A01 Contact Type"::Lead;
+        Lead."A01 Contact Type" := Lead."A01 Contact Type"::Lead;
 
-        if (Cont."Name" <> WS.GetText('Name', input)) then
-            Cont.Validate("Name", WS.GetText('Name', input));
+        if (Lead."Name" <> WS.GetText('Name', input)) then
+            Lead.Validate("Name", WS.GetText('Name', input));
 
-        if (Cont."Search Name" <> WS.GetText('Search Name', input)) then
-            Cont.Validate("Search Name", WS.GetText('Search Name', input));
+        if (Lead."Search Name" <> WS.GetText('Search Name', input)) then
+            Lead.Validate("Search Name", WS.GetText('Search Name', input));
 
-        if (Cont."A01 Customer Type".AsInteger() <> WS.GetInt('Customer Type', input)) then
-            Cont.Validate("A01 Customer Type", WS.GetInt('Customer Type', input));
+        if (Lead."A01 Customer Type".AsInteger() <> WS.GetInt('Customer Type', input)) then
+            Lead.Validate("A01 Customer Type", WS.GetInt('Customer Type', input));
 
-        if (Cont."A01 Legal Status".AsInteger() <> WS.GetInt('Legal Status', input)) then
-            Cont.Validate("A01 Legal Status", WS.GetInt('Legal Status', input));
+        if (Lead."A01 Legal Status".AsInteger() <> WS.GetInt('Legal Status', input)) then
+            Lead.Validate("A01 Legal Status", WS.GetInt('Legal Status', input));
 
-        if (Cont."A01 Identification Mode".AsInteger() <> WS.GetInt('Identification Mode', input)) then
-            Cont.Validate("A01 Identification Mode", WS.GetInt('Identification Mode', input));
+        if (Lead."A01 Identification Mode".AsInteger() <> WS.GetInt('Identification Mode', input)) then
+            Lead.Validate("A01 Identification Mode", WS.GetInt('Identification Mode', input));
 
-        if (Cont."A01 Prospect Status".AsInteger() <> WS.GetInt('Approval Status', input)) then
-            Cont.Validate("A01 Prospect Status", WS.GetInt('Approval Status', input));
+        if (Lead."A01 Prospect Status".AsInteger() <> WS.GetInt('Approval Status', input)) then
+            Lead.Validate("A01 Prospect Status", WS.GetInt('Approval Status', input));
 
-        if (Cont."Address" <> WS.GetText('Address', input)) then
-            Cont.Validate("Address", WS.GetText('Address', input));
+        if (Lead."Address" <> WS.GetText('Address', input)) then
+            Lead.Validate("Address", WS.GetText('Address', input));
 
-        if (Cont."Address 2" <> WS.GetText('Address 2', input)) then
-            Cont.Validate("Address 2", WS.GetText('Address 2', input));
+        if (Lead."Address 2" <> WS.GetText('Address 2', input)) then
+            Lead.Validate("Address 2", WS.GetText('Address 2', input));
 
-        if (Cont."Post Code" <> WS.GetText('Post Code', input)) then
-            Cont.Validate("Post Code", WS.GetText('Post Code', input));
+        if (Lead."Post Code" <> WS.GetText('Post Code', input)) then
+            Lead.Validate("Post Code", WS.GetText('Post Code', input));
 
-        if (Cont."City" <> WS.GetText('City', input)) then
-            Cont.Validate("City", WS.GetText('City', input));
+        if (Lead."City" <> WS.GetText('City', input)) then
+            Lead.Validate("City", WS.GetText('City', input));
 
-        if (Cont."Phone No." <> WS.GetText('Phone No_', input)) then
-            Cont.Validate("Phone No.", WS.GetText('Phone No_', input));
+        if (Lead."Phone No." <> WS.GetText('Phone No_', input)) then
+            Lead.Validate("Phone No.", WS.GetText('Phone No_', input));
 
-        if (Cont."Home Page" <> WS.GetText('Home Page', input)) then
-            Cont.Validate("Home Page", WS.GetText('Home Page', input));
+        if (Lead."Home Page" <> WS.GetText('Home Page', input)) then
+            Lead.Validate("Home Page", WS.GetText('Home Page', input));
 
-        if (Cont."A01 Parent Customer" <> WS.GetText('Parent Account No_', input)) then
-            Cont.Validate("A01 Parent Customer", WS.GetText('Parent Account No_', input));
+        if (Lead."A01 Parent Customer" <> WS.GetText('Parent Account No_', input)) then
+            Lead.Validate("A01 Parent Customer", WS.GetText('Parent Account No_', input));
 
-        if (Cont."A01 Allowed Item Category" <> WS.GetText('Item Category', input)) then
-            Cont.Validate("A01 Allowed Item Category", WS.GetText('Item Category', input));
+        if (Lead."A01 Allowed Item Category" <> WS.GetText('Item Category', input)) then
+            Lead.Validate("A01 Allowed Item Category", WS.GetText('Item Category', input));
 
-        if (Cont."A01 Main Contact" <> WS.GetText('Primary Contact No_', input)) then
-            Cont.Validate("A01 Main Contact", WS.GetText('Primary Contact No_', input));
+        if (Lead."A01 Main Contact" <> WS.GetText('Primary Contact No_', input)) then
+            Lead.Validate("A01 Main Contact", WS.GetText('Primary Contact No_', input));
 
-        if (Cont."A01 Preferred Reminder Mode".AsInteger() <> WS.GetInt('Activity Type', input)) then
-            Cont.Validate("A01 Preferred Reminder Mode", WS.GetInt('Activity Type', input));
+        if (Lead."A01 Preferred Reminder Mode".AsInteger() <> WS.GetInt('Activity Type', input)) then
+            Lead.Validate("A01 Preferred Reminder Mode", WS.GetInt('Activity Type', input));
 
-        if (Cont."A01 NIF" <> WS.GetText('NIF', input)) then
-            Cont.Validate("A01 NIF", WS.GetText('NIF', input));
+        if (Lead."A01 NIF" <> WS.GetText('NIF', input)) then
+            Lead.Validate("A01 NIF", WS.GetText('NIF', input));
 
-        if (Cont."A01 STAT" <> WS.GetText('STAT', input)) then
-            Cont.Validate("A01 STAT", WS.GetText('STAT', input));
+        if (Lead."A01 STAT" <> WS.GetText('STAT', input)) then
+            Lead.Validate("A01 STAT", WS.GetText('STAT', input));
 
-        if (Cont."A01 RCS" <> WS.GetText('RCS', input)) then
-            Cont.Validate("A01 RCS", WS.GetText('RCS', input));
+        if (Lead."A01 RCS" <> WS.GetText('RCS', input)) then
+            Lead.Validate("A01 RCS", WS.GetText('RCS', input));
 
-        if (Cont."A01 CIF" <> WS.GetText('CIF', input)) then
-            Cont.Validate("A01 CIF", WS.GetText('CIF', input));
+        if (Lead."A01 CIF" <> WS.GetText('CIF', input)) then
+            Lead.Validate("A01 CIF", WS.GetText('CIF', input));
 
-        if (Cont."A01 ID Number" <> WS.GetText('ID Number', input)) then
-            Cont.Validate("A01 ID Number", WS.GetText('ID Number', input));
+        if (Lead."A01 ID Number" <> WS.GetText('ID Number', input)) then
+            Lead.Validate("A01 ID Number", WS.GetText('ID Number', input));
 
-        if (Cont."A01 Contract No." <> WS.GetText('Contract No_', input)) then
-            Cont.Validate("A01 Contract No.", WS.GetText('Contract No_', input));
-
-
-        if (Cont."A01 Sales Mode" <> WS.GetText('Sales Mode', input)) then
-            Cont.Validate("A01 Sales Mode", WS.GetText('Sales Mode', input));
-
-        if (Cont."A01 Payment Terms Code" <> WS.GetText('Payment Terms Code', input)) then
-            Cont.Validate("A01 Payment Terms Code", WS.GetText('Payment Terms Code', input));
-
-        if (Cont."A01 Credit Limit" <> WS.GetDecimal('Credit limit (LCY)', input)) then
-            Cont.Validate("A01 Credit Limit", WS.GetDecimal('Credit limit (LCY)', input));
-
-        if (Cont."A01 Payment Method" <> WS.GetText('Payment Method Code', input)) then
-            Cont.Validate("A01 Payment Method", WS.GetText('Payment Method Code', input));
-
-        if (Cont."A01 VAT Regime" <> WS.GetText('VAT Bus_ Posting Group', input)) then
-            Cont.Validate("A01 VAT Regime", WS.GetText('VAT Bus_ Posting Group', input));
-
-        if (Cont."A01 Prepayment required" <> WS.GetDecimal('Prepayment _', input)) then
-            Cont.Validate("A01 Prepayment required", WS.GetDecimal('Prepayment _', input));
-
-        if (Cont."A01 Risk Level" <> WS.GetText('Risk Level', input)) then
-            Cont.Validate("A01 Risk Level", WS.GetText('Risk Level', input));
-
-        if (Cont."A01 Score" <> WS.GetDecimal('Score', input)) then
-            Cont.Validate("A01 Score", WS.GetDecimal('Score', input));
+        if (Lead."A01 Contract No." <> WS.GetText('Contract No_', input)) then
+            Lead.Validate("A01 Contract No.", WS.GetText('Contract No_', input));
 
 
-        Cont.Modify();
+        if (Lead."A01 Sales Mode" <> WS.GetText('Sales Mode', input)) then
+            Lead.Validate("A01 Sales Mode", WS.GetText('Sales Mode', input));
+
+        if (Lead."A01 Payment Terms Code" <> WS.GetText('Payment Terms Code', input)) then
+            Lead.Validate("A01 Payment Terms Code", WS.GetText('Payment Terms Code', input));
+
+        if (Lead."A01 Credit Limit" <> WS.GetDecimal('Credit limit (LCY)', input)) then
+            Lead.Validate("A01 Credit Limit", WS.GetDecimal('Credit limit (LCY)', input));
+
+        if (Lead."A01 Payment Method" <> WS.GetText('Payment Method Code', input)) then
+            Lead.Validate("A01 Payment Method", WS.GetText('Payment Method Code', input));
+
+        if (Lead."A01 VAT Regime" <> WS.GetText('VAT Bus_ Posting Group', input)) then
+            Lead.Validate("A01 VAT Regime", WS.GetText('VAT Bus_ Posting Group', input));
+
+        if (Lead."A01 Prepayment required" <> WS.GetDecimal('Prepayment _', input)) then
+            Lead.Validate("A01 Prepayment required", WS.GetDecimal('Prepayment _', input));
+
+        if (Lead."A01 Risk Level" <> WS.GetText('Risk Level', input)) then
+            Lead.Validate("A01 Risk Level", WS.GetText('Risk Level', input));
+
+        if (Lead."A01 Score" <> WS.GetDecimal('Score', input)) then
+            Lead.Validate("A01 Score", WS.GetDecimal('Score', input));
+
+        if (Lead."A01 Customer Price Group" <> WS.GetText('Customer Price Group', input)) then
+            Lead.Validate("A01 Customer Price Group", WS.GetText('Customer Price Group', input));
+
+
+
+        Lead.Modify();
     end;
 
     local procedure processLeadRequirements(Cont: Record "Contact"; input: JsonObject)
@@ -887,6 +891,21 @@ codeunit 50015 A01WSMasterFilesMgt
 
         if (Cont."E-Mail" <> WS.GetText('E-Mail', input)) then
             Cont.Validate("E-Mail", WS.GetText('E-Mail', input));
+
+        if (Cont."A01 NIF" <> WS.GetText('NIF', input)) then
+            Cont.Validate("A01 NIF", WS.GetText('NIF', input));
+
+        if (Cont."A01 STAT" <> WS.GetText('STAT', input)) then
+            Cont.Validate("A01 STAT", WS.GetText('STAT', input));
+
+        if (Cont."A01 RCS" <> WS.GetText('RCS', input)) then
+            Cont.Validate("A01 RCS", WS.GetText('RCS', input));
+
+        if (Cont."A01 CIF" <> WS.GetText('CIF', input)) then
+            Cont.Validate("A01 CIF", WS.GetText('CIF', input));
+
+        if (Cont."A01 ID Number" <> WS.GetText('ID Number', input)) then
+            Cont.Validate("A01 ID Number", WS.GetText('ID Number', input));
 
         Cont.Modify();
     end;

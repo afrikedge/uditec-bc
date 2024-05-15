@@ -529,4 +529,34 @@ codeunit 50000 "A01 Sales Order Processing"
         exit(Cust."A01 Customer Type" = Cust."A01 Customer Type"::Miscellaneous);
     end;
 
+    procedure ArchiveCustomerCriteriaOnPosting((SalesInvHeader: Record "Sales Invoice Header"; SalesHeader: Record "Sales Header")
+    var
+        CustScoring: Record "A01 Customer Scoring";
+        PostedCustScoring: Record "A01 Posted Customer Scoring";
+        CustScoringCriteria: Record "A01 Cust Scoring Criteria";
+        PostedCustScoringCriteria: Record "A01 Post Cust Scoring Criteria";
+    begin
+        CustScoring.Reset();
+        CustScoring.SetRange("Account Type", CustScoring."Account Type"::Customer);
+        CustScoring.SetRange("Customer No.", SalesInvHeader."Sell-to Customer No.");
+        if CustScoring.FindSet() then
+            repeat
+                PostedCustScoring.Init();
+                PostedCustScoring.TransferFields(CustScoring);
+                PostedCustScoring."Document No." := SalesInvHeader."No.";
+                PostedCustScoring.Insert()
+            until CustScoring.Next() < 1;
+
+        CustScoringCriteria.Reset();
+        CustScoringCriteria.SetRange("Account Type", CustScoring."Account Type"::Customer);
+        CustScoringCriteria.SetRange("Customer No.", SalesInvHeader."Sell-to Customer No.");
+        if CustScoringCriteria.FindSet() then
+            repeat
+                PostedCustScoringCriteria.Init();
+                PostedCustScoringCriteria.TransferFields(CustScoringCriteria);
+                PostedCustScoringCriteria."Document No." := SalesInvHeader."No.";
+                PostedCustScoringCriteria.Insert()
+            until CustScoringCriteria.Next() < 1;
+    end;
+
 }

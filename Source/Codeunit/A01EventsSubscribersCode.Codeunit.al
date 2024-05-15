@@ -248,6 +248,19 @@ codeunit 50002 "A01 EventsSubscribers_Code"
         ItemMgt.CheckValidation(TransferHeader);
     end;
 
+    [EventSubscriber(ObjectType::Codeunit, Codeunit::"Sales-Post", 'OnBeforeSalesInvHeaderInsert', '', true, true)]
+    local procedure SalesPost_OnBeforeSalesInvHeaderInsert(var SalesInvHeader: Record "Sales Invoice Header"; var SalesHeader: Record "Sales Header"; CommitIsSuppressed: Boolean; var IsHandled: Boolean; WhseShip: Boolean; WhseShptHeader: Record "Warehouse Shipment Header"; InvtPickPutaway: Boolean)
+    var
+        SOMgt: Codeunit "A01 Sales Order Processing";
+    begin
+        SOMgt.ArchiveCustomerCriteriaOnPosting(SalesInvHeader, SalesHeader);
+    end;
+
+    // [IntegrationEvent(false, false)]
+    // local procedure OnBeforeSalesInvHeaderInsert(var SalesInvHeader: Record "Sales Invoice Header"; var SalesHeader: Record "Sales Header"; CommitIsSuppressed: Boolean; var IsHandled: Boolean; WhseShip: Boolean; WhseShptHeader: Record "Warehouse Shipment Header"; InvtPickPutaway: Boolean)
+    // begin
+    // end;
+
     // [IntegrationEvent(true, false)]
     //     local procedure OnBeforeTransferOrderPostShipment(var TransferHeader: Record "Transfer Header"; var CommitIsSuppressed: Boolean)
     //     begin

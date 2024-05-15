@@ -45,7 +45,7 @@ table 50018 "A01 RC Payment Method"
         field(5; "Payment Class"; Code[20])
         {
             Caption = 'Payment Class';
-            TableRelation = "Payment Class" where("A01 Responsibility Center" = field("Responsability Center"));
+            TableRelation = "Payment Class";// where("A01 Responsibility Center" = field("Responsability Center"));
         }
     }
     keys
