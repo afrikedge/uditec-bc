@@ -27,6 +27,10 @@ pageextension 50001 "A01 Responsability Center Card" extends "Responsibility Cen
             {
                 ApplicationArea = Basic, Suite;
             }
+            field("A01 Current Promotion"; Rec."A01 Current Promotion")
+            {
+                ApplicationArea = Basic, Suite;
+            }
         }
         addbefore(Control1900383207)
         {

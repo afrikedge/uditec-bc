@@ -120,6 +120,12 @@ codeunit 50008 "A01 Api Interface Mgt"
             'shipToAddress_modify':
                 exit(MasterFilesMgt.RunShipToAddress(input, false));
 
+            'documentlink_insert':
+                exit(MasterFilesMgt.RunLinkDocument(input, false));
+            'documentlink_delete':
+                exit(MasterFilesMgt.RunLinkDocument(input, true));
+
+
 
 
 

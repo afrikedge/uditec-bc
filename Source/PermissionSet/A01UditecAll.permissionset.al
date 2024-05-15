@@ -222,6 +222,22 @@ permissionset 50000 "A01 Uditec_All"
         page "A01 Posted Credit Amort Lines" = X,
         tabledata "A01 Web Link Document" = RIMD,
         table "A01 Web Link Document" = X,
-        page "A01 Web Profile Permissions" = X;
+        page "A01 Web Profile Permissions" = X,
+        tabledata "A01 Import Document" = RIMD,
+        table "A01 Import Document" = X,
+        report "A01 Renitialise Credit Limit" = X,
+        report "A01 TransferReceiptPrint" = X,
+        report "A01 WarehouseReceptionPrint" = X,
+        report "A01 WarehouseShipOrderPrint" = X,
+        codeunit "A01 Inventory Mgt" = X,
+        codeunit "A01 Purchase Op Mgt" = X,
+        page "A01 Approv Transfert List" = X,
+        page "A01 Importation Steps" = X,
+        page "A01 Web Functions" = X,
+        tabledata "A01 Posted Customer Scoring" = RIMD,
+        table "A01 Posted Customer Scoring" = X,
+        xmlport "A01 Import Affectations" = X,
+        tabledata "A01 Post Cust Scoring Criteria" = RIMD,
+        table "A01 Post Cust Scoring Criteria" = X;
     //page "A01 Customer Settlements" = X;
 }

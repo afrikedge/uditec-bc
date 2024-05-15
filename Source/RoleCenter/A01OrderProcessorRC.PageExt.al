@@ -384,6 +384,12 @@ pageextension 50002 "A01 Order Processor RC" extends "Order Processor Role Cente
                     Caption = 'Transfer list to approve';
                     RunObject = Page "A01 Approv Transfert List";
                 }
+                action(A01ImportAffectations)
+                {
+                    ApplicationArea = Basic, Suite;
+                    Caption = 'Import des affectations';
+                    RunObject = xmlport "A01 Import Affectations";
+                }
 
             }
             group(A01AfkCredit)
