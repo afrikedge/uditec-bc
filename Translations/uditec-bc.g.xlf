@@ -4828,6 +4828,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page A01 POS Payment Requests - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Page 3464415353 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Post Cust Scoring Criteria</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page A01 Post Cust Scoring Criteria - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Page 2341183186 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Post CustSettlementSubform</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -4897,6 +4902,11 @@
           <source>Posted Cust Settlements</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page A01 Posted Cust Settlements - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 4249743196 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Posted Customer Scoring</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page A01 Posted Customer Scoring - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 2839460672 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Promotion Add Items</source>
@@ -14507,6 +14517,16 @@
           <source>Credit Amortisation Lines</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension A01 Posted Sales Invoice - Action A01AGPDueLine - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 1803151204 - Action 951144328 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2420212404">
+          <source>Customer Scoring Lines</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension A01 Posted Sales Invoice - Action A01CustScoring - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 1803151204 - Action 355651089 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2420212404">
+          <source>Customer Scoring Criteria Lines</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension A01 Posted Sales Invoice - Action A01CustScoringCriteria - Property Caption</note>
         </trans-unit>
         <trans-unit id="PageExtension 175916819 - Action 2633101996 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 3373253667">
           <source>Print BL/Invoice</source>

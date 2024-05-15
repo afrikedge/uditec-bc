@@ -529,7 +529,7 @@ codeunit 50000 "A01 Sales Order Processing"
         exit(Cust."A01 Customer Type" = Cust."A01 Customer Type"::Miscellaneous);
     end;
 
-    procedure ArchiveCustomerCriteriaOnPosting((SalesInvHeader: Record "Sales Invoice Header"; SalesHeader: Record "Sales Header")
+    procedure ArchiveCustomerCriteriaOnPosting(SalesInvHeader: Record "Sales Invoice Header"; SalesHeader: Record "Sales Header")
     var
         CustScoring: Record "A01 Customer Scoring";
         PostedCustScoring: Record "A01 Posted Customer Scoring";
