@@ -48,6 +48,19 @@ pageextension 50006 "A01 Customer Card" extends "Customer Card"
             {
                 ApplicationArea = Basic, Suite;
             }
+
+            field("A01 Employee Number"; Rec."A01 Employee Number")
+            {
+                ApplicationArea = Basic, Suite;
+            }
+            field("A01 Employee Function"; Rec."A01 Employee Function")
+            {
+                ApplicationArea = Basic, Suite;
+            }
+            field("A01 Employee Salary"; Rec."A01 Employee Salary")
+            {
+                ApplicationArea = Basic, Suite;
+            }
         }
 
         addafter("SIREN No.")

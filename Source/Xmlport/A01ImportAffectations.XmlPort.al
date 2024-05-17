@@ -33,7 +33,7 @@ xmlport 50000 "A01 Import Affectations"
                 var
                     Affectation: Record "A01 Deadline Assignment";
                 begin
-                    Affectation.Reset();
+                    Affectation.Init();
                     Affectation.Validate("Customer No.", ImportDocument."Account No.");
                     Affectation.Validate("Assigned to", ImportDocument."UserId");
                     Affectation.Validate("Required action", ImportDocument."IntValue");
@@ -42,7 +42,6 @@ xmlport 50000 "A01 Import Affectations"
 
             }
         }
-
     }
     requestpage
     {

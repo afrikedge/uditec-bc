@@ -50,5 +50,10 @@ tableextension 50003 "A01 Responsibility Center" extends "Responsibility Center"
             TableRelation = Campaign;
             DataClassification = CustomerContent;
         }
+        field(50008; "A01 Control Payment on Invoice"; Boolean)
+        {
+            Caption = 'Control Payment on Invoices';
+            DataClassification = CustomerContent;
+        }
     }
 }

@@ -93,6 +93,28 @@ codeunit 50004 "A01 Security Mgt"
         exit(Rep);
     end;
 
+    procedure GetUserLocationFilter(): Text[1024]
+    var
+        WarehouseEmp: Record "Warehouse Employee";
+        Rep: Text[1024];
+    begin
+        WarehouseEmp.Reset();
+        WarehouseEmp.SetRange("User Id", UserId);
+        if WarehouseEmp.FindSet() then
+            repeat
+                if (StrLen(Rep) > 1000) then
+                    exit('*');
+
+                if Rep = '' then
+                    Rep := WarehouseEmp."Location Code"
+                else
+                    Rep := CopyStr(Rep + '|' + WarehouseEmp."Location Code", 1, 1000);
+            until WarehouseEmp.Next() < 1;
+
+        if Rep = '' then Rep := '#K##+';
+        exit(Rep);
+    end;
+
     /// <summary>
     /// 
     /// </summary>
@@ -138,6 +160,7 @@ codeunit 50004 "A01 Security Mgt"
     var
     begin
         CheckWharehouseUser(ItemJournalLine."Location Code");
+        CheckWharehouseUser(ItemJournalLine."New Location Code");
     end;
 
     procedure CheckWharehouseUser(LocationCode: Code[20])

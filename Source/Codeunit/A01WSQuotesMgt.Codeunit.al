@@ -233,8 +233,8 @@ codeunit 50005 "A01 WS QuotesMgt"
         if (SalesQuote."A01 Miscellaneous Contact" <> WS.GetText('saleQuoteCustomerContactCode', input)) then
             SalesQuote.Validate("A01 Miscellaneous Contact", WS.GetText('saleQuoteCustomerContactCode', input));
 
-        if (SalesQuote."Sell-to Contact No." <> WS.GetText('saleQuoteCustomerContactCode', input)) then
-            SalesQuote.Validate("Sell-to Contact No.", WS.GetText('saleQuoteCustomerContactCode', input));
+        // if (SalesQuote."Sell-to Contact No." <> WS.GetText('saleQuoteCustomerContactCode', input)) then
+        //     SalesQuote.Validate("Sell-to Contact No.", WS.GetText('saleQuoteCustomerContactCode', input));
 
         if (SalesQuote."Responsibility Center" <> WS.GetText('saleQuoteResponsibilityCenter', input)) then
             SalesQuote.Validate("Responsibility Center", WS.GetText('saleQuoteResponsibilityCenter', input));

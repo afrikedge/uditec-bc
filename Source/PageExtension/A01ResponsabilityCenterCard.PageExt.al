@@ -31,6 +31,10 @@ pageextension 50001 "A01 Responsability Center Card" extends "Responsibility Cen
             {
                 ApplicationArea = Basic, Suite;
             }
+            field("A01 Control Payment on Invoice"; Rec."A01 Control Payment on Invoice")
+            {
+                ApplicationArea = Basic, Suite;
+            }
         }
         addbefore(Control1900383207)
         {

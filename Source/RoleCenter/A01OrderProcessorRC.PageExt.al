@@ -387,10 +387,27 @@ pageextension 50002 "A01 Order Processor RC" extends "Order Processor Role Cente
                 action(A01ImportAffectations)
                 {
                     ApplicationArea = Basic, Suite;
-                    Caption = 'Import des affectations';
+                    Caption = 'Import affectations';
                     RunObject = xmlport "A01 Import Affectations";
                 }
-
+                action(A01ImportAGPCustomers)
+                {
+                    ApplicationArea = Basic, Suite;
+                    Caption = 'Import AGP customers';
+                    RunObject = xmlport "A01 Import AGP Customers";
+                }
+                action(A01TransfersToShip)
+                {
+                    ApplicationArea = Basic, Suite;
+                    Caption = 'Transfers to ship';
+                    RunObject = page "A01 Item Transfers To Ship";
+                }
+                action(A01TransfersToReceive)
+                {
+                    ApplicationArea = Basic, Suite;
+                    Caption = 'Transfers to receive';
+                    RunObject = page "A01 Item Transfers To Receipt";
+                }
             }
             group(A01AfkCredit)
             {

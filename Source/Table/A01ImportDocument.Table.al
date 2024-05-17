@@ -44,6 +44,51 @@ table 50044 "A01 Import Document"
         {
             Caption = 'IntValue';
         }
+        field(10; "Account Name"; Text[100])
+        {
+        }
+        field(11; "Reference30_1"; Code[30])
+        {
+        }
+        field(12; "Reference30_2"; Code[30])
+        {
+        }
+        field(13; "Reference30_3"; Code[30])
+        {
+        }
+        field(14; "Reference50_1"; Text[50])
+        {
+        }
+        field(15; "Texte100_1"; Text[100])
+        {
+        }
+        field(16; "Texte100_2"; Text[100])
+        {
+        }
+        field(17; "Texte100_3"; Text[100])
+        {
+        }
+        field(18; Amount2; Decimal)
+        {
+        }
+        field(19; Amount3; Decimal)
+        {
+        }
+        field(20; "Code20_1"; Code[20])
+        {
+        }
+        field(21; "Code20_2"; Code[20])
+        {
+        }
+        field(22; "Code20_3"; Code[20])
+        {
+        }
+        field(23; "Reference30_4"; Code[30])
+        {
+        }
+        field(24; "Code10_1"; Code[10])
+        {
+        }
     }
     keys
     {

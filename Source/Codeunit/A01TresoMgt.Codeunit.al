@@ -176,8 +176,13 @@ codeunit 50007 "A01 Treso Mgt"
     var
         SalesPaymentLine: Record "A01 Sales Payment Method";
         GenJnlLine: Record "Gen. Journal Line";
-    //LblErrPayment : Label 'No valid payment action for the line %1'
+        RespCenter: Record "Responsibility Center";
     begin
+
+        SalesHeader.TestField("Responsibility Center");
+        RespCenter.Get(SalesHeader."Responsibility Center");
+        if (not RespCenter."A01 Control Payment on Invoice") then
+            exit;
 
         CheckPaymentAmount(SalesHeader);
 
@@ -186,10 +191,10 @@ codeunit 50007 "A01 Treso Mgt"
         SalesPaymentLine.SetRange("Document No.", SalesHeader."No.");
         if (SalesPaymentLine.FindSet()) then
             repeat
-                //CheckPaymentAction(SalesHeader, SalesPaymentLine);
                 CreateNewPaymentDocFromSalesHeader(SalesHeader, SalesPaymentLine, GenJnlLine."Applies-to Doc. Type"::Invoice, PostedInvoiceNo);
                 PostBalancingEntry(SalesHeader, SalesPaymentLine, GenJnlLine."Applies-to Doc. Type"::Invoice, GenJnlPostLine, PostedInvoiceNo, ExtDocNo, SourceCode);
             until SalesPaymentLine.Next() < 1;
+
     end;
 
     local procedure CheckPaymentAction(SalesHeader: Record "Sales Header"; SalesPaymentLine: Record "A01 Sales Payment Method")

@@ -189,6 +189,10 @@ page 50040 "A01 Afk Setup"
                 {
 
                 }
+                field("Template for AGP Cudtomer"; Rec."Template for AGP Customer")
+                {
+
+                }
             }
             group("After sales service")
             {
