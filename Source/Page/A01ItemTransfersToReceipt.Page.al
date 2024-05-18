@@ -1,7 +1,7 @@
 page 50093 "A01 Item Transfers To Receipt"
 {
     ApplicationArea = Location;
-    Caption = 'Transfer Orders';
+    Caption = 'Transfer Orders to receive';
     CardPageID = "Transfer Order";
     Editable = false;
     PageType = List;

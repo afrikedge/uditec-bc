@@ -1,7 +1,7 @@
 page 50094 "A01 Item Transfers To Ship"
 {
     ApplicationArea = Location;
-    Caption = 'Transfer Orders';
+    Caption = 'Transfer Orders to ship';
     CardPageID = "Transfer Order";
     Editable = false;
     PageType = List;

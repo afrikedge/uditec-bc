@@ -302,6 +302,8 @@ codeunit 50005 "A01 WS QuotesMgt"
 
 
 
+
+
     end;
 
     local procedure ProcessCreditRequestFields(var SalesQuote: Record "Sales Header"; input: JsonObject)
@@ -314,6 +316,12 @@ codeunit 50005 "A01 WS QuotesMgt"
 
         if (SalesQuote."A01 Credit Duration (Month)" <> WS.Getint('Duration (Month)', input)) then
             SalesQuote.Validate("A01 Credit Duration (Month)", WS.Getint('Duration (Month)', input));
+
+        if (SalesQuote."A01 Joint Type".AsInteger() <> WS.GetInt('Joint Type', input)) then
+            SalesQuote.Validate("A01 Joint Type", WS.GetInt('Joint Type', input));
+
+        if (SalesQuote."A01 Joint Code" <> WS.GetText('Join Code', input)) then
+            SalesQuote.Validate("A01 Joint Code", WS.GetText('Join Code', input));
 
 
     end;

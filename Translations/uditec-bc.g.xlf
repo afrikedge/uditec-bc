@@ -4443,6 +4443,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page A01 Deadline Assignment List - Control SystemModifiedBy - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Page 4034026045 - Action 4181767958 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Import Affectations</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page A01 Deadline Assignment List - Action Application - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Page 3914987280 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Discount Request</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -4544,7 +4549,7 @@
           <note from="Xliff Generator" annotates="general" priority="3">Page A01 Item Ticket Format List - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 2897553278 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Transfer Orders</source>
+          <source>Transfer Orders to receive</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page A01 Item Transfers To Receipt - Property Caption</note>
         </trans-unit>
@@ -4864,7 +4869,7 @@
           <note from="Xliff Generator" annotates="general" priority="3">Page A01 Item Transfers To Receipt - Action Inventory - Inbound Transfer - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 4081705192 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Transfer Orders</source>
+          <source>Transfer Orders to ship</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page A01 Item Transfers To Ship - Property Caption</note>
         </trans-unit>
@@ -14942,6 +14947,11 @@
           <source>Scoring</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension A01 Customer Card - Action A01Scoring - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 1847422466 - Action 2826009200 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2901867346">
+          <source>Import AGP Customers</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension A01 Customer List - Action A01ImportAGPCustomers - Property Caption</note>
         </trans-unit>
         <trans-unit id="PageExtension 3607665817 - Action 1676837972 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2583272393">
           <source>Generate interest lines</source>
