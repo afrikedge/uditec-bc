@@ -2103,6 +2103,46 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table A01 Posted Payment Document - Field Validated Amount - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Table 2520507258 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Posted Sales Payment Method</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table A01 Posted Sales Pay Method - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2520507258 - Field 636392376 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Amount</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table A01 Posted Sales Pay Method - Field Amount - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2520507258 - Field 57370450 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Archived</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table A01 Posted Sales Pay Method - Field Archived - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2520507258 - Field 486908828 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Document No.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table A01 Posted Sales Pay Method - Field Document No. - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2520507258 - Field 3566004263 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Payment Method</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table A01 Posted Sales Pay Method - Field Payment Method - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2520507258 - Field 1221660829 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Reference</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table A01 Posted Sales Pay Method - Field Reference - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2520507258 - Field 2247850105 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Responsibility Center</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table A01 Posted Sales Pay Method - Field Responsibility Center - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2520507258 - Field 1554171146 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Validated Amount</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table A01 Posted Sales Pay Method - Field Validated Amount - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Table 3394655679 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Promo Additionnal Item</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -9378,6 +9418,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page A01 Sales Payment Methods - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Page 106802471 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Sales Posted Pay Methods</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page A01 Sales Posted Pay Methods - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Page 3705967515 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Sales Order List - Consigned</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -15282,6 +15327,11 @@
           <source>Customer Scoring Criteria Lines</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension A01 Posted Sales Invoice - Action A01CustScoringCriteria - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 1803151204 - Control 297921311 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2420212404">
+          <source>Credit</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension A01 Posted Sales Invoice - Control A01Credit - Property Caption</note>
         </trans-unit>
         <trans-unit id="PageExtension 175916819 - Action 2633101996 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 3373253667">
           <source>Print BL/Invoice</source>

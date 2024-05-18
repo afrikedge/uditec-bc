@@ -193,8 +193,21 @@ codeunit 50007 "A01 Treso Mgt"
             repeat
                 CreateNewPaymentDocFromSalesHeader(SalesHeader, SalesPaymentLine, GenJnlLine."Applies-to Doc. Type"::Invoice, PostedInvoiceNo);
                 PostBalancingEntry(SalesHeader, SalesPaymentLine, GenJnlLine."Applies-to Doc. Type"::Invoice, GenJnlPostLine, PostedInvoiceNo, ExtDocNo, SourceCode);
+                SaveSalesPaymentLine(PostedInvoiceNo, SalesPaymentLine);
             until SalesPaymentLine.Next() < 1;
 
+
+
+    end;
+
+    local procedure SaveSalesPaymentLine(PostedNo: Code[20]; SalesPaymentLine: Record "A01 Sales Payment Method")
+    var
+        PostedSalesPaymentLine: Record "A01 Posted Sales Pay Method";
+    begin
+        PostedSalesPaymentLine.Init();
+        PostedSalesPaymentLine.TransferFields(SalesPaymentLine);
+        PostedSalesPaymentLine."Document No." := PostedNo;
+        PostedSalesPaymentLine.Insert();
     end;
 
     local procedure CheckPaymentAction(SalesHeader: Record "Sales Header"; SalesPaymentLine: Record "A01 Sales Payment Method")
