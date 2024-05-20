@@ -17,7 +17,8 @@ codeunit 50002 "A01 EventsSubscribers_Code"
         SalesOrderProcess: Codeunit "A01 Sales Order Processing";
     begin
         //Set invoice or ship status
-        SalesOrderProcess.ChangeStatusOnSalesPosting(SalesHeader)
+        SalesOrderProcess.ChangeStatusOnSalesPosting(SalesHeader);
+        SalesOrderProcess.CheckLocaltionOnLines(SalesHeader);
     end;
 
 

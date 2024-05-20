@@ -3343,6 +3343,11 @@
           <note from="Developer" annotates="general" priority="2">%1=date</note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit A01 General Legder Mgt - Method CheckCashboxClosingDateOnGenJnlLine - NamedType Err001</note>
         </trans-unit>
+        <trans-unit id="Codeunit 3788762471 - Method 4164467174 - NamedType 3300137446" size-unit="char" translate="yes" xml:space="preserve">
+          <source>The customer code is different on the documents %1 - %2 to be lettered. Line %3</source>
+          <note from="Developer" annotates="general" priority="2">%1=line %2=line %3=line</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit A01 General Legder Mgt - Method PostApplication - NamedType LblError</note>
+        </trans-unit>
         <trans-unit id="Codeunit 57460744 - NamedType 3216736383" size-unit="char" translate="yes" xml:space="preserve">
           <source>the transfer has already been approved</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -3717,6 +3722,11 @@
           <source>JsonResponse</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page A01 Afk Setup - Control TestApiJsonResponse - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2685203037 - Action 3622942983 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Import entries for application</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page A01 Afk Setup - Action ImportLettrage - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 2685203037 - Action 2675496269 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>TestAPI</source>
@@ -14917,6 +14927,26 @@
           <source>The contract %1 is already validated on line %2</source>
           <note from="Developer" annotates="general" priority="2">%1=contract no %2=lineNo</note>
           <note from="Xliff Generator" annotates="general" priority="3">XmlPort A01 Import AGP Customers - XmlPortNode ImportDocument - Method OnBeforeInsertRecord - NamedType ErrorLabel2</note>
+        </trans-unit>
+        <trans-unit id="XmlPort 4116099799 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Import Lettrage</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">XmlPort A01 Import Lettrage - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="XmlPort 4116099799 - NamedType 16731361" size-unit="char" translate="yes" xml:space="preserve">
+          <source>End of importation</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">XmlPort A01 Import Lettrage - NamedType LblEndOfProcess</note>
+        </trans-unit>
+        <trans-unit id="XmlPort 4116099799 - NamedType 3283546407" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Traitement @1@@@@@@@@@@@@@@@@@@@@@@@@@@@@\</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">XmlPort A01 Import Lettrage - NamedType Text008</note>
+        </trans-unit>
+        <trans-unit id="XmlPort 4116099799 - Control 2859953802 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Number of lines to import</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">XmlPort A01 Import Lettrage - Control NosOfLines - Property Caption</note>
         </trans-unit>
         <trans-unit id="PageExtension 1546816651 - Action 373964257 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1267036282">
           <source>Afk External Users</source>

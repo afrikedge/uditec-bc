@@ -44,6 +44,8 @@ codeunit 50008 "A01 Api Interface Mgt"
                 exit(QuotesMgt.RunCreditRequest(input, false));
             'creditRequests_modify':
                 exit(QuotesMgt.RunCreditRequest(input, false));
+            'creditRequests_reject':
+                exit(QuotesMgt.RunRejectCreditRequest(input));
 
             'orders_insert':
                 exit(OrdersMgt.Run(input, false));

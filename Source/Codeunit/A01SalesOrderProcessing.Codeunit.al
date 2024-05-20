@@ -225,7 +225,7 @@ codeunit 50000 "A01 Sales Order Processing"
         exit(CheckCreditLimit.SalesHeaderShowWarning(SalesH));
     end;
 
-    local procedure CheckLocaltionOnLines(SalesH: Record "Sales Header"): Boolean
+    procedure CheckLocaltionOnLines(SalesH: Record "Sales Header"): Boolean
     var
         SalesL: Record "Sales Line";
         DocumentErrorsMgt: Codeunit "Document Errors Mgt.";
@@ -245,6 +245,7 @@ codeunit 50000 "A01 Sales Order Processing"
 
             until SalesL.Next() < 1;
     end;
+
 
     /// <summary>
     /// CheckIsDeliverable.

@@ -212,6 +212,7 @@ tableextension 50000 "A01 Sales Header" extends "Sales Header"
 
 
 
+
         modify("Sell-to Customer No.")
         {
             trigger OnAfterValidate()
