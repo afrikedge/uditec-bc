@@ -722,18 +722,10 @@ report 50002 "A01 SalesInvoicePrint"
                     // if Type = Type::"G/L Account" then
                     //     "No." := '';
                     // CurrReport.Skip();
-                    if "No." = 'MIR_FEES' then
-                        CurrReport.Skip();
-                    if "No." = 'mir_fees' then
-                        CurrReport.Skip();
-                    if "No." = 'MIR_INTEREST' then
-                        CurrReport.Skip();
-                    if "No." = 'mir_interest' then
-                        CurrReport.Skip();
-                    if "No." = 'AGP_FEES' then
-                        CurrReport.Skip();
-                    if "No." = 'agp_fees' then
-                        CurrReport.Skip();
+                    // if "No." = 'MIR_INTEREST' then
+                    //     CurrReport.Skip();
+                    // if "No." = 'mir_interest' then
+                    //     CurrReport.Skip();
 
                     OnBeforeLineOnAfterGetRecord(Header, Line);
 

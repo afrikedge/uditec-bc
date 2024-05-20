@@ -736,6 +736,15 @@
                                                 </TablixMember>
                                               </TablixMembers>
                                             </TablixRowHierarchy>
+                                            <Filters>
+                                              <Filter>
+                                                <FilterExpression>=Fields!LyneType.Value</FilterExpression>
+                                                <Operator>Equal</Operator>
+                                                <FilterValues>
+                                                  <FilterValue DataType="Integer">1</FilterValue>
+                                                </FilterValues>
+                                              </Filter>
+                                            </Filters>
                                             <Top>4.30307cm</Top>
                                             <Left>0.00007cm</Left>
                                             <Height>1.46486cm</Height>
@@ -2499,9 +2508,11 @@
                                                             <Paragraph>
                                                               <TextRuns>
                                                                 <TextRun>
-                                                                  <Value>=Fields!TotalAmt_LCYText.Value</Value>
+                                                                  <Value>=Sum(Fields!CreditAmount.Value)</Value>
                                                                   <Style>
-                                                                    <FontSize>8pt</FontSize>
+                                                                    <FontSize>7pt</FontSize>
+                                                                    <FontWeight>Normal</FontWeight>
+                                                                    <Format>#,0;(#,0)</Format>
                                                                   </Style>
                                                                 </TextRun>
                                                               </TextRuns>
@@ -2615,7 +2626,7 @@
                                                             <Paragraph>
                                                               <TextRuns>
                                                                 <TextRun>
-                                                                  <Value>=Fields!A01Total_LCY.Value</Value>
+                                                                  <Value>=Sum(Fields!CreditAmount.Value)</Value>
                                                                   <Style>
                                                                     <FontSize>7pt</FontSize>
                                                                     <FontWeight>Bold</FontWeight>
@@ -2663,8 +2674,16 @@
                                                 <TablixMember />
                                               </TablixMembers>
                                             </TablixRowHierarchy>
+                                            <Filters>
+                                              <Filter>
+                                                <FilterExpression>=Fields!LyneType.Value</FilterExpression>
+                                                <Operator>Equal</Operator>
+                                                <FilterValues>
+                                                  <FilterValue DataType="Integer">2</FilterValue>
+                                                </FilterValues>
+                                              </Filter>
+                                            </Filters>
                                             <Top>7.01965cm</Top>
-                                            <Left>0cm</Left>
                                             <Height>2.20625cm</Height>
                                             <Width>14.12455cm</Width>
                                             <ZIndex>4</ZIndex>
@@ -4701,6 +4720,15 @@
                                                 </TablixMember>
                                               </TablixMembers>
                                             </TablixRowHierarchy>
+                                            <Filters>
+                                              <Filter>
+                                                <FilterExpression>=Fields!LyneType.Value</FilterExpression>
+                                                <Operator>Equal</Operator>
+                                                <FilterValues>
+                                                  <FilterValue DataType="Integer">1</FilterValue>
+                                                </FilterValues>
+                                              </Filter>
+                                            </Filters>
                                             <Top>4.3125cm</Top>
                                             <Left>14.51636cm</Left>
                                             <Height>1.46486cm</Height>
@@ -5145,9 +5173,11 @@
                                                             <Paragraph>
                                                               <TextRuns>
                                                                 <TextRun>
-                                                                  <Value>=Fields!TotalAmt_LCYText.Value</Value>
+                                                                  <Value>=Sum(Fields!CreditAmount.Value)</Value>
                                                                   <Style>
-                                                                    <FontSize>8pt</FontSize>
+                                                                    <FontSize>7pt</FontSize>
+                                                                    <FontWeight>Normal</FontWeight>
+                                                                    <Format>#,0;(#,0)</Format>
                                                                   </Style>
                                                                 </TextRun>
                                                               </TextRuns>
@@ -5261,10 +5291,10 @@
                                                             <Paragraph>
                                                               <TextRuns>
                                                                 <TextRun>
-                                                                  <Value>=Fields!A01Total_LCY.Value</Value>
+                                                                  <Value>=Sum(Fields!CreditAmount.Value)</Value>
                                                                   <Style>
                                                                     <FontSize>7pt</FontSize>
-                                                                    <FontWeight>Bold</FontWeight>
+                                                                    <FontWeight>Normal</FontWeight>
                                                                     <Format>#,0;(#,0)</Format>
                                                                   </Style>
                                                                 </TextRun>
@@ -5309,6 +5339,15 @@
                                                 <TablixMember />
                                               </TablixMembers>
                                             </TablixRowHierarchy>
+                                            <Filters>
+                                              <Filter>
+                                                <FilterExpression>=Fields!LyneType.Value</FilterExpression>
+                                                <Operator>Equal</Operator>
+                                                <FilterValues>
+                                                  <FilterValue DataType="Integer">2</FilterValue>
+                                                </FilterValues>
+                                              </Filter>
+                                            </Filters>
                                             <Top>7.01965cm</Top>
                                             <Left>14.51636cm</Left>
                                             <Height>2.20625cm</Height>
@@ -5956,6 +5995,9 @@ AAAAAAAAAECjsYAGAAAAAAAAAAAAAAAAjcYCGgAAAAAAAAAAAAAAADQaC2gAAAAAAAAAAAAAAADQaCyg
         </Field>
         <Field Name="Object">
           <DataField>Object</DataField>
+        </Field>
+        <Field Name="LyneType">
+          <DataField>LyneType</DataField>
         </Field>
         <Field Name="Document_No_">
           <DataField>Document_No_</DataField>

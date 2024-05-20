@@ -198,11 +198,14 @@ report 50024 "A01 PostedCustSettlementPrint"
             column(Object; Object)
             {
             }
+            column(LyneType; LyneType)
+            {
+            }
             dataitem("A01 Posted Payment Doc Line"; "A01 Posted Payment Doc Line")
             {
                 DataItemTableView = sorting("Document No.");
                 DataItemLinkReference = "A01 Posted Payment Document";
-                DataItemLink = "Document No." = field("No.");
+                DataItemLink = "Document No." = field("No."), "Account No." = field("Partner No.");
                 column(Document_No_; "Document No.")
                 {
                 }
@@ -252,72 +255,69 @@ report 50024 "A01 PostedCustSettlementPrint"
                 column(Due_Date; Format("Due Date"))
                 {
                 }
-                dataitem("Detailed Cust. Ledg. Entry"; "Detailed Cust. Ledg. Entry")
+                trigger OnAfterGetRecord()
+                begin
+                    LyneType := 1;
+                end;
+            }
+            dataitem("Detailed Cust. Ledg. Entry"; "Detailed Cust. Ledg. Entry")
+            {
+                DataItemLinkReference = "A01 Posted Payment Document";
+                DataItemLink = "Document No." = field("No.");
+                DataItemTableView = sorting("Entry No.")
+                        where("Entry Type" = filter(Application), "Document Type" = filter(Payment), "Initial Document Type" = filter(Invoice));
+                column(CreditAmount; "Credit Amount")
                 {
-                    DataItemLinkReference = "A01 Posted Payment Doc Line";
-                    DataItemLink = "Document No." = field("Document No.");
-                    DataItemTableView = sorting("Entry No.")
-                        where("Entry Type" = const(Application), "Document Type" = const(Payment), "Initial Document Type" = const(Invoice));
-                    column(CreditAmount; "Credit Amount")
-                    {
-                    }
-                    column(TotalAmt; ROUND("Credit Amount", AfkLocalCurrency."Amount Rounding Precision"))
-                    {
-                        AutoFormatExpression = "A01 Posted Payment Document"."Currency Code";
-                        AutoFormatType = 1;
-                    }
-                    column(TotalAmt_LCYText; TotalAmt_LCYText)
-                    {
-                    }
-                    column(Cust__Ledger_Entry_No_; "Cust. Ledger Entry No.")
-                    {
-                    }
-                    dataitem("Cust. Ledger Entry"; "Cust. Ledger Entry")
-                    {
-                        DataItemLinkReference = "Detailed Cust. Ledg. Entry";
-                        DataItemLink = "Entry No." = field("Cust. Ledger Entry No.");
-                        DataItemTableView = sorting("Entry No.") where("Document Type" = const(Invoice));
-                        column(DocumentNo; "Document No.")
-                        {
-                        }
-                        column(Description; Description)
-                        {
-                        }
-                        column(Original_Amount; "Original Amount")
-                        {
-                        }
-                        column(OriginAmt_LCYText; OriginAmt_LCYText)
-                        {
-                        }
-                        trigger OnAfterGetRecord()
-                        begin
-                            "Cust. Ledger Entry".Reset();
-                            "Cust. Ledger Entry".SetRange("Entry No.", "Detailed Cust. Ledg. Entry"."Cust. Ledger Entry No.");
-                            "Cust. Ledger Entry".SetRange("Sell-to Customer No.", "Detailed Cust. Ledg. Entry"."Customer No.");
+                }
+                column(TotalAmt; ROUND("Credit Amount", AfkLocalCurrency."Amount Rounding Precision"))
+                {
+                    AutoFormatExpression = "A01 Posted Payment Document"."Currency Code";
+                    AutoFormatType = 1;
+                }
+                column(TotalAmt_LCYText; TotalAmt_LCYText)
+                {
+                }
+                column(Cust__Ledger_Entry_No_; "Cust. Ledger Entry No.")
+                {
+                }
 
-                            OriginAmt := ROUND("Original Amount", AfkLocalCurrency."Amount Rounding Precision");
-                            OriginAmt_LCYText := Format(OriginAmt, 0, AutoFormat.ResolveAutoFormat("Auto Format"::AmountFormat, AfkLocalCurrency.Code));
-                            OriginAmt_LCYText := Format(OriginAmt);
-                        end;
+                dataitem("Cust. Ledger Entry"; "Cust. Ledger Entry")
+                {
+                    DataItemLinkReference = "Detailed Cust. Ledg. Entry";
+                    DataItemLink = "Entry No." = field("Cust. Ledger Entry No.");
+                    DataItemTableView = sorting("Entry No.") where("Document Type" = filter(Invoice));
+                    column(DocumentNo; "Document No.")
+                    {
+                    }
+                    column(Description; Description)
+                    {
+                    }
+                    column(Original_Amount; "Original Amount")
+                    {
+                    }
+                    column(OriginAmt_LCYText; OriginAmt_LCYText)
+                    {
                     }
                     trigger OnAfterGetRecord()
                     begin
-                        "Detailed Cust. Ledg. Entry".Reset();
-                        "Detailed Cust. Ledg. Entry".SetRange("Cust. Ledger Entry No.", "Cust. Ledger Entry"."Entry No.");
-                        "Detailed Cust. Ledg. Entry".SetRange("Document No.", "A01 Posted Payment Doc Line"."Document No.");
-                        "Detailed Cust. Ledg. Entry".SetRange("Customer No.", "A01 Posted Payment Doc Line"."Account No.");
-                        // "Detailed Cust. Ledg. Entry".SetRange("Credit Amount", "A01 Posted Payment Doc Line"."Validated Amount");
-
-                        TotalAmt := ROUND("Credit Amount", AfkLocalCurrency."Amount Rounding Precision");
-                        TotalAmt_LCYText := Format(TotalAmt, 0, AutoFormat.ResolveAutoFormat("Auto Format"::AmountFormat, AfkLocalCurrency.Code));
-                        TotalAmt_LCYText := Format(TotalAmt);
+                        OriginAmt := ROUND("Original Amount", AfkLocalCurrency."Amount Rounding Precision");
+                        OriginAmt_LCYText := Format(OriginAmt, 0, AutoFormat.ResolveAutoFormat("Auto Format"::AmountFormat, AfkLocalCurrency.Code));
+                        OriginAmt_LCYText := Format(OriginAmt);
                     end;
                 }
                 trigger OnAfterGetRecord()
                 begin
-                    "A01 Posted Payment Doc Line".Reset();
-                    "A01 Posted Payment Doc Line".SetRange("Document No.", "A01 Posted Payment Document"."No.");
-                    "A01 Posted Payment Doc Line".SetRange("Responsibility Center", "A01 Posted Payment Document"."Responsibility Center");
+                    LyneType := 2;
+
+                    TotalAmt := ROUND("Credit Amount", AfkLocalCurrency."Amount Rounding Precision");
+                    TotalAmt_LCYText := Format(TotalAmt, 0, AutoFormat.ResolveAutoFormat("Auto Format"::AmountFormat, AfkLocalCurrency.Code));
+                    TotalAmt_LCYText := Format(TotalAmt);
+
+                    A01Total_LCY := ROUND("A01 Posted Payment Document"."Validated Amount", AfkLocalCurrency."Amount Rounding Precision");
+                    A01Total_LCYText :=
+                      Format(A01Total_LCY, 0,
+                      AutoFormat.ResolveAutoFormat("Auto Format"::AmountFormat, AfkLocalCurrency.Code));
+                    A01Total_LCYText := Format(A01Total_LCY);
                 end;
             }
 
@@ -401,6 +401,7 @@ report 50024 "A01 PostedCustSettlementPrint"
     var
         CompanyInfo: Record "Company Information";
         Cust: Record Customer;
+        // Line: Record "A01 Posted Payment Doc Line";
         GLSetup: Record "General Ledger Setup";
         CurrencyExchangeRate: Record "Currency Exchange Rate";
         ResponsibilityInfo: Record "Responsibility Center";
@@ -412,6 +413,7 @@ report 50024 "A01 PostedCustSettlementPrint"
         Check: Report Check;
         AutoFormat: Codeunit "Auto Format";
         CustName: Text[100];
+        LyneType: Integer;
         UnitName: Text[100];
         City: Code[30];
         unitAddress: Text[100];
