@@ -14939,8 +14939,8 @@
           <note from="Xliff Generator" annotates="general" priority="3">XmlPort A01 Import Lettrage - Property Caption</note>
         </trans-unit>
         <trans-unit id="XmlPort 4116099799 - NamedType 16731361" size-unit="char" translate="yes" xml:space="preserve">
-          <source>End of importation</source>
-          <note from="Developer" annotates="general" priority="2"></note>
+          <source>End of importation. %1 lines processed</source>
+          <note from="Developer" annotates="general" priority="2">%1=...</note>
           <note from="Xliff Generator" annotates="general" priority="3">XmlPort A01 Import Lettrage - NamedType LblEndOfProcess</note>
         </trans-unit>
         <trans-unit id="XmlPort 4116099799 - NamedType 3283546407" size-unit="char" translate="yes" xml:space="preserve">

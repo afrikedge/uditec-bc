@@ -23,14 +23,7 @@ xmlport 50002 "A01 Import Lettrage"
                 fieldattribute(ApplyDate; ImportDocument.Code20_3) { }
 
 
-                trigger OnPreXmlItem()
-                var
-                begin
-                    i := 0;
-                    Window.OPEN(Text008);
-                    if (NbreTotalLignes = 0) then
-                        NbreTotalLignes := 100;
-                end;
+
 
                 trigger OnBeforeInsertRecord()
                 var
@@ -39,6 +32,7 @@ xmlport 50002 "A01 Import Lettrage"
                     DocNo2: Code[20];
                     ApplyDate: Date;
                     ApplyAmt: Decimal;
+                    Processed: Boolean;
                 begin
                     i := i + 1;
                     Window.UPDATE(1,
@@ -49,7 +43,10 @@ xmlport 50002 "A01 Import Lettrage"
                     ApplyAmt := ImportDocument.Amount;
                     Evaluate(ApplyDate, ImportDocument.Code20_3);
 
-                    GLMgt.PostApplication(i, DocNo, DocNo2, ApplyAmt, ApplyDate);
+                    Processed := GLMgt.PostApplication(i, DocNo, DocNo2, ApplyAmt, ApplyDate);
+
+                    if (Processed) then
+                        ProcessedLines := ProcessedLines + 1;
                 end;
             }
         }
@@ -77,16 +74,26 @@ xmlport 50002 "A01 Import Lettrage"
             }
         }
     }
+    trigger OnPreXmlPort()
+    var
+    begin
+        i := 0;
+        Window.OPEN(Text008);
+        if (NbreTotalLignes = 0) then
+            NbreTotalLignes := 100;
+    end;
+
     trigger OnPostXmlPort()
     begin
         Window.CLOSE();
-        Message(LblEndOfProcess);
+        Message(StrSubstNo(LblEndOfProcess, ProcessedLines));
     end;
 
     var
-        LblEndOfProcess: Label 'End of importation';
+        LblEndOfProcess: Label 'End of importation. %1 lines processed', Comment = '%1=...';
         i: Integer;
         NbreTotalLignes: Integer;
+        ProcessedLines: Integer;
         Window: Dialog;
         Text008: Label 'Traitement @1@@@@@@@@@@@@@@@@@@@@@@@@@@@@\';
 }

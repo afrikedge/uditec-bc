@@ -51,7 +51,7 @@ codeunit 50018 "A01 General Legder Mgt"
             Error(Err001, CashboxClosingLine."Closing Date");
     end;
 
-    procedure PostApplication(i: Integer; DocumentNo: Code[20]; DocumentNo2: Code[20]; ApplyAmount: Decimal; ApplyDate: Date)
+    procedure PostApplication(i: Integer; DocumentNo: Code[20]; DocumentNo2: Code[20]; ApplyAmount: Decimal; ApplyDate: Date): Boolean
     var
         CustLedgEntry: Record "Cust. Ledger Entry";
         ApplyUnapplyParameters: Record "Apply Unapply Parameters";
@@ -62,10 +62,12 @@ codeunit 50018 "A01 General Legder Mgt"
         CustLedgEntry.SetCurrentKey("Document No.");
         CustLedgEntry.SETRANGE("Document No.", DocumentNo);
         if (not CustLedgEntry.FindFirst()) then exit;
+        if (not CustLedgEntry.Open) then exit;
 
         CustLedgEntry.SetCurrentKey("Document No.");
         CustLedgEntry2.SetRange("Document No.", DocumentNo2);
         if (not CustLedgEntry2.FindFirst()) then exit;
+        if (not CustLedgEntry2.Open) then exit;
 
         CustLedgEntry."Applies-to ID" := Copystr(USERID + Format(i), 1, 50);
         IF (CustLedgEntry.Positive) THEN
@@ -84,5 +86,6 @@ codeunit 50018 "A01 General Legder Mgt"
         ApplyUnapplyParameters."Posting Date" := ApplyDate;
 
         ApplyCu.Apply(CustLedgEntry, ApplyUnapplyParameters);
+        exit(true);
     end;
 }
