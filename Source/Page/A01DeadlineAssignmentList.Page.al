@@ -64,6 +64,20 @@ page 50049 "A01 Deadline Assignment List"
             }
         }
     }
+    actions
+    {
+        area(Processing)
+        {
+            action(Application)
+            {
+                Image = ImportDatabase;
+                ApplicationArea = Basic, Suite;
+                Caption = 'Import Affectations';
+                ShortCutKey = 'Shift+F11';
+                RunObject = xmlport "A01 Import Affectations";
+            }
+        }
+    }
 
     local procedure GetUserNameFromSecurityId(UserSecurityID: Guid): Code[50]
     var

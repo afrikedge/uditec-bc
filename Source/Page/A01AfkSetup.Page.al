@@ -189,6 +189,10 @@ page 50040 "A01 Afk Setup"
                 {
 
                 }
+                field("Template for AGP Cudtomer"; Rec."Template for AGP Customer")
+                {
+
+                }
             }
             group("After sales service")
             {
@@ -291,8 +295,6 @@ page 50040 "A01 Afk Setup"
                 Caption = 'TestAPI';
                 Image = TestFile;
                 Ellipsis = true;
-                //ToolTip = 'Approve the requested changes.';
-                //Visible = OpenApprovalEntriesExistForCurrUser;
 
                 trigger OnAction()
                 var
@@ -308,12 +310,9 @@ page 50040 "A01 Afk Setup"
                 Caption = 'TestCustom';
                 Image = TestFile;
                 Ellipsis = true;
-                //ToolTip = 'Approve the requested changes.';
-                //Visible = OpenApprovalEntriesExistForCurrUser;
 
                 trigger OnAction()
                 var
-                    //apiMgt: Codeunit "A01 Api Mgt";
                     dateT: DateTime;
                 begin
 
@@ -321,6 +320,14 @@ page 50040 "A01 Afk Setup"
 
                     Message(format(dateT));
                 end;
+            }
+            action(ImportLettrage)
+            {
+                ApplicationArea = All;
+                Caption = 'Import entries for application';
+                Image = ImportLog;
+                Ellipsis = true;
+                RunObject = xmlport "A01 Import Lettrage";
             }
         }
     }

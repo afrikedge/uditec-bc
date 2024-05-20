@@ -19,10 +19,13 @@ xmlport 50000 "A01 Import Affectations"
             {
                 SourceTableView = sorting("Entry No.") order(ascending);
                 AutoSave = false;
+
                 fieldattribute(CustomerNo; ImportDocument."Account No.") { }
 
                 fieldattribute(AssignTo; ImportDocument.UserId) { }
+
                 fieldattribute(RequiredAction; ImportDocument."IntValue") { }
+
                 //fieldattribute(CustomerNo; ImportDocument."Account No."){}
                 //fieldattribute(CustomerNo; ImportDocument."Account No."){}
 
@@ -30,15 +33,15 @@ xmlport 50000 "A01 Import Affectations"
                 var
                     Affectation: Record "A01 Deadline Assignment";
                 begin
-                    Affectation.Reset();
+                    Affectation.Init();
                     Affectation.Validate("Customer No.", ImportDocument."Account No.");
+                    Affectation.Validate("Assigned to", ImportDocument."UserId");
                     Affectation.Validate("Required action", ImportDocument."IntValue");
                     Affectation.Insert(true);
                 end;
 
             }
         }
-
     }
     requestpage
     {

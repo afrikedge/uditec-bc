@@ -34,4 +34,22 @@ page 50078 "A01 Posted Cash Closing List"
             }
         }
     }
+    trigger OnOpenPage()
+    var
+    begin
+        SetFiltreCentreGestion();
+    end;
+
+    local procedure SetFiltreCentreGestion()
+    var
+        SecMgt: codeunit "A01 Security Mgt";
+        FiltreCG: Text[1024];
+    begin
+        FiltreCG := SecMgt.GetSalesRespCenterFilter();
+        if FiltreCG <> '' then begin
+            Rec.FILTERGROUP(2);
+            Rec.SETFILTER("Store Code", FiltreCG);
+            Rec.FILTERGROUP(0);
+        end;
+    end;
 }

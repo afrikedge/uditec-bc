@@ -99,6 +99,21 @@ tableextension 50006 "A01 Customer" extends Customer
             Caption = 'Modified By';
             DataClassification = CustomerContent;
         }
+        field(50017; "A01 Employee Number"; Code[30])
+        {
+            Caption = 'Employee Number';
+            DataClassification = CustomerContent;
+        }
+        field(50018; "A01 Employee Function"; Code[50])
+        {
+            Caption = 'Employee Function';
+            DataClassification = CustomerContent;
+        }
+        field(50019; "A01 Employee Salary"; Decimal)
+        {
+            Caption = 'Employee Salary';
+            DataClassification = CustomerContent;
+        }
 
 
 

@@ -78,6 +78,24 @@ codeunit 50005 "A01 WS QuotesMgt"
             exit(AddQuote_CreditRequest(input));
     end;
 
+    procedure RunRejectCreditRequest(input: JsonObject): Text
+    var
+        SalesQuote: Record "Sales Header";
+        NoQuote: text;
+        WebUser: text;
+        RejectionReason: text;
+    begin
+        NoQuote := ws.GetText('No_', input);
+        WebUser := ws.GetText('webUserName', input);
+        RejectionReason := ws.GetText('reason for rejection', input);
+
+        SalesQuote.Get(SalesQuote."Document Type"::Quote, NoQuote);
+        SalesQuote."A01 Request Status" := SalesQuote."A01 Request Status"::Rejected;
+        SalesQuote."A01 Return Reason" := CopyStr(RejectionReason, 1, 250);
+        SalesQuote.Modify();
+        exit(Ws.CreateResponseSuccess(SalesQuote."No."));
+    end;
+
     local procedure ModifyQuote(QuoteNo: Text; input: JsonObject): Text
     var
         SalesQuote: Record "Sales Header";
@@ -233,8 +251,8 @@ codeunit 50005 "A01 WS QuotesMgt"
         if (SalesQuote."A01 Miscellaneous Contact" <> WS.GetText('saleQuoteCustomerContactCode', input)) then
             SalesQuote.Validate("A01 Miscellaneous Contact", WS.GetText('saleQuoteCustomerContactCode', input));
 
-        if (SalesQuote."Sell-to Contact No." <> WS.GetText('saleQuoteCustomerContactCode', input)) then
-            SalesQuote.Validate("Sell-to Contact No.", WS.GetText('saleQuoteCustomerContactCode', input));
+        // if (SalesQuote."Sell-to Contact No." <> WS.GetText('saleQuoteCustomerContactCode', input)) then
+        //     SalesQuote.Validate("Sell-to Contact No.", WS.GetText('saleQuoteCustomerContactCode', input));
 
         if (SalesQuote."Responsibility Center" <> WS.GetText('saleQuoteResponsibilityCenter', input)) then
             SalesQuote.Validate("Responsibility Center", WS.GetText('saleQuoteResponsibilityCenter', input));
@@ -302,6 +320,8 @@ codeunit 50005 "A01 WS QuotesMgt"
 
 
 
+
+
     end;
 
     local procedure ProcessCreditRequestFields(var SalesQuote: Record "Sales Header"; input: JsonObject)
@@ -315,7 +335,28 @@ codeunit 50005 "A01 WS QuotesMgt"
         if (SalesQuote."A01 Credit Duration (Month)" <> WS.Getint('Duration (Month)', input)) then
             SalesQuote.Validate("A01 Credit Duration (Month)", WS.Getint('Duration (Month)', input));
 
+        if (SalesQuote."A01 Joint Type".AsInteger() <> WS.GetInt('Joint Type', input)) then
+            SalesQuote.Validate("A01 Joint Type", WS.GetInt('Joint Type', input));
 
+        if (SalesQuote."A01 Joint Code" <> WS.GetText('Joint Code', input)) then
+            SalesQuote.Validate("A01 Joint Code", WS.GetText('Joint Code', input));
+
+        if (SalesQuote."A01 Investigator Comments" <> WS.GetText('Investigator comments', input)) then
+            SalesQuote.Validate("A01 Investigator Comments", WS.GetText('Investigator comments', input));
+
+        if (SalesQuote."A01 Collection Opinion".AsInteger() <> WS.GetInt('Recovery Opinion', input)) then
+            SalesQuote.Validate("A01 Collection Opinion", WS.GetInt('Recovery Opinion', input));
+
+        if (SalesQuote."A01 Collection Comments" <> WS.GetText('Recovery comments', input)) then
+            SalesQuote.Validate("A01 Collection Comments", WS.GetText('Recovery comments', input));
+
+        if (SalesQuote."A01 Manager Opinion".AsInteger() <> WS.GetInt('Manager Opinion', input)) then
+            SalesQuote.Validate("A01 Manager Opinion", WS.GetInt('Manager Opinion', input));
+
+        if (SalesQuote."A01 Manager Comments" <> WS.GetText('Manager comments', input)) then
+            SalesQuote.Validate("A01 Manager Comments", WS.GetText('Manager comments', input));
+
+        //[Investigator comments] (text),  [Recovery Opinion] (optionlist), [Recovery comments] (text), [Manager Opinion] (optionlist), [Manager comments] (text)
     end;
 
     local procedure processSalesQuoteLine(SalesQuote: Record "Sales Header"; var SalesLine: Record "Sales Line"; input: JsonObject)

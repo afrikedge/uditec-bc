@@ -301,10 +301,15 @@ table 50017 "A01 Afk Setup"
             Caption = 'AGP Payment Terms Code';
             TableRelation = "Payment terms";
         }
+        field(64; "Template for AGP Customer"; Code[20])
+        {
+            Caption = 'Template for AGP Customer';
+            TableRelation = "Config. Template Header";
+        }
 
 
 
-
+        //Config. Template Header
         //Banked or unbanked employee
         //Administrative fees (%)
         //Conditions of application application fees

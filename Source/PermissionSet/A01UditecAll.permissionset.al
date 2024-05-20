@@ -238,6 +238,14 @@ permissionset 50000 "A01 Uditec_All"
         table "A01 Posted Customer Scoring" = X,
         xmlport "A01 Import Affectations" = X,
         tabledata "A01 Post Cust Scoring Criteria" = RIMD,
-        table "A01 Post Cust Scoring Criteria" = X;
+        table "A01 Post Cust Scoring Criteria" = X,
+        tabledata "A01 Posted Sales Pay Method" = RIMD,
+        table "A01 Posted Sales Pay Method" = X,
+        xmlport "A01 Import AGP Customers" = X,
+        page "A01 Item Transfers To Receipt" = X,
+        page "A01 Item Transfers To Ship" = X,
+        page "A01 Post Cust Scoring Criteria" = X,
+        page "A01 Posted Customer Scoring" = X,
+        page "A01 Sales Posted Pay Methods" = X;
     //page "A01 Customer Settlements" = X;
 }

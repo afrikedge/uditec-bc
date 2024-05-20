@@ -411,6 +411,20 @@ page 50083 "A01 Petty Cash Journal"
                         CurrPage.SaveRecord();
                     end;
                 }
+                action(Print)
+                {
+                    Image = PrintForm;
+                    ApplicationArea = Basic, Suite;
+                    Caption = '&Print';
+                    trigger OnAction()
+                    var
+                        DisburReceipt: Record "Gen. Journal Batch";
+                    begin
+                        DisburReceipt.SetRange("Journal Template Name", Rec."Journal Template Name");
+                        DisburReceipt.SetRange(Name, Rec."Journal Batch Name");
+                        Report.Run(50030, true, false, DisburReceipt);
+                    end;
+                }
             }
             group("A&ccount")
             {
