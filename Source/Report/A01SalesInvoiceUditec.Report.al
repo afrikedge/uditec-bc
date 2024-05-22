@@ -1,9 +1,9 @@
 /// <summary>
-/// Report A01 SalesInvoiceCreditPrint (ID 50010).
+/// Report A01 SalesInvoicePrint (ID 50030).
 /// </summary>
-report 50010 "A01 SalesInvoiceCreditPrint"
+report 50030 "A01 SalesInvoiceUditec"
 {
-    Caption = 'Sales Invoice Credit';
+    Caption = 'Sales Invoice Uditec';
     UsageCategory = ReportsAndAnalysis;
     ApplicationArea = All;
     DefaultLayout = RDLC;
@@ -11,7 +11,7 @@ report 50010 "A01 SalesInvoiceCreditPrint"
     EnableHyperlinks = true;
     Permissions = tabledata "Sales Shipment Buffer" = rimd;
     WordMergeDataItem = Header;
-    RDLCLayout = './Source/Report/Layout/SalesInvoiceCreditPrint.rdl';
+    RDLCLayout = './Source/Report/Layout/SalesInvoiceUditec.rdl';
 
     dataset
     {
@@ -19,7 +19,7 @@ report 50010 "A01 SalesInvoiceCreditPrint"
         {
             DataItemTableView = sorting("No.");
             RequestFilterFields = "No.", "Sell-to Customer No.";
-            RequestFilterHeading = 'Sales invoice credit';
+            RequestFilterHeading = 'Sales invoice';
             column(CompanyAddress1; CompanyAddr[1])
             {
             }
@@ -59,6 +59,9 @@ report 50010 "A01 SalesInvoiceCreditPrint"
             column(CompanyInfoAddress; CompanyInfo.Address)
             {
             }
+            column(SalesPersonCode; "Salesperson Code")
+            {
+            }
             column(CompanyPic; CompanyInfo.Picture)
             {
             }
@@ -75,18 +78,6 @@ report 50010 "A01 SalesInvoiceCreditPrint"
             {
             }
             column(A01respCenterCity; City)
-            {
-            }
-            column(rcs; rcs)
-            {
-            }
-            column(nif; nif)
-            {
-            }
-            column(stat; stat)
-            {
-            }
-            column(Salesperson_Code; "Salesperson Code")
             {
             }
             column(A01RespCenterPostCode; PostCode)
@@ -170,6 +161,15 @@ report 50010 "A01 SalesInvoiceCreditPrint"
             column(RCSLbl; RCSLbl)
             {
             }
+            column(rcs; rcs)
+            {
+            }
+            column(nif; nif)
+            {
+            }
+            column(stat; stat)
+            {
+            }
             column(CustomerPhoneLbl; CustomerPhoneLbl)
             {
             }
@@ -194,15 +194,6 @@ report 50010 "A01 SalesInvoiceCreditPrint"
             column(DiscountAmountLbl; DiscountAmountLbl)
             {
             }
-            column(Total_LCYText; Total_LCYText)
-            {
-            }
-            column(TVA_LCYText; TVA_LCYText)
-            {
-            }
-            column(TotalTTC_LCYText; TotalTTC_LCYText)
-            {
-            }
             column(HTPriceLbl; HTPriceLbl)
             {
             }
@@ -212,22 +203,12 @@ report 50010 "A01 SalesInvoiceCreditPrint"
             column(TTCPriceLbl; TTCPriceLbl)
             {
             }
-            column(DepositLbl; DepositLbl)
+            column(TotalDeposit; TotalDeposit)
             {
+                AutoFormatExpression = Header."Currency Code";
+                AutoFormatType = 1;
             }
-            column(BalanceLbl; BalanceLbl)
-            {
-            }
-            column(Interest18Lbl; Interest18Lbl)
-            {
-            }
-            column(BalanceToPayLbl; BalanceToPayLbl)
-            {
-            }
-            column(VATInterestLbl; VATInterestLbl)
-            {
-            }
-            column(TTCAmountOfOperationLbl; TTCAmountOfOperationLbl)
+            column(AfkTotalDeposit_LCYText; AfkTotalDeposit_LCYText)
             {
             }
             column(ArrestedOfSumLbl; ArrestedOfSumLbl)
@@ -239,57 +220,6 @@ report 50010 "A01 SalesInvoiceCreditPrint"
             column(CompanySignLbl; CompanySignLbl)
             {
             }
-            column(TotalDeposit; TotalDeposit)
-            {
-                AutoFormatExpression = Header."Currency Code";
-                AutoFormatType = 1;
-            }
-            column(AfkTotalDeposit_LCYText; AfkTotalDeposit_LCYText)
-            {
-            }
-            column(A01Balance; A01Balance)
-            {
-                AutoFormatExpression = Header."Currency Code";
-                AutoFormatType = 1;
-            }
-            column(A01Balance_LCYText; A01Balance_LCYText)
-            {
-            }
-            column(A01Interest18; A01Interest18)
-            {
-                AutoFormatExpression = Header."Currency Code";
-                AutoFormatType = 1;
-            }
-            column(A01Interest18_LCYText; A01Interest18_LCYText)
-            {
-            }
-            column(A01VATInterest; A01VATInterest)
-            {
-                AutoFormatExpression = Header."Currency Code";
-                AutoFormatType = 1;
-            }
-            column(A01VATInterest_LCYText; A01VATInterest_LCYText)
-            {
-            }
-            column(A01BalanceToPay; A01BalanceToPay)
-            {
-                AutoFormatExpression = Header."Currency Code";
-                AutoFormatType = 1;
-            }
-            column(A01BalanceToPay_LCYText; A01BalanceToPay_LCYText)
-            {
-            }
-            column(A01TTCAmountOperation; A01TTCAmountOperation)
-            {
-                AutoFormatExpression = Header."Currency Code";
-                AutoFormatType = 1;
-            }
-            column(A01TTCAmountOperation_LCYText; A01TTCAmountOperation_LCYText)
-            {
-            }
-
-
-
             column(CompanyLogoPosition; CompanyLogoPosition)
             {
             }
@@ -625,12 +555,14 @@ report 50010 "A01 SalesInvoiceCreditPrint"
                 }
                 column(AfkTotalAmountInclVAT_LCY; AfkTotalAmountInclVAT_LCY)
                 {
+
                 }
                 column(AfkTotalAmount_LCY; AfkTotalAmount_LCY)
                 {
                 }
                 column(AfkTotalVAT_LCY; AfkTotalVAT_LCY)
                 {
+
                 }
                 column(TransHeaderAmount; TransHeaderAmount)
                 {
@@ -783,7 +715,6 @@ report 50010 "A01 SalesInvoiceCreditPrint"
                     // if Type = Type::"G/L Account" then
                     //     "No." := '';
                     // CurrReport.Skip();
-
                     // if "No." = 'MIR_INTEREST' then
                     //     CurrReport.Skip();
                     // if "No." = 'mir_interest' then
@@ -1185,6 +1116,7 @@ report 50010 "A01 SalesInvoiceCreditPrint"
                 column(PmtDiscText; PmtDiscText)
                 {
                 }
+
                 trigger OnPreDataItem()
                 begin
                     PmtDiscText := '';
@@ -1318,14 +1250,14 @@ report 50010 "A01 SalesInvoiceCreditPrint"
                     AfkTotalVAT_LCYText := Format(AfkTotalVAT_LCY);
                     AfkLocalCurrencyCaption := AfkDeviseLbl;
 
-                    // RepCheck.InitTextVariable();
-                    // RepCheck.FormatNoText(NoText, AfkTotalAmountInclVAT_LCY, AfkLocalCurrency.Code);
+                    RepCheck.InitTextVariable();
+                    RepCheck.FormatNoText(NoText, AfkTotalAmountInclVAT_LCY, AfkLocalCurrency.Code);
 
-                    // NoText[1] := ReplaceString(NoText[1], '****');
-                    // NoText[1] := ReplaceString(NoText[1], 'AND 0/100');
-                    // NoText[2] := ReplaceString(NoText[2], '****');
-                    // NoText[2] := ReplaceString(NoText[2], 'AND 0/100');
-                    // Afk_AmountInWords := NoText[1] + ' ' + NoText[2];
+                    NoText[1] := ReplaceString(NoText[1], '****');
+                    NoText[1] := ReplaceString(NoText[1], 'AND 0/100');
+                    NoText[2] := ReplaceString(NoText[2], '****');
+                    NoText[2] := ReplaceString(NoText[2], 'AND 0/100');
+                    Afk_AmountInWords := NoText[1] + ' ' + NoText[2];
 
                 end;
             }
@@ -1344,7 +1276,6 @@ report 50010 "A01 SalesInvoiceCreditPrint"
 
                 if not Cust.Get("Sell-to Customer No.") then
                     Clear(Cust);
-
 
                 AfkCurrCod := GLSetup."Local Currency Symbol";
                 AfkCurrCode := Header."Currency Code";
@@ -1430,6 +1361,7 @@ report 50010 "A01 SalesInvoiceCreditPrint"
 
                 OnAfterGetSalesHeader(Header);
 
+
                 TotalSubTotal := 0;
                 TotalInvDiscAmount := 0;
                 TotalAmount := 0;
@@ -1439,92 +1371,6 @@ report 50010 "A01 SalesInvoiceCreditPrint"
                 AfkTotalAmountInclVAT_LCY := 0;
                 AfkTotalAmount_LCY := 0;
                 AfkTotalVAT_LCY := 0;
-
-                Clear(TotalDeposit);
-                LineRec.Reset();
-                LineRec.SetRange("Document No.", Header."No.");
-                if LineRec.Findlast() then
-                    repeat
-                        TotalDeposit := TotalDeposit + LineRec."Line Amount";
-                    until LineRec.Next() = 0;
-                TotalDeposit := CurrencyExchangeRate.ExchangeAmtFCYToLCY(Header."Posting Date",
-                                   Header."Currency Code", TotalDeposit, Header."Currency Factor");
-                TotalDeposit := TotalDeposit;
-                AfkTotalDeposit_LCYText := Format(TotalDeposit, 0, AutoFormat.ResolveAutoFormat("Auto Format"::AmountFormat, AfkLocalCurrency.Code));
-
-                Clear(TotalHT);
-                Clear(TVA);
-                Clear(TotalTTC);
-                SaleLineRec.Reset();
-                SaleLineRec.SetRange("Document No.", Header."No.");
-                if SaleLineRec.FindFirst() then begin
-                    repeat
-                        Montant := Round(SaleLineRec.Quantity * SaleLineRec."Unit Price", 0.01, '<');
-                        TotalHT := Round(TotalHT + (Montant - (Montant * SaleLineRec."Line Discount %" / 100)), 0.01, '<');
-                        TVA2 := Round((TotalHT * SaleLineRec."VAT %" / 100), 0.01, '<');
-                        TVA := Round((TotalHT + TVA2) - TotalHT, 0.01, '<');
-
-                        TotalHT := CurrencyExchangeRate.ExchangeAmtFCYToLCY(Header."Posting Date",
-                            Header."Currency Code", TotalHT, Header."Currency Factor");
-                        TVA := CurrencyExchangeRate.ExchangeAmtFCYToLCY(Header."Posting Date",
-                            Header."Currency Code", TVA, Header."Currency Factor");
-
-                        TotalHT := ROUND(TotalHT, AfkLocalCurrency."Amount Rounding Precision");
-                        TVA := ROUND(TVA, AfkLocalCurrency."Amount Rounding Precision");
-
-                        Total_LCYText :=
-                         Format(TotalHT, 0,
-                         AutoFormat.ResolveAutoFormat("Auto Format"::AmountFormat, AfkLocalCurrency.Code));
-                        Total_LCYText := Format(TotalHT);
-                        TVA_LCYText :=
-                         Format(TVA, 0,
-                         AutoFormat.ResolveAutoFormat("Auto Format"::AmountFormat, AfkLocalCurrency.Code));
-                        TVA_LCYText := Format(TVA);
-                    until SaleLineRec.Next() = 0;
-
-                    TotalTTC := CurrencyExchangeRate.ExchangeAmtFCYToLCY(Header."Posting Date",
-                                Header."Currency Code", TotalTTC, Header."Currency Factor");
-                    TotalTTC := TotalHT + TVA;
-                    TotalTTC := ROUND(TotalTTC, AfkLocalCurrency."Amount Rounding Precision");
-                    TotalTTC_LCYText :=
-                     Format(TotalTTC, 0,
-                     AutoFormat.ResolveAutoFormat("Auto Format"::AmountFormat, AfkLocalCurrency.Code));
-                    TotalTTC_LCYText := Format(TotalTTC);
-                end;
-
-                RepCheck.InitTextVariable();
-                RepCheck.FormatNoText(NoText, TotalTTC, AfkLocalCurrency.Code);
-
-                NoText[1] := ReplaceString(NoText[1], '****');
-                NoText[1] := ReplaceString(NoText[1], 'AND 0/100');
-                NoText[2] := ReplaceString(NoText[2], '****');
-                NoText[2] := ReplaceString(NoText[2], 'AND 0/100');
-                Afk_AmountInWords := NoText[1] + ' ' + NoText[2];
-
-                A01Balance := CurrencyExchangeRate.ExchangeAmtFCYToLCY(Header."Posting Date",
-                                   Header."Currency Code", A01Balance, Header."Currency Factor");
-                A01Balance := TotalTTC - TotalDeposit;
-                A01Balance_LCYText := Format(A01Balance, 0, AutoFormat.ResolveAutoFormat("Auto Format"::AmountFormat, AfkLocalCurrency.Code));
-
-                A01Interest18 := CurrencyExchangeRate.ExchangeAmtFCYToLCY(Header."Posting Date",
-                                   Header."Currency Code", A01Interest18, Header."Currency Factor");
-                A01Interest18 := A01Balance * 0.18;
-                A01Interest18_LCYText := Format(A01Interest18, 0, AutoFormat.ResolveAutoFormat("Auto Format"::AmountFormat, AfkLocalCurrency.Code));
-
-                A01VATInterest := CurrencyExchangeRate.ExchangeAmtFCYToLCY(Header."Posting Date",
-                                   Header."Currency Code", A01VATInterest, Header."Currency Factor");
-                A01VATInterest := A01Interest18 * 0.2;
-                A01VATInterest_LCYText := Format(A01VATInterest, 0, AutoFormat.ResolveAutoFormat("Auto Format"::AmountFormat, AfkLocalCurrency.Code));
-
-                A01BalanceToPay := CurrencyExchangeRate.ExchangeAmtFCYToLCY(Header."Posting Date",
-                                   Header."Currency Code", A01BalanceToPay, Header."Currency Factor");
-                A01BalanceToPay := A01Balance + A01Interest18 + A01VATInterest;
-                A01BalanceToPay_LCYText := Format(A01BalanceToPay, 0, AutoFormat.ResolveAutoFormat("Auto Format"::AmountFormat, AfkLocalCurrency.Code));
-
-                A01TTCAmountOperation := CurrencyExchangeRate.ExchangeAmtFCYToLCY(Header."Posting Date",
-                                   Header."Currency Code", A01TTCAmountOperation, Header."Currency Factor");
-                A01TTCAmountOperation := A01Balance + A01Interest18 + A01VATInterest;
-                A01TTCAmountOperation_LCYText := Format(A01TTCAmountOperation, 0, AutoFormat.ResolveAutoFormat("Auto Format"::AmountFormat, AfkLocalCurrency.Code));
 
                 if ("Order No." = '') and "Prepayment Invoice" then
                     "Order No." := "Prepayment Order No.";
@@ -1617,6 +1463,7 @@ report 50010 "A01 SalesInvoiceCreditPrint"
         RespCenter: Record "Responsibility Center";
         SalesPersonCode: Record "Salesperson/Purchaser";
         SellToContact: Record Contact;
+        ContactInfo: Record Contact;
         // ShipToAddrr: Record "Ship-to Address";
         // Country: Record "Country/Region";
         VATClause: Record "VAT Clause";
@@ -1631,11 +1478,9 @@ report 50010 "A01 SalesInvoiceCreditPrint"
         PaymentTerms: Record "Payment Terms";
         AfkLocalCurrency: Record Currency;
         Cust: Record Customer;
-        ContactInfo: Record Contact;
-        LineRec: Record "Sales Invoice Line";
-        SaleLineRec: Record "Sales Invoice Line";
         // TempLineFeeNoteOnReportHist: Record "Line Fee Note on Report Hist.";
         TempLineFeeNoteOnReportHist: Record "Line Fee Note on Report Hist." temporary;
+        // LineRec: Record "Sales Invoice Line";
         RepCheck: Report Check;
 
         // Language: Codeunit Language;
@@ -1644,24 +1489,18 @@ report 50010 "A01 SalesInvoiceCreditPrint"
         AutoFormat: Codeunit "Auto Format";
         FormatDocument: Codeunit "Format Document";
         MoreLines: Boolean;
-        TotalHT: Decimal;
-        TVA: Decimal;
-        TotalTTC: Decimal;
-        Montant: Decimal;
-        TVA2: Decimal;
-        Total_LCYText: Text[50];
-        TVA_LCYText: Text[50];
-        TotalTTC_LCYText: Text[50];
         CustomerIdentity: Text[100];
-        AfkIsLine: Integer;
+        rcs: Code[30];
+        stat: Code[30];
+        nif: Code[30];
+        TotalDeposit: Decimal;
+        A01DiscountedPrice: Decimal;
+        A01DiscountedPriceText: Text[50];
         // Deposit: Decimal;
-        A01Balance: Decimal;
-        A01Balance_LCYText: Text[50];
+        AfkTotalDeposit_LCYText: Text[50];
+        AfkIsLine: Integer;
         NumLigne: Integer;
         NumLigneText: Code[2];
-        AfkCurrCod: Code[20];
-        A01DiscountedPriceText: Text[50];
-        A01DiscountedPrice: Decimal;
         // LogInteractionEnable: Boolean;
         WorkDescriptionInstream: InStream;
         TransHeaderAmount: Decimal;
@@ -1677,9 +1516,6 @@ report 50010 "A01 SalesInvoiceCreditPrint"
         JobTaskDescLbl: Label 'Job Task Description';
         JobNoLbl: Text;
         JobNo: Code[20];
-        rcs: Code[30];
-        stat: Code[30];
-        nif: Code[30];
         UnitLbl: Label 'Unit';
         QtyLbl: Label 'Qty';
         PriceLbl: Label 'Price';
@@ -1745,20 +1581,11 @@ report 50010 "A01 SalesInvoiceCreditPrint"
         ShipToAddr: array[8] of Text[100];
         PaymentInstructionsTxt: Text;
         CompanyLogoPosition: Integer;
-        TotalDeposit: Decimal;
-        A01Interest18: Decimal;
-        A01VATInterest: Decimal;
-        A01BalanceToPay: Decimal;
-        A01TTCAmountOperation: Decimal;
-        A01Interest18_LCYText: Text[50];
-        A01VATInterest_LCYText: Text[50];
-        A01BalanceToPay_LCYText: Text[50];
-        A01TTCAmountOperation_LCYText: Text[50];
-        AfkTotalDeposit_LCYText: Text[50];
         DisplayAssemblyInformation: Boolean;
         ShowWorkDescription: Boolean;
         RemainingAmount: Decimal;
         AfkCurrCode: Code[20];
+        AfkCurrCod: Code[20];
         AfkCurrencyName: Text;
         DisplayShipmentInformation: Boolean;
         DisplayAdditionalFeeNote: Boolean;
@@ -1779,12 +1606,12 @@ report 50010 "A01 SalesInvoiceCreditPrint"
         NoFilterSetErr: Label 'You must specify one or more filters to avoid accidently printing all documents.';
         ExchangeRateTxt: Label 'Exchange rate: %1/%2', Comment = '%1 and %2 are both amounts.';
         PmtDiscTxt: Label 'If we receive the payment before %1, you are eligible for a %2% payment discount.', Comment = '%1 Discount Due Date %2 = value of Payment Discount % ';
-        SalesInvoiceLbl: Label 'CREDIT SALES INVOICE';
+        SalesInvoiceLbl: Label 'SALES INVOICE';
         InvNoLbl: Label 'Invoice N° :';
         SalesPersonText: Text[50];
         UnitNameLbl: Label 'Unit name :';
         UnitAddressLbl: Label 'Unit address :';
-        UnitCityLbl: Label 'Unit city';
+        UnitCityLbl: Label 'City';
         UnitPostalCodeLbl: Label 'Postal code :';
         UnitPhoneLbl: Label 'Phone :';
         CustomerNameLbl: Label 'Customer Name :';
@@ -1813,13 +1640,13 @@ report 50010 "A01 SalesInvoiceCreditPrint"
         HTPriceLbl: Label '(A) HT Price';
         VAT20Lbl: Label '(B) VAT 20%';
         TTCPriceLbl: Label '(C) TTC Price';
-        DepositLbl: Label '(D) Deposit';
-        BalanceLbl: Label '(E) Balance';
-        Interest18Lbl: Label '(F) Interest=18% of (E) per year';   //  Interets=18% de (E) par an
-        VATInterestLbl: Label '(G) VAT on Interest';   //  TVA sur interets
-        BalanceToPayLbl: Label '(H) Balance payable';   //  Solde à payer
-        TTCAmountOfOperationLbl: Label '(I) Amount TTC of operation';   //  Montant TTC de l'opération
-        ArrestedOfSumLbl: Label 'Arrested at the sum of';
+        // DepositLbl: Label '(D) Deposit';
+        // BalanceLbl: Label '(E) Balance';
+        // Interest18Lbl: Label '(F) Interest=18% of (E) per year';   //  Interets=18% de (E) par an
+        // VATInterestLbl: Label '(G) VAT on Interest';   //  TVA sur interets
+        // BalanceToPayLbl: Label '(H) Balance payable';   //  Solde à payer
+        // TTCAmountOfOperationLbl: Label '(I) Amount TTC of operation';   //  Montant TTC de l'opération
+        ArrestedOfSumLbl: Label 'Arrested at the sum of :';
         CompanySignLbl: Label 'Company signature';
         ClientSignLbl: Label 'Client Signature';
         InvDiscountAmtLbl: Label 'Invoice Discount';

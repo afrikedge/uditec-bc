@@ -422,7 +422,7 @@ page 50083 "A01 Petty Cash Journal"
                     begin
                         DisburReceipt.SetRange("Journal Template Name", Rec."Journal Template Name");
                         DisburReceipt.SetRange(Name, Rec."Journal Batch Name");
-                        Report.Run(50030, true, false, DisburReceipt);
+                        Report.Run(50031, true, false, DisburReceipt);
                     end;
                 }
             }

@@ -40,12 +40,12 @@ report 50008 "A01 PurchaseQuotePrint"
             column(A01Vendor_Name; "Buy-from Vendor Name")
             {
             }
-            column(A01VendorAddress; A01VendorAddress)
-            {
-            }
-            column(A01VendorPhone; A01VendorPhone)
-            {
-            }
+            // column(A01VendorAddress; A01VendorAddress)
+            // {
+            // }
+            // column(A01VendorPhone; A01VendorPhone)
+            // {
+            // }
             column(A01VendorIdentity; A01VendorIdentity)
             {
             }
@@ -222,6 +222,19 @@ report 50008 "A01 PurchaseQuotePrint"
             column(PayToContactEmail; PayToContact."E-Mail")
             {
             }
+            column(Buy_from_Vendor_No_; "Buy-from Vendor No.")
+            {
+            }
+            column(Buy_from_Vendor_Name; "Buy-from Vendor Name")
+            {
+            }
+            column(A01VendorPhone; A01VendorPhone)
+            {
+            }
+            column(A01VendorAddress; A01VendorAddress)
+            {
+            }
+
             dataitem("Purchase Line"; "Purchase Line")
             {
                 DataItemLink = "Document Type" = field("Document Type"), "Document No." = field("No.");
@@ -639,19 +652,21 @@ report 50008 "A01 PurchaseQuotePrint"
                 if (AfkLocalCurrency.Get(GLSetup."LCY Code") and (AfkCurrCode <> GLSetup."LCY Code")) then
                     AfkLocalCurrencyName := AfkLocalCurrency.Description;
 
-                if BuyFromContact.Get("Purchase Header"."Buy-from Contact No.") then begin
-                    A01VendorPhone := BuyFromContact."Phone No.";
-                    A01VendorIdentity := BuyFromContact.Name;
-                end;
+                // if BuyFromContact.Get("Purchase Header"."Buy-from Contact No.") then begin
+                //     A01VendorPhone := BuyFromContact."Phone No.";
+                //     A01VendorIdentity := BuyFromContact.Name;
+                // end;
 
                 if Vend.Get("Purchase Header"."Buy-from Vendor No.") then begin
                     rcs := Vend."A01 RCS";
                     stat := Vend."A01 STAT";
                     nif := Vend."A01 NIF";
+                    A01VendorPhone := Vend."Phone No.";
+                    A01VendorAddress := Vend.Address;
                 end;
 
-                if ShipToAddrr.Get("Purchase Header"."Ship-to Code") then
-                    A01VendorAddress := ShipToAddrr.Name;
+                // if ShipToAddrr.Get("Purchase Header"."Ship-to Code") then
+                //     A01VendorAddress := ShipToAddrr.Name;
 
                 NumLigne := 0;
 
@@ -754,7 +769,7 @@ report 50008 "A01 PurchaseQuotePrint"
         RespCenter: Record "Responsibility Center";
         PurchSetup: Record "Purchases & Payables Setup";
         BuyFromContact: Record Contact;
-        ShipToAddrr: Record "Ship-to Address";
+        // ShipToAddrr: Record "Ship-to Address";
         PayToContact: Record Contact;
         CurrencyExchangeRate: Record "Currency Exchange Rate";
         AfkLocalCurrency: Record Currency;

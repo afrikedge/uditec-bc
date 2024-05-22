@@ -95,9 +95,9 @@ report 50002 "A01 SalesInvoicePrint"
             column(CustomerIdentity; CustomerIdentity)
             {
             }
-            column(CustomerPhone; CustomerPhone)
-            {
-            }
+            // column(CustomerPhone; CustomerPhone)
+            // {
+            // }
             column(DocumentNo; "No.")
             {
             }
@@ -471,6 +471,18 @@ report 50002 "A01 SalesInvoicePrint"
             {
             }
             column(AfkCurrCod; AfkCurrCod)
+            {
+            }
+            column(Sell_to_Customer_No_; "Sell-to Customer No.")
+            {
+            }
+            column(Sell_to_Customer_Name; "Sell-to Customer Name")
+            {
+            }
+            column(CustAddress; CustAddress)
+            {
+            }
+            column(CustomerPhone; CustomerPhone)
             {
             }
             dataitem(Line; "Sales Invoice Line")
@@ -1309,19 +1321,24 @@ report 50002 "A01 SalesInvoicePrint"
                     UnitPhone := RespCenter."Phone No.";
                 end;
 
-                if Cust.Get(Header."Sell-to Customer No.") then begin
-                    rcs := Cust."A01 RCS";
-                    stat := Cust."A01 STAT";
-                    nif := Cust."A01 NIF";
-                end;
-
-                if SellToContact.Get(Header."Sell-to Contact No.") then begin
-                    CustomerIdentity := SellToContact.Name;
-                    CustomerPhone := SellToContact."Phone No.";
-                end;
-
-                if ShipToAddrr.Get(Header."Ship-to Code") then
-                    CustomerAddress := ShipToAddrr.Name;
+                if Cust.Get(Header."Sell-to Customer No.") then
+                    if Cust."A01 Customer Type" = Cust."A01 Customer Type"::Miscellaneous then begin
+                        if ContactInfo.Get(Header."A01 Miscellaneous Contact") then begin
+                            CustomerPhone := ContactInfo."Phone No.";
+                            rcs := ContactInfo."A01 RCS";
+                            stat := ContactInfo."A01 STAT";
+                            nif := ContactInfo."A01 NIF";
+                            CustAddress := ContactInfo.Address;
+                        end;
+                    end else begin
+                        if Cust.Get(Header."Sell-to Customer No.") then begin
+                            CustomerPhone := Cust."Phone No.";
+                            rcs := Cust."A01 RCS";
+                            stat := Cust."A01 STAT";
+                            nif := Cust."A01 NIF";
+                            CustAddress := Cust.Address;
+                        end;
+                    end;
 
                 ChecksPayableText := StrSubstNo(ChecksPayableLbl, CompanyInfo.Name);
 
@@ -1464,7 +1481,7 @@ report 50002 "A01 SalesInvoicePrint"
         RespCenter: Record "Responsibility Center";
         SalesPersonCode: Record "Salesperson/Purchaser";
         SellToContact: Record Contact;
-        ShipToAddrr: Record "Ship-to Address";
+        // ShipToAddrr: Record "Ship-to Address";
         // Country: Record "Country/Region";
         VATClause: Record "VAT Clause";
         BillToContact: Record Contact;
@@ -1477,6 +1494,7 @@ report 50002 "A01 SalesInvoicePrint"
         ShipmentMethod: Record "Shipment Method";
         PaymentTerms: Record "Payment Terms";
         AfkLocalCurrency: Record Currency;
+        ContactInfo: Record Contact;
         Cust: Record Customer;
         // TempLineFeeNoteOnReportHist: Record "Line Fee Note on Report Hist.";
         TempLineFeeNoteOnReportHist: Record "Line Fee Note on Report Hist." temporary;
@@ -1534,7 +1552,7 @@ report 50002 "A01 SalesInvoicePrint"
         City: Code[30];
         UnitPhone: Text[30];
         CustomerPhone: Text[30];
-        CustomerAddress: Text[100];
+        CustAddress: Text[100];
         TotalInvDiscAmount: Decimal;
         PrevLineAmount: Decimal;
         TotalAmountExclInclVATValue: Decimal;

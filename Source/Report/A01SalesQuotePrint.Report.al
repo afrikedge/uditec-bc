@@ -82,15 +82,12 @@ report 50001 "A01 SalesQuotePrint"
             column(City__Caption; City__Caption)
             {
             }
-            column(CustomerPhone; CustomerPhone)
-            {
-            }
             column(CustomerName; CustomerName)
             {
             }
-            column(CustomerAddress; "Ship-to Name")
-            {
-            }
+            // column(CustomerAddress; "Ship-to Name")
+            // {
+            // }
             column(PostalCode__Caption; PostalCode__Caption)
             {
             }
@@ -167,6 +164,18 @@ report 50001 "A01 SalesQuotePrint"
             {
             }
             column(DiscountAmount__Caption; DiscountAmount__Caption)
+            {
+            }
+            column(Sell_to_Customer_No_; "Sell-to Customer No.")
+            {
+            }
+            column(Sell_to_Customer_Name; "Sell-to Customer Name")
+            {
+            }
+            column(CustomerAddress; CustomerAddress)
+            {
+            }
+            column(CustomerPhone; CustomerPhone)
             {
             }
             dataitem(Line; "Sales Line")
@@ -823,37 +832,21 @@ report 50001 "A01 SalesQuotePrint"
 
                 if Cust.Get(Header."Sell-to Customer No.") then
                     if Cust."A01 Customer Type" = Cust."A01 Customer Type"::Miscellaneous then begin
-                        if ContactInfo.Get(Header."Sell-to Contact No.") then begin
-                            CustIdentity := ContactInfo.Name;
+                        if ContactInfo.Get(Header."A01 Miscellaneous Contact") then begin
                             CustomerPhone := ContactInfo."Phone No.";
-                        end;
-
-                        if ShipToAddr.Get(Header."Ship-to Code") then
-                            CustomerAddress := ShipToAddr.Name;
-
-                        if Cust.Get(Header."Sell-to Customer No.") then begin
-                            CustomerName := Cust.Name;
-                            rcs := Cust."A01 RCS";
-                            stat := Cust."A01 STAT";
-                            nif := Cust."A01 NIF";
+                            rcs := ContactInfo."A01 RCS";
+                            stat := ContactInfo."A01 STAT";
+                            nif := ContactInfo."A01 NIF";
+                            CustomerAddress := ContactInfo.Address;
                         end;
                     end else begin
                         if Cust.Get(Header."Sell-to Customer No.") then begin
-                            CustomerName := Cust.Name;
+                            CustomerPhone := Cust."Phone No.";
                             rcs := Cust."A01 RCS";
                             stat := Cust."A01 STAT";
                             nif := Cust."A01 NIF";
+                            CustomerAddress := Cust.Address;
                         end;
-
-
-                        if ContactInfo.Get(Header."Sell-to Contact No.") then begin
-                            CustIdentity := ContactInfo.Name;
-                            CustomerPhone := ContactInfo."Phone No.";
-                        end;
-
-                        if ShipToAddr.Get(Header."Ship-to Code") then
-                            CustomerAddress := ShipToAddr.Name;
-
                     end;
 
                 if not IsReportInPreviewMode() then
@@ -1020,7 +1013,7 @@ report 50001 "A01 SalesQuotePrint"
         SalesSetup: Record "Sales & Receivables Setup";
         RespCenter: Record "Responsibility Center";
         SellToContact: Record Contact;
-        ShipToAddr: Record "Ship-to Address";
+        // ShipToAddr: Record "Ship-to Address";
         BillToContact: Record Contact;
         CompanyBankAccount: Record "Bank Account";
         DummyCompanyInfo: Record "Company Information";
