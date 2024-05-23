@@ -202,7 +202,7 @@ codeunit 50016 "A01 Document Request Mgt"
 
                     PaymentLine.Reset();
                     PaymentLine.SetRange("Document No.", Request."Request No.");
-                    if POSPaymentLine.FindSet(true) then
+                    if PaymentLine.FindSet(true) then
                         repeat
                             if (PaymentLine."Validated Amount" <> PaymentLine.Amount) then begin
                                 PaymentLine.Validate("Validated Amount", PaymentLine.Amount);
