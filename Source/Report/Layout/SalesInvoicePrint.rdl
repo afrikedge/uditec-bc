@@ -170,7 +170,7 @@
                                                             <Paragraph>
                                                               <TextRuns>
                                                                 <TextRun>
-                                                                  <Value>=Fields!A01Customer_Name.Value</Value>
+                                                                  <Value>=Fields!Sell_to_Customer_Name.Value</Value>
                                                                   <Style>
                                                                     <FontSize>8pt</FontSize>
                                                                   </Style>
@@ -307,7 +307,7 @@
                                                             <Paragraph>
                                                               <TextRuns>
                                                                 <TextRun>
-                                                                  <Value>=Fields!CustomerIdentity.Value</Value>
+                                                                  <Value>=Fields!Sell_to_Customer_No_.Value</Value>
                                                                   <Style>
                                                                     <FontSize>8pt</FontSize>
                                                                   </Style>
@@ -448,7 +448,7 @@
                                                             <Paragraph>
                                                               <TextRuns>
                                                                 <TextRun>
-                                                                  <Value>=Fields!CustomerAddress.Value</Value>
+                                                                  <Value>=Fields!CustAddress.Value</Value>
                                                                   <Style>
                                                                     <FontSize>8pt</FontSize>
                                                                   </Style>
@@ -2974,9 +2974,6 @@ AAAAAAAAAECjsYAGAAAAAAAAAAAAAAAAjcYCGgAAAAAAAAAAAAAAADQaC2gAAAAAAAAAAAAAAADQaCyg
         <Field Name="CustomerIdentity">
           <DataField>CustomerIdentity</DataField>
         </Field>
-        <Field Name="CustomerPhone">
-          <DataField>CustomerPhone</DataField>
-        </Field>
         <Field Name="DocumentNo">
           <DataField>DocumentNo</DataField>
         </Field>
@@ -3333,6 +3330,18 @@ AAAAAAAAAECjsYAGAAAAAAAAAAAAAAAAjcYCGgAAAAAAAAAAAAAAADQaC2gAAAAAAAAAAAAAAADQaCyg
         </Field>
         <Field Name="AfkCurrCod">
           <DataField>AfkCurrCod</DataField>
+        </Field>
+        <Field Name="Sell_to_Customer_No_">
+          <DataField>Sell_to_Customer_No_</DataField>
+        </Field>
+        <Field Name="Sell_to_Customer_Name">
+          <DataField>Sell_to_Customer_Name</DataField>
+        </Field>
+        <Field Name="CustAddress">
+          <DataField>CustAddress</DataField>
+        </Field>
+        <Field Name="CustomerPhone">
+          <DataField>CustomerPhone</DataField>
         </Field>
         <Field Name="LineNo_Line">
           <DataField>LineNo_Line</DataField>

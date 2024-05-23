@@ -93,6 +93,20 @@ pageextension 50000 "A01 Posted Sales Invoice" extends "Posted Sales Invoice"
                     Report.Run(50010, true, false, SalesInvRec);
                 end;
             }
+            action("A01 Sales Invoice Uditec")
+            {
+                ApplicationArea = All;
+                Image = PrintForm;
+                Caption = 'Print Sales Invoice Uditec';
+                trigger OnAction()
+                var
+                    SalesInvRec: Record "Sales Invoice Header";
+                begin
+                    SalesInvRec.SetRange("No.", Rec."No.");
+                    SalesInvRec.SetRange("Sell-to Customer No.", Rec."Sell-to Customer No.");
+                    Report.Run(50030, true, false, SalesInvRec);
+                end;
+            }
         }
         addafter(Statistics)
         {

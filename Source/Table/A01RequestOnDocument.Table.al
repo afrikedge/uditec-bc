@@ -175,7 +175,12 @@ table 50031 "A01 Request On Document"
     //         exit(1);
     // end;
 
-
+    procedure IsDiscountRequest(): Boolean
+    var
+    begin
+        if ("Request Type" = "Request Type"::"Discount on order") then exit(true);
+        if ("Request Type" = "Request Type"::"Discount on quote") then exit(true);
+    end;
 
     procedure IsOnHold(): Boolean
     begin

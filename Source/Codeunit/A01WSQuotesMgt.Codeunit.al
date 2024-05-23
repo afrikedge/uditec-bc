@@ -235,6 +235,8 @@ codeunit 50005 "A01 WS QuotesMgt"
     end;
 
     local procedure ProcessSalesQuoteHeader(var SalesQuote: Record "Sales Header"; input: JsonObject)
+    var
+        Cust: record Customer;
     begin
 
         //SalesQuote.Validate("Sell-to Customer No.", GetText('customerNo', input));
@@ -248,11 +250,20 @@ codeunit 50005 "A01 WS QuotesMgt"
         if (SalesQuote."Sell-to Customer No." <> WS.GetText('saleQuoteCustomerNo', input)) then
             SalesQuote.Validate("Sell-to Customer No.", WS.GetText('saleQuoteCustomerNo', input));
 
-        if (SalesQuote."A01 Miscellaneous Contact" <> WS.GetText('saleQuoteCustomerContactCode', input)) then
-            SalesQuote.Validate("A01 Miscellaneous Contact", WS.GetText('saleQuoteCustomerContactCode', input));
+        if (Cust.get(SalesQuote."Sell-to Customer No.")) then begin
+            if (Cust."A01 Customer Type" = Cust."A01 Customer Type"::Miscellaneous) then begin
+                if (SalesQuote."A01 Miscellaneous Contact" <> WS.GetText('saleQuoteCustomerContactCode', input)) then
+                    SalesQuote.Validate("A01 Miscellaneous Contact", WS.GetText('saleQuoteCustomerContactCode', input));
+            end else begin
+                if (SalesQuote."Sell-to Contact No." <> WS.GetText('saleQuoteCustomerContactCode', input)) then
+                    SalesQuote.Validate("Sell-to Contact No.", WS.GetText('saleQuoteCustomerContactCode', input));
+            end;
+        end else begin
+            if (SalesQuote."Sell-to Contact No." <> WS.GetText('saleQuoteCustomerContactCode', input)) then
+                SalesQuote.Validate("Sell-to Contact No.", WS.GetText('saleQuoteCustomerContactCode', input));
+        end;
+        ;
 
-        // if (SalesQuote."Sell-to Contact No." <> WS.GetText('saleQuoteCustomerContactCode', input)) then
-        //     SalesQuote.Validate("Sell-to Contact No.", WS.GetText('saleQuoteCustomerContactCode', input));
 
         if (SalesQuote."Responsibility Center" <> WS.GetText('saleQuoteResponsibilityCenter', input)) then
             SalesQuote.Validate("Responsibility Center", WS.GetText('saleQuoteResponsibilityCenter', input));

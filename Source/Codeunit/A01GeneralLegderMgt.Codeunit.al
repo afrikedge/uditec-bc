@@ -51,12 +51,14 @@ codeunit 50018 "A01 General Legder Mgt"
             Error(Err001, CashboxClosingLine."Closing Date");
     end;
 
-    procedure PostApplication(i: Integer; DocumentNo: Code[20]; DocumentNo2: Code[20]; ApplyAmount: Decimal; ApplyDate: Date): Boolean
+    [TryFunction]
+    procedure PostApplication(i: Integer; DocumentNo: Code[20]; DocumentNo2: Code[20]; ApplyAmount: Decimal; ApplyDate: Date)
     var
         CustLedgEntry: Record "Cust. Ledger Entry";
         ApplyUnapplyParameters: Record "Apply Unapply Parameters";
         CustLedgEntry2: Record "Cust. Ledger Entry";
-        ApplyCu: Codeunit "CustEntry-Apply Posted Entries";
+        //ApplyCu: Codeunit "CustEntry-Apply Posted Entries";
+        ApplyCu: Codeunit "A01 Lettrage Mgt";
         LblError: Label 'The customer code is different on the documents %1 - %2 to be lettered. Line %3', Comment = '%1=line %2=line %3=line';
     begin
         CustLedgEntry.SetCurrentKey("Document No.");
@@ -64,12 +66,12 @@ codeunit 50018 "A01 General Legder Mgt"
         if (not CustLedgEntry.FindFirst()) then exit;
         if (not CustLedgEntry.Open) then exit;
 
-        CustLedgEntry.SetCurrentKey("Document No.");
+        CustLedgEntry2.SetCurrentKey("Document No.");
         CustLedgEntry2.SetRange("Document No.", DocumentNo2);
         if (not CustLedgEntry2.FindFirst()) then exit;
         if (not CustLedgEntry2.Open) then exit;
 
-        CustLedgEntry."Applies-to ID" := Copystr(USERID + Format(i), 1, 50);
+        CustLedgEntry."Applies-to ID" := Copystr('USERID' + Format(i), 1, 50);
         IF (CustLedgEntry.Positive) THEN
             CustLedgEntry."Amount to Apply" := ABS(ApplyAmount)
         ELSE
@@ -86,6 +88,6 @@ codeunit 50018 "A01 General Legder Mgt"
         ApplyUnapplyParameters."Posting Date" := ApplyDate;
 
         ApplyCu.Apply(CustLedgEntry, ApplyUnapplyParameters);
-        exit(true);
+        //exit(true);
     end;
 }

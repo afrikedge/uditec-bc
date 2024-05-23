@@ -1,5 +1,7 @@
 codeunit 50020 "A01 Inventory Mgt"
 {
+    Permissions = tabledata 7322 = rm;
+
     var
         SecMgt: Codeunit "A01 Security Mgt";
         Selection: Integer;
@@ -131,6 +133,15 @@ codeunit 50020 "A01 Inventory Mgt"
         TransHeader.get(TransLine."Document No.");
         if TransferNeedValidation(TransHeader) then
             TransHeader.TestField(TransHeader."A01 Approval Status", TransHeader."A01 Approval Status"::" ");
+    end;
+
+    procedure ConfirmPrintReport50027(var PostedWhseShip: Record "Posted Whse. Shipment Header")
+    var
+    begin
+        PostedWhseShip.Find();
+        PostedWhseShip."A01 No. Printed" := PostedWhseShip."A01 No. Printed" + 1;
+        PostedWhseShip.Modify();
+        Commit();
     end;
 
 }

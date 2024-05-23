@@ -31,6 +31,10 @@ pageextension 50011 "A01 User Setup" extends "User Setup"
             {
                 ApplicationArea = Basic, Suite;
             }
+            field("A01 Print Whse Delivery"; Rec."A01 Print Whse Delivery")
+            {
+                ApplicationArea = Basic, Suite;
+            }
         }
         addafter("Allow Posting To")
         {

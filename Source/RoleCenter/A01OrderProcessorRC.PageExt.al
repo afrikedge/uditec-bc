@@ -408,6 +408,13 @@ pageextension 50002 "A01 Order Processor RC" extends "Order Processor Role Cente
                     Caption = 'Transfers to receive';
                     RunObject = page "A01 Item Transfers To Receipt";
                 }
+                action(A01AGPContracts)
+                {
+                    ApplicationArea = Basic, Suite;
+                    Caption = 'AGP Contracts';
+                    RunObject = page "A01 AGP Contracts";
+                }
+
             }
             group(A01AfkCredit)
             {
