@@ -3323,6 +3323,16 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit A01 Document Request Mgt - Method CheckPOSPaymentOnCreation - NamedType ErrLbl01</note>
         </trans-unit>
+        <trans-unit id="Codeunit 2173010692 - Method 2557837007 - NamedType 1487053323" size-unit="char" translate="yes" xml:space="preserve">
+          <source>The validated discount value is 0%. Do you want to continue?</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit A01 Document Request Mgt - Method CheckRequestOnValidation - NamedType DiscountZeroQst</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 2173010692 - Method 2557837007 - NamedType 884373239" size-unit="char" translate="yes" xml:space="preserve">
+          <source>You cannot authorize a discount greater than %1 %</source>
+          <note from="Developer" annotates="general" priority="2">%1...</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit A01 Document Request Mgt - Method CheckRequestOnValidation - NamedType ErrorDiscount</note>
+        </trans-unit>
         <trans-unit id="Codeunit 2173010692 - Method 3789585885 - NamedType 2102311231" size-unit="char" translate="yes" xml:space="preserve">
           <source>A pending request already exists for this document</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -3377,6 +3387,61 @@
           <source>&amp;Approve,&amp;Return to draft</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit A01 Inventory Mgt - NamedType LblAction02</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 2691362946 - NamedType 2779957468" size-unit="char" translate="yes" xml:space="preserve">
+          <source>One or more of the entries that you selected is closed. You cannot apply closed entries.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit A01 Lettrage Mgt - NamedType CannotApplyClosedEntriesErr</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 2691362946 - NamedType 3485666513" size-unit="char" translate="yes" xml:space="preserve">
+          <source>You cannot unapply the entry with the posting date %1, because the exchange rate for the additional reporting currency has been changed.</source>
+          <note from="Developer" annotates="general" priority="2">%1 ...</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit A01 Lettrage Mgt - NamedType CannotUnapplyExchRateErr</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 2691362946 - NamedType 2071402184" size-unit="char" translate="yes" xml:space="preserve">
+          <source>You cannot unapply Cust. Ledger Entry No. %1 because the entry is part of a reversal.</source>
+          <note from="Developer" annotates="general" priority="2">%1 ...</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit A01 Lettrage Mgt - NamedType CannotUnapplyInReversalErr</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 2691362946 - NamedType 4096680308" size-unit="char" translate="yes" xml:space="preserve">
+          <source>The latest Transaction No. must be an application in Cust. Ledger Entry No. %1.</source>
+          <note from="Developer" annotates="general" priority="2">%1 ...</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit A01 Lettrage Mgt - NamedType LatestEntryMustBeApplicationErr</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 2691362946 - NamedType 3896578731" size-unit="char" translate="yes" xml:space="preserve">
+          <source>The posting date entered must not be before the posting date on the Cust. Ledger Entry.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit A01 Lettrage Mgt - NamedType MustNotBeBeforeErr</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 2691362946 - NamedType 241026142" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Cust. Ledger Entry No. %1 does not have an application entry.</source>
+          <note from="Developer" annotates="general" priority="2">%1 ...</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit A01 Lettrage Mgt - NamedType NoApplicationEntryErr</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 2691362946 - NamedType 4016661977" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Posting date is not within the range of allowed posting dates.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit A01 Lettrage Mgt - NamedType NotAllowedPostingDatesErr</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 2691362946 - NamedType 3957175453" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Posting application...</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit A01 Lettrage Mgt - NamedType PostingApplicationMsg</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 2691362946 - NamedType 3552928152" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Before you can unapply this entry, you must first unapply all application entries in Cust. Ledger Entry No. %1 that were posted after this entry.</source>
+          <note from="Developer" annotates="general" priority="2">%1 ...</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit A01 Lettrage Mgt - NamedType UnapplyAllPostedAfterThisEntryErr</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 2691362946 - NamedType 106116178" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Unapplying and posting...</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit A01 Lettrage Mgt - NamedType UnapplyingMsg</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 2691362946 - NamedType 3402950647" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Before you can unapply this entry, you must first unapply all application entries that were posted after this entry.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit A01 Lettrage Mgt - NamedType UnapplyPostedAfterThisEntryErr</note>
         </trans-unit>
         <trans-unit id="Codeunit 229064182 - Method 2743635458 - NamedType 1729297327" size-unit="char" translate="yes" xml:space="preserve">
           <source>The list must be empty to perform this operation</source>
@@ -14903,6 +14968,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report A01 WarehouseShipOrderPrint - ReportDataItem Header - Property RequestFilterHeading</note>
         </trans-unit>
+        <trans-unit id="Report 2860716380 - ReportDataItem 907109761 - Method 3245603402 - NamedType 841393647" size-unit="char" translate="yes" xml:space="preserve">
+          <source>The document has already been printed. You do not have permission to reprint it</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 WarehouseShipOrderPrint - ReportDataItem Header - Method OnAfterGetRecord - NamedType LabErrorNosPrinted</note>
+        </trans-unit>
         <trans-unit id="XmlPort 1431037900 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Import Affectations</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -15022,6 +15092,11 @@
           <source>A01_Compta</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension A01 Order Processor RC - Action A01_Compta - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 3250568499 - Action 3473779785 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2747922353">
+          <source>AGP Contracts</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension A01 Order Processor RC - Action A01AGPContracts - Property Caption</note>
         </trans-unit>
         <trans-unit id="PageExtension 3250568499 - Action 397674897 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2747922353">
           <source>Transfer list to approve</source>
@@ -15998,6 +16073,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension A01 Payment Terms - Field A01 Sales Mode - Property Caption</note>
         </trans-unit>
+        <trans-unit id="TableExtension 65744186 - Field 4027053433 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 2260220107">
+          <source>No. Printed</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension A01 Posted Whse. Shipment Head - Field A01 No. Printed - Property Caption</note>
+        </trans-unit>
         <trans-unit id="TableExtension 317432488 - Field 3722018607 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 2072992664">
           <source>Purchase Order Type</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -16713,6 +16793,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension A01 Transfer Header - Field A01 Approval User - Property Caption</note>
         </trans-unit>
+        <trans-unit id="TableExtension 473161202 - Field 4062175192 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 4089890050">
+          <source>Max Discount Allowed %</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension A01 User Group - Field A01 Max Discount Allowed % - Property Caption</note>
+        </trans-unit>
         <trans-unit id="TableExtension 4102593426 - Field 4203569464 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 337631938">
           <source>Can Cancel Sales Order</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -16737,6 +16822,11 @@
           <source>GL Period Group</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension A01 User Setup - Field A01 GL Period Group - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 4102593426 - Field 927564800 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 337631938">
+          <source>Can print add Whse Delivery</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension A01 User Setup - Field A01 Print Whse Delivery - Property Caption</note>
         </trans-unit>
         <trans-unit id="TableExtension 4102593426 - Field 3176799908 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 337631938">
           <source>Sales Resp. Ctr. Filter 2</source>

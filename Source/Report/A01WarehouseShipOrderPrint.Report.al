@@ -193,7 +193,18 @@ report 50027 "A01 WarehouseShipOrderPrint"
                 end;
             }
             trigger OnAfterGetRecord()
+            var
+                userSetup: Record "User Setup";
+                LabErrorNosPrinted: label 'The document has already been printed. You do not have permission to reprint it';
             begin
+
+                if ("A01 No. Printed" > 0) then begin
+                    userSetup.Get(UserId);
+                    if (not userSetup."A01 Print Whse Delivery") then
+                        error(LabErrorNosPrinted);
+                end;
+
+
                 // if RespCenter.Get(Header."Responsibility Center") then begin
                 //     UnitName := RespCenter.Name;
                 //     UnitAddress := RespCenter.Address;
@@ -222,6 +233,14 @@ report 50027 "A01 WarehouseShipOrderPrint"
                 // if Ship.Get(Header."Ship-to Code") then
                 //     CustAddress := Ship.Name;
 
+            end;
+
+            trigger OnPostDataItem()
+            var
+                GLMgt: Codeunit "A01 Inventory Mgt";
+            begin
+                if (not CurrReport.Preview) then
+                    GLMgt.ConfirmPrintReport50027(Header);
             end;
         }
     }

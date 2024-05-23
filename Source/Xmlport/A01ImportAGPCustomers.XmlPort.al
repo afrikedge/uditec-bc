@@ -25,11 +25,12 @@ xmlport 50001 "A01 Import AGP Customers"
                 fieldattribute(Adresse; ImportDocument."Texte100_1") { }
                 fieldattribute(Telephone; ImportDocument.Reference30_2) { }
                 fieldattribute(Telephone2; ImportDocument."Reference30_3") { }
+                fieldattribute(Referent; ImportDocument.Texte100_3) { }
                 fieldattribute(Fonction; ImportDocument.Reference50_1) { }
                 fieldattribute(Salaire; ImportDocument.Amount) { }
                 fieldattribute(MontantPlafond; ImportDocument.Amount2) { }
                 fieldattribute(Contrat; ImportDocument.Code20_1) { }
-                fieldattribute(ClientFacture; ImportDocument.Code20_2) { }
+                //fieldattribute(ClientFacture; ImportDocument.Code20_2) { }
                 fieldattribute(CentreDeGestion; ImportDocument.Code20_3) { }
 
                 trigger OnBeforeInsertRecord()
@@ -43,13 +44,14 @@ xmlport 50001 "A01 Import AGP Customers"
                     Mode: Integer;
                     Identification: Code[30];
                     Adresse: Text[100];
+                    Referent: Text[100];
                     Telephone: Code[30];
                     Telephone2: Code[30];
                     Fonction: Code[50];
                     Salaire: Decimal;
                     MontantPlafond: Decimal;
                     Contrat: Code[20];
-                    ClientFacture: Code[20];
+                    //ClientFacture: Code[20];
                     CentreDeGestion: Code[20];
                     ErrorLabel1: Label 'The value of %1 is required on line %2', Comment = '%1=column %2=lineNo';
                     ErrorLabel2: Label 'The contract %1 is already validated on line %2', Comment = '%1=contract no %2=lineNo';
@@ -101,6 +103,8 @@ xmlport 50001 "A01 Import AGP Customers"
 
                     Salaire := ImportDocument."Amount";
 
+                    Referent := ImportDocument.Texte100_3;
+
 
                     MontantPlafond := ImportDocument."Amount2";
 
@@ -115,7 +119,7 @@ xmlport 50001 "A01 Import AGP Customers"
                             Error(ErrorLabel2, Contrat, LineNo);
                     end;
 
-                    ClientFacture := ImportDocument."Code20_2";
+                    //ClientFacture := ImportDocument."Code20_2";
 
                     CentreDeGestion := ImportDocument."Code20_3";
                     if (CentreDeGestion = '') then
@@ -140,8 +144,9 @@ xmlport 50001 "A01 Import AGP Customers"
                     Cust."A01 Employee Salary" := Salaire;
                     Cust."A01 Proposed Credit Limit" := MontantPlafond;
                     Cust."A01 Contract No." := Contrat;
-                    Cust."Bill-to Customer No." := ClientFacture;
+                    //Cust."Bill-to Customer No." := ClientFacture;
                     Cust."Responsibility Center" := CopyStr(CentreDeGestion, 1, 10);
+                    Cust.Contact := Referent;
                     Cust.Modify();
 
 

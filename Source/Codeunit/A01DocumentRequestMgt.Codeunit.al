@@ -150,6 +150,9 @@ codeunit 50016 "A01 Document Request Mgt"
         PaymentLine: Record "A01 Payment Document Line";
         OrderValidationMgt: codeunit "A01 Sales Order Processing";
     begin
+
+        CheckRequestOnValidation(Request);
+
         case Request."Request Type" of
             Request."Request Type"::"Discount on order":
                 begin
@@ -235,6 +238,37 @@ codeunit 50016 "A01 Document Request Mgt"
                 end;
             else
                 Error('Unknown Type');
+        end;
+    end;
+
+    local procedure CheckRequestOnValidation(Request: Record "A01 Request On Document")
+    var
+        DiscountZeroQst: Label 'The validated discount value is 0%. Do you want to continue?';
+        ErrorDiscount: label 'You cannot authorize a discount greater than %1 %', Comment = '%1...';
+        allowedDiscount: decimal;
+    begin
+        if (Request.IsDiscountRequest()) then begin
+            if (Request."Validated Discount (%)" = 0) then
+                if (not Confirm(DiscountZeroQst)) then
+                    Error('');
+
+            allowedDiscount := GetMaxAllowedDiscount();
+            if (Request."Validated Discount (%)" > allowedDiscount) then
+                Error(ErrorDiscount, allowedDiscount);
+
+        end;
+    end;
+
+    local procedure GetMaxAllowedDiscount(): Decimal
+    var
+        userGroup: Record "User Group Member";
+        group: Record "User Group";
+    begin
+
+        userGroup.SetRange("User Name", UserId);
+        if (userGroup.FindLast()) then begin
+            group.get(userGroup."User Group Code");
+            exit(group."A01 Max Discount Allowed %");
         end;
     end;
 

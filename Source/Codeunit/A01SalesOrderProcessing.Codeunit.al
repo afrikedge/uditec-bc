@@ -518,8 +518,11 @@ codeunit 50000 "A01 Sales Order Processing"
     local procedure PostPrePayment(var SalesHeader: Record "Sales Header")
     var
         SalesPostYNPrepmt: Codeunit "Sales-Post Prepayment (Yes/No)";
+    //SalesPostPrepmt: Codeunit "Sales-Post Prepayments";
     begin
         SalesPostYNPrepmt.PostPrepmtInvoiceYN(SalesHeader, false);
+        //SalesPostPrepmt.SetSuppressCommit(true);
+        //SalesPostPrepmt.Run(SalesHeader);
     end;
 
     local procedure CustomerIsMisc(SalesHeader: Record "Sales Header"): Boolean

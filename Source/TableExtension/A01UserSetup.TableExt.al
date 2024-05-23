@@ -55,5 +55,10 @@ tableextension 50001 "A01 User Setup" extends "User Setup"
             TableRelation = "A01 GL Period User Group";
             DataClassification = CustomerContent;
         }
+        field(50010; "A01 Print Whse Delivery"; Boolean)
+        {
+            Caption = 'Can print add Whse Delivery';
+            DataClassification = CustomerContent;
+        }
     }
 }
