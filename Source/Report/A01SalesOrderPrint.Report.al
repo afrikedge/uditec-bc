@@ -330,6 +330,18 @@ report 50007 "A01 SalesOrderPrint"
             column(AfkCurrCod; AfkCurrCod)
             {
             }
+            column(Sell_to_Customer_No_; "Sell-to Customer No.")
+            {
+            }
+            column(Sell_to_Customer_Name; "Sell-to Customer Name")
+            {
+            }
+            column(CustAddress; CustAddress)
+            {
+            }
+            column(CustomerPhone; CustomerPhone)
+            {
+            }
             column(ShowWorkDescription; ShowWorkDescription) { }
             dataitem(Line; "Sales Line")
             {
@@ -818,19 +830,25 @@ report 50007 "A01 SalesOrderPrint"
                 if SalesPersonInfo.Get(Header."Salesperson Code") then
                     SellerName := SalesPersonInfo.Name;
 
-                if ContactInfo.Get(Header."Sell-to Contact No.") then begin
-                    CustIdentity := ContactInfo.Name;
-                    CustomerPhone := ContactInfo."Phone No.";
-                end;
+                if Cust.Get(Header."Sell-to Customer No.") then
+                    if Cust."A01 Customer Type" = Cust."A01 Customer Type"::Miscellaneous then begin
+                        if ContactInfo.Get(Header."A01 Miscellaneous Contact") then begin
+                            CustomerPhone := ContactInfo."Phone No.";
+                            rcs := ContactInfo."A01 RCS";
+                            stat := ContactInfo."A01 STAT";
+                            nif := ContactInfo."A01 NIF";
+                            CustAddress := ContactInfo.Address;
+                        end;
+                    end else begin
+                        if Cust.Get(Header."Sell-to Customer No.") then begin
+                            CustomerPhone := Cust."Phone No.";
+                            rcs := Cust."A01 RCS";
+                            stat := Cust."A01 STAT";
+                            nif := Cust."A01 NIF";
+                            CustAddress := Cust.Address;
+                        end;
+                    end;
 
-                if Cust.Get(Header."Sell-to Customer No.") then begin
-                    rcs := Cust."A01 RCS";
-                    stat := Cust."A01 STAT";
-                    nif := Cust."A01 NIF";
-                end;
-
-                if ShipToAddr.Get(Header."Ship-to Code") then
-                    CustAddress := ShipToAddr.Name;
 
                 if "Currency Code" <> '' then begin
                     CurrencyExchangeRate.FindCurrency("Posting Date", "Currency Code", 1);
@@ -913,7 +931,7 @@ report 50007 "A01 SalesOrderPrint"
         Cust: Record Customer;
         LineRec: Record "Sales Line";
         ContactInfo: Record Contact;
-        ShipToAddr: Record "Ship-to Address";
+        // ShipToAddr: Record "Ship-to Address";
         Currency: Record Currency;
         SellToContact: Record Contact;
         BillToContact: Record Contact;
