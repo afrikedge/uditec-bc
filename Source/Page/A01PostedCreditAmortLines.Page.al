@@ -8,6 +8,7 @@ page 50086 "A01 Posted Credit Amort Lines"
     PageType = List;
     SourceTable = "A01 Credit Depreciation Table";
     UsageCategory = Lists;
+    Editable = false;
 
     layout
     {
@@ -58,6 +59,18 @@ page 50086 "A01 Posted Credit Amort Lines"
                 {
                 }
                 field("Remaining debt"; Rec."Remaining debt")
+                {
+                }
+                field("VAT on interest"; Rec."VAT on interest")
+                {
+                }
+                field("Interest Excl VAT"; Rec."Interest Excl VAT")
+                {
+                }
+                field("Old Reference"; Rec."Old Reference")
+                {
+                }
+                field("Paid Amount"; Rec."Paid Amount")
                 {
                 }
                 field("Dimension Set ID"; Rec."Dimension Set ID")

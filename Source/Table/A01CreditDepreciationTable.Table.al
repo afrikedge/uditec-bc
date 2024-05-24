@@ -20,11 +20,12 @@ table 50016 "A01 Credit Depreciation Table"
         {
             Caption = 'Line No.';
         }
-        field(4; "Calculation factor"; Integer)
+        field(4; "Calculation factor"; Decimal)
         {
             Caption = 'Calculation factor';
             MinValue = 0;
             MaxValue = 100;
+            DecimalPlaces = 0 : 8;
         }
         field(5; "Monthly payment"; Decimal)
         {
@@ -52,17 +53,29 @@ table 50016 "A01 Credit Depreciation Table"
         }
         field(11; "Quote No."; Code[20])
         {
-            Caption = 'Dimension Set ID';
+            Caption = 'Quote No.';
             Editable = false;
         }
         field(12; "Order No."; Code[20])
         {
-            Caption = 'Dimension Set ID';
+            Caption = 'Order No.';
             Editable = false;
         }
-
-
-
+        field(13; "Interest Excl VAT"; Decimal)
+        {
+            Caption = 'Interest Excl VAT';
+            //Editable = false;
+        }
+        field(14; "VAT on interest"; Decimal)
+        {
+            Caption = 'VAT on interest';
+            //Editable = false;
+        }
+        field(15; "Paid Amount"; Decimal)
+        {
+            Caption = 'Paid Amount';
+            Editable = false;
+        }
         field(408; "Dimension Set ID"; integer)
         {
             Caption = 'Dimension Set ID';
@@ -86,6 +99,11 @@ table 50016 "A01 Credit Depreciation Table"
         field(103; "Interest Posted"; Boolean)
         {
             Caption = 'Interest Posted';
+            Editable = false;
+        }
+        field(104; "Old Reference"; Text[30])
+        {
+            Caption = 'Old Reference';
             Editable = false;
         }
     }

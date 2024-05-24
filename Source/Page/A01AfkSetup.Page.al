@@ -329,6 +329,14 @@ page 50040 "A01 Afk Setup"
                 Ellipsis = true;
                 RunObject = xmlport "A01 Import Lettrage";
             }
+            action(UpdateCreditAmortLines)
+            {
+                ApplicationArea = All;
+                Caption = 'Update credit amort Lines';
+                Image = UpdateDescription;
+                Ellipsis = true;
+                RunObject = report "A01 Update Credit Amort Line";
+            }
         }
     }
     trigger OnOpenPage()
