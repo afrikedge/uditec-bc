@@ -608,6 +608,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table A01 Credit Depreciation Table - Field Interest - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Table 2925814558 - Field 2622437177 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Interest Excl VAT</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table A01 Credit Depreciation Table - Field Interest Excl VAT - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Table 2925814558 - Field 3580433897 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Interest Posted</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -623,10 +628,20 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table A01 Credit Depreciation Table - Field Monthly payment - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Table 2925814558 - Field 1290435824 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Old Reference</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table A01 Credit Depreciation Table - Field Old Reference - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Table 2925814558 - Field 2202932243 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Dimension Set ID</source>
+          <source>Order No.</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table A01 Credit Depreciation Table - Field Order No. - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2925814558 - Field 231998036 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Paid Amount</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table A01 Credit Depreciation Table - Field Paid Amount - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 2925814558 - Field 2439978872 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Payment balance</source>
@@ -634,7 +649,7 @@
           <note from="Xliff Generator" annotates="general" priority="3">Table A01 Credit Depreciation Table - Field Payment balance - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 2925814558 - Field 1786097247 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Dimension Set ID</source>
+          <source>Quote No.</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table A01 Credit Depreciation Table - Field Quote No. - Property Caption</note>
         </trans-unit>
@@ -642,6 +657,11 @@
           <source>Remaining debt</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table A01 Credit Depreciation Table - Field Remaining debt - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2925814558 - Field 4004313984 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>VAT on interest</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table A01 Credit Depreciation Table - Field VAT on interest - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 2653739505 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Customer Criteria</source>
@@ -3802,6 +3822,11 @@
           <source>TestCustom</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page A01 Afk Setup - Action ProcessCustom - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2685203037 - Action 94676896 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Update credit amort Lines</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page A01 Afk Setup - Action UpdateCreditAmortLines - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 1820720969 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>AGP Contracts</source>
@@ -15058,6 +15083,21 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report A01 TransferReceiptPrint - ReportDataItem Header - Property RequestFilterHeading</note>
         </trans-unit>
+        <trans-unit id="Report 4278014353 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Update Credit Amort Line</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 Update Credit Amort Line - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 4278014353 - NamedType 2794159015" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Processing @1@@@@@@@@@@@@@@@@@@@@@@@@@@@@\</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 Update Credit Amort Line - NamedType LblErr002</note>
+        </trans-unit>
+        <trans-unit id="Report 4278014353 - NamedType 3431855632" size-unit="char" translate="yes" xml:space="preserve">
+          <source>End of process !</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 Update Credit Amort Line - NamedType LblErr003</note>
+        </trans-unit>
         <trans-unit id="Report 1440513659 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>A01 Warehouse Reception print</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -15388,6 +15428,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension A01 Customer Card - Action A01Scoring - Property Caption</note>
         </trans-unit>
+        <trans-unit id="PageExtension 928981325 - Action 3181782880 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2393537757">
+          <source>Credit Amortisation Lines</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension A01 Customer Ledger Entries - Action A01AGPDueLine - Property Caption</note>
+        </trans-unit>
         <trans-unit id="PageExtension 1847422466 - Action 2826009200 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2901867346">
           <source>Import AGP Customers</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -15432,6 +15477,11 @@
           <source>AGP Contracts</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension A01 Order Processor RC - Action A01AGPContracts - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 3250568499 - Action 3181782880 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2747922353">
+          <source>Credit Amortisation Lines</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension A01 Order Processor RC - Action A01AGPDueLine - Property Caption</note>
         </trans-unit>
         <trans-unit id="PageExtension 3250568499 - Action 397674897 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2747922353">
           <source>Transfer list to approve</source>
