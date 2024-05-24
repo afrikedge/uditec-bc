@@ -250,7 +250,7 @@ report 50009 "A01 DeliveryNoteInvoicePrint"
                     LineDiscount := Round((Quantity * "Unit Price") * ("Line Discount %" / 100), 0.01, '<');
                     LineDiscountText := Format(LineDiscount);
 
-                    A01DiscountedPrice := Round("Sales Shipment Line"."Unit Price" - LineDiscount, 0.01, '<');
+                    A01DiscountedPrice := Round(("Sales Shipment Line"."Unit Price" * Quantity) - LineDiscount, 0.01, '<');
                     A01DiscountedPriceText := Format(A01DiscountedPrice);
 
                     if "No." = 'MIR_FEES' then

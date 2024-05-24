@@ -144,6 +144,18 @@ report 50003 "A01 DeliveryNotePrint"
             column(RespCenterImg; RespCenter."A01 Logo")
             {
             }
+            column(Sell_to_Customer_No_; "Sell-to Customer No.")
+            {
+            }
+            column(Sell_to_Customer_Name; "Sell-to Customer Name")
+            {
+            }
+            // column(CustomerAddress; CustomerAddress)
+            // {
+            // }
+            // column(CustomerPhone; CustomerPhone)
+            // {
+            // }
             dataitem(Line; "Sales Shipment Line")
             {
                 DataItemTableView = sorting("Document No.", "Line No.") where(Type = filter(2));
