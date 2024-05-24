@@ -705,7 +705,7 @@ report 50030 "A01 SalesInvoiceUditec"
                     end;
                     A01LineQty := Line.Quantity;
                     A01LinePU := Round(tempPU, 0.000001, '<');
-                    A01DiscountedPrice := Round(tempPU - Line."Line Discount Amount", 0.001, '<');
+                    A01DiscountedPrice := Round((Line.Quantity * tempPU) - Line."Line Discount Amount", 0.001, '<');
 
                     A01LineQtyFormatted := Format(A01LineQty);
                     A01LinePUFormatted := Format(A01LinePU);

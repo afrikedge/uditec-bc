@@ -864,7 +864,7 @@ report 50006 "A01 PurchaseOrderPrint"
                     end;
                     A01LineQty := "Purchase Line".Quantity;
                     A01LinePU := Round(tempPU, 0.000001, '<');
-                    A01DiscountedPrice := Round(tempPU - "Purchase Line"."Line Discount Amount", 0.001, '<');
+                    A01DiscountedPrice := Round(("Purchase Line".Quantity * tempPU) - "Purchase Line"."Line Discount Amount", 0.001, '<');
 
                     A01LineQtyFormatted := Format(A01LineQty);
                     A01LinePUFormatted := Format(A01LinePU);
