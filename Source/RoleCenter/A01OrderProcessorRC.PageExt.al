@@ -414,6 +414,14 @@ pageextension 50002 "A01 Order Processor RC" extends "Order Processor Role Cente
                     Caption = 'AGP Contracts';
                     RunObject = page "A01 AGP Contracts";
                 }
+                action("A01AGPDueLine")
+                {
+                    ApplicationArea = All;
+                    Image = AllLines;
+                    Caption = 'Credit Amortisation Lines';
+                    RunObject = page "A01 Posted Credit Amort Lines";
+                    RunPageLink = "Document Type" = const("Posted Sales invoice");
+                }
 
             }
             group(A01AfkCredit)
