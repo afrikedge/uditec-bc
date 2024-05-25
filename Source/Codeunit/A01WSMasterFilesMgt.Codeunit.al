@@ -162,6 +162,17 @@ codeunit 50015 A01WSMasterFilesMgt
         exit(Ws.CreateResponseSuccess(CustNo));
     end;
 
+    procedure RunUpdatePassword(input: JsonObject): Text
+    var
+        SecMgt: codeunit "A01 Security Mgt";
+        NewPassWd: Text;
+        webUserName: Code[50];
+    begin
+        webUserName := Copystr(ws.GetText('webUserName', input), 1, 50);
+        NewPassWd := ws.GetText('Password', input);
+        SecMgt.CreateNewPassword(webUserName, NewPassWd);
+    end;
+
     #region Customers
 
     local procedure ModifyCustomer(CustNo: Text; input: JsonObject): Text

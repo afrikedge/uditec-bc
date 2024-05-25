@@ -3533,6 +3533,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit A01 Sales Order Processing - Method CheckIsAwaitingPrepayment - NamedType LabelOrder</note>
         </trans-unit>
+        <trans-unit id="Codeunit 4233996319 - Method 4062852933 - NamedType 299803193" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Error occured on posting prepayment : No invoice created</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit A01 Sales Order Processing - Method CheckIsAwaitingPrepayment - NamedType LblErrorPosteSales</note>
+        </trans-unit>
         <trans-unit id="Codeunit 4233996319 - Method 786011703 - NamedType 1412695557" size-unit="char" translate="yes" xml:space="preserve">
           <source>Order document %1 has no lines</source>
           <note from="Developer" annotates="general" priority="2">%1=rr</note>
