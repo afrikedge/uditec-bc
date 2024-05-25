@@ -61,6 +61,7 @@ table 50038 "A01 Cashbox Closing"
         SecMgt: Codeunit "A01 Security Mgt";
         LblQuestChangeRespCenter: Label 'The lines will be deleted. Do you want to continue ?';
         LblQuestValidate: Label 'Do you want to validate the closing of cashbox for the date of %1 ?', Comment = '%1)';
+        LblQuestNoLines: Label 'This document has no lines. do you want to continue ?';
 
 
 
@@ -88,6 +89,13 @@ table 50038 "A01 Cashbox Closing"
     begin
         if (not Confirm(StrSubstNo(LblQuestValidate, "Closing Date"))) then
             exit;
+
+        DocLine.Reset();
+        DocLine.SetRange("Store Code", "Store Code");
+        DocLine.SetRange("Closing Date", "Closing Date");
+        if (DocLine.IsEmpty) then
+            if (not Confirm(StrSubstNo(LblQuestNoLines))) then
+                exit;
 
         DocLine.Reset();
         DocLine.SetRange("Store Code", "Store Code");

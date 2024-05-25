@@ -7,29 +7,29 @@ codeunit 50018 "A01 General Legder Mgt"
         CashboxClosingLine: Record "A01 Cashbox closing Line";
         Err001: Label 'You cannot validate this operation on this date. There is a cash closing validated on the %1 for this point of sale.', Comment = '%1=date';
     begin
-        // if (GenJnlLine."Account Type" = GenJnlLine."Account Type"::"Bank Account") then begin
-        //     BankAcc.get(GenJnlLine."Account No.");
-        //     BankAcc.TestField("Global Dimension 1 Code");
+        if (GenJnlLine."Account Type" = GenJnlLine."Account Type"::"Bank Account") then begin
+            BankAcc.get(GenJnlLine."Account No.");
+            BankAcc.TestField("Global Dimension 1 Code");
 
-        //     CashboxClosingLine.Reset();
-        //     CashboxClosingLine.SetRange("Store Code", BankAcc."Global Dimension 1 Code");
-        //     CashboxClosingLine.setfilter("Closing Date", '>=%1', GenJnlLine."Posting Date");
-        //     CashboxClosingLine.SetRange(Status, CashboxClosingLine.Status::Posted);
-        //     if (CashboxClosingLine.FindFirst()) then
-        //         Error(Err001, CashboxClosingLine."Closing Date");
-        //     // insert newline here
-        // end;
-        // if (GenJnlLine."Bal. Account Type" = GenJnlLine."Account Type"::"Bank Account") then begin
-        //     BankAcc.get(GenJnlLine."Bal. Account No.");
-        //     BankAcc.TestField("Global Dimension 1 Code");
+            CashboxClosingLine.Reset();
+            CashboxClosingLine.SetRange("Store Code", BankAcc."Global Dimension 1 Code");
+            CashboxClosingLine.setfilter("Closing Date", '>=%1', GenJnlLine."Posting Date");
+            CashboxClosingLine.SetRange(Status, CashboxClosingLine.Status::Posted);
+            if (CashboxClosingLine.FindFirst()) then
+                Error(Err001, CashboxClosingLine."Closing Date");
+            // insert newline here
+        end;
+        if (GenJnlLine."Bal. Account Type" = GenJnlLine."Account Type"::"Bank Account") then begin
+            BankAcc.get(GenJnlLine."Bal. Account No.");
+            BankAcc.TestField("Global Dimension 1 Code");
 
-        //     CashboxClosingLine.Reset();
-        //     CashboxClosingLine.SetRange("Store Code", BankAcc."Global Dimension 1 Code");
-        //     CashboxClosingLine.setfilter("Closing Date", '>=%1', GenJnlLine."Posting Date");
-        //     CashboxClosingLine.SetRange(Status, CashboxClosingLine.Status::Posted);
-        //     if (CashboxClosingLine.FindFirst()) then
-        //         Error(Err001, CashboxClosingLine."Closing Date");
-        // end;
+            CashboxClosingLine.Reset();
+            CashboxClosingLine.SetRange("Store Code", BankAcc."Global Dimension 1 Code");
+            CashboxClosingLine.setfilter("Closing Date", '>=%1', GenJnlLine."Posting Date");
+            CashboxClosingLine.SetRange(Status, CashboxClosingLine.Status::Posted);
+            if (CashboxClosingLine.FindFirst()) then
+                Error(Err001, CashboxClosingLine."Closing Date");
+        end;
     end;
 
     procedure CheckCashboxClosingDateOnCustSettlement(CustSettlement: Record "A01 Payment Document")

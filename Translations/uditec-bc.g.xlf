@@ -488,6 +488,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table A01 Cashbox Closing - NamedType LblQuestChangeRespCenter</note>
         </trans-unit>
+        <trans-unit id="Table 3120123025 - NamedType 2133039708" size-unit="char" translate="yes" xml:space="preserve">
+          <source>This document has no lines. do you want to continue ?</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table A01 Cashbox Closing - NamedType LblQuestNoLines</note>
+        </trans-unit>
         <trans-unit id="Table 3120123025 - NamedType 34247782" size-unit="char" translate="yes" xml:space="preserve">
           <source>Do you want to validate the closing of cashbox for the date of %1 ?</source>
           <note from="Developer" annotates="general" priority="2">%1)</note>
@@ -3358,6 +3363,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit A01 Document Request Mgt - Method CheckSameRequestAlreadyExists - NamedType LblAnotherRecExists</note>
         </trans-unit>
+        <trans-unit id="Codeunit 2173010692 - Method 2976943696 - NamedType 3569009679" size-unit="char" translate="yes" xml:space="preserve">
+          <source>The document is still in draft</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit A01 Document Request Mgt - Method ModifyStatus - NamedType ErrDocNonTraite</note>
+        </trans-unit>
         <trans-unit id="Codeunit 3954644649 - Method 8486776 - NamedType 4139332484" size-unit="char" translate="yes" xml:space="preserve">
           <source>Do you want to suppress send dialog?</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -4568,6 +4578,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page A01 Discount Request - Action Validate - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Page 3914987280 - Action 3657829122 - Method 1377591017 - NamedType 2738001188" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Do you want to validate this request?</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page A01 Discount Request - Action Validate - Method OnAction - NamedType LabConfirmation</note>
+        </trans-unit>
         <trans-unit id="Page 277818161 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Discount Requests</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -5358,6 +5373,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page A01 Payment Request - Action Validate - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Page 3543361749 - Action 3657829122 - Method 1377591017 - NamedType 2738001188" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Do you want to validate this request?</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page A01 Payment Request - Action Validate - Method OnAction - NamedType LabConfirmation</note>
+        </trans-unit>
         <trans-unit id="Page 1866370476 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Payment Requests</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -5697,6 +5717,11 @@
           <source>Validate</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page A01 POS Payment Request - Action Validate - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 953559825 - Action 3657829122 - Method 1377591017 - NamedType 2738001188" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Do you want to validate this request?</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page A01 POS Payment Request - Action Validate - Method OnAction - NamedType LabConfirmation</note>
         </trans-unit>
         <trans-unit id="Page 491128008 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>POS Payment Requests</source>
@@ -10222,6 +10247,11 @@
           <source>Validate</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page A01 UnBlocking Request - Action Validate - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 575045181 - Action 3657829122 - Method 1377591017 - NamedType 2738001188" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Do you want to validate this request?</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page A01 UnBlocking Request - Action Validate - Method OnAction - NamedType LabConfirmation</note>
         </trans-unit>
         <trans-unit id="Page 460160052 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Unblocking Requests</source>
