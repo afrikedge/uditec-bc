@@ -72,10 +72,20 @@ page 50064 "A01 Discount Request"
     var
     begin
         RequestedDiscountIsEditable := Rec.Status = Rec.Status::Initialization;
-        ValidatedDiscountIsEditable := ((Rec.Status <> Rec.Status::Validated) or (Rec.Status <> Rec.Status::Initialization));
+        ValidatedDiscountIsEditable := GetValidatedDiscountIsEditable();
     end;
 
     var
         RequestedDiscountIsEditable: Boolean;
         ValidatedDiscountIsEditable: Boolean;
+
+    local procedure GetValidatedDiscountIsEditable(): Boolean
+    var
+    begin
+        if (Rec.Status = Rec.Status::Validated) then
+            exit(false);
+        if (Rec.Status = Rec.Status::Initialization) then
+            exit(false);
+        exit(true);
+    end;
 }
