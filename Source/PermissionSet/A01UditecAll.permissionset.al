@@ -246,6 +246,13 @@ permissionset 50000 "A01 Uditec_All"
         page "A01 Item Transfers To Ship" = X,
         page "A01 Post Cust Scoring Criteria" = X,
         page "A01 Posted Customer Scoring" = X,
-        page "A01 Sales Posted Pay Methods" = X;
+        page "A01 Sales Posted Pay Methods" = X,
+        tabledata "A01 Disposable Rate" = RIMD,
+        table "A01 Disposable Rate" = X,
+        report "A01 DisbursementReceipt" = X,
+        report "A01 SalesInvoiceUditec" = X,
+        report "A01 Update Credit Amort Line" = X,
+        codeunit "A01 Lettrage Mgt" = X,
+        xmlport "A01 Import Lettrage" = X;
     //page "A01 Customer Settlements" = X;
 }

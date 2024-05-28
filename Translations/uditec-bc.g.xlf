@@ -998,6 +998,26 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table A01 Deadline Assignment - Field Required action - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Table 650547982 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Disposable Rate</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table A01 Disposable Rate - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 650547982 - Field 730485521 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Approved Max (%)</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table A01 Disposable Rate - Field Approved (%) - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 650547982 - Field 2369021616 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Max Score (Before)</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table A01 Disposable Rate - Field Max Score - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 650547982 - Field 1760156731 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Referred Max (%)</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table A01 Disposable Rate - Field Referred (%) - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Table 1991647401 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Document Step History</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -4587,6 +4607,11 @@
           <source>Discount Requests</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page A01 Discount Requests - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 532207948 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Disposable Rate List</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page A01 Disposable Rate List - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 266498996 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Document Step Lines</source>
@@ -15433,6 +15458,21 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">XmlPort A01 Import Lettrage - Control NosOfLines - Property Caption</note>
         </trans-unit>
+        <trans-unit id="XmlPort 280469533 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Import Sales Price lines</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">XmlPort A01 Import Sales Prices - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="XmlPort 280469533 - NamedType 16731361" size-unit="char" translate="yes" xml:space="preserve">
+          <source>End of importation. %1 lines processed</source>
+          <note from="Developer" annotates="general" priority="2">%1=...</note>
+          <note from="Xliff Generator" annotates="general" priority="3">XmlPort A01 Import Sales Prices - NamedType LblEndOfProcess</note>
+        </trans-unit>
+        <trans-unit id="XmlPort 280469533 - NamedType 3283546407" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Traitement @1@@@@@@@@@@@@@@@@@@@@@@@@@@@@\</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">XmlPort A01 Import Sales Prices - NamedType Text008</note>
+        </trans-unit>
         <trans-unit id="PageExtension 1546816651 - Action 373964257 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1267036282">
           <source>Afk External Users</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -15693,6 +15733,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension A01 Order Processor RC - Action A01Config_WarrantyPlans - Property Caption</note>
         </trans-unit>
+        <trans-unit id="PageExtension 3250568499 - Action 2156653019 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2747922353">
+          <source>Disposable Rates</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension A01 Order Processor RC - Action A01DisposableRates - Property Caption</note>
+        </trans-unit>
         <trans-unit id="PageExtension 3250568499 - Action 2210702760 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2747922353">
           <source>External functionnalities</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -15912,6 +15957,11 @@
           <source>Logo</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension A01 Responsability Center Card - Control A01Resp Center Media Factbox - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 2142966913 - Action 1376202492 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2214009041">
+          <source>Import lines</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension A01 Sales Price List - Action A01 ImportLines - Property Caption</note>
         </trans-unit>
         <trans-unit id="PageExtension 4018691590 - Action 290875276 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 280137910">
           <source>Create discount request</source>
@@ -16708,6 +16758,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension A01 Sales Header - Field A01 Joint Code - Property Caption</note>
         </trans-unit>
+        <trans-unit id="TableExtension 1143019865 - Field 1006738129 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1192395785">
+          <source>Joint Required</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension A01 Sales Header - Field A01 Joint Required - Property Caption</note>
+        </trans-unit>
         <trans-unit id="TableExtension 1143019865 - Field 2959124146 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1192395785">
           <source>Joint Type</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -16722,6 +16777,16 @@
           <source>Manager Opinion</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension A01 Sales Header - Field A01 Manager Opinion - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 1143019865 - Field 2931939371 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1192395785">
+          <source>Max Approved Rate (%)</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension A01 Sales Header - Field A01 Max Approved Rate (%) - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 1143019865 - Field 1315249425 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1192395785">
+          <source>Max Referred Rate (%)</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension A01 Sales Header - Field A01 Max Referred Rate (%) - Property Caption</note>
         </trans-unit>
         <trans-unit id="TableExtension 1143019865 - Field 2236380998 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1192395785">
           <source>Miscellaneous Contact</source>
@@ -16747,6 +16812,21 @@
           <source>Processing Status</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension A01 Sales Header - Field A01 Processing Status - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 1143019865 - Field 879282834 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1192395785">
+          <source>Recommended Amount</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension A01 Sales Header - Field A01 Rec. Amount - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 1143019865 - Field 1047228466 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1192395785">
+          <source>Recommended Deposit (%)</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension A01 Sales Header - Field A01 Rec. Deposit (%) - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 1143019865 - Field 2239865736 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1192395785">
+          <source>Recommended Duration</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension A01 Sales Header - Field A01 Rec. Duration - Property Caption</note>
         </trans-unit>
         <trans-unit id="TableExtension 1143019865 - Field 1389872895 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1192395785">
           <source>Approval Status</source>
@@ -16853,6 +16933,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension A01 Sales Header Archive - Field A01 Joint Code - Property Caption</note>
         </trans-unit>
+        <trans-unit id="TableExtension 2954665223 - Field 1006738129 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1948788855">
+          <source>Joint Required</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension A01 Sales Header Archive - Field A01 Joint Required - Property Caption</note>
+        </trans-unit>
         <trans-unit id="TableExtension 2954665223 - Field 2959124146 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1948788855">
           <source>Joint Type</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -16867,6 +16952,16 @@
           <source>Manager Opinion</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension A01 Sales Header Archive - Field A01 Manager Opinion - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 2954665223 - Field 2931939371 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1948788855">
+          <source>Max Approved Rate (%)</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension A01 Sales Header Archive - Field A01 Max Approved Rate (%) - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 2954665223 - Field 1315249425 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1948788855">
+          <source>Max Referred Rate (%)</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension A01 Sales Header Archive - Field A01 Max Referred Rate (%) - Property Caption</note>
         </trans-unit>
         <trans-unit id="TableExtension 2954665223 - Field 2236380998 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1948788855">
           <source>Miscellaneous Contact</source>
@@ -16892,6 +16987,21 @@
           <source>Processing Status</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension A01 Sales Header Archive - Field A01 Processing Status - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 2954665223 - Field 879282834 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1948788855">
+          <source>Recommended Amount</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension A01 Sales Header Archive - Field A01 Rec. Amount - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 2954665223 - Field 1047228466 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1948788855">
+          <source>Recommended Deposit (%)</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension A01 Sales Header Archive - Field A01 Rec. Deposit (%) - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 2954665223 - Field 2239865736 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1948788855">
+          <source>Recommended Duration</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension A01 Sales Header Archive - Field A01 Rec. Duration - Property Caption</note>
         </trans-unit>
         <trans-unit id="TableExtension 2954665223 - Field 1389872895 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1948788855">
           <source>Approval Status</source>
@@ -16998,6 +17108,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension A01 Sales Invoice Header - Field A01 Joint Code - Property Caption</note>
         </trans-unit>
+        <trans-unit id="TableExtension 1507475930 - Field 1006738129 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 809936682">
+          <source>Joint Required</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension A01 Sales Invoice Header - Field A01 Joint Required - Property Caption</note>
+        </trans-unit>
         <trans-unit id="TableExtension 1507475930 - Field 2959124146 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 809936682">
           <source>Joint Type</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -17012,6 +17127,16 @@
           <source>Manager Opinion</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension A01 Sales Invoice Header - Field A01 Manager Opinion - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 1507475930 - Field 2931939371 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 809936682">
+          <source>Max Approved Rate (%)</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension A01 Sales Invoice Header - Field A01 Max Approved Rate (%) - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 1507475930 - Field 1315249425 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 809936682">
+          <source>Max Referred Rate (%)</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension A01 Sales Invoice Header - Field A01 Max Referred Rate (%) - Property Caption</note>
         </trans-unit>
         <trans-unit id="TableExtension 1507475930 - Field 2236380998 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 809936682">
           <source>Miscellaneous Contact</source>
@@ -17037,6 +17162,21 @@
           <source>Processing Status</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension A01 Sales Invoice Header - Field A01 Processing Status - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 1507475930 - Field 879282834 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 809936682">
+          <source>Recommended Amount</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension A01 Sales Invoice Header - Field A01 Rec. Amount - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 1507475930 - Field 1047228466 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 809936682">
+          <source>Recommended Deposit (%)</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension A01 Sales Invoice Header - Field A01 Rec. Deposit (%) - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 1507475930 - Field 2239865736 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 809936682">
+          <source>Recommended Duration</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension A01 Sales Invoice Header - Field A01 Rec. Duration - Property Caption</note>
         </trans-unit>
         <trans-unit id="TableExtension 1507475930 - Field 1389872895 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 809936682">
           <source>Approval Status</source>
