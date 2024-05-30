@@ -367,6 +367,35 @@ codeunit 50005 "A01 WS QuotesMgt"
         if (SalesQuote."A01 Manager Comments" <> WS.GetText('Manager comments', input)) then
             SalesQuote.Validate("A01 Manager Comments", WS.GetText('Manager comments', input));
 
+        if WS.KeyExists('Monthly Capacity', input) then
+            if (SalesQuote."A01 Monthly Capacity" <> WS.GetDecimal('Monthly Capacity', input)) then
+                SalesQuote.Validate("A01 Monthly Capacity", WS.GetDecimal('Monthly Capacity', input));
+
+        if WS.KeyExists('Max Approved Rate (%)', input) then
+            if (SalesQuote."A01 Max Approved Rate (%)" <> WS.GetDecimal('Max Approved Rate (%)', input)) then
+                SalesQuote.Validate("A01 Max Approved Rate (%)", WS.GetDecimal('Max Approved Rate (%)', input));
+
+        if WS.KeyExists('Max Referred Rate (%)', input) then
+            if (SalesQuote."A01 Max Referred Rate (%)" <> WS.GetDecimal('Max Referred Rate (%)', input)) then
+                SalesQuote.Validate("A01 Max Referred Rate (%)", WS.GetDecimal('Max Referred Rate (%)', input));
+
+        if WS.KeyExists('Joint Required', input) then
+            if (SalesQuote."A01 Joint Required" <> WS.GetBool('Joint Required', input)) then
+                SalesQuote.Validate("A01 Joint Required", WS.GetBool('Joint Required', input));
+
+        if WS.KeyExists('Rec. Amount', input) then
+            if (SalesQuote."A01 Rec. Amount" <> WS.GetDecimal('Rec. Amount', input)) then
+                SalesQuote.Validate("A01 Rec. Amount", WS.GetDecimal('Rec. Amount', input));
+
+        if WS.KeyExists('Rec. Duration', input) then
+            if (SalesQuote."A01 Rec. Duration" <> WS.GetDecimal('Rec. Duration', input)) then
+                SalesQuote.Validate("A01 Rec. Duration", WS.GetDecimal('Rec. Duration', input));
+
+        if WS.KeyExists('Rec. Deposit (%)', input) then
+            if (SalesQuote."A01 Rec. Deposit (%)" <> WS.GetDecimal('Rec. Deposit (%)', input)) then
+                SalesQuote.Validate("A01 Rec. Deposit (%)", WS.GetDecimal('Rec. Deposit (%)', input));
+
+        //[Monthly Capacity],[Max Approved Rate (%)],[Max Referred Rate (%)],[Joint Required],[Rec. Amount],[Rec. Duration],[Rec. Deposit (%)]
         //[Investigator comments] (text),  [Recovery Opinion] (optionlist), [Recovery comments] (text), [Manager Opinion] (optionlist), [Manager comments] (text)
     end;
 

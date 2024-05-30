@@ -180,6 +180,13 @@ codeunit 50006 "A01 Api Mgt"
         exit(c.AsValue().AsDecimal());
     end;
 
+    procedure KeyExists("key": Text; input: JsonObject): Boolean
+    var
+        c: JsonToken;
+    begin
+        exit(input.Get("key", c));
+    end;
+
     /// <summary>
     /// DebugApiFunction
     /// </summary>

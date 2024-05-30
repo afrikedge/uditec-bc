@@ -44,6 +44,18 @@ table 50014 "A01 Scoring Matrix"
             Caption = 'Weighted Point';
             Editable = false;
         }
+        field(7; "Max credit Duration"; Integer)
+        {
+            Caption = 'Max credit Duration';
+            Editable = false;
+        }
+        field(8; "Required Prepayment (%)"; Integer)
+        {
+            Caption = 'Required Prepayment (%)';
+            Editable = false;
+        }
+
+
     }
     keys
     {
