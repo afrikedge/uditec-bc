@@ -179,6 +179,18 @@ report 50009 "A01 DeliveryNoteInvoicePrint"
             column(A01Qty__Caption; A01Qty__Caption)
             {
             }
+            column(LogoOption; OptionValue)
+            {
+            }
+            column(RespCenterImg; RespCenter."A01 Logo")
+            {
+            }
+            column(RespCenterUditec; RespCenterUditec."A01 Logo")
+            {
+            }
+            column(OptionType; OptionType)
+            {
+            }
             dataitem("Sales Shipment Line"; "Sales Shipment Line")
             {
                 DataItemTableView = sorting("Document No.", "Line No.") where(Type = filter(2));
@@ -266,6 +278,14 @@ report 50009 "A01 DeliveryNoteInvoicePrint"
 
             trigger OnAfterGetRecord()
             begin
+                // if RespCenter.Get(Header."Responsibility Center") then begin
+
+                // end;
+
+                if OptionValue = OptionValue::LogoCosmos then
+                    OptionType := 1
+                else
+                    OptionType := 0;
 
                 GLSetup.Get();
                 GLSetup.TestField("LCY Code");
@@ -376,6 +396,19 @@ report 50009 "A01 DeliveryNoteInvoicePrint"
     {
         layout
         {
+            area(Content)
+            {
+                group(groupName)
+                {
+                    Caption = 'Option';
+                    field(OptionVal; OptionValue)
+                    {
+                        Caption = 'Logo';
+                        OptionCaption = 'Cosmos, Uditec';
+                        ApplicationArea = Basic, Suite;
+                    }
+                }
+            }
         }
 
         actions
@@ -387,11 +420,14 @@ report 50009 "A01 DeliveryNoteInvoicePrint"
     begin
         CompanyInfo.Get();
         CompanyInfo.CalcFields(Picture);
+
+        RespCenterUditec.Get('UDT');
     end;
 
     var
         CompanyInfo: Record "Company Information";
-        // RespCenter: Record "Responsibility Center";
+        RespCenter: Record "Responsibility Center";
+        RespCenterUditec: Record "Responsibility Center";
         LocRec: Record Location;
         Cust: Record Customer;
         Contact: Record Contact;
@@ -403,6 +439,8 @@ report 50009 "A01 DeliveryNoteInvoicePrint"
         AfkCurrency: Record Currency;
         RepCheck: Report Check;
         AutoFormat: Codeunit "Auto Format";
+        OptionValue: Option LogoCosmos,LogoUditec;
+        OptionType: Integer;
         Montant: Decimal;
         CalculatedExchRate: Decimal;
         ExchangeRateTxt: Label 'Exchange rate: %1/%2', Comment = '%1 and %2 are both amounts.';

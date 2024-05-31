@@ -1905,79 +1905,6 @@
                                                   </TablixCells>
                                                 </TablixRow>
                                                 <TablixRow>
-                                                  <Height>0.17361in</Height>
-                                                  <TablixCells>
-                                                    <TablixCell>
-                                                      <CellContents>
-                                                        <Textbox Name="Textbox59">
-                                                          <CanGrow>true</CanGrow>
-                                                          <KeepTogether>true</KeepTogether>
-                                                          <Paragraphs>
-                                                            <Paragraph>
-                                                              <TextRuns>
-                                                                <TextRun>
-                                                                  <Value>=Fields!A01TVA__Caption.Value &amp; " (" &amp; Fields!AfkCurrCode.Value &amp;")"</Value>
-                                                                  <Style>
-                                                                    <FontSize>8pt</FontSize>
-                                                                    <FontWeight>Bold</FontWeight>
-                                                                  </Style>
-                                                                </TextRun>
-                                                              </TextRuns>
-                                                              <Style />
-                                                            </Paragraph>
-                                                          </Paragraphs>
-                                                          <rd:DefaultName>Textbox59</rd:DefaultName>
-                                                          <Style>
-                                                            <Border>
-                                                              <Color>LightGrey</Color>
-                                                              <Style>None</Style>
-                                                            </Border>
-                                                            <PaddingLeft>2pt</PaddingLeft>
-                                                            <PaddingRight>2pt</PaddingRight>
-                                                            <PaddingTop>2pt</PaddingTop>
-                                                            <PaddingBottom>2pt</PaddingBottom>
-                                                          </Style>
-                                                        </Textbox>
-                                                      </CellContents>
-                                                    </TablixCell>
-                                                    <TablixCell>
-                                                      <CellContents>
-                                                        <Textbox Name="Textbox60">
-                                                          <CanGrow>true</CanGrow>
-                                                          <KeepTogether>true</KeepTogether>
-                                                          <Paragraphs>
-                                                            <Paragraph>
-                                                              <TextRuns>
-                                                                <TextRun>
-                                                                  <Value>=LAST(Fields!TVA_LCYText.Value)</Value>
-                                                                  <Style>
-                                                                    <FontSize>7pt</FontSize>
-                                                                    <FontWeight>Bold</FontWeight>
-                                                                  </Style>
-                                                                </TextRun>
-                                                              </TextRuns>
-                                                              <Style>
-                                                                <TextAlign>Right</TextAlign>
-                                                              </Style>
-                                                            </Paragraph>
-                                                          </Paragraphs>
-                                                          <rd:DefaultName>Textbox60</rd:DefaultName>
-                                                          <Style>
-                                                            <Border>
-                                                              <Color>LightGrey</Color>
-                                                              <Style>None</Style>
-                                                            </Border>
-                                                            <PaddingLeft>2pt</PaddingLeft>
-                                                            <PaddingRight>2pt</PaddingRight>
-                                                            <PaddingTop>2pt</PaddingTop>
-                                                            <PaddingBottom>2pt</PaddingBottom>
-                                                          </Style>
-                                                        </Textbox>
-                                                      </CellContents>
-                                                    </TablixCell>
-                                                  </TablixCells>
-                                                </TablixRow>
-                                                <TablixRow>
                                                   <Height>0.16667in</Height>
                                                   <TablixCells>
                                                     <TablixCell>
@@ -2062,12 +1989,11 @@
                                               <TablixMembers>
                                                 <TablixMember />
                                                 <TablixMember />
-                                                <TablixMember />
                                               </TablixMembers>
                                             </TablixRowHierarchy>
                                             <Top>1.94444in</Top>
                                             <Left>5.23939in</Left>
-                                            <Height>0.52084in</Height>
+                                            <Height>0.34723in</Height>
                                             <Width>2.18581in</Width>
                                             <ZIndex>4</ZIndex>
                                             <Style>
@@ -2218,21 +2144,6 @@
           <PrintOnFirstPage>true</PrintOnFirstPage>
           <PrintOnLastPage>true</PrintOnLastPage>
           <ReportItems>
-            <Image Name="Logo">
-              <Source>Database</Source>
-              <Value>=First(Fields!CompanyPicture.Value, "DataSet_Result")</Value>
-              <MIMEType>image/jpeg</MIMEType>
-              <Sizing>FitProportional</Sizing>
-              <Top>0in</Top>
-              <Left>0.13195in</Left>
-              <Height>0.71055in</Height>
-              <Width>1.77778in</Width>
-              <Style>
-                <Border>
-                  <Style>None</Style>
-                </Border>
-              </Style>
-            </Image>
             <Textbox Name="Report__Title">
               <CanGrow>true</CanGrow>
               <KeepTogether>true</KeepTogether>
@@ -2253,10 +2164,9 @@
                 </Paragraph>
               </Paragraphs>
               <Top>0.10639in</Top>
-              <Left>2.60639in</Left>
+              <Left>3.85639in</Left>
               <Height>0.31943in</Height>
-              <Width>3.80661in</Width>
-              <ZIndex>1</ZIndex>
+              <Width>2.87605in</Width>
               <Style>
                 <Border>
                   <Style>None</Style>
@@ -2413,7 +2323,7 @@
               <Left>0in</Left>
               <Height>0.69444in</Height>
               <Width>2.98895in</Width>
-              <ZIndex>2</ZIndex>
+              <ZIndex>1</ZIndex>
               <Style>
                 <Border>
                   <Style>None</Style>
@@ -2701,13 +2611,51 @@
               <Left>2.98895in</Left>
               <Height>0.7014in</Height>
               <Width>4.43625in</Width>
-              <ZIndex>3</ZIndex>
+              <ZIndex>2</ZIndex>
               <Style>
                 <Border>
                   <Style>None</Style>
                 </Border>
               </Style>
             </Rectangle>
+            <Image Name="Logo">
+              <Source>Database</Source>
+              <Value>=First(Fields!CompanyPicture.Value, "DataSet_Result")</Value>
+              <MIMEType>image/jpeg</MIMEType>
+              <Sizing>FitProportional</Sizing>
+              <Top>0in</Top>
+              <Left>0in</Left>
+              <Height>0.71055in</Height>
+              <Width>1.77778in</Width>
+              <ZIndex>3</ZIndex>
+              <Visibility>
+                <Hidden>=IIf(First(Fields!OptionType.Value, "DataSet_Result") = 0, True, False)</Hidden>
+              </Visibility>
+              <Style>
+                <Border>
+                  <Style>None</Style>
+                </Border>
+              </Style>
+            </Image>
+            <Image Name="Logo2">
+              <Source>Database</Source>
+              <Value>=First(Fields!RespCenterUditec.Value, "DataSet_Result")</Value>
+              <MIMEType>image/jpeg</MIMEType>
+              <Sizing>FitProportional</Sizing>
+              <Top>0in</Top>
+              <Left>1.81945in</Left>
+              <Height>0.71055in</Height>
+              <Width>1.77778in</Width>
+              <ZIndex>4</ZIndex>
+              <Visibility>
+                <Hidden>=IIf(First(Fields!OptionType.Value, "DataSet_Result") = 1, True, False)</Hidden>
+              </Visibility>
+              <Style>
+                <Border>
+                  <Style>None</Style>
+                </Border>
+              </Style>
+            </Image>
           </ReportItems>
           <Style>
             <Border>
@@ -3119,6 +3067,18 @@ AAAAAAAAAECjsYAGAAAAAAAAAAAAAAAAjcYCGgAAAAAAAAAAAAAAADQaC2gAAAAAAAAAAAAAAADQaCyg
         </Field>
         <Field Name="A01Qty__Caption">
           <DataField>A01Qty__Caption</DataField>
+        </Field>
+        <Field Name="LogoOption">
+          <DataField>LogoOption</DataField>
+        </Field>
+        <Field Name="RespCenterImg">
+          <DataField>RespCenterImg</DataField>
+        </Field>
+        <Field Name="RespCenterUditec">
+          <DataField>RespCenterUditec</DataField>
+        </Field>
+        <Field Name="OptionType">
+          <DataField>OptionType</DataField>
         </Field>
         <Field Name="LineNo_Line">
           <DataField>LineNo_Line</DataField>

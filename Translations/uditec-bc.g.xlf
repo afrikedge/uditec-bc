@@ -10403,6 +10403,21 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report A01 BankTransferOrderPrint - ReportDataItem Line - Property RequestFilterHeading</note>
         </trans-unit>
+        <trans-unit id="Report 2000839638 - Control 4013682468 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Option</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 BankTransferOrderPrint - Control groupName - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 2000839638 - Control 229337220 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Logo</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 BankTransferOrderPrint - Control OptionVal - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 2000839638 - Control 229337220 - Property 62802879" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Uditec, Cosmos</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 BankTransferOrderPrint - Control OptionVal - Property OptionCaption</note>
+        </trans-unit>
         <trans-unit id="Report 238726400 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>A01 Cash Receipt Print</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -10833,6 +10848,21 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report A01 DeliveryNoteInvoicePrint - NamedType VehicleNumberLbl</note>
         </trans-unit>
+        <trans-unit id="Report 3097000432 - Control 4013682468 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Option</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 DeliveryNoteInvoicePrint - Control groupName - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 3097000432 - Control 229337220 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Logo</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 DeliveryNoteInvoicePrint - Control OptionVal - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 3097000432 - Control 229337220 - Property 62802879" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Cosmos, Uditec</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 DeliveryNoteInvoicePrint - Control OptionVal - Property OptionCaption</note>
+        </trans-unit>
         <trans-unit id="Report 3824556247 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>A01 Delivery note print</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -10947,6 +10977,21 @@
           <source>Vehicle N° :</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report A01 DeliveryNotePrint - NamedType VehicleNumberLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 3824556247 - Control 4013682468 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Option</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 DeliveryNotePrint - Control groupName - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 3824556247 - Control 229337220 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Logo</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 DeliveryNotePrint - Control OptionVal - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 3824556247 - Control 229337220 - Property 62802879" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Cosmos, Uditec</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 DeliveryNotePrint - Control OptionVal - Property OptionCaption</note>
         </trans-unit>
         <trans-unit id="Report 3761159245 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>A01 Disbursement Receipt</source>
@@ -13307,6 +13352,101 @@
           <source>Traitement términé !</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report A01 Renitialise Credit Limit - NamedType TxtTraitementTermine</note>
+        </trans-unit>
+        <trans-unit id="Report 4188702614 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>A01 Requisition check</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 RequisitionCheck - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 4188702614 - NamedType 848920673" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Approuved by :</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 RequisitionCheck - NamedType ApprouvedByLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 4188702614 - NamedType 3569966352" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Description</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 RequisitionCheck - NamedType DescriptionLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 4188702614 - NamedType 1155328579" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Document Date</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 RequisitionCheck - NamedType DocumentDateLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 4188702614 - NamedType 3642584667" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Exchange rate: %1/%2</source>
+          <note from="Developer" annotates="general" priority="2">%1 and %2 are both amounts.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 RequisitionCheck - NamedType ExchangeRateTxt</note>
+        </trans-unit>
+        <trans-unit id="Report 4188702614 - NamedType 3282522174" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Net Amount MGA</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 RequisitionCheck - NamedType NetAmountMgaLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 4188702614 - NamedType 4046088670" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Note :</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 RequisitionCheck - NamedType NoteLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 4188702614 - NamedType 1327961902" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Ordonator :</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 RequisitionCheck - NamedType OrdonatorLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 4188702614 - NamedType 851221452" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Prepared by :</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 RequisitionCheck - NamedType PrepareByLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 4188702614 - NamedType 4201550636" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Purchase Invoice</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 RequisitionCheck - NamedType PurchaseInvoiceLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 4188702614 - NamedType 766786146" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Received by :</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 RequisitionCheck - NamedType ReceivedByLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 4188702614 - NamedType 141913953" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Supplier Invoice</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 RequisitionCheck - NamedType SupplierInvoiceLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 4188702614 - NamedType 2410138484" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Total</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 RequisitionCheck - NamedType TotalLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 4188702614 - NamedType 13875179" size-unit="char" translate="yes" xml:space="preserve">
+          <source>VAT</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 RequisitionCheck - NamedType VatLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 4188702614 - NamedType 576398313" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Verified by :</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 RequisitionCheck - NamedType VerifiedByLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 4188702614 - ReportDataItem 1735507514 - Property 1806354803" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Requisition check</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 RequisitionCheck - ReportDataItem Line - Property RequestFilterHeading</note>
+        </trans-unit>
+        <trans-unit id="Report 4188702614 - Control 4013682468 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Option</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 RequisitionCheck - Control groupName - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 4188702614 - Control 229337220 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Logo</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 RequisitionCheck - Control OptionVal - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 4188702614 - Control 229337220 - Property 62802879" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Uditec, Cosmos</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 RequisitionCheck - Control OptionVal - Property OptionCaption</note>
         </trans-unit>
         <trans-unit id="Report 1604351383 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Sales Invoice Credit</source>
@@ -15807,6 +15947,11 @@
           <source>Print Bank Transfer order</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension A01 PaymentJournal - Action A01 BankTransferOrder - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 1800607781 - Action 4188702614 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 3196174509">
+          <source>Print Check requisition</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension A01 PaymentJournal - Action A01 RequisitionCheck - Property Caption</note>
         </trans-unit>
         <trans-unit id="PageExtension 4025562579 - Action 1359930392 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2187133665">
           <source>Print Inventory report</source>

@@ -1391,7 +1391,7 @@
                                                             <Paragraph>
                                                               <TextRuns>
                                                                 <TextRun>
-                                                                  <Value>=Fields!Serial_No_.Value</Value>
+                                                                  <Value />
                                                                   <Style>
                                                                     <FontSize>8pt</FontSize>
                                                                   </Style>
@@ -1541,7 +1541,7 @@
                                                             <Paragraph>
                                                               <TextRuns>
                                                                 <TextRun>
-                                                                  <Value>=Fields!Quantity.Value</Value>
+                                                                  <Value>=Fields!Quantity_.Value</Value>
                                                                   <Style>
                                                                     <FontSize>8pt</FontSize>
                                                                     <Format>#,0;(#,0)</Format>
@@ -1564,7 +1564,6 @@
                                                             <PaddingBottom>2pt</PaddingBottom>
                                                           </Style>
                                                         </Textbox>
-                                                        <rd:Selected>true</rd:Selected>
                                                       </CellContents>
                                                     </TablixCell>
                                                   </TablixCells>
@@ -1621,8 +1620,8 @@
                                               </Paragraph>
                                             </Paragraphs>
                                             <rd:DefaultName>Textbox57</rd:DefaultName>
-                                            <Top>3.48562in</Top>
-                                            <Left>0.35418in</Left>
+                                            <Top>3.36062in</Top>
+                                            <Left>0.13195in</Left>
                                             <Height>0.1875in</Height>
                                             <Width>1.41088in</Width>
                                             <ZIndex>2</ZIndex>
@@ -1656,8 +1655,8 @@
                                               </Paragraph>
                                             </Paragraphs>
                                             <rd:DefaultName>Textbox57</rd:DefaultName>
-                                            <Top>3.48562in</Top>
-                                            <Left>5.65838in</Left>
+                                            <Top>3.36062in</Top>
+                                            <Left>5.7556in</Left>
                                             <Height>0.1875in</Height>
                                             <Width>1.51852in</Width>
                                             <ZIndex>3</ZIndex>
@@ -1752,9 +1751,12 @@
               <MIMEType>image/jpeg</MIMEType>
               <Sizing>FitProportional</Sizing>
               <Top>0in</Top>
-              <Left>0.13195in</Left>
+              <Left>0.00695in</Left>
               <Height>0.71055in</Height>
               <Width>1.77778in</Width>
+              <Visibility>
+                <Hidden>=IIf(First(Fields!OptionType.Value, "DataSet_Result") = 0, True, False)</Hidden>
+              </Visibility>
               <Style>
                 <Border>
                   <Style>None</Style>
@@ -1781,7 +1783,7 @@
                 </Paragraph>
               </Paragraphs>
               <Top>0.10639in</Top>
-              <Left>2.85639in</Left>
+              <Left>4.63523in</Left>
               <Height>0.30555in</Height>
               <Width>2.63889in</Width>
               <ZIndex>1</ZIndex>
@@ -2236,6 +2238,25 @@
                 </Border>
               </Style>
             </Rectangle>
+            <Image Name="Logo2">
+              <Source>Database</Source>
+              <Value>=First(Fields!RespCenterUditec.Value, "DataSet_Result")</Value>
+              <MIMEType>image/jpeg</MIMEType>
+              <Sizing>FitProportional</Sizing>
+              <Top>0.00693in</Top>
+              <Left>1.85417in</Left>
+              <Height>0.71055in</Height>
+              <Width>1.77778in</Width>
+              <ZIndex>4</ZIndex>
+              <Visibility>
+                <Hidden>=IIf(First(Fields!OptionType.Value, "DataSet_Result") = 1, True, False)</Hidden>
+              </Visibility>
+              <Style>
+                <Border>
+                  <Style>None</Style>
+                </Border>
+              </Style>
+            </Image>
           </ReportItems>
           <Style>
             <Border>
@@ -2600,14 +2621,23 @@ AAAAAAAAAECjsYAGAAAAAAAAAAAAAAAAjcYCGgAAAAAAAAAAAAAAADQaC2gAAAAAAAAAAAAAAADQaCyg
         <Field Name="CompanySignLbl">
           <DataField>CompanySignLbl</DataField>
         </Field>
-        <Field Name="RespCenterImg">
-          <DataField>RespCenterImg</DataField>
-        </Field>
         <Field Name="Sell_to_Customer_No_">
           <DataField>Sell_to_Customer_No_</DataField>
         </Field>
         <Field Name="Sell_to_Customer_Name">
           <DataField>Sell_to_Customer_Name</DataField>
+        </Field>
+        <Field Name="LogoOption">
+          <DataField>LogoOption</DataField>
+        </Field>
+        <Field Name="RespCenterImg">
+          <DataField>RespCenterImg</DataField>
+        </Field>
+        <Field Name="RespCenterUditec">
+          <DataField>RespCenterUditec</DataField>
+        </Field>
+        <Field Name="OptionType">
+          <DataField>OptionType</DataField>
         </Field>
         <Field Name="LineNo_Line">
           <DataField>LineNo_Line</DataField>
@@ -2642,11 +2672,11 @@ AAAAAAAAAECjsYAGAAAAAAAAAAAAAAAAjcYCGgAAAAAAAAAAAAAAADQaC2gAAAAAAAAAAAAAAADQaCyg
         <Field Name="Serial_No_">
           <DataField>Serial_No_</DataField>
         </Field>
+        <Field Name="Item_No_">
+          <DataField>Item_No_</DataField>
+        </Field>
         <Field Name="Quantity_">
           <DataField>Quantity_</DataField>
-        </Field>
-        <Field Name="Quantity_Format">
-          <DataField>Quantity_Format</DataField>
         </Field>
       </Fields>
       <Query>

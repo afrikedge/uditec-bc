@@ -141,13 +141,22 @@ report 50003 "A01 DeliveryNotePrint"
             column(CompanySignLbl; CompanySignLbl)
             {
             }
-            column(RespCenterImg; RespCenter."A01 Logo")
-            {
-            }
             column(Sell_to_Customer_No_; "Sell-to Customer No.")
             {
             }
             column(Sell_to_Customer_Name; "Sell-to Customer Name")
+            {
+            }
+            column(LogoOption; OptionValue)
+            {
+            }
+            column(RespCenterImg; RespCenter."A01 Logo")
+            {
+            }
+            column(RespCenterUditec; RespCenterUditec."A01 Logo")
+            {
+            }
+            column(OptionType; OptionType)
             {
             }
             // column(CustomerAddress; CustomerAddress)
@@ -196,12 +205,21 @@ report 50003 "A01 DeliveryNotePrint"
                     column(Serial_No_; "Serial No.")
                     {
                     }
-                    column(Quantity_; Quantity)
+                    column(Item_No_; "Item No.")
+                    {
+                    }
+                    column(Quantity_; Format(-Quantity))
                     {
                     }
                 }
                 trigger OnAfterGetRecord()
                 begin
+                    if OptionValue = OptionValue::LogoCosmos then
+                        OptionType := 1
+                    else
+                        OptionType := 0;
+
+
                     if "No." = 'MIR_FEES' then
                         CurrReport.Skip();
                     if "No." = 'mir_fees' then
@@ -215,12 +233,9 @@ report 50003 "A01 DeliveryNotePrint"
 
             trigger OnAfterGetRecord()
             begin
-                // if RespCenter.Get(Header."Responsibility Center") then begin
-                //     UnitName := RespCenter.Name;
-                //     UnitAddress := RespCenter.Address;
-                //     UnitCity := RespCenter.City;
-                //     UnitPostalCode := RespCenter."Post Code";
-                // end;
+                if RespCenter.Get(Header."Responsibility Center") then begin
+
+                end;
 
                 if LocRec.Get(Header."Location Code") then begin
                     UnitName := LocRec.Name;
@@ -252,6 +267,20 @@ report 50003 "A01 DeliveryNotePrint"
     {
         layout
         {
+            area(Content)
+            {
+                group(groupName)
+                {
+                    Caption = 'Option';
+                    field(OptionVal; OptionValue)
+                    {
+                        Caption = 'Logo';
+                        OptionCaption = 'Cosmos, Uditec';
+                        ApplicationArea = Basic, Suite;
+                    }
+                }
+            }
+
         }
 
         actions
@@ -263,15 +292,21 @@ report 50003 "A01 DeliveryNotePrint"
     begin
         CompanyInfo.Get();
         CompanyInfo.CalcFields(Picture);
+
+        RespCenterUditec.Get('UDT');
     end;
 
     var
         CompanyInfo: Record "Company Information";
         RespCenter: Record "Responsibility Center";
+        RespCenterUditec: Record "Responsibility Center";
         Cust: Record Customer;
         Contact: Record Contact;
         LocRec: Record Location;
         Ship: Record "Ship-to Address";
+        // Img: Media;
+        OptionValue: Option LogoCosmos,LogoUditec;
+        OptionType: Integer;
         UnitName: Text[100];
         rcs: Code[30];
         stat: Code[30];
