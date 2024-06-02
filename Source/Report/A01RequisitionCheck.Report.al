@@ -1,14 +1,14 @@
 /// <summary>
-/// Report A01 BankTransferOrderPrint (ID 50017).
+/// Report A01 Requisition check (ID 50033).
 /// </summary>
-report 50017 "A01 BankTransferOrderPrint"
+report 50033 "A01 RequisitionCheck"
 {
     DefaultLayout = RDLC;
-    Caption = 'A01 Bank Trsanfer Order print';
+    Caption = 'A01 Requisition check';
     PreviewMode = PrintLayout;
     UsageCategory = ReportsAndAnalysis;
     ApplicationArea = All;
-    RDLCLayout = './Source/Report/Layout/BankTransferOrderPrint.rdl';
+    RDLCLayout = './Source/Report/Layout/RequisitionCheck.rdl';
 
     dataset
     {
@@ -16,114 +16,95 @@ report 50017 "A01 BankTransferOrderPrint"
         {
             DataItemTableView = sorting("Document No.");
             RequestFilterFields = "Document No.";
-            RequestFilterHeading = 'Ordre de virement';
+            RequestFilterHeading = 'Requisition check';
             column(CompanyInfoPicture; CompanyInfo.Picture)
             {
             }
-            column(CompanyInfoBranch; CompanyInfo."Bank Branch No.")
+            column(CompanyInfoName; CompanyInfo.Name)
             {
             }
-            column(CompanyInfoBankAccount; CompanyInfo."Bank Account No.")
+            column(CompanyInfoAddress; CompanyInfo.Address)
+            {
+            }
+            column(CompanyInfoCity; CompanyInfo.City)
+            {
+            }
+            column(CompanyInfoPostCode; CompanyInfo."Post Code")
             {
             }
             column(Document_No_; "Document No.")
             {
             }
+            column(External_Document_No_; "External Document No.")
+            {
+            }
             column(Posting_Date; Format("Posting Date"))
             {
             }
+            // column(PrintDate; Today(0, 4))
+            // {
+            // }
             column(Description; Description)
             {
             }
-            column(BankName; BankName)
+            column(Applies_to_Doc__No_; "Applies-to Doc. No.")
             {
             }
-            column(BankAddress; BankAddress)
+            column(Amount; Amount)
             {
+                AutoFormatExpression = "Currency Code";
+                AutoFormatType = 1;
+            }
+            column(Debit_Amount; "Debit Amount")
+            {
+                AutoFormatExpression = "Currency Code";
+                AutoFormatType = 1;
             }
             column(Amount__LCY_; "Amount (LCY)")
             {
                 AutoFormatExpression = "Currency Code";
                 AutoFormatType = 1;
             }
-            column(RefLbl; RefLbl)
+            column(PurchaseInvoiceLbl; PurchaseInvoiceLbl)
             {
             }
-            column(AntananarivoTxtLbl; AntananarivoTxtLbl)
+            column(DocumentDateLbl; DocumentDateLbl)
             {
             }
-            column(ObjetLbl; ObjetLbl)
+            column(DescriptionLbl; DescriptionLbl)
             {
             }
-            column(ObjectTextLbl; ObjectTextLbl)
+            column(VatLbl; VatLbl)
             {
             }
-            column(EnterpriseLbl; EnterpriseLbl)
+            column(SupplierInvoiceLbl; SupplierInvoiceLbl)
             {
             }
-            column(TitleLbl; TitleLbl)
+            column(NoteLbl; NoteLbl)
             {
             }
-            column(Txt1Lbl; Txt1Lbl)
+            column(NetAmountMgaLbl; NetAmountMgaLbl)
             {
             }
-            column(Txt2Lbl; Txt2Lbl)
+            column(TotalLbl; TotalLbl)
             {
             }
-            column(BeneficiaryNameLbl; BeneficiaryNameLbl)
+            column(OrdonatorLbl; OrdonatorLbl)
             {
             }
-            column(BenecifiaryAddressLbl; BenecifiaryAddressLbl)
+            column(PrepareByLbl; PrepareByLbl)
             {
             }
-            column(BenName; BenName)
+            column(ApprouvedByLbl; ApprouvedByLbl)
             {
             }
-            column(BankLbl; BankLbl)
+            column(VerifiedByLbl; VerifiedByLbl)
             {
             }
-            column(BenAddress; BenAddress)
+            column(ReceivedByLbl; ReceivedByLbl)
             {
             }
-            column(Bank; Bank)
-            {
-            }
-            column(AccountNo; AccountNo)
-            {
-            }
-            column(AccountNoLbl; AccountNoLbl)
-            {
-            }
-            column(Txt3Lbl; Txt3Lbl)
-            {
-            }
-            column(Txt4Lbl; Txt4Lbl)
-            {
-            }
-            column(ALbl; ALbl)
-            {
-            }
-            column(DirectionLbl; DirectionLbl)
-            {
-            }
-            column(AmountIn_LCYText; AmountIn_LCYText)
-            {
-            }
-            column(AmountInWords; AmountInWords)
-            {
-            }
-            column(MGALbl; MGALbl)
-            {
-            }
-            column(AfkCurrCode; AfkCurrCode)
-            {
-            }
-            column(BankAccountNo; BankAccountNo)
-            {
-            }
-            column(AmountInc_LCY; AmountInc_LCY)
-            {
-            }
+
 
             column(LogoOption; OptionValue)
             {
@@ -134,7 +115,24 @@ report 50017 "A01 BankTransferOrderPrint"
             column(OptionType; OptionType)
             {
             }
-
+            column(BenName; BenName)
+            {
+            }
+            column(BenAddress; BenAddress)
+            {
+            }
+            column(AmountIn_LCYText; AmountIn_LCYText)
+            {
+            }
+            column(AmountInWords; AmountInWords)
+            {
+            }
+            column(AfkCurrCode; AfkCurrCode)
+            {
+            }
+            column(AmountInc_LCY; AmountInc_LCY)
+            {
+            }
             trigger OnAfterGetRecord()
             begin
                 if OptionValue = OptionValue::LogoCosmos then
@@ -217,6 +215,7 @@ report 50017 "A01 BankTransferOrderPrint"
                 }
             }
 
+
         }
 
         actions
@@ -236,8 +235,8 @@ report 50017 "A01 BankTransferOrderPrint"
     var
         CompanyInfo: Record "Company Information";
         VendorRec: Record Vendor;
-        RespCenterUditec: Record "Responsibility Center";
         GLSetup: Record "General Ledger Setup";
+        RespCenterUditec: Record "Responsibility Center";
         CurrencyExchangeRate: Record "Currency Exchange Rate";
         VendorBanckAccRec: Record "Vendor Bank Account";
         BankAccRec: Record "Bank Account";
@@ -265,23 +264,20 @@ report 50017 "A01 BankTransferOrderPrint"
         Bank: Text[100];
         AccountNo: Text;
         BankAccountNo: Text;
-        RefLbl: Label 'Ref :';
-        MGALbl: Label 'MGA';
-        ObjetLbl: Label 'Object :';
-        ObjectTextLbl: Label 'Payment order';
-        ALbl: Label 'A';
-        EnterpriseLbl: Label 'Enterprises';
-        AntananarivoTxtLbl: Label 'Antananarivo, le';
-        TitleLbl: Label 'Madam/Sir,';
-        Txt1Lbl: Label 'By debiting our account no:';
-        Txt2Lbl: Label 'Please execute the amount transfer :';
-        BeneficiaryNameLbl: Label 'Beneficiary name :';
-        BenecifiaryAddressLbl: Label 'Address :';
-        BankLbl: Label 'Banque :';
-        AccountNoLbl: Label 'Account no :';
-        Txt3Lbl: Label 'We authorize the corresponding fees and commissions to be debited from our account.';
-        Txt4Lbl: Label 'Please accept, Madam/Sir, the expression of our distinguished greetings.';
-        DirectionLbl: Label 'The direction,';
+        PurchaseInvoiceLbl: Label 'Purchase Invoice';
+        SupplierInvoiceLbl: Label 'Supplier Invoice';
+        DocumentDateLbl: Label 'Document Date';
+        DescriptionLbl: Label 'Description';
+        VatLbl: Label 'VAT';
+        NetAmountMgaLbl: Label 'Net Amount MGA';
+
+        NoteLbl: Label 'Note :';
+        TotalLbl: Label 'Total';
+        PrepareByLbl: Label 'Prepared by :';
+        OrdonatorLbl: Label 'Ordonator :';
+        VerifiedByLbl: Label 'Verified by :';
+        ApprouvedByLbl: Label 'Approuved by :';
+        ReceivedByLbl: Label 'Received by :';
 
 
     local procedure ReplaceString(OriginString: Text; ReplaceStr: Text): Text

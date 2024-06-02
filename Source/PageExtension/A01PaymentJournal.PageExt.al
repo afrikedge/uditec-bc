@@ -25,6 +25,20 @@ pageextension 50027 "A01 PaymentJournal" extends "Payment Journal"
                     Report.Run(50017, true, false, PaymentRec);
                 end;
             }
+
+            action("A01 RequisitionCheck")
+            {
+                ApplicationArea = All;
+                Image = PrintForm;
+                Caption = 'Print Check requisition';
+                trigger OnAction()
+                var
+                    PaymentRec: Record "Gen. Journal Line";
+                begin
+                    PaymentRec.SetRange("Document No.", Rec."Document No.");
+                    Report.Run(50033, true, false, PaymentRec);
+                end;
+            }
         }
     }
 }
