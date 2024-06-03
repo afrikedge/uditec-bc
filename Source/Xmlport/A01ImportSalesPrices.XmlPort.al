@@ -6,7 +6,7 @@ xmlport 50003 "A01 Import Sales Prices"
     TextEncoding = UTF8;
     FieldDelimiter = '<None>';
     FieldSeparator = '<TAB>';
-    UseRequestPage = true;
+    UseRequestPage = false;
 
     schema
     {
@@ -26,6 +26,7 @@ xmlport 50003 "A01 Import Sales Prices"
                 trigger OnBeforeInsertRecord()
                 var
                     PriceListLine: Record "Price List Line";
+                    Item: Record Item;
                     ItemCode: Code[20];
                     VariantCode: Code[20];
                     UOM: Code[20];
@@ -36,6 +37,7 @@ xmlport 50003 "A01 Import Sales Prices"
                     ROUND(i / NbreTotalLignes * 10000, 1));
 
                     ItemCode := ImportDocument.Code20_1;
+                    Item.Get(ItemCode);
                     VariantCode := ImportDocument.Code20_2;
                     UOM := ImportDocument.Code20_3;
                     Price := ImportDocument.Amount;

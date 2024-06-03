@@ -281,6 +281,12 @@ pageextension 50002 "A01 Order Processor RC" extends "Order Processor Role Cente
                     Caption = 'Disposable Rates';
                     RunObject = Page "A01 Disposable Rate List";
                 }
+                action(A01PricesList)
+                {
+                    ApplicationArea = Basic, Suite;
+                    Caption = 'Price list';
+                    RunObject = Page "Sales Price Lists";
+                }
 
             }
             group(A01_Compta)

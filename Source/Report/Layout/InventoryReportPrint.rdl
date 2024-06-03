@@ -11,256 +11,6 @@
       <rd:DataSourceID>5ec9a793-7dad-4066-ae55-3c842e134468</rd:DataSourceID>
     </DataSource>
   </DataSources>
-  <DataSets>
-    <DataSet Name="DataSet_Result">
-      <Query>
-        <DataSourceName>DataSource</DataSourceName>
-        <CommandText />
-      </Query>
-      <Fields>
-        <Field Name="ShowLotSN">
-          <DataField>ShowLotSN</DataField>
-        </Field>
-        <Field Name="CaptionFilter_ItemJnlBatch">
-          <DataField>CaptionFilter_ItemJnlBatch</DataField>
-        </Field>
-        <Field Name="ItemJnlBatchFilter">
-          <DataField>ItemJnlBatchFilter</DataField>
-        </Field>
-        <Field Name="CaptionFilter_ItemJnlLine">
-          <DataField>CaptionFilter_ItemJnlLine</DataField>
-        </Field>
-        <Field Name="ItemJnlLineFilter">
-          <DataField>ItemJnlLineFilter</DataField>
-        </Field>
-        <Field Name="ShowQtyCalculated">
-          <DataField>ShowQtyCalculated</DataField>
-        </Field>
-        <Field Name="Note1">
-          <DataField>Note1</DataField>
-        </Field>
-        <Field Name="SummaryPerItem">
-          <DataField>SummaryPerItem</DataField>
-        </Field>
-        <Field Name="ShowNote">
-          <DataField>ShowNote</DataField>
-        </Field>
-        <Field Name="PhysInventoryListCaption">
-          <DataField>PhysInventoryListCaption</DataField>
-        </Field>
-        <Field Name="CurrReportPageNoCaption">
-          <DataField>CurrReportPageNoCaption</DataField>
-        </Field>
-        <Field Name="ItemJnlLinePostDtCaption">
-          <DataField>ItemJnlLinePostDtCaption</DataField>
-        </Field>
-        <Field Name="GetShorDimCodeCaption1">
-          <DataField>GetShorDimCodeCaption1</DataField>
-        </Field>
-        <Field Name="GetShorDimCodeCaption2">
-          <DataField>GetShorDimCodeCaption2</DataField>
-        </Field>
-        <Field Name="QtyPhysInventoryCaption">
-          <DataField>QtyPhysInventoryCaption</DataField>
-        </Field>
-        <Field Name="TemplateName_ItemJnlBatch">
-          <DataField>TemplateName_ItemJnlBatch</DataField>
-        </Field>
-        <Field Name="Name_ItemJournalBatch">
-          <DataField>Name_ItemJournalBatch</DataField>
-        </Field>
-        <Field Name="CompanyName">
-          <DataField>CompanyName</DataField>
-        </Field>
-        <Field Name="CompanyPicture">
-          <DataField>CompanyPicture</DataField>
-        </Field>
-        <Field Name="CompanyAddress">
-          <DataField>CompanyAddress</DataField>
-        </Field>
-        <Field Name="CompanyHomePage">
-          <DataField>CompanyHomePage</DataField>
-        </Field>
-        <Field Name="CompanyPhone">
-          <DataField>CompanyPhone</DataField>
-        </Field>
-        <Field Name="ReportTitleLbl">
-          <DataField>ReportTitleLbl</DataField>
-        </Field>
-        <Field Name="TodayFormatted">
-          <DataField>TodayFormatted</DataField>
-        </Field>
-        <Field Name="DateOfPrintLbl">
-          <DataField>DateOfPrintLbl</DataField>
-        </Field>
-        <Field Name="PostingDateCaptionLbl">
-          <DataField>PostingDateCaptionLbl</DataField>
-        </Field>
-        <Field Name="InventoryDateLbl">
-          <DataField>InventoryDateLbl</DataField>
-        </Field>
-        <Field Name="ProductCodeLbl">
-          <DataField>ProductCodeLbl</DataField>
-        </Field>
-        <Field Name="ProductVariantCodeLbl">
-          <DataField>ProductVariantCodeLbl</DataField>
-        </Field>
-        <Field Name="DesignationLbl">
-          <DataField>DesignationLbl</DataField>
-        </Field>
-        <Field Name="WarehouseLbl">
-          <DataField>WarehouseLbl</DataField>
-        </Field>
-        <Field Name="LocationLbl">
-          <DataField>LocationLbl</DataField>
-        </Field>
-        <Field Name="QuantityCalculateLbl">
-          <DataField>QuantityCalculateLbl</DataField>
-        </Field>
-        <Field Name="QuantityObservedLbl">
-          <DataField>QuantityObservedLbl</DataField>
-        </Field>
-        <Field Name="EntryTypeLbl">
-          <DataField>EntryTypeLbl</DataField>
-        </Field>
-        <Field Name="DocumentNumberLbl">
-          <DataField>DocumentNumberLbl</DataField>
-        </Field>
-        <Field Name="UnitAmountLbl">
-          <DataField>UnitAmountLbl</DataField>
-        </Field>
-        <Field Name="AmountLbl">
-          <DataField>AmountLbl</DataField>
-        </Field>
-        <Field Name="PostingDt_ItemJournalLine">
-          <DataField>PostingDt_ItemJournalLine</DataField>
-        </Field>
-        <Field Name="Entry_Type">
-          <DataField>Entry_Type</DataField>
-        </Field>
-        <Field Name="DocNo_ItemJournalLine">
-          <DataField>DocNo_ItemJournalLine</DataField>
-        </Field>
-        <Field Name="ItemNo_ItemJournalLine">
-          <DataField>ItemNo_ItemJournalLine</DataField>
-        </Field>
-        <Field Name="Desc_ItemJournalLine">
-          <DataField>Desc_ItemJournalLine</DataField>
-        </Field>
-        <Field Name="ShotcutDim1Code_ItemJnlLin">
-          <DataField>ShotcutDim1Code_ItemJnlLin</DataField>
-        </Field>
-        <Field Name="ShotcutDim2Code_ItemJnlLin">
-          <DataField>ShotcutDim2Code_ItemJnlLin</DataField>
-        </Field>
-        <Field Name="LocCode_ItemJournalLine">
-          <DataField>LocCode_ItemJournalLine</DataField>
-        </Field>
-        <Field Name="QtyCalculated_ItemJnlLin">
-          <DataField>QtyCalculated_ItemJnlLin</DataField>
-        </Field>
-        <Field Name="QtyCalculated_ItemJnlLinFormat">
-          <DataField>QtyCalculated_ItemJnlLinFormat</DataField>
-        </Field>
-        <Field Name="Qty___Phys__Inventory_">
-          <DataField>Qty___Phys__Inventory_</DataField>
-        </Field>
-        <Field Name="Qty___Phys__Inventory_Format">
-          <DataField>Qty___Phys__Inventory_Format</DataField>
-        </Field>
-        <Field Name="Variant_Code">
-          <DataField>Variant_Code</DataField>
-        </Field>
-        <Field Name="BinCode_ItemJournalLine">
-          <DataField>BinCode_ItemJournalLine</DataField>
-        </Field>
-        <Field Name="Unit_Amount">
-          <DataField>Unit_Amount</DataField>
-        </Field>
-        <Field Name="Unit_AmountFormat">
-          <DataField>Unit_AmountFormat</DataField>
-        </Field>
-        <Field Name="Amount">
-          <DataField>Amount</DataField>
-        </Field>
-        <Field Name="AmountFormat">
-          <DataField>AmountFormat</DataField>
-        </Field>
-        <Field Name="Note">
-          <DataField>Note</DataField>
-        </Field>
-        <Field Name="ShowSummary">
-          <DataField>ShowSummary</DataField>
-        </Field>
-        <Field Name="LineNo_ItemJournalLine">
-          <DataField>LineNo_ItemJournalLine</DataField>
-        </Field>
-        <Field Name="UnitName">
-          <DataField>UnitName</DataField>
-        </Field>
-        <Field Name="UnitAddress">
-          <DataField>UnitAddress</DataField>
-        </Field>
-        <Field Name="UnitCity">
-          <DataField>UnitCity</DataField>
-        </Field>
-        <Field Name="UnitPostalCode">
-          <DataField>UnitPostalCode</DataField>
-        </Field>
-        <Field Name="UnitNameLbl">
-          <DataField>UnitNameLbl</DataField>
-        </Field>
-        <Field Name="UnitAddressLbl">
-          <DataField>UnitAddressLbl</DataField>
-        </Field>
-        <Field Name="UnitCityLbl">
-          <DataField>UnitCityLbl</DataField>
-        </Field>
-        <Field Name="UnitPostalCodeLbl">
-          <DataField>UnitPostalCodeLbl</DataField>
-        </Field>
-        <Field Name="Reason_Code">
-          <DataField>Reason_Code</DataField>
-        </Field>
-        <Field Name="RaisonCodeLbl">
-          <DataField>RaisonCodeLbl</DataField>
-        </Field>
-        <Field Name="MotifTxt">
-          <DataField>MotifTxt</DataField>
-        </Field>
-        <Field Name="PackageNoCaption">
-          <DataField>PackageNoCaption</DataField>
-        </Field>
-        <Field Name="LotNoCaption">
-          <DataField>LotNoCaption</DataField>
-        </Field>
-        <Field Name="SerialNoCaption">
-          <DataField>SerialNoCaption</DataField>
-        </Field>
-        <Field Name="QuantityBaseCaption">
-          <DataField>QuantityBaseCaption</DataField>
-        </Field>
-        <Field Name="ReservEntryBufferPackageNo">
-          <DataField>ReservEntryBufferPackageNo</DataField>
-        </Field>
-        <Field Name="ReservEntryBufferLotNo">
-          <DataField>ReservEntryBufferLotNo</DataField>
-        </Field>
-        <Field Name="ReservEntryBufferSerialNo">
-          <DataField>ReservEntryBufferSerialNo</DataField>
-        </Field>
-        <Field Name="ReservEntryBufferQtyBase">
-          <DataField>ReservEntryBufferQtyBase</DataField>
-        </Field>
-        <Field Name="ReservEntryBufferQtyBaseFormat">
-          <DataField>ReservEntryBufferQtyBaseFormat</DataField>
-        </Field>
-        <Field Name="SummaryperItemCaption">
-          <DataField>SummaryperItemCaption</DataField>
-        </Field>
-      </Fields>
-    </DataSet>
-  </DataSets>
   <ReportSections>
     <ReportSection>
       <Body>
@@ -1874,4 +1624,254 @@ AAAAAAAAAECjsYAGAAAAAAAAAAAAAAAAjcYCGgAAAAAAAAAAAAAAADQaC2gAAAAAAAAAAAAAAADQaCyg
   <ConsumeContainerWhitespace>true</ConsumeContainerWhitespace>
   <rd:ReportUnitType>Cm</rd:ReportUnitType>
   <rd:ReportID>0eeb6585-38ae-40f1-885b-8d50088d51b4</rd:ReportID>
+  <DataSets>
+    <DataSet Name="DataSet_Result">
+      <Fields>
+        <Field Name="ShowLotSN">
+          <DataField>ShowLotSN</DataField>
+        </Field>
+        <Field Name="CaptionFilter_ItemJnlBatch">
+          <DataField>CaptionFilter_ItemJnlBatch</DataField>
+        </Field>
+        <Field Name="ItemJnlBatchFilter">
+          <DataField>ItemJnlBatchFilter</DataField>
+        </Field>
+        <Field Name="CaptionFilter_ItemJnlLine">
+          <DataField>CaptionFilter_ItemJnlLine</DataField>
+        </Field>
+        <Field Name="ItemJnlLineFilter">
+          <DataField>ItemJnlLineFilter</DataField>
+        </Field>
+        <Field Name="ShowQtyCalculated">
+          <DataField>ShowQtyCalculated</DataField>
+        </Field>
+        <Field Name="Note1">
+          <DataField>Note1</DataField>
+        </Field>
+        <Field Name="SummaryPerItem">
+          <DataField>SummaryPerItem</DataField>
+        </Field>
+        <Field Name="ShowNote">
+          <DataField>ShowNote</DataField>
+        </Field>
+        <Field Name="PhysInventoryListCaption">
+          <DataField>PhysInventoryListCaption</DataField>
+        </Field>
+        <Field Name="CurrReportPageNoCaption">
+          <DataField>CurrReportPageNoCaption</DataField>
+        </Field>
+        <Field Name="ItemJnlLinePostDtCaption">
+          <DataField>ItemJnlLinePostDtCaption</DataField>
+        </Field>
+        <Field Name="GetShorDimCodeCaption1">
+          <DataField>GetShorDimCodeCaption1</DataField>
+        </Field>
+        <Field Name="GetShorDimCodeCaption2">
+          <DataField>GetShorDimCodeCaption2</DataField>
+        </Field>
+        <Field Name="QtyPhysInventoryCaption">
+          <DataField>QtyPhysInventoryCaption</DataField>
+        </Field>
+        <Field Name="TemplateName_ItemJnlBatch">
+          <DataField>TemplateName_ItemJnlBatch</DataField>
+        </Field>
+        <Field Name="Name_ItemJournalBatch">
+          <DataField>Name_ItemJournalBatch</DataField>
+        </Field>
+        <Field Name="CompanyName">
+          <DataField>CompanyName</DataField>
+        </Field>
+        <Field Name="CompanyPicture">
+          <DataField>CompanyPicture</DataField>
+        </Field>
+        <Field Name="CompanyAddress">
+          <DataField>CompanyAddress</DataField>
+        </Field>
+        <Field Name="CompanyHomePage">
+          <DataField>CompanyHomePage</DataField>
+        </Field>
+        <Field Name="CompanyPhone">
+          <DataField>CompanyPhone</DataField>
+        </Field>
+        <Field Name="ReportTitleLbl">
+          <DataField>ReportTitleLbl</DataField>
+        </Field>
+        <Field Name="TodayFormatted">
+          <DataField>TodayFormatted</DataField>
+        </Field>
+        <Field Name="DateOfPrintLbl">
+          <DataField>DateOfPrintLbl</DataField>
+        </Field>
+        <Field Name="PostingDateCaptionLbl">
+          <DataField>PostingDateCaptionLbl</DataField>
+        </Field>
+        <Field Name="InventoryDateLbl">
+          <DataField>InventoryDateLbl</DataField>
+        </Field>
+        <Field Name="ProductCodeLbl">
+          <DataField>ProductCodeLbl</DataField>
+        </Field>
+        <Field Name="ProductVariantCodeLbl">
+          <DataField>ProductVariantCodeLbl</DataField>
+        </Field>
+        <Field Name="DesignationLbl">
+          <DataField>DesignationLbl</DataField>
+        </Field>
+        <Field Name="WarehouseLbl">
+          <DataField>WarehouseLbl</DataField>
+        </Field>
+        <Field Name="LocationLbl">
+          <DataField>LocationLbl</DataField>
+        </Field>
+        <Field Name="QuantityCalculateLbl">
+          <DataField>QuantityCalculateLbl</DataField>
+        </Field>
+        <Field Name="QuantityObservedLbl">
+          <DataField>QuantityObservedLbl</DataField>
+        </Field>
+        <Field Name="EntryTypeLbl">
+          <DataField>EntryTypeLbl</DataField>
+        </Field>
+        <Field Name="DocumentNumberLbl">
+          <DataField>DocumentNumberLbl</DataField>
+        </Field>
+        <Field Name="UnitAmountLbl">
+          <DataField>UnitAmountLbl</DataField>
+        </Field>
+        <Field Name="AmountLbl">
+          <DataField>AmountLbl</DataField>
+        </Field>
+        <Field Name="PostingDt_ItemJournalLine">
+          <DataField>PostingDt_ItemJournalLine</DataField>
+        </Field>
+        <Field Name="Entry_Type">
+          <DataField>Entry_Type</DataField>
+        </Field>
+        <Field Name="DocNo_ItemJournalLine">
+          <DataField>DocNo_ItemJournalLine</DataField>
+        </Field>
+        <Field Name="ItemNo_ItemJournalLine">
+          <DataField>ItemNo_ItemJournalLine</DataField>
+        </Field>
+        <Field Name="Desc_ItemJournalLine">
+          <DataField>Desc_ItemJournalLine</DataField>
+        </Field>
+        <Field Name="ShotcutDim1Code_ItemJnlLin">
+          <DataField>ShotcutDim1Code_ItemJnlLin</DataField>
+        </Field>
+        <Field Name="ShotcutDim2Code_ItemJnlLin">
+          <DataField>ShotcutDim2Code_ItemJnlLin</DataField>
+        </Field>
+        <Field Name="LocCode_ItemJournalLine">
+          <DataField>LocCode_ItemJournalLine</DataField>
+        </Field>
+        <Field Name="QtyCalculated_ItemJnlLin">
+          <DataField>QtyCalculated_ItemJnlLin</DataField>
+        </Field>
+        <Field Name="QtyCalculated_ItemJnlLinFormat">
+          <DataField>QtyCalculated_ItemJnlLinFormat</DataField>
+        </Field>
+        <Field Name="Qty___Phys__Inventory_">
+          <DataField>Qty___Phys__Inventory_</DataField>
+        </Field>
+        <Field Name="Qty___Phys__Inventory_Format">
+          <DataField>Qty___Phys__Inventory_Format</DataField>
+        </Field>
+        <Field Name="Variant_Code">
+          <DataField>Variant_Code</DataField>
+        </Field>
+        <Field Name="BinCode_ItemJournalLine">
+          <DataField>BinCode_ItemJournalLine</DataField>
+        </Field>
+        <Field Name="Unit_Amount">
+          <DataField>Unit_Amount</DataField>
+        </Field>
+        <Field Name="Unit_AmountFormat">
+          <DataField>Unit_AmountFormat</DataField>
+        </Field>
+        <Field Name="Amount">
+          <DataField>Amount</DataField>
+        </Field>
+        <Field Name="AmountFormat">
+          <DataField>AmountFormat</DataField>
+        </Field>
+        <Field Name="Note">
+          <DataField>Note</DataField>
+        </Field>
+        <Field Name="ShowSummary">
+          <DataField>ShowSummary</DataField>
+        </Field>
+        <Field Name="LineNo_ItemJournalLine">
+          <DataField>LineNo_ItemJournalLine</DataField>
+        </Field>
+        <Field Name="UnitName">
+          <DataField>UnitName</DataField>
+        </Field>
+        <Field Name="UnitAddress">
+          <DataField>UnitAddress</DataField>
+        </Field>
+        <Field Name="UnitCity">
+          <DataField>UnitCity</DataField>
+        </Field>
+        <Field Name="UnitPostalCode">
+          <DataField>UnitPostalCode</DataField>
+        </Field>
+        <Field Name="UnitNameLbl">
+          <DataField>UnitNameLbl</DataField>
+        </Field>
+        <Field Name="UnitAddressLbl">
+          <DataField>UnitAddressLbl</DataField>
+        </Field>
+        <Field Name="UnitCityLbl">
+          <DataField>UnitCityLbl</DataField>
+        </Field>
+        <Field Name="UnitPostalCodeLbl">
+          <DataField>UnitPostalCodeLbl</DataField>
+        </Field>
+        <Field Name="Reason_Code">
+          <DataField>Reason_Code</DataField>
+        </Field>
+        <Field Name="RaisonCodeLbl">
+          <DataField>RaisonCodeLbl</DataField>
+        </Field>
+        <Field Name="MotifTxt">
+          <DataField>MotifTxt</DataField>
+        </Field>
+        <Field Name="PackageNoCaption">
+          <DataField>PackageNoCaption</DataField>
+        </Field>
+        <Field Name="LotNoCaption">
+          <DataField>LotNoCaption</DataField>
+        </Field>
+        <Field Name="SerialNoCaption">
+          <DataField>SerialNoCaption</DataField>
+        </Field>
+        <Field Name="QuantityBaseCaption">
+          <DataField>QuantityBaseCaption</DataField>
+        </Field>
+        <Field Name="ReservEntryBufferPackageNo">
+          <DataField>ReservEntryBufferPackageNo</DataField>
+        </Field>
+        <Field Name="ReservEntryBufferLotNo">
+          <DataField>ReservEntryBufferLotNo</DataField>
+        </Field>
+        <Field Name="ReservEntryBufferSerialNo">
+          <DataField>ReservEntryBufferSerialNo</DataField>
+        </Field>
+        <Field Name="ReservEntryBufferQtyBase">
+          <DataField>ReservEntryBufferQtyBase</DataField>
+        </Field>
+        <Field Name="ReservEntryBufferQtyBaseFormat">
+          <DataField>ReservEntryBufferQtyBaseFormat</DataField>
+        </Field>
+        <Field Name="SummaryperItemCaption">
+          <DataField>SummaryperItemCaption</DataField>
+        </Field>
+      </Fields>
+      <Query>
+        <DataSourceName>DataSource</DataSourceName>
+        <CommandText />
+      </Query>
+    </DataSet>
+  </DataSets>
 </Report>
