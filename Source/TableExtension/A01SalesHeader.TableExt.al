@@ -239,6 +239,12 @@ tableextension 50000 "A01 Sales Header" extends "Sales Header"
             Caption = 'Recommended Deposit (%)';
             DataClassification = CustomerContent;
         }
+        field(50035; "A01 General Comment"; Text[250])
+        {
+            Caption = 'General Comment';
+            DataClassification = CustomerContent;
+        }
+
 
 
 

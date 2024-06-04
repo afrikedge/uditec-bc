@@ -7,6 +7,10 @@ pageextension 50011 "A01 User Setup" extends "User Setup"
     {
         addafter(LicenseType)
         {
+            field("A01 Discount Limit Group"; Rec."A01 Discount Limit Group")
+            {
+                ApplicationArea = Basic, Suite;
+            }
             field("A01 Can Cancel Sales Order"; Rec."A01 Can Cancel Sales Order")
             {
                 ApplicationArea = Basic, Suite;
@@ -35,6 +39,7 @@ pageextension 50011 "A01 User Setup" extends "User Setup"
             {
                 ApplicationArea = Basic, Suite;
             }
+
         }
         addafter("Allow Posting To")
         {

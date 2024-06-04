@@ -458,6 +458,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table A01 Approval Flow - Field Document No. - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Table 1931418295 - Field 2363328873 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Document No.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table A01 Approval Flow - Field Document Type - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Table 1931418295 - Field 4132733409 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Method</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -467,11 +472,6 @@
           <source>Next Status</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table A01 Approval Flow - Field Next Status - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Table 1931418295 - Field 2123958759 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Object</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Table A01 Approval Flow - Field Object - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 1931418295 - Field 3014885516 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Sequence No.</source>
@@ -1432,6 +1432,11 @@
           <source>Description</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table A01 Parameter Record - Field Description - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 782004688 - Field 2953993808 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Discount Limit (%)</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table A01 Parameter Record - Field Discount Limit (%) - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 782004688 - Field 1867006748 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Order</source>
@@ -4592,6 +4597,11 @@
           <source>Import Affectations</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page A01 Deadline Assignment List - Action Application - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2524304189 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Discount Limits</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page A01 Discount Limits - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 3914987280 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Discount Request</source>
@@ -15883,6 +15893,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension A01 Order Processor RC - Action A01Config_WarrantyPlans - Property Caption</note>
         </trans-unit>
+        <trans-unit id="PageExtension 3250568499 - Action 701499333 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2747922353">
+          <source>Discount Limit groups</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension A01 Order Processor RC - Action A01DiscountLimits - Property Caption</note>
+        </trans-unit>
         <trans-unit id="PageExtension 3250568499 - Action 2156653019 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2747922353">
           <source>Disposable Rates</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -16152,6 +16167,11 @@
           <source>A01 Bank Account Type</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension A01 Bank Account - Field A01 Bank Account Type - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 1742308649 - Field 293572831 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1682139193">
+          <source>Beneficiairy Name</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension A01 Bank Account - Field A01 Beneficiairy Name - Property Caption</note>
         </trans-unit>
         <trans-unit id="TableExtension 2689845239 - Field 3629772320 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 400793991">
           <source>Unit of Measure Code</source>
@@ -16582,6 +16602,11 @@
           <source>Point</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension A01 Item Category - Field A01 Point - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 3169743638 - Field 4189871785 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 346005766">
+          <source>Difference</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension A01 Item Journal Line - Field A01Difference - Property Caption</note>
         </trans-unit>
         <trans-unit id="TableExtension 437216527 - Field 2945672636 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 3891454143">
           <source>Sales Blocked</source>
@@ -17543,6 +17568,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension A01 User Setup - Field A01 Disable Resp Center Filter - Property Caption</note>
         </trans-unit>
+        <trans-unit id="TableExtension 4102593426 - Field 1967731649 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 337631938">
+          <source>Discount Limit Group</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension A01 User Setup - Field A01 Discount Limit Group - Property Caption</note>
+        </trans-unit>
         <trans-unit id="TableExtension 4102593426 - Field 2617566227 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 337631938">
           <source>GL Period Group</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -17757,6 +17787,26 @@
           <source>CDI</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Enum A01 AGP Type of emp contr - EnumValue CDI - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 1619023839 - EnumValue 821689635 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Invoice</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum A01 Approval Flow Doc Type - EnumValue Invoice - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 1619023839 - EnumValue 146219450 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Order</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum A01 Approval Flow Doc Type - EnumValue Order - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 1619023839 - EnumValue 3888822604 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Posted Invoice</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum A01 Approval Flow Doc Type - EnumValue Posted Invoice - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 1619023839 - EnumValue 3809237070 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Quote</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum A01 Approval Flow Doc Type - EnumValue Quote - Property Caption</note>
         </trans-unit>
         <trans-unit id="Enum 3822409918 - EnumValue 221910773 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Normal</source>
@@ -18292,6 +18342,11 @@
           <source>Brand</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Enum A01 Parameter Record Type - EnumValue Brand - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 3132669536 - EnumValue 2492146860 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Discount Limit</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum A01 Parameter Record Type - EnumValue DiscountLimit - Property Caption</note>
         </trans-unit>
         <trans-unit id="Enum 3132669536 - EnumValue 3310004601 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>ImportStep</source>

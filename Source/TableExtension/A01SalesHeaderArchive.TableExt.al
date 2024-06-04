@@ -196,5 +196,10 @@ tableextension 50002 "A01 Sales Header Archive" extends "Sales Header Archive"
             Caption = 'Recommended Deposit (%)';
             DataClassification = CustomerContent;
         }
+        field(50035; "A01 General Comment"; Text[250])
+        {
+            Caption = 'General Comment';
+            DataClassification = CustomerContent;
+        }
     }
 }

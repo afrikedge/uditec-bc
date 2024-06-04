@@ -276,6 +276,16 @@ codeunit 50016 "A01 Document Request Mgt"
         end;
     end;
 
+    local procedure GetMaxAllowedDiscountForUser(): Decimal
+    var
+        userSetup: Record "User Setup";
+        DiscountLimit: Record "A01 Parameter Record";
+    begin
+        userSetup.Get(UserId);
+        if (DiscountLimit.get(DiscountLimit.Type::DiscountLimit, userSetup."A01 Discount Limit Group")) then
+            exit(DiscountLimit."Discount Limit (%)");
+    end;
+
     local procedure PayNeedsValidation(PayHeader: Record "A01 Payment Document"): Boolean
     var
         PayLine: Record "A01 Payment Document Line";

@@ -25,6 +25,10 @@ table 50008 "A01 Parameter Record"
         {
             Caption = 'Order';
         }
+        field(5; "Discount Limit (%)"; Decimal)
+        {
+            Caption = 'Discount Limit (%)';
+        }
     }
     keys
     {

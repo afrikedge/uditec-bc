@@ -395,6 +395,10 @@ codeunit 50005 "A01 WS QuotesMgt"
             if (SalesQuote."A01 Rec. Deposit (%)" <> WS.GetDecimal('Rec. Deposit (%)', input)) then
                 SalesQuote.Validate("A01 Rec. Deposit (%)", WS.GetDecimal('Rec. Deposit (%)', input));
 
+        if WS.KeyExists('General Comment', input) then
+            if (SalesQuote."A01 General Comment" <> WS.GetText('General Comment', input)) then
+                SalesQuote.Validate("A01 General Comment", WS.GetText('General Comment', input));
+
         //[Monthly Capacity],[Max Approved Rate (%)],[Max Referred Rate (%)],[Joint Required],[Rec. Amount],[Rec. Duration],[Rec. Deposit (%)]
         //[Investigator comments] (text),  [Recovery Opinion] (optionlist), [Recovery comments] (text), [Manager Opinion] (optionlist), [Manager comments] (text)
     end;

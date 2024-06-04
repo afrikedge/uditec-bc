@@ -197,6 +197,11 @@ tableextension 50025 "A01 Sales Invoice Header" extends "Sales Invoice Header"
             Caption = 'Recommended Deposit (%)';
             DataClassification = CustomerContent;
         }
+        field(50035; "A01 General Comment"; Text[250])
+        {
+            Caption = 'General Comment';
+            DataClassification = CustomerContent;
+        }
     }
 
 }

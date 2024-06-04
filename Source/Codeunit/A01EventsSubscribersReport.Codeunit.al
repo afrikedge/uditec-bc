@@ -41,4 +41,15 @@ codeunit 50010 "A01 EventsSubscribers_Report"
     end;
 
 
+
+    [EventSubscriber(ObjectType::Report, Report::"Calculate Inventory", 'OnBeforeInsertItemJnlLine', '', true, true)]
+    local procedure CalculateInventoryt_OnBeforeInsertItemJnlLine(var ItemJournalLine: Record "Item Journal Line"; var InventoryBuffer: Record "Inventory Buffer")
+    begin
+        ItemJournalLine.Validate("Qty. (Phys. Inventory)", 0);
+    end;
+
+    //  [IntegrationEvent(false, false)]
+    //     local procedure OnBeforeInsertItemJnlLine(var ItemJournalLine: Record "Item Journal Line"; var InventoryBuffer: Record "Inventory Buffer");
+    //     begin
+    //     end;
 }
