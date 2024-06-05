@@ -18936,6 +18936,24 @@
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">XmlPort A01 Import Sales Prices - NamedType Text008</note>
         </trans-unit>
+        <trans-unit id="XmlPort 2395872831 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Import Serial Numbers</source>
+          <target state="needs-review-translation">Import des numéros de série</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">XmlPort A01 Import Serial Numbers - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="XmlPort 2395872831 - NamedType 16731361" size-unit="char" translate="yes" xml:space="preserve">
+          <source>End of importation. %1 lines processed</source>
+          <target state="needs-review-translation">Importaion terminée. %1 lignes traitées</target>
+          <note from="Developer" annotates="general" priority="2">%1=...</note>
+          <note from="Xliff Generator" annotates="general" priority="3">XmlPort A01 Import Serial Numbers - NamedType LblEndOfProcess</note>
+        </trans-unit>
+        <trans-unit id="XmlPort 2395872831 - NamedType 3283546407" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Traitement @1@@@@@@@@@@@@@@@@@@@@@@@@@@@@\</source>
+          <target state="needs-review-translation">Traitement @1@@@@@@@@@@@@@@@@@@@@@@@@@@@@\</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">XmlPort A01 Import Serial Numbers - NamedType Text008</note>
+        </trans-unit>
         <trans-unit id="PageExtension 1546816651 - Action 373964257 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1267036282">
           <source>Afk External Users</source>
           <target state="needs-review-translation">Utilisateurs externes AFK</target>
@@ -18995,6 +19013,12 @@
           <target state="needs-review-translation">Plans de garantie</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension A01 Item Card - Action A01Attributes - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 496531641 - Action 829621065 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 4023405129">
+          <source>Import serial Nos</source>
+          <target state="needs-review-translation">Import des numéros de série</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension A01 Item Tracking Lines - Action A01ImportSerialNos - Property Caption</note>
         </trans-unit>
         <trans-unit id="PageExtension 3250568499 - Action 1719187443 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2747922353">
           <source>A01AfkCredit</source>
@@ -20485,6 +20509,12 @@
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension A01 Sales Header - Field A01 Delivery Autorised On - Property Caption</note>
         </trans-unit>
+        <trans-unit id="TableExtension 1143019865 - Field 3637318343 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1192395785">
+          <source>General Comment</source>
+          <target state="needs-review-translation">Observations générales</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension A01 Sales Header - Field A01 General Comment - Property Caption</note>
+        </trans-unit>
         <trans-unit id="TableExtension 1143019865 - Field 3445085256 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1192395785">
           <source>Interest rate %</source>
           <target state="needs-review-translation">Taux d’intérêt %</target>
@@ -20695,6 +20725,12 @@
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension A01 Sales Header Archive - Field A01 Delivery Autorised On - Property Caption</note>
         </trans-unit>
+        <trans-unit id="TableExtension 2954665223 - Field 3637318343 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1948788855">
+          <source>General Comment</source>
+          <target state="needs-review-translation">Observations générales</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension A01 Sales Header Archive - Field A01 General Comment - Property Caption</note>
+        </trans-unit>
         <trans-unit id="TableExtension 2954665223 - Field 3445085256 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1948788855">
           <source>Interest rate %</source>
           <target state="needs-review-translation">Taux d’intérêt %</target>
@@ -20904,6 +20940,12 @@
           <target state="needs-review-translation">Livraison autorisée le</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension A01 Sales Invoice Header - Field A01 Delivery Autorised On - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 1507475930 - Field 3637318343 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 809936682">
+          <source>General Comment</source>
+          <target state="needs-review-translation">Observations générales</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension A01 Sales Invoice Header - Field A01 General Comment - Property Caption</note>
         </trans-unit>
         <trans-unit id="TableExtension 1507475930 - Field 3445085256 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 809936682">
           <source>Interest rate %</source>
