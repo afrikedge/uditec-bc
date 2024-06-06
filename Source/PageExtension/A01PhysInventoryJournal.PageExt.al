@@ -5,7 +5,13 @@ pageextension 50025 "A01 Phys Inventory Journal" extends "Phys. Inventory Journa
 {
     layout
     {
-
+        addafter(Quantity)
+        {
+            field(A01Difference; Rec.A01Difference)
+            {
+                ApplicationArea = Basic, Suite;
+            }
+        }
     }
 
     actions

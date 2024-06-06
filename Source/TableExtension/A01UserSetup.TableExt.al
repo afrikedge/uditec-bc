@@ -60,5 +60,11 @@ tableextension 50001 "A01 User Setup" extends "User Setup"
             Caption = 'Can print add Whse Delivery';
             DataClassification = CustomerContent;
         }
+        field(50011; "A01 Discount Limit Group"; Code[20])
+        {
+            Caption = 'Discount Limit Group';
+            DataClassification = CustomerContent;
+            TableRelation = "A01 Parameter Record".Code where(Type = const(DiscountLimit));
+        }
     }
 }

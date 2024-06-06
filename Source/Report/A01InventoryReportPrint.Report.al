@@ -226,6 +226,9 @@ report 50015 "A01 InventoryReportPrint"
                     column(RaisonCodeLbl; RaisonCodeLbl)
                     {
                     }
+                    column(MotifTxt; MotifTxt)
+                    {
+                    }
 
                     dataitem(ItemTrackingSpecification; "Integer")
                     {
@@ -304,6 +307,9 @@ report 50015 "A01 InventoryReportPrint"
                             UnitPostalCode := LocRec."Post Code";
                         end;
 
+                        if ReasonCodeRec.Get("Item Journal Line"."Reason Code") then
+                            MotifTxt := ReasonCodeRec.Description;
+
                         if "No." = 'MIR_FEES' then
                             CurrReport.Skip();
                         if "No." = 'mir_fees' then
@@ -381,6 +387,7 @@ report 50015 "A01 InventoryReportPrint"
         ItemJournalTemplate: Record "Item Journal Template";
         TempReservationEntryBuffer: Record "Reservation Entry" temporary;
         LocRec: Record Location;
+        ReasonCodeRec: Record "Reason Code";
         ItemTrackingManagement: Codeunit "Item Tracking Management";
 
         Note: Text[1];
@@ -395,6 +402,7 @@ report 50015 "A01 InventoryReportPrint"
         UnitName: Text[100];
         UnitAddress: Text[100];
         UnitCity: Text[50];
+        MotifTxt: Text[100];
         UnitPostalCode: Text[50];
 
         UnitNameLbl: Label 'Warehouse name :';

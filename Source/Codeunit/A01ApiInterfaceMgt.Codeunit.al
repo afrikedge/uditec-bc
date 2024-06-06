@@ -128,6 +128,8 @@ codeunit 50008 "A01 Api Interface Mgt"
                 exit(MasterFilesMgt.RunLinkDocument(input, true));
 
 
+            'changeUserPassword':
+                exit(MasterFilesMgt.RunUpdatePassword(input));
 
 
 

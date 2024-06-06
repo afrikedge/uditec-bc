@@ -8,6 +8,10 @@ pageextension 50033 "A01 Bank Account Card" extends "Bank Account Card"
             {
                 ApplicationArea = Basic, Suite;
             }
+            field("A01 Beneficiairy Name"; Rec."A01 Beneficiairy Name")
+            {
+                ApplicationArea = Basic, Suite;
+            }
         }
     }
 }

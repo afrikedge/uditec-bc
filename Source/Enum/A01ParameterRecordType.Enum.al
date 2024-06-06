@@ -37,4 +37,8 @@ enum 50017 "A01 Parameter Record Type"
     {
         Caption = 'Web Function';
     }
+    value(8; DiscountLimit)
+    {
+        Caption = 'Discount Limit';
+    }
 }

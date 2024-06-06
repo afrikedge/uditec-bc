@@ -33,6 +33,12 @@ page 50038 "A01 Scoring Matrix"
                 field("Weighted Point"; Rec."Weighted Point")
                 {
                 }
+                field("Max credit Duration"; Rec."Max credit Duration")
+                {
+                }
+                field("Required Prepayment (%)"; Rec."Required Prepayment (%)")
+                {
+                }
             }
         }
     }

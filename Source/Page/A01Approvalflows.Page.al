@@ -15,7 +15,7 @@ page 50048 "A01 Approval flows"
         {
             repeater(General)
             {
-                field(Object; Rec.Object)
+                field("Document Type"; Rec."Document Type")
                 {
                 }
                 field("Document No."; Rec."Document No.")

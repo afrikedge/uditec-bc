@@ -38,9 +38,11 @@ page 50064 "A01 Discount Request"
                 }
                 field("Requested Discount (%)"; Rec."Requested Discount (%)")
                 {
+                    Editable = RequestedDiscountIsEditable;
                 }
                 field("Validated Discount (%)"; Rec."Validated Discount (%)")
                 {
+                    Editable = ValidatedDiscountIsEditable;
                 }
             }
         }
@@ -57,11 +59,33 @@ page 50064 "A01 Discount Request"
                 trigger OnAction()
                 var
                     DocRequestMgt: Codeunit "A01 Document Request Mgt";
+                    LabConfirmation: label 'Do you want to validate this request?';
                 begin
+                    if (not confirm(LabConfirmation)) then
+                        exit;
                     DocRequestMgt.ModifyStatus(Rec, '', Rec.Status::Validated);
-                    Message('Modification terminée');
                 end;
             }
         }
     }
+    trigger OnAfterGetRecord()
+    var
+    begin
+        RequestedDiscountIsEditable := Rec.Status = Rec.Status::Initialization;
+        ValidatedDiscountIsEditable := GetValidatedDiscountIsEditable();
+    end;
+
+    var
+        RequestedDiscountIsEditable: Boolean;
+        ValidatedDiscountIsEditable: Boolean;
+
+    local procedure GetValidatedDiscountIsEditable(): Boolean
+    var
+    begin
+        if (Rec.Status = Rec.Status::Validated) then
+            exit(false);
+        if (Rec.Status = Rec.Status::Initialization) then
+            exit(false);
+        exit(true);
+    end;
 }

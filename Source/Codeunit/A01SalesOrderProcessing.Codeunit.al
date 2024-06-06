@@ -150,21 +150,33 @@ codeunit 50000 "A01 Sales Order Processing"
     /// <returns>Return value of type Boolean.</returns>
     procedure CheckIsAwaitingPrepayment(var SalesH: Record "Sales Header")
     var
+        SalesInvPosted: Record "Sales Invoice Header";
         DescrLabel: Label '%1 %2/%3', Comment = '%1=x,%2=x,%3=x,';
         LabelOrder: Label 'Order';
         DescrText: Text;
+        LblErrorPosteSales: Label 'Error occured on posting prepayment : No invoice created';
     begin
         if NeedPrepayment(SalesH) then begin
             if (SalesH."A01 Processing Status" <> SalesH."A01 Processing Status"::"Waiting for prepayment") then begin
 
                 DescrText := StrSubstNo(DescrLabel, LabelOrder, SalesH."No.", SalesH."Sell-to Customer Name");
                 SalesH."Prepmt. Posting Description" := CopyStr(DescrText, 1, 100);
-                SalesH."A01 Processing Status" := SalesH."A01 Processing Status"::"Waiting for prepayment";
+                //SalesH."A01 Processing Status" := SalesH."A01 Processing Status"::"Waiting for prepayment";
                 SalesH.Modify();
 
                 PostPrePayment(SalesH);
 
+                SalesInvPosted.SetCurrentKey("Prepayment Order No.", "Prepayment Invoice");
+                SalesInvPosted.SetRange("Prepayment Order No.", SalesH."No.");
+                SalesInvPosted.SetRange("Prepayment Invoice", true);
+                if (SalesInvPosted.IsEmpty) then
+                    error(LblErrorPosteSales);
+
+                SalesH."A01 Processing Status" := SalesH."A01 Processing Status"::"Waiting for prepayment";
+                SalesH.Modify();
+
                 InsertNewStep(SalesH."No.", "A01 ActionStepHistory"::"Change Status", FORMAT(SalesH."A01 Processing Status"::"Waiting for prepayment"), '');
+
                 //SalesH.Modify();
             end;
         end else
@@ -517,12 +529,16 @@ codeunit 50000 "A01 Sales Order Processing"
 
     local procedure PostPrePayment(var SalesHeader: Record "Sales Header")
     var
-        SalesPostYNPrepmt: Codeunit "Sales-Post Prepayment (Yes/No)";
-    //SalesPostPrepmt: Codeunit "Sales-Post Prepayments";
+        //SalesPostYNPrepmt: Codeunit "Sales-Post Prepayment (Yes/No)";
+        //SalesPostPrepmt: Codeunit "Sales-Post Prepayments";
+        SalesPostPrepayments: Codeunit "Sales-Post Prepayments";
     begin
-        SalesPostYNPrepmt.PostPrepmtInvoiceYN(SalesHeader, false);
+        //SalesPostYNPrepmt.PostPrepmtInvoiceYN(SalesHeader, false);
         //SalesPostPrepmt.SetSuppressCommit(true);
         //SalesPostPrepmt.Run(SalesHeader);
+        SalesPostPrepayments.SetDocumentType(2);
+        SalesPostPrepayments.SetSuppressCommit(true);
+        SalesPostPrepayments.Run(SalesHeader);
     end;
 
     local procedure CustomerIsMisc(SalesHeader: Record "Sales Header"): Boolean

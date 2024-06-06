@@ -8,9 +8,9 @@ table 50022 "A01 Approval Flow"
 
     fields
     {
-        field(1; Object; Code[20])
+        field(1; "Document Type"; Enum "A01 Approval Flow Doc Type")
         {
-            Caption = 'Object';
+            Caption = 'Document No.';
         }
         field(2; "Document No."; Code[20])
         {
@@ -51,7 +51,7 @@ table 50022 "A01 Approval Flow"
     }
     keys
     {
-        key(PK; Object, "Document No.", "Sequence No.")
+        key(PK; "Document Type", "Document No.", "Sequence No.")
         {
             Clustered = true;
         }

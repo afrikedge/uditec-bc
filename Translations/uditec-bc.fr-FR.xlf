@@ -549,6 +549,12 @@
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Table A01 Approval Flow - Field Document No. - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Table 1931418295 - Field 2363328873 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Document No.</source>
+          <target state="needs-review-translation">N° Document</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Table A01 Approval Flow - Field Document Type - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Table 1931418295 - Field 4132733409 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Method</source>
           <target state="needs-review-translation">Méthode</target>
@@ -560,12 +566,6 @@
           <target state="needs-review-translation">Statut suivant</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Table A01 Approval Flow - Field Next Status - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Table 1931418295 - Field 2123958759 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Object</source>
-          <target state="needs-review-translation">Objet</target>
-          <note from="Developer" annotates="general" priority="2"/>
-          <note from="Xliff Generator" annotates="general" priority="3">Table A01 Approval Flow - Field Object - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 1931418295 - Field 3014885516 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Sequence No.</source>
@@ -584,6 +584,12 @@
           <target state="needs-review-translation">Les lignes seront supprimées. Voulez-vous continuer?</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Table A01 Cashbox Closing - NamedType LblQuestChangeRespCenter</note>
+        </trans-unit>
+        <trans-unit id="Table 3120123025 - NamedType 2133039708" size-unit="char" translate="yes" xml:space="preserve">
+          <source>This document has no lines. do you want to continue ?</source>
+          <target state="needs-review-translation">Le document n'a pas de lignes. Voulez-vous continuer ?</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Table A01 Cashbox Closing - NamedType LblQuestNoLines</note>
         </trans-unit>
         <trans-unit id="Table 3120123025 - NamedType 34247782" size-unit="char" translate="yes" xml:space="preserve">
           <source>Do you want to validate the closing of cashbox for the date of %1 ?</source>
@@ -762,7 +768,6 @@
         <trans-unit id="Table 2925814558 - Field 2202932243 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Order No.</source>
           <target state="needs-adaptation">Dimension Set ID</target>
-          <note from="XLIFF Sync" annotates="general" priority="1">Source text has changed. Please review the translation.</note>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Table A01 Credit Depreciation Table - Field Order No. - Property Caption</note>
         </trans-unit>
@@ -781,7 +786,6 @@
         <trans-unit id="Table 2925814558 - Field 1786097247 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Quote No.</source>
           <target state="needs-adaptation">Dimension Set ID</target>
-          <note from="XLIFF Sync" annotates="general" priority="1">Source text has changed. Please review the translation.</note>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Table A01 Credit Depreciation Table - Field Quote No. - Property Caption</note>
         </trans-unit>
@@ -1192,6 +1196,31 @@
           <target state="needs-review-translation">Action requise</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Table A01 Deadline Assignment - Field Required action - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 650547982 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Disposable Rate</source>
+          <target state="needs-review-translation">
+          </target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Table A01 Disposable Rate - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 650547982 - Field 730485521 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Approved Max (%)</source>
+          <target state="needs-review-translation">Max approbation</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Table A01 Disposable Rate - Field Approved (%) - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 650547982 - Field 2369021616 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Max Score (Before)</source>
+          <target state="needs-review-translation">Score Maximal (Avant)</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Table A01 Disposable Rate - Field Max Score - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 650547982 - Field 1760156731 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Referred Max (%)</source>
+          <target state="needs-review-translation">Max arbitrage</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Table A01 Disposable Rate - Field Referred (%) - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 1991647401 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Document Step History</source>
@@ -1690,6 +1719,12 @@
           <target state="needs-review-translation">Description</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Table A01 Parameter Record - Field Description - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 782004688 - Field 2953993808 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Discount Limit (%)</source>
+          <target state="needs-review-translation">Limite remise (%)</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Table A01 Parameter Record - Field Discount Limit (%) - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 782004688 - Field 1867006748 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Order</source>
@@ -3551,11 +3586,23 @@
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Table A01 Scoring Matrix - Field Criteria Value - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Table 3527794130 - Field 2124143057 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Max credit Duration</source>
+          <target state="needs-review-translation">Durée maximale crédit</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Table A01 Scoring Matrix - Field Max credit Duration - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Table 3527794130 - Field 3966888264 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Point</source>
           <target state="needs-review-translation">Point</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Table A01 Scoring Matrix - Field Point - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3527794130 - Field 3226089180 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Required Prepayment (%)</source>
+          <target state="needs-review-translation">Acompte réquis (%)</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Table A01 Scoring Matrix - Field Required Prepayment (%) - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 3527794130 - Field 261420221 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Sales Mode</source>
@@ -4031,6 +4078,12 @@
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit A01 Document Request Mgt - Method CheckSameRequestAlreadyExists - NamedType LblAnotherRecExists</note>
         </trans-unit>
+        <trans-unit id="Codeunit 2173010692 - Method 2976943696 - NamedType 3569009679" size-unit="char" translate="yes" xml:space="preserve">
+          <source>The document is still in draft</source>
+          <target state="needs-review-translation">Le document est encore en saisie</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit A01 Document Request Mgt - Method ModifyStatus - NamedType ErrDocNonTraite</note>
+        </trans-unit>
         <trans-unit id="Codeunit 3954644649 - Method 8486776 - NamedType 4139332484" size-unit="char" translate="yes" xml:space="preserve">
           <source>Do you want to suppress send dialog?</source>
           <target state="needs-review-translation">Magasin repossesssion</target>
@@ -4082,12 +4135,14 @@
         <trans-unit id="Codeunit 57460744 - NamedType 90523671" size-unit="char" translate="yes" xml:space="preserve">
           <source>&amp;amp;Send to approval</source>
           <target state="needs-adaptation">&amp;amp;Envoyer en validation</target>
+          <note from="XLIFF Sync" annotates="general" priority="1">Source text has changed. Please review the translation.</note>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit A01 Inventory Mgt - NamedType LblAction01</note>
         </trans-unit>
         <trans-unit id="Codeunit 57460744 - NamedType 2003613522" size-unit="char" translate="yes" xml:space="preserve">
           <source>&amp;amp;Approve,&amp;amp;Return to draft</source>
           <target state="needs-adaptation">&amp;amp;Valider,&amp;amp;Renvoyer en saisie</target>
+          <note from="XLIFF Sync" annotates="general" priority="1">Source text has changed. Please review the translation.</note>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit A01 Inventory Mgt - NamedType LblAction02</note>
         </trans-unit>
@@ -4184,30 +4239,35 @@
         <trans-unit id="Codeunit 4233996319 - NamedType 90523671" size-unit="char" translate="yes" xml:space="preserve">
           <source>&amp;amp;Send for processing,&amp;amp;Delete order</source>
           <target state="needs-adaptation">&amp;amp;Envoyer en validation,&amp;amp;Supprimer</target>
+          <note from="XLIFF Sync" annotates="general" priority="1">Source text has changed. Please review the translation.</note>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit A01 Sales Order Processing - NamedType LblAction01</note>
         </trans-unit>
         <trans-unit id="Codeunit 4233996319 - NamedType 160828488" size-unit="char" translate="yes" xml:space="preserve">
           <source>&amp;amp;Cancel order</source>
           <target state="needs-adaptation">&amp;amp;Annuler la commande</target>
+          <note from="XLIFF Sync" annotates="general" priority="1">Source text has changed. Please review the translation.</note>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit A01 Sales Order Processing - NamedType LblOptionsCancel</note>
         </trans-unit>
         <trans-unit id="Codeunit 4233996319 - NamedType 2039213768" size-unit="char" translate="yes" xml:space="preserve">
           <source>&amp;amp;Close order</source>
           <target state="needs-adaptation">&amp;amp;Clôturer la commande</target>
+          <note from="XLIFF Sync" annotates="general" priority="1">Source text has changed. Please review the translation.</note>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit A01 Sales Order Processing - NamedType LblOptionsClose</note>
         </trans-unit>
         <trans-unit id="Codeunit 4233996319 - NamedType 274154035" size-unit="char" translate="yes" xml:space="preserve">
           <source>&amp;amp;Check prepayment,&amp;amp;Resend to edition</source>
           <target state="needs-adaptation">&amp;amp;Vérifier l'acompte,&amp;amp;Renvoyer en saisie</target>
+          <note from="XLIFF Sync" annotates="general" priority="1">Source text has changed. Please review the translation.</note>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit A01 Sales Order Processing - NamedType LblOptionsValidatePrepayment</note>
         </trans-unit>
         <trans-unit id="Codeunit 4233996319 - NamedType 768081960" size-unit="char" translate="yes" xml:space="preserve">
           <source>&amp;amp;Check inventory,&amp;amp;Resend to edition</source>
           <target state="needs-adaptation">&amp;amp;Vérifier le stock,&amp;amp;Renvoyer en saisie</target>
+          <note from="XLIFF Sync" annotates="general" priority="1">Source text has changed. Please review the translation.</note>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit A01 Sales Order Processing - NamedType LblOptionsValidateStock</note>
         </trans-unit>
@@ -4240,6 +4300,12 @@
           <target state="needs-review-translation">Commande</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit A01 Sales Order Processing - Method CheckIsAwaitingPrepayment - NamedType LabelOrder</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 4233996319 - Method 4062852933 - NamedType 299803193" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Error occured on posting prepayment : No invoice created</source>
+          <target state="needs-review-translation">Une érreur est survenue lors de la génération de la facture d'acompte.</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit A01 Sales Order Processing - Method CheckIsAwaitingPrepayment - NamedType LblErrorPosteSales</note>
         </trans-unit>
         <trans-unit id="Codeunit 4233996319 - Method 786011703 - NamedType 1412695557" size-unit="char" translate="yes" xml:space="preserve">
           <source>Order document %1 has no lines</source>
@@ -4856,6 +4922,7 @@
         <trans-unit id="Page 1698614240 - Action 1402615620 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>&amp;amp;Line</source>
           <target state="needs-adaptation">Ligne</target>
+          <note from="XLIFF Sync" annotates="general" priority="1">Source text has changed. Please review the translation.</note>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Page A01 Cash Receipt Doc Journal - Action &amp;amp;Line - Property Caption</note>
         </trans-unit>
@@ -4874,6 +4941,7 @@
         <trans-unit id="Page 1698614240 - Action 1892509601 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>A&amp;amp;ccount</source>
           <target state="needs-adaptation">Compte</target>
+          <note from="XLIFF Sync" annotates="general" priority="1">Source text has changed. Please review the translation.</note>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Page A01 Cash Receipt Doc Journal - Action A&amp;amp;ccount - Property Caption</note>
         </trans-unit>
@@ -4898,6 +4966,7 @@
         <trans-unit id="Page 1698614240 - Action 1111476699 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Ledger E&amp;amp;ntries</source>
           <target state="needs-adaptation">Ecritures</target>
+          <note from="XLIFF Sync" annotates="general" priority="1">Source text has changed. Please review the translation.</note>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Page A01 Cash Receipt Doc Journal - Action Ledger E&amp;amp;ntries - Property Caption</note>
         </trans-unit>
@@ -5000,6 +5069,7 @@
         <trans-unit id="Page 1698614240 - Action 3106002577 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>F&amp;amp;unctions</source>
           <target state="needs-adaptation">Fonctions</target>
+          <note from="XLIFF Sync" annotates="general" priority="1">Source text has changed. Please review the translation.</note>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Page A01 Cash Receipt Doc Journal - Action F&amp;amp;unctions - Property Caption</note>
         </trans-unit>
@@ -5060,6 +5130,7 @@
         <trans-unit id="Page 1698614240 - Action 2245087378 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>P&amp;amp;osting</source>
           <target state="needs-adaptation">Validation</target>
+          <note from="XLIFF Sync" annotates="general" priority="1">Source text has changed. Please review the translation.</note>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Page A01 Cash Receipt Doc Journal - Action P&amp;amp;osting - Property Caption</note>
         </trans-unit>
@@ -5072,6 +5143,7 @@
         <trans-unit id="Page 1698614240 - Action 2282416948 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>P&amp;amp;ost</source>
           <target state="needs-adaptation">Valider</target>
+          <note from="XLIFF Sync" annotates="general" priority="1">Source text has changed. Please review the translation.</note>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Page A01 Cash Receipt Doc Journal - Action Post - Property Caption</note>
         </trans-unit>
@@ -5084,6 +5156,7 @@
         <trans-unit id="Page 1698614240 - Action 1333595352 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Post and &amp;amp;Print</source>
           <target state="needs-adaptation">Valider et imprimer</target>
+          <note from="XLIFF Sync" annotates="general" priority="1">Source text has changed. Please review the translation.</note>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Page A01 Cash Receipt Doc Journal - Action Post and &amp;amp;Print - Property Caption</note>
         </trans-unit>
@@ -5312,6 +5385,7 @@
         <trans-unit id="Page 3120123025 - Action 2282416948 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>&amp;amp;Post</source>
           <target state="needs-adaptation">Valider</target>
+          <note from="XLIFF Sync" annotates="general" priority="1">Source text has changed. Please review the translation.</note>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Page A01 Cashbox Closing - Action Post - Property Caption</note>
         </trans-unit>
@@ -5414,12 +5488,14 @@
         <trans-unit id="Page 2686914651 - Action 2282416948 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>&amp;amp;Post</source>
           <target state="needs-adaptation">Valider</target>
+          <note from="XLIFF Sync" annotates="general" priority="1">Source text has changed. Please review the translation.</note>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Page A01 Customer Settlement - Action Post - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 2686914651 - Action 513012614 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>&amp;amp;Post and print</source>
           <target state="needs-adaptation">Valider et imprimer</target>
+          <note from="XLIFF Sync" annotates="general" priority="1">Source text has changed. Please review the translation.</note>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Page A01 Customer Settlement - Action PostAndPrint - Property Caption</note>
         </trans-unit>
@@ -5459,6 +5535,12 @@
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Page A01 Deadline Assignment List - Action Application - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Page 2524304189 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Discount Limits</source>
+          <target state="needs-review-translation">Groupes limite remise</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Page A01 Discount Limits - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Page 3914987280 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Discount Request</source>
           <target state="needs-review-translation">Demande de remise</target>
@@ -5477,11 +5559,24 @@
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Page A01 Discount Request - Action Validate - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Page 3914987280 - Action 3657829122 - Method 1377591017 - NamedType 2738001188" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Do you want to validate this request?</source>
+          <target state="needs-review-translation">Voulez-vous valider cette demande ?</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Page A01 Discount Request - Action Validate - Method OnAction - NamedType LabConfirmation</note>
+        </trans-unit>
         <trans-unit id="Page 277818161 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Discount Requests</source>
           <target state="needs-review-translation">Demandes de remise</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Page A01 Discount Requests - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 532207948 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Disposable Rate List</source>
+          <target state="needs-review-translation">
+          </target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Page A01 Disposable Rate List - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 266498996 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Document Step Lines</source>
@@ -5684,6 +5779,7 @@
         <trans-unit id="Page 2897553278 - Action 1253819395 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Re&amp;amp;ceipts</source>
           <target state="needs-adaptation">Réceptions</target>
+          <note from="XLIFF Sync" annotates="general" priority="1">Source text has changed. Please review the translation.</note>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Page A01 Item Transfers To Receipt - Action Re&amp;amp;ceipts - Property Caption</note>
         </trans-unit>
@@ -5696,12 +5792,14 @@
         <trans-unit id="Page 2897553278 - Action 2787584647 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>S&amp;amp;hipments</source>
           <target state="needs-adaptation">Expéditions</target>
+          <note from="XLIFF Sync" annotates="general" priority="1">Source text has changed. Please review the translation.</note>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Page A01 Item Transfers To Receipt - Action S&amp;amp;hipments - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 2897553278 - Action 4051756668 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>O&amp;amp;rder</source>
           <target state="needs-adaptation">Ordre</target>
+          <note from="XLIFF Sync" annotates="general" priority="1">Source text has changed. Please review the translation.</note>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Page A01 Item Transfers To Receipt - Action O&amp;amp;rder - Property Caption</note>
         </trans-unit>
@@ -5714,6 +5812,7 @@
         <trans-unit id="Page 2897553278 - Action 3000180178 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Co&amp;amp;mments</source>
           <target state="needs-adaptation">Commentaires</target>
+          <note from="XLIFF Sync" annotates="general" priority="1">Source text has changed. Please review the translation.</note>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Page A01 Item Transfers To Receipt - Action Co&amp;amp;mments - Property Caption</note>
         </trans-unit>
@@ -5756,6 +5855,7 @@
         <trans-unit id="Page 2897553278 - Action 2062084290 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>&amp;amp;Whse. Receipts</source>
           <target state="needs-adaptation">Réceptions entrepôt</target>
+          <note from="XLIFF Sync" annotates="general" priority="1">Source text has changed. Please review the translation.</note>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Page A01 Item Transfers To Receipt - Action &amp;amp;Whse. Receipts - Property Caption</note>
         </trans-unit>
@@ -5768,6 +5868,7 @@
         <trans-unit id="Page 2897553278 - Action 626952520 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>In&amp;amp;vt. Put-away/Pick Lines</source>
           <target state="needs-adaptation">Lignes de rangement/prélèvement</target>
+          <note from="XLIFF Sync" annotates="general" priority="1">Source text has changed. Please review the translation.</note>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Page A01 Item Transfers To Receipt - Action In&amp;amp;vt. Put-away/Pick Lines - Property Caption</note>
         </trans-unit>
@@ -5804,6 +5905,7 @@
         <trans-unit id="Page 2897553278 - Action 2551057102 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Whse. Shi&amp;amp;pments</source>
           <target state="needs-adaptation">Expéditions entrepôt</target>
+          <note from="XLIFF Sync" annotates="general" priority="1">Source text has changed. Please review the translation.</note>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Page A01 Item Transfers To Receipt - Action Whse. Shi&amp;amp;pments - Property Caption</note>
         </trans-unit>
@@ -5816,12 +5918,14 @@
         <trans-unit id="Page 2897553278 - Action 1344672713 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>&amp;amp;Print</source>
           <target state="needs-adaptation">Imprimer</target>
+          <note from="XLIFF Sync" annotates="general" priority="1">Source text has changed. Please review the translation.</note>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Page A01 Item Transfers To Receipt - Action &amp;amp;Print - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 2897553278 - Action 3106002577 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>F&amp;amp;unctions</source>
           <target state="needs-adaptation">Fonctions</target>
+          <note from="XLIFF Sync" annotates="general" priority="1">Source text has changed. Please review the translation.</note>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Page A01 Item Transfers To Receipt - Action F&amp;amp;unctions - Property Caption</note>
         </trans-unit>
@@ -5840,6 +5944,7 @@
         <trans-unit id="Page 2897553278 - Action 2245087378 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>P&amp;amp;osting</source>
           <target state="needs-adaptation">Validation</target>
+          <note from="XLIFF Sync" annotates="general" priority="1">Source text has changed. Please review the translation.</note>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Page A01 Item Transfers To Receipt - Action P&amp;amp;osting - Property Caption</note>
         </trans-unit>
@@ -5852,6 +5957,7 @@
         <trans-unit id="Page 2897553278 - Action 389241264 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Post &amp;amp;Batch</source>
           <target state="needs-adaptation">Valider en lot</target>
+          <note from="XLIFF Sync" annotates="general" priority="1">Source text has changed. Please review the translation.</note>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Page A01 Item Transfers To Receipt - Action BatchPost - Property Caption</note>
         </trans-unit>
@@ -5864,6 +5970,7 @@
         <trans-unit id="Page 2897553278 - Action 2282416948 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>P&amp;amp;ost</source>
           <target state="needs-adaptation">Valider</target>
+          <note from="XLIFF Sync" annotates="general" priority="1">Source text has changed. Please review the translation.</note>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Page A01 Item Transfers To Receipt - Action Post - Property Caption</note>
         </trans-unit>
@@ -5876,6 +5983,7 @@
         <trans-unit id="Page 2897553278 - Action 513012614 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Post and &amp;amp;Print</source>
           <target state="needs-adaptation">Valider et imprimer</target>
+          <note from="XLIFF Sync" annotates="general" priority="1">Source text has changed. Please review the translation.</note>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Page A01 Item Transfers To Receipt - Action PostAndPrint - Property Caption</note>
         </trans-unit>
@@ -6068,6 +6176,7 @@
         <trans-unit id="Page 4081705192 - Action 1253819395 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Re&amp;amp;ceipts</source>
           <target state="needs-adaptation">Réceptions</target>
+          <note from="XLIFF Sync" annotates="general" priority="1">Source text has changed. Please review the translation.</note>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Page A01 Item Transfers To Ship - Action Re&amp;amp;ceipts - Property Caption</note>
         </trans-unit>
@@ -6080,12 +6189,14 @@
         <trans-unit id="Page 4081705192 - Action 2787584647 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>S&amp;amp;hipments</source>
           <target state="needs-adaptation">Expéditions</target>
+          <note from="XLIFF Sync" annotates="general" priority="1">Source text has changed. Please review the translation.</note>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Page A01 Item Transfers To Ship - Action S&amp;amp;hipments - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 4081705192 - Action 4051756668 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>O&amp;amp;rder</source>
           <target state="needs-adaptation">Ordre</target>
+          <note from="XLIFF Sync" annotates="general" priority="1">Source text has changed. Please review the translation.</note>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Page A01 Item Transfers To Ship - Action O&amp;amp;rder - Property Caption</note>
         </trans-unit>
@@ -6098,6 +6209,7 @@
         <trans-unit id="Page 4081705192 - Action 3000180178 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Co&amp;amp;mments</source>
           <target state="needs-adaptation">Commentaires</target>
+          <note from="XLIFF Sync" annotates="general" priority="1">Source text has changed. Please review the translation.</note>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Page A01 Item Transfers To Ship - Action Co&amp;amp;mments - Property Caption</note>
         </trans-unit>
@@ -6140,6 +6252,7 @@
         <trans-unit id="Page 4081705192 - Action 2062084290 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>&amp;amp;Whse. Receipts</source>
           <target state="needs-adaptation">Réceptions entrepôt</target>
+          <note from="XLIFF Sync" annotates="general" priority="1">Source text has changed. Please review the translation.</note>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Page A01 Item Transfers To Ship - Action &amp;amp;Whse. Receipts - Property Caption</note>
         </trans-unit>
@@ -6152,6 +6265,7 @@
         <trans-unit id="Page 4081705192 - Action 626952520 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>In&amp;amp;vt. Put-away/Pick Lines</source>
           <target state="needs-adaptation">Lignes de rangement/prélèvement</target>
+          <note from="XLIFF Sync" annotates="general" priority="1">Source text has changed. Please review the translation.</note>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Page A01 Item Transfers To Ship - Action In&amp;amp;vt. Put-away/Pick Lines - Property Caption</note>
         </trans-unit>
@@ -6188,6 +6302,7 @@
         <trans-unit id="Page 4081705192 - Action 2551057102 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Whse. Shi&amp;amp;pments</source>
           <target state="needs-adaptation">Expéditions entrepôt</target>
+          <note from="XLIFF Sync" annotates="general" priority="1">Source text has changed. Please review the translation.</note>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Page A01 Item Transfers To Ship - Action Whse. Shi&amp;amp;pments - Property Caption</note>
         </trans-unit>
@@ -6200,12 +6315,14 @@
         <trans-unit id="Page 4081705192 - Action 1344672713 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>&amp;amp;Print</source>
           <target state="needs-adaptation">Imprimer</target>
+          <note from="XLIFF Sync" annotates="general" priority="1">Source text has changed. Please review the translation.</note>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Page A01 Item Transfers To Ship - Action &amp;amp;Print - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 4081705192 - Action 3106002577 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>F&amp;amp;unctions</source>
           <target state="needs-adaptation">Fonctions</target>
+          <note from="XLIFF Sync" annotates="general" priority="1">Source text has changed. Please review the translation.</note>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Page A01 Item Transfers To Ship - Action F&amp;amp;unctions - Property Caption</note>
         </trans-unit>
@@ -6224,6 +6341,7 @@
         <trans-unit id="Page 4081705192 - Action 2245087378 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>P&amp;amp;osting</source>
           <target state="needs-adaptation">Validation</target>
+          <note from="XLIFF Sync" annotates="general" priority="1">Source text has changed. Please review the translation.</note>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Page A01 Item Transfers To Ship - Action P&amp;amp;osting - Property Caption</note>
         </trans-unit>
@@ -6236,6 +6354,7 @@
         <trans-unit id="Page 4081705192 - Action 389241264 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Post &amp;amp;Batch</source>
           <target state="needs-adaptation">Valider en lot</target>
+          <note from="XLIFF Sync" annotates="general" priority="1">Source text has changed. Please review the translation.</note>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Page A01 Item Transfers To Ship - Action BatchPost - Property Caption</note>
         </trans-unit>
@@ -6248,6 +6367,7 @@
         <trans-unit id="Page 4081705192 - Action 2282416948 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>P&amp;amp;ost</source>
           <target state="needs-adaptation">Valider</target>
+          <note from="XLIFF Sync" annotates="general" priority="1">Source text has changed. Please review the translation.</note>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Page A01 Item Transfers To Ship - Action Post - Property Caption</note>
         </trans-unit>
@@ -6260,6 +6380,7 @@
         <trans-unit id="Page 4081705192 - Action 513012614 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Post and &amp;amp;Print</source>
           <target state="needs-adaptation">Valider et imprimer</target>
+          <note from="XLIFF Sync" annotates="general" priority="1">Source text has changed. Please review the translation.</note>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Page A01 Item Transfers To Ship - Action PostAndPrint - Property Caption</note>
         </trans-unit>
@@ -6425,6 +6546,12 @@
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Page A01 Payment Request - Action Validate - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Page 3543361749 - Action 3657829122 - Method 1377591017 - NamedType 2738001188" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Do you want to validate this request?</source>
+          <target state="needs-review-translation">Voulez-vous valider cette demande ?</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Page A01 Payment Request - Action Validate - Method OnAction - NamedType LabConfirmation</note>
+        </trans-unit>
         <trans-unit id="Page 1866370476 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Payment Requests</source>
           <target state="needs-review-translation">Demandes de paiement</target>
@@ -6530,6 +6657,7 @@
         <trans-unit id="Page 417080824 - Action 1402615620 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>&amp;amp;Line</source>
           <target state="needs-adaptation">Ligne</target>
+          <note from="XLIFF Sync" annotates="general" priority="1">Source text has changed. Please review the translation.</note>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Page A01 Petty Cash Journal - Action &amp;amp;Line - Property Caption</note>
         </trans-unit>
@@ -6542,12 +6670,14 @@
         <trans-unit id="Page 417080824 - Action 1002420131 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>&amp;amp;Print</source>
           <target state="needs-adaptation">Imprimer</target>
+          <note from="XLIFF Sync" annotates="general" priority="1">Source text has changed. Please review the translation.</note>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Page A01 Petty Cash Journal - Action Print - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 417080824 - Action 1892509601 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>A&amp;amp;ccount</source>
           <target state="needs-adaptation">Compte</target>
+          <note from="XLIFF Sync" annotates="general" priority="1">Source text has changed. Please review the translation.</note>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Page A01 Petty Cash Journal - Action A&amp;amp;ccount - Property Caption</note>
         </trans-unit>
@@ -6560,6 +6690,7 @@
         <trans-unit id="Page 417080824 - Action 1111476699 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Ledger E&amp;amp;ntries</source>
           <target state="needs-adaptation">Ecritures</target>
+          <note from="XLIFF Sync" annotates="general" priority="1">Source text has changed. Please review the translation.</note>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Page A01 Petty Cash Journal - Action Ledger E&amp;amp;ntries - Property Caption</note>
         </trans-unit>
@@ -6620,6 +6751,7 @@
         <trans-unit id="Page 417080824 - Action 3106002577 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>F&amp;amp;unctions</source>
           <target state="needs-adaptation">Fonctions</target>
+          <note from="XLIFF Sync" annotates="general" priority="1">Source text has changed. Please review the translation.</note>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Page A01 Petty Cash Journal - Action F&amp;amp;unctions - Property Caption</note>
         </trans-unit>
@@ -6656,18 +6788,21 @@
         <trans-unit id="Page 417080824 - Action 2245087378 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>P&amp;amp;osting</source>
           <target state="needs-adaptation">Validation</target>
+          <note from="XLIFF Sync" annotates="general" priority="1">Source text has changed. Please review the translation.</note>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Page A01 Petty Cash Journal - Action P&amp;amp;osting - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 417080824 - Action 2282416948 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>P&amp;amp;ost</source>
           <target state="needs-adaptation">Valider</target>
+          <note from="XLIFF Sync" annotates="general" priority="1">Source text has changed. Please review the translation.</note>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Page A01 Petty Cash Journal - Action Post - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 417080824 - Action 1333595352 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Post and &amp;amp;Print</source>
           <target state="needs-adaptation">Valider et imprimer</target>
+          <note from="XLIFF Sync" annotates="general" priority="1">Source text has changed. Please review the translation.</note>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Page A01 Petty Cash Journal - Action Post and &amp;amp;Print - Property Caption</note>
         </trans-unit>
@@ -6832,6 +6967,12 @@
           <target state="needs-review-translation">Valider</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Page A01 POS Payment Request - Action Validate - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 953559825 - Action 3657829122 - Method 1377591017 - NamedType 2738001188" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Do you want to validate this request?</source>
+          <target state="needs-review-translation">Voulez-vous valider cette demande ?</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Page A01 POS Payment Request - Action Validate - Method OnAction - NamedType LabConfirmation</note>
         </trans-unit>
         <trans-unit id="Page 491128008 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>POS Payment Requests</source>
@@ -8144,6 +8285,7 @@
         <trans-unit id="Page 3293973898 - Action 2787584647 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>S&amp;amp;hipments</source>
           <target state="needs-adaptation">Expéditions</target>
+          <note from="XLIFF Sync" annotates="general" priority="1">Source text has changed. Please review the translation.</note>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Page A01 Sales Order - Draft - Action S&amp;amp;hipments - Property Caption</note>
         </trans-unit>
@@ -8162,12 +8304,14 @@
         <trans-unit id="Page 3293973898 - Action 1244613281 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Interaction Log E&amp;amp;ntries</source>
           <target state="needs-adaptation">Ecritures interaction</target>
+          <note from="XLIFF Sync" annotates="general" priority="1">Source text has changed. Please review the translation.</note>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Page A01 Sales Order - Draft - Action PageInteractionLogEntries - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 3293973898 - Action 4051756668 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>O&amp;amp;rder</source>
           <target state="needs-adaptation">Ordre</target>
+          <note from="XLIFF Sync" annotates="general" priority="1">Source text has changed. Please review the translation.</note>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Page A01 Sales Order - Draft - Action O&amp;amp;rder - Property Caption</note>
         </trans-unit>
@@ -8210,6 +8354,7 @@
         <trans-unit id="Page 3293973898 - Action 3000180178 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Co&amp;amp;mments</source>
           <target state="needs-adaptation">Commentaires</target>
+          <note from="XLIFF Sync" annotates="general" priority="1">Source text has changed. Please review the translation.</note>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Page A01 Sales Order - Draft - Action Co&amp;amp;mments - Property Caption</note>
         </trans-unit>
@@ -8276,6 +8421,7 @@
         <trans-unit id="Page 3293973898 - Action 897253137 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Prepayment Credi&amp;amp;t Memos</source>
           <target state="needs-adaptation">Avoirs acompte</target>
+          <note from="XLIFF Sync" annotates="general" priority="1">Source text has changed. Please review the translation.</note>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Page A01 Sales Order - Draft - Action PagePostedSalesPrepaymentCrMemos - Property Caption</note>
         </trans-unit>
@@ -8288,6 +8434,7 @@
         <trans-unit id="Page 3293973898 - Action 3049718559 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Prepa&amp;amp;yment Invoices</source>
           <target state="needs-adaptation">Factures acompte</target>
+          <note from="XLIFF Sync" annotates="general" priority="1">Source text has changed. Please review the translation.</note>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Page A01 Sales Order - Draft - Action PagePostedSalesPrepaymentInvoices - Property Caption</note>
         </trans-unit>
@@ -8306,6 +8453,7 @@
         <trans-unit id="Page 3293973898 - Action 626952520 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>In&amp;amp;vt. Put-away/Pick Lines</source>
           <target state="needs-adaptation">Lignes de rangement/prélèvement</target>
+          <note from="XLIFF Sync" annotates="general" priority="1">Source text has changed. Please review the translation.</note>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Page A01 Sales Order - Draft - Action In&amp;amp;vt. Put-away/Pick Lines - Property Caption</note>
         </trans-unit>
@@ -8336,6 +8484,7 @@
         <trans-unit id="Page 3293973898 - Action 2875014889 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>&amp;amp;Order Confirmation</source>
           <target state="needs-adaptation">Confirmation de commande</target>
+          <note from="XLIFF Sync" annotates="general" priority="1">Source text has changed. Please review the translation.</note>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Page A01 Sales Order - Draft - Action &amp;amp;Order Confirmation - Property Caption</note>
         </trans-unit>
@@ -8384,6 +8533,7 @@
         <trans-unit id="Page 3293973898 - Action 1344672713 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>&amp;amp;Print</source>
           <target state="needs-adaptation">Imprimer</target>
+          <note from="XLIFF Sync" annotates="general" priority="1">Source text has changed. Please review the translation.</note>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Page A01 Sales Order - Draft - Action &amp;amp;Print - Property Caption</note>
         </trans-unit>
@@ -8426,6 +8576,7 @@
         <trans-unit id="Page 3293973898 - Action 4032263875 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Re&amp;amp;lease</source>
           <target state="needs-adaptation">Lancer</target>
+          <note from="XLIFF Sync" annotates="general" priority="1">Source text has changed. Please review the translation.</note>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Page A01 Sales Order - Draft - Action Release - Property Caption</note>
         </trans-unit>
@@ -8438,6 +8589,7 @@
         <trans-unit id="Page 3293973898 - Action 2071937805 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Re&amp;amp;open</source>
           <target state="needs-adaptation">Rouvrir</target>
+          <note from="XLIFF Sync" annotates="general" priority="1">Source text has changed. Please review the translation.</note>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Page A01 Sales Order - Draft - Action Reopen - Property Caption</note>
         </trans-unit>
@@ -8456,6 +8608,7 @@
         <trans-unit id="Page 3293973898 - Action 3368837321 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Create &amp;amp;Warehouse Shipment</source>
           <target state="needs-adaptation">Créer expédition entrepot</target>
+          <note from="XLIFF Sync" annotates="general" priority="1">Source text has changed. Please review the translation.</note>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Page A01 Sales Order - Draft - Action Create &amp;amp;Warehouse Shipment - Property Caption</note>
         </trans-unit>
@@ -8468,6 +8621,7 @@
         <trans-unit id="Page 3293973898 - Action 875193488 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Create Inventor&amp;amp;y Put-away/Pick</source>
           <target state="needs-adaptation">Créet Lignes de rangement/prélèvement</target>
+          <note from="XLIFF Sync" annotates="general" priority="1">Source text has changed. Please review the translation.</note>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Page A01 Sales Order - Draft - Action Create Inventor&amp;amp;y Put-away/Pick - Property Caption</note>
         </trans-unit>
@@ -8528,6 +8682,7 @@
         <trans-unit id="Page 3293973898 - Action 3106002577 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>F&amp;amp;unctions</source>
           <target state="needs-adaptation">Fonctions</target>
+          <note from="XLIFF Sync" annotates="general" priority="1">Source text has changed. Please review the translation.</note>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Page A01 Sales Order - Draft - Action F&amp;amp;unctions - Property Caption</note>
         </trans-unit>
@@ -8540,6 +8695,7 @@
         <trans-unit id="Page 3293973898 - Action 3304622623 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Archi&amp;amp;ve Document</source>
           <target state="needs-adaptation">Archiver le document</target>
+          <note from="XLIFF Sync" annotates="general" priority="1">Source text has changed. Please review the translation.</note>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Page A01 Sales Order - Draft - Action Archive Document - Property Caption</note>
         </trans-unit>
@@ -8552,6 +8708,7 @@
         <trans-unit id="Page 3293973898 - Action 453400556 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Calculate &amp;amp;Invoice Discount</source>
           <target state="needs-adaptation">Calculer la remise facture</target>
+          <note from="XLIFF Sync" annotates="general" priority="1">Source text has changed. Please review the translation.</note>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Page A01 Sales Order - Draft - Action CalculateInvoiceDiscount - Property Caption</note>
         </trans-unit>
@@ -8684,6 +8841,7 @@
         <trans-unit id="Page 3293973898 - Action 2245087378 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>P&amp;amp;osting</source>
           <target state="needs-adaptation">Validation</target>
+          <note from="XLIFF Sync" annotates="general" priority="1">Source text has changed. Please review the translation.</note>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Page A01 Sales Order - Draft - Action P&amp;amp;osting - Property Caption</note>
         </trans-unit>
@@ -8708,6 +8866,7 @@
         <trans-unit id="Page 3293973898 - Action 2282416948 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>P&amp;amp;ost</source>
           <target state="needs-adaptation">Valider</target>
+          <note from="XLIFF Sync" annotates="general" priority="1">Source text has changed. Please review the translation.</note>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Page A01 Sales Order - Draft - Action Post - Property Caption</note>
         </trans-unit>
@@ -8738,6 +8897,7 @@
         <trans-unit id="Page 3293973898 - Action 395800757 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Prepa&amp;amp;yment</source>
           <target state="needs-adaptation">Acompte</target>
+          <note from="XLIFF Sync" annotates="general" priority="1">Source text has changed. Please review the translation.</note>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Page A01 Sales Order - Draft - Action Prepa&amp;amp;yment - Property Caption</note>
         </trans-unit>
@@ -8750,6 +8910,7 @@
         <trans-unit id="Page 3293973898 - Action 1792290507 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Post and Print Prepmt. Cr. Mem&amp;amp;o</source>
           <target state="needs-adaptation">Valider et imprimer l'avoir acompte</target>
+          <note from="XLIFF Sync" annotates="general" priority="1">Source text has changed. Please review the translation.</note>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Page A01 Sales Order - Draft - Action Post and Print Prepmt. Cr. Mem&amp;amp;o - Property Caption</note>
         </trans-unit>
@@ -8762,6 +8923,7 @@
         <trans-unit id="Page 3293973898 - Action 1041993031 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Post and Print Prepmt. Invoic&amp;amp;e</source>
           <target state="needs-adaptation">Valider et imprimer la facture d'acompte</target>
+          <note from="XLIFF Sync" annotates="general" priority="1">Source text has changed. Please review the translation.</note>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Page A01 Sales Order - Draft - Action Post and Print Prepmt. Invoic&amp;amp;e - Property Caption</note>
         </trans-unit>
@@ -8774,6 +8936,7 @@
         <trans-unit id="Page 3293973898 - Action 3485892046 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Post Prepayment &amp;amp;Credit Memo</source>
           <target state="needs-adaptation">Valider l'avoir acompte</target>
+          <note from="XLIFF Sync" annotates="general" priority="1">Source text has changed. Please review the translation.</note>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Page A01 Sales Order - Draft - Action PostPrepaymentCreditMemo - Property Caption</note>
         </trans-unit>
@@ -8786,6 +8949,7 @@
         <trans-unit id="Page 3293973898 - Action 2832762608 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Post Prepayment &amp;amp;Invoice</source>
           <target state="needs-adaptation">Valider la facture d'acompte</target>
+          <note from="XLIFF Sync" annotates="general" priority="1">Source text has changed. Please review the translation.</note>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Page A01 Sales Order - Draft - Action PostPrepaymentInvoice - Property Caption</note>
         </trans-unit>
@@ -8798,6 +8962,7 @@
         <trans-unit id="Page 3293973898 - Action 1519460637 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Prepayment &amp;amp;Test Report</source>
           <target state="needs-adaptation">Imprimer l'acompte test</target>
+          <note from="XLIFF Sync" annotates="general" priority="1">Source text has changed. Please review the translation.</note>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Page A01 Sales Order - Draft - Action Prepayment &amp;amp;Test Report - Property Caption</note>
         </trans-unit>
@@ -8900,6 +9065,7 @@
         <trans-unit id="Page 3293973898 - Action 1137230472 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Order &amp;amp;Promising</source>
           <target state="needs-adaptation">Promesse de livraison</target>
+          <note from="XLIFF Sync" annotates="general" priority="1">Source text has changed. Please review the translation.</note>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Page A01 Sales Order - Draft - Action OrderPromising - Property Caption</note>
         </trans-unit>
@@ -8912,6 +9078,7 @@
         <trans-unit id="Page 3293973898 - Action 3214574461 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Pla&amp;amp;nning</source>
           <target state="needs-adaptation">Planning</target>
+          <note from="XLIFF Sync" annotates="general" priority="1">Source text has changed. Please review the translation.</note>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Page A01 Sales Order - Draft - Action Pla&amp;amp;nning - Property Caption</note>
         </trans-unit>
@@ -8930,6 +9097,7 @@
         <trans-unit id="Page 3293973898 - Action 858296388 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Cancel Approval Re&amp;amp;quest</source>
           <target state="needs-adaptation">Annuler demande d'approbation</target>
+          <note from="XLIFF Sync" annotates="general" priority="1">Source text has changed. Please review the translation.</note>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Page A01 Sales Order - Draft - Action CancelApprovalRequest - Property Caption</note>
         </trans-unit>
@@ -8984,6 +9152,7 @@
         <trans-unit id="Page 3293973898 - Action 383335270 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Send A&amp;amp;pproval Request</source>
           <target state="needs-adaptation">Envoyer demande d'approbation</target>
+          <note from="XLIFF Sync" annotates="general" priority="1">Source text has changed. Please review the translation.</note>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Page A01 Sales Order - Draft - Action SendApprovalRequest - Property Caption</note>
         </trans-unit>
@@ -9116,24 +9285,28 @@
         <trans-unit id="Page 4180094705 - Action 682760551 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Prepa&amp;amp;yment Invoices</source>
           <target state="needs-adaptation">Factures acompte</target>
+          <note from="XLIFF Sync" annotates="general" priority="1">Source text has changed. Please review the translation.</note>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Page A01 Sales Order - FollowUp - Action PostedSalesPrepmtInvoices - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 4180094705 - Action 4201453209 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Prepayment Credi&amp;amp;t Memos</source>
           <target state="needs-adaptation">Avoirs acompte</target>
+          <note from="XLIFF Sync" annotates="general" priority="1">Source text has changed. Please review the translation.</note>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Page A01 Sales Order - FollowUp - Action Prepayment Credi&amp;amp;t Memos - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 4180094705 - Action 2787584647 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>S&amp;amp;hipments</source>
           <target state="needs-adaptation">Expéditions</target>
+          <note from="XLIFF Sync" annotates="general" priority="1">Source text has changed. Please review the translation.</note>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Page A01 Sales Order - FollowUp - Action S&amp;amp;hipments - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 4180094705 - Action 4051756668 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>O&amp;amp;rder</source>
           <target state="needs-adaptation">Ordre</target>
+          <note from="XLIFF Sync" annotates="general" priority="1">Source text has changed. Please review the translation.</note>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Page A01 Sales Order - FollowUp - Action O&amp;amp;rder - Property Caption</note>
         </trans-unit>
@@ -9152,6 +9325,7 @@
         <trans-unit id="Page 4180094705 - Action 3000180178 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Co&amp;amp;mments</source>
           <target state="needs-adaptation">Commentaires</target>
+          <note from="XLIFF Sync" annotates="general" priority="1">Source text has changed. Please review the translation.</note>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Page A01 Sales Order - FollowUp - Action Co&amp;amp;mments - Property Caption</note>
         </trans-unit>
@@ -10250,6 +10424,7 @@
         <trans-unit id="Page 1199470876 - Action 2787584647 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>S&amp;amp;hipments</source>
           <target state="needs-adaptation">Expéditions</target>
+          <note from="XLIFF Sync" annotates="general" priority="1">Source text has changed. Please review the translation.</note>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Page A01 Sales Order - Workflow - Action S&amp;amp;hipments - Property Caption</note>
         </trans-unit>
@@ -10268,12 +10443,14 @@
         <trans-unit id="Page 1199470876 - Action 1244613281 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Interaction Log E&amp;amp;ntries</source>
           <target state="needs-adaptation">Ecritures interaction</target>
+          <note from="XLIFF Sync" annotates="general" priority="1">Source text has changed. Please review the translation.</note>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Page A01 Sales Order - Workflow - Action PageInteractionLogEntries - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 1199470876 - Action 4051756668 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>O&amp;amp;rder</source>
           <target state="needs-adaptation">Ordre</target>
+          <note from="XLIFF Sync" annotates="general" priority="1">Source text has changed. Please review the translation.</note>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Page A01 Sales Order - Workflow - Action O&amp;amp;rder - Property Caption</note>
         </trans-unit>
@@ -10334,6 +10511,7 @@
         <trans-unit id="Page 1199470876 - Action 3000180178 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Co&amp;amp;mments</source>
           <target state="needs-adaptation">Commentaires</target>
+          <note from="XLIFF Sync" annotates="general" priority="1">Source text has changed. Please review the translation.</note>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Page A01 Sales Order - Workflow - Action Co&amp;amp;mments - Property Caption</note>
         </trans-unit>
@@ -10400,6 +10578,7 @@
         <trans-unit id="Page 1199470876 - Action 897253137 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Prepayment Credi&amp;amp;t Memos</source>
           <target state="needs-adaptation">Avoirs acompte</target>
+          <note from="XLIFF Sync" annotates="general" priority="1">Source text has changed. Please review the translation.</note>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Page A01 Sales Order - Workflow - Action PagePostedSalesPrepaymentCrMemos - Property Caption</note>
         </trans-unit>
@@ -10412,6 +10591,7 @@
         <trans-unit id="Page 1199470876 - Action 3049718559 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Prepa&amp;amp;yment Invoices</source>
           <target state="needs-adaptation">Factures acompte</target>
+          <note from="XLIFF Sync" annotates="general" priority="1">Source text has changed. Please review the translation.</note>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Page A01 Sales Order - Workflow - Action PagePostedSalesPrepaymentInvoices - Property Caption</note>
         </trans-unit>
@@ -10430,6 +10610,7 @@
         <trans-unit id="Page 1199470876 - Action 626952520 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>In&amp;amp;vt. Put-away/Pick Lines</source>
           <target state="needs-adaptation">Lignes de rangement/prélèvement</target>
+          <note from="XLIFF Sync" annotates="general" priority="1">Source text has changed. Please review the translation.</note>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Page A01 Sales Order - Workflow - Action In&amp;amp;vt. Put-away/Pick Lines - Property Caption</note>
         </trans-unit>
@@ -10460,6 +10641,7 @@
         <trans-unit id="Page 1199470876 - Action 2875014889 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>&amp;amp;Order Confirmation</source>
           <target state="needs-adaptation">Confirmation de commande</target>
+          <note from="XLIFF Sync" annotates="general" priority="1">Source text has changed. Please review the translation.</note>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Page A01 Sales Order - Workflow - Action &amp;amp;Order Confirmation - Property Caption</note>
         </trans-unit>
@@ -10508,6 +10690,7 @@
         <trans-unit id="Page 1199470876 - Action 1344672713 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>&amp;amp;Print</source>
           <target state="needs-adaptation">Imprimer</target>
+          <note from="XLIFF Sync" annotates="general" priority="1">Source text has changed. Please review the translation.</note>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Page A01 Sales Order - Workflow - Action &amp;amp;Print - Property Caption</note>
         </trans-unit>
@@ -10550,6 +10733,7 @@
         <trans-unit id="Page 1199470876 - Action 4032263875 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Re&amp;amp;lease</source>
           <target state="needs-adaptation">Lancer</target>
+          <note from="XLIFF Sync" annotates="general" priority="1">Source text has changed. Please review the translation.</note>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Page A01 Sales Order - Workflow - Action Release - Property Caption</note>
         </trans-unit>
@@ -10562,6 +10746,7 @@
         <trans-unit id="Page 1199470876 - Action 2071937805 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Re&amp;amp;open</source>
           <target state="needs-adaptation">Rouvrir</target>
+          <note from="XLIFF Sync" annotates="general" priority="1">Source text has changed. Please review the translation.</note>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Page A01 Sales Order - Workflow - Action Reopen - Property Caption</note>
         </trans-unit>
@@ -10580,6 +10765,7 @@
         <trans-unit id="Page 1199470876 - Action 3368837321 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Create &amp;amp;Warehouse Shipment</source>
           <target state="needs-adaptation">Créer expédition entrepot</target>
+          <note from="XLIFF Sync" annotates="general" priority="1">Source text has changed. Please review the translation.</note>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Page A01 Sales Order - Workflow - Action Create &amp;amp;Warehouse Shipment - Property Caption</note>
         </trans-unit>
@@ -10592,6 +10778,7 @@
         <trans-unit id="Page 1199470876 - Action 875193488 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Create Inventor&amp;amp;y Put-away/Pick</source>
           <target state="needs-adaptation">Créet Lignes de rangement/prélèvement</target>
+          <note from="XLIFF Sync" annotates="general" priority="1">Source text has changed. Please review the translation.</note>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Page A01 Sales Order - Workflow - Action Create Inventor&amp;amp;y Put-away/Pick - Property Caption</note>
         </trans-unit>
@@ -10652,6 +10839,7 @@
         <trans-unit id="Page 1199470876 - Action 3106002577 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>F&amp;amp;unctions</source>
           <target state="needs-adaptation">Fonctions</target>
+          <note from="XLIFF Sync" annotates="general" priority="1">Source text has changed. Please review the translation.</note>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Page A01 Sales Order - Workflow - Action F&amp;amp;unctions - Property Caption</note>
         </trans-unit>
@@ -10664,6 +10852,7 @@
         <trans-unit id="Page 1199470876 - Action 3304622623 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Archi&amp;amp;ve Document</source>
           <target state="needs-adaptation">Archiver le document</target>
+          <note from="XLIFF Sync" annotates="general" priority="1">Source text has changed. Please review the translation.</note>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Page A01 Sales Order - Workflow - Action Archive Document - Property Caption</note>
         </trans-unit>
@@ -10676,6 +10865,7 @@
         <trans-unit id="Page 1199470876 - Action 453400556 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Calculate &amp;amp;Invoice Discount</source>
           <target state="needs-adaptation">Calculer la remise facture</target>
+          <note from="XLIFF Sync" annotates="general" priority="1">Source text has changed. Please review the translation.</note>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Page A01 Sales Order - Workflow - Action CalculateInvoiceDiscount - Property Caption</note>
         </trans-unit>
@@ -10808,6 +10998,7 @@
         <trans-unit id="Page 1199470876 - Action 2245087378 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>P&amp;amp;osting</source>
           <target state="needs-adaptation">Validation</target>
+          <note from="XLIFF Sync" annotates="general" priority="1">Source text has changed. Please review the translation.</note>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Page A01 Sales Order - Workflow - Action P&amp;amp;osting - Property Caption</note>
         </trans-unit>
@@ -10832,6 +11023,7 @@
         <trans-unit id="Page 1199470876 - Action 2282416948 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>P&amp;amp;ost</source>
           <target state="needs-adaptation">Valider</target>
+          <note from="XLIFF Sync" annotates="general" priority="1">Source text has changed. Please review the translation.</note>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Page A01 Sales Order - Workflow - Action Post - Property Caption</note>
         </trans-unit>
@@ -10862,6 +11054,7 @@
         <trans-unit id="Page 1199470876 - Action 395800757 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Prepa&amp;amp;yment</source>
           <target state="needs-adaptation">Acompte</target>
+          <note from="XLIFF Sync" annotates="general" priority="1">Source text has changed. Please review the translation.</note>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Page A01 Sales Order - Workflow - Action Prepa&amp;amp;yment - Property Caption</note>
         </trans-unit>
@@ -10874,6 +11067,7 @@
         <trans-unit id="Page 1199470876 - Action 1792290507 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Post and Print Prepmt. Cr. Mem&amp;amp;o</source>
           <target state="needs-adaptation">Valider et imprimer l'avoir acompte</target>
+          <note from="XLIFF Sync" annotates="general" priority="1">Source text has changed. Please review the translation.</note>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Page A01 Sales Order - Workflow - Action Post and Print Prepmt. Cr. Mem&amp;amp;o - Property Caption</note>
         </trans-unit>
@@ -10886,6 +11080,7 @@
         <trans-unit id="Page 1199470876 - Action 1041993031 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Post and Print Prepmt. Invoic&amp;amp;e</source>
           <target state="needs-adaptation">Valider et imprimer la facture d'acompte</target>
+          <note from="XLIFF Sync" annotates="general" priority="1">Source text has changed. Please review the translation.</note>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Page A01 Sales Order - Workflow - Action Post and Print Prepmt. Invoic&amp;amp;e - Property Caption</note>
         </trans-unit>
@@ -10898,6 +11093,7 @@
         <trans-unit id="Page 1199470876 - Action 3485892046 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Post Prepayment &amp;amp;Credit Memo</source>
           <target state="needs-adaptation">Valider l'avoir acompte</target>
+          <note from="XLIFF Sync" annotates="general" priority="1">Source text has changed. Please review the translation.</note>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Page A01 Sales Order - Workflow - Action PostPrepaymentCreditMemo - Property Caption</note>
         </trans-unit>
@@ -10910,6 +11106,7 @@
         <trans-unit id="Page 1199470876 - Action 2832762608 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Post Prepayment &amp;amp;Invoice</source>
           <target state="needs-adaptation">Valider la facture d'acompte</target>
+          <note from="XLIFF Sync" annotates="general" priority="1">Source text has changed. Please review the translation.</note>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Page A01 Sales Order - Workflow - Action PostPrepaymentInvoice - Property Caption</note>
         </trans-unit>
@@ -10922,6 +11119,7 @@
         <trans-unit id="Page 1199470876 - Action 1519460637 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Prepayment &amp;amp;Test Report</source>
           <target state="needs-adaptation">Imprimer l'acompte test</target>
+          <note from="XLIFF Sync" annotates="general" priority="1">Source text has changed. Please review the translation.</note>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Page A01 Sales Order - Workflow - Action Prepayment &amp;amp;Test Report - Property Caption</note>
         </trans-unit>
@@ -11024,6 +11222,7 @@
         <trans-unit id="Page 1199470876 - Action 1137230472 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Order &amp;amp;Promising</source>
           <target state="needs-adaptation">Promesse de livraison</target>
+          <note from="XLIFF Sync" annotates="general" priority="1">Source text has changed. Please review the translation.</note>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Page A01 Sales Order - Workflow - Action OrderPromising - Property Caption</note>
         </trans-unit>
@@ -11036,6 +11235,7 @@
         <trans-unit id="Page 1199470876 - Action 3214574461 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Pla&amp;amp;nning</source>
           <target state="needs-adaptation">Planning</target>
+          <note from="XLIFF Sync" annotates="general" priority="1">Source text has changed. Please review the translation.</note>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Page A01 Sales Order - Workflow - Action Pla&amp;amp;nning - Property Caption</note>
         </trans-unit>
@@ -11054,6 +11254,7 @@
         <trans-unit id="Page 1199470876 - Action 858296388 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Cancel Approval Re&amp;amp;quest</source>
           <target state="needs-adaptation">Annuler demande d'approbation</target>
+          <note from="XLIFF Sync" annotates="general" priority="1">Source text has changed. Please review the translation.</note>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Page A01 Sales Order - Workflow - Action CancelApprovalRequest - Property Caption</note>
         </trans-unit>
@@ -11108,6 +11309,7 @@
         <trans-unit id="Page 1199470876 - Action 383335270 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Send A&amp;amp;pproval Request</source>
           <target state="needs-adaptation">Envoyer demande d'approbation</target>
+          <note from="XLIFF Sync" annotates="general" priority="1">Source text has changed. Please review the translation.</note>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Page A01 Sales Order - Workflow - Action SendApprovalRequest - Property Caption</note>
         </trans-unit>
@@ -11234,24 +11436,28 @@
         <trans-unit id="Page 3825791112 - Action 682760551 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Prepa&amp;amp;yment Invoices</source>
           <target state="needs-adaptation">Factures acompte</target>
+          <note from="XLIFF Sync" annotates="general" priority="1">Source text has changed. Please review the translation.</note>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Page A01 Sales Order List Blocked - Action PostedSalesPrepmtInvoices - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 3825791112 - Action 4201453209 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Prepayment Credi&amp;amp;t Memos</source>
           <target state="needs-adaptation">Avoirs acompte</target>
+          <note from="XLIFF Sync" annotates="general" priority="1">Source text has changed. Please review the translation.</note>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Page A01 Sales Order List Blocked - Action Prepayment Credi&amp;amp;t Memos - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 3825791112 - Action 2787584647 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>S&amp;amp;hipments</source>
           <target state="needs-adaptation">Expéditions</target>
+          <note from="XLIFF Sync" annotates="general" priority="1">Source text has changed. Please review the translation.</note>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Page A01 Sales Order List Blocked - Action S&amp;amp;hipments - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 3825791112 - Action 4051756668 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>O&amp;amp;rder</source>
           <target state="needs-adaptation">Ordre</target>
+          <note from="XLIFF Sync" annotates="general" priority="1">Source text has changed. Please review the translation.</note>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Page A01 Sales Order List Blocked - Action O&amp;amp;rder - Property Caption</note>
         </trans-unit>
@@ -11270,6 +11476,7 @@
         <trans-unit id="Page 3825791112 - Action 3000180178 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Co&amp;amp;mments</source>
           <target state="needs-adaptation">Commentaires</target>
+          <note from="XLIFF Sync" annotates="general" priority="1">Source text has changed. Please review the translation.</note>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Page A01 Sales Order List Blocked - Action Co&amp;amp;mments - Property Caption</note>
         </trans-unit>
@@ -11306,24 +11513,28 @@
         <trans-unit id="Page 2546903021 - Action 682760551 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Prepa&amp;amp;yment Invoices</source>
           <target state="needs-adaptation">Factures acompte</target>
+          <note from="XLIFF Sync" annotates="general" priority="1">Source text has changed. Please review the translation.</note>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Page A01 Sales Order List Prepay - Action PostedSalesPrepmtInvoices - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 2546903021 - Action 4201453209 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Prepayment Credi&amp;amp;t Memos</source>
           <target state="needs-adaptation">Avoirs acompte</target>
+          <note from="XLIFF Sync" annotates="general" priority="1">Source text has changed. Please review the translation.</note>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Page A01 Sales Order List Prepay - Action Prepayment Credi&amp;amp;t Memos - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 2546903021 - Action 2787584647 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>S&amp;amp;hipments</source>
           <target state="needs-adaptation">Expéditions</target>
+          <note from="XLIFF Sync" annotates="general" priority="1">Source text has changed. Please review the translation.</note>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Page A01 Sales Order List Prepay - Action S&amp;amp;hipments - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 2546903021 - Action 4051756668 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>O&amp;amp;rder</source>
           <target state="needs-adaptation">Ordre</target>
+          <note from="XLIFF Sync" annotates="general" priority="1">Source text has changed. Please review the translation.</note>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Page A01 Sales Order List Prepay - Action O&amp;amp;rder - Property Caption</note>
         </trans-unit>
@@ -11342,6 +11553,7 @@
         <trans-unit id="Page 2546903021 - Action 3000180178 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Co&amp;amp;mments</source>
           <target state="needs-adaptation">Commentaires</target>
+          <note from="XLIFF Sync" annotates="general" priority="1">Source text has changed. Please review the translation.</note>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Page A01 Sales Order List Prepay - Action Co&amp;amp;mments - Property Caption</note>
         </trans-unit>
@@ -11366,6 +11578,7 @@
         <trans-unit id="Page 728145917 - Action 1402615620 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>&amp;amp;Line</source>
           <target state="needs-adaptation">Ligne</target>
+          <note from="XLIFF Sync" annotates="general" priority="1">Source text has changed. Please review the translation.</note>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Page A01 Sales Orders - Cancelled - Action &amp;amp;Line - Property Caption</note>
         </trans-unit>
@@ -11390,6 +11603,7 @@
         <trans-unit id="Page 2230603990 - Action 1402615620 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>&amp;amp;Line</source>
           <target state="needs-adaptation">Ligne</target>
+          <note from="XLIFF Sync" annotates="general" priority="1">Source text has changed. Please review the translation.</note>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Page A01 Sales Orders - Closed - Action &amp;amp;Line - Property Caption</note>
         </trans-unit>
@@ -11414,6 +11628,7 @@
         <trans-unit id="Page 1890349591 - Action 1402615620 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>&amp;amp;Line</source>
           <target state="needs-adaptation">Ligne</target>
+          <note from="XLIFF Sync" annotates="general" priority="1">Source text has changed. Please review the translation.</note>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Page A01 Sales Orders - Invoiced - Action &amp;amp;Line - Property Caption</note>
         </trans-unit>
@@ -11462,24 +11677,28 @@
         <trans-unit id="Page 3705967515 - Action 682760551 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Prepa&amp;amp;yment Invoices</source>
           <target state="needs-adaptation">Factures acompte</target>
+          <note from="XLIFF Sync" annotates="general" priority="1">Source text has changed. Please review the translation.</note>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Page A01 SalesOrderList-Consigned - Action PostedSalesPrepmtInvoices - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 3705967515 - Action 4201453209 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Prepayment Credi&amp;amp;t Memos</source>
           <target state="needs-adaptation">Avoirs acompte</target>
+          <note from="XLIFF Sync" annotates="general" priority="1">Source text has changed. Please review the translation.</note>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Page A01 SalesOrderList-Consigned - Action Prepayment Credi&amp;amp;t Memos - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 3705967515 - Action 2787584647 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>S&amp;amp;hipments</source>
           <target state="needs-adaptation">Expéditions</target>
+          <note from="XLIFF Sync" annotates="general" priority="1">Source text has changed. Please review the translation.</note>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Page A01 SalesOrderList-Consigned - Action S&amp;amp;hipments - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 3705967515 - Action 4051756668 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>O&amp;amp;rder</source>
           <target state="needs-adaptation">Ordre</target>
+          <note from="XLIFF Sync" annotates="general" priority="1">Source text has changed. Please review the translation.</note>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Page A01 SalesOrderList-Consigned - Action O&amp;amp;rder - Property Caption</note>
         </trans-unit>
@@ -11498,6 +11717,7 @@
         <trans-unit id="Page 3705967515 - Action 3000180178 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Co&amp;amp;mments</source>
           <target state="needs-adaptation">Commentaires</target>
+          <note from="XLIFF Sync" annotates="general" priority="1">Source text has changed. Please review the translation.</note>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Page A01 SalesOrderList-Consigned - Action Co&amp;amp;mments - Property Caption</note>
         </trans-unit>
@@ -11534,24 +11754,28 @@
         <trans-unit id="Page 1570986271 - Action 682760551 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Prepa&amp;amp;yment Invoices</source>
           <target state="needs-adaptation">Factures acompte</target>
+          <note from="XLIFF Sync" annotates="general" priority="1">Source text has changed. Please review the translation.</note>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Page A01 SalesOrderList-Delivery - Action PostedSalesPrepmtInvoices - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 1570986271 - Action 4201453209 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Prepayment Credi&amp;amp;t Memos</source>
           <target state="needs-adaptation">Avoirs acompte</target>
+          <note from="XLIFF Sync" annotates="general" priority="1">Source text has changed. Please review the translation.</note>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Page A01 SalesOrderList-Delivery - Action Prepayment Credi&amp;amp;t Memos - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 1570986271 - Action 2787584647 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>S&amp;amp;hipments</source>
           <target state="needs-adaptation">Expéditions</target>
+          <note from="XLIFF Sync" annotates="general" priority="1">Source text has changed. Please review the translation.</note>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Page A01 SalesOrderList-Delivery - Action S&amp;amp;hipments - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 1570986271 - Action 4051756668 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>O&amp;amp;rder</source>
           <target state="needs-adaptation">Ordre</target>
+          <note from="XLIFF Sync" annotates="general" priority="1">Source text has changed. Please review the translation.</note>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Page A01 SalesOrderList-Delivery - Action O&amp;amp;rder - Property Caption</note>
         </trans-unit>
@@ -11570,6 +11794,7 @@
         <trans-unit id="Page 1570986271 - Action 3000180178 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Co&amp;amp;mments</source>
           <target state="needs-adaptation">Commentaires</target>
+          <note from="XLIFF Sync" annotates="general" priority="1">Source text has changed. Please review the translation.</note>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Page A01 SalesOrderList-Delivery - Action Co&amp;amp;mments - Property Caption</note>
         </trans-unit>
@@ -11606,24 +11831,28 @@
         <trans-unit id="Page 2150944440 - Action 682760551 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Prepa&amp;amp;yment Invoices</source>
           <target state="needs-adaptation">Factures acompte</target>
+          <note from="XLIFF Sync" annotates="general" priority="1">Source text has changed. Please review the translation.</note>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Page A01 SalesOrderList-Discount - Action PostedSalesPrepmtInvoices - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 2150944440 - Action 4201453209 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Prepayment Credi&amp;amp;t Memos</source>
           <target state="needs-adaptation">Avoirs acompte</target>
+          <note from="XLIFF Sync" annotates="general" priority="1">Source text has changed. Please review the translation.</note>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Page A01 SalesOrderList-Discount - Action Prepayment Credi&amp;amp;t Memos - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 2150944440 - Action 2787584647 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>S&amp;amp;hipments</source>
           <target state="needs-adaptation">Expéditions</target>
+          <note from="XLIFF Sync" annotates="general" priority="1">Source text has changed. Please review the translation.</note>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Page A01 SalesOrderList-Discount - Action S&amp;amp;hipments - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 2150944440 - Action 4051756668 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>O&amp;amp;rder</source>
           <target state="needs-adaptation">Ordre</target>
+          <note from="XLIFF Sync" annotates="general" priority="1">Source text has changed. Please review the translation.</note>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Page A01 SalesOrderList-Discount - Action O&amp;amp;rder - Property Caption</note>
         </trans-unit>
@@ -11642,6 +11871,7 @@
         <trans-unit id="Page 2150944440 - Action 3000180178 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Co&amp;amp;mments</source>
           <target state="needs-adaptation">Commentaires</target>
+          <note from="XLIFF Sync" annotates="general" priority="1">Source text has changed. Please review the translation.</note>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Page A01 SalesOrderList-Discount - Action Co&amp;amp;mments - Property Caption</note>
         </trans-unit>
@@ -11678,24 +11908,28 @@
         <trans-unit id="Page 3440266240 - Action 682760551 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Prepa&amp;amp;yment Invoices</source>
           <target state="needs-adaptation">Factures acompte</target>
+          <note from="XLIFF Sync" annotates="general" priority="1">Source text has changed. Please review the translation.</note>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Page A01 SalesOrderList-Draft - Action PostedSalesPrepmtInvoices - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 3440266240 - Action 4201453209 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Prepayment Credi&amp;amp;t Memos</source>
           <target state="needs-adaptation">Avoirs acompte</target>
+          <note from="XLIFF Sync" annotates="general" priority="1">Source text has changed. Please review the translation.</note>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Page A01 SalesOrderList-Draft - Action Prepayment Credi&amp;amp;t Memos - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 3440266240 - Action 2787584647 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>S&amp;amp;hipments</source>
           <target state="needs-adaptation">Expéditions</target>
+          <note from="XLIFF Sync" annotates="general" priority="1">Source text has changed. Please review the translation.</note>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Page A01 SalesOrderList-Draft - Action S&amp;amp;hipments - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 3440266240 - Action 4051756668 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>O&amp;amp;rder</source>
           <target state="needs-adaptation">Ordre</target>
+          <note from="XLIFF Sync" annotates="general" priority="1">Source text has changed. Please review the translation.</note>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Page A01 SalesOrderList-Draft - Action O&amp;amp;rder - Property Caption</note>
         </trans-unit>
@@ -11714,6 +11948,7 @@
         <trans-unit id="Page 3440266240 - Action 3000180178 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Co&amp;amp;mments</source>
           <target state="needs-adaptation">Commentaires</target>
+          <note from="XLIFF Sync" annotates="general" priority="1">Source text has changed. Please review the translation.</note>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Page A01 SalesOrderList-Draft - Action Co&amp;amp;mments - Property Caption</note>
         </trans-unit>
@@ -11750,24 +11985,28 @@
         <trans-unit id="Page 2246918059 - Action 682760551 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Prepa&amp;amp;yment Invoices</source>
           <target state="needs-adaptation">Factures acompte</target>
+          <note from="XLIFF Sync" annotates="general" priority="1">Source text has changed. Please review the translation.</note>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Page A01 SalesOrderList-PConsigned - Action PostedSalesPrepmtInvoices - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 2246918059 - Action 4201453209 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Prepayment Credi&amp;amp;t Memos</source>
           <target state="needs-adaptation">Avoirs acompte</target>
+          <note from="XLIFF Sync" annotates="general" priority="1">Source text has changed. Please review the translation.</note>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Page A01 SalesOrderList-PConsigned - Action Prepayment Credi&amp;amp;t Memos - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 2246918059 - Action 2787584647 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>S&amp;amp;hipments</source>
           <target state="needs-adaptation">Expéditions</target>
+          <note from="XLIFF Sync" annotates="general" priority="1">Source text has changed. Please review the translation.</note>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Page A01 SalesOrderList-PConsigned - Action S&amp;amp;hipments - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 2246918059 - Action 4051756668 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>O&amp;amp;rder</source>
           <target state="needs-adaptation">Ordre</target>
+          <note from="XLIFF Sync" annotates="general" priority="1">Source text has changed. Please review the translation.</note>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Page A01 SalesOrderList-PConsigned - Action O&amp;amp;rder - Property Caption</note>
         </trans-unit>
@@ -11786,6 +12025,7 @@
         <trans-unit id="Page 2246918059 - Action 3000180178 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Co&amp;amp;mments</source>
           <target state="needs-adaptation">Commentaires</target>
+          <note from="XLIFF Sync" annotates="general" priority="1">Source text has changed. Please review the translation.</note>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Page A01 SalesOrderList-PConsigned - Action Co&amp;amp;mments - Property Caption</note>
         </trans-unit>
@@ -11822,24 +12062,28 @@
         <trans-unit id="Page 2543139512 - Action 682760551 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Prepa&amp;amp;yment Invoices</source>
           <target state="needs-adaptation">Factures acompte</target>
+          <note from="XLIFF Sync" annotates="general" priority="1">Source text has changed. Please review the translation.</note>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Page A01 SalesOrderList-PInvoiced - Action PostedSalesPrepmtInvoices - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 2543139512 - Action 4201453209 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Prepayment Credi&amp;amp;t Memos</source>
           <target state="needs-adaptation">Avoirs acompte</target>
+          <note from="XLIFF Sync" annotates="general" priority="1">Source text has changed. Please review the translation.</note>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Page A01 SalesOrderList-PInvoiced - Action Prepayment Credi&amp;amp;t Memos - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 2543139512 - Action 2787584647 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>S&amp;amp;hipments</source>
           <target state="needs-adaptation">Expéditions</target>
+          <note from="XLIFF Sync" annotates="general" priority="1">Source text has changed. Please review the translation.</note>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Page A01 SalesOrderList-PInvoiced - Action S&amp;amp;hipments - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 2543139512 - Action 4051756668 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>O&amp;amp;rder</source>
           <target state="needs-adaptation">Ordre</target>
+          <note from="XLIFF Sync" annotates="general" priority="1">Source text has changed. Please review the translation.</note>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Page A01 SalesOrderList-PInvoiced - Action O&amp;amp;rder - Property Caption</note>
         </trans-unit>
@@ -11858,6 +12102,7 @@
         <trans-unit id="Page 2543139512 - Action 3000180178 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Co&amp;amp;mments</source>
           <target state="needs-adaptation">Commentaires</target>
+          <note from="XLIFF Sync" annotates="general" priority="1">Source text has changed. Please review the translation.</note>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Page A01 SalesOrderList-PInvoiced - Action Co&amp;amp;mments - Property Caption</note>
         </trans-unit>
@@ -11894,24 +12139,28 @@
         <trans-unit id="Page 888456270 - Action 682760551 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Prepa&amp;amp;yment Invoices</source>
           <target state="needs-adaptation">Factures acompte</target>
+          <note from="XLIFF Sync" annotates="general" priority="1">Source text has changed. Please review the translation.</note>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Page A01 SalesOrderList-PShipped - Action PostedSalesPrepmtInvoices - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 888456270 - Action 4201453209 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Prepayment Credi&amp;amp;t Memos</source>
           <target state="needs-adaptation">Avoirs acompte</target>
+          <note from="XLIFF Sync" annotates="general" priority="1">Source text has changed. Please review the translation.</note>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Page A01 SalesOrderList-PShipped - Action Prepayment Credi&amp;amp;t Memos - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 888456270 - Action 2787584647 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>S&amp;amp;hipments</source>
           <target state="needs-adaptation">Expéditions</target>
+          <note from="XLIFF Sync" annotates="general" priority="1">Source text has changed. Please review the translation.</note>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Page A01 SalesOrderList-PShipped - Action S&amp;amp;hipments - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 888456270 - Action 4051756668 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>O&amp;amp;rder</source>
           <target state="needs-adaptation">Ordre</target>
+          <note from="XLIFF Sync" annotates="general" priority="1">Source text has changed. Please review the translation.</note>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Page A01 SalesOrderList-PShipped - Action O&amp;amp;rder - Property Caption</note>
         </trans-unit>
@@ -11930,6 +12179,7 @@
         <trans-unit id="Page 888456270 - Action 3000180178 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Co&amp;amp;mments</source>
           <target state="needs-adaptation">Commentaires</target>
+          <note from="XLIFF Sync" annotates="general" priority="1">Source text has changed. Please review the translation.</note>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Page A01 SalesOrderList-PShipped - Action Co&amp;amp;mments - Property Caption</note>
         </trans-unit>
@@ -11966,24 +12216,28 @@
         <trans-unit id="Page 1202011217 - Action 682760551 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Prepa&amp;amp;yment Invoices</source>
           <target state="needs-adaptation">Factures acompte</target>
+          <note from="XLIFF Sync" annotates="general" priority="1">Source text has changed. Please review the translation.</note>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Page A01 SalesOrderList-PStockOut - Action PostedSalesPrepmtInvoices - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 1202011217 - Action 4201453209 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Prepayment Credi&amp;amp;t Memos</source>
           <target state="needs-adaptation">Avoirs acompte</target>
+          <note from="XLIFF Sync" annotates="general" priority="1">Source text has changed. Please review the translation.</note>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Page A01 SalesOrderList-PStockOut - Action Prepayment Credi&amp;amp;t Memos - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 1202011217 - Action 2787584647 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>S&amp;amp;hipments</source>
           <target state="needs-adaptation">Expéditions</target>
+          <note from="XLIFF Sync" annotates="general" priority="1">Source text has changed. Please review the translation.</note>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Page A01 SalesOrderList-PStockOut - Action S&amp;amp;hipments - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 1202011217 - Action 4051756668 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>O&amp;amp;rder</source>
           <target state="needs-adaptation">Ordre</target>
+          <note from="XLIFF Sync" annotates="general" priority="1">Source text has changed. Please review the translation.</note>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Page A01 SalesOrderList-PStockOut - Action O&amp;amp;rder - Property Caption</note>
         </trans-unit>
@@ -12002,6 +12256,7 @@
         <trans-unit id="Page 1202011217 - Action 3000180178 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Co&amp;amp;mments</source>
           <target state="needs-adaptation">Commentaires</target>
+          <note from="XLIFF Sync" annotates="general" priority="1">Source text has changed. Please review the translation.</note>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Page A01 SalesOrderList-PStockOut - Action Co&amp;amp;mments - Property Caption</note>
         </trans-unit>
@@ -12038,24 +12293,28 @@
         <trans-unit id="Page 4240439614 - Action 682760551 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Prepa&amp;amp;yment Invoices</source>
           <target state="needs-adaptation">Factures acompte</target>
+          <note from="XLIFF Sync" annotates="general" priority="1">Source text has changed. Please review the translation.</note>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Page A01 SalesOrderList-Shipped - Action PostedSalesPrepmtInvoices - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 4240439614 - Action 4201453209 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Prepayment Credi&amp;amp;t Memos</source>
           <target state="needs-adaptation">Avoirs acompte</target>
+          <note from="XLIFF Sync" annotates="general" priority="1">Source text has changed. Please review the translation.</note>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Page A01 SalesOrderList-Shipped - Action Prepayment Credi&amp;amp;t Memos - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 4240439614 - Action 2787584647 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>S&amp;amp;hipments</source>
           <target state="needs-adaptation">Expéditions</target>
+          <note from="XLIFF Sync" annotates="general" priority="1">Source text has changed. Please review the translation.</note>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Page A01 SalesOrderList-Shipped - Action S&amp;amp;hipments - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 4240439614 - Action 4051756668 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>O&amp;amp;rder</source>
           <target state="needs-adaptation">Ordre</target>
+          <note from="XLIFF Sync" annotates="general" priority="1">Source text has changed. Please review the translation.</note>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Page A01 SalesOrderList-Shipped - Action O&amp;amp;rder - Property Caption</note>
         </trans-unit>
@@ -12074,6 +12333,7 @@
         <trans-unit id="Page 4240439614 - Action 3000180178 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Co&amp;amp;mments</source>
           <target state="needs-adaptation">Commentaires</target>
+          <note from="XLIFF Sync" annotates="general" priority="1">Source text has changed. Please review the translation.</note>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Page A01 SalesOrderList-Shipped - Action Co&amp;amp;mments - Property Caption</note>
         </trans-unit>
@@ -12110,24 +12370,28 @@
         <trans-unit id="Page 1713909665 - Action 682760551 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Prepa&amp;amp;yment Invoices</source>
           <target state="needs-adaptation">Factures acompte</target>
+          <note from="XLIFF Sync" annotates="general" priority="1">Source text has changed. Please review the translation.</note>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Page A01 SalesOrderList-StockOut - Action PostedSalesPrepmtInvoices - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 1713909665 - Action 4201453209 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Prepayment Credi&amp;amp;t Memos</source>
           <target state="needs-adaptation">Avoirs acompte</target>
+          <note from="XLIFF Sync" annotates="general" priority="1">Source text has changed. Please review the translation.</note>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Page A01 SalesOrderList-StockOut - Action Prepayment Credi&amp;amp;t Memos - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 1713909665 - Action 2787584647 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>S&amp;amp;hipments</source>
           <target state="needs-adaptation">Expéditions</target>
+          <note from="XLIFF Sync" annotates="general" priority="1">Source text has changed. Please review the translation.</note>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Page A01 SalesOrderList-StockOut - Action S&amp;amp;hipments - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 1713909665 - Action 4051756668 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>O&amp;amp;rder</source>
           <target state="needs-adaptation">Ordre</target>
+          <note from="XLIFF Sync" annotates="general" priority="1">Source text has changed. Please review the translation.</note>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Page A01 SalesOrderList-StockOut - Action O&amp;amp;rder - Property Caption</note>
         </trans-unit>
@@ -12146,6 +12410,7 @@
         <trans-unit id="Page 1713909665 - Action 3000180178 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Co&amp;amp;mments</source>
           <target state="needs-adaptation">Commentaires</target>
+          <note from="XLIFF Sync" annotates="general" priority="1">Source text has changed. Please review the translation.</note>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Page A01 SalesOrderList-StockOut - Action Co&amp;amp;mments - Property Caption</note>
         </trans-unit>
@@ -12262,6 +12527,12 @@
           <target state="needs-review-translation">Valider</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Page A01 UnBlocking Request - Action Validate - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 575045181 - Action 3657829122 - Method 1377591017 - NamedType 2738001188" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Do you want to validate this request?</source>
+          <target state="needs-review-translation">Voulez-vous valider cette demande ?</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Page A01 UnBlocking Request - Action Validate - Method OnAction - NamedType LabConfirmation</note>
         </trans-unit>
         <trans-unit id="Page 460160052 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Unblocking Requests</source>
@@ -12484,6 +12755,24 @@
           <target state="needs-review-translation">Ordre de virement</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Report A01 BankTransferOrderPrint - ReportDataItem Line - Property RequestFilterHeading</note>
+        </trans-unit>
+        <trans-unit id="Report 2000839638 - Control 4013682468 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Option</source>
+          <target state="needs-review-translation">Option</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 BankTransferOrderPrint - Control groupName - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 2000839638 - Control 229337220 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Logo</source>
+          <target state="needs-review-translation">Logo</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 BankTransferOrderPrint - Control OptionVal - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 2000839638 - Control 229337220 - Property 62802879" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Uditec, Cosmos</source>
+          <target state="needs-review-translation">Uditec, Cosmos</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 BankTransferOrderPrint - Control OptionVal - Property OptionCaption</note>
         </trans-unit>
         <trans-unit id="Report 238726400 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>A01 Cash Receipt Print</source>
@@ -12961,7 +13250,7 @@
         </trans-unit>
         <trans-unit id="Report 3097000432 - NamedType 3040577680" size-unit="char" translate="yes" xml:space="preserve">
           <source>DELIVERY NOTE / INVOICE</source>
-          <target state="needs-adaptation">BON DE LIVRAISON / FACTURE</target>
+          <target state="needs-adaptation">BON DE LIVRAISON </target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Report A01 DeliveryNoteInvoicePrint - NamedType ReportTitleLbl</note>
         </trans-unit>
@@ -13000,6 +13289,24 @@
           <target state="needs-adaptation">Numéro de véhicule :</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Report A01 DeliveryNoteInvoicePrint - NamedType VehicleNumberLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 3097000432 - Control 4013682468 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Option</source>
+          <target state="needs-review-translation">Option</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 DeliveryNoteInvoicePrint - Control groupName - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 3097000432 - Control 229337220 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Logo</source>
+          <target state="needs-review-translation">Logo</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 DeliveryNoteInvoicePrint - Control OptionVal - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 3097000432 - Control 229337220 - Property 62802879" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Cosmos, Uditec</source>
+          <target state="needs-review-translation">Cosmos, Uditec</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 DeliveryNoteInvoicePrint - Control OptionVal - Property OptionCaption</note>
         </trans-unit>
         <trans-unit id="Report 3824556247 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>A01 Delivery note print</source>
@@ -13138,6 +13445,24 @@
           <target state="needs-adaptation">Numéro de véhicule :</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Report A01 DeliveryNotePrint - NamedType VehicleNumberLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 3824556247 - Control 4013682468 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Option</source>
+          <target state="needs-review-translation">Option</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 DeliveryNotePrint - Control groupName - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 3824556247 - Control 229337220 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Logo</source>
+          <target state="needs-review-translation">Logo</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 DeliveryNotePrint - Control OptionVal - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 3824556247 - Control 229337220 - Property 62802879" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Cosmos, Uditec</source>
+          <target state="needs-review-translation">Cosmos, Uditec</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 DeliveryNotePrint - Control OptionVal - Property OptionCaption</note>
         </trans-unit>
         <trans-unit id="Report 3761159245 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>A01 Disbursement Receipt</source>
@@ -15971,6 +16296,120 @@
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Report A01 Renitialise Credit Limit - NamedType TxtTraitementTermine</note>
         </trans-unit>
+        <trans-unit id="Report 4188702614 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>A01 Requisition check</source>
+          <target state="needs-review-translation">A01 Contrôle de la demande</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 RequisitionCheck - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 4188702614 - NamedType 848920673" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Approuved by :</source>
+          <target state="needs-review-translation">Approuvé par</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 RequisitionCheck - NamedType ApprouvedByLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 4188702614 - NamedType 3569966352" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Description</source>
+          <target state="needs-review-translation">Description</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 RequisitionCheck - NamedType DescriptionLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 4188702614 - NamedType 1155328579" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Document Date</source>
+          <target state="needs-review-translation">Date document</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 RequisitionCheck - NamedType DocumentDateLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 4188702614 - NamedType 3642584667" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Exchange rate: %1/%2</source>
+          <target state="needs-review-translation">Taux de change : %1/%2</target>
+          <note from="Developer" annotates="general" priority="2">%1 and %2 are both amounts.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 RequisitionCheck - NamedType ExchangeRateTxt</note>
+        </trans-unit>
+        <trans-unit id="Report 4188702614 - NamedType 3282522174" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Net Amount MGA</source>
+          <target state="needs-review-translation">Montant HT MGA</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 RequisitionCheck - NamedType NetAmountMgaLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 4188702614 - NamedType 4046088670" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Note :</source>
+          <target state="needs-review-translation">Note :</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 RequisitionCheck - NamedType NoteLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 4188702614 - NamedType 1327961902" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Ordonator :</source>
+          <target state="needs-review-translation">Ordonnateur :</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 RequisitionCheck - NamedType OrdonatorLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 4188702614 - NamedType 851221452" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Prepared by :</source>
+          <target state="needs-review-translation">Préparé par</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 RequisitionCheck - NamedType PrepareByLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 4188702614 - NamedType 4201550636" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Purchase Invoice</source>
+          <target state="needs-review-translation">Facture achat</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 RequisitionCheck - NamedType PurchaseInvoiceLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 4188702614 - NamedType 766786146" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Received by :</source>
+          <target state="needs-review-translation">Récu par</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 RequisitionCheck - NamedType ReceivedByLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 4188702614 - NamedType 141913953" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Supplier Invoice</source>
+          <target state="needs-review-translation">Facture fournisseur</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 RequisitionCheck - NamedType SupplierInvoiceLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 4188702614 - NamedType 2410138484" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Total</source>
+          <target state="needs-review-translation">Total</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 RequisitionCheck - NamedType TotalLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 4188702614 - NamedType 13875179" size-unit="char" translate="yes" xml:space="preserve">
+          <source>VAT</source>
+          <target state="needs-review-translation">TVA</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 RequisitionCheck - NamedType VatLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 4188702614 - NamedType 576398313" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Verified by :</source>
+          <target state="needs-review-translation">Vérifié par</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 RequisitionCheck - NamedType VerifiedByLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 4188702614 - ReportDataItem 1735507514 - Property 1806354803" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Requisition check</source>
+          <target state="needs-review-translation">Requisition check</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 RequisitionCheck - ReportDataItem Line - Property RequestFilterHeading</note>
+        </trans-unit>
+        <trans-unit id="Report 4188702614 - Control 4013682468 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Option</source>
+          <target state="needs-review-translation">Option</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 RequisitionCheck - Control groupName - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 4188702614 - Control 229337220 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Logo</source>
+          <target state="needs-review-translation">Logo</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 RequisitionCheck - Control OptionVal - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 4188702614 - Control 229337220 - Property 62802879" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Uditec, Cosmos</source>
+          <target state="needs-review-translation">Uditec, Cosmos</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 RequisitionCheck - Control OptionVal - Property OptionCaption</note>
+        </trans-unit>
         <trans-unit id="Report 1604351383 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Sales Invoice Credit</source>
           <target state="needs-review-translation">Facture vente à crédit</target>
@@ -18479,6 +18918,42 @@
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">XmlPort A01 Import Lettrage - Control NosOfLines - Property Caption</note>
         </trans-unit>
+        <trans-unit id="XmlPort 280469533 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Import Sales Price lines</source>
+          <target state="needs-review-translation">import des lignes (Prix de vente)</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">XmlPort A01 Import Sales Prices - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="XmlPort 280469533 - NamedType 16731361" size-unit="char" translate="yes" xml:space="preserve">
+          <source>End of importation. %1 lines processed</source>
+          <target state="needs-review-translation">FIn de l'import. %1 lignes traitées</target>
+          <note from="Developer" annotates="general" priority="2">%1=...</note>
+          <note from="Xliff Generator" annotates="general" priority="3">XmlPort A01 Import Sales Prices - NamedType LblEndOfProcess</note>
+        </trans-unit>
+        <trans-unit id="XmlPort 280469533 - NamedType 3283546407" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Traitement @1@@@@@@@@@@@@@@@@@@@@@@@@@@@@\</source>
+          <target state="needs-review-translation">Traitement @1@@@@@@@@@@@@@@@@@@@@@@@@@@@@\</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">XmlPort A01 Import Sales Prices - NamedType Text008</note>
+        </trans-unit>
+        <trans-unit id="XmlPort 2395872831 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Import Serial Numbers</source>
+          <target state="needs-review-translation">Import des numéros de série</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">XmlPort A01 Import Serial Numbers - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="XmlPort 2395872831 - NamedType 16731361" size-unit="char" translate="yes" xml:space="preserve">
+          <source>End of importation. %1 lines processed</source>
+          <target state="needs-review-translation">Importaion terminée. %1 lignes traitées</target>
+          <note from="Developer" annotates="general" priority="2">%1=...</note>
+          <note from="Xliff Generator" annotates="general" priority="3">XmlPort A01 Import Serial Numbers - NamedType LblEndOfProcess</note>
+        </trans-unit>
+        <trans-unit id="XmlPort 2395872831 - NamedType 3283546407" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Traitement @1@@@@@@@@@@@@@@@@@@@@@@@@@@@@\</source>
+          <target state="needs-review-translation">Traitement @1@@@@@@@@@@@@@@@@@@@@@@@@@@@@\</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">XmlPort A01 Import Serial Numbers - NamedType Text008</note>
+        </trans-unit>
         <trans-unit id="PageExtension 1546816651 - Action 373964257 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1267036282">
           <source>Afk External Users</source>
           <target state="needs-review-translation">Utilisateurs externes AFK</target>
@@ -18538,6 +19013,12 @@
           <target state="needs-review-translation">Plans de garantie</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension A01 Item Card - Action A01Attributes - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 496531641 - Action 829621065 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 4023405129">
+          <source>Import serial Nos</source>
+          <target state="needs-review-translation">Import des numéros de série</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension A01 Item Tracking Lines - Action A01ImportSerialNos - Property Caption</note>
         </trans-unit>
         <trans-unit id="PageExtension 3250568499 - Action 1719187443 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2747922353">
           <source>A01AfkCredit</source>
@@ -18791,6 +19272,19 @@
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension A01 Order Processor RC - Action A01Config_WarrantyPlans - Property Caption</note>
         </trans-unit>
+        <trans-unit id="PageExtension 3250568499 - Action 701499333 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2747922353">
+          <source>Discount Limit groups</source>
+          <target state="needs-review-translation">Groupes limite remise</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension A01 Order Processor RC - Action A01DiscountLimits - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 3250568499 - Action 2156653019 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2747922353">
+          <source>Disposable Rates</source>
+          <target state="needs-review-translation">
+          </target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension A01 Order Processor RC - Action A01DisposableRates - Property Caption</note>
+        </trans-unit>
         <trans-unit id="PageExtension 3250568499 - Action 2210702760 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2747922353">
           <source>External functionnalities</source>
           <target state="needs-review-translation">Fonctionnalités Web</target>
@@ -18850,6 +19344,12 @@
           <target state="needs-review-translation">Objets (Circuits)</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension A01 Order Processor RC - Action A01Objets - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 3250568499 - Action 3362735432 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2747922353">
+          <source>Price list</source>
+          <target state="needs-review-translation">Liste de prix</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension A01 Order Processor RC - Action A01PricesList - Property Caption</note>
         </trans-unit>
         <trans-unit id="PageExtension 3250568499 - Action 4196804696 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2747922353">
           <source>Payment method configuration</source>
@@ -18971,6 +19471,12 @@
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension A01 PaymentJournal - Action A01 BankTransferOrder - Property Caption</note>
         </trans-unit>
+        <trans-unit id="PageExtension 1800607781 - Action 4188702614 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 3196174509">
+          <source>Print Check requisition</source>
+          <target state="needs-review-translation">Print Check requisition</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension A01 PaymentJournal - Action A01 RequisitionCheck - Property Caption</note>
+        </trans-unit>
         <trans-unit id="PageExtension 4025562579 - Action 1359930392 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2187133665">
           <source>Print Inventory report</source>
           <target state="needs-review-translation">Imprimer le rapport d'inventaire</target>
@@ -19055,6 +19561,12 @@
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension A01 Responsability Center Card - Control A01Resp Center Media Factbox - Property Caption</note>
         </trans-unit>
+        <trans-unit id="PageExtension 2142966913 - Action 1376202492 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2214009041">
+          <source>Import lines</source>
+          <target state="needs-review-translation">Importer les lignes</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension A01 Sales Price List - Action A01 ImportLines - Property Caption</note>
+        </trans-unit>
         <trans-unit id="PageExtension 4018691590 - Action 290875276 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 280137910">
           <source>Create discount request</source>
           <target state="needs-review-translation">Créér une demande de remise</target>
@@ -19090,6 +19602,12 @@
           <target state="needs-review-translation">Type caisse</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension A01 Bank Account - Field A01 Bank Account Type - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 1742308649 - Field 293572831 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1682139193">
+          <source>Beneficiairy Name</source>
+          <target state="needs-review-translation">Nom du bénéficiaire</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension A01 Bank Account - Field A01 Beneficiairy Name - Property Caption</note>
         </trans-unit>
         <trans-unit id="TableExtension 2689845239 - Field 3629772320 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 400793991">
           <source>Unit of Measure Code</source>
@@ -19607,6 +20125,12 @@
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension A01 Item Category - Field A01 Point - Property Caption</note>
         </trans-unit>
+        <trans-unit id="TableExtension 3169743638 - Field 4189871785 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 346005766">
+          <source>Difference</source>
+          <target state="needs-review-translation">Ecart</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension A01 Item Journal Line - Field A01Difference - Property Caption</note>
+        </trans-unit>
         <trans-unit id="TableExtension 437216527 - Field 2945672636 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 3891454143">
           <source>Sales Blocked</source>
           <target state="needs-review-translation">Bloquer les ventes</target>
@@ -19985,6 +20509,12 @@
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension A01 Sales Header - Field A01 Delivery Autorised On - Property Caption</note>
         </trans-unit>
+        <trans-unit id="TableExtension 1143019865 - Field 3637318343 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1192395785">
+          <source>General Comment</source>
+          <target state="needs-review-translation">Observations générales</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension A01 Sales Header - Field A01 General Comment - Property Caption</note>
+        </trans-unit>
         <trans-unit id="TableExtension 1143019865 - Field 3445085256 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1192395785">
           <source>Interest rate %</source>
           <target state="needs-review-translation">Taux d’intérêt %</target>
@@ -20009,6 +20539,12 @@
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension A01 Sales Header - Field A01 Joint Code - Property Caption</note>
         </trans-unit>
+        <trans-unit id="TableExtension 1143019865 - Field 1006738129 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1192395785">
+          <source>Joint Required</source>
+          <target state="needs-review-translation">Garant exigé</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension A01 Sales Header - Field A01 Joint Required - Property Caption</note>
+        </trans-unit>
         <trans-unit id="TableExtension 1143019865 - Field 2959124146 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1192395785">
           <source>Joint Type</source>
           <target state="needs-review-translation">Type joint</target>
@@ -20026,6 +20562,18 @@
           <target state="needs-review-translation">Avis Responsable</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension A01 Sales Header - Field A01 Manager Opinion - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 1143019865 - Field 2931939371 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1192395785">
+          <source>Max Approved Rate (%)</source>
+          <target state="needs-review-translation">Coefficient Max approbation (%)</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension A01 Sales Header - Field A01 Max Approved Rate (%) - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 1143019865 - Field 1315249425 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1192395785">
+          <source>Max Referred Rate (%)</source>
+          <target state="needs-review-translation">Coffecient Max arbitrage (%)</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension A01 Sales Header - Field A01 Max Referred Rate (%) - Property Caption</note>
         </trans-unit>
         <trans-unit id="TableExtension 1143019865 - Field 2236380998 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1192395785">
           <source>Miscellaneous Contact</source>
@@ -20056,6 +20604,24 @@
           <target state="needs-review-translation">Statut de traitement</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension A01 Sales Header - Field A01 Processing Status - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 1143019865 - Field 879282834 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1192395785">
+          <source>Recommended Amount</source>
+          <target state="needs-review-translation">Montant recommandé</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension A01 Sales Header - Field A01 Rec. Amount - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 1143019865 - Field 1047228466 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1192395785">
+          <source>Recommended Deposit (%)</source>
+          <target state="needs-review-translation">Acompte recommandé (%)</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension A01 Sales Header - Field A01 Rec. Deposit (%) - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 1143019865 - Field 2239865736 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1192395785">
+          <source>Recommended Duration</source>
+          <target state="needs-review-translation">Durée recommandée</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension A01 Sales Header - Field A01 Rec. Duration - Property Caption</note>
         </trans-unit>
         <trans-unit id="TableExtension 1143019865 - Field 1389872895 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1192395785">
           <source>Approval Status</source>
@@ -20159,6 +20725,12 @@
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension A01 Sales Header Archive - Field A01 Delivery Autorised On - Property Caption</note>
         </trans-unit>
+        <trans-unit id="TableExtension 2954665223 - Field 3637318343 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1948788855">
+          <source>General Comment</source>
+          <target state="needs-review-translation">Observations générales</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension A01 Sales Header Archive - Field A01 General Comment - Property Caption</note>
+        </trans-unit>
         <trans-unit id="TableExtension 2954665223 - Field 3445085256 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1948788855">
           <source>Interest rate %</source>
           <target state="needs-review-translation">Taux d’intérêt %</target>
@@ -20183,6 +20755,12 @@
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension A01 Sales Header Archive - Field A01 Joint Code - Property Caption</note>
         </trans-unit>
+        <trans-unit id="TableExtension 2954665223 - Field 1006738129 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1948788855">
+          <source>Joint Required</source>
+          <target state="needs-review-translation">Garant exigé</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension A01 Sales Header Archive - Field A01 Joint Required - Property Caption</note>
+        </trans-unit>
         <trans-unit id="TableExtension 2954665223 - Field 2959124146 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1948788855">
           <source>Joint Type</source>
           <target state="needs-review-translation">Type Garant</target>
@@ -20200,6 +20778,18 @@
           <target state="needs-review-translation">Avis Responsable</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension A01 Sales Header Archive - Field A01 Manager Opinion - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 2954665223 - Field 2931939371 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1948788855">
+          <source>Max Approved Rate (%)</source>
+          <target state="needs-review-translation">Coefficient Max approbation (%)</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension A01 Sales Header Archive - Field A01 Max Approved Rate (%) - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 2954665223 - Field 1315249425 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1948788855">
+          <source>Max Referred Rate (%)</source>
+          <target state="needs-review-translation">Coffecient Max arbitrage (%)</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension A01 Sales Header Archive - Field A01 Max Referred Rate (%) - Property Caption</note>
         </trans-unit>
         <trans-unit id="TableExtension 2954665223 - Field 2236380998 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1948788855">
           <source>Miscellaneous Contact</source>
@@ -20230,6 +20820,24 @@
           <target state="needs-review-translation">Statut de traitement</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension A01 Sales Header Archive - Field A01 Processing Status - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 2954665223 - Field 879282834 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1948788855">
+          <source>Recommended Amount</source>
+          <target state="needs-review-translation">Montant recommandé </target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension A01 Sales Header Archive - Field A01 Rec. Amount - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 2954665223 - Field 1047228466 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1948788855">
+          <source>Recommended Deposit (%)</source>
+          <target state="needs-review-translation">Acompte recommandé (%)</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension A01 Sales Header Archive - Field A01 Rec. Deposit (%) - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 2954665223 - Field 2239865736 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1948788855">
+          <source>Recommended Duration</source>
+          <target state="needs-review-translation">Durée recommandée</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension A01 Sales Header Archive - Field A01 Rec. Duration - Property Caption</note>
         </trans-unit>
         <trans-unit id="TableExtension 2954665223 - Field 1389872895 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1948788855">
           <source>Approval Status</source>
@@ -20333,6 +20941,12 @@
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension A01 Sales Invoice Header - Field A01 Delivery Autorised On - Property Caption</note>
         </trans-unit>
+        <trans-unit id="TableExtension 1507475930 - Field 3637318343 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 809936682">
+          <source>General Comment</source>
+          <target state="needs-review-translation">Observations générales</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension A01 Sales Invoice Header - Field A01 General Comment - Property Caption</note>
+        </trans-unit>
         <trans-unit id="TableExtension 1507475930 - Field 3445085256 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 809936682">
           <source>Interest rate %</source>
           <target state="needs-review-translation">Taux d'intêret (%)</target>
@@ -20357,6 +20971,12 @@
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension A01 Sales Invoice Header - Field A01 Joint Code - Property Caption</note>
         </trans-unit>
+        <trans-unit id="TableExtension 1507475930 - Field 1006738129 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 809936682">
+          <source>Joint Required</source>
+          <target state="needs-review-translation">Garant exigé</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension A01 Sales Invoice Header - Field A01 Joint Required - Property Caption</note>
+        </trans-unit>
         <trans-unit id="TableExtension 1507475930 - Field 2959124146 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 809936682">
           <source>Joint Type</source>
           <target state="needs-review-translation">Type Garant</target>
@@ -20374,6 +20994,18 @@
           <target state="needs-review-translation">Avis Responsable</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension A01 Sales Invoice Header - Field A01 Manager Opinion - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 1507475930 - Field 2931939371 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 809936682">
+          <source>Max Approved Rate (%)</source>
+          <target state="needs-review-translation">Coefficient Max approbation (%)</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension A01 Sales Invoice Header - Field A01 Max Approved Rate (%) - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 1507475930 - Field 1315249425 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 809936682">
+          <source>Max Referred Rate (%)</source>
+          <target state="needs-review-translation">Coefficient Max arbitrage (%)</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension A01 Sales Invoice Header - Field A01 Max Referred Rate (%) - Property Caption</note>
         </trans-unit>
         <trans-unit id="TableExtension 1507475930 - Field 2236380998 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 809936682">
           <source>Miscellaneous Contact</source>
@@ -20404,6 +21036,24 @@
           <target state="needs-review-translation">Statut traitement</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension A01 Sales Invoice Header - Field A01 Processing Status - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 1507475930 - Field 879282834 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 809936682">
+          <source>Recommended Amount</source>
+          <target state="needs-review-translation">Montant recommandé</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension A01 Sales Invoice Header - Field A01 Rec. Amount - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 1507475930 - Field 1047228466 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 809936682">
+          <source>Recommended Deposit (%)</source>
+          <target state="needs-review-translation">Acompte recommandé (%)</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension A01 Sales Invoice Header - Field A01 Rec. Deposit (%) - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 1507475930 - Field 2239865736 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 809936682">
+          <source>Recommended Duration</source>
+          <target state="needs-review-translation">Durée recommandée</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension A01 Sales Invoice Header - Field A01 Rec. Duration - Property Caption</note>
         </trans-unit>
         <trans-unit id="TableExtension 1507475930 - Field 1389872895 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 809936682">
           <source>Approval Status</source>
@@ -20650,6 +21300,12 @@
           <target state="needs-review-translation">Désactiver le filtre du centre rde gestion</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension A01 User Setup - Field A01 Disable Resp Center Filter - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 4102593426 - Field 1967731649 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 337631938">
+          <source>Discount Limit Group</source>
+          <target state="needs-review-translation">Groupe limite remise</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension A01 User Setup - Field A01 Discount Limit Group - Property Caption</note>
         </trans-unit>
         <trans-unit id="TableExtension 4102593426 - Field 2617566227 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 337631938">
           <source>GL Period Group</source>
@@ -20909,6 +21565,30 @@
           <target state="needs-review-translation">CDI</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Enum A01 AGP Type of emp contr - EnumValue CDI - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 1619023839 - EnumValue 821689635 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Invoice</source>
+          <target state="needs-review-translation">Facture</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum A01 Approval Flow Doc Type - EnumValue Invoice - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 1619023839 - EnumValue 146219450 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Order</source>
+          <target state="needs-review-translation">Commande</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum A01 Approval Flow Doc Type - EnumValue Order - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 1619023839 - EnumValue 3888822604 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Posted Invoice</source>
+          <target state="needs-review-translation">Facture enregistrée</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum A01 Approval Flow Doc Type - EnumValue Posted Invoice - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 1619023839 - EnumValue 3809237070 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Quote</source>
+          <target state="needs-review-translation">Devis</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum A01 Approval Flow Doc Type - EnumValue Quote - Property Caption</note>
         </trans-unit>
         <trans-unit id="Enum 3822409918 - EnumValue 221910773 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Normal</source>
@@ -21554,6 +22234,12 @@
           <target state="needs-review-translation">Marque</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Enum A01 Parameter Record Type - EnumValue Brand - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 3132669536 - EnumValue 2492146860 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Discount Limit</source>
+          <target state="needs-review-translation">Limite remise</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum A01 Parameter Record Type - EnumValue DiscountLimit - Property Caption</note>
         </trans-unit>
         <trans-unit id="Enum 3132669536 - EnumValue 3310004601 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>ImportStep</source>

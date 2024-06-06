@@ -10,5 +10,10 @@ tableextension 50026 "A01 Bank Account" extends "Bank Account"
             Caption = 'A01 Bank Account Type';
             DataClassification = CustomerContent;
         }
+        field(50001; "A01 Beneficiairy Name"; Text[100])
+        {
+            Caption = 'Beneficiairy Name';
+            DataClassification = CustomerContent;
+        }
     }
 }

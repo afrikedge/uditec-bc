@@ -275,6 +275,24 @@ pageextension 50002 "A01 Order Processor RC" extends "Order Processor Role Cente
                     Caption = 'Importation Steps';
                     RunObject = Page "A01 Importation Steps";
                 }
+                action(A01DisposableRates)
+                {
+                    ApplicationArea = Basic, Suite;
+                    Caption = 'Disposable Rates';
+                    RunObject = Page "A01 Disposable Rate List";
+                }
+                action(A01PricesList)
+                {
+                    ApplicationArea = Basic, Suite;
+                    Caption = 'Price list';
+                    RunObject = Page "Sales Price Lists";
+                }
+                action(A01DiscountLimits)
+                {
+                    ApplicationArea = Basic, Suite;
+                    Caption = 'Discount Limit groups';
+                    RunObject = Page "A01 Discount Limits";
+                }
 
             }
             group(A01_Compta)

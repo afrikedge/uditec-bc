@@ -209,6 +209,43 @@ tableextension 50000 "A01 Sales Header" extends "Sales Header"
             Caption = 'Collection Comments';
             DataClassification = CustomerContent;
         }
+        field(50029; "A01 Max Approved Rate (%)"; Decimal)
+        {
+            Caption = 'Max Approved Rate (%)';
+            DataClassification = CustomerContent;
+        }
+        field(50030; "A01 Max Referred Rate (%)"; Decimal)
+        {
+            Caption = 'Max Referred Rate (%)';
+            DataClassification = CustomerContent;
+        }
+        field(50031; "A01 Joint Required"; Boolean)
+        {
+            Caption = 'Joint Required';
+            DataClassification = CustomerContent;
+        }
+        field(50032; "A01 Rec. Amount"; Decimal)
+        {
+            Caption = 'Recommended Amount';
+            DataClassification = CustomerContent;
+        }
+        field(50033; "A01 Rec. Duration"; Integer)
+        {
+            Caption = 'Recommended Duration';
+            DataClassification = CustomerContent;
+        }
+        field(50034; "A01 Rec. Deposit (%)"; Decimal)
+        {
+            Caption = 'Recommended Deposit (%)';
+            DataClassification = CustomerContent;
+        }
+        field(50035; "A01 General Comment"; Text[250])
+        {
+            Caption = 'General Comment';
+            DataClassification = CustomerContent;
+        }
+
+
 
 
 

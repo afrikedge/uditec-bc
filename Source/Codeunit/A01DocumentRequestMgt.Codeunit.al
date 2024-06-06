@@ -105,12 +105,16 @@ codeunit 50016 "A01 Document Request Mgt"
 
     end;
 
-    procedure ModifyStatus(var Request: Record "A01 Request On Document"; WebUser: Text;
-    NewStatus: Enum "A01 Approval Status"): Code[20]
+    procedure ModifyStatus(var Request: Record "A01 Request On Document"; WebUser: Text; NewStatus: Enum "A01 Approval Status"): Code[20]
     var
         SalesOrder: Record "Sales Header";
         PayDoc: Record "A01 Payment Document";
+        ErrDocNonTraite: Label 'The document is still in draft';
     begin
+
+        if (NewStatus = Request.Status::Validated) then
+            if (Request.Status = Request.Status::Initialization) then
+                Error(ErrDocNonTraite);
 
         Request.Status := NewStatus;
         Request."Modified By" := CopyStr(WebUser, 1, 50);
@@ -270,6 +274,16 @@ codeunit 50016 "A01 Document Request Mgt"
             group.get(userGroup."User Group Code");
             exit(group."A01 Max Discount Allowed %");
         end;
+    end;
+
+    local procedure GetMaxAllowedDiscountForUser(): Decimal
+    var
+        userSetup: Record "User Setup";
+        DiscountLimit: Record "A01 Parameter Record";
+    begin
+        userSetup.Get(UserId);
+        if (DiscountLimit.get(DiscountLimit.Type::DiscountLimit, userSetup."A01 Discount Limit Group")) then
+            exit(DiscountLimit."Discount Limit (%)");
     end;
 
     local procedure PayNeedsValidation(PayHeader: Record "A01 Payment Document"): Boolean
