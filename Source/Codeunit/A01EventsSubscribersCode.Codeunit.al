@@ -257,14 +257,17 @@ codeunit 50002 "A01 EventsSubscribers_Code"
         SOMgt.ArchiveCustomerCriteriaOnPosting(SalesInvHeader, SalesHeader);
     end;
 
+    [EventSubscriber(ObjectType::Codeunit, Codeunit::"Gen. Jnl.-Post Line", 'OnAfterInitBankAccLedgEntry', '', true, true)]
+    local procedure GenJnlPostLinet_OnAfterInitBankAccLedgEntry(var BankAccountLedgerEntry: Record "Bank Account Ledger Entry"; GenJournalLine: Record "Gen. Journal Line")
+    var
+    begin
+        BankAccountLedgerEntry."A01 Payment Reference" := CopyStr(GenJournalLine."Payment Reference", 1, 30);
+    end;
+
+
     // [IntegrationEvent(false, false)]
-    // local procedure OnBeforeSalesInvHeaderInsert(var SalesInvHeader: Record "Sales Invoice Header"; var SalesHeader: Record "Sales Header"; CommitIsSuppressed: Boolean; var IsHandled: Boolean; WhseShip: Boolean; WhseShptHeader: Record "Warehouse Shipment Header"; InvtPickPutaway: Boolean)
+    // local procedure OnAfterInitBankAccLedgEntry(var BankAccountLedgerEntry: Record "Bank Account Ledger Entry"; GenJournalLine: Record "Gen. Journal Line")
     // begin
     // end;
-
-    // [IntegrationEvent(true, false)]
-    //     local procedure OnBeforeTransferOrderPostShipment(var TransferHeader: Record "Transfer Header"; var CommitIsSuppressed: Boolean)
-    //     begin
-    //     end;
 
 }

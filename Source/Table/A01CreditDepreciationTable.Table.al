@@ -106,6 +106,16 @@ table 50016 "A01 Credit Depreciation Table"
             Caption = 'Old Reference';
             Editable = false;
         }
+        field(105; "Payment Date"; Text[30])
+        {
+            Caption = 'Payment Date';
+            Editable = false;
+        }
+        field(106; "Open"; Boolean)
+        {
+            Caption = 'Open';
+            Editable = false;
+        }
     }
     keys
     {

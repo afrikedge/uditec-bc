@@ -352,6 +352,7 @@ codeunit 50007 "A01 Treso Mgt"
         PaymentHeader."A01 Payment Method" := CustSettlementLine."Payment Method";
         CustSettlement.Testfield("Responsibility Center");
         PaymentHeader."A01 Responsibility Center" := CustSettlement."Responsibility Center";
+        PaymentHeader."Dimension Set ID" := CustSettlement."Dimension Set ID";
 
 
 
@@ -390,7 +391,7 @@ codeunit 50007 "A01 Treso Mgt"
         PaymentLine."Drawee Reference" := CopyStr(PaymentHeader."A01 Check No.", 1, 10);
         //PaymentLine."Due Date" := CustSettlement."Due Date";
 
-        PaymentLine."Dimension Set ID" := CustSettlementLine."Dimension Set ID";
+        PaymentLine."Dimension Set ID" := CustSettlement."Dimension Set ID";
         PaymentLine.Modify();
 
     end;

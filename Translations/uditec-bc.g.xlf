@@ -638,6 +638,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table A01 Credit Depreciation Table - Field Old Reference - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Table 2925814558 - Field 4259830144 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Open</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table A01 Credit Depreciation Table - Field Open - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Table 2925814558 - Field 2202932243 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Order No.</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -652,6 +657,11 @@
           <source>Payment balance</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table A01 Credit Depreciation Table - Field Payment balance - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2925814558 - Field 3724343034 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Payment Date</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table A01 Credit Depreciation Table - Field Payment Date - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 2925814558 - Field 1786097247 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Quote No.</source>
@@ -16188,10 +16198,10 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension A01 Bank Account - Field A01 Bank Account Type - Property Caption</note>
         </trans-unit>
-        <trans-unit id="TableExtension 1742308649 - Field 293572831 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1682139193">
-          <source>Beneficiairy Name</source>
+        <trans-unit id="TableExtension 1990970658 - Field 4019533859 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1815808370">
+          <source>A01 Payment Reference</source>
           <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">TableExtension A01 Bank Account - Field A01 Beneficiairy Name - Property Caption</note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension A01 Bank Account Ledger Entry - Field A01 Payment Reference - Property Caption</note>
         </trans-unit>
         <trans-unit id="TableExtension 2689845239 - Field 3629772320 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 400793991">
           <source>Unit of Measure Code</source>
@@ -17657,6 +17667,11 @@
           <source>STAT</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension A01 Vendor - Field A01 STAT - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 488255677 - Field 293572831 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 4231435149">
+          <source>Beneficiairy Name</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension A01 Vendor Bank Account - Field A01 Beneficiairy Name - Property Caption</note>
         </trans-unit>
         <trans-unit id="Enum 4001540073 - EnumValue 3541228055 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>1st plan</source>

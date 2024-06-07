@@ -180,6 +180,7 @@ table 50025 "A01 Deadline Assignment"
         Cust: Record Customer;
         CustDebtStatus: Record "A01 Customer Debt Status";
         CustLedgerEntry: Record "Cust. Ledger Entry";
+        CreditDueLine: Record "A01 Credit Depreciation Table";
         DueDays: Integer;
         MaxDueDays: Integer;
         RiskOfMaxDueDate: Code[20];
@@ -189,6 +190,11 @@ table 50025 "A01 Deadline Assignment"
             if (CustDebtStatus.FindFirst()) then
                 exit(CustDebtStatus.Code);
         end;
+
+
+        //Table des echeancier de dettes
+        //Recherche du plus grand retarc aussi dans les lignes du tableau d'amortissement
+
 
         MaxDueDays := 0;
         RiskOfMaxDueDate := '';
