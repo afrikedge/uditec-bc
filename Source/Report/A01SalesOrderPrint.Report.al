@@ -520,22 +520,22 @@ report 50007 "A01 SalesOrderPrint"
                     A01LinePUFormatted := Format(A01LinePU);
                     A01DiscountedPriceText := Format(A01DiscountedPrice);
 
-                    // if Type = Type::"G/L Account" then
-                    // "No." := '';
-                    // CurrReport.Skip();
+                    if Type = Type::"G/L Account" then
+                        // "No." := '';
+                        CurrReport.Skip();
 
-                    if "No." = 'MIR_FEES' then
-                        CurrReport.Skip();
-                    if "No." = 'mir_fees' then
-                        CurrReport.Skip();
-                    if "No." = 'MIR_INTEREST' then
-                        CurrReport.Skip();
-                    if "No." = 'mir_interest' then
-                        CurrReport.Skip();
-                    if "No." = 'AGP_FEES' then
-                        CurrReport.Skip();
-                    if "No." = 'agp_fees' then
-                        CurrReport.Skip();
+                    // if "No." = 'MIR_FEES' then
+                    //     CurrReport.Skip();
+                    // if "No." = 'mir_fees' then
+                    //     CurrReport.Skip();
+                    // if "No." = 'MIR_INTEREST' then
+                    //     CurrReport.Skip();
+                    // if "No." = 'mir_interest' then
+                    //     CurrReport.Skip();
+                    // if "No." = 'AGP_FEES' then
+                    //     CurrReport.Skip();
+                    // if "No." = 'agp_fees' then
+                    //     CurrReport.Skip();
 
                     OnBeforeLineOnAfterGetRecord(Header, Line);
 
@@ -571,7 +571,7 @@ report 50007 "A01 SalesOrderPrint"
                     TotalAmount := 0;
                     TotalVATAmount := 0;
                     TotalAmountInclVAT := 0;
-                    SetRange(Type, Type::Item);
+                    // SetRange(Type, Type::Item);
                     MoreLines := Find('+');
                     while MoreLines and (Description = '') and ("No." = '') and (Quantity = 0) and (Amount = 0) do
                         MoreLines := Next(-1) <> 0;

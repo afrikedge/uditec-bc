@@ -361,22 +361,22 @@ report 50001 "A01 SalesQuotePrint"
                     A01DiscountedPriceText := Format(A01DiscountedPrice);
 
                     // InitializeShipmentLine();
-                    // if Type = Type::"G/L Account" then
-                    // "No." := '';
-                    // CurrReport.Skip();
+                    if Type = Type::"G/L Account" then
+                        // "No." := '';
+                        CurrReport.Skip();
 
-                    if "No." = 'MIR_FEES' then
-                        CurrReport.Skip();
-                    if "No." = 'mir_fees' then
-                        CurrReport.Skip();
-                    if "No." = 'MIR_INTEREST' then
-                        CurrReport.Skip();
-                    if "No." = 'mir_interest' then
-                        CurrReport.Skip();
-                    if "No." = 'AGP_FEES' then
-                        CurrReport.Skip();
-                    if "No." = 'agp_fees' then
-                        CurrReport.Skip();
+                    // if "No." = 'MIR_FEES' then
+                    //     CurrReport.Skip();
+                    // if "No." = 'mir_fees' then
+                    //     CurrReport.Skip();
+                    // if "No." = 'MIR_INTEREST' then
+                    //     CurrReport.Skip();
+                    // if "No." = 'mir_interest' then
+                    //     CurrReport.Skip();
+                    // if "No." = 'AGP_FEES' then
+                    //     CurrReport.Skip();
+                    // if "No." = 'agp_fees' then
+                    //     CurrReport.Skip();
 
                     OnBeforeLineOnAfterGetRecord(Header, Line);
 
@@ -431,7 +431,7 @@ report 50001 "A01 SalesQuotePrint"
                 trigger OnPreDataItem()
                 begin
                     VATAmountLine.DeleteAll();
-                    SetRange(Type, Type::Item);
+                    // SetRange(Type, Type::Item);
                     MoreLines := Find('+');
                     while MoreLines and (Description = '') and ("No." = '') and (Quantity = 0) and (Amount = 0) do
                         MoreLines := Next(-1) <> 0;

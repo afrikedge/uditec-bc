@@ -11323,6 +11323,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report A01 InventoryReportPrint - NamedType EntryTypeLbl</note>
         </trans-unit>
+        <trans-unit id="Report 2076854159 - NamedType 3473071320" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Gap</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 InventoryReportPrint - NamedType GapLbl</note>
+        </trans-unit>
         <trans-unit id="Report 2076854159 - NamedType 688015984" size-unit="char" translate="yes" xml:space="preserve">
           <source>Inventory date</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -11832,6 +11837,21 @@
           <source>Cash Receipt</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report A01 PostedCustSettlementPrint - ReportDataItem A01 Posted Payment Document - Property RequestFilterHeading</note>
+        </trans-unit>
+        <trans-unit id="Report 2743542944 - Control 4013682468 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Option</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 PostedCustSettlementPrint - Control groupName - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 2743542944 - Control 229337220 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Logo</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 PostedCustSettlementPrint - Control OptionVal - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 2743542944 - Control 229337220 - Property 62802879" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Cosmos, Uditec</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 PostedCustSettlementPrint - Control OptionVal - Property OptionCaption</note>
         </trans-unit>
         <trans-unit id="Report 1091261386 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>A01 Preparation Order print</source>

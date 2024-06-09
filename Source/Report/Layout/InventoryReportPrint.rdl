@@ -341,7 +341,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value />
+                                  <Value>=Fields!GapLbl.Value</Value>
                                   <Style>
                                     <FontSize>8pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
@@ -649,7 +649,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value />
+                                  <Value>=Fields!A01Difference.Value</Value>
                                   <Style>
                                     <FontSize>8pt</FontSize>
                                   </Style>
@@ -1741,6 +1741,9 @@ AAAAAAAAAECjsYAGAAAAAAAAAAAAAAAAjcYCGgAAAAAAAAAAAAAAADQaC2gAAAAAAAAAAAAAAADQaCyg
         <Field Name="AmountLbl">
           <DataField>AmountLbl</DataField>
         </Field>
+        <Field Name="GapLbl">
+          <DataField>GapLbl</DataField>
+        </Field>
         <Field Name="PostingDt_ItemJournalLine">
           <DataField>PostingDt_ItemJournalLine</DataField>
         </Field>
@@ -1836,6 +1839,12 @@ AAAAAAAAAECjsYAGAAAAAAAAAAAAAAAAjcYCGgAAAAAAAAAAAAAAADQaC2gAAAAAAAAAAAAAAADQaCyg
         </Field>
         <Field Name="MotifTxt">
           <DataField>MotifTxt</DataField>
+        </Field>
+        <Field Name="A01Difference">
+          <DataField>A01Difference</DataField>
+        </Field>
+        <Field Name="A01DifferenceFormat">
+          <DataField>A01DifferenceFormat</DataField>
         </Field>
         <Field Name="PackageNoCaption">
           <DataField>PackageNoCaption</DataField>

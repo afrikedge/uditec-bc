@@ -201,6 +201,16 @@ report 50024 "A01 PostedCustSettlementPrint"
             column(LyneType; LyneType)
             {
             }
+
+            column(LogoOption; OptionValue)
+            {
+            }
+            column(RespCenterUditec; RespCenterUditec."A01 Logo")
+            {
+            }
+            column(OptionType; OptionType)
+            {
+            }
             dataitem("A01 Posted Payment Doc Line"; "A01 Posted Payment Doc Line")
             {
                 DataItemTableView = sorting("Document No.");
@@ -323,6 +333,11 @@ report 50024 "A01 PostedCustSettlementPrint"
 
             trigger OnAfterGetRecord()
             begin
+                if OptionValue = OptionValue::LogoCosmos then
+                    OptionType := 1
+                else
+                    OptionType := 0;
+
                 GLSetup.Get();
                 GLSetup.TestField("LCY Code");
 
@@ -383,6 +398,19 @@ report 50024 "A01 PostedCustSettlementPrint"
     {
         layout
         {
+            area(Content)
+            {
+                group(groupName)
+                {
+                    Caption = 'Option';
+                    field(OptionVal; OptionValue)
+                    {
+                        Caption = 'Logo';
+                        OptionCaption = 'Cosmos, Uditec';
+                        ApplicationArea = Basic, Suite;
+                    }
+                }
+            }
 
         }
 
@@ -395,6 +423,8 @@ report 50024 "A01 PostedCustSettlementPrint"
     begin
         CompanyInfo.Get();
         CompanyInfo.CalcFields(Picture);
+
+        RespCenterUditec.Get('UDT');
     end;
 
 
@@ -402,6 +432,7 @@ report 50024 "A01 PostedCustSettlementPrint"
         CompanyInfo: Record "Company Information";
         Cust: Record Customer;
         // Line: Record "A01 Posted Payment Doc Line";
+        RespCenterUditec: Record "Responsibility Center";
         GLSetup: Record "General Ledger Setup";
         CurrencyExchangeRate: Record "Currency Exchange Rate";
         ResponsibilityInfo: Record "Responsibility Center";
@@ -412,6 +443,8 @@ report 50024 "A01 PostedCustSettlementPrint"
         // DetailCustLedgEntr: Record "Detailed Cust. Ledg. Entry";
         Check: Report Check;
         AutoFormat: Codeunit "Auto Format";
+        OptionValue: Option LogoCosmos,LogoUditec;
+        OptionType: Integer;
         CustName: Text[100];
         LyneType: Integer;
         UnitName: Text[100];
