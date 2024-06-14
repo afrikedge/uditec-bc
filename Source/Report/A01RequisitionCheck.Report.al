@@ -148,6 +148,22 @@ report 50033 "A01 RequisitionCheck"
             column(AmountInc_LCY; AmountInc_LCY)
             {
             }
+            dataitem("Vendor Ledger Entry"; "Vendor Ledger Entry")
+            {
+                DataItemLinkReference = Line;
+                DataItemTableView = sorting("Entry No.");
+                DataItemLink = "Applies-to ID" = field("Document No."), "Vendor No." = field("Account No.");
+                column(PostingDate; Format("Posting Date"))
+                {
+                }
+                column(Amount_to_Apply; Format(-"Amount to Apply"))
+                {
+                }
+                column(Document_No; "Document No.")
+                {
+                }
+
+            }
             trigger OnAfterGetRecord()
             begin
                 if OptionValue = OptionValue::LogoCosmos then

@@ -692,7 +692,7 @@
                                                             <Paragraph>
                                                               <TextRuns>
                                                                 <TextRun>
-                                                                  <Value>=Fields!Applies_to_Doc__No_.Value</Value>
+                                                                  <Value>=Fields!Document_No.Value</Value>
                                                                   <Style>
                                                                     <FontSize>8pt</FontSize>
                                                                   </Style>
@@ -726,7 +726,7 @@
                                                             <Paragraph>
                                                               <TextRuns>
                                                                 <TextRun>
-                                                                  <Value>=Fields!DocumentDate.Value</Value>
+                                                                  <Value>=Fields!PostingDate.Value</Value>
                                                                   <Style>
                                                                     <FontSize>8pt</FontSize>
                                                                   </Style>
@@ -828,7 +828,7 @@
                                                             <Paragraph>
                                                               <TextRuns>
                                                                 <TextRun>
-                                                                  <Value>=Fields!CredAmount_Txt.Value</Value>
+                                                                  <Value>=Fields!Amount_to_Apply.Value</Value>
                                                                   <Style>
                                                                     <FontSize>8pt</FontSize>
                                                                   </Style>
@@ -1598,7 +1598,7 @@
               <Top>0.31737cm</Top>
               <Left>1.65125cm</Left>
               <Height>0.44125cm</Height>
-              <Width>9.42666cm</Width>
+              <Width>13.72083cm</Width>
               <Style>
                 <Border>
                   <Style>None</Style>
@@ -1718,7 +1718,7 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value>="****"&amp;First(Fields!AmountIn_LCYText.Value, "DataSet_Result")</Value>
+                      <Value>="********"&amp;First(Fields!AmountIn_LCYText.Value, "DataSet_Result")</Value>
                       <Style>
                         <FontSize>7pt</FontSize>
                       </Style>
@@ -2138,6 +2138,15 @@ yzP/Xfj+V49Xz72J/JBnRRFFlP9buH6JxFMUUUT5KeTHsDNsrxiXiDZLlF+K/Nx0lePDPX38Kdajn684
         </Field>
         <Field Name="AmountInc_LCYFormat">
           <DataField>AmountInc_LCYFormat</DataField>
+        </Field>
+        <Field Name="PostingDate">
+          <DataField>PostingDate</DataField>
+        </Field>
+        <Field Name="Amount_to_Apply">
+          <DataField>Amount_to_Apply</DataField>
+        </Field>
+        <Field Name="Document_No">
+          <DataField>Document_No</DataField>
         </Field>
       </Fields>
       <Query>
