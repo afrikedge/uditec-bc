@@ -66,5 +66,10 @@ tableextension 50001 "A01 User Setup" extends "User Setup"
             DataClassification = CustomerContent;
             TableRelation = "A01 Parameter Record".Code where(Type = const(DiscountLimit));
         }
+        field(50012; "A01 Can Bypass Closed Period"; Boolean)
+        {
+            Caption = 'Can post on cashbox after closing period';
+            DataClassification = CustomerContent;
+        }
     }
 }

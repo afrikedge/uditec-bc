@@ -111,10 +111,16 @@ table 50016 "A01 Credit Depreciation Table"
             Caption = 'Payment Date';
             Editable = false;
         }
-        field(106; "Open"; Boolean)
+        field(106; "Closed"; Boolean)
         {
-            Caption = 'Open';
+            Caption = 'Closed';
             Editable = false;
+        }
+        field(107; "Customer No."; Code[20])
+        {
+            Caption = 'Customer No.';
+            Editable = false;
+            TableRelation = Customer;
         }
     }
     keys
@@ -124,4 +130,11 @@ table 50016 "A01 Credit Depreciation Table"
             Clustered = true;
         }
     }
+
+    procedure GetDueDays(): integer
+    var
+        tresoMgt: codeunit "A01 Treso Mgt";
+    begin
+        exit(tresoMgt.NosDays(rec."Due Date", Today));
+    end;
 }

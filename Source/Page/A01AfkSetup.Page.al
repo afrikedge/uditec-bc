@@ -337,6 +337,14 @@ page 50040 "A01 Afk Setup"
                 Ellipsis = true;
                 RunObject = report "A01 Update Credit Amort Line";
             }
+            action(CustomProcess)
+            {
+                ApplicationArea = All;
+                Caption = 'Run custom process';
+                Image = UpdateUnitCost;
+                Ellipsis = true;
+                RunObject = report A01CustomProcess;
+            }
         }
     }
     trigger OnOpenPage()

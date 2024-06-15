@@ -265,6 +265,27 @@ codeunit 50002 "A01 EventsSubscribers_Code"
     end;
 
 
+    [EventSubscriber(ObjectType::Codeunit, Codeunit::"Payment Management", 'OnPostInvPostingBufferOnBeforeGenJnlPostLineRunWithCheck', '', true, true)]
+    local procedure PaymentManagement_OnPostInvPostingBufferOnBeforeGenJnlPostLineRunWithCheck(var GenJnlLine: Record "Gen. Journal Line"; var PaymentHeader: Record "Payment Header"; var PaymentClass: Record "Payment Class")
+    var
+        PayLine: Record "Payment Line";
+    begin
+        PayLine.SetRange(PayLine."Document No.", PaymentHeader."No.");
+        if (PayLine.FindFirst()) then begin
+            if (PayLine."A01 Payment Reference" <> '') then begin
+                GenJnlLine."Payment Reference" := PayLine."A01 Payment Reference";
+                GenJnlLine.Modify();
+            end;
+        end;
+    end;
+
+
+    // [IntegrationEvent(false, false)]
+    //     local procedure OnPostInvPostingBufferOnBeforeGenJnlPostLineRunWithCheck(var GenJnlLine: Record "Gen. Journal Line"; var PaymentHeader: Record "Payment Header"; var PaymentClass: Record "Payment Class")
+    //     begin
+    //     end;
+
+
     // [IntegrationEvent(false, false)]
     // local procedure OnAfterInitBankAccLedgEntry(var BankAccountLedgerEntry: Record "Bank Account Ledger Entry"; GenJournalLine: Record "Gen. Journal Line")
     // begin

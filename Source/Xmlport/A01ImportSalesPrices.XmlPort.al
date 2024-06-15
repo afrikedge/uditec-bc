@@ -26,6 +26,7 @@ xmlport 50003 "A01 Import Sales Prices"
                 trigger OnBeforeInsertRecord()
                 var
                     PriceListLine: Record "Price List Line";
+                    PriceListHeader: Record "Price List Header";
                     Item: Record Item;
                     ItemCode: Code[20];
                     VariantCode: Code[20];
@@ -35,6 +36,9 @@ xmlport 50003 "A01 Import Sales Prices"
                     i := i + 1;
                     Window.UPDATE(1,
                     ROUND(i / NbreTotalLignes * 10000, 1));
+
+                    PriceListHeader.Get(PriceListCode);
+
 
                     ItemCode := ImportDocument.Code20_1;
                     Item.Get(ItemCode);
@@ -48,11 +52,14 @@ xmlport 50003 "A01 Import Sales Prices"
                     PriceListLine.SetRange(PriceListLine."Unit of Measure Code", UOM);
                     if (PriceListLine.FindFirst()) then begin
                         PriceListLine.Validate("Unit Price", Price);
+                        if (PriceListLine."Source Type" = PriceListHeader."Source Type") then
+                            PriceListLine.Validate("Source Type", PriceListHeader."Source Type");
                         PriceListLine.Modify(true);
                     end else begin
                         PriceListLine.Init();
                         PriceListLine.Validate("Price List Code", PriceListCode);
                         PriceListLine."Line No." := NextLineNo;
+                        PriceListLine.Validate("Source Type", PriceListHeader."Source Type");
                         PriceListLine.Insert(true);
 
                         PriceListLine.Validate("Asset No.", ItemCode);

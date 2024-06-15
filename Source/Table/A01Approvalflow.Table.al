@@ -36,11 +36,11 @@ table 50022 "A01 Approval Flow"
         {
             Caption = 'Approved As';
         }
-        field(8; "Actual Status"; Enum "A01 Propect Validation Status")
+        field(8; "Actual Status"; Enum "A01 Approval Status")
         {
             Caption = 'Actual Status';
         }
-        field(9; "Next Status"; Enum "A01 Propect Validation Status")
+        field(9; "Next Status"; Enum "A01 Approval Status")
         {
             Caption = 'Next Status';
         }

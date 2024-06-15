@@ -192,12 +192,25 @@ table 50025 "A01 Deadline Assignment"
         end;
 
 
-        //Table des echeancier de dettes
-        //Recherche du plus grand retarc aussi dans les lignes du tableau d'amortissement
-
-
         MaxDueDays := 0;
         RiskOfMaxDueDate := '';
+
+        //Table des echeancier de dettes
+        //Recherche du plus grand retarc aussi dans les lignes du tableau d'amortissement
+        CreditDueLine.Reset();
+        CreditDueLine.SetRange("Customer No.", CustNo);
+        CreditDueLine.SetRange(Closed, false);
+        if CreditDueLine.FindSet() then
+            repeat
+                DueDays := CreditDueLine.GetDueDays();
+                if (DueDays >= MaxDueDays) then begin
+                    RiskOfMaxDueDate := GetRiskLevel(DueDays);
+                    MaxDueDays := DueDays;
+                end;
+            until CreditDueLine.Next() < 1;
+
+
+
         CustLedgerEntry.Reset();
         CustLedgerEntry.SetCurrentKey("Customer No.", Open, Positive, "Due Date", "Currency Code");
         CustLedgerEntry.SetRange("Customer No.", CustNo);

@@ -72,7 +72,7 @@ tableextension 50000 "A01 Sales Header" extends "Sales Header"
             MinValue = 0;
             MaxValue = 100;
         }
-        field(50011; "A01 Analyst comments"; Text[200])
+        field(50011; "A01 Analyst comments"; Text[300])
         {
             Caption = 'Analyst comments';
             DataClassification = CustomerContent;
@@ -194,17 +194,17 @@ tableextension 50000 "A01 Sales Header" extends "Sales Header"
             Caption = 'Manager Opinion';
             DataClassification = CustomerContent;
         }
-        field(50026; "A01 Manager Comments"; Text[200])
+        field(50026; "A01 Manager Comments"; Text[300])
         {
             Caption = 'Manager Comments';
             DataClassification = CustomerContent;
         }
-        field(50027; "A01 Collection Comments"; Text[200])
+        field(50027; "A01 Collection Comments"; Text[300])
         {
             Caption = 'Collection Comments';
             DataClassification = CustomerContent;
         }
-        field(50028; "A01 Investigator Comments"; Text[200])
+        field(50028; "A01 Investigator Comments"; Text[300])
         {
             Caption = 'Collection Comments';
             DataClassification = CustomerContent;
@@ -239,7 +239,7 @@ tableextension 50000 "A01 Sales Header" extends "Sales Header"
             Caption = 'Recommended Deposit (%)';
             DataClassification = CustomerContent;
         }
-        field(50035; "A01 General Comment"; Text[250])
+        field(50035; "A01 General Comment"; Text[300])
         {
             Caption = 'General Comment';
             DataClassification = CustomerContent;

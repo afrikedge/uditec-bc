@@ -17,6 +17,7 @@ report 50032 "A01 Update Credit Amort Line"
 
             trigger OnAfterGetRecord()
             var
+                PaymentEntry: Record "Detailed Cust. Ledg. Entry";
                 CreditAmortLine: Record "A01 Credit Depreciation Table";
                 PaidAmount: Decimal;
             begin
@@ -25,6 +26,10 @@ report 50032 "A01 Update Credit Amort Line"
 
                 CustLedgerEntry.CalcFields(Amount, "Remaining Amount");
                 PaidAmount := Abs(CustLedgerEntry.Amount - CustLedgerEntry."Remaining Amount");
+
+
+                // PaymentEntry.
+
 
                 CreditAmortLine.Reset();
                 CreditAmortLine.SetRange("Document Type", CreditAmortLine."Document Type"::"Posted Sales invoice");
@@ -42,6 +47,8 @@ report 50032 "A01 Update Credit Amort Line"
                             CreditAmortLine."Dimension Set ID" := CustLedgerEntry."Dimension Set ID";
                         if (CreditAmortLine."Cust Ledger Entry No." = 0) then
                             CreditAmortLine."Cust Ledger Entry No." := CustLedgerEntry."Entry No.";
+
+                        CreditAmortLine.Closed := CreditAmortLine."Paid Amount" = CreditAmortLine."Monthly payment";
                         CreditAmortLine.Modify();
                     until CreditAmortLine.Next() < 1;
             end;
