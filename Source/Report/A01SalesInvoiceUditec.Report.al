@@ -712,9 +712,11 @@ report 50030 "A01 SalesInvoiceUditec"
                     A01DiscountedPriceText := Format(A01DiscountedPrice);
 
                     InitializeShipmentLine();
-                    // if Type = Type::"G/L Account" then
-                    //     "No." := '';
-                    // CurrReport.Skip();
+
+                    if Type = Type::"G/L Account" then
+                        // "No." := '';
+                        CurrReport.Skip();
+
                     // if "No." = 'MIR_INTEREST' then
                     //     CurrReport.Skip();
                     // if "No." = 'mir_interest' then
@@ -792,7 +794,7 @@ report 50030 "A01 SalesInvoiceUditec"
                     VATClauseLine.DeleteAll();
                     ShipmentLine.Reset();
                     ShipmentLine.DeleteAll();
-                    SetRange(Type, Type::Item);
+                    // SetRange(Type, Type::Item);
                     MoreLines := Find('+');
                     while MoreLines and (Description = '') and ("No." = '') and (Quantity = 0) and (Amount = 0) do
                         MoreLines := Next(-1) <> 0;

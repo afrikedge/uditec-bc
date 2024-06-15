@@ -133,6 +133,9 @@ report 50015 "A01 InventoryReportPrint"
                 column(AmountLbl; AmountLbl)
                 {
                 }
+                column(GapLbl; GapLbl)
+                {
+                }
                 dataitem("Item Journal Line"; "Item Journal Line")
                 {
                     DataItemLink = "Journal Template Name" = field("Journal Template Name"), "Journal Batch Name" = field(Name);
@@ -227,6 +230,9 @@ report 50015 "A01 InventoryReportPrint"
                     {
                     }
                     column(MotifTxt; MotifTxt)
+                    {
+                    }
+                    column(A01Difference; A01Difference)
                     {
                     }
 
@@ -406,6 +412,7 @@ report 50015 "A01 InventoryReportPrint"
         UnitPostalCode: Text[50];
 
         UnitNameLbl: Label 'Warehouse name :';
+        GapLbl: Label 'Gap';
         UnitAddressLbl: Label 'Warehouse address :';
         UnitCityLbl: Label 'City';
         UnitPostalCodeLbl: Label 'Postal code :';
