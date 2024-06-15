@@ -106,7 +106,7 @@ table 50016 "A01 Credit Depreciation Table"
             Caption = 'Old Reference';
             Editable = false;
         }
-        field(105; "Payment Date"; Text[30])
+        field(105; "Payment Date"; Date)
         {
             Caption = 'Payment Date';
             Editable = false;
@@ -128,6 +128,10 @@ table 50016 "A01 Credit Depreciation Table"
         key(PK; "Document Type", "Document No.", "Line No.")
         {
             Clustered = true;
+        }
+        key(PK2; "Customer No.", Closed)
+        {
+
         }
     }
 

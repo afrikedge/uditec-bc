@@ -280,15 +280,33 @@ codeunit 50002 "A01 EventsSubscribers_Code"
     end;
 
 
-    // [IntegrationEvent(false, false)]
-    //     local procedure OnPostInvPostingBufferOnBeforeGenJnlPostLineRunWithCheck(var GenJnlLine: Record "Gen. Journal Line"; var PaymentHeader: Record "Payment Header"; var PaymentClass: Record "Payment Class")
-    //     begin
-    //     end;
+    [EventSubscriber(ObjectType::Codeunit, Codeunit::"Sales-Quote to Order", 'OnTransferQuoteToOrderLinesOnBeforeDefaultDeferralCode', '', true, true)]
+    local procedure SalesQuoteToOrder_OnPostInvPostingBufferOnBeforeGenJnlPostLineRunWithCheck(var SalesLineOrder: Record "Sales Line"; var SalesHeaderOrder: Record "Sales Header"; var SalesLineQuote: Record "Sales Line"; var IsHandled: Boolean)
+    begin
+        SalesLineOrder.Validate("Prepayment %", SalesLineQuote."Prepayment %");
+    end;
 
 
+    [EventSubscriber(ObjectType::Codeunit, Codeunit::"Sales-Quote to Order", 'OnBeforeModifySalesOrderHeader', '', true, true)]
+    local procedure SalesQuoteToOrder_OnBeforeModifySalesOrderHeaderk(var SalesOrderHeader: Record "Sales Header"; SalesQuoteHeader: Record "Sales Header")
+    var
+    begin
+        SalesOrderHeader."Prepayment %" := SalesQuoteHeader."Prepayment %";
+    end;
+
+
+
+
+
     // [IntegrationEvent(false, false)]
-    // local procedure OnAfterInitBankAccLedgEntry(var BankAccountLedgerEntry: Record "Bank Account Ledger Entry"; GenJournalLine: Record "Gen. Journal Line")
+    // local procedure OnTransferQuoteToOrderLinesOnBeforeDefaultDeferralCode(var SalesLineOrder: Record "Sales Line"; var SalesHeaderOrder: Record "Sales Header"; var SalesLineQuote: Record "Sales Line"; var IsHandled: Boolean)
     // begin
     // end;
+
+    // [IntegrationEvent(false, false)]
+    // local procedure OnBeforeModifySalesOrderHeader(var SalesOrderHeader: Record "Sales Header"; SalesQuoteHeader: Record "Sales Header")
+    // begin
+    // end;
+
 
 }

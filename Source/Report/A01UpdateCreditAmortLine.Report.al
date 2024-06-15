@@ -17,44 +17,95 @@ report 50032 "A01 Update Credit Amort Line"
 
             trigger OnAfterGetRecord()
             var
-                PaymentEntry: Record "Detailed Cust. Ledg. Entry";
+                DetailledPaymentEntry: Record "Detailed Cust. Ledg. Entry";
                 CreditAmortLine: Record "A01 Credit Depreciation Table";
-                PaidAmount: Decimal;
+                PayEntry: Record "Cust. Ledger Entry";
+                LinePaymentAmt: Decimal;
+                RemainingAmt: Decimal;
+                AmountToPay: Decimal;
             begin
                 LineNo += 1;
                 Window.UPDATE(1, ROUND(LineNo / TotalLines * 10000, 1));
 
                 CustLedgerEntry.CalcFields(Amount, "Remaining Amount");
-                PaidAmount := Abs(CustLedgerEntry.Amount - CustLedgerEntry."Remaining Amount");
-
-
-                // PaymentEntry.
-
+                LinePaymentAmt := Abs(CustLedgerEntry.Amount - CustLedgerEntry."Remaining Amount");
 
                 CreditAmortLine.Reset();
                 CreditAmortLine.SetRange("Document Type", CreditAmortLine."Document Type"::"Posted Sales invoice");
                 CreditAmortLine.SetRange("Document No.", CustLedgerEntry."Document No.");
-                if CreditAmortLine.FindSet() then
-                    repeat
-                        if (PaidAmount > 0) then begin
-                            if (CreditAmortLine."Monthly payment" < PaidAmount) then
-                                CreditAmortLine."Paid Amount" := CreditAmortLine."Monthly payment"
-                            else
-                                CreditAmortLine."Paid Amount" := PaidAmount;
-                            PaidAmount := PaidAmount - CreditAmortLine."Paid Amount";
-                        end;
-                        if (CreditAmortLine."Dimension Set ID" = 0) then
-                            CreditAmortLine."Dimension Set ID" := CustLedgerEntry."Dimension Set ID";
-                        if (CreditAmortLine."Cust Ledger Entry No." = 0) then
-                            CreditAmortLine."Cust Ledger Entry No." := CustLedgerEntry."Entry No.";
+                CreditAmortLine.modifyall("Paid Amount", 0);
+                //CreditAmortLine.modifyall(Closed, false);
 
-                        CreditAmortLine.Closed := CreditAmortLine."Paid Amount" = CreditAmortLine."Monthly payment";
-                        CreditAmortLine.Modify();
-                    until CreditAmortLine.Next() < 1;
+
+                DetailledPaymentEntry.Reset();
+                DetailledPaymentEntry.SetCurrentKey("Applied Cust. Ledger Entry No.", "Entry Type");
+                DetailledPaymentEntry.SetRange("Applied Cust. Ledger Entry No.", CustLedgerEntry."Entry No.");
+                DetailledPaymentEntry.SetRange("Entry Type", DetailledPaymentEntry."Entry Type"::Application);
+                DetailledPaymentEntry.SetRange("Initial Document Type", DetailledPaymentEntry."Initial Document Type"::Payment);
+                //DetailledPaymentEntry.SetRange(A01CreditProcessed,false);
+                if DetailledPaymentEntry.FindSet(true) then
+                    repeat
+                        LinePaymentAmt := DetailledPaymentEntry.Amount;
+                        CreditAmortLine.Reset();
+                        CreditAmortLine.SetRange("Document Type", CreditAmortLine."Document Type"::"Posted Sales invoice");
+                        CreditAmortLine.SetRange("Document No.", CustLedgerEntry."Document No.");
+                        if CreditAmortLine.FindSet() then
+                            repeat
+
+                                RemainingAmt := CreditAmortLine."Monthly payment" - CreditAmortLine."Paid Amount";
+
+                                if (RemainingAmt > 0) then begin
+
+                                    AmountToPay := Min(RemainingAmt, LinePaymentAmt);
+
+                                    CreditAmortLine."Paid Amount" += AmountToPay;
+
+                                    LinePaymentAmt := LinePaymentAmt - AmountToPay;
+
+                                    if (CreditAmortLine."Dimension Set ID" = 0) then
+                                        CreditAmortLine."Dimension Set ID" := CustLedgerEntry."Dimension Set ID";
+                                    if (CreditAmortLine."Cust Ledger Entry No." = 0) then
+                                        CreditAmortLine."Cust Ledger Entry No." := CustLedgerEntry."Entry No.";
+
+                                    CreditAmortLine.Closed := CreditAmortLine."Paid Amount" = CreditAmortLine."Monthly payment";
+
+                                    if (CreditAmortLine."Monthly payment" = CreditAmortLine."Paid Amount") then begin
+                                        if (PayEntry.get(DetailledPaymentEntry."Cust. Ledger Entry No.")) then
+                                            CreditAmortLine."Payment Date" := PayEntry."Posting Date";
+                                    end;
+
+                                    CreditAmortLine.Modify();
+
+                                end;
+
+                            until CreditAmortLine.Next() < 1;
+                    //
+                    until DetailledPaymentEntry.Next() < 1;
             end;
 
+
+
+
             trigger OnPostDataItem()
+            var
+                Cust: Record customer;
+                DebtStatus: Code[20];
             begin
+
+                TotalLines := CustLedgerEntry.Count;
+                LineNo := 0;
+                if Cust.FindSet() then
+                    repeat
+                        LineNo += 1;
+                        Window.UPDATE(1, ROUND(LineNo / TotalLines * 10000, 1));
+
+                        DebtStatus := Cust.CalcCustStatus();
+                        if (Cust."A01 Calc Risk Level" <> DebtStatus) then begin
+                            Cust."A01 Calc Risk Level" := DebtStatus;
+                            Cust.Modify();
+                        end;
+                    until Cust.Next() < 1;
+
                 Window.CLOSE();
                 MESSAGE(LblErr003);
             end;
@@ -85,4 +136,11 @@ report 50032 "A01 Update Credit Amort Line"
         Window: Dialog;
         LblErr002: Label 'Processing @1@@@@@@@@@@@@@@@@@@@@@@@@@@@@\';
         LblErr003: Label 'End of process !';
+
+    local procedure Min(Amt1: Decimal; Amt2: Decimal): Decimal
+    var
+    begin
+        if (Amt1 < Amt2) then exit(Amt1);
+        exit(Amt2);
+    end;
 }

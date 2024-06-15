@@ -135,6 +135,12 @@ tableextension 50006 "A01 Customer" extends Customer
             DataClassification = CustomerContent;
             //TableRelation = Contact;
         }
+        field(50202; "A01 Calc Risk Level"; Code[20])
+        {
+            Caption = 'Calculated Risk Level';
+            DataClassification = CustomerContent;
+            Editable = false;
+        }
 
         // field(50101; "A01 Modified By"; Code[50])
         // {
@@ -191,5 +197,73 @@ tableextension 50006 "A01 Customer" extends Customer
     begin
         if ("Credit Limit (LCY)" = 0) then
             "Credit Limit (LCY)" := 1;
+    end;
+
+    procedure CalcCustStatus(): Code[20]
+    var
+        //Cust: Record Customer;
+        CustDebtStatus: Record "A01 Customer Debt Status";
+        CustLedgerEntry: Record "Cust. Ledger Entry";
+        CreditDueLine: Record "A01 Credit Depreciation Table";
+        TresoMgt: Codeunit "A01 Treso Mgt";
+        DueDays: Integer;
+        MaxDueDays: Integer;
+        RiskOfMaxDueDate: Code[20];
+    begin
+        //if (Cust.Get(CustNo)) then begin
+        CustDebtStatus.SetRange("Risk Level", "A01 Risk Level");
+        if (CustDebtStatus.FindFirst()) then
+            exit(CustDebtStatus.Code);
+        //end;
+
+
+        MaxDueDays := 0;
+        RiskOfMaxDueDate := '';
+
+        //Table des echeancier de dettes
+        //Recherche du plus grand retarc aussi dans les lignes du tableau d'amortissement
+        CreditDueLine.Reset();
+        CreditDueLine.SetCurrentKey("Customer No.", Closed);
+        CreditDueLine.SetRange("Customer No.", Rec."No.");
+        CreditDueLine.SetRange(Closed, false);
+        if CreditDueLine.FindSet() then
+            repeat
+                DueDays := CreditDueLine.GetDueDays();
+                if (DueDays >= MaxDueDays) then begin
+                    RiskOfMaxDueDate := GetRiskLevel(DueDays);
+                    MaxDueDays := DueDays;
+                end;
+            until CreditDueLine.Next() < 1;
+
+
+
+        CustLedgerEntry.Reset();
+        CustLedgerEntry.SetCurrentKey("Customer No.", Open, Positive, "Due Date", "Currency Code");
+        CustLedgerEntry.SetRange("Customer No.", Rec."No.");
+        CustLedgerEntry.SetRange(Open, true);
+        CustLedgerEntry.SetRange(Positive, true);
+        if CustLedgerEntry.FindSet() then
+            repeat
+                DueDays := TresoMgt.GetDueDays(CustLedgerEntry);
+                if (DueDays >= MaxDueDays) then begin
+                    RiskOfMaxDueDate := GetRiskLevel(DueDays);
+                    MaxDueDays := DueDays;
+                end;
+            until CustLedgerEntry.Next() < 1;
+
+        exit(RiskOfMaxDueDate);
+
+    end;
+
+    local procedure GetRiskLevel(DueDays: Integer): Code[20]
+    var
+        CustDebtStatus: Record "A01 Customer Debt Status";
+    begin
+        CustDebtStatus.Reset();
+        CustDebtStatus.SetFilter("Minimum (Days)", '<%1', DueDays);
+        CustDebtStatus.SetFilter("Minimum (Days)", '>=%1', DueDays);
+        CustDebtStatus.SetRange("Risk Level", '');
+        if (CustDebtStatus.FindFirst()) then
+            exit(CustDebtStatus.Code);
     end;
 }

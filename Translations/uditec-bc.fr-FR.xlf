@@ -4657,7 +4657,7 @@
         </trans-unit>
         <trans-unit id="Page 2685203037 - Action 174769924 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Run custom process</source>
-          <target state="needs-translation">
+          <target state="needs-review-translation">
           </target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Page A01 Afk Setup - Action CustomProcess - Property Caption</note>
@@ -18885,7 +18885,7 @@
         </trans-unit>
         <trans-unit id="Report 588798876 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Custom process</source>
-          <target state="needs-translation">
+          <target state="needs-review-translation">
           </target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Report A01CustomProcess - Property Caption</note>
@@ -19857,6 +19857,12 @@
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension A01 Customer - Field A01 Allowed Item Category - Property Caption</note>
         </trans-unit>
+        <trans-unit id="TableExtension 1245960848 - Field 300818780 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1994964448">
+          <source>Calculated Risk Level</source>
+          <target state="needs-review-translation">Statut calculé</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension A01 Customer - Field A01 Calc Risk Level - Property Caption</note>
+        </trans-unit>
         <trans-unit id="TableExtension 1245960848 - Field 1382838568 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1994964448">
           <source>CIF</source>
           <target state="needs-review-translation">CIF</target>
@@ -19976,6 +19982,12 @@
           <target state="needs-review-translation">STAT</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension A01 Customer - Field A01 STAT - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 608259289 - Field 4060440353 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 235946633">
+          <source>CreditProcessed</source>
+          <target state="needs-review-translation">Traité</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension A01 Detailed Cust. Ledg. Entry - Field A01CreditProcessed - Property Caption</note>
         </trans-unit>
         <trans-unit id="TableExtension 1351648199 - Field 3262964910 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1806786327">
           <source>Check Date</source>

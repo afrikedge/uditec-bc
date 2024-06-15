@@ -47,6 +47,7 @@ xmlport 50003 "A01 Import Sales Prices"
                     Price := ImportDocument.Amount;
 
                     PriceListLine.Reset();
+                    PriceListLine.SetRange(PriceListLine."Price List Code", PriceListCode);
                     PriceListLine.SetRange(PriceListLine."Asset No.", ItemCode);
                     PriceListLine.SetRange(PriceListLine."Variant Code", VariantCode);
                     PriceListLine.SetRange(PriceListLine."Unit of Measure Code", UOM);
