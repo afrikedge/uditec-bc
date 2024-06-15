@@ -846,6 +846,7 @@ codeunit 50007 "A01 Treso Mgt"
             CreditDueLineNew."Cust Ledger Entry No." := CustLedgEntry."Entry No.";
             CreditDueLineNew."Dimension Set ID" := SalesHeader."Dimension Set ID";
             CreditDueLineNew."Document Type" := CreditDueLine."Document Type"::"Posted Sales invoice";
+            CreditDueLineNew."Customer No." := CustLedgEntry."Customer No.";
             CreditDueLineNew."Order No." := SalesHeader."No.";
             CreditDueLineNew."Document No." := DocNo;
 

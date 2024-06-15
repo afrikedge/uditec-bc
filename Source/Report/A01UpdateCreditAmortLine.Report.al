@@ -46,40 +46,44 @@ report 50032 "A01 Update Credit Amort Line"
                 if DetailledPaymentEntry.FindSet(true) then
                     repeat
                         LinePaymentAmt := DetailledPaymentEntry.Amount;
-                        CreditAmortLine.Reset();
-                        CreditAmortLine.SetRange("Document Type", CreditAmortLine."Document Type"::"Posted Sales invoice");
-                        CreditAmortLine.SetRange("Document No.", CustLedgerEntry."Document No.");
-                        if CreditAmortLine.FindSet() then
-                            repeat
+                        if (LinePaymentAmt > 0) then begin
+                            CreditAmortLine.Reset();
+                            CreditAmortLine.SetRange("Document Type", CreditAmortLine."Document Type"::"Posted Sales invoice");
+                            CreditAmortLine.SetRange("Document No.", CustLedgerEntry."Document No.");
+                            if CreditAmortLine.FindSet() then
+                                repeat
 
-                                RemainingAmt := CreditAmortLine."Monthly payment" - CreditAmortLine."Paid Amount";
+                                    RemainingAmt := CreditAmortLine."Monthly payment" - CreditAmortLine."Paid Amount";
 
-                                if (RemainingAmt > 0) then begin
+                                    if (RemainingAmt > 0) then begin
 
-                                    AmountToPay := Min(RemainingAmt, LinePaymentAmt);
+                                        AmountToPay := Min(RemainingAmt, LinePaymentAmt);
 
-                                    CreditAmortLine."Paid Amount" += AmountToPay;
+                                        CreditAmortLine."Paid Amount" += AmountToPay;
 
-                                    LinePaymentAmt := LinePaymentAmt - AmountToPay;
+                                        LinePaymentAmt := LinePaymentAmt - AmountToPay;
 
-                                    if (CreditAmortLine."Dimension Set ID" = 0) then
-                                        CreditAmortLine."Dimension Set ID" := CustLedgerEntry."Dimension Set ID";
-                                    if (CreditAmortLine."Cust Ledger Entry No." = 0) then
-                                        CreditAmortLine."Cust Ledger Entry No." := CustLedgerEntry."Entry No.";
+                                        if (CreditAmortLine."Dimension Set ID" = 0) then
+                                            CreditAmortLine."Dimension Set ID" := CustLedgerEntry."Dimension Set ID";
+                                        if (CreditAmortLine."Cust Ledger Entry No." = 0) then
+                                            CreditAmortLine."Cust Ledger Entry No." := CustLedgerEntry."Entry No.";
 
-                                    CreditAmortLine.Closed := CreditAmortLine."Paid Amount" = CreditAmortLine."Monthly payment";
+                                        CreditAmortLine.Closed := CreditAmortLine."Paid Amount" = CreditAmortLine."Monthly payment";
 
-                                    if (CreditAmortLine."Monthly payment" = CreditAmortLine."Paid Amount") then begin
-                                        if (PayEntry.get(DetailledPaymentEntry."Cust. Ledger Entry No.")) then
-                                            CreditAmortLine."Payment Date" := PayEntry."Posting Date";
+                                        if (CreditAmortLine."Monthly payment" = CreditAmortLine."Paid Amount") then begin
+                                            if (PayEntry.get(DetailledPaymentEntry."Cust. Ledger Entry No.")) then
+                                                CreditAmortLine."Payment Date" := PayEntry."Posting Date";
+                                        end;
+
+                                        if (CreditAmortLine."Customer No." = '') then
+                                            CreditAmortLine."Customer No." := CustLedgerEntry."Customer No.";
+
+                                        CreditAmortLine.Modify();
+
                                     end;
 
-                                    CreditAmortLine.Modify();
-
-                                end;
-
-                            until CreditAmortLine.Next() < 1;
-                    //
+                                until CreditAmortLine.Next() < 1;
+                        end;
                     until DetailledPaymentEntry.Next() < 1;
             end;
 
