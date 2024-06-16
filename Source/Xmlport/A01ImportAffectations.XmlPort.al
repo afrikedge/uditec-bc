@@ -39,7 +39,6 @@ xmlport 50000 "A01 Import Affectations"
                     Affectation.Validate("Required action", ImportDocument."IntValue");
                     Affectation.Insert(true);
                 end;
-
             }
         }
     }

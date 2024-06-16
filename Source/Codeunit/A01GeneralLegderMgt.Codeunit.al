@@ -36,8 +36,13 @@ codeunit 50018 "A01 General Legder Mgt"
     var
         CashboxClosingLine: Record "A01 Cashbox closing Line";
         RespCenter: Record "Responsibility Center";
+        UserSetup: Record "User Setup";
         Err001: Label 'You cannot validate this operation on this date. There is a cash closing validated on the %1 for this point of sale.', Comment = '%1=date';
     begin
+
+        UserSetup.get(UserId);
+        if (UserSetup."A01 Can Bypass Closed Period") then exit;
+
         CustSettlement.TestField("Responsibility Center");
         CustSettlement.TestField("Posting Date");
         RespCenter.Get(CustSettlement."Responsibility Center");

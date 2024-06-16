@@ -17,7 +17,7 @@ codeunit 50013 "A01 Customer Settlement Post"
 
         OnAfterOnRun(Rec, PostedCustSettlement);
 
-        if PreviewMode Then
+        if PreviewMode then
             GenJnlPostPreview.ThrowError();
 
         if (PrintPostedDoc) then begin

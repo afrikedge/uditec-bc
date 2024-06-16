@@ -31,7 +31,7 @@ table 50025 "A01 Deadline Assignment"
                 Cust: Record "Customer";
             begin
                 if (Cust.Get("Customer No.")) then begin
-                    "Due status" := CalcCustStatus(Cust."No.");
+                    "Due status" := Cust.CalcCustStatus();
                     CheckAndModifyCustExistingAssigments();
                 end;
 
@@ -150,7 +150,7 @@ table 50025 "A01 Deadline Assignment"
     var
         AddOnSetup: Record "A01 Afk Setup";
         NoSeriesManagement: Codeunit NoSeriesManagement;
-        TresoMgt: Codeunit "A01 Treso Mgt";
+
 
 
     trigger OnInsert()
@@ -175,40 +175,7 @@ table 50025 "A01 Deadline Assignment"
         "Assigned on" := Today;
     end;
 
-    local procedure CalcCustStatus(CustNo: Code[20]): Code[20]
-    var
-        Cust: Record Customer;
-        CustDebtStatus: Record "A01 Customer Debt Status";
-        CustLedgerEntry: Record "Cust. Ledger Entry";
-        DueDays: Integer;
-        MaxDueDays: Integer;
-        RiskOfMaxDueDate: Code[20];
-    begin
-        if (Cust.Get(CustNo)) then begin
-            CustDebtStatus.SetRange("Risk Level", Cust."A01 Risk Level");
-            if (CustDebtStatus.FindFirst()) then
-                exit(CustDebtStatus.Code);
-        end;
 
-        MaxDueDays := 0;
-        RiskOfMaxDueDate := '';
-        CustLedgerEntry.Reset();
-        CustLedgerEntry.SetCurrentKey("Customer No.", Open, Positive, "Due Date", "Currency Code");
-        CustLedgerEntry.SetRange("Customer No.", CustNo);
-        CustLedgerEntry.SetRange(Open, true);
-        CustLedgerEntry.SetRange(Positive, true);
-        if CustLedgerEntry.FindSet() then
-            repeat
-                DueDays := TresoMgt.GetDueDays(CustLedgerEntry);
-                if (DueDays >= MaxDueDays) then begin
-                    RiskOfMaxDueDate := GetRiskLevel(DueDays);
-                    MaxDueDays := DueDays;
-                end;
-            until CustLedgerEntry.Next() < 1;
-
-        exit(RiskOfMaxDueDate);
-
-    end;
 
     local procedure CheckAndModifyCustExistingAssigments()
     var
@@ -227,17 +194,7 @@ table 50025 "A01 Deadline Assignment"
 
     end;
 
-    local procedure GetRiskLevel(DueDays: Integer): Code[20]
-    var
-        CustDebtStatus: Record "A01 Customer Debt Status";
-    begin
-        CustDebtStatus.Reset();
-        CustDebtStatus.SetFilter("Minimum (Days)", '<%1', DueDays);
-        CustDebtStatus.SetFilter("Minimum (Days)", '>=%1', DueDays);
-        CustDebtStatus.SetRange("Risk Level", '');
-        if (CustDebtStatus.FindFirst()) then
-            exit(CustDebtStatus.Code);
-    end;
+
 
     // local procedure CalcRiskLevel(CustLedgerEntry: Record "Cust. Ledger Entry"): Code[20]
     // var

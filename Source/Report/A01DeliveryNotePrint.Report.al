@@ -167,7 +167,7 @@ report 50003 "A01 DeliveryNotePrint"
             // }
             dataitem(Line; "Sales Shipment Line")
             {
-                DataItemTableView = sorting("Document No.", "Line No.") where(Type = filter(2));
+                DataItemTableView = sorting("Document No.", "Line No.");
                 DataItemLinkReference = Header;
                 DataItemLink = "Document No." = field("No.");
                 column(LineNo_Line; "Line No.")
@@ -219,14 +219,16 @@ report 50003 "A01 DeliveryNotePrint"
                     else
                         OptionType := 0;
 
+                    // if "No." = 'MIR_FEES' then
+                    //     CurrReport.Skip();
+                    // if "No." = 'mir_fees' then
+                    //     CurrReport.Skip();
+                    // if "No." = 'MIR_INTEREST' then
+                    //     CurrReport.Skip();
+                    // if "No." = 'mir_interest' then
+                    //     CurrReport.Skip();
 
-                    if "No." = 'MIR_FEES' then
-                        CurrReport.Skip();
-                    if "No." = 'mir_fees' then
-                        CurrReport.Skip();
-                    if "No." = 'MIR_INTEREST' then
-                        CurrReport.Skip();
-                    if "No." = 'mir_interest' then
+                    if Type = Type::"G/L Account" then
                         CurrReport.Skip();
                 end;
             }

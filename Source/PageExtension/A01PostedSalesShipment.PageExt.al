@@ -26,6 +26,20 @@ pageextension 50024 "A01 Posted Sales Shipment" extends "Posted Sales Shipment"
                     Report.Run(50009, true, false, SalesShipmentRec);
                 end;
             }
+            action("A01 Undeclared BL/Invoice")
+            {
+                ApplicationArea = All;
+                Image = PrintForm;
+                Caption = 'Print the undeclared BL/Invoice';
+                trigger OnAction()
+                var
+                    SalesShipmentRec: Record "Sales Shipment Header";
+                begin
+                    SalesShipmentRec.SetRange("No.", Rec."No.");
+                    SalesShipmentRec.SetRange("Sell-to Customer No.", Rec."Sell-to Customer No.");
+                    Report.Run(50034, true, false, SalesShipmentRec);
+                end;
+            }
         }
     }
 }

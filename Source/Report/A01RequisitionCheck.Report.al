@@ -38,12 +38,12 @@ report 50033 "A01 RequisitionCheck"
             column(External_Document_No_; "External Document No.")
             {
             }
-            column(Posting_Date; Format("Posting Date"))
+            column(Posting_Date; Format("Posting Date", 0, 4))
             {
             }
-            // column(PrintDate; Today(0, 4))
-            // {
-            // }
+            column(PrintDate; Format(Today, 0, 4))
+            {
+            }
             column(Description; Description)
             {
             }
@@ -118,6 +118,21 @@ report 50033 "A01 RequisitionCheck"
             column(BenName; BenName)
             {
             }
+            column(VendAddress; VendAddress)
+            {
+            }
+            column(DocumentDate; DocumentDate)
+            {
+            }
+            column(CredAmount; CredAmount)
+            {
+            }
+            column(CredAmount_Txt; CredAmount_Txt)
+            {
+            }
+            column(VatTxt; VatTxt)
+            {
+            }
             column(BenAddress; BenAddress)
             {
             }
@@ -133,28 +148,52 @@ report 50033 "A01 RequisitionCheck"
             column(AmountInc_LCY; AmountInc_LCY)
             {
             }
+            dataitem("Vendor Ledger Entry"; "Vendor Ledger Entry")
+            {
+                DataItemLinkReference = Line;
+                DataItemTableView = sorting("Entry No.");
+                DataItemLink = "Applies-to ID" = field("Document No."), "Vendor No." = field("Account No.");
+                column(PostingDate; Format("Posting Date"))
+                {
+                }
+                column(Amount_to_Apply; Format(-"Amount to Apply"))
+                {
+                }
+                column(Document_No; "Document No.")
+                {
+                }
+
+            }
             trigger OnAfterGetRecord()
             begin
                 if OptionValue = OptionValue::LogoCosmos then
-                    OptionType := 0
+                    OptionType := 1
                 else
-                    OptionType := 1;
+                    OptionType := 0;
 
                 if VendorRec.Get(Line."Account No.") then begin
                     BenName := VendorRec.Name;
-                    BenAddress := VendorRec.Address;
+                    VendAddress := VendorRec.Address;
                 end;
 
-                if VendorBanckAccRec.Get(Line."Account No.", Line."Recipient Bank Account") then begin
-                    Bank := VendorBanckAccRec.Name;
-                    AccountNo := VendorBanckAccRec."Bank Branch No." + ' ' + VendorBanckAccRec."Agency Code" + ' ' + VendorBanckAccRec."Bank Account No." + ' ' + Format(VendorBanckAccRec."RIB Key");
-                end;
+                VatVallue := CurrencyExchangeRate.ExchangeAmtFCYToLCY(Line."Posting Date",
+                                    Line."Currency Code", VatVallue, Line."Currency Factor");
+                VatVallue := "VAT Amount";
+                // VatVallue := ROUND(AmountInc_LCY, AfkLocalCurrency."Amount Rounding Precision");
+                VatTxt := Format(VatVallue, 0, AutoFormat.ResolveAutoFormat("Auto Format"::AmountFormat, AfkLocalCurrency.Code));
+                VatTxt := Format(VatVallue);
 
-                if BankAccRec.Get(Line."Bal. Account No.") then begin
-                    BankName := BankAccRec.Name;
-                    BankAddress := BankAccRec.Address;
-                    BankAccountNo := BankAccRec."Bank Branch No." + ' ' + BankAccRec."Agency Code" + ' ' + BankAccRec."Bank Account No." + ' ' + Format(BankAccRec."RIB Key");
+                if VendorLedgEnt.Get(Line."Account No.") then begin
+                    DocumentDate := VendorLedgEnt."Posting Date";
+                    CredAmount := VendorLedgEnt."Credit Amount";
                 end;
+                CredAmount := CurrencyExchangeRate.ExchangeAmtFCYToLCY(Line."Posting Date",
+                               Line."Currency Code", CredAmount, Line."Currency Factor");
+                CredAmount := "Credit Amount";
+                // CredAmount := ROUND(CredAmount, AfkLocalCurrency."Amount Rounding Precision");
+                CredAmount_Txt := Format(CredAmount, 0, AutoFormat.ResolveAutoFormat("Auto Format"::AmountFormat, AfkLocalCurrency.Code));
+                CredAmount_Txt := Format(CredAmount_Txt);
+
 
                 GLSetup.Get();
                 GLSetup.TestField("LCY Code");
@@ -179,8 +218,8 @@ report 50033 "A01 RequisitionCheck"
 
                 AmountInc_LCY := CurrencyExchangeRate.ExchangeAmtFCYToLCY(Line."Posting Date",
                                     Line."Currency Code", AmountInc_LCY, Line."Currency Factor");
-                AmountInc_LCY := "Amount (LCY)";
-                AmountInc_LCY := ROUND(AmountInc_LCY, AfkLocalCurrency."Amount Rounding Precision");
+                AmountInc_LCY := "Debit Amount";
+                // AmountInc_LCY := ROUND(AmountInc_LCY, AfkLocalCurrency."Amount Rounding Precision");
                 AmountIn_LCYText := Format(AmountInc_LCY, 0, AutoFormat.ResolveAutoFormat("Auto Format"::AmountFormat, AfkLocalCurrency.Code));
                 AmountIn_LCYText := Format(AmountInc_LCY);
 
@@ -235,19 +274,25 @@ report 50033 "A01 RequisitionCheck"
     var
         CompanyInfo: Record "Company Information";
         VendorRec: Record Vendor;
+        VendorLedgEnt: Record "Vendor Ledger Entry";
         GLSetup: Record "General Ledger Setup";
         RespCenterUditec: Record "Responsibility Center";
         CurrencyExchangeRate: Record "Currency Exchange Rate";
-        VendorBanckAccRec: Record "Vendor Bank Account";
-        BankAccRec: Record "Bank Account";
+        // VendorBanckAccRec: Record "Vendor Bank Account";
+        // BankAccRec: Record "Bank Account";
         // LocalCurrency: Record Currency;
         AfkCurrency: Record Currency;
         AfkLocalCurrency: Record Currency;
         RepCheck: Report Check;
         AutoFormat: Codeunit "Auto Format";
-        OptionValue: Option LogoCosmos,LogoUditec;
+        OptionValue: Option LogoUditec,LogoCosmos;
         OptionType: Integer;
         AmountInc_LCY: Decimal;
+        VatVallue: Decimal;
+        VatTxt: Text[50];
+        CredAmount: Decimal;
+        CredAmount_Txt: Text[50];
+        DocumentDate: Date;
         CalculatedExchRate: Decimal;
         ExchangeRateText: Text;
         ExchangeRateTxt: Label 'Exchange rate: %1/%2', Comment = '%1 and %2 are both amounts.';
@@ -258,12 +303,12 @@ report 50033 "A01 RequisitionCheck"
         AmountInWords: Text;
         AfkCurrencyName: Text;
         BenAddress: Text[100];
-        BankName: Text[100];
-        BankAddress: Text[100];
+        VendAddress: Text[100];
+        // BankAddress: Text[100];
         BenName: Text[100];
-        Bank: Text[100];
-        AccountNo: Text;
-        BankAccountNo: Text;
+        // Bank: Text[100];
+        // AccountNo: Text;
+        // BankAccountNo: Text;
         PurchaseInvoiceLbl: Label 'Purchase Invoice';
         SupplierInvoiceLbl: Label 'Supplier Invoice';
         DocumentDateLbl: Label 'Document Date';

@@ -1,14 +1,14 @@
 /// <summary>
-/// Report A01 Delivery Note Invoice Print (ID 50009).
+/// Report A01 Delivery Note Invoice (ID 50034).
 /// </summary>
-report 50009 "A01 DeliveryNoteInvoicePrint"
+report 50034 "A01 DeliveryNoteInvoiceTxt"
 {
     UsageCategory = ReportsAndAnalysis;
     ApplicationArea = All;
-    Caption = 'Delivery Note Invoice Print';
+    Caption = 'Delivery Note Invoice';
     PreviewMode = PrintLayout;
     DefaultLayout = RDLC;
-    RDLCLayout = './Source/Report/Layout/DeliveryNoteInvoicePrint.rdl';
+    RDLCLayout = './Source/Report/Layout/DeliveryNoteInvoiceTxt.rdl';
 
     dataset
     {
@@ -420,16 +420,16 @@ report 50009 "A01 DeliveryNoteInvoicePrint"
         {
             area(Content)
             {
-                group(groupName)
-                {
-                    Caption = 'Option';
-                    field(OptionVal; OptionValue)
-                    {
-                        Caption = 'Logo';
-                        OptionCaption = 'Cosmos, Uditec';
-                        ApplicationArea = Basic, Suite;
-                    }
-                }
+                // group(groupName)
+                // {
+                //     Caption = 'Option';
+                //     field(OptionVal; OptionValue)
+                //     {
+                //         Caption = 'Logo';
+                //         OptionCaption = 'Cosmos, Uditec';
+                //         ApplicationArea = Basic, Suite;
+                //     }
+                // }
             }
         }
 
@@ -500,7 +500,7 @@ report 50009 "A01 DeliveryNoteInvoicePrint"
         CustAddress: Text[100];
         CustIdentity: Text[100];
         CustPhone: Text[30];
-        ReportTitleLbl: Label 'DELIVERY NOTE / INVOICE';
+        ReportTitleLbl: Label 'DELIVERY NOTE ';
         UnitNameLbl: Label 'Unit name:';
         UnitAddressLbl: Label 'Unit address:';
         UnitCityLbl: Label 'City';
@@ -522,9 +522,9 @@ report 50009 "A01 DeliveryNoteInvoicePrint"
         DesignationLbl: Label 'Designation';
         A01TotalHT__Caption: Label 'Total HT';
         DiscountPercent__Caption: Label 'Discount';
-        A01UnitPrice__Caption: Label 'Unit price HT';
+        A01UnitPrice__Caption: Label 'Unit price TTC';
         A01TVA__Caption: Label 'VAT(20%)';
-        A01LineDiscountedPrice__Caption: Label 'Discounted price';
+        A01LineDiscountedPrice__Caption: Label 'Discounted price TTC';
         A01TotalTTC__Caption: Label 'Total TTC';
         A01Qty__Caption: Label 'Qty';
         ArrestedOfSum__Caption: Label 'Arrested at the sum of :';

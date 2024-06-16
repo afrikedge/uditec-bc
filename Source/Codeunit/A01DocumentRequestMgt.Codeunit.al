@@ -263,20 +263,20 @@ codeunit 50016 "A01 Document Request Mgt"
         end;
     end;
 
+    // local procedure GetMaxAllowedDiscount(): Decimal
+    // var
+    //     userGroup: Record "User Group Member";
+    //     group: Record "User Group";
+    // begin
+
+    //     userGroup.SetRange("User Name", UserId);
+    //     if (userGroup.FindLast()) then begin
+    //         group.get(userGroup."User Group Code");
+    //         exit(group."A01 Max Discount Allowed %");
+    //     end;
+    // end;
+
     local procedure GetMaxAllowedDiscount(): Decimal
-    var
-        userGroup: Record "User Group Member";
-        group: Record "User Group";
-    begin
-
-        userGroup.SetRange("User Name", UserId);
-        if (userGroup.FindLast()) then begin
-            group.get(userGroup."User Group Code");
-            exit(group."A01 Max Discount Allowed %");
-        end;
-    end;
-
-    local procedure GetMaxAllowedDiscountForUser(): Decimal
     var
         userSetup: Record "User Setup";
         DiscountLimit: Record "A01 Parameter Record";

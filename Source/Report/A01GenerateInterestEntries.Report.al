@@ -181,7 +181,8 @@ report 50019 "A01 Generate Interest Entries"
         GLAccNo := GetRealisedInterestAcc();
         GenJrnLine.Validate("Bal. Account No.", GLAccNo);
 
-        GenJrnLine.Validate("Dimension Set ID", CreditDueLine."Dimension Set ID");
+        if (CreditDueLine."Dimension Set ID" > 0) then
+            GenJrnLine.Validate("Dimension Set ID", CreditDueLine."Dimension Set ID");
 
         IF GenJrnLine.Amount <> 0 THEN begin
             GenJrnLine.Insert(true);

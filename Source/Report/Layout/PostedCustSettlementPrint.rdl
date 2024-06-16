@@ -2720,7 +2720,7 @@
                                                   <Width>2.5255cm</Width>
                                                 </TablixColumn>
                                                 <TablixColumn>
-                                                  <Width>8.16418cm</Width>
+                                                  <Width>8.3334cm</Width>
                                                 </TablixColumn>
                                               </TablixColumns>
                                               <TablixRows>
@@ -4019,7 +4019,7 @@
                                             <Top>0.10088cm</Top>
                                             <Left>14.46952cm</Left>
                                             <Height>3.69657cm</Height>
-                                            <Width>13.95526cm</Width>
+                                            <Width>14.12448cm</Width>
                                             <ZIndex>6</ZIndex>
                                             <Style>
                                               <Border>
@@ -5370,7 +5370,6 @@
                                           </Border>
                                         </Style>
                                       </Rectangle>
-                                      <rd:Selected>true</rd:Selected>
                                     </CellContents>
                                   </TablixCell>
                                 </TablixCells>
@@ -5429,10 +5428,10 @@
         <Height>13.03528cm</Height>
         <Style />
       </Body>
-      <Width>28.64088cm</Width>
+      <Width>28.64357cm</Width>
       <Page>
         <PageHeader>
-          <Height>1.70672cm</Height>
+          <Height>1.71167cm</Height>
           <PrintOnFirstPage>true</PrintOnFirstPage>
           <PrintOnLastPage>true</PrintOnLastPage>
           <ReportItems>
@@ -5441,10 +5440,13 @@
               <Value>=Fields!CompanyPicture.Value</Value>
               <MIMEType>image/jpeg</MIMEType>
               <Sizing>FitProportional</Sizing>
-              <Top>0.03528cm</Top>
+              <Top>0.04023cm</Top>
               <Left>0.00001cm</Left>
               <Height>1.64111cm</Height>
-              <Width>3.98708cm</Width>
+              <Width>3.41043cm</Width>
+              <Visibility>
+                <Hidden>=IIf(First(Fields!OptionType.Value, "DataSet_Result") = 0, True, False)</Hidden>
+              </Visibility>
               <Style>
                 <Border>
                   <Style>None</Style>
@@ -5471,10 +5473,10 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox6</rd:DefaultName>
-              <Top>0.03528cm</Top>
-              <Left>5.00181cm</Left>
+              <Top>0.04023cm</Top>
+              <Left>8.40612cm</Left>
               <Height>0.72347cm</Height>
-              <Width>7.27067cm</Width>
+              <Width>5.31275cm</Width>
               <ZIndex>1</ZIndex>
               <Style>
                 <Border>
@@ -5491,27 +5493,20 @@
               <Value>=Fields!CompanyPicture.Value</Value>
               <MIMEType>image/jpeg</MIMEType>
               <Sizing>FitProportional</Sizing>
-              <Left>14.51637cm</Left>
+              <Top>0.00495cm</Top>
+              <Left>17.6891cm</Left>
               <Height>1.64111cm</Height>
-              <Width>3.98708cm</Width>
+              <Width>3.00474cm</Width>
               <ZIndex>2</ZIndex>
+              <Visibility>
+                <Hidden>=IIf(First(Fields!OptionType.Value, "DataSet_Result") = 0, True, False)</Hidden>
+              </Visibility>
               <Style>
                 <Border>
                   <Style>None</Style>
                 </Border>
               </Style>
             </Image>
-            <Line Name="Line2">
-              <Left>14.30095cm</Left>
-              <Height>1.70672cm</Height>
-              <Width>0cm</Width>
-              <ZIndex>3</ZIndex>
-              <Style>
-                <Border>
-                  <Style>Solid</Style>
-                </Border>
-              </Style>
-            </Line>
             <Textbox Name="Textbox7">
               <CanGrow>true</CanGrow>
               <KeepTogether>true</KeepTogether>
@@ -5527,16 +5522,16 @@
                     </TextRun>
                   </TextRuns>
                   <Style>
-                    <TextAlign>Center</TextAlign>
+                    <TextAlign>Right</TextAlign>
                   </Style>
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox6</rd:DefaultName>
-              <Top>0.03528cm</Top>
-              <Left>19.07368cm</Left>
+              <Top>0.04023cm</Top>
+              <Left>23.80441cm</Left>
               <Height>0.72347cm</Height>
-              <Width>7.27067cm</Width>
-              <ZIndex>4</ZIndex>
+              <Width>4.83916cm</Width>
+              <ZIndex>3</ZIndex>
               <Style>
                 <Border>
                   <Style>None</Style>
@@ -5547,6 +5542,43 @@
                 <PaddingBottom>2pt</PaddingBottom>
               </Style>
             </Textbox>
+            <Image Name="Image5">
+              <Source>Database</Source>
+              <Value>=First(Fields!RespCenterUditec.Value, "DataSet_Result")</Value>
+              <MIMEType>image/jpeg</MIMEType>
+              <Sizing>FitProportional</Sizing>
+              <Top>0.03775cm</Top>
+              <Left>3.51628cm</Left>
+              <Height>1.64111cm</Height>
+              <Width>3.41043cm</Width>
+              <ZIndex>4</ZIndex>
+              <Visibility>
+                <Hidden>=IIf(First(Fields!OptionType.Value, "DataSet_Result") = 1, True, False)</Hidden>
+              </Visibility>
+              <Style>
+                <Border>
+                  <Style>None</Style>
+                </Border>
+              </Style>
+            </Image>
+            <Image Name="Image6">
+              <Source>Database</Source>
+              <Value>=First(Fields!RespCenterUditec.Value, "DataSet_Result")</Value>
+              <MIMEType>image/jpeg</MIMEType>
+              <Sizing>FitProportional</Sizing>
+              <Left>20.72911cm</Left>
+              <Height>1.64111cm</Height>
+              <Width>3.00474cm</Width>
+              <ZIndex>5</ZIndex>
+              <Visibility>
+                <Hidden>=IIf(First(Fields!OptionType.Value, "DataSet_Result") = 1, True, False)</Hidden>
+              </Visibility>
+              <Style>
+                <Border>
+                  <Style>None</Style>
+                </Border>
+              </Style>
+            </Image>
           </ReportItems>
           <Style>
             <Border>
@@ -5998,6 +6030,15 @@ AAAAAAAAAECjsYAGAAAAAAAAAAAAAAAAjcYCGgAAAAAAAAAAAAAAADQaC2gAAAAAAAAAAAAAAADQaCyg
         </Field>
         <Field Name="LyneType">
           <DataField>LyneType</DataField>
+        </Field>
+        <Field Name="LogoOption">
+          <DataField>LogoOption</DataField>
+        </Field>
+        <Field Name="RespCenterUditec">
+          <DataField>RespCenterUditec</DataField>
+        </Field>
+        <Field Name="OptionType">
+          <DataField>OptionType</DataField>
         </Field>
         <Field Name="Document_No_">
           <DataField>Document_No_</DataField>

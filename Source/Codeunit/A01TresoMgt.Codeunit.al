@@ -155,6 +155,7 @@ codeunit 50007 "A01 Treso Mgt"
           or (GenJnlLine."A01 Payment Doc Type" = GenJnlLine."A01 Payment Doc Type"::"Deferred Check")) then
             GenJnlLine.TESTFIELD("A01 Check No.");
 
+
         PaymentLine."Drawee Reference" := CopyStr(GenJnlLine."A01 Check No.", 1, 10);
         PaymentLine."Due Date" := GenJnlLine."Due Date";
 
@@ -296,7 +297,7 @@ codeunit 50007 "A01 Treso Mgt"
         //   or (GenJnlLine."A01 Payment Doc Type" = GenJnlLine."A01 Payment Doc Type"::"Bank Draft")
         //   or (GenJnlLine."A01 Payment Doc Type" = GenJnlLine."A01 Payment Doc Type"::"Deferred Check")) then
         //     GenJnlLine.TESTFIELD("A01 Check No.");
-
+        PaymentLine."A01 Payment Reference" := StrSubstNo(SalesPaymentLine.Reference, 1, 30);
         PaymentLine."Drawee Reference" := CopyStr(PaymentHeader."A01 Check No.", 1, 10);
         PaymentLine."Due Date" := SalesHeader."Due Date";
 
@@ -352,6 +353,7 @@ codeunit 50007 "A01 Treso Mgt"
         PaymentHeader."A01 Payment Method" := CustSettlementLine."Payment Method";
         CustSettlement.Testfield("Responsibility Center");
         PaymentHeader."A01 Responsibility Center" := CustSettlement."Responsibility Center";
+        PaymentHeader."Dimension Set ID" := CustSettlement."Dimension Set ID";
 
 
 
@@ -388,9 +390,10 @@ codeunit 50007 "A01 Treso Mgt"
         //     GenJnlLine.TESTFIELD("A01 Check No.");
 
         PaymentLine."Drawee Reference" := CopyStr(PaymentHeader."A01 Check No.", 1, 10);
+        PaymentLine."A01 Payment Reference" := CustSettlementLine.Reference;
         //PaymentLine."Due Date" := CustSettlement."Due Date";
 
-        PaymentLine."Dimension Set ID" := CustSettlementLine."Dimension Set ID";
+        PaymentLine."Dimension Set ID" := CustSettlement."Dimension Set ID";
         PaymentLine.Modify();
 
     end;
@@ -843,6 +846,7 @@ codeunit 50007 "A01 Treso Mgt"
             CreditDueLineNew."Cust Ledger Entry No." := CustLedgEntry."Entry No.";
             CreditDueLineNew."Dimension Set ID" := SalesHeader."Dimension Set ID";
             CreditDueLineNew."Document Type" := CreditDueLine."Document Type"::"Posted Sales invoice";
+            CreditDueLineNew."Customer No." := CustLedgEntry."Customer No.";
             CreditDueLineNew."Order No." := SalesHeader."No.";
             CreditDueLineNew."Document No." := DocNo;
 
@@ -974,12 +978,12 @@ codeunit 50007 "A01 Treso Mgt"
     var
     begin
         if (CustLedgerEntry."Closed at Date" <> 0D) then
-            exit(Days(CustLedgerEntry."Due Date", CustLedgerEntry."Closed at Date"))
+            exit(NosDays(CustLedgerEntry."Due Date", CustLedgerEntry."Closed at Date"))
         else
-            exit(Days(CustLedgerEntry."Due Date", Today));
+            exit(NosDays(CustLedgerEntry."Due Date", Today));
     end;
 
-    local procedure Days(Day1: Date; Day2: Date): Integer
+    procedure NosDays(Day1: Date; Day2: Date): Integer
     var
     begin
         if Day1 > Day2 then

@@ -189,6 +189,8 @@ codeunit 50005 "A01 WS QuotesMgt"
         processCustScoringLines(SalesQuote, input);
         processCustomerRequirements(SalesQuote, input);
 
+        processSaleQuoteApprovalFlows(SalesQuote, input);
+
         exit(Ws.CreateResponseSuccess(SalesQuote."No."));
 
     end;
@@ -906,6 +908,74 @@ codeunit 50005 "A01 WS QuotesMgt"
 
         if (CustScoring."Modified By" <> WS.GetText('Updated by', input)) then
             CustScoring."Modified By" := CopyStr(WS.GetText('Updated by', input), 1, 50);
+
+    end;
+
+    local procedure processSaleQuoteApprovalFlows(SalesQuote: Record "Sales Header"; input: JsonObject)
+    var
+        ApprovalFlow: Record "A01 Approval Flow";
+        c: JsonToken;
+        LinesArray: JsonArray;
+        LineInput: JsonObject;
+    begin
+
+        ApprovalFlow.Reset();
+        ApprovalFlow.SetRange("Document Type", ApprovalFlow."Document Type"::Quote);
+        ApprovalFlow.SetRange("Document No.", SalesQuote."No.");
+        if (not ApprovalFlow.IsEmpty) then
+            ApprovalFlow.DeleteAll();
+
+
+        input.Get('saleQuoteApprovalFlow', c);
+        LinesArray := c.AsArray();
+        foreach c in LinesArray do begin
+            LineInput := c.AsObject();
+            AddSaleQuoteApprovalFlow(LineInput);
+        end;
+    end;
+
+    local procedure AddSaleQuoteApprovalFlow(input: JsonObject)
+    var
+        ApprFlow: Record "A01 Approval Flow";
+    begin
+        ApprFlow.Init();
+        processSaleQuoteApprovalFlow(ApprFlow, input);
+        ApprFlow.Insert();
+    end;
+
+    local procedure processSaleQuoteApprovalFlow(var ApprFlow: Record "A01 Approval Flow"; input: JsonObject)
+    var
+    begin
+
+        if (ApprFlow."Document Type".AsInteger() <> WS.GetInt('Document Type', input)) then
+            ApprFlow.Validate("Document Type", WS.GetInt('Document Type', input));
+
+        if (ApprFlow."Document No." <> WS.GetText('Document No_', input)) then
+            ApprFlow.Validate("Document No.", WS.GetText('Document No_', input));
+
+        if (ApprFlow."Sequence No." <> WS.GetInt('Approval Sequence', input)) then
+            ApprFlow.Validate("Sequence No.", WS.GetInt('Approval Sequence', input));
+
+        if (ApprFlow.Method.AsInteger() <> WS.GetInt('Approval Mode', input)) then
+            ApprFlow.Validate("Method", WS.GetInt('Approval Mode', input));
+
+        if (ApprFlow."Approved On" <> WS.GetDatetime('Approved On', input)) then
+            ApprFlow.Validate("Approved On", WS.GetDatetime('Approved On', input));
+
+        if (ApprFlow."Approved By" <> WS.GetText('Approved by', input)) then
+            ApprFlow.Validate("Approved By", WS.GetText('Approved by', input));
+
+        if (ApprFlow."Approved As" <> WS.GetText('Approved as', input)) then
+            ApprFlow.Validate("Approved As", WS.GetText('Approved as', input));
+
+        if (ApprFlow."Actual Status".AsInteger() <> WS.GetInt('Actual Status', input)) then
+            ApprFlow.Validate("Actual Status", WS.GetInt('Actual Status', input));
+
+        if (ApprFlow."Next Status".AsInteger() <> WS.GetInt('Next Status', input)) then
+            ApprFlow.Validate("Next Status", WS.GetInt('Next Status', input));
+
+        if (ApprFlow.Comments <> WS.GetText('Comments', input)) then
+            ApprFlow.Validate("Comments", WS.GetText('Comments', input));
 
     end;
 

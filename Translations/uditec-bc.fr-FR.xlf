@@ -693,11 +693,23 @@
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Table A01 Credit Depreciation Table - Field Calculation factor - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Table 2925814558 - Field 1778072510 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Closed</source>
+          <target state="needs-review-translation">Clôturé</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Table A01 Credit Depreciation Table - Field Closed - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Table 2925814558 - Field 1990811465 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Cust Ledger Entry No.</source>
           <target state="needs-review-translation">N° écriture client</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Table A01 Credit Depreciation Table - Field Cust Ledger Entry No. - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2925814558 - Field 4190130733 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Customer No.</source>
+          <target state="needs-review-translation">N° Client</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Table A01 Credit Depreciation Table - Field Customer No. - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 2925814558 - Field 267022291 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Depreciation</source>
@@ -782,6 +794,12 @@
           <target state="needs-review-translation">Solde règlement</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Table A01 Credit Depreciation Table - Field Payment balance - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2925814558 - Field 3724343034 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Payment Date</source>
+          <target state="needs-review-translation">Date paiement</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Table A01 Credit Depreciation Table - Field Payment Date - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 2925814558 - Field 1786097247 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Quote No.</source>
@@ -4636,6 +4654,13 @@
           <target state="needs-review-translation">JsonResponse</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Page A01 Afk Setup - Control TestApiJsonResponse - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2685203037 - Action 174769924 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Run custom process</source>
+          <target state="needs-review-translation">
+          </target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Page A01 Afk Setup - Action CustomProcess - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 2685203037 - Action 3622942983 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Import entries for application</source>
@@ -18858,6 +18883,25 @@
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Report A01 WarehouseShipOrderPrint - ReportDataItem Header - Method OnAfterGetRecord - NamedType LabErrorNosPrinted</note>
         </trans-unit>
+        <trans-unit id="Report 588798876 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Custom process</source>
+          <target state="needs-review-translation">
+          </target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01CustomProcess - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 588798876 - NamedType 2794159015" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Processing @1@@@@@@@@@@@@@@@@@@@@@@@@@@@@\</source>
+          <target state="needs-review-translation">Processing @1@@@@@@@@@@@@@@@@@@@@@@@@@@@@\</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01CustomProcess - NamedType LblErr002</note>
+        </trans-unit>
+        <trans-unit id="Report 588798876 - NamedType 3431855632" size-unit="char" translate="yes" xml:space="preserve">
+          <source>End of process !</source>
+          <target state="needs-review-translation">Fin du traitement</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01CustomProcess - NamedType LblErr003</note>
+        </trans-unit>
         <trans-unit id="XmlPort 1431037900 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Import Affectations</source>
           <target state="needs-review-translation">Import des affectations</target>
@@ -19603,11 +19647,11 @@
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension A01 Bank Account - Field A01 Bank Account Type - Property Caption</note>
         </trans-unit>
-        <trans-unit id="TableExtension 1742308649 - Field 293572831 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1682139193">
-          <source>Beneficiairy Name</source>
-          <target state="needs-review-translation">Nom du bénéficiaire</target>
+        <trans-unit id="TableExtension 1990970658 - Field 4019533859 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1815808370">
+          <source>A01 Payment Reference</source>
+          <target state="needs-review-translation">Référence</target>
           <note from="Developer" annotates="general" priority="2"/>
-          <note from="Xliff Generator" annotates="general" priority="3">TableExtension A01 Bank Account - Field A01 Beneficiairy Name - Property Caption</note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension A01 Bank Account Ledger Entry - Field A01 Payment Reference - Property Caption</note>
         </trans-unit>
         <trans-unit id="TableExtension 2689845239 - Field 3629772320 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 400793991">
           <source>Unit of Measure Code</source>
@@ -19813,6 +19857,12 @@
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension A01 Customer - Field A01 Allowed Item Category - Property Caption</note>
         </trans-unit>
+        <trans-unit id="TableExtension 1245960848 - Field 300818780 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1994964448">
+          <source>Calculated Risk Level</source>
+          <target state="needs-review-translation">Statut calculé</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension A01 Customer - Field A01 Calc Risk Level - Property Caption</note>
+        </trans-unit>
         <trans-unit id="TableExtension 1245960848 - Field 1382838568 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1994964448">
           <source>CIF</source>
           <target state="needs-review-translation">CIF</target>
@@ -19932,6 +19982,12 @@
           <target state="needs-review-translation">STAT</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension A01 Customer - Field A01 STAT - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 608259289 - Field 4060440353 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 235946633">
+          <source>CreditProcessed</source>
+          <target state="needs-review-translation">Traité</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension A01 Detailed Cust. Ledg. Entry - Field A01CreditProcessed - Property Caption</note>
         </trans-unit>
         <trans-unit id="TableExtension 1351648199 - Field 3262964910 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1806786327">
           <source>Check Date</source>
@@ -20245,6 +20301,18 @@
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension A01 Payment Header Archive - Field A01 Responsibility Center - Property Caption</note>
         </trans-unit>
+        <trans-unit id="TableExtension 1055922896 - Field 4019533859 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 3074347584">
+          <source>A01 Payment Reference</source>
+          <target state="needs-review-translation">Référence règlement</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension A01 Payment Line - Field A01 Payment Reference - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 3610689042 - Field 4019533859 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 2853644290">
+          <source>A01 Payment Reference</source>
+          <target state="needs-review-translation">Référence règlement</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension A01 Payment Line Archive - Field A01 Payment Reference - Property Caption</note>
+        </trans-unit>
         <trans-unit id="TableExtension 2932824535 - Field 1905212202 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 3566004263">
           <source>Approval required</source>
           <target state="needs-review-translation">Approbation obligatoire</target>
@@ -20430,6 +20498,12 @@
           <target state="needs-review-translation">Catégories d'articles</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension A01 Responsibility Center - Field A01 Nos of categories - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 3046274025 - Field 2250283331 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 2247850105">
+          <source>Price list change</source>
+          <target state="needs-review-translation">Modifier Tarifaire</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension A01 Responsibility Center - Field A01 Price list change - Property Caption</note>
         </trans-unit>
         <trans-unit id="TableExtension 3046274025 - Field 4252642159 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 2247850105">
           <source>Theme Color 1</source>
@@ -21277,6 +21351,12 @@
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension A01 User Group - Field A01 Max Discount Allowed % - Property Caption</note>
         </trans-unit>
+        <trans-unit id="TableExtension 4102593426 - Field 3396045403 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 337631938">
+          <source>Can post on cashbox after closing period</source>
+          <target state="needs-review-translation">Peut valider sur les caisse à une période clôturée</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension A01 User Setup - Field A01 Can Bypass Closed Period - Property Caption</note>
+        </trans-unit>
         <trans-unit id="TableExtension 4102593426 - Field 4203569464 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 337631938">
           <source>Can Cancel Sales Order</source>
           <target state="needs-review-translation">Peut annuler une commande client</target>
@@ -21366,6 +21446,12 @@
           <target state="needs-review-translation">STAT</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension A01 Vendor - Field A01 STAT - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 488255677 - Field 293572831 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 4231435149">
+          <source>Beneficiairy Name</source>
+          <target state="needs-review-translation">Nom du bénéficiaire</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension A01 Vendor Bank Account - Field A01 Beneficiairy Name - Property Caption</note>
         </trans-unit>
         <trans-unit id="Enum 4001540073 - EnumValue 3541228055 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>1st plan</source>

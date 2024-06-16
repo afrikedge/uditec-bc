@@ -55,5 +55,11 @@ tableextension 50003 "A01 Responsibility Center" extends "Responsibility Center"
             Caption = 'Control Payment on Invoices';
             DataClassification = CustomerContent;
         }
+        field(50009; "A01 Price list change"; Boolean)
+        {
+            Caption = 'Price list change';
+            DataClassification = CustomerContent;
+        }
+
     }
 }

@@ -24,6 +24,23 @@ pageextension 50009 "A01 Payment Slip" extends "Payment Slip"
                 ApplicationArea = Basic, Suite;
             }
         }
+        addafter("Shortcut Dimension 2 Code")
+        {
+            field(A01ShortcutDimCode3; ShortcutDimCode[3])
+            {
+                ApplicationArea = Dimensions;
+                CaptionClass = '1,2,3';
+                TableRelation = "Dimension Value".Code where("Global Dimension No." = const(3),
+                                                                  "Dimension Value Type" = const(Standard),
+                                                                  Blocked = const(false));
+                Visible = DimVisible3;
+
+                trigger OnValidate()
+                begin
+                    ValidateShortcutDimCode(3, ShortcutDimCode[3]);
+                end;
+            }
+        }
     }
     actions
     {
@@ -55,4 +72,67 @@ pageextension 50009 "A01 Payment Slip" extends "Payment Slip"
             end;
         }
     }
+    trigger OnAfterGetRecord()
+    var
+    begin
+        ShowShortcutDimCode(ShortcutDimCode);
+    end;
+
+    trigger OnNewRecord(BelowxRec: Boolean)
+    var
+    begin
+        Clear(ShortcutDimCode);
+    end;
+
+    trigger OnOpenPage()
+    var
+    begin
+        SetDimensionsVisibility();
+    end;
+
+    var
+        DimMgt: Codeunit DimensionManagement;
+        ShortcutDimCode: array[8] of Code[20];
+        DimVisible1: Boolean;
+        DimVisible2: Boolean;
+        DimVisible3: Boolean;
+        DimVisible4: Boolean;
+        DimVisible5: Boolean;
+        DimVisible6: Boolean;
+        DimVisible7: Boolean;
+        DimVisible8: Boolean;
+
+    procedure ValidateShortcutDimCode(FieldNumber: Integer; var ShortcutDimCode: Code[20])
+    begin
+        DimMgt.ValidateShortcutDimValues(FieldNumber, ShortcutDimCode, Rec."Dimension Set ID");
+    end;
+
+    procedure ItemNoOnAfterValidate();
+    begin
+        ShowShortcutDimCode(ShortcutDimCode);
+    end;
+
+    local procedure SetDimensionsVisibility()
+    var
+    //DimMgt: Codeunit DimensionManagement;
+    begin
+        DimVisible1 := false;
+        DimVisible2 := false;
+        DimVisible3 := false;
+        DimVisible4 := false;
+        DimVisible5 := false;
+        DimVisible6 := false;
+        DimVisible7 := false;
+        DimVisible8 := false;
+
+        DimMgt.UseShortcutDims(
+          DimVisible1, DimVisible2, DimVisible3, DimVisible4, DimVisible5, DimVisible6, DimVisible7, DimVisible8);
+
+        Clear(DimMgt);
+    end;
+
+    procedure ShowShortcutDimCode(var ShortcutDimCode: array[8] of Code[20])
+    begin
+        DimMgt.GetShortcutDimensions(Rec."Dimension Set ID", ShortcutDimCode);
+    end;
 }

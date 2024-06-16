@@ -26,6 +26,7 @@ xmlport 50003 "A01 Import Sales Prices"
                 trigger OnBeforeInsertRecord()
                 var
                     PriceListLine: Record "Price List Line";
+                    PriceListHeader: Record "Price List Header";
                     Item: Record Item;
                     ItemCode: Code[20];
                     VariantCode: Code[20];
@@ -36,6 +37,9 @@ xmlport 50003 "A01 Import Sales Prices"
                     Window.UPDATE(1,
                     ROUND(i / NbreTotalLignes * 10000, 1));
 
+                    PriceListHeader.Get(PriceListCode);
+
+
                     ItemCode := ImportDocument.Code20_1;
                     Item.Get(ItemCode);
                     VariantCode := ImportDocument.Code20_2;
@@ -43,16 +47,20 @@ xmlport 50003 "A01 Import Sales Prices"
                     Price := ImportDocument.Amount;
 
                     PriceListLine.Reset();
+                    PriceListLine.SetRange(PriceListLine."Price List Code", PriceListCode);
                     PriceListLine.SetRange(PriceListLine."Asset No.", ItemCode);
                     PriceListLine.SetRange(PriceListLine."Variant Code", VariantCode);
                     PriceListLine.SetRange(PriceListLine."Unit of Measure Code", UOM);
                     if (PriceListLine.FindFirst()) then begin
                         PriceListLine.Validate("Unit Price", Price);
+                        if (PriceListLine."Source Type" = PriceListHeader."Source Type") then
+                            PriceListLine.Validate("Source Type", PriceListHeader."Source Type");
                         PriceListLine.Modify(true);
                     end else begin
                         PriceListLine.Init();
                         PriceListLine.Validate("Price List Code", PriceListCode);
                         PriceListLine."Line No." := NextLineNo;
+                        PriceListLine.Validate("Source Type", PriceListHeader."Source Type");
                         PriceListLine.Insert(true);
 
                         PriceListLine.Validate("Asset No.", ItemCode);
