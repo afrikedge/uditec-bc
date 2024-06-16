@@ -34,7 +34,7 @@ report 50032 "A01 Update Credit Amort Line"
                 CreditAmortLine.SetRange("Document Type", CreditAmortLine."Document Type"::"Posted Sales invoice");
                 CreditAmortLine.SetRange("Document No.", CustLedgerEntry."Document No.");
                 CreditAmortLine.modifyall("Paid Amount", 0);
-                //CreditAmortLine.modifyall(Closed, false);
+                CreditAmortLine.modifyall("Payment Date", 0D);
 
 
                 DetailledPaymentEntry.Reset();
