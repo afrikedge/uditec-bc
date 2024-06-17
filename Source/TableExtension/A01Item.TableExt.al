@@ -70,6 +70,11 @@ tableextension 50004 "A01 Item" extends Item
             TableRelation = "A01 Parameter Record".Code where(Type = const(Brand));
             DataClassification = CustomerContent;
         }
+        field(50013; "A01 Cancel Prepayment"; Boolean)
+        {
+            Caption = 'Cancel Prepayment';
+            DataClassification = CustomerContent;
+        }
 
 
 

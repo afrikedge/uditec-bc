@@ -27,5 +27,17 @@ tableextension 50013 "A01 Sales Line" extends "Sales Line"
                     Rec."A01 Shipment Method Code" := Item1."A01 Shipment Method Code";
             end;
         }
+        // modify("Prepayment %")
+        // {
+        //     trigger OnAfterValidate()
+        //     var
+        //         Item1: Record Item;
+        //     begin
+        //         if (Item1.get("No.")) then
+        //             if (Item1."A01 Cancel Prepayment") then
+        //                 rec.Validate("Prepayment %", 0);
+        //         //Rec."A01 Shipment Method Code" := Item1."A01 Shipment Method Code";
+        //     end;
+        // }
     }
 }

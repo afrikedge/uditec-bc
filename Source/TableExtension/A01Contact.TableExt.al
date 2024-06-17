@@ -111,6 +111,21 @@ tableextension 50005 "A01 Contact" extends Contact
             Caption = 'Employee Salary';
             DataClassification = CustomerContent;
         }
+        field(50020; "A01 Professional Category"; Enum "A01 Professional Category")
+        {
+            Caption = 'Professional Category';
+            DataClassification = CustomerContent;
+        }
+        field(50021; "A01 Name of employer_Activity"; Text[100])
+        {
+            Caption = 'Name of employer / type of activity';
+            DataClassification = CustomerContent;
+        }
+        field(50022; "A01 Employer address_Activity"; Text[100])
+        {
+            Caption = 'Employer address or activity';
+            DataClassification = CustomerContent;
+        }
 
 
 

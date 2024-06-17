@@ -105,6 +105,16 @@ codeunit 50001 "A01 EventsSubscribers_Table"
 
     end;
 
+    [EventSubscriber(ObjectType::Table, Database::"Sales Line", 'OnBeforeValidateEvent', 'Prepayment %', true, true)]
+    local procedure OnBeforeValidateEvent_SalesLine(var Rec: Record "Sales Line"; xRec: Record "Sales Line")
+    var
+        Item1: Record Item;
+    begin
+        if (Item1.get(Rec."No.")) then
+            if (Item1."A01 Cancel Prepayment") then
+                rec."Prepayment %" := 0;
+    end;
+
 
     // [IntegrationEvent(false, false)]
     // local procedure OnCreateCustomerOnBeforeCustomerModify(var Customer: Record Customer; Contact: Record Contact)

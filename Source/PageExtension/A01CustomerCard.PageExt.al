@@ -108,5 +108,21 @@ pageextension 50006 "A01 Customer Card" extends "Customer Card"
                 RunPageLink = "Customer No." = field("No."), "Account Type" = const(Customer);
             }
         }
+        addafter(ApplyTemplate)
+        {
+            action(A01CalcStatus)
+            {
+                ApplicationArea = Basic, Suite;
+                Caption = 'Calculate status';
+                Image = Calculate;
+                trigger OnAction()
+                var
+                begin
+                    Rec."A01 Calc Risk Level" := Rec.CalcCustStatus();
+                    Rec.Modify();
+                end;
+            }
+        }
+
     }
 }

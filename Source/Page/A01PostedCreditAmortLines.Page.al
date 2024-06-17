@@ -76,6 +76,15 @@ page 50086 "A01 Posted Credit Amort Lines"
                 field("Dimension Set ID"; Rec."Dimension Set ID")
                 {
                 }
+                field("Customer No."; Rec."Customer No.")
+                {
+                }
+                field("Payment Date"; Rec."Payment Date")
+                {
+                }
+                field("Amount to pay"; Rec."Amount to pay")
+                {
+                }
             }
         }
     }

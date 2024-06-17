@@ -847,6 +847,7 @@ codeunit 50007 "A01 Treso Mgt"
             CreditDueLineNew."Dimension Set ID" := SalesHeader."Dimension Set ID";
             CreditDueLineNew."Document Type" := CreditDueLine."Document Type"::"Posted Sales invoice";
             CreditDueLineNew."Customer No." := CustLedgEntry."Customer No.";
+            CreditDueLineNew."Amount to pay" := CreditDueLineNew."Monthly payment";
             CreditDueLineNew."Order No." := SalesHeader."No.";
             CreditDueLineNew."Document No." := DocNo;
 
@@ -993,7 +994,7 @@ codeunit 50007 "A01 Treso Mgt"
         if Day2 = 0D then
             exit(0);
 
-        exit(Day2 - Day1 + 1);
+        exit(Day2 - Day1);
     end;
 
 
