@@ -304,30 +304,24 @@ codeunit 50015 A01WSMasterFilesMgt
             Cust.Validate("A01 Contract No.", WS.GetText('Contract No_', input));
 
 
-
-        // if (Cust."A01 Sales Mode" <> WS.GetText('Sales Mode', input)) then
-        //     Cust.Validate("A01 Sales Mode", WS.GetText('Sales Mode', input));
-
-        // if (Cust."Payment Terms Code" <> WS.GetText('Payment Terms Code', input)) then
-        //     Cust.Validate("Payment Terms Code", WS.GetText('Payment Terms Code', input));
-
         if (Cust."Credit Limit (LCY)" <> WS.GetDecimal('Credit limit (LCY)', input)) then
             Cust.Validate("Credit Limit (LCY)", WS.GetDecimal('Credit limit (LCY)', input));
 
-        // if (Cust."Payment Method Code" <> WS.GetText('Payment Method Code', input)) then
-        //     Cust.Validate("Payment Method Code", WS.GetText('Payment Method Code', input));
+        if WS.KeyExists('Professional Category', input) then
+            if (Cust."A01 Professional Category".AsInteger() <> WS.GetInt('Professional Category', input)) then
+                Cust.Validate("A01 Professional Category", WS.GetInt('Professional Category', input));
 
-        // if (Cust."VAT Bus. Posting Group" <> WS.GetText('VAT Bus_ Posting Group', input)) then
-        //     Cust.Validate("VAT Bus. Posting Group", WS.GetText('VAT Bus_ Posting Group', input));
+        if WS.KeyExists('Activity Name', input) then
+            if (Cust."A01 Name of employer_Activity" <> WS.GetText('Activity Name', input)) then
+                Cust.Validate("A01 Name of employer_Activity", WS.GetText('Activity Name', input));
 
-        // if (Cust."Prepayment %" <> WS.GetDecimal('Prepayment _', input)) then
-        //     Cust.Validate("Prepayment %", WS.GetDecimal('Prepayment _', input));
+        if WS.KeyExists('Professional Address', input) then
+            if (Cust."A01 Employer address_Activity" <> WS.GetText('Professional Address', input)) then
+                Cust.Validate("A01 Employer address_Activity", WS.GetText('Professional Address', input));
 
-        // if (Cust."A01 Risk Level" <> WS.GetText('Risk Level', input)) then
-        //     Cust.Validate("A01 Risk Level", WS.GetText('Risk Level', input));
-
-        // if (Cust.A01 <> WS.GetDecimal('Score', input)) then
-        // Cust.Validate("Credit Limit (LCY)", WS.GetDecimal('Score', input));
+        if WS.KeyExists('General Comment', input) then
+            if (Cust."A01 General Comment" <> WS.GetText('General Comment', input)) then
+                Cust.Validate("A01 General Comment", WS.GetText('General Comment', input));
 
 
 
@@ -651,7 +645,21 @@ codeunit 50015 A01WSMasterFilesMgt
         if (Lead."A01 Customer Price Group" <> WS.GetText('Customer Price Group', input)) then
             Lead.Validate("A01 Customer Price Group", WS.GetText('Customer Price Group', input));
 
+        if WS.KeyExists('Professional Category', input) then
+            if (Lead."A01 Professional Category".AsInteger() <> WS.GetInt('Professional Category', input)) then
+                Lead.Validate("A01 Professional Category", WS.GetInt('Professional Category', input));
 
+        if WS.KeyExists('Activity Name', input) then
+            if (Lead."A01 Name of employer_Activity" <> WS.GetText('Activity Name', input)) then
+                Lead.Validate("A01 Name of employer_Activity", WS.GetText('Activity Name', input));
+
+        if WS.KeyExists('Professional Address', input) then
+            if (Lead."A01 Employer address_Activity" <> WS.GetText('Professional Address', input)) then
+                Lead.Validate("A01 Employer address_Activity", WS.GetText('Professional Address', input));
+
+        if WS.KeyExists('General Comment', input) then
+            if (Lead."A01 General Comment" <> WS.GetText('General Comment', input)) then
+                Lead.Validate("A01 General Comment", WS.GetText('General Comment', input));
 
         Lead.Modify();
     end;

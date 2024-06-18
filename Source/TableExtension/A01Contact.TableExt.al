@@ -126,6 +126,11 @@ tableextension 50005 "A01 Contact" extends Contact
             Caption = 'Employer address or activity';
             DataClassification = CustomerContent;
         }
+        field(50023; "A01 General Comment"; Text[300])
+        {
+            Caption = 'General Comments';
+            DataClassification = CustomerContent;
+        }
 
 
 
