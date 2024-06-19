@@ -3668,6 +3668,11 @@
           <note from="Developer" annotates="general" priority="2">%1 = QuoteNo</note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit A01 WS QuotesMgt - NamedType LblErrorQuoteNotExists</note>
         </trans-unit>
+        <trans-unit id="Page 3653374298 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Activity Feedback List</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page A01 Activity Feedback List - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Page 2685203037 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Afk Setup</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -16068,6 +16073,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension A01 Order Processor RC - Action A01_Config - Property Caption</note>
         </trans-unit>
+        <trans-unit id="PageExtension 3250568499 - Action 4043513824 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2747922353">
+          <source>Activity Feedback List</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension A01 Order Processor RC - Action A01ActivityFeedback - Property Caption</note>
+        </trans-unit>
         <trans-unit id="PageExtension 3250568499 - Action 4194271818 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2747922353">
           <source>Approval Flows</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -16498,6 +16508,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension A01 Contact - Field A01 Employer address_Activity - Property Caption</note>
         </trans-unit>
+        <trans-unit id="TableExtension 1119515148 - Field 3637318343 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 3993128796">
+          <source>General Comments</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension A01 Contact - Field A01 General Comment - Property Caption</note>
+        </trans-unit>
         <trans-unit id="TableExtension 1119515148 - Field 2895830626 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 3993128796">
           <source>ID Number</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -16653,6 +16668,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension A01 Customer - Field A01 Employer address_Activity - Property Caption</note>
         </trans-unit>
+        <trans-unit id="TableExtension 1245960848 - Field 3637318343 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1994964448">
+          <source>General Comments</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension A01 Customer - Field A01 General Comment - Property Caption</note>
+        </trans-unit>
         <trans-unit id="TableExtension 1245960848 - Field 2895830626 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1994964448">
           <source>ID Number</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -16752,6 +16772,11 @@
           <source>Payment Doc Type</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension A01 Gen. Journal Line - Field A01 Payment Doc Type - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 1952135392 - Field 994296680 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1929467888">
+          <source>Activity Feedback</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension A01 Issued Reminder Header - Field A01 Activity Feedback - Property Caption</note>
         </trans-unit>
         <trans-unit id="TableExtension 1952135392 - Field 411291459 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1929467888">
           <source>Status</source>
@@ -17052,6 +17077,11 @@
           <source>Purchase Order Type</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension A01 Purchase Header Archive - Field A01 Purchase Order Type - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 1810155763 - Field 994296680 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1837124963">
+          <source>Activity Feedback</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension A01 Reminder Header - Field A01 Activity Feedback - Property Caption</note>
         </trans-unit>
         <trans-unit id="TableExtension 1810155763 - Field 411291459 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1837124963">
           <source>Status</source>
@@ -18667,6 +18697,11 @@
           <source> </source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Enum A01 Parameter Record Type - EnumValue   - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 3132669536 - EnumValue 3567110040 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Activity Feedback</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum A01 Parameter Record Type - EnumValue ActivityFeedback - Property Caption</note>
         </trans-unit>
         <trans-unit id="Enum 3132669536 - EnumValue 563014498 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>BankNote</source>

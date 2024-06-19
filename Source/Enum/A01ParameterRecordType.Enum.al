@@ -41,4 +41,8 @@ enum 50017 "A01 Parameter Record Type"
     {
         Caption = 'Discount Limit';
     }
+    value(9; ActivityFeedback)
+    {
+        Caption = 'Activity Feedback';
+    }
 }

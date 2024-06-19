@@ -19,6 +19,7 @@ tableextension 50019 "A01 Reminder Header" extends "Reminder Header"
         {
             Caption = 'Created By';
             DataClassification = CustomerContent;
+            Editable = false;
         }
         field(50004; "A01 Expected Start Datetime"; DateTime)
         {
@@ -65,6 +66,7 @@ tableextension 50019 "A01 Reminder Header" extends "Reminder Header"
         {
             Caption = 'Web User Id';
             DataClassification = CustomerContent;
+            Editable = false;
         }
         field(50013; "A01 Subject"; Text[50])
         {
@@ -77,7 +79,12 @@ tableextension 50019 "A01 Reminder Header" extends "Reminder Header"
             DataClassification = CustomerContent;
             TableRelation = "A01 Deadline Assignment";
         }
-
+        field(50015; "A01 Activity Feedback"; Code[20])
+        {
+            Caption = 'Activity Feedback';
+            DataClassification = CustomerContent;
+            TableRelation = "A01 Parameter Record".Code where(Type = const(ActivityFeedback));
+        }
 
     }
 }

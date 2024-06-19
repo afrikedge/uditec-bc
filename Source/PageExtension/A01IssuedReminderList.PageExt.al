@@ -1,11 +1,8 @@
-/// <summary>
-/// PageExtension A01 Reminder (ID 50032) extends Record Reminder.
-/// </summary>
-pageextension 50032 "A01 Reminder" extends Reminder
+pageextension 50053 "A01 Issued Reminder List" extends "Issued Reminder List"
 {
     layout
     {
-        addafter("Reminder Level")
+        addafter("Canceled")
         {
             field("A01 Activity Type"; Rec."A01 Activity Type")
             {
@@ -42,11 +39,6 @@ pageextension 50032 "A01 Reminder" extends Reminder
             field("A01 Related activity"; Rec."A01 Related activity")
             {
                 ApplicationArea = Basic, Suite;
-            }
-            field("A01 Observations"; Rec."A01 Observations")
-            {
-                ApplicationArea = Basic, Suite;
-                MultiLine = true;
             }
             field("A01 Subject"; Rec."A01 Subject")
             {

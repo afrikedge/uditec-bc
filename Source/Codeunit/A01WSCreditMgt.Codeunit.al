@@ -203,6 +203,11 @@ codeunit 50011 "A01 WS Credit Mgt"
         if (Reminder."Reminder Level" <> WS.GetInt('Activity Level', input)) then
             Reminder.Validate("Reminder Level", WS.GetInt('Activity Level', input));
 
+        if WS.KeyExists('Activity Feedback', input) then
+            if (Reminder."A01 Activity Feedback" <> WS.GetText('Activity Feedback', input)) then
+                Reminder.Validate("A01 Activity Feedback", WS.GetText('Activity Feedback', input));
+
+
 
         Reminder.Modify();
     end;
