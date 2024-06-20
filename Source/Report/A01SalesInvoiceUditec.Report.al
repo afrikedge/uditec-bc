@@ -553,17 +553,15 @@ report 50030 "A01 SalesInvoiceUditec"
                 column(VATPct_Line; FormattedVATPct)
                 {
                 }
-                column(AfkTotalAmountInclVAT_LCY; AfkTotalAmountInclVAT_LCY)
-                {
-
-                }
-                column(AfkTotalAmount_LCY; AfkTotalAmount_LCY)
-                {
-                }
-                column(AfkTotalVAT_LCY; AfkTotalVAT_LCY)
-                {
-
-                }
+                // column(AfkTotalAmountInclVAT_LCY; AfkTotalAmountInclVAT_LCY)
+                // {
+                // }
+                // column(AfkTotalAmount_LCY; AfkTotalAmount_LCY)
+                // {
+                // }
+                // column(AfkTotalVAT_LCY; AfkTotalVAT_LCY)
+                // {
+                // }
                 column(TransHeaderAmount; TransHeaderAmount)
                 {
                     AutoFormatExpression = Header."Currency Code";
@@ -1183,13 +1181,22 @@ report 50030 "A01 SalesInvoiceUditec"
                 column(AfkFormattedTotalTTC; AfkFormattedTotalTTC)
                 {
                 }
+                column(AfkTotalAmount_LCY; AfkTotalAmount_LCY)
+                {
+                }
                 column(AfkTotalAmount_LCYText; AfkTotalAmount_LCYText)
                 {
                 }
                 column(Afk_AmountInWords; Afk_AmountInWords)
                 {
                 }
+                column(AfkTotalAmountInclVAT_LCY; AfkTotalAmountInclVAT_LCY)
+                {
+                }
                 column(AfkTotalAmountInclVAT_LCYText; AfkTotalAmountInclVAT_LCYText)
+                {
+                }
+                column(AfkTotalVAT_LCY; AfkTotalVAT_LCY)
                 {
                 }
                 column(AfkTotalVAT_LCYText; AfkTotalVAT_LCYText)

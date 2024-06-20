@@ -13783,6 +13783,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report A01 RequisitionCheck - NamedType OrdonatorLbl</note>
         </trans-unit>
+        <trans-unit id="Report 4188702614 - NamedType 1742844280" size-unit="char" translate="yes" xml:space="preserve">
+          <source>PAYMENT REQUISITION</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 RequisitionCheck - NamedType PaymentRequisitionLbl</note>
+        </trans-unit>
         <trans-unit id="Report 4188702614 - NamedType 851221452" size-unit="char" translate="yes" xml:space="preserve">
           <source>Prepared by :</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -13819,7 +13824,7 @@
           <note from="Xliff Generator" annotates="general" priority="3">Report A01 RequisitionCheck - NamedType VerifiedByLbl</note>
         </trans-unit>
         <trans-unit id="Report 4188702614 - ReportDataItem 1735507514 - Property 1806354803" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Requisition check</source>
+          <source>Payment Requisition</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report A01 RequisitionCheck - ReportDataItem Line - Property RequestFilterHeading</note>
         </trans-unit>
@@ -16414,7 +16419,7 @@
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension A01 PaymentJournal - Action A01 BankTransferOrder - Property Caption</note>
         </trans-unit>
         <trans-unit id="PageExtension 1800607781 - Action 4188702614 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 3196174509">
-          <source>Print Check requisition</source>
+          <source>Print Payment requisition</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension A01 PaymentJournal - Action A01 RequisitionCheck - Property Caption</note>
         </trans-unit>

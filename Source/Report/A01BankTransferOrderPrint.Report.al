@@ -143,11 +143,12 @@ report 50017 "A01 BankTransferOrderPrint"
                     OptionType := 1;
 
                 if VendorRec.Get(Line."Account No.") then begin
-                    BenName := VendorRec.Name;
+                    // BenName := VendorRec.Name;
                     BenAddress := VendorRec.Address;
                 end;
 
                 if VendorBanckAccRec.Get(Line."Account No.", Line."Recipient Bank Account") then begin
+                    BenName := VendorBanckAccRec."A01 Beneficiairy Name";
                     Bank := VendorBanckAccRec.Name;
                     AccountNo := VendorBanckAccRec."Bank Branch No." + ' ' + VendorBanckAccRec."Agency Code" + ' ' + VendorBanckAccRec."Bank Account No." + ' ' + Format(VendorBanckAccRec."RIB Key");
                 end;
@@ -261,7 +262,7 @@ report 50017 "A01 BankTransferOrderPrint"
         BenAddress: Text[100];
         BankName: Text[100];
         BankAddress: Text[100];
-        BenName: Text[100];
+        BenName: Text[250];
         Bank: Text[100];
         AccountNo: Text;
         BankAccountNo: Text;

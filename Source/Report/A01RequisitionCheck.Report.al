@@ -1,5 +1,5 @@
 /// <summary>
-/// Report A01 Requisition check (ID 50033).
+/// Report A01 Payment Requisition (ID 50033).
 /// </summary>
 report 50033 "A01 RequisitionCheck"
 {
@@ -16,7 +16,7 @@ report 50033 "A01 RequisitionCheck"
         {
             DataItemTableView = sorting("Document No.");
             RequestFilterFields = "Document No.";
-            RequestFilterHeading = 'Requisition check';
+            RequestFilterHeading = 'Payment Requisition';
             column(CompanyInfoPicture; CompanyInfo.Picture)
             {
             }
@@ -148,6 +148,12 @@ report 50033 "A01 RequisitionCheck"
             column(AmountInc_LCY; AmountInc_LCY)
             {
             }
+            column(Payment_Method_Code; "Payment Method Code")
+            {
+            }
+            column(PaymentRequisitionLbl; PaymentRequisitionLbl)
+            {
+            }
             dataitem("Vendor Ledger Entry"; "Vendor Ledger Entry")
             {
                 DataItemLinkReference = Line;
@@ -162,7 +168,9 @@ report 50033 "A01 RequisitionCheck"
                 column(Document_No; "Document No.")
                 {
                 }
-
+                column(Description_; Description)
+                {
+                }
             }
             trigger OnAfterGetRecord()
             begin
@@ -183,17 +191,16 @@ report 50033 "A01 RequisitionCheck"
                 VatTxt := Format(VatVallue, 0, AutoFormat.ResolveAutoFormat("Auto Format"::AmountFormat, AfkLocalCurrency.Code));
                 VatTxt := Format(VatVallue);
 
-                if VendorLedgEnt.Get(Line."Account No.") then begin
-                    DocumentDate := VendorLedgEnt."Posting Date";
-                    CredAmount := VendorLedgEnt."Credit Amount";
-                end;
-                CredAmount := CurrencyExchangeRate.ExchangeAmtFCYToLCY(Line."Posting Date",
-                               Line."Currency Code", CredAmount, Line."Currency Factor");
-                CredAmount := "Credit Amount";
+                // if VendorLedgEnt.Get(Line."Account No.") then begin
+                //     DocumentDate := VendorLedgEnt."Posting Date";
+                //     CredAmount := VendorLedgEnt."Credit Amount";
+                // end;
+                // CredAmount := CurrencyExchangeRate.ExchangeAmtFCYToLCY(Line."Posting Date",
+                //                Line."Currency Code", CredAmount, Line."Currency Factor");
+                // CredAmount := "Credit Amount";
                 // CredAmount := ROUND(CredAmount, AfkLocalCurrency."Amount Rounding Precision");
-                CredAmount_Txt := Format(CredAmount, 0, AutoFormat.ResolveAutoFormat("Auto Format"::AmountFormat, AfkLocalCurrency.Code));
-                CredAmount_Txt := Format(CredAmount_Txt);
-
+                // CredAmount_Txt := Format(CredAmount, 0, AutoFormat.ResolveAutoFormat("Auto Format"::AmountFormat, AfkLocalCurrency.Code));
+                // CredAmount_Txt := Format(CredAmount_Txt);
 
                 GLSetup.Get();
                 GLSetup.TestField("LCY Code");
@@ -254,7 +261,6 @@ report 50033 "A01 RequisitionCheck"
                 }
             }
 
-
         }
 
         actions
@@ -274,7 +280,7 @@ report 50033 "A01 RequisitionCheck"
     var
         CompanyInfo: Record "Company Information";
         VendorRec: Record Vendor;
-        VendorLedgEnt: Record "Vendor Ledger Entry";
+        // VendorLedgEnt: Record "Vendor Ledger Entry";
         GLSetup: Record "General Ledger Setup";
         RespCenterUditec: Record "Responsibility Center";
         CurrencyExchangeRate: Record "Currency Exchange Rate";
@@ -311,6 +317,7 @@ report 50033 "A01 RequisitionCheck"
         // BankAccountNo: Text;
         PurchaseInvoiceLbl: Label 'Purchase Invoice';
         SupplierInvoiceLbl: Label 'Supplier Invoice';
+        PaymentRequisitionLbl: Label 'PAYMENT REQUISITION';
         DocumentDateLbl: Label 'Document Date';
         DescriptionLbl: Label 'Description';
         VatLbl: Label 'VAT';

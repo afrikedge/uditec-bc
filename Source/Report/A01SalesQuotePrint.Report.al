@@ -269,15 +269,15 @@ report 50001 "A01 SalesQuotePrint"
                 column(VATPct_Line; FormattedVATPct)
                 {
                 }
-                column(AfkTotalAmountInclVAT_LCY; AfkTotalAmountInclVAT_LCY)
-                {
-                }
-                column(AfkTotalAmount_LCY; AfkTotalAmount_LCY)
-                {
-                }
-                column(AfkTotalVAT_LCY; AfkTotalVAT_LCY)
-                {
-                }
+                // column(AfkTotalAmountInclVAT_LCY; AfkTotalAmountInclVAT_LCY)
+                // {
+                // }
+                // column(AfkTotalAmount_LCY; AfkTotalAmount_LCY)
+                // {
+                // }
+                // column(AfkTotalVAT_LCY; AfkTotalVAT_LCY)
+                // {
+                // }
                 column(TransHeaderAmount; TransHeaderAmount)
                 {
                     AutoFormatExpression = "Currency Code";
@@ -716,13 +716,23 @@ report 50001 "A01 SalesQuotePrint"
                 column(AfkFormattedTotalTTC; AfkFormattedTotalTTC)
                 {
                 }
+                column(AfkTotalAmount_LCY; AfkTotalAmount_LCY)
+                {
+
+                }
                 column(AfkTotalAmount_LCYText; AfkTotalAmount_LCYText)
                 {
                 }
                 column(Afk_AmountInWords; Afk_AmountInWords)
                 {
                 }
+                column(AfkTotalAmountInclVAT_LCY; AfkTotalAmountInclVAT_LCY)
+                {
+                }
                 column(AfkTotalAmountInclVAT_LCYText; AfkTotalAmountInclVAT_LCYText)
+                {
+                }
+                column(AfkTotalVAT_LCY; AfkTotalVAT_LCY)
                 {
                 }
                 column(AfkTotalVAT_LCYText; AfkTotalVAT_LCYText)

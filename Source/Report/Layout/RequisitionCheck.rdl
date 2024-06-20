@@ -81,8 +81,17 @@
                                                                     <FontWeight>Bold</FontWeight>
                                                                   </Style>
                                                                 </TextRun>
+                                                                <TextRun>
+                                                                  <Value xml:space="preserve">                                                                                                                                                                                                      </Value>
+                                                                  <Style>
+                                                                    <FontSize>8pt</FontSize>
+                                                                    <FontWeight>Bold</FontWeight>
+                                                                  </Style>
+                                                                </TextRun>
                                                               </TextRuns>
-                                                              <Style />
+                                                              <Style>
+                                                                <TextAlign>Left</TextAlign>
+                                                              </Style>
                                                             </Paragraph>
                                                           </Paragraphs>
                                                           <rd:DefaultName>Textbox1</rd:DefaultName>
@@ -760,7 +769,7 @@
                                                             <Paragraph>
                                                               <TextRuns>
                                                                 <TextRun>
-                                                                  <Value>=Fields!Description.Value</Value>
+                                                                  <Value>=Fields!Description_.Value</Value>
                                                                   <Style>
                                                                     <FontSize>8pt</FontSize>
                                                                   </Style>
@@ -1455,6 +1464,41 @@
                                               <PaddingBottom>2pt</PaddingBottom>
                                             </Style>
                                           </Textbox>
+                                          <Textbox Name="Textbox20">
+                                            <CanGrow>true</CanGrow>
+                                            <KeepTogether>true</KeepTogether>
+                                            <Paragraphs>
+                                              <Paragraph>
+                                                <TextRuns>
+                                                  <TextRun>
+                                                    <Value>=UCase(First(Fields!Payment_Method_Code.Value))</Value>
+                                                    <Style>
+                                                      <FontSize>9pt</FontSize>
+                                                      <FontWeight>Bold</FontWeight>
+                                                    </Style>
+                                                  </TextRun>
+                                                </TextRuns>
+                                                <Style>
+                                                  <TextAlign>Center</TextAlign>
+                                                </Style>
+                                              </Paragraph>
+                                            </Paragraphs>
+                                            <rd:DefaultName>Textbox19</rd:DefaultName>
+                                            <Top>0.14111cm</Top>
+                                            <Left>7.71292cm</Left>
+                                            <Height>0.6882cm</Height>
+                                            <Width>4.42264cm</Width>
+                                            <ZIndex>13</ZIndex>
+                                            <Style>
+                                              <Border>
+                                                <Style>None</Style>
+                                              </Border>
+                                              <PaddingLeft>2pt</PaddingLeft>
+                                              <PaddingRight>2pt</PaddingRight>
+                                              <PaddingTop>2pt</PaddingTop>
+                                              <PaddingBottom>2pt</PaddingBottom>
+                                            </Style>
+                                          </Textbox>
                                         </ReportItems>
                                         <KeepTogether>true</KeepTogether>
                                         <Style>
@@ -1463,7 +1507,6 @@
                                           </Border>
                                         </Style>
                                       </Rectangle>
-                                      <rd:Selected>true</rd:Selected>
                                     </CellContents>
                                   </TablixCell>
                                 </TablixCells>
@@ -1523,7 +1566,7 @@
       <Width>19.5cm</Width>
       <Page>
         <PageHeader>
-          <Height>1.85208cm</Height>
+          <Height>2.31098cm</Height>
           <PrintOnFirstPage>true</PrintOnFirstPage>
           <PrintOnLastPage>true</PrintOnLastPage>
           <ReportItems>
@@ -1564,6 +1607,40 @@
                 </Border>
               </Style>
             </Image>
+            <Textbox Name="Textbox38">
+              <CanGrow>true</CanGrow>
+              <KeepTogether>true</KeepTogether>
+              <Paragraphs>
+                <Paragraph>
+                  <TextRuns>
+                    <TextRun>
+                      <Value>=UCase(Fields!PaymentRequisitionLbl.Value)</Value>
+                      <Style>
+                        <FontWeight>Bold</FontWeight>
+                      </Style>
+                    </TextRun>
+                  </TextRuns>
+                  <Style>
+                    <TextAlign>Center</TextAlign>
+                  </Style>
+                </Paragraph>
+              </Paragraphs>
+              <rd:DefaultName>Textbox19</rd:DefaultName>
+              <Top>0.45861cm</Top>
+              <Left>11.24153cm</Left>
+              <Height>0.6882cm</Height>
+              <Width>5.68792cm</Width>
+              <ZIndex>2</ZIndex>
+              <Style>
+                <Border>
+                  <Style>None</Style>
+                </Border>
+                <PaddingLeft>2pt</PaddingLeft>
+                <PaddingRight>2pt</PaddingRight>
+                <PaddingTop>2pt</PaddingTop>
+                <PaddingBottom>2pt</PaddingBottom>
+              </Style>
+            </Textbox>
           </ReportItems>
           <Style>
             <Border>
@@ -2139,6 +2216,12 @@ yzP/Xfj+V49Xz72J/JBnRRFFlP9buH6JxFMUUUT5KeTHsDNsrxiXiDZLlF+K/Nx0lePDPX38Kdajn684
         <Field Name="AmountInc_LCYFormat">
           <DataField>AmountInc_LCYFormat</DataField>
         </Field>
+        <Field Name="Payment_Method_Code">
+          <DataField>Payment_Method_Code</DataField>
+        </Field>
+        <Field Name="PaymentRequisitionLbl">
+          <DataField>PaymentRequisitionLbl</DataField>
+        </Field>
         <Field Name="PostingDate">
           <DataField>PostingDate</DataField>
         </Field>
@@ -2147,6 +2230,9 @@ yzP/Xfj+V49Xz72J/JBnRRFFlP9buH6JxFMUUUT5KeTHsDNsrxiXiDZLlF+K/Nx0lePDPX38Kdajn684
         </Field>
         <Field Name="Document_No">
           <DataField>Document_No</DataField>
+        </Field>
+        <Field Name="Description_">
+          <DataField>Description_</DataField>
         </Field>
       </Fields>
       <Query>

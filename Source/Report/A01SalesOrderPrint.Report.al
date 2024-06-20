@@ -403,15 +403,15 @@ report 50007 "A01 SalesOrderPrint"
                 column(A01FormattedVAT; A01FormattedVAT)
                 {
                 }
-                column(AfkTotalAmountInclVAT_LCY; AfkTotalAmountInclVAT_LCY)
-                {
-                }
-                column(AfkTotalAmount_LCY; AfkTotalAmount_LCY)
-                {
-                }
-                column(AfkTotalVAT_LCY; AfkTotalVAT_LCY)
-                {
-                }
+                // column(AfkTotalAmountInclVAT_LCY; AfkTotalAmountInclVAT_LCY)
+                // {
+                // }
+                // column(AfkTotalAmount_LCY; AfkTotalAmount_LCY)
+                // {
+                // }
+                // column(AfkTotalVAT_LCY; AfkTotalVAT_LCY)
+                // {
+                // }
 
                 column(ItemDescription; Description)
                 {
@@ -715,13 +715,22 @@ report 50007 "A01 SalesOrderPrint"
                 column(AfkFormattedTotalTTC; AfkFormattedTotalTTC)
                 {
                 }
+                column(AfkTotalAmount_LCY; AfkTotalAmount_LCY)
+                {
+                }
                 column(AfkTotalAmount_LCYText; AfkTotalAmount_LCYText)
                 {
                 }
                 column(Afk_AmountInWords; Afk_AmountInWords)
                 {
                 }
+                column(AfkTotalAmountInclVAT_LCY; AfkTotalAmountInclVAT_LCY)
+                {
+                }
                 column(AfkTotalAmountInclVAT_LCYText; AfkTotalAmountInclVAT_LCYText)
+                {
+                }
+                column(AfkTotalVAT_LCY; AfkTotalVAT_LCY)
                 {
                 }
                 column(AfkTotalVAT_LCYText; AfkTotalVAT_LCYText)
