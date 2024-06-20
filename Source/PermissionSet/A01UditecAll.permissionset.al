@@ -253,6 +253,18 @@ permissionset 50000 "A01 Uditec_All"
         report "A01 SalesInvoiceUditec" = X,
         report "A01 Update Credit Amort Line" = X,
         codeunit "A01 Lettrage Mgt" = X,
-        xmlport "A01 Import Lettrage" = X;
+        xmlport "A01 Import Lettrage" = X,
+        tabledata "A01 Driver" = RIMD,
+        tabledata "A01 Vehicule" = RIMD,
+        table "A01 Driver" = X,
+        table "A01 Vehicule" = X,
+        report "A01 DeliveryNoteInvoiceTxt" = X,
+        report "A01 RequisitionCheck" = X,
+        report A01CustomProcess = X,
+        xmlport "A01 Import Sales Prices" = X,
+        xmlport "A01 Import Serial Numbers" = X,
+        page "A01 Activity Feedback List" = X,
+        page "A01 Discount Limits" = X,
+        page "A01 Disposable Rate List" = X;
     //page "A01 Customer Settlements" = X;
 }

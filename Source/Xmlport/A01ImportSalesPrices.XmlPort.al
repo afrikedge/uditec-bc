@@ -58,9 +58,24 @@ xmlport 50003 "A01 Import Sales Prices"
                         PriceListLine.Modify(true);
                     end else begin
                         PriceListLine.Init();
+                        //PriceListLine.TransferFields(PriceListHeader);
                         PriceListLine.Validate("Price List Code", PriceListCode);
                         PriceListLine."Line No." := NextLineNo;
                         PriceListLine.Validate("Source Type", PriceListHeader."Source Type");
+                        PriceListLine.Validate("Source No.", PriceListHeader."Source No.");
+                        PriceListLine.Validate("Source ID", PriceListHeader."Source ID");
+
+                        PriceListLine.Validate(PriceListLine."Source Group", PriceListHeader."Source Group");
+                        PriceListLine."Price Includes VAT" := PriceListHeader."Price Includes VAT";
+                        PriceListLine."Starting Date" := PriceListHeader."Starting Date";
+                        PriceListLine."Ending Date" := PriceListHeader."Ending Date";
+                        PriceListLine."Currency Code" := PriceListHeader."Currency Code";
+                        PriceListLine."Amount Type" := PriceListHeader."Amount Type";
+                        PriceListLine."Price Type" := PriceListHeader."Price Type";
+                        PriceListLine."Parent Source No." := PriceListHeader."Parent Source No.";
+
+
+
                         PriceListLine.Insert(true);
 
                         PriceListLine.Validate("Asset No.", ItemCode);

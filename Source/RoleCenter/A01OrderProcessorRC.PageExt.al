@@ -293,6 +293,12 @@ pageextension 50002 "A01 Order Processor RC" extends "Order Processor Role Cente
                     Caption = 'Discount Limit groups';
                     RunObject = Page "A01 Discount Limits";
                 }
+                action(A01ActivityFeedback)
+                {
+                    ApplicationArea = Basic, Suite;
+                    Caption = 'Activity Feedback List';
+                    RunObject = Page "A01 Activity Feedback List";
+                }
 
             }
             group(A01_Compta)

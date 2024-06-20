@@ -38,7 +38,7 @@ report 50032 "A01 Update Credit Amort Line"
 
 
                 DetailledPaymentEntry.Reset();
-                DetailledPaymentEntry.SetCurrentKey("Applied Cust. Ledger Entry No.", "Entry Type");
+                DetailledPaymentEntry.SetCurrentKey("Applied Cust. Ledger Entry No.", "Entry Type", "Posting Date");
                 DetailledPaymentEntry.SetRange("Applied Cust. Ledger Entry No.", CustLedgerEntry."Entry No.");
                 DetailledPaymentEntry.SetRange("Entry Type", DetailledPaymentEntry."Entry Type"::Application);
                 DetailledPaymentEntry.SetRange("Initial Document Type", DetailledPaymentEntry."Initial Document Type"::Payment);

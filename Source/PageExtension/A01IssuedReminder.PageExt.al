@@ -1,7 +1,4 @@
-/// <summary>
-/// PageExtension A01 Reminder (ID 50032) extends Record Reminder.
-/// </summary>
-pageextension 50032 "A01 Reminder" extends Reminder
+pageextension 50052 "A01 Issued Reminder" extends "Issued Reminder"
 {
     layout
     {
@@ -46,7 +43,6 @@ pageextension 50032 "A01 Reminder" extends Reminder
             field("A01 Observations"; Rec."A01 Observations")
             {
                 ApplicationArea = Basic, Suite;
-                MultiLine = true;
             }
             field("A01 Subject"; Rec."A01 Subject")
             {

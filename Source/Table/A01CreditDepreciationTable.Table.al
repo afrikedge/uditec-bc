@@ -122,6 +122,11 @@ table 50016 "A01 Credit Depreciation Table"
             Editable = false;
             TableRelation = Customer;
         }
+        field(108; "Amount to pay"; Decimal)
+        {
+            Caption = 'Amount to pay';
+            Editable = false;
+        }
     }
     keys
     {

@@ -4,9 +4,14 @@ codeunit 50018 "A01 General Legder Mgt"
     procedure CheckCashboxClosingDateOnGenJnlLine(GenJnlLine: Record "Gen. Journal Line")
     var
         BankAcc: Record "Bank Account";
+        UserSetup: Record "User Setup";
         CashboxClosingLine: Record "A01 Cashbox closing Line";
         Err001: Label 'You cannot validate this operation on this date. There is a cash closing validated on the %1 for this point of sale.', Comment = '%1=date';
     begin
+        UserSetup.get(UserId);
+        if (UserSetup."A01 Can Bypass Closed Period") then
+            exit;
+
         if (GenJnlLine."Account Type" = GenJnlLine."Account Type"::"Bank Account") then begin
             BankAcc.get(GenJnlLine."Account No.");
             BankAcc.TestField("Global Dimension 1 Code");

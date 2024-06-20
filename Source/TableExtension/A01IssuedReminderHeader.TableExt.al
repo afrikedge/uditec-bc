@@ -77,5 +77,16 @@ tableextension 50023 "A01 Issued Reminder Header" extends "Issued Reminder Heade
             DataClassification = CustomerContent;
             TableRelation = "A01 Deadline Assignment";
         }
+        field(50015; "A01 Activity Feedback"; Code[20])
+        {
+            Caption = 'Activity Feedback';
+            DataClassification = CustomerContent;
+            TableRelation = "A01 Parameter Record".Code where(Type = const(ActivityFeedback));
+        }
+        field(50016; "A01 Feedback Description"; Text[150])
+        {
+            Caption = 'Feedback Description';
+            DataClassification = CustomerContent;
+        }
     }
 }

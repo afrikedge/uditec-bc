@@ -203,6 +203,15 @@ codeunit 50011 "A01 WS Credit Mgt"
         if (Reminder."Reminder Level" <> WS.GetInt('Activity Level', input)) then
             Reminder.Validate("Reminder Level", WS.GetInt('Activity Level', input));
 
+        if WS.KeyExists('Activity Feedback', input) then
+            if (Reminder."A01 Activity Feedback" <> WS.GetText('Activity Feedback', input)) then
+                Reminder.Validate("A01 Activity Feedback", WS.GetText('Activity Feedback', input));
+
+        if WS.KeyExists('Feedback Description', input) then
+            if (Reminder."A01 Feedback Description" <> WS.GetText('Feedback Description', input)) then
+                Reminder.Validate("A01 Feedback Description", WS.GetText('Feedback Description', input));
+
+
 
         Reminder.Modify();
     end;
@@ -245,6 +254,23 @@ codeunit 50011 "A01 WS Credit Mgt"
 
         if (ReminderLine."A01 Debt Status" <> WS.GetText('Debt Status', input)) then
             ReminderLine."A01 Debt Status" := Copystr(WS.GetText('Debt Status', input), 1, 20);
+
+        if WS.KeyExists('Sales Code', input) then
+            if (ReminderLine."A01 Sales Mode" <> WS.GetText('Sales Code', input)) then
+                ReminderLine.Validate("A01 Sales Mode", WS.GetText('Sales Code', input));
+
+        if WS.KeyExists('Store Code', input) then
+            if (ReminderLine."A01 Sales Store" <> WS.GetText('Store Code', input)) then
+                ReminderLine.Validate("A01 Sales Store", WS.GetText('Store Code', input));
+
+
+        if WS.KeyExists('Amount Due', input) then
+            if (ReminderLine."A01 Amount Due" <> WS.getdecimal('Amount Due', input)) then
+                ReminderLine.Validate("A01 Amount Due", WS.getdecimal('Amount Due', input));
+
+        if WS.KeyExists('Installment', input) then
+            if (ReminderLine."A01 Installment" <> WS.getdecimal('Installment', input)) then
+                ReminderLine.Validate("A01 Installment", WS.getdecimal('Installment', input));
 
 
 

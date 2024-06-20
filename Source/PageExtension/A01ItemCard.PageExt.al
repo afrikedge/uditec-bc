@@ -51,6 +51,10 @@ pageextension 50003 "A01 Item Card" extends "Item Card"
             {
                 ApplicationArea = Basic, Suite;
             }
+            field("A01 Cancel Prepayment"; Rec."A01 Cancel Prepayment")
+            {
+                ApplicationArea = Basic, Suite;
+            }
         }
         // addafter(Warehouse)
         // {

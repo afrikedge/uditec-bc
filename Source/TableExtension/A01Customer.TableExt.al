@@ -114,6 +114,26 @@ tableextension 50006 "A01 Customer" extends Customer
             Caption = 'Employee Salary';
             DataClassification = CustomerContent;
         }
+        field(50020; "A01 Professional Category"; Enum "A01 Professional Category")
+        {
+            Caption = 'Professional Category';
+            DataClassification = CustomerContent;
+        }
+        field(50021; "A01 Name of employer_Activity"; Text[100])
+        {
+            Caption = 'Name of employer / type of activity';
+            DataClassification = CustomerContent;
+        }
+        field(50022; "A01 Employer address_Activity"; Text[100])
+        {
+            Caption = 'Employer address or activity';
+            DataClassification = CustomerContent;
+        }
+        field(50023; "A01 General Comment"; Text[300])
+        {
+            Caption = 'General Comments';
+            DataClassification = CustomerContent;
+        }
 
 
 
@@ -204,38 +224,26 @@ tableextension 50006 "A01 Customer" extends Customer
         //Cust: Record Customer;
         CustDebtStatus: Record "A01 Customer Debt Status";
         CustLedgerEntry: Record "Cust. Ledger Entry";
-        CreditDueLine: Record "A01 Credit Depreciation Table";
+
         TresoMgt: Codeunit "A01 Treso Mgt";
         DueDays: Integer;
         MaxDueDays: Integer;
         RiskOfMaxDueDate: Code[20];
+        foundInCreditLine: Boolean;
     begin
         //if (Cust.Get(CustNo)) then begin
-        CustDebtStatus.SetRange("Risk Level", "A01 Risk Level");
-        if (CustDebtStatus.FindFirst()) then
-            exit(CustDebtStatus.Code);
+        if ("A01 Risk Level" <> '') then begin
+            CustDebtStatus.Reset();
+            CustDebtStatus.SetRange("Risk Level", "A01 Risk Level");
+            if (CustDebtStatus.FindFirst()) then
+                exit(CustDebtStatus.Code);
+        end;
+
         //end;
 
 
         MaxDueDays := 0;
         RiskOfMaxDueDate := '';
-
-        //Table des echeancier de dettes
-        //Recherche du plus grand retarc aussi dans les lignes du tableau d'amortissement
-        CreditDueLine.Reset();
-        CreditDueLine.SetCurrentKey("Customer No.", Closed);
-        CreditDueLine.SetRange("Customer No.", Rec."No.");
-        CreditDueLine.SetRange(Closed, false);
-        if CreditDueLine.FindSet() then
-            repeat
-                DueDays := CreditDueLine.GetDueDays();
-                if (DueDays >= MaxDueDays) then begin
-                    RiskOfMaxDueDate := GetRiskLevel(DueDays);
-                    MaxDueDays := DueDays;
-                end;
-            until CreditDueLine.Next() < 1;
-
-
 
         CustLedgerEntry.Reset();
         CustLedgerEntry.SetCurrentKey("Customer No.", Open, Positive, "Due Date", "Currency Code");
@@ -244,10 +252,13 @@ tableextension 50006 "A01 Customer" extends Customer
         CustLedgerEntry.SetRange(Positive, true);
         if CustLedgerEntry.FindSet() then
             repeat
-                DueDays := TresoMgt.GetDueDays(CustLedgerEntry);
-                if (DueDays >= MaxDueDays) then begin
-                    RiskOfMaxDueDate := GetRiskLevel(DueDays);
-                    MaxDueDays := DueDays;
+                foundInCreditLine := DocumentFountInCreditDueLine(MaxDueDays, RiskOfMaxDueDate);
+                if (not foundInCreditLine) then begin
+                    DueDays := TresoMgt.GetDueDays(CustLedgerEntry);
+                    if (DueDays >= MaxDueDays) then begin
+                        RiskOfMaxDueDate := GetRiskLevel(DueDays);
+                        MaxDueDays := DueDays;
+                    end;
                 end;
             until CustLedgerEntry.Next() < 1;
 
@@ -260,10 +271,35 @@ tableextension 50006 "A01 Customer" extends Customer
         CustDebtStatus: Record "A01 Customer Debt Status";
     begin
         CustDebtStatus.Reset();
-        CustDebtStatus.SetFilter("Minimum (Days)", '<%1', DueDays);
-        CustDebtStatus.SetFilter("Minimum (Days)", '>=%1', DueDays);
+        //CustDebtStatus.SetFilter("Minimum (Days)", '>=%1', DueDays);
+        CustDebtStatus.SetFilter("Maximum (Days)", '>=%1', DueDays);
         CustDebtStatus.SetRange("Risk Level", '');
         if (CustDebtStatus.FindFirst()) then
             exit(CustDebtStatus.Code);
+    end;
+
+    local procedure DocumentFountInCreditDueLine(var MaxDueDays: integer; var RiskOfMaxDueDate: Code[20]): Boolean
+    var
+        CreditDueLine: Record "A01 Credit Depreciation Table";
+        //TresoMgt: Codeunit "A01 Treso Mgt";
+        DueDays: Integer;
+        Found: Boolean;
+    begin
+        //Table des echeancier de dettes
+        //Recherche du plus grand retarc aussi dans les lignes du tableau d'amortissement
+        CreditDueLine.Reset();
+        CreditDueLine.SetCurrentKey("Customer No.", Closed);
+        CreditDueLine.SetRange("Customer No.", Rec."No.");
+        CreditDueLine.SetRange(Closed, false);
+        if CreditDueLine.FindSet() then
+            repeat
+                Found := true;
+                DueDays := CreditDueLine.GetDueDays();
+                if (DueDays >= MaxDueDays) then begin
+                    RiskOfMaxDueDate := GetRiskLevel(DueDays);
+                    MaxDueDays := DueDays;
+                end;
+            until CreditDueLine.Next() < 1;
+        exit(Found);
     end;
 }
