@@ -2,13 +2,13 @@ pageextension 50042 "A01 Customer List" extends "Customer List"
 {
     layout
     {
-        // addafter("Responsibility Center")
-        // {
-        //     field("A01 Calc Risk Level"; Rec."A01 Calc Risk Level")
-        //     {
-        //         ApplicationArea = Basic, Suite;
-        //     }
-        // }
+        addafter("Responsibility Center")
+        {
+            field("A01 Calc Risk Level"; Rec."A01 Calc Risk Level")
+            {
+                ApplicationArea = Basic, Suite;
+            }
+        }
     }
     actions
     {

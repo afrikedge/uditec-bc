@@ -85,6 +85,11 @@ tableextension 50019 "A01 Reminder Header" extends "Reminder Header"
             DataClassification = CustomerContent;
             TableRelation = "A01 Parameter Record".Code where(Type = const(ActivityFeedback));
         }
+        field(50016; "A01 Feedback Description"; Text[150])
+        {
+            Caption = 'Feedback Description';
+            DataClassification = CustomerContent;
+        }
 
     }
 }
