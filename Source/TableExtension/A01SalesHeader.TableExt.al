@@ -263,6 +263,29 @@ tableextension 50000 "A01 Sales Header" extends "Sales Header"
                 end;
             end;
         }
+        modify("Prepayment %")
+        {
+            trigger OnAfterValidate()
+            var
+                SalesOrderLine: Record "Sales Line";
+                Item: Record "Item";
+            begin
+                SalesOrderLine.Reset();
+                SalesOrderLine.SetRange("Document Type", Rec."Document Type"::Order);
+                SalesOrderLine.SetRange("Document No.", Rec."No.");
+                if SalesOrderLine.FindSet() then
+                    repeat
+                        if (Item.Get(SalesOrderLine."No.")) then begin
+                            if (Item."A01 Cancel Prepayment") then begin
+                                if (SalesOrderLine."Prepayment %" <> 0) then begin
+                                    SalesOrderLine.Validate("Prepayment %", 0);
+                                    SalesOrderLine.Modify();
+                                end;
+                            end;
+                        end;
+                    until SalesOrderLine.Next() < 1;
+            end;
+        }
     }
 
     trigger OnDelete()

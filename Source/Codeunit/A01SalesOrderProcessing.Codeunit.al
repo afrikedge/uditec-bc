@@ -240,6 +240,7 @@ codeunit 50000 "A01 Sales Order Processing"
     procedure CheckLocaltionOnLines(SalesH: Record "Sales Header"): Boolean
     var
         SalesL: Record "Sales Line";
+        Item: Record Item;
         DocumentErrorsMgt: Codeunit "Document Errors Mgt.";
     begin
         SalesL.SetRange(SalesL."Document Type", SalesH."Document Type");
@@ -251,7 +252,9 @@ codeunit 50000 "A01 Sales Order Processing"
                 if (SalesL.Type <> SalesL.Type::" ") then
                     SalesL.TestField("Unit Price");
                 if (SalesL.Type = SalesL.Type::Item) then begin
-                    SalesL.TestField("Location Code");
+                    if (Item.Get(SalesL."No.")) then
+                        if (Item.Type = Item.Type::Inventory) then
+                            SalesL.TestField("Location Code");
                     SalesL.TestField(Quantity);
                 end;
 

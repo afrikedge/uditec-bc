@@ -233,6 +233,9 @@ codeunit 50009 "A01 WS OrdersMgt"
     end;
 
     local procedure ProcessSalesOrderHeader(var SalesOrder: Record "Sales Header"; input: JsonObject)
+    var
+        SalesOrderLine: Record "Sales Line";
+        Item: Record Item;
     begin
         if (SalesOrder."A01 Web User Id" <> WS.GetText('webUserName', input)) then
             SalesOrder.Validate("A01 Web User Id", WS.GetText('webUserName', input));
@@ -289,8 +292,26 @@ codeunit 50009 "A01 WS OrdersMgt"
         if (SalesOrder."Payment Terms Code" <> WS.Gettext('saleOrderPaymentTermsCode', input)) then
             SalesOrder.Validate("Payment Terms Code", WS.Gettext('saleOrderPaymentTermsCode', input));
 
-        if (SalesOrder."Prepayment %" <> WS.GetDecimal('saleOrderPrepayment', input)) then
+        if (SalesOrder."Prepayment %" <> WS.GetDecimal('saleOrderPrepayment', input)) then begin
             SalesOrder.Validate("Prepayment %", WS.GetDecimal('saleOrderPrepayment', input));
+
+            // SalesOrderLine.Reset();
+            // SalesOrderLine.SetRange("Document Type", SalesOrder."Document Type"::Order);
+            // SalesOrderLine.SetRange("Document No.", SalesOrder."No.");
+            // if SalesOrderLine.FindSet() then
+            //     repeat
+            //         if (Item.Get(SalesOrderLine."No.")) then begin
+            //             if (Item."A01 Cancel Prepayment") then begin
+            //                 if (SalesOrderLine."Prepayment %" <> 0) then begin
+            //                     SalesOrderLine.Validate("Prepayment %", 0);
+            //                     SalesOrderLine.Modify();
+            //                 end;
+            //             end;
+            //         end;
+            //     until SalesOrderLine.Next() < 1;
+        end;
+
+
 
         if (SalesOrder."Ship-to Code" <> WS.Gettext('saleOrderCustomerShipToCode', input)) then
             SalesOrder.Validate("Ship-to Code", WS.Gettext('saleOrderCustomerShipToCode', input));
@@ -355,6 +376,9 @@ codeunit 50009 "A01 WS OrdersMgt"
             if (SalesLine."Line Discount %" <> WS.GetDecimal('Line Discount _', input)) then
                 SalesLine.Validate("Line Discount %", WS.GetDecimal('Line Discount _', input));
 
+            if (ws.KeyExists('Prepayment _', input)) then
+                if (SalesLine."Prepayment %" <> WS.GetDecimal('Prepayment _', input)) then
+                    SalesLine.Validate("Prepayment %", WS.GetDecimal('Prepayment _', input));
         end;
     end;
 
