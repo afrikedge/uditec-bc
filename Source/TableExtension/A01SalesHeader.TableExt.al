@@ -309,4 +309,6 @@ tableextension 50000 "A01 Sales Header" extends "Sales Header"
     var
         AfkSetup: Record "A01 Afk Setup";
         SOMgt: codeunit "A01 Sales Order Processing";
+
+
 }

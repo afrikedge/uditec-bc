@@ -329,7 +329,7 @@ codeunit 50000 "A01 Sales Order Processing"
                 SalesLine.Validate(Quantity, SalesLine."Quantity Shipped");
                 SalesLine.Modify();
 
-            UNTIL SalesLine.Next() = 0;
+            until SalesLine.Next() = 0;
 
 
         SalesH."A01 Processing Status" := SalesH."A01 Processing Status"::Closed;
@@ -384,6 +384,35 @@ codeunit 50000 "A01 Sales Order Processing"
                     InsertNewStepShipOrInvoice(SalesH."No.", Format(SalesH."A01 Processing Status"::"Partially shipped"),
                     SalesH."Last Posting No.", SalesH."Last Shipping No.", SalesH.Invoice, SalesH.Ship);
                 end;
+    end;
+
+    procedure BlockPartialInvoiceOnMiridra(SalesH: Record "Sales Header")
+    var
+        SalesLine: record "Sales Line";
+        AfkSetup: Record "A01 Afk Setup";
+        TresoMgt: Codeunit "A01 Treso Mgt";
+
+        LblNotAutorize: Label 'Partially invoice is not autorize on Mirindra invoicing';
+
+    begin
+
+        AfkSetup.Get();
+        if (AfkSetup."Allow Partial Invoice MIR") then
+            exit;
+
+        if (not TresoMgt.IsMultiMeadlinesInvoice(SalesH)) then
+            exit;
+
+        if (SalesH.Invoice) then begin
+            SalesLine.Reset();
+            SalesLine.SetRange("Document Type", SalesH."Document Type");
+            SalesLine.SetRange("Document No.", SalesH."No.");
+            if SalesLine.FindSet() then
+                repeat
+                    if (SalesLine.Quantity <> SalesLine."Qty. to Invoice") then
+                        error(LblNotAutorize);
+                until SalesLine.Next() = 0;
+        end
     end;
 
     local procedure ShippedLineExists(SalesH: Record "Sales Header"): Boolean

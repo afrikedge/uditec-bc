@@ -88,6 +88,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table A01 Afk Setup - Field AGP Type of employee contract - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Table 2685203037 - Field 3533821287 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Allow partial invoice on Mirindra</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table A01 Afk Setup - Field Allow Partial Invoice MIR - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Table 2685203037 - Field 891900766 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Charge Account (Voucher)</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -3687,6 +3692,11 @@
           <source>The order will be returned for edition. Do you want to continue ?</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit A01 Sales Order Processing - NamedType QstSetAsDraft</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 4233996319 - Method 1914269182 - NamedType 1433405128" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Partially invoice is not autorize on Mirindra invoicing</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit A01 Sales Order Processing - Method BlockPartialInvoiceOnMiridra - NamedType LblNotAutorize</note>
         </trans-unit>
         <trans-unit id="Codeunit 4233996319 - Method 4062852933 - NamedType 1671038783" size-unit="char" translate="yes" xml:space="preserve">
           <source>%1 %2/%3</source>

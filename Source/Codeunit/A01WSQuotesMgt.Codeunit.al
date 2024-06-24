@@ -91,6 +91,7 @@ codeunit 50005 "A01 WS QuotesMgt"
 
         SalesQuote.Get(SalesQuote."Document Type"::Quote, NoQuote);
         SalesQuote."A01 Request Status" := SalesQuote."A01 Request Status"::Rejected;
+        SalesQuote."A01 Credit Validation Status" := SalesQuote."A01 Credit Validation Status"::Rejected;
         SalesQuote."A01 Return Reason" := CopyStr(RejectionReason, 1, 250);
         SalesQuote.Modify();
         exit(Ws.CreateResponseSuccess(SalesQuote."No."));

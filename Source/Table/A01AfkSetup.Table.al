@@ -306,6 +306,10 @@ table 50017 "A01 Afk Setup"
             Caption = 'Template for AGP Customer';
             TableRelation = "Config. Template Header";
         }
+        field(65; "Allow Partial Invoice MIR"; Boolean)
+        {
+            Caption = 'Allow partial invoice on Mirindra';
+        }
 
 
 

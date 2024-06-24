@@ -115,6 +115,9 @@ page 50040 "A01 Afk Setup"
                 field("MIR Realised Interest Account"; Rec."MIR Realised Interest Account")
                 {
                 }
+                field("Allow Partial Invoice MIR"; Rec."Allow Partial Invoice MIR")
+                {
+                }
             }
             group(Logistics)
             {

@@ -142,6 +142,9 @@ table 50035 "A01 AGP Contrat"
         NumMonths := "Duration (Month)";
         EndingDate1 := CalcDate('<1M>', StartingDate1);
 
+        if (Rec."OP Duration (Month)" >= NumMonths) then
+            exit(NumMonths);
+
         if (PostingDate >= "OP Ending Date") then
             exit(0);
 
