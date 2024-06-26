@@ -2903,6 +2903,91 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table A01 Revision Request - Field VAT Regime (Validated) - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Table 510437571 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Route</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table A01 Route - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 510437571 - Field 344309975 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Arrival Zone</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table A01 Route - Field Arrival Zone - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 510437571 - Field 3560102679 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Average Duration</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table A01 Route - Field Average Duration - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 510437571 - Field 3004954119 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Code</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table A01 Route - Field Code - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 510437571 - Field 2985767406 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Departure Zone</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table A01 Route - Field Departure Zone - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 510437571 - Field 3461834954 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Description</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table A01 Route - Field Description - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 510437571 - Field 2247546951 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Route Status</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table A01 Route - Field Route Status - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 510437571 - Field 3898068891 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Route Type</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table A01 Route - Field Route Type - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 510437571 - Field 1408335154 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Total Distance(Km)</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table A01 Route - Field Total Distance(Km) - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2193473327 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Route Itinery</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table A01 Route Itinery - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2193473327 - Field 2998208138 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Arrival Code</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table A01 Route Itinery - Field Arrival Code - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2193473327 - Field 3560102679 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Average Duration</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table A01 Route Itinery - Field Average Duration - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2193473327 - Field 2985767406 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Departure Zone</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table A01 Route Itinery - Field Departure Zone - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2193473327 - Field 2910065960 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Route Code</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table A01 Route Itinery - Field Route Code - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2193473327 - Field 3898068891 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Route Type</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table A01 Route Itinery - Field Route Type - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2193473327 - Field 3397986034 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Time preference</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table A01 Route Itinery - Field Time preference - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2193473327 - Field 1408335154 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Total Distance(Km)</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table A01 Route Itinery - Field Total Distance(Km) - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Table 3356947471 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Sales Payment Method</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -3067,6 +3152,26 @@
           <source>Weighted Point</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table A01 Scoring Matrix - Field Weighted Point - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2524266990 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Spare Part</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table A01 Spare Part - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2524266990 - Field 411531942 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Base Unit of Measure</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table A01 Spare Part - Field Base Unit of Measure - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2524266990 - Field 3461834954 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Description</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table A01 Spare Part - Field Description - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2524266990 - Field 4200184881 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>No.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table A01 Spare Part - Field No. - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 2028740703 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>User Access</source>

@@ -58,7 +58,8 @@ report 50032 "A01 Update Credit Amort Line"
                             if CreditAmortLine.FindSet() then
                                 repeat
 
-                                    RemainingAmt := CreditAmortLine."Monthly payment" - CreditAmortLine."Paid Amount";
+                                    //RemainingAmt := CreditAmortLine."Monthly payment" - CreditAmortLine."Paid Amount";
+                                    RemainingAmt := CreditAmortLine."Amount to pay" - CreditAmortLine."Paid Amount";
 
                                     if (RemainingAmt > 0) then begin
 
