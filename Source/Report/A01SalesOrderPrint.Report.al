@@ -342,6 +342,9 @@ report 50007 "A01 SalesOrderPrint"
             column(CustomerPhone; CustomerPhone)
             {
             }
+            column(VATText; VATText)
+            {
+            }
             column(ShowWorkDescription; ShowWorkDescription) { }
             dataitem(Line; "Sales Line")
             {
@@ -519,6 +522,11 @@ report 50007 "A01 SalesOrderPrint"
                     A01LineQtyFormatted := Format(A01LineQty);
                     A01LinePUFormatted := Format(A01LinePU);
                     A01DiscountedPriceText := Format(A01DiscountedPrice);
+
+                    SalesLineRec.Reset();
+                    SalesLineRec.SetRange("Document No.", Header."No.");
+                    if SalesLineRec.FindFirst() then
+                        VATText := A01TVA__Caption + '(' + Format(SalesLineRec."VAT %") + ')';
 
                     if Type = Type::"G/L Account" then
                         // "No." := '';
@@ -930,6 +938,7 @@ report 50007 "A01 SalesOrderPrint"
         CompanyInformation: Record "Company Information";
         DummyShipmentMethod: Record "Shipment Method";
         DummyCurrency: Record Currency;
+        SalesLineRec: Record "Sales Line";
         CurrencyExchangeRate: Record "Currency Exchange Rate";
         AfkLocalCurrency: Record Currency;
         GLSetup: Record "General Ledger Setup";
@@ -948,6 +957,7 @@ report 50007 "A01 SalesOrderPrint"
         AutoFormat: Codeunit "Auto Format";
         // Language: Codeunit Language;
         CalculatedExchRate: Decimal;
+        VATText: Text[50];
         AfkCurrCod: Code[20];
         rcs: Code[30];
         nif: Code[30];
@@ -1039,7 +1049,7 @@ report 50007 "A01 SalesOrderPrint"
         A01DiscountPercent__Caption: Label 'Discount';
         A01DiscountAmount__Caption: Label 'Discounted price HT';
         A01TotalHT__Caption: Label 'Total HT';
-        A01TVA__Caption: Label 'VAT (20%)';
+        A01TVA__Caption: Label 'VAT';
         A01TotalTTC__Caption: Label 'Total TTC';
         A01CustSignLbl: Label 'Customer signature';
         A01CompanySignLbl: Label 'Company signature';

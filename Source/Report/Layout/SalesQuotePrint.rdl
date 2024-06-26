@@ -1919,7 +1919,7 @@
                                                             <Paragraph>
                                                               <TextRuns>
                                                                 <TextRun>
-                                                                  <Value>=Fields!TVA__Caption.Value &amp; " (" &amp; Fields!AfkCurrCod.Value &amp;")"</Value>
+                                                                  <Value>=Fields!VATText.Value &amp; " (" &amp; Fields!AfkCurrCod.Value &amp;")"</Value>
                                                                   <Style>
                                                                     <FontSize>8pt</FontSize>
                                                                     <FontWeight>Bold</FontWeight>
@@ -3080,6 +3080,9 @@ AAAAAAAAAECjsYAGAAAAAAAAAAAAAAAAjcYCGgAAAAAAAAAAAAAAADQaC2gAAAAAAAAAAAAAAADQaCyg
         </Field>
         <Field Name="CustomerPhone">
           <DataField>CustomerPhone</DataField>
+        </Field>
+        <Field Name="VATText">
+          <DataField>VATText</DataField>
         </Field>
         <Field Name="LineNo_Line">
           <DataField>LineNo_Line</DataField>
