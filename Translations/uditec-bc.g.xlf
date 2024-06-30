@@ -11029,17 +11029,17 @@
           <note from="Xliff Generator" annotates="general" priority="3">Page A01 Service Request - Control SparePart - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 3837504088 - Control 2929745092 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Spare Part</source>
+          <source>Affectation</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page A01 Service Request - Control SRAssignmentFlow - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 3837504088 - Control 919380539 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Spare Part</source>
+          <source>Defective Part</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page A01 Service Request - Control SRDefectivePart - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 3837504088 - Control 2974635802 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Spare Part</source>
+          <source>Valorisation</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page A01 Service Request - Control SRSalesDocument - Property Caption</note>
         </trans-unit>
@@ -16837,6 +16837,11 @@
           <source>Routes</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension A01 Order Processor RC - Action A01Routes - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 3250568499 - Action 3256135329 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2747922353">
+          <source>Service requests</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension A01 Order Processor RC - Action A01ServiceRequests - Property Caption</note>
         </trans-unit>
         <trans-unit id="PageExtension 3250568499 - Action 3219599890 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2747922353">
           <source>Tranport Orders</source>

@@ -501,6 +501,12 @@ pageextension 50002 "A01 Order Processor RC" extends "Order Processor Role Cente
                     Caption = 'Tranport Orders';
                     RunObject = Page "A01 Tranpsort Order List";
                 }
+                action(A01ServiceRequests)
+                {
+                    ApplicationArea = Basic, Suite;
+                    Caption = 'Service requests';
+                    RunObject = Page "A01 Service Request List";
+                }
             }
         }
     }

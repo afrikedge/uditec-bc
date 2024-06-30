@@ -66,21 +66,21 @@ page 50113 "A01 Service Request"
             }
             part(SRDefectivePart; "A01 SR Defective Part Subform")
             {
-                Caption = 'Spare Part';
+                Caption = 'Defective Part';
                 ApplicationArea = Basic, Suite;
                 SubPageLink = "Service Request No." = field("No.");
                 UpdatePropagation = Both;
             }
             part(SRSalesDocument; "A01 SR Sales Document Subform")
             {
-                Caption = 'Spare Part';
+                Caption = 'Valorisation';
                 ApplicationArea = Basic, Suite;
                 SubPageLink = "Service Request No." = field("No.");
                 UpdatePropagation = Both;
             }
             part(SRAssignmentFlow; "A01 SR Assignment Flow Subform")
             {
-                Caption = 'Spare Part';
+                Caption = 'Affectation';
                 ApplicationArea = Basic, Suite;
                 SubPageLink = "Service Request No." = field("No.");
                 UpdatePropagation = Both;

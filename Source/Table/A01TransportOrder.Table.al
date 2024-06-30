@@ -26,18 +26,22 @@ table 50054 "A01 Transport Order"
         field(3; "Carrier No."; Code[20])
         {
             Caption = 'Carrier No.';
+            TableRelation = Vendor;
         }
         field(4; "Vehicle No."; Code[20])
         {
             Caption = 'Vehicle No.';
+            TableRelation = "A01 Vehicule";
         }
         field(5; " Driver No."; Code[20])
         {
             Caption = ' Driver No.';
+            TableRelation = "A01 Driver";
         }
         field(6; "Route No."; Code[20])
         {
             Caption = 'Route No.';
+            TableRelation = "A01 Route";
         }
         field(7; "Departure Date (Planned)"; Date)
         {
@@ -82,45 +86,55 @@ table 50054 "A01 Transport Order"
         field(17; "Useful volume (cbm)"; Decimal)
         {
             Caption = 'Useful volume (cbm)';
+            Editable = false;
         }
         field(18; "Payload (kg)"; Decimal)
         {
             Caption = 'Payload (kg)';
+            Editable = false;
         }
 
         field(19; "Outbound Package Count"; Decimal)
         {
             Caption = 'Outbound Package Count';
+            Editable = false;
         }
         field(20; "Outbound Volume Loaded (cbm)"; Decimal)
         {
             Caption = 'Outbound Volume Loaded (cbm)';
+            Editable = false;
         }
 
         field(21; "Outbound Weight Load (Kg)"; Decimal)
         {
             Caption = 'Outbound Weight Load (Kg)';
+            Editable = false;
         }
 
         field(22; "Outbound Unloading Dura (Plan)"; Decimal)
         {
             Caption = 'Outbound Unloading Duration (Planned)';
+            Editable = false;
         }
         field(23; "Inbound Package Count"; Decimal)
         {
             Caption = 'Inbound Package Count';
+            Editable = false;
         }
         field(24; "Inbound Volume Loaded (cbm)"; Decimal)
         {
             Caption = 'Inbound Volume Loaded (cbm)';
+            Editable = false;
         }
         field(25; "Inbound Weight Load (Kg)"; Decimal)
         {
             Caption = 'Inbound Weight Load (Kg)';
+            Editable = false;
         }
         field(26; "Inbound Unloading Dura (Plan)"; Decimal)
         {
             Caption = 'Inbound Unloading Duration (Planned)';
+            Editable = false;
         }
         field(27; "No. Series"; Code[20])
         {
