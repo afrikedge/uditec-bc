@@ -14,9 +14,9 @@ table 50052 "A01 Route Itinery"
             Caption = 'Departure Zone';
             TableRelation = Zone;
         }
-        field(3; "Arrival Code"; Code[20])
+        field(3; "Arrival Zone"; Code[20])
         {
-            Caption = 'Arrival Code';
+            Caption = 'Arrival Zone';
             TableRelation = Zone;
         }
         field(4; "Route Type"; Enum "A01 Route Type")
@@ -38,7 +38,7 @@ table 50052 "A01 Route Itinery"
     }
     keys
     {
-        key(PK; "Route Code")
+        key(PK; "Route Code", "Departure Zone", "Arrival Zone")
         {
             Clustered = true;
         }

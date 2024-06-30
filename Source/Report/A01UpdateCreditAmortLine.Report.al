@@ -23,6 +23,7 @@ report 50032 "A01 Update Credit Amort Line"
                 LinePaymentAmt: Decimal;
                 RemainingAmt: Decimal;
                 AmountToPay: Decimal;
+                monthlyPayment: Decimal;
             begin
                 LineNo += 1;
                 Window.UPDATE(1, ROUND(LineNo / TotalLines * 10000, 1));
@@ -59,7 +60,8 @@ report 50032 "A01 Update Credit Amort Line"
                                 repeat
 
                                     //RemainingAmt := CreditAmortLine."Monthly payment" - CreditAmortLine."Paid Amount";
-                                    RemainingAmt := CreditAmortLine."Amount to pay" - CreditAmortLine."Paid Amount";
+                                    monthlyPayment := CreditAmortLine."Amount to pay";
+                                    RemainingAmt := monthlyPayment - CreditAmortLine."Paid Amount";
 
                                     if (RemainingAmt > 0) then begin
 
@@ -74,9 +76,9 @@ report 50032 "A01 Update Credit Amort Line"
                                         if (CreditAmortLine."Cust Ledger Entry No." = 0) then
                                             CreditAmortLine."Cust Ledger Entry No." := CustLedgerEntry."Entry No.";
 
-                                        CreditAmortLine.Closed := CreditAmortLine."Paid Amount" = CreditAmortLine."Monthly payment";
+                                        CreditAmortLine.Closed := CreditAmortLine."Paid Amount" = monthlyPayment;
 
-                                        if (CreditAmortLine."Monthly payment" = CreditAmortLine."Paid Amount") then begin
+                                        if (monthlyPayment = CreditAmortLine."Paid Amount") then begin
                                             if (PayEntry.get(GetPaymentEntryId(DetailledPaymentEntry))) then
                                                 CreditAmortLine."Payment Date" := PayEntry."Posting Date";
                                         end;

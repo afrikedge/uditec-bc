@@ -310,6 +310,11 @@ table 50017 "A01 Afk Setup"
         {
             Caption = 'Allow partial invoice on Mirindra';
         }
+        field(66; "Transport Order Nos"; Code[20])
+        {
+            Caption = 'Transport Order Nos';
+            TableRelation = "No. Series";
+        }
 
 
 

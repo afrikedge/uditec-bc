@@ -270,6 +270,10 @@ page 50040 "A01 Afk Setup"
                 {
                 }
 
+                field("Transport Order Nos"; Rec."Transport Order Nos")
+                {
+                }
+
             }
             group("TestApi")
             {
