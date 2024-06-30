@@ -175,22 +175,31 @@ report 50028 "A01 WarehouseReceptionPrint"
                 //     {
                 //     }
                 // }
+                dataitem("Purchase Header"; "Purchase Header")
+                {
+                    DataItemLink = "No." = field("Source No.");
+                    DataItemLinkReference = Line;
+                    DataItemTableView = sorting("No.");
 
-                trigger OnAfterGetRecord()
-                begin
-                    if "No." = 'MIR_FEES' then
-                        CurrReport.Skip();
-                    if "No." = 'mir_fees' then
-                        CurrReport.Skip();
-                    if "No." = 'MIR_INTEREST' then
-                        CurrReport.Skip();
-                    if "No." = 'mir_interest' then
-                        CurrReport.Skip();
-                    if "No." = 'AGP_FEES' then
-                        CurrReport.Skip();
-                    if "No." = 'agp_fees' then
-                        CurrReport.Skip();
-                end;
+                    column(Sell_to_Customer_No_; "Buy-from Vendor No.")
+                    {
+                    }
+                    column(Sell_to_Customer_Name; "Buy-from Vendor Name")
+                    {
+                    }
+                    column(Sell_to_Address; "Buy-from Address")
+                    {
+                    }
+                    trigger OnAfterGetRecord()
+                    begin
+                        if VendRec.Get("Purchase Header"."Buy-from Vendor No.") then begin
+                            nif := VendRec."A01 NIF";
+                            stat := VendRec."A01 STAT";
+                            rcs := VendRec."A01 RCS";
+                            CustPhone := VendRec."Phone No.";
+                        end;
+                    end;
+                }
             }
             trigger OnAfterGetRecord()
             begin
@@ -207,21 +216,6 @@ report 50028 "A01 WarehouseReceptionPrint"
                     UnitCity := LocRec.City;
                     UnitPostalCode := LocRec."Post Code";
                 end;
-
-                // if Cust.Get(Header."Sell-to Customer No.") then begin
-                //     rcs := Cust."A01 RCS";
-                //     stat := Cust."A01 STAT";
-                //     nif := Cust."A01 NIF";
-                // end;
-
-                // if Contact.Get(Header."Sell-to Contact No.") then begin
-                //     CustIdentity := Contact.Name;
-                //     CustPhone := Contact."Phone No.";
-                // end;
-
-                // if Ship.Get(Header."Ship-to Code") then
-                //     CustAddress := Ship.Name;
-
             end;
         }
     }
@@ -245,12 +239,9 @@ report 50028 "A01 WarehouseReceptionPrint"
 
     var
         CompanyInfo: Record "Company Information";
+        VendRec: Record Vendor;
         // RespCenter: Record "Responsibility Center";
-        // Cust: Record Customer;
-        // Contact: Record Contact;
         LocRec: Record Location;
-        // Order: Record "Sales Line";
-        // Ship: Record "Ship-to Address";
         UnitName: Text[100];
         rcs: Code[30];
         stat: Code[30];
@@ -267,9 +258,9 @@ report 50028 "A01 WarehouseReceptionPrint"
         UnitAddressLbl: Label 'Unit address :';
         UnitCityLbl: Label 'City';
         UnitPostalCodeLbl: Label 'Postal code :';
-        CustNameLbl: Label 'Customer name :';
-        CustIdentityLbl: Label 'Customer identity :';
-        CustAddressLbl: Label 'Customer address :';
+        CustNameLbl: Label 'Vendor name :';
+        CustIdentityLbl: Label 'Vendor identity :';
+        CustAddressLbl: Label 'Vendor address :';
         NIFLbl: Label 'NIF :';
         STATLbl: Label 'STAT :';
         RCSLbl: Label 'RCS :';

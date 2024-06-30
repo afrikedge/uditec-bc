@@ -53,10 +53,10 @@
                                                   <Width>1.74697in</Width>
                                                 </TablixColumn>
                                                 <TablixColumn>
-                                                  <Width>1.10603in</Width>
+                                                  <Width>1.16159in</Width>
                                                 </TablixColumn>
                                                 <TablixColumn>
-                                                  <Width>3.35275in</Width>
+                                                  <Width>3.29968in</Width>
                                                 </TablixColumn>
                                               </TablixColumns>
                                               <TablixRows>
@@ -136,7 +136,7 @@
                                                             <Paragraph>
                                                               <TextRuns>
                                                                 <TextRun>
-                                                                  <Value />
+                                                                  <Value>=First(Fields!CustNameLbl.Value, "DataSet_Result")</Value>
                                                                   <Style>
                                                                     <FontSize>8pt</FontSize>
                                                                   </Style>
@@ -170,7 +170,7 @@
                                                             <Paragraph>
                                                               <TextRuns>
                                                                 <TextRun>
-                                                                  <Value />
+                                                                  <Value>=Fields!Sell_to_Customer_Name.Value</Value>
                                                                   <Style>
                                                                     <FontSize>8pt</FontSize>
                                                                   </Style>
@@ -273,7 +273,7 @@
                                                             <Paragraph>
                                                               <TextRuns>
                                                                 <TextRun>
-                                                                  <Value />
+                                                                  <Value>=First(Fields!CustIdentityLbl.Value, "DataSet_Result")</Value>
                                                                   <Style>
                                                                     <FontSize>8pt</FontSize>
                                                                   </Style>
@@ -307,7 +307,7 @@
                                                             <Paragraph>
                                                               <TextRuns>
                                                                 <TextRun>
-                                                                  <Value />
+                                                                  <Value>=Fields!Sell_to_Customer_No_.Value</Value>
                                                                   <Style>
                                                                     <FontSize>8pt</FontSize>
                                                                   </Style>
@@ -414,7 +414,7 @@
                                                             <Paragraph>
                                                               <TextRuns>
                                                                 <TextRun>
-                                                                  <Value />
+                                                                  <Value>=First(Fields!CustAddressLbl.Value, "DataSet_Result")</Value>
                                                                   <Style>
                                                                     <FontSize>8pt</FontSize>
                                                                   </Style>
@@ -448,7 +448,7 @@
                                                             <Paragraph>
                                                               <TextRuns>
                                                                 <TextRun>
-                                                                  <Value />
+                                                                  <Value>=Fields!Sell_to_Address.Value</Value>
                                                                   <Style>
                                                                     <FontSize>8pt</FontSize>
                                                                   </Style>
@@ -555,7 +555,7 @@
                                                             <Paragraph>
                                                               <TextRuns>
                                                                 <TextRun>
-                                                                  <Value />
+                                                                  <Value>=First(Fields!NIFLbl.Value, "DataSet_Result")</Value>
                                                                   <Style>
                                                                     <FontSize>8pt</FontSize>
                                                                   </Style>
@@ -589,7 +589,7 @@
                                                             <Paragraph>
                                                               <TextRuns>
                                                                 <TextRun>
-                                                                  <Value />
+                                                                  <Value>=Fields!nif.Value</Value>
                                                                   <Style>
                                                                     <FontSize>8pt</FontSize>
                                                                   </Style>
@@ -696,7 +696,7 @@
                                                             <Paragraph>
                                                               <TextRuns>
                                                                 <TextRun>
-                                                                  <Value />
+                                                                  <Value>=First(Fields!STATLbl.Value, "DataSet_Result")</Value>
                                                                   <Style>
                                                                     <FontSize>8pt</FontSize>
                                                                   </Style>
@@ -730,7 +730,7 @@
                                                             <Paragraph>
                                                               <TextRuns>
                                                                 <TextRun>
-                                                                  <Value />
+                                                                  <Value>=Fields!stat.Value</Value>
                                                                   <Style>
                                                                     <FontSize>8pt</FontSize>
                                                                   </Style>
@@ -833,7 +833,7 @@
                                                             <Paragraph>
                                                               <TextRuns>
                                                                 <TextRun>
-                                                                  <Value />
+                                                                  <Value>=First(Fields!RCSLbl.Value, "DataSet_Result")</Value>
                                                                   <Style>
                                                                     <FontSize>8pt</FontSize>
                                                                   </Style>
@@ -867,7 +867,7 @@
                                                             <Paragraph>
                                                               <TextRuns>
                                                                 <TextRun>
-                                                                  <Value />
+                                                                  <Value>=Fields!rcs.Value</Value>
                                                                   <Style>
                                                                     <FontSize>8pt</FontSize>
                                                                   </Style>
@@ -970,7 +970,7 @@
                                                             <Paragraph>
                                                               <TextRuns>
                                                                 <TextRun>
-                                                                  <Value />
+                                                                  <Value>=First(Fields!CustPhoneLbl.Value, "DataSet_Result")</Value>
                                                                   <Style>
                                                                     <FontSize>8pt</FontSize>
                                                                   </Style>
@@ -1004,7 +1004,7 @@
                                                             <Paragraph>
                                                               <TextRuns>
                                                                 <TextRun>
-                                                                  <Value />
+                                                                  <Value>=Fields!CustPhone.Value</Value>
                                                                   <Style>
                                                                     <FontSize>8pt</FontSize>
                                                                   </Style>
@@ -1056,7 +1056,7 @@
                                             <Top>0.15972in</Top>
                                             <Left>0in</Left>
                                             <Height>1.09721in</Height>
-                                            <Width>7.44525in</Width>
+                                            <Width>7.44774in</Width>
                                             <Style>
                                               <Border>
                                                 <Style>None</Style>
@@ -1681,7 +1681,6 @@
                                           </Border>
                                         </Style>
                                       </Rectangle>
-                                      <rd:Selected>true</rd:Selected>
                                     </CellContents>
                                   </TablixCell>
                                 </TablixCells>
@@ -2551,6 +2550,15 @@ AAAAAAAAAECjsYAGAAAAAAAAAAAAAAAAjcYCGgAAAAAAAAAAAAAAADQaC2gAAAAAAAAAAAAAAADQaCyg
         </Field>
         <Field Name="QuantityFormat">
           <DataField>QuantityFormat</DataField>
+        </Field>
+        <Field Name="Sell_to_Customer_No_">
+          <DataField>Sell_to_Customer_No_</DataField>
+        </Field>
+        <Field Name="Sell_to_Customer_Name">
+          <DataField>Sell_to_Customer_Name</DataField>
+        </Field>
+        <Field Name="Sell_to_Address">
+          <DataField>Sell_to_Address</DataField>
         </Field>
       </Fields>
       <Query>

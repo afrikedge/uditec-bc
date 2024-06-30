@@ -175,22 +175,31 @@ report 50027 "A01 WarehouseShipOrderPrint"
                 //     {
                 //     }
                 // }
+                dataitem("Sales Header"; "Sales Header")
+                {
+                    DataItemLink = "Document Type" = field("Source Document"), "No." = field("Source No.");
+                    DataItemLinkReference = Line;
+                    DataItemTableView = sorting("No.", "Document Type");
 
-                trigger OnAfterGetRecord()
-                begin
-                    if "No." = 'MIR_FEES' then
-                        CurrReport.Skip();
-                    if "No." = 'mir_fees' then
-                        CurrReport.Skip();
-                    if "No." = 'MIR_INTEREST' then
-                        CurrReport.Skip();
-                    if "No." = 'mir_interest' then
-                        CurrReport.Skip();
-                    if "No." = 'AGP_FEES' then
-                        CurrReport.Skip();
-                    if "No." = 'agp_fees' then
-                        CurrReport.Skip();
-                end;
+                    column(Sell_to_Customer_No_; "Sell-to Customer No.")
+                    {
+                    }
+                    column(Sell_to_Customer_Name; "Sell-to Customer Name")
+                    {
+                    }
+                    column(Sell_to_Address; "Sell-to Address")
+                    {
+                    }
+                    trigger OnAfterGetRecord()
+                    begin
+                        if CustRec.Get("Sales Header"."Sell-to Customer No.") then begin
+                            nif := CustRec."A01 NIF";
+                            stat := CustRec."A01 STAT";
+                            rcs := CustRec."A01 RCS";
+                            CustPhone := CustRec."Phone No.";
+                        end;
+                    end;
+                }
             }
             trigger OnAfterGetRecord()
             var
@@ -203,7 +212,6 @@ report 50027 "A01 WarehouseShipOrderPrint"
                     if (not userSetup."A01 Print Whse Delivery") then
                         error(LabErrorNosPrinted);
                 end;
-
 
                 // if RespCenter.Get(Header."Responsibility Center") then begin
                 //     UnitName := RespCenter.Name;
@@ -218,20 +226,6 @@ report 50027 "A01 WarehouseShipOrderPrint"
                     UnitCity := LocRec.City;
                     UnitPostalCode := LocRec."Post Code";
                 end;
-
-                // if Cust.Get(Header."Sell-to Customer No.") then begin
-                //     rcs := Cust."A01 RCS";
-                //     stat := Cust."A01 STAT";
-                //     nif := Cust."A01 NIF";
-                // end;
-
-                // if Contact.Get(Header."Sell-to Contact No.") then begin
-                //     CustIdentity := Contact.Name;
-                //     CustPhone := Contact."Phone No.";
-                // end;
-
-                // if Ship.Get(Header."Ship-to Code") then
-                //     CustAddress := Ship.Name;
 
             end;
 
@@ -264,12 +258,9 @@ report 50027 "A01 WarehouseShipOrderPrint"
 
     var
         CompanyInfo: Record "Company Information";
+        CustRec: Record Customer;
         // RespCenter: Record "Responsibility Center";
-        // Cust: Record Customer;
-        // Contact: Record Contact;
         LocRec: Record Location;
-        // Order: Record "Sales Line";
-        // Ship: Record "Ship-to Address";
         UnitName: Text[100];
         rcs: Code[30];
         stat: Code[30];
