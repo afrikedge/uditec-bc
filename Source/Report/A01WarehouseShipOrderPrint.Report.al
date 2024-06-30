@@ -160,6 +160,9 @@ report 50027 "A01 WarehouseShipOrderPrint"
                 column(Location_Code; "Location Code")
                 {
                 }
+                column(Bin_Code; "Bin Code")
+                {
+                }
                 column(Shelf_No_; "Shelf No.")
                 {
                 }
@@ -177,7 +180,7 @@ report 50027 "A01 WarehouseShipOrderPrint"
                 // }
                 dataitem("Sales Header"; "Sales Header")
                 {
-                    DataItemLink = "Document Type" = field("Source Document"), "No." = field("Source No.");
+                    DataItemLink = "No." = field("Source No.");
                     DataItemLinkReference = Line;
                     DataItemTableView = sorting("No.", "Document Type");
 

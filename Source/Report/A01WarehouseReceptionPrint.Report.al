@@ -160,6 +160,9 @@ report 50028 "A01 WarehouseReceptionPrint"
                 column(Location_Code; "Location Code")
                 {
                 }
+                column(Bin_Code; "Bin Code")
+                {
+                }
                 column(Shelf_No_; "Shelf No.")
                 {
                 }

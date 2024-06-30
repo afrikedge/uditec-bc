@@ -1494,7 +1494,7 @@
                                                             <Paragraph>
                                                               <TextRuns>
                                                                 <TextRun>
-                                                                  <Value>=Fields!Shelf_No_.Value</Value>
+                                                                  <Value>=Fields!Bin_Code.Value</Value>
                                                                   <Style>
                                                                     <FontSize>8pt</FontSize>
                                                                   </Style>
@@ -2541,6 +2541,9 @@ AAAAAAAAAECjsYAGAAAAAAAAAAAAAAAAjcYCGgAAAAAAAAAAAAAAADQaC2gAAAAAAAAAAAAAAADQaCyg
         </Field>
         <Field Name="Shelf_No_">
           <DataField>Shelf_No_</DataField>
+        </Field>
+        <Field Name="Bin_Code">
+          <DataField>Bin_Code</DataField>
         </Field>
         <Field Name="Qty__to_Ship">
           <DataField>Qty__to_Ship</DataField>

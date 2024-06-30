@@ -214,7 +214,7 @@ report 50034 "A01 DeliveryNoteInvoiceTxt"
                 column(Location_Code; "Location Code")
                 {
                 }
-                column(Quantity; Round(Quantity))
+                column(Quantity; Quantity)
                 {
                 }
                 column(PUnit_Price_Text; Round("Unit Price", 0.01, '<'))
