@@ -344,7 +344,7 @@ report 50024 "A01 PostedCustSettlementPrint"
                 AfkCurrCode := GLSetup."Local Currency Symbol";
                 if Cust.Get("A01 Posted Payment Document"."Partner No.") then begin
                     CustName := Cust.Name;
-                    CustIdentity := Cust.Contact;
+                    CustIdentity := Cust."No.";
                     CustPhone := Cust."Phone No.";
                     CustAddress := Cust."Ship-to Code";
                     rcs := Cust."A01 RCS";
