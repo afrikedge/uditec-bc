@@ -313,6 +313,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table A01 Afk Setup - Field Transfer Acc (Inter-cash) - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Table 2685203037 - Field 2919876025 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Transport Order Nos</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table A01 Afk Setup - Field Transport Order Nos - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Table 2685203037 - Field 663898051 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Transport Voucher Nos</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -2953,10 +2958,10 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table A01 Route Itinery - Property Caption</note>
         </trans-unit>
-        <trans-unit id="Table 2193473327 - Field 2998208138 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Arrival Code</source>
+        <trans-unit id="Table 2193473327 - Field 344309975 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Arrival Zone</source>
           <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Table A01 Route Itinery - Field Arrival Code - Property Caption</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table A01 Route Itinery - Field Arrival Zone - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 2193473327 - Field 3560102679 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Average Duration</source>
@@ -3197,6 +3202,11 @@
           <source>No.</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table A01 Service Request - Field No. - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3837504088 - Field 1351594800 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>No. Series</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table A01 Service Request - Field No. Series - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 3837504088 - Field 1221660829 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Reference</source>
@@ -3502,6 +3512,11 @@
           <source>No.</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table A01 Transport Order - Field No. - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2125787823 - Field 1351594800 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>No. Series</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table A01 Transport Order - Field No. Series - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 2125787823 - Field 2941873895 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Outbound Package Count</source>
@@ -5373,6 +5388,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page A01 Document Step Lines - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Page 1916557671 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Drivers</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page A01 Drivers - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Page 3407068927 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>External Profiles</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -5412,6 +5432,11 @@
           <source>External Users</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page A01 External Users - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 4060613036 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Gap Reason List</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page A01 Gap Reason List - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 2971086181 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>GL Period User Groups</source>
@@ -6692,6 +6717,31 @@
           <source>Revision Request List</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page A01 Revision Request List - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 39271831 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Route Card</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page A01 Route Card - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 39271831 - Control 2445482498 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>General</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page A01 Route Card - Control General - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 39271831 - Control 88531122 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Lines</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page A01 Route Card - Control Itinaries - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 1254580797 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Route Subform</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page A01 Route Subform - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3194382606 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Routes</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page A01 Routes - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 3293973898 - Property 1064389655" size-unit="char" translate="yes" xml:space="preserve">
           <source>About sales order details</source>
@@ -10958,6 +11008,46 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page A01 Scoring Matrix - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Page 3837504088 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Service Request</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page A01 Service Request - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3837504088 - Control 2445482498 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>General</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page A01 Service Request - Control General - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3837504088 - Control 3898128458 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Item Mouvements</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page A01 Service Request - Control Mouvement - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3837504088 - Control 1902774238 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Spare Part</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page A01 Service Request - Control SparePart - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3837504088 - Control 2929745092 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Spare Part</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page A01 Service Request - Control SRAssignmentFlow - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3837504088 - Control 919380539 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Spare Part</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page A01 Service Request - Control SRDefectivePart - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3837504088 - Control 2974635802 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Spare Part</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page A01 Service Request - Control SRSalesDocument - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3543961930 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Service Request List</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page A01 Service Request List - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Page 1235637342 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Images</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -11013,6 +11103,66 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page A01 ShipToAdressMediaFactbox - Action ImportPicture - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Page 1559626582 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>SR Assignment Flow Subform</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page A01 SR Assignment Flow Subform - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 4288655357 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>SR Defective Part</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page A01 SR Defective Part Subform - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 684725412 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>SR Item Mouvement Subform</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page A01 SR Item Mouvement Subform - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 1995137744 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>SR Sales Document Subform</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page A01 SR Sales Document Subform - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2440260907 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>SR SparePart</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page A01 SR SparePart Subform - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 251880449 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Trapsort Order List</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page A01 Tranpsort Order List - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2125787823 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Transport Order</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page A01 Transport Order - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2125787823 - Control 2445482498 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>General</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page A01 Transport Order - Control General - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2125787823 - Control 1884375769 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Incoming totals</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page A01 Transport Order - Control Incoming totals - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2125787823 - Control 563663377 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Outgoing totals</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page A01 Transport Order - Control Outgoing totals - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2125787823 - Control 1757916881 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Lines</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page A01 Transport Order - Control TransportOrderDetails - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3197026697 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Transport Order Subform</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page A01 Transport Order Subform - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Page 575045181 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>UnBlocking Request</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -11037,6 +11187,11 @@
           <source>Unblocking Requests</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page A01 Unblocking Requests - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2123772498 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Vehicules</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page A01 Vehicules - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 866520448 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Voucher Card</source>
@@ -16662,6 +16817,36 @@
           <source>Reposession Requests</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension A01 Order Processor RC - Action A01RepossessionRequest - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 3250568499 - Action 4072633866 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2747922353">
+          <source>A01AfkLogistique</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension A01 Order Processor RC - Action A01AfkLogistique - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 3250568499 - Action 2186887663 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2747922353">
+          <source>Drivers</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension A01 Order Processor RC - Action A01Drivers - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 3250568499 - Action 2203096997 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2747922353">
+          <source>Gap Reasons List</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension A01 Order Processor RC - Action A01GapReasonsList - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 3250568499 - Action 1261392438 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2747922353">
+          <source>Routes</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension A01 Order Processor RC - Action A01Routes - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 3250568499 - Action 3219599890 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2747922353">
+          <source>Tranport Orders</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension A01 Order Processor RC - Action A01TransportOrders - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 3250568499 - Action 1534260250 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2747922353">
+          <source>Vehicules</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension A01 Order Processor RC - Action A01Vehicules - Property Caption</note>
         </trans-unit>
         <trans-unit id="PageExtension 3250568499 - Action 4027586805 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2747922353">
           <source>A01_Compta</source>
