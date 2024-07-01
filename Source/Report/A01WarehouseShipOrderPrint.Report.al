@@ -61,9 +61,9 @@ report 50027 "A01 WarehouseShipOrderPrint"
             // column(CustAddress; "Ship-to Name")
             // {
             // }
-            column(CustPhone; CustPhone)
-            {
-            }
+            // column(CustPhone; CustPhone)
+            // {
+            // }
             column(CustIdentity; CustIdentity)
             {
             }
@@ -97,15 +97,15 @@ report 50027 "A01 WarehouseShipOrderPrint"
             column(CustAddressLbl; CustAddressLbl)
             {
             }
-            column(rcs; rcs)
-            {
-            }
-            column(nif; nif)
-            {
-            }
-            column(stat; stat)
-            {
-            }
+            // column(rcs; rcs)
+            // {
+            // }
+            // column(nif; nif)
+            // {
+            // }
+            // column(stat; stat)
+            // {
+            // }
             column(NIFLbl; NIFLbl)
             {
             }
@@ -178,30 +178,33 @@ report 50027 "A01 WarehouseShipOrderPrint"
                 //     {
                 //     }
                 // }
-                dataitem("Sales Header"; "Sales Header")
+                dataitem(Customer; Customer)
                 {
-                    DataItemLink = "No." = field("Source No.");
+                    DataItemLink = "No." = field("Destination No.");
                     DataItemLinkReference = Line;
-                    DataItemTableView = sorting("No.", "Document Type");
+                    DataItemTableView = sorting("No.");
 
-                    column(Sell_to_Customer_No_; "Sell-to Customer No.")
+                    column(Sell_to_Customer_No_; "No.")
                     {
                     }
-                    column(Sell_to_Customer_Name; "Sell-to Customer Name")
+                    column(Sell_to_Customer_Name; Name)
                     {
                     }
-                    column(Sell_to_Address; "Sell-to Address")
+                    column(Sell_to_Address; Address)
                     {
                     }
-                    trigger OnAfterGetRecord()
-                    begin
-                        if CustRec.Get("Sales Header"."Sell-to Customer No.") then begin
-                            nif := CustRec."A01 NIF";
-                            stat := CustRec."A01 STAT";
-                            rcs := CustRec."A01 RCS";
-                            CustPhone := CustRec."Phone No.";
-                        end;
-                    end;
+                    column(CustPhone; "Phone No.")
+                    {
+                    }
+                    column(rcs; "A01 RCS")
+                    {
+                    }
+                    column(nif; "A01 NIF")
+                    {
+                    }
+                    column(stat; "A01 STAT")
+                    {
+                    }
                 }
             }
             trigger OnAfterGetRecord()
@@ -261,19 +264,19 @@ report 50027 "A01 WarehouseShipOrderPrint"
 
     var
         CompanyInfo: Record "Company Information";
-        CustRec: Record Customer;
+        // CustRec: Record Customer;
         // RespCenter: Record "Responsibility Center";
         LocRec: Record Location;
         UnitName: Text[100];
-        rcs: Code[30];
-        stat: Code[30];
-        nif: Code[30];
+        // rcs: Code[30];
+        // stat: Code[30];
+        // nif: Code[30];
         UnitAddress: Text[100];
         UnitCity: Text[50];
         UnitPostalCode: Text[50];
         // CustAddress: Text[100];
         CustIdentity: Text[100];
-        CustPhone: Text[30];
+        // CustPhone: Text[30];
 
         ReportTitleLbl: Label 'WAREHOUSE SHIPPING ORDER';
         UnitNameLbl: Label 'Unit name :';
