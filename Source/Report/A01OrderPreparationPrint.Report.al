@@ -157,6 +157,9 @@ report 50025 "A01 OrderPreparationPrint"
                 column(Shelf_No_; "Shelf No.")
                 {
                 }
+                column(Bin_Code; "Bin Code")
+                {
+                }
                 column(Qty__to_Ship; "Qty. to Ship")
                 {
                 }
