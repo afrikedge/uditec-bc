@@ -211,6 +211,9 @@ report 50024 "A01 PostedCustSettlementPrint"
             column(OptionType; OptionType)
             {
             }
+            column(RemainingAmountLbl; RemainingAmountLbl)
+            {
+            }
             dataitem("A01 Posted Payment Doc Line"; "A01 Posted Payment Doc Line")
             {
                 DataItemTableView = sorting("Document No.");
@@ -305,7 +308,13 @@ report 50024 "A01 PostedCustSettlementPrint"
                     column(Original_Amount; "Original Amount")
                     {
                     }
+                    column(OriginAmt; OriginAmt)
+                    {
+                    }
                     column(OriginAmt_LCYText; OriginAmt_LCYText)
+                    {
+                    }
+                    column(Remaining_Amount; Round("Remaining Amount"))
                     {
                     }
                     trigger OnAfterGetRecord()
@@ -473,6 +482,7 @@ report 50024 "A01 PostedCustSettlementPrint"
         NoText: array[2] of Text;
         // ExchangeRateTxt: Label 'Exchange rate: %1/%2', Comment = '%1 and %2 are both amounts.';
         ReportTitleLbl: Label 'CASH RECEIPT';
+        RemainingAmountLbl: Label 'Remaining Amount';
         ObjetLbl: Label 'Object :';
         ApplyingLbl: Label 'Applying';
         CashierLbl: Label 'Cashier :';
