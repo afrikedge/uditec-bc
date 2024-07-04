@@ -19,8 +19,12 @@ report 50019 "A01 Generate Interest Entries"
                 GenJrnLine: Record "Gen. Journal Line";
             begin
 
+                AddOnSetup.GetRecordOnce();
+
                 A01CreditDepreciationTable.Reset();
-                A01CreditDepreciationTable.SetFilter("Due Date", '<=%1', CalculateUntilDateVar);
+                //A01CreditDepreciationTable.SetFilter("Due Date", '<=%1', EndingDate);
+                //A01CreditDepreciationTable.SetFilter("Due Date", '>=%1', StartingDate);
+                A01CreditDepreciationTable.SetRange("Due Date", StartingDate, EndingDate);
                 A01CreditDepreciationTable.SetRange("Document Type", A01CreditDepreciationTable."Document Type"::"Posted Sales invoice");
                 A01CreditDepreciationTable.SetRange("Interest Posted", false);
                 TotalLines := A01CreditDepreciationTable.Count;
@@ -35,7 +39,7 @@ report 50019 "A01 Generate Interest Entries"
 
                 Window.OPEN(LblErr002);
 
-                if ((PostingDateVar = 0D) or (CalculateUntilDateVar = 0D)) then ERROR(LblErr004);
+                if ((EndingDate = 0D) or (StartingDate = 0D)) then ERROR(LblErr004);
 
                 GenJrnTableND.Get(JournalTemplate, JournalCode);
                 GenJrnTableND.TESTFIELD("No. Series");
@@ -44,7 +48,7 @@ report 50019 "A01 Generate Interest Entries"
 
             trigger OnAfterGetRecord()
             var
-
+                //CustLedgerEntry: record "Cust. Ledger Entry";
                 incrDocNo: Boolean;
             begin
                 LineNo += 1;
@@ -54,9 +58,10 @@ report 50019 "A01 Generate Interest Entries"
                 CLEAR(NoSeriesMgt);
 
                 if LastDocNo = '' then
-                    LastDocNo := NoSeriesMgt.GetNextNo(GenJrnTableND."No. Series", PostingDateVar, FALSE);
+                    LastDocNo := NoSeriesMgt.GetNextNo(GenJrnTableND."No. Series", EndingDate, false);
 
-                CreateInterestJournalLine(LastDocNo, A01CreditDepreciationTable, JournalLineNo);
+                if (A01CreditDepreciationTable."Cust Ledger Entry No." > 0) then
+                    CreateInterestJournalLine(LastDocNo, A01CreditDepreciationTable, JournalLineNo);
 
                 if (incrDocNo) then
                     LastDocNo := INCSTR(LastDocNo);
@@ -81,17 +86,17 @@ report 50019 "A01 Generate Interest Entries"
                 group(Options)
                 {
                     Caption = 'Options';
-                    field(CalculateUntilDate; CalculateUntilDateVar)
+                    field(CalculateUntilDate; StartingDate)
+                    {
+                        ApplicationArea = Basic, Suite;
+                        Caption = 'Period Starting Date';
+                        //ToolTip = 'Specifies the fixed asset posting date to be used by the batch job. The batch job includes ledger entries up to this date. This date appears in the FA Posting Date field in the resulting journal lines. If the Use Same FA+G/L Posting Dates field has been activated in the depreciation book that is used in the batch job, then this date must be the same as the posting date entered in the Posting Date field.';
+                    }
+                    field(PostingDate; EndingDate)
                     {
                         ApplicationArea = Basic, Suite;
                         Caption = 'Period Ending Date';
-                        ToolTip = 'Specifies the fixed asset posting date to be used by the batch job. The batch job includes ledger entries up to this date. This date appears in the FA Posting Date field in the resulting journal lines. If the Use Same FA+G/L Posting Dates field has been activated in the depreciation book that is used in the batch job, then this date must be the same as the posting date entered in the Posting Date field.';
-                    }
-                    field(PostingDate; PostingDateVar)
-                    {
-                        ApplicationArea = Basic, Suite;
-                        Caption = 'PostingDate';
-                        ToolTip = 'Specifies the fixed asset posting date to be used by the batch job. The batch job includes ledger entries up to this date. This date appears in the FA Posting Date field in the resulting journal lines. If the Use Same FA+G/L Posting Dates field has been activated in the depreciation book that is used in the batch job, then this date must be the same as the posting date entered in the Posting Date field.';
+                        //ToolTip = 'Specifies the fixed asset posting date to be used by the batch job. The batch job includes ledger entries up to this date. This date appears in the FA Posting Date field in the resulting journal lines. If the Use Same FA+G/L Posting Dates field has been activated in the depreciation book that is used in the batch job, then this date must be the same as the posting date entered in the Posting Date field.';
                     }
                 }
             }
@@ -106,8 +111,9 @@ report 50019 "A01 Generate Interest Entries"
         trigger OnInit()
         var
         begin
-            CalculateUntilDateVar := CalcInitialDate();
-            PostingDateVar := CalculateUntilDateVar;
+            EndingDate := CalcEndingDate();
+            //EndingDate := StartingDate;
+            StartingDate := GetDebutMois(EndingDate);
         end;
     }
 
@@ -123,8 +129,8 @@ report 50019 "A01 Generate Interest Entries"
         NoSeriesMgt: Codeunit NoSeriesManagement;
         JournalTemplate: code[10];
         JournalCode: code[10];
-        CalculateUntilDateVar: Date;
-        PostingDateVar: Date;
+        StartingDate: Date;
+        EndingDate: Date;
         //LineDescription: Text[100];
         LblErr001: Label 'Sheet %1 must be empty to perform this operation!', Comment = '%1 journal';
         LblErr002: Label 'Processing @1@@@@@@@@@@@@@@@@@@@@@@@@@@@@\';
@@ -153,10 +159,10 @@ report 50019 "A01 Generate Interest Entries"
         JrnTmplName.Get(GenJrnLine."Journal Template Name");
         JrnTmplName.TestField("Source Code");
         GenJrnLine."Source Code" := JrnTmplName."Source Code";
-        GenJrnLine.Validate("Posting Date", PostingDateVar);
+        GenJrnLine.Validate("Posting Date", EndingDate);
 
         GenJrnLine."Document No." := DocumentNo;
-        GenJrnLine."External Document No." := CreditDueLine."Document No.";
+        GenJrnLine."External Document No." := CopyStr(CreditDueLine."Customer No." + '/' + CreditDueLine."Document No.", 1, 35);
 
         GenJrnLine."Account Type" := GenJrnLine."Account Type"::"G/L Account";
         GLAccNo := GetPlannedInterestAcc();
@@ -183,6 +189,9 @@ report 50019 "A01 Generate Interest Entries"
 
         if (CreditDueLine."Dimension Set ID" > 0) then
             GenJrnLine.Validate("Dimension Set ID", CreditDueLine."Dimension Set ID");
+
+        if (AddOnSetup."Sales channel for Interest" <> '') then
+            GenJrnLine.Validate("Shortcut Dimension 2 Code", AddOnSetup."Sales channel for Interest");
 
         IF GenJrnLine.Amount <> 0 THEN begin
             GenJrnLine.Insert(true);
@@ -221,7 +230,7 @@ report 50019 "A01 Generate Interest Entries"
         JournalTemplate := JournalTemplate1;
     end;
 
-    local procedure CalcInitialDate(): Date
+    local procedure CalcEndingDate(): Date
     begin
         if (Date2DMY(WorkDate(), 1)) >= 14 then
             exit(CalcDate('<-1D>', GetDebutMois(WorkDate())))

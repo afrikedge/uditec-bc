@@ -44,6 +44,7 @@ page 50040 "A01 Afk Setup"
                 {
                 }
 
+
             }
             group(Mirindra)
             {
@@ -116,6 +117,9 @@ page 50040 "A01 Afk Setup"
                 {
                 }
                 field("Allow Partial Invoice MIR"; Rec."Allow Partial Invoice MIR")
+                {
+                }
+                field("Sales channel for Interest"; Rec."Sales channel for Interest")
                 {
                 }
             }

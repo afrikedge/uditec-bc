@@ -687,6 +687,8 @@ codeunit 50007 "A01 Treso Mgt"
         if (not IsMultiMeadlinesInvoice(SalesHeader)) then
             exit;
 
+        SalesHeader.testfield("A01 Credit Duration (Month)");
+
         PaymentCond.Get(SalesHeader."Payment Terms Code");
 
         CheckCreditDueLines(SalesHeader);

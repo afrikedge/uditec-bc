@@ -278,6 +278,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table A01 Afk Setup - Field Revision Request Nos - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Table 2685203037 - Field 1948805714 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Sales channel for Interest</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table A01 Afk Setup - Field Sales channel for Interest - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Table 2685203037 - Field 3672549898 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>SAV diagnostic time</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -12203,23 +12208,13 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report A01 Generate Interest Entries - Control Options - Property Caption</note>
         </trans-unit>
-        <trans-unit id="Report 3474292753 - Control 4164436950 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies the fixed asset posting date to be used by the batch job. The batch job includes ledger entries up to this date. This date appears in the FA Posting Date field in the resulting journal lines. If the Use Same FA+G/L Posting Dates field has been activated in the depreciation book that is used in the batch job, then this date must be the same as the posting date entered in the Posting Date field.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Report A01 Generate Interest Entries - Control CalculateUntilDate - Property ToolTip</note>
-        </trans-unit>
         <trans-unit id="Report 3474292753 - Control 4164436950 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Period Ending Date</source>
+          <source>Period Starting Date</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report A01 Generate Interest Entries - Control CalculateUntilDate - Property Caption</note>
         </trans-unit>
-        <trans-unit id="Report 3474292753 - Control 3037438984 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies the fixed asset posting date to be used by the batch job. The batch job includes ledger entries up to this date. This date appears in the FA Posting Date field in the resulting journal lines. If the Use Same FA+G/L Posting Dates field has been activated in the depreciation book that is used in the batch job, then this date must be the same as the posting date entered in the Posting Date field.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Report A01 Generate Interest Entries - Control PostingDate - Property ToolTip</note>
-        </trans-unit>
         <trans-unit id="Report 3474292753 - Control 3037438984 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>PostingDate</source>
+          <source>Period Ending Date</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report A01 Generate Interest Entries - Control PostingDate - Property Caption</note>
         </trans-unit>
