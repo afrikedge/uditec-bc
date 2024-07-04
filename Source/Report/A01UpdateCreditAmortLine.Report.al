@@ -23,6 +23,7 @@ report 50032 "A01 Update Credit Amort Line"
                 LinePaymentAmt: Decimal;
                 RemainingAmt: Decimal;
                 AmountToPay: Decimal;
+                monthlyPayment: Decimal;
             begin
                 LineNo += 1;
                 Window.UPDATE(1, ROUND(LineNo / TotalLines * 10000, 1));
@@ -37,15 +38,20 @@ report 50032 "A01 Update Credit Amort Line"
                 CreditAmortLine.modifyall("Payment Date", 0D);
 
 
+                // DetailledPaymentEntry.Reset();
+                // DetailledPaymentEntry.SetCurrentKey("Applied Cust. Ledger Entry No.", "Entry Type", "Posting Date");
+                // DetailledPaymentEntry.SetRange("Applied Cust. Ledger Entry No.", CustLedgerEntry."Entry No.");
+                // DetailledPaymentEntry.SetRange("Entry Type", DetailledPaymentEntry."Entry Type"::Application);
+                // DetailledPaymentEntry.SetRange("Initial Document Type", DetailledPaymentEntry."Initial Document Type"::Payment);
+                // //DetailledPaymentEntry.SetRange(A01CreditProcessed,false);
+
                 DetailledPaymentEntry.Reset();
-                DetailledPaymentEntry.SetCurrentKey("Applied Cust. Ledger Entry No.", "Entry Type", "Posting Date");
-                DetailledPaymentEntry.SetRange("Applied Cust. Ledger Entry No.", CustLedgerEntry."Entry No.");
+                DetailledPaymentEntry.SetCurrentKey("Cust. Ledger Entry No.", "Entry Type", "Posting Date");
+                DetailledPaymentEntry.SetRange("Cust. Ledger Entry No.", CustLedgerEntry."Entry No.");
                 DetailledPaymentEntry.SetRange("Entry Type", DetailledPaymentEntry."Entry Type"::Application);
-                DetailledPaymentEntry.SetRange("Initial Document Type", DetailledPaymentEntry."Initial Document Type"::Payment);
-                //DetailledPaymentEntry.SetRange(A01CreditProcessed,false);
                 if DetailledPaymentEntry.FindSet(true) then
                     repeat
-                        LinePaymentAmt := DetailledPaymentEntry.Amount;
+                        LinePaymentAmt := Abs(DetailledPaymentEntry.Amount);
                         if (LinePaymentAmt > 0) then begin
                             CreditAmortLine.Reset();
                             CreditAmortLine.SetRange("Document Type", CreditAmortLine."Document Type"::"Posted Sales invoice");
@@ -53,7 +59,9 @@ report 50032 "A01 Update Credit Amort Line"
                             if CreditAmortLine.FindSet() then
                                 repeat
 
-                                    RemainingAmt := CreditAmortLine."Monthly payment" - CreditAmortLine."Paid Amount";
+                                    //RemainingAmt := CreditAmortLine."Monthly payment" - CreditAmortLine."Paid Amount";
+                                    monthlyPayment := CreditAmortLine."Amount to pay";
+                                    RemainingAmt := monthlyPayment - CreditAmortLine."Paid Amount";
 
                                     if (RemainingAmt > 0) then begin
 
@@ -68,10 +76,10 @@ report 50032 "A01 Update Credit Amort Line"
                                         if (CreditAmortLine."Cust Ledger Entry No." = 0) then
                                             CreditAmortLine."Cust Ledger Entry No." := CustLedgerEntry."Entry No.";
 
-                                        CreditAmortLine.Closed := CreditAmortLine."Paid Amount" = CreditAmortLine."Monthly payment";
+                                        CreditAmortLine.Closed := CreditAmortLine."Paid Amount" = monthlyPayment;
 
-                                        if (CreditAmortLine."Monthly payment" = CreditAmortLine."Paid Amount") then begin
-                                            if (PayEntry.get(DetailledPaymentEntry."Cust. Ledger Entry No.")) then
+                                        if (monthlyPayment = CreditAmortLine."Paid Amount") then begin
+                                            if (PayEntry.get(GetPaymentEntryId(DetailledPaymentEntry))) then
                                                 CreditAmortLine."Payment Date" := PayEntry."Posting Date";
                                         end;
 
@@ -146,5 +154,15 @@ report 50032 "A01 Update Credit Amort Line"
     begin
         if (Amt1 < Amt2) then exit(Amt1);
         exit(Amt2);
+    end;
+
+    local procedure GetPaymentEntryId(InitialDetailEntry: record "Detailed Cust. Ledg. Entry"): Integer
+    var
+        DetailCustLedgEntry: record "Detailed Cust. Ledg. Entry";
+    begin
+        if (InitialDetailEntry."Application No." > 0) then
+            if DetailCustLedgEntry.Get(InitialDetailEntry."Application No.") then
+                exit(DetailCustLedgEntry."Cust. Ledger Entry No.");
+        exit(InitialDetailEntry."Applied Cust. Ledger Entry No.");
     end;
 }

@@ -131,13 +131,13 @@ report 50034 "A01 DeliveryNoteInvoiceTxt"
             column(UnitPostalCode; UnitPostalCode)
             {
             }
-            column(CustAddress; "Ship-to Name")
+            column(CustAddress; CustAddress)
             {
             }
             column(CustPhone; CustPhone)
             {
             }
-            column(CustIdentity; CustIdentity)
+            column(CustIdentity; "Sell-to Customer No.")
             {
             }
             column(A01TotalHT__Caption; A01TotalHT__Caption)
@@ -214,13 +214,16 @@ report 50034 "A01 DeliveryNoteInvoiceTxt"
                 column(Location_Code; "Location Code")
                 {
                 }
-                column(Quantity; Round(Quantity))
+                column(Quantity; Quantity)
                 {
                 }
-                column(PUnit_Price_Text; Format(Round("Unit Price", 0.01, '<')))
+                column(PUnit_Price_Text; Round("Unit Price", 0.01, '<'))
                 {
                 }
                 column(A01TTcPriceText; A01TTcPriceText)
+                {
+                }
+                column(Line_Discount__; "Line Discount %")
                 {
                 }
                 column(LineDiscount; LineDiscountText)
@@ -228,10 +231,13 @@ report 50034 "A01 DeliveryNoteInvoiceTxt"
                     AutoFormatExpression = "Sales Shipment Header"."Currency Code";
                     AutoFormatType = 2;
                 }
-                column(A01DiscountedPrice; A01DiscountedPriceText)
+                column(A01DiscountedPrice_; A01DiscountedPriceText)
                 {
                     AutoFormatExpression = "Sales Shipment Header"."Currency Code";
                     AutoFormatType = 2;
+                }
+                column(A01DiscountedPrice; Round(A01DiscountedPrice, 0.01, '<'))
+                {
                 }
                 column(Quantity_Line_Lbl; FieldCaption(Quantity))
                 {
@@ -269,11 +275,13 @@ report 50034 "A01 DeliveryNoteInvoiceTxt"
                     VATHT := Round("Unit Price" + HTPrice, 0.01, '<');
                     A01TTcPriceText := Format(VATHT);
 
-                    LineDiscount := Round((Quantity * "Unit Price") * ("Line Discount %" / 100), 0.01, '<');
+                    // LineDiscount := Round((Quantity * "Unit Price") * ("Line Discount %" / 100), 0.01, '<');
+                    LineDiscount := Round(VATHT * ("Line Discount %" / 100), 0.01, '<');
                     LineDiscountText := Format(LineDiscount);
 
                     // A01DiscountedPrice := Round(("Sales Shipment Line"."Unit Price" * Quantity) - LineDiscount, 0.01, '<');
-                    A01DiscountedPrice := Round(VATHT - LineDiscount, 0.01, '<');
+                    // A01DiscountedPrice := Round((Quantity * VATHT) - LineDiscount, 0.01, '<');
+                    A01DiscountedPrice := Round((Quantity * VATHT) - LineDiscount, 0.01, '<');
                     A01DiscountedPriceText := Format(A01DiscountedPrice);
 
                     // if "No." = 'MIR_FEES' then
@@ -299,15 +307,6 @@ report 50034 "A01 DeliveryNoteInvoiceTxt"
                     OptionType := 1
                 else
                     OptionType := 0;
-
-                // case OptionValue of
-                //     OptionValue::LogoCosmos:
-                //         OptionType := 1;
-                //     OptionValue::LogoUditec:
-                //         OptionType := 0;
-                //     else
-                //         OptionType := 2;
-                // end;
 
                 GLSetup.Get();
                 GLSetup.TestField("LCY Code");
@@ -399,15 +398,17 @@ report 50034 "A01 DeliveryNoteInvoiceTxt"
                     rcs := Cust."A01 RCS";
                     stat := Cust."A01 STAT";
                     nif := Cust."A01 NIF";
+                    CustAddress := Cust.Address;
+                    CustPhone := Cust."Phone No.";
                 end;
 
-                if Contact.Get("Sales Shipment Header"."Bill-to Contact No.") then begin
-                    CustIdentity := Contact.Name;
-                    CustPhone := Contact."Phone No.";
-                end;
+                // if Contact.Get("Sales Shipment Header"."Bill-to Contact No.") then begin
+                //     CustIdentity := Contact.Name;
+                //     CustPhone := Contact."Phone No.";
+                // end;
 
-                if Ship.Get("Sales Shipment Header"."Ship-to Code") then
-                    CustAddress := Ship.Name;
+                // if Ship.Get("Sales Shipment Header"."Ship-to Code") then
+                //     CustAddress := Ship.Name;
 
             end;
 
@@ -454,10 +455,10 @@ report 50034 "A01 DeliveryNoteInvoiceTxt"
         // RespCenterTXT: Record "Responsibility Center";
         LocRec: Record Location;
         Cust: Record Customer;
-        Contact: Record Contact;
+        // Contact: Record Contact;
         GLSetup: Record "General Ledger Setup";
         CurrencyExchangeRate: Record "Currency Exchange Rate";
-        Ship: Record "Ship-to Address";
+        // Ship: Record "Ship-to Address";
         SaleLineRec: Record "Sales Shipment Line";
         AfkLocalCurrency: Record Currency;
         AfkCurrency: Record Currency;
@@ -498,7 +499,7 @@ report 50034 "A01 DeliveryNoteInvoiceTxt"
         UnitCity: Text[50];
         UnitPostalCode: Text[50];
         CustAddress: Text[100];
-        CustIdentity: Text[100];
+        // CustIdentity: Text[100];
         CustPhone: Text[30];
         ReportTitleLbl: Label 'DELIVERY NOTE ';
         UnitNameLbl: Label 'Unit name:';

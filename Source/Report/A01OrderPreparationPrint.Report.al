@@ -49,21 +49,12 @@ report 50025 "A01 OrderPreparationPrint"
             column(UnitCity; UnitCity)
             {
             }
-            // column(CustName; "Sell-to Customer Name")
-            // {
-            // }
             column(UnitPostalCode; UnitPostalCode)
             {
             }
-            // column(CustAddress; "Ship-to Name")
+            // column(CustPhone; CustPhone)
             // {
             // }
-            column(CustPhone; CustPhone)
-            {
-            }
-            column(CustIdentity; CustIdentity)
-            {
-            }
             column(ReportTitleLbl; ReportTitleLbl)
             {
             }
@@ -94,15 +85,15 @@ report 50025 "A01 OrderPreparationPrint"
             column(CustAddressLbl; CustAddressLbl)
             {
             }
-            column(rcs; rcs)
-            {
-            }
-            column(nif; nif)
-            {
-            }
-            column(stat; stat)
-            {
-            }
+            // column(rcs; rcs)
+            // {
+            // }
+            // column(nif; nif)
+            // {
+            // }
+            // column(stat; stat)
+            // {
+            // }
             column(NIFLbl; NIFLbl)
             {
             }
@@ -163,7 +154,19 @@ report 50025 "A01 OrderPreparationPrint"
                 column(Shelf_No_; "Shelf No.")
                 {
                 }
+                column(Bin_Code; "Bin Code")
+                {
+                }
                 column(Qty__to_Ship; "Qty. to Ship")
+                {
+                }
+                column(Destination_No_; "Destination No.")
+                {
+                }
+                column(CustName; CustName)
+                {
+                }
+                column(CustIdentity; CustIdentity)
                 {
                 }
                 // dataitem("Tracking Specification"; "Tracking Specification")
@@ -175,49 +178,68 @@ report 50025 "A01 OrderPreparationPrint"
                 //     {
                 //     }
                 // }
+                dataitem(Customer; Customer)
+                {
+                    DataItemLink = "No." = field("Destination No.");
+                    DataItemLinkReference = Line;
+                    DataItemTableView = sorting("No.");
 
-                trigger OnAfterGetRecord()
-                begin
-                    if "No." = 'MIR_FEES' then
-                        CurrReport.Skip();
-                    if "No." = 'mir_fees' then
-                        CurrReport.Skip();
-                    if "No." = 'MIR_INTEREST' then
-                        CurrReport.Skip();
-                    if "No." = 'mir_interest' then
-                        CurrReport.Skip();
-                end;
+                    column(Sell_to_Customer_No_; "No.")
+                    {
+                    }
+                    column(Sell_to_Customer_Name; Name)
+                    {
+                    }
+                    column(Sell_to_Address; Address)
+                    {
+                    }
+                    column(CustPhone; "Phone No.")
+                    {
+                    }
+                    column(rcs; "A01 RCS")
+                    {
+                    }
+                    column(nif; "A01 NIF")
+                    {
+                    }
+                    column(stat; "A01 STAT")
+                    {
+                    }
+                }
+                // dataitem("Sales Header"; "Sales Header")
+                // {
+                //     DataItemLink = "Document Type" = field("Source Document"), "No." = field("Source No.");
+                //     DataItemLinkReference = Line;
+                //     DataItemTableView = sorting("No.", "Document Type");
+
+                //     column(Sell_to_Customer_No_; "Sell-to Customer No.")
+                //     {
+                //     }
+                //     column(Sell_to_Customer_Name; "Sell-to Customer Name")
+                //     {
+                //     }
+                //     column(Sell_to_Address; "Sell-to Address")
+                //     {
+                //     }
+                //     trigger OnAfterGetRecord()
+                //     begin
+                //         if CustRec.Get("Sales Header"."Sell-to Customer No.") then begin
+                //             nif := CustRec."A01 NIF";
+                //             stat := CustRec."A01 STAT";
+                //             rcs := CustRec."A01 RCS";
+                //             CustPhone := CustRec."Phone No.";
+                //         end;
+                //     end;
+                // }
             }
             trigger OnAfterGetRecord()
             begin
-                // if RespCenter.Get(Header."Responsibility Center") then begin
-                //     UnitName := RespCenter.Name;
-                //     UnitAddress := RespCenter.Address;
-                //     UnitCity := RespCenter.City;
-                //     UnitPostalCode := RespCenter."Post Code";
-                // end;
-
                 if LocRec.Get(Header."Location Code") then begin
                     UnitName := LocRec.Name;
                     UnitAddress := LocRec.Address;
                     UnitCity := LocRec.City;
                     UnitPostalCode := LocRec."Post Code";
                 end;
-
-                // if Cust.Get(Header."Sell-to Customer No.") then begin
-                //     rcs := Cust."A01 RCS";
-                //     stat := Cust."A01 STAT";
-                //     nif := Cust."A01 NIF";
-                // end;
-
-                // if Contact.Get(Header."Sell-to Contact No.") then begin
-                //     CustIdentity := Contact.Name;
-                //     CustPhone := Contact."Phone No.";
-                // end;
-
-                // if Ship.Get(Header."Ship-to Code") then
-                //     CustAddress := Ship.Name;
-
             end;
         }
     }
@@ -242,21 +264,19 @@ report 50025 "A01 OrderPreparationPrint"
     var
         CompanyInfo: Record "Company Information";
         // RespCenter: Record "Responsibility Center";
-        // Cust: Record Customer;
-        // Contact: Record Contact;
+        // CustRec: Record Customer;
         LocRec: Record Location;
-        // Order: Record "Sales Line";
-        // Ship: Record "Ship-to Address";
         UnitName: Text[100];
-        rcs: Code[30];
-        stat: Code[30];
-        nif: Code[30];
+        // rcs: Code[30];
+        // stat: Code[30];
+        // nif: Code[30];
         UnitAddress: Text[100];
         UnitCity: Text[50];
         UnitPostalCode: Text[50];
         // CustAddress: Text[100];
         CustIdentity: Text[100];
-        CustPhone: Text[30];
+        CustName: Text[100];
+        // CustPhone: Text[30];
 
         ReportTitleLbl: Label 'PREPARATION ORDER';
         UnitNameLbl: Label 'Unit name :';

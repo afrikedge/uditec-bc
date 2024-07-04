@@ -44,6 +44,7 @@ page 50040 "A01 Afk Setup"
                 {
                 }
 
+
             }
             group(Mirindra)
             {
@@ -113,6 +114,12 @@ page 50040 "A01 Afk Setup"
                 {
                 }
                 field("MIR Realised Interest Account"; Rec."MIR Realised Interest Account")
+                {
+                }
+                field("Allow Partial Invoice MIR"; Rec."Allow Partial Invoice MIR")
+                {
+                }
+                field("Sales channel for Interest"; Rec."Sales channel for Interest")
                 {
                 }
             }
@@ -264,6 +271,10 @@ page 50040 "A01 Afk Setup"
                 {
                 }
                 field("Exempt Post Shipment Nos"; Rec."Exempt Post Shipment Nos")
+                {
+                }
+
+                field("Transport Order Nos"; Rec."Transport Order Nos")
                 {
                 }
 

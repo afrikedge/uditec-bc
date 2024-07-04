@@ -1878,11 +1878,11 @@
                                                             <Paragraph>
                                                               <TextRuns>
                                                                 <TextRun>
-                                                                  <Value>=LAST(Fields!AfkTotalAmount_LCYText.Value)</Value>
+                                                                  <Value>=LAST(Fields!AfkTotalAmount_LCY.Value)</Value>
                                                                   <Style>
                                                                     <FontSize>7pt</FontSize>
                                                                     <FontWeight>Bold</FontWeight>
-                                                                    <Format>#,0;(#,0)</Format>
+                                                                    <Format>#,0.00;(#,0.00)</Format>
                                                                   </Style>
                                                                 </TextRun>
                                                               </TextRuns>
@@ -1919,7 +1919,7 @@
                                                             <Paragraph>
                                                               <TextRuns>
                                                                 <TextRun>
-                                                                  <Value>=Fields!TVA__Caption.Value &amp; " (" &amp; Fields!AfkCurrCod.Value &amp;")"</Value>
+                                                                  <Value>=Fields!VATText.Value &amp; " (" &amp; Fields!AfkCurrCod.Value &amp;")"</Value>
                                                                   <Style>
                                                                     <FontSize>8pt</FontSize>
                                                                     <FontWeight>Bold</FontWeight>
@@ -1954,11 +1954,11 @@
                                                             <Paragraph>
                                                               <TextRuns>
                                                                 <TextRun>
-                                                                  <Value>=LAST(Fields!AfkTotalVAT_LCYText.Value)</Value>
+                                                                  <Value>=LAST(Fields!AfkTotalVAT_LCY.Value)</Value>
                                                                   <Style>
                                                                     <FontSize>7pt</FontSize>
                                                                     <FontWeight>Bold</FontWeight>
-                                                                    <Format>#,0;(#,0)</Format>
+                                                                    <Format>#,0.00;(#,0.00)</Format>
                                                                   </Style>
                                                                 </TextRun>
                                                               </TextRuns>
@@ -2030,11 +2030,11 @@
                                                             <Paragraph>
                                                               <TextRuns>
                                                                 <TextRun>
-                                                                  <Value>=LAST(Fields!AfkTotalAmountInclVAT_LCYText.Value)</Value>
+                                                                  <Value>=LAST(Fields!AfkTotalAmountInclVAT_LCY.Value)</Value>
                                                                   <Style>
                                                                     <FontSize>7pt</FontSize>
                                                                     <FontWeight>Bold</FontWeight>
-                                                                    <Format>#,0;(#,0)</Format>
+                                                                    <Format>#,0.00;(#,0.00)</Format>
                                                                   </Style>
                                                                 </TextRun>
                                                               </TextRuns>
@@ -2195,6 +2195,7 @@
                                           </Border>
                                         </Style>
                                       </Rectangle>
+                                      <rd:Selected>true</rd:Selected>
                                     </CellContents>
                                   </TablixCell>
                                 </TablixCells>
@@ -3080,6 +3081,9 @@ AAAAAAAAAECjsYAGAAAAAAAAAAAAAAAAjcYCGgAAAAAAAAAAAAAAADQaC2gAAAAAAAAAAAAAAADQaCyg
         <Field Name="CustomerPhone">
           <DataField>CustomerPhone</DataField>
         </Field>
+        <Field Name="VATText">
+          <DataField>VATText</DataField>
+        </Field>
         <Field Name="LineNo_Line">
           <DataField>LineNo_Line</DataField>
         </Field>
@@ -3157,24 +3161,6 @@ AAAAAAAAAECjsYAGAAAAAAAAAAAAAAAAjcYCGgAAAAAAAAAAAAAAADQaC2gAAAAAAAAAAAAAAADQaCyg
         </Field>
         <Field Name="VATPct_Line">
           <DataField>VATPct_Line</DataField>
-        </Field>
-        <Field Name="AfkTotalAmountInclVAT_LCY">
-          <DataField>AfkTotalAmountInclVAT_LCY</DataField>
-        </Field>
-        <Field Name="AfkTotalAmountInclVAT_LCYFormat">
-          <DataField>AfkTotalAmountInclVAT_LCYFormat</DataField>
-        </Field>
-        <Field Name="AfkTotalAmount_LCY">
-          <DataField>AfkTotalAmount_LCY</DataField>
-        </Field>
-        <Field Name="AfkTotalAmount_LCYFormat">
-          <DataField>AfkTotalAmount_LCYFormat</DataField>
-        </Field>
-        <Field Name="AfkTotalVAT_LCY">
-          <DataField>AfkTotalVAT_LCY</DataField>
-        </Field>
-        <Field Name="AfkTotalVAT_LCYFormat">
-          <DataField>AfkTotalVAT_LCYFormat</DataField>
         </Field>
         <Field Name="TransHeaderAmount">
           <DataField>TransHeaderAmount</DataField>
@@ -3407,14 +3393,32 @@ AAAAAAAAAECjsYAGAAAAAAAAAAAAAAAAjcYCGgAAAAAAAAAAAAAAADQaC2gAAAAAAAAAAAAAAADQaCyg
         <Field Name="AfkFormattedTotalTTC">
           <DataField>AfkFormattedTotalTTC</DataField>
         </Field>
+        <Field Name="AfkTotalAmount_LCY">
+          <DataField>AfkTotalAmount_LCY</DataField>
+        </Field>
+        <Field Name="AfkTotalAmount_LCYFormat">
+          <DataField>AfkTotalAmount_LCYFormat</DataField>
+        </Field>
         <Field Name="AfkTotalAmount_LCYText">
           <DataField>AfkTotalAmount_LCYText</DataField>
         </Field>
         <Field Name="Afk_AmountInWords">
           <DataField>Afk_AmountInWords</DataField>
         </Field>
+        <Field Name="AfkTotalAmountInclVAT_LCY">
+          <DataField>AfkTotalAmountInclVAT_LCY</DataField>
+        </Field>
+        <Field Name="AfkTotalAmountInclVAT_LCYFormat">
+          <DataField>AfkTotalAmountInclVAT_LCYFormat</DataField>
+        </Field>
         <Field Name="AfkTotalAmountInclVAT_LCYText">
           <DataField>AfkTotalAmountInclVAT_LCYText</DataField>
+        </Field>
+        <Field Name="AfkTotalVAT_LCY">
+          <DataField>AfkTotalVAT_LCY</DataField>
+        </Field>
+        <Field Name="AfkTotalVAT_LCYFormat">
+          <DataField>AfkTotalVAT_LCYFormat</DataField>
         </Field>
         <Field Name="AfkTotalVAT_LCYText">
           <DataField>AfkTotalVAT_LCYText</DataField>

@@ -306,6 +306,20 @@ table 50017 "A01 Afk Setup"
             Caption = 'Template for AGP Customer';
             TableRelation = "Config. Template Header";
         }
+        field(65; "Allow Partial Invoice MIR"; Boolean)
+        {
+            Caption = 'Allow partial invoice on Mirindra';
+        }
+        field(66; "Transport Order Nos"; Code[20])
+        {
+            Caption = 'Transport Order Nos';
+            TableRelation = "No. Series";
+        }
+        field(67; "Sales channel for Interest"; Code[20])
+        {
+            Caption = 'Sales channel for Interest';
+            TableRelation = "Dimension Value".Code where("Global Dimension No." = const(2));
+        }
 
 
 

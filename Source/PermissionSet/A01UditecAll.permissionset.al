@@ -265,6 +265,26 @@ permissionset 50000 "A01 Uditec_All"
         xmlport "A01 Import Serial Numbers" = X,
         page "A01 Activity Feedback List" = X,
         page "A01 Discount Limits" = X,
-        page "A01 Disposable Rate List" = X;
+        page "A01 Disposable Rate List" = X,
+        tabledata "A01 Route" = RIMD,
+        tabledata "A01 Route Itinery" = RIMD,
+        tabledata "A01 Spare Part" = RIMD,
+        table "A01 Route" = X,
+        table "A01 Route Itinery" = X,
+        table "A01 Spare Part" = X,
+        tabledata "A01 Transport Order" = RIMD,
+        table "A01 Transport Order" = X,
+        tabledata "A01 Service Request" = RIMD,
+        tabledata "A01 Transport Order Detail" = RIMD,
+        table "A01 Service Request" = X,
+        table "A01 Transport Order Detail" = X,
+        tabledata "A01 SR Item Movement" = RIMD,
+        table "A01 SR Item Movement" = X,
+        tabledata "A01 SR Assignment Flow" = RIMD,
+        tabledata "A01 SR Spare Part" = RIMD,
+        table "A01 SR Assignment Flow" = X,
+        table "A01 SR Spare Part" = X,
+        tabledata "A01 SR Sales Document" = RIMD,
+        table "A01 SR Sales Document" = X;
     //page "A01 Customer Settlements" = X;
 }

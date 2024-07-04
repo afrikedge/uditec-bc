@@ -30,7 +30,7 @@ pageextension 50027 "A01 PaymentJournal" extends "Payment Journal"
             {
                 ApplicationArea = All;
                 Image = PrintForm;
-                Caption = 'Print Check requisition';
+                Caption = 'Print Payment requisition';
                 trigger OnAction()
                 var
                     PaymentRec: Record "Gen. Journal Line";

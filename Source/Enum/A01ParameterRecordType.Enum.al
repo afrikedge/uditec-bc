@@ -45,4 +45,8 @@ enum 50017 "A01 Parameter Record Type"
     {
         Caption = 'Activity Feedback';
     }
+    value(10; GapReason)
+    {
+        Caption = 'Gap Reason';
+    }
 }

@@ -536,6 +536,9 @@ report 50010 "A01 SalesInvoiceCreditPrint"
             column(CustomerPhone; CustomerPhone)
             {
             }
+            column(VATText; VATText)
+            {
+            }
             dataitem(Line; "Sales Invoice Line")
             {
                 DataItemLink = "Document No." = field("No.");
@@ -778,6 +781,11 @@ report 50010 "A01 SalesInvoiceCreditPrint"
                     A01LineQtyFormatted := Format(A01LineQty);
                     A01LinePUFormatted := Format(A01LinePU);
                     A01DiscountedPriceText := Format(A01DiscountedPrice);
+
+                    SalesLineRec.Reset();
+                    SalesLineRec.SetRange("Document No.", Header."No.");
+                    if SalesLineRec.FindFirst() then
+                        VATText := VAT20Lbl + '(' + Format(SalesLineRec."VAT %") + ')';
 
                     InitializeShipmentLine();
                     // if Type = Type::"G/L Account" then
@@ -1617,6 +1625,7 @@ report 50010 "A01 SalesInvoiceCreditPrint"
         RespCenter: Record "Responsibility Center";
         SalesPersonCode: Record "Salesperson/Purchaser";
         SellToContact: Record Contact;
+        SalesLineRec: Record "Sales Invoice Line";
         // ShipToAddrr: Record "Ship-to Address";
         // Country: Record "Country/Region";
         VATClause: Record "VAT Clause";
@@ -1650,6 +1659,7 @@ report 50010 "A01 SalesInvoiceCreditPrint"
         Montant: Decimal;
         TVA2: Decimal;
         Total_LCYText: Text[50];
+        VATText: Text[50];
         TVA_LCYText: Text[50];
         TotalTTC_LCYText: Text[50];
         CustomerIdentity: Text[100];
@@ -1811,7 +1821,7 @@ report 50010 "A01 SalesInvoiceCreditPrint"
 
         SubtotalLbl: Label 'Subtotal';
         HTPriceLbl: Label '(A) HT Price';
-        VAT20Lbl: Label '(B) VAT 20%';
+        VAT20Lbl: Label '(B) VAT';
         TTCPriceLbl: Label '(C) TTC Price';
         DepositLbl: Label '(D) Deposit';
         BalanceLbl: Label '(E) Balance';

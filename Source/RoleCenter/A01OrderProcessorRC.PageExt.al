@@ -468,8 +468,45 @@ pageextension 50002 "A01 Order Processor RC" extends "Order Processor Role Cente
                     Caption = 'Payment promise list';
                     RunObject = Page "A01 Payment Promise List";
                 }
-
-
+            }
+            group(A01AfkLogistique)
+            {
+                action(A01Drivers)
+                {
+                    ApplicationArea = Basic, Suite;
+                    Caption = 'Drivers';
+                    RunObject = Page "A01 Drivers";
+                }
+                action(A01Vehicules)
+                {
+                    ApplicationArea = Basic, Suite;
+                    Caption = 'Vehicules';
+                    RunObject = Page "A01 Vehicules";
+                }
+                action(A01GapReasonsList)
+                {
+                    ApplicationArea = Basic, Suite;
+                    Caption = 'Gap Reasons List';
+                    RunObject = Page "A01 Gap Reason List";
+                }
+                action(A01Routes)
+                {
+                    ApplicationArea = Basic, Suite;
+                    Caption = 'Routes';
+                    RunObject = Page "A01 Routes";
+                }
+                action(A01TransportOrders)
+                {
+                    ApplicationArea = Basic, Suite;
+                    Caption = 'Tranport Orders';
+                    RunObject = Page "A01 Tranpsort Order List";
+                }
+                action(A01ServiceRequests)
+                {
+                    ApplicationArea = Basic, Suite;
+                    Caption = 'Service requests';
+                    RunObject = Page "A01 Service Request List";
+                }
             }
         }
     }

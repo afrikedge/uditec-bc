@@ -61,9 +61,9 @@ report 50027 "A01 WarehouseShipOrderPrint"
             // column(CustAddress; "Ship-to Name")
             // {
             // }
-            column(CustPhone; CustPhone)
-            {
-            }
+            // column(CustPhone; CustPhone)
+            // {
+            // }
             column(CustIdentity; CustIdentity)
             {
             }
@@ -97,15 +97,15 @@ report 50027 "A01 WarehouseShipOrderPrint"
             column(CustAddressLbl; CustAddressLbl)
             {
             }
-            column(rcs; rcs)
-            {
-            }
-            column(nif; nif)
-            {
-            }
-            column(stat; stat)
-            {
-            }
+            // column(rcs; rcs)
+            // {
+            // }
+            // column(nif; nif)
+            // {
+            // }
+            // column(stat; stat)
+            // {
+            // }
             column(NIFLbl; NIFLbl)
             {
             }
@@ -160,6 +160,9 @@ report 50027 "A01 WarehouseShipOrderPrint"
                 column(Location_Code; "Location Code")
                 {
                 }
+                column(Bin_Code; "Bin Code")
+                {
+                }
                 column(Shelf_No_; "Shelf No.")
                 {
                 }
@@ -175,22 +178,34 @@ report 50027 "A01 WarehouseShipOrderPrint"
                 //     {
                 //     }
                 // }
+                dataitem(Customer; Customer)
+                {
+                    DataItemLink = "No." = field("Destination No.");
+                    DataItemLinkReference = Line;
+                    DataItemTableView = sorting("No.");
 
-                trigger OnAfterGetRecord()
-                begin
-                    if "No." = 'MIR_FEES' then
-                        CurrReport.Skip();
-                    if "No." = 'mir_fees' then
-                        CurrReport.Skip();
-                    if "No." = 'MIR_INTEREST' then
-                        CurrReport.Skip();
-                    if "No." = 'mir_interest' then
-                        CurrReport.Skip();
-                    if "No." = 'AGP_FEES' then
-                        CurrReport.Skip();
-                    if "No." = 'agp_fees' then
-                        CurrReport.Skip();
-                end;
+                    column(Sell_to_Customer_No_; "No.")
+                    {
+                    }
+                    column(Sell_to_Customer_Name; Name)
+                    {
+                    }
+                    column(Sell_to_Address; Address)
+                    {
+                    }
+                    column(CustPhone; "Phone No.")
+                    {
+                    }
+                    column(rcs; "A01 RCS")
+                    {
+                    }
+                    column(nif; "A01 NIF")
+                    {
+                    }
+                    column(stat; "A01 STAT")
+                    {
+                    }
+                }
             }
             trigger OnAfterGetRecord()
             var
@@ -203,7 +218,6 @@ report 50027 "A01 WarehouseShipOrderPrint"
                     if (not userSetup."A01 Print Whse Delivery") then
                         error(LabErrorNosPrinted);
                 end;
-
 
                 // if RespCenter.Get(Header."Responsibility Center") then begin
                 //     UnitName := RespCenter.Name;
@@ -218,20 +232,6 @@ report 50027 "A01 WarehouseShipOrderPrint"
                     UnitCity := LocRec.City;
                     UnitPostalCode := LocRec."Post Code";
                 end;
-
-                // if Cust.Get(Header."Sell-to Customer No.") then begin
-                //     rcs := Cust."A01 RCS";
-                //     stat := Cust."A01 STAT";
-                //     nif := Cust."A01 NIF";
-                // end;
-
-                // if Contact.Get(Header."Sell-to Contact No.") then begin
-                //     CustIdentity := Contact.Name;
-                //     CustPhone := Contact."Phone No.";
-                // end;
-
-                // if Ship.Get(Header."Ship-to Code") then
-                //     CustAddress := Ship.Name;
 
             end;
 
@@ -264,22 +264,19 @@ report 50027 "A01 WarehouseShipOrderPrint"
 
     var
         CompanyInfo: Record "Company Information";
+        // CustRec: Record Customer;
         // RespCenter: Record "Responsibility Center";
-        // Cust: Record Customer;
-        // Contact: Record Contact;
         LocRec: Record Location;
-        // Order: Record "Sales Line";
-        // Ship: Record "Ship-to Address";
         UnitName: Text[100];
-        rcs: Code[30];
-        stat: Code[30];
-        nif: Code[30];
+        // rcs: Code[30];
+        // stat: Code[30];
+        // nif: Code[30];
         UnitAddress: Text[100];
         UnitCity: Text[50];
         UnitPostalCode: Text[50];
         // CustAddress: Text[100];
         CustIdentity: Text[100];
-        CustPhone: Text[30];
+        // CustPhone: Text[30];
 
         ReportTitleLbl: Label 'WAREHOUSE SHIPPING ORDER';
         UnitNameLbl: Label 'Unit name :';

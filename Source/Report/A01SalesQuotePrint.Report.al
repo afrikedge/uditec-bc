@@ -178,6 +178,9 @@ report 50001 "A01 SalesQuotePrint"
             column(CustomerPhone; CustomerPhone)
             {
             }
+            column(VATText; VATText)
+            {
+            }
             dataitem(Line; "Sales Line")
             {
                 DataItemTableView = sorting("Document No.", "Line No.");
@@ -269,15 +272,15 @@ report 50001 "A01 SalesQuotePrint"
                 column(VATPct_Line; FormattedVATPct)
                 {
                 }
-                column(AfkTotalAmountInclVAT_LCY; AfkTotalAmountInclVAT_LCY)
-                {
-                }
-                column(AfkTotalAmount_LCY; AfkTotalAmount_LCY)
-                {
-                }
-                column(AfkTotalVAT_LCY; AfkTotalVAT_LCY)
-                {
-                }
+                // column(AfkTotalAmountInclVAT_LCY; AfkTotalAmountInclVAT_LCY)
+                // {
+                // }
+                // column(AfkTotalAmount_LCY; AfkTotalAmount_LCY)
+                // {
+                // }
+                // column(AfkTotalVAT_LCY; AfkTotalVAT_LCY)
+                // {
+                // }
                 column(TransHeaderAmount; TransHeaderAmount)
                 {
                     AutoFormatExpression = "Currency Code";
@@ -359,6 +362,11 @@ report 50001 "A01 SalesQuotePrint"
                     A01LineQtyFormatted := Format(A01LineQty);
                     A01LinePUFormatted := Format(A01LinePU);
                     A01DiscountedPriceText := Format(A01DiscountedPrice);
+
+                    SalesLineRec.Reset();
+                    SalesLineRec.SetRange("Document No.", Header."No.");
+                    if SalesLineRec.FindFirst() then
+                        VATText := TVA__Caption + '(' + Format(SalesLineRec."VAT %") + ')';
 
                     // InitializeShipmentLine();
                     if Type = Type::"G/L Account" then
@@ -716,13 +724,23 @@ report 50001 "A01 SalesQuotePrint"
                 column(AfkFormattedTotalTTC; AfkFormattedTotalTTC)
                 {
                 }
+                column(AfkTotalAmount_LCY; AfkTotalAmount_LCY)
+                {
+
+                }
                 column(AfkTotalAmount_LCYText; AfkTotalAmount_LCYText)
                 {
                 }
                 column(Afk_AmountInWords; Afk_AmountInWords)
                 {
                 }
+                column(AfkTotalAmountInclVAT_LCY; AfkTotalAmountInclVAT_LCY)
+                {
+                }
                 column(AfkTotalAmountInclVAT_LCYText; AfkTotalAmountInclVAT_LCYText)
+                {
+                }
+                column(AfkTotalVAT_LCY; AfkTotalVAT_LCY)
                 {
                 }
                 column(AfkTotalVAT_LCYText; AfkTotalVAT_LCYText)
@@ -1004,6 +1022,7 @@ report 50001 "A01 SalesQuotePrint"
         CompanyInfo: Record "Company Information";
         SalesPersonInfo: Record "Salesperson/Purchaser";
         ContactInfo: Record Contact;
+        SalesLineRec: Record "Sales Line";
         AfkLocalCurrency: Record Currency;
         CurrencyExchangeRate: Record "Currency Exchange Rate";
         ResponsibilityInfo: Record "Responsibility Center";
@@ -1066,6 +1085,7 @@ report 50001 "A01 SalesQuotePrint"
         WorkDescriptionLine: Text;
         ExchangeRateText: Text;
         PmtDiscText: Text;
+        VATText: Text[50];
         LCYTxt: label ' (LCY)';
         LegalOfficeTxt, LegalOfficeLbl, CustomGiroTxt, CustomGiroLbl, LegalStatementLbl : Text;
         CustAddr: array[8] of Text[100];
@@ -1145,7 +1165,7 @@ report 50001 "A01 SalesQuotePrint"
         RCS__Caption: Label 'RCS:';
         CustomerPhone__Caption: Label 'Phone:';
         TotalHT__Caption: Label 'Total HT';
-        TVA__Caption: Label 'VAT(20%)';
+        TVA__Caption: Label 'VAT';
         TotalTTC__Caption: Label 'Total TTC';
         CustSignLbl: Label 'Customer signature';
         CompanySignLbl: Label 'Company signature';

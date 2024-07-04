@@ -687,6 +687,8 @@ codeunit 50007 "A01 Treso Mgt"
         if (not IsMultiMeadlinesInvoice(SalesHeader)) then
             exit;
 
+        SalesHeader.testfield("A01 Credit Duration (Month)");
+
         PaymentCond.Get(SalesHeader."Payment Terms Code");
 
         CheckCreditDueLines(SalesHeader);
@@ -809,11 +811,12 @@ codeunit 50007 "A01 Treso Mgt"
             SalesHeader.GetUseDate(), SalesHeader."Currency Code", -LinePmtDiscountAmt, SalesHeader."Currency Factor");
 
         GenJnlLine."Due Date" := LineDueDate;
+        GenJnlLine."External Document No." := GenJnlLine."Document No.";
         //GenJnlLine."Document No." := Copystr(GenJnlLine."Document No." + '/' + Format(LineId), 1, 20);
         if (LineId > 1) then
             GenJnlLine."Document No." := Copystr(GenJnlLine."Document No.", 1, 17) + '/' + Format(LineId);
         //GenJnlLine."External Document No." := Copystr(GenJnlLine."Document No." + '/' + Format(LineId), 1, 35);
-        GenJnlLine."External Document No." := GenJnlLine."Document No.";
+
         //GenJnlLine."Document Type" := GenJnlLine."Document Type"::" ";
         //GenJnlLine."Pmt. Discount Date" := 0D;
         //GenJnlLine."Payment Discount %" := 0;

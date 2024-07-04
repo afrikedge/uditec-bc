@@ -466,6 +466,9 @@ report 50030 "A01 SalesInvoiceUditec"
             column(CustomerPhone; CustomerPhone)
             {
             }
+            column(VATText; VATText)
+            {
+            }
             dataitem(Line; "Sales Invoice Line")
             {
                 DataItemLink = "Document No." = field("No.");
@@ -553,17 +556,15 @@ report 50030 "A01 SalesInvoiceUditec"
                 column(VATPct_Line; FormattedVATPct)
                 {
                 }
-                column(AfkTotalAmountInclVAT_LCY; AfkTotalAmountInclVAT_LCY)
-                {
-
-                }
-                column(AfkTotalAmount_LCY; AfkTotalAmount_LCY)
-                {
-                }
-                column(AfkTotalVAT_LCY; AfkTotalVAT_LCY)
-                {
-
-                }
+                // column(AfkTotalAmountInclVAT_LCY; AfkTotalAmountInclVAT_LCY)
+                // {
+                // }
+                // column(AfkTotalAmount_LCY; AfkTotalAmount_LCY)
+                // {
+                // }
+                // column(AfkTotalVAT_LCY; AfkTotalVAT_LCY)
+                // {
+                // }
                 column(TransHeaderAmount; TransHeaderAmount)
                 {
                     AutoFormatExpression = Header."Currency Code";
@@ -710,6 +711,11 @@ report 50030 "A01 SalesInvoiceUditec"
                     A01LineQtyFormatted := Format(A01LineQty);
                     A01LinePUFormatted := Format(A01LinePU);
                     A01DiscountedPriceText := Format(A01DiscountedPrice);
+
+                    SalesLineRec.Reset();
+                    SalesLineRec.SetRange("Document No.", Header."No.");
+                    if SalesLineRec.FindFirst() then
+                        VATText := VAT20Lbl + '(' + Format(SalesLineRec."VAT %") + ')';
 
                     InitializeShipmentLine();
 
@@ -1183,13 +1189,22 @@ report 50030 "A01 SalesInvoiceUditec"
                 column(AfkFormattedTotalTTC; AfkFormattedTotalTTC)
                 {
                 }
+                column(AfkTotalAmount_LCY; AfkTotalAmount_LCY)
+                {
+                }
                 column(AfkTotalAmount_LCYText; AfkTotalAmount_LCYText)
                 {
                 }
                 column(Afk_AmountInWords; Afk_AmountInWords)
                 {
                 }
+                column(AfkTotalAmountInclVAT_LCY; AfkTotalAmountInclVAT_LCY)
+                {
+                }
                 column(AfkTotalAmountInclVAT_LCYText; AfkTotalAmountInclVAT_LCYText)
+                {
+                }
+                column(AfkTotalVAT_LCY; AfkTotalVAT_LCY)
                 {
                 }
                 column(AfkTotalVAT_LCYText; AfkTotalVAT_LCYText)
@@ -1460,6 +1475,7 @@ report 50030 "A01 SalesInvoiceUditec"
 
     var
         GLSetup: Record "General Ledger Setup";
+        SalesLineRec: Record "Sales Invoice Line";
         CompanyInfo: Record "Company Information";
         DummyCompanyInfo: Record "Company Information";
         RespCenter: Record "Responsibility Center";
@@ -1492,6 +1508,7 @@ report 50030 "A01 SalesInvoiceUditec"
         FormatDocument: Codeunit "Format Document";
         MoreLines: Boolean;
         CustomerIdentity: Text[100];
+        VATText: Text[50];
         rcs: Code[30];
         stat: Code[30];
         nif: Code[30];
@@ -1640,7 +1657,7 @@ report 50030 "A01 SalesInvoiceUditec"
 
         SubtotalLbl: Label 'Subtotal';
         HTPriceLbl: Label '(A) HT Price';
-        VAT20Lbl: Label '(B) VAT 20%';
+        VAT20Lbl: Label '(B) VAT';
         TTCPriceLbl: Label '(C) TTC Price';
         // DepositLbl: Label '(D) Deposit';
         // BalanceLbl: Label '(E) Balance';
