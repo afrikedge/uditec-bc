@@ -115,48 +115,20 @@ codeunit 50001 "A01 EventsSubscribers_Table"
                 rec."Prepayment %" := 0;
     end;
 
+    [EventSubscriber(ObjectType::Table, Database::"Contact", 'OnAfterCreateCustomer', '', true, true)]
+    local procedure OnAfterCreateCustomer_Contact(var Contact: Record Contact; var Customer: Record Customer)
+    var
+    begin
+        if (Contact."A01 Credit Limit" <> 0) then
+            Customer."Credit Limit (LCY)" := Contact."A01 Credit Limit";
+    end;
 
-    // [IntegrationEvent(false, false)]
-    // local procedure OnCreateCustomerOnBeforeCustomerModify(var Customer: Record Customer; Contact: Record Contact)
+
+
+    //  [IntegrationEvent(false, false)]
+    // local procedure OnAfterCreateCustomer(var Contact: Record Contact; var Customer: Record Customer)
     // begin
     // end;
-
-    // [IntegrationEvent(false, false)]
-    // local procedure OnCheckCustomerCreatedOnBeforeConfirmProcess(SalesHeader: Record "Sales Header"; var Prompt: Boolean; var Result: Boolean; var IsHandled: Boolean)
-    // begin
-    // end;
-
-
-    // [EventSubscriber(ObjectType::Table, Database::"Sales Header", 'OnAfterInitPostingNoSeries', '', true, true)]
-    // local procedure SalesHeader_OnAfterInitPostingNoSeries(var SalesHeader: Record "Sales Header"; xSalesHeader: Record "Sales Header")
-    // var
-    //     AfkSetup: Record "A01 Afk Setup";
-    //     GLSetup: Record "General Ledger Setup";
-    //     SalesSetup: Record "Sales & Receivables Setup";
-    //     NoSeriesMgt: Codeunit NoSeriesManagement;
-    // begin
-    //     GLSetup.GetRecordOnce();
-
-    //     if GLSetup."Journal Templ. Name Mandatory" then exit;
-
-    //     if ((SalesHeader."A01 Sales Order Type" = SalesHeader."A01 Sales Order Type"::Exempt)
-    //             and (SalesHeader."Document Type" = SalesHeader."Document Type"::Order)) then begin
-    //         AfkSetup.GetRecordOnce();
-    //         NoSeriesMgt.SetDefaultSeries(SalesHeader."Posting No. Series", AfkSetup."Exempt Post Invoices Nos");
-    //         NoSeriesMgt.SetDefaultSeries(SalesHeader."Shipping No. Series", AfkSetup."Exempt Post Shipment Nos");
-    //     end;
-    //     if ((SalesHeader."A01 Sales Order Type" = SalesHeader."A01 Sales Order Type"::Normal)
-    //             and (SalesHeader."Document Type" = SalesHeader."Document Type"::Order)) then begin
-    //         SalesSetup.GetRecordOnce();
-    //         NoSeriesMgt.SetDefaultSeries(SalesHeader."Posting No. Series", AfkSetup."Exempt Post Invoices Nos");
-    //         NoSeriesMgt.SetDefaultSeries(SalesHeader."Shipping No. Series", AfkSetup."Exempt Post Shipment Nos");
-    //     end;
-    // end;
-
-    // [IntegrationEvent(false, false)]
-    //     local procedure OnAfterInitPostingNoSeries(var SalesHeader: Record "Sales Header"; xSalesHeader: Record "Sales Header")
-    //     begin
-    //     end;
 
 
 

@@ -159,8 +159,10 @@ codeunit 50004 "A01 Security Mgt"
     procedure CheckWharehouseUserOnJournal(ItemJournalLine: Record "Item Journal Line")
     var
     begin
-        CheckWharehouseUser(ItemJournalLine."Location Code");
-        CheckWharehouseUser(ItemJournalLine."New Location Code");
+        if (ItemJournalLine.Quantity <> 0) then begin
+            CheckWharehouseUser(ItemJournalLine."Location Code");
+            CheckWharehouseUser(ItemJournalLine."New Location Code");
+        end;
     end;
 
     procedure CheckWharehouseUser(LocationCode: Code[20])
