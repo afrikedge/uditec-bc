@@ -271,8 +271,13 @@ report 50034 "A01 DeliveryNoteInvoiceTxt"
                 // }
                 trigger OnAfterGetRecord()
                 begin
-                    HTPrice := Round(("Unit Price" * "VAT %") / 100, 0.01, '<');
-                    VATHT := Round("Unit Price" + HTPrice, 0.01, '<');
+                    if ("Sales Shipment Header"."Prices Including VAT") then begin
+                        //HTPrice := Round(("Unit Price"), 0.01, '<');
+                        VATHT := Round("Unit Price", 0.01, '<');
+                    end else begin
+                        HTPrice := Round(("Unit Price" * "VAT %") / 100, 0.01, '<');
+                        VATHT := Round("Unit Price" + HTPrice, 0.01, '<');
+                    end;
                     A01TTcPriceText := Format(VATHT);
 
                     // LineDiscount := Round((Quantity * "Unit Price") * ("Line Discount %" / 100), 0.01, '<');

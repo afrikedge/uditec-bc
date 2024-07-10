@@ -299,6 +299,7 @@ report 50024 "A01 PostedCustSettlementPrint"
                     DataItemLinkReference = "Detailed Cust. Ledg. Entry";
                     DataItemLink = "Entry No." = field("Cust. Ledger Entry No.");
                     DataItemTableView = sorting("Entry No.") where("Document Type" = filter(Invoice));
+
                     column(DocumentNo; "Document No.")
                     {
                     }
@@ -319,6 +320,7 @@ report 50024 "A01 PostedCustSettlementPrint"
                     }
                     trigger OnAfterGetRecord()
                     begin
+                        CalcFields("Remaining Amount");
                         OriginAmt := ROUND("Original Amount", AfkLocalCurrency."Amount Rounding Precision");
                         OriginAmt_LCYText := Format(OriginAmt, 0, AutoFormat.ResolveAutoFormat("Auto Format"::AmountFormat, AfkLocalCurrency.Code));
                         OriginAmt_LCYText := Format(OriginAmt);

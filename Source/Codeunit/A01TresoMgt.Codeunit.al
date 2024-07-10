@@ -661,10 +661,11 @@ codeunit 50007 "A01 Treso Mgt"
             exit(false);
         if (not PaymentCond."A01 Multi-deadlines") then
             exit(false);
-        if (SalesHeader."A01 Credit Duration (Month)" <= 0) then
-            exit(false);
+        // if (SalesHeader."A01 Credit Duration (Month)" <= 0) then
+        //     exit(false);
         exit(true);
     end;
+
 
     local procedure IsPostingWithoutDueCreditLine(SalesHeader: Record "Sales Header"): Boolean
     var

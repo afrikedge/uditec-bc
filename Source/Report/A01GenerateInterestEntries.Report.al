@@ -174,7 +174,7 @@ report 50019 "A01 Generate Interest Entries"
         //GenJrnLine.Description := BuildDescriptionProvision(PurchH."No.",PurchH."Buy-from Vendor Name");
 
 
-        GenJrnLine.Validate(GenJrnLine.Amount, CreditDueLine.Interest);
+        GenJrnLine.Validate(GenJrnLine.Amount, CreditDueLine."Interest Excl VAT");
 
         GenJrnLine."Message to Recipient" := 'AFKGIE' + Format(CreditDueLine."Cust Ledger Entry No.");
 
