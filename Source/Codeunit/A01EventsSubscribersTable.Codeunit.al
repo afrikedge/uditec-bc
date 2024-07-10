@@ -115,8 +115,8 @@ codeunit 50001 "A01 EventsSubscribers_Table"
                 rec."Prepayment %" := 0;
     end;
 
-    [EventSubscriber(ObjectType::Table, Database::"Contact", 'OnAfterCreateCustomer', '', true, true)]
-    local procedure OnAfterCreateCustomer_Contact(var Contact: Record Contact; var Customer: Record Customer)
+    [EventSubscriber(ObjectType::Table, Database::"Contact", 'OnCreateCustomerOnBeforeCustomerModify', '', true, true)]
+    local procedure OnCreateCustomerOnBeforeCustomerModify_Contact(var Customer: Record Customer; Contact: Record Contact)
     var
     begin
         if (Contact."A01 Credit Limit" <> 0) then

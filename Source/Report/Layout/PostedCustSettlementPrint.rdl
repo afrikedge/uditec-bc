@@ -2509,7 +2509,7 @@
                                                             <Paragraph>
                                                               <TextRuns>
                                                                 <TextRun>
-                                                                  <Value>=Sum(Fields!CreditAmount.Value)</Value>
+                                                                  <Value>=Fields!OriginAmt.Value-Fields!Remaining_Amount.Value</Value>
                                                                   <Style>
                                                                     <FontSize>7pt</FontSize>
                                                                     <FontWeight>Normal</FontWeight>
@@ -2627,7 +2627,7 @@
                                                             <Paragraph>
                                                               <TextRuns>
                                                                 <TextRun>
-                                                                  <Value>=Sum(Fields!CreditAmount.Value)</Value>
+                                                                  <Value>=Fields!OriginAmt.Value-Fields!Remaining_Amount.Value</Value>
                                                                   <Style>
                                                                     <FontSize>7pt</FontSize>
                                                                     <FontWeight>Bold</FontWeight>
@@ -2986,7 +2986,7 @@
                                                             <Paragraph>
                                                               <TextRuns>
                                                                 <TextRun>
-                                                                  <Value>=Fields!OriginAmt.Value - Sum(Fields!CreditAmount.Value)</Value>
+                                                                  <Value>=Fields!Remaining_Amount.Value</Value>
                                                                   <Style>
                                                                     <FontSize>7pt</FontSize>
                                                                     <FontWeight>Bold</FontWeight>
@@ -5536,7 +5536,7 @@
                                                             <Paragraph>
                                                               <TextRuns>
                                                                 <TextRun>
-                                                                  <Value>=Sum(Fields!CreditAmount.Value)</Value>
+                                                                  <Value>=Fields!OriginAmt.Value-Fields!Remaining_Amount.Value</Value>
                                                                   <Style>
                                                                     <FontSize>7pt</FontSize>
                                                                     <FontWeight>Normal</FontWeight>
@@ -5657,7 +5657,7 @@
                                                             <Paragraph>
                                                               <TextRuns>
                                                                 <TextRun>
-                                                                  <Value>=Sum(Fields!CreditAmount.Value)</Value>
+                                                                  <Value>=Fields!OriginAmt.Value-Fields!Remaining_Amount.Value</Value>
                                                                   <Style>
                                                                     <FontSize>7pt</FontSize>
                                                                     <FontWeight>Normal</FontWeight>
@@ -5682,6 +5682,7 @@
                                                             <PaddingBottom>2pt</PaddingBottom>
                                                           </Style>
                                                         </Textbox>
+                                                        <rd:Selected>true</rd:Selected>
                                                       </CellContents>
                                                     </TablixCell>
                                                   </TablixCells>
@@ -6022,7 +6023,7 @@
                                                             <Paragraph>
                                                               <TextRuns>
                                                                 <TextRun>
-                                                                  <Value>=Fields!OriginAmt.Value - Sum(Fields!CreditAmount.Value)</Value>
+                                                                  <Value>=Fields!Remaining_Amount.Value</Value>
                                                                   <Style>
                                                                     <FontSize>7pt</FontSize>
                                                                     <FontWeight>Bold</FontWeight>
@@ -6115,7 +6116,6 @@
                                           </Border>
                                         </Style>
                                       </Rectangle>
-                                      <rd:Selected>true</rd:Selected>
                                     </CellContents>
                                   </TablixCell>
                                 </TablixCells>
