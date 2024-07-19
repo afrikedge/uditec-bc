@@ -271,12 +271,17 @@ report 50009 "A01 DeliveryNoteInvoicePrint"
                 // }
                 trigger OnAfterGetRecord()
                 begin
-                    HTPrice := Round(("Unit Price" * "VAT %") / 100, 0.01, '<');
-                    VATHT := Round("Unit Price" + HTPrice, 0.01, '<');
+                    if ("Sales Shipment Header"."Prices Including VAT") then begin
+                        //HTPrice := Round(("Unit Price"), 0.01, '<');
+                        VATHT := Round("Unit Price", 0.01, '<');
+                    end else begin
+                        HTPrice := Round(("Unit Price" * "VAT %") / 100, 0.01, '<');
+                        VATHT := Round("Unit Price" + HTPrice, 0.01, '<');
+                    end;
                     A01TTcPriceText := Format(VATHT);
 
                     // LineDiscount := Round((Quantity * "Unit Price") * ("Line Discount %" / 100), 0.01, '<');
-                    LineDiscount := Round(VATHT * ("Line Discount %" / 100), 0.01, '<');
+                    LineDiscount := Round(Quantity * VATHT * ("Line Discount %" / 100), 0.01, '<');
                     LineDiscountText := Format(LineDiscount);
 
                     // A01DiscountedPrice := Round(("Sales Shipment Line"."Unit Price" * Quantity) - LineDiscount, 0.01, '<');
@@ -298,6 +303,10 @@ report 50009 "A01 DeliveryNoteInvoicePrint"
             }
 
             trigger OnAfterGetRecord()
+            var
+                PUTTCLigne: decimal;
+                PUTTCLigneRemise: decimal;
+                PUTTCLigneApresRemise: decimal;
             begin
                 // if RespCenter.Get(Header."Responsibility Center") then begin
 
@@ -338,37 +347,50 @@ report 50009 "A01 DeliveryNoteInvoicePrint"
                 SaleLineRec.SetRange("Document No.", "Sales Shipment Header"."No.");
                 if SaleLineRec.FindFirst() then begin
                     repeat
-                        Montant := Round(SaleLineRec.Quantity * SaleLineRec."Unit Price", 0.01, '<');
-                        TotalHT := Round(TotalHT + (Montant - (Montant * SaleLineRec."Line Discount %" / 100)), 0.01, '<');
-                        TVA2 := Round((TotalHT * SaleLineRec."VAT %" / 100), 0.01, '<');
-                        TVA := Round((TotalHT + TVA2) - TotalHT, 0.01, '<');
 
-                        TotalHT := CurrencyExchangeRate.ExchangeAmtFCYToLCY("Sales Shipment Header"."Posting Date",
-                            "Sales Shipment Header"."Currency Code", TotalHT, "Sales Shipment Header"."Currency Factor");
-                        TVA := CurrencyExchangeRate.ExchangeAmtFCYToLCY("Sales Shipment Header"."Posting Date",
-                            "Sales Shipment Header"."Currency Code", TVA, "Sales Shipment Header"."Currency Factor");
+                        if ("Sales Shipment Header"."Prices Including VAT") then begin
+                            PUTTCLigne := Round(SaleLineRec."Unit Price", 0.01, '<');
+                        end else begin
+                            HTPrice := Round((SaleLineRec."Unit Price" * SaleLineRec."VAT %") / 100, 0.01, '<');
+                            PUTTCLigne := Round(SaleLineRec."Unit Price" + HTPrice, 0.01, '<');
+                        end;
+                        PUTTCLigneRemise := Round(PUTTCLigne * (SaleLineRec."Line Discount %" / 100), 0.01, '<');
+                        PUTTCLigneApresRemise := PUTTCLigne - PUTTCLigneRemise;
+                        TotalTTC := TotalTTC + (PUTTCLigneApresRemise * SaleLineRec.Quantity);
+                        TotalTTC := ROUND(TotalTTC, AfkLocalCurrency."Amount Rounding Precision");
 
-                        TotalHT := ROUND(TotalHT, AfkLocalCurrency."Amount Rounding Precision");
-                        TVA := ROUND(TVA, AfkLocalCurrency."Amount Rounding Precision");
 
-                        Total_LCYText :=
-                         Format(TotalHT, 0,
-                         AutoFormat.ResolveAutoFormat("Auto Format"::AmountFormat, AfkLocalCurrency.Code));
-                        Total_LCYText := Format(TotalHT);
-                        TVA_LCYText :=
-                         Format(TVA, 0,
-                         AutoFormat.ResolveAutoFormat("Auto Format"::AmountFormat, AfkLocalCurrency.Code));
-                        TVA_LCYText := Format(TVA);
+                    // Montant := Round(SaleLineRec.Quantity * SaleLineRec."Unit Price", 0.01, '<');
+                    // TotalHT := Round(TotalHT + (Montant - (Montant * SaleLineRec."Line Discount %" / 100)), 0.01, '<');
+                    // TVA2 := Round((TotalHT * SaleLineRec."VAT %" / 100), 0.01, '<');
+                    // TVA := Round((TotalHT + TVA2) - TotalHT, 0.01, '<');
+
+                    // TotalHT := CurrencyExchangeRate.ExchangeAmtFCYToLCY("Sales Shipment Header"."Posting Date",
+                    //     "Sales Shipment Header"."Currency Code", TotalHT, "Sales Shipment Header"."Currency Factor");
+                    // TVA := CurrencyExchangeRate.ExchangeAmtFCYToLCY("Sales Shipment Header"."Posting Date",
+                    //     "Sales Shipment Header"."Currency Code", TVA, "Sales Shipment Header"."Currency Factor");
+
+                    // TotalHT := ROUND(TotalHT, AfkLocalCurrency."Amount Rounding Precision");
+                    // TVA := ROUND(TVA, AfkLocalCurrency."Amount Rounding Precision");
+
+                    // Total_LCYText :=
+                    //  Format(TotalHT, 0,
+                    //  AutoFormat.ResolveAutoFormat("Auto Format"::AmountFormat, AfkLocalCurrency.Code));
+                    // Total_LCYText := Format(TotalHT);
+                    // TVA_LCYText :=
+                    //  Format(TVA, 0,
+                    //  AutoFormat.ResolveAutoFormat("Auto Format"::AmountFormat, AfkLocalCurrency.Code));
+                    // TVA_LCYText := Format(TVA);
                     until SaleLineRec.Next() = 0;
 
-                    TotalTTC := CurrencyExchangeRate.ExchangeAmtFCYToLCY("Sales Shipment Header"."Posting Date",
-                                "Sales Shipment Header"."Currency Code", TotalTTC, "Sales Shipment Header"."Currency Factor");
-                    TotalTTC := TotalHT + TVA;
-                    TotalTTC := ROUND(TotalTTC, AfkLocalCurrency."Amount Rounding Precision");
-                    TotalTTC_LCYText :=
-                     Format(TotalTTC, 0,
-                     AutoFormat.ResolveAutoFormat("Auto Format"::AmountFormat, AfkLocalCurrency.Code));
-                    TotalTTC_LCYText := Format(TotalTTC);
+                    // TotalTTC := CurrencyExchangeRate.ExchangeAmtFCYToLCY("Sales Shipment Header"."Posting Date",
+                    //             "Sales Shipment Header"."Currency Code", TotalTTC, "Sales Shipment Header"."Currency Factor");
+                    // TotalTTC := TotalHT + TVA;
+                    // TotalTTC := ROUND(TotalTTC, AfkLocalCurrency."Amount Rounding Precision");
+                    // TotalTTC_LCYText :=
+                    //  Format(TotalTTC, 0,
+                    //  AutoFormat.ResolveAutoFormat("Auto Format"::AmountFormat, AfkLocalCurrency.Code));
+                    // TotalTTC_LCYText := Format(TotalTTC);
                 end;
 
                 RepCheck.InitTextVariable();

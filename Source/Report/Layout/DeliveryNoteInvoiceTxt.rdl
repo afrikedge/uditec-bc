@@ -1054,7 +1054,6 @@
                                             </TablixRowHierarchy>
                                             <DataSetName>DataSet_Result</DataSetName>
                                             <Top>0.15278in</Top>
-                                            <Left>0in</Left>
                                             <Height>1.09721in</Height>
                                             <Width>7.44774in</Width>
                                             <Style>
@@ -1661,7 +1660,7 @@
                                                                   <Value>=Fields!Line_Discount__.Value</Value>
                                                                   <Style>
                                                                     <FontSize>8pt</FontSize>
-                                                                    <Format>#,0;(#,0)</Format>
+                                                                    <Format>#,0.00;(#,0.00)</Format>
                                                                   </Style>
                                                                 </TextRun>
                                                               </TextRuns>
@@ -1853,7 +1852,7 @@
                                                             <Paragraph>
                                                               <TextRuns>
                                                                 <TextRun>
-                                                                  <Value>=Sum(Fields!A01DiscountedPrice.Value)</Value>
+                                                                  <Value>=Fields!TotalTTC.Value</Value>
                                                                   <Style>
                                                                     <FontSize>7pt</FontSize>
                                                                     <FontWeight>Bold</FontWeight>
@@ -1890,6 +1889,7 @@
                                                             <PaddingBottom>2pt</PaddingBottom>
                                                           </Style>
                                                         </Textbox>
+                                                        <rd:Selected>true</rd:Selected>
                                                       </CellContents>
                                                     </TablixCell>
                                                   </TablixCells>
@@ -1924,7 +1924,6 @@
                                               </TablixMembers>
                                             </TablixRowHierarchy>
                                             <Top>1.46529in</Top>
-                                            <Left>0in</Left>
                                             <Height>0.68749in</Height>
                                             <Width>7.44774in</Width>
                                             <ZIndex>1</ZIndex>
@@ -2057,7 +2056,6 @@
                                             </Paragraphs>
                                             <rd:DefaultName>Textbox70</rd:DefaultName>
                                             <Top>2.93751in</Top>
-                                            <Left>0in</Left>
                                             <Height>0.16667in</Height>
                                             <Width>1.26024in</Width>
                                             <ZIndex>5</ZIndex>
@@ -2079,7 +2077,6 @@
                                           </Border>
                                         </Style>
                                       </Rectangle>
-                                      <rd:Selected>true</rd:Selected>
                                     </CellContents>
                                   </TablixCell>
                                 </TablixCells>
@@ -2126,8 +2123,6 @@
               </TablixMembers>
             </TablixRowHierarchy>
             <DataSetName>DataSet_Result</DataSetName>
-            <Top>0in</Top>
-            <Left>0in</Left>
             <Height>4.72441in</Height>
             <Width>7.44774in</Width>
             <Style>
@@ -2168,8 +2163,6 @@
                       </Style>
                     </Paragraph>
                   </Paragraphs>
-                  <Top>0in</Top>
-                  <Left>0in</Left>
                   <Height>0.16888in</Height>
                   <Width>2.98647in</Width>
                   <Style>
@@ -2203,7 +2196,6 @@
                   </Paragraphs>
                   <rd:DefaultName>Textbox1</rd:DefaultName>
                   <Top>0.16888in</Top>
-                  <Left>0in</Left>
                   <Height>0.1575in</Height>
                   <Width>2.97506in</Width>
                   <ZIndex>1</ZIndex>
@@ -2238,7 +2230,6 @@
                   </Paragraphs>
                   <rd:DefaultName>Textbox1</rd:DefaultName>
                   <Top>0.34027in</Top>
-                  <Left>0in</Left>
                   <Height>0.15973in</Height>
                   <Width>2.97506in</Width>
                   <ZIndex>2</ZIndex>
@@ -2273,7 +2264,6 @@
                   </Paragraphs>
                   <rd:DefaultName>Textbox1</rd:DefaultName>
                   <Top>0.51389in</Top>
-                  <Left>0in</Left>
                   <Height>0.18055in</Height>
                   <Width>2.98647in</Width>
                   <ZIndex>3</ZIndex>
@@ -2290,7 +2280,6 @@
               </ReportItems>
               <KeepTogether>true</KeepTogether>
               <Top>0.73833in</Top>
-              <Left>0in</Left>
               <Height>0.69444in</Height>
               <Width>2.98895in</Width>
               <Style>
@@ -2459,7 +2448,6 @@
                   </Paragraphs>
                   <rd:DefaultName>Textbox1</rd:DefaultName>
                   <Top>0.52083in</Top>
-                  <Left>0in</Left>
                   <Height>0.15973in</Height>
                   <Width>1.17547in</Width>
                   <ZIndex>4</ZIndex>

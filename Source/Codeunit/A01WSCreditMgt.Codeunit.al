@@ -80,14 +80,14 @@ codeunit 50011 "A01 WS Credit Mgt"
     local procedure ModifyRemindder(OrderNo: Text; input: JsonObject): Text
     var
         Reminder: Record "Reminder Header";
-        ReminderLine: Record "Reminder Line";
+    //ReminderLine: Record "Reminder Line";
     begin
 
         Reminder.Get(OrderNo);
 
         ProcessReminderHeader(Reminder, input);
 
-        processReminderLines(Reminder, ReminderLine, input);
+        //processReminderLines(Reminder, ReminderLine, input);
 
         exit(Ws.CreateResponseSuccess(Reminder."No."));
 
