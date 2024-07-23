@@ -1,16 +1,16 @@
 /// <summary>
-/// Report A01 Delivery note Print (ID 50003).
+/// Report A01 Delivery note (ID 50036).
 /// </summary>
-report 50003 "A01 DeliveryNotePrint"
+report 50036 "A01 DeliveryNote"
 {
-    Caption = 'A01 Delivery note print';
+    Caption = 'A01 Delivery note';
     UsageCategory = ReportsAndAnalysis;
     ApplicationArea = All;
     DefaultLayout = RDLC;
     PreviewMode = PrintLayout;
     EnableHyperlinks = true;
     WordMergeDataItem = Header;
-    RDLCLayout = './Source/Report/Layout/DeliveryNotePrint.rdl';
+    RDLCLayout = './Source/Report/Layout/DeliveryNote.rdl';
 
     dataset
     {
@@ -162,6 +162,12 @@ report 50003 "A01 DeliveryNotePrint"
             column(TxtLbl; TxtLbl)
             {
             }
+            column(ConditionOfSaleTxt; ConditionOfSaleTxt)
+            {
+            }
+            column(ConditionTxt; ConditionTxt)
+            {
+            }
             // column(CustomerAddress; CustomerAddress)
             // {
             // }
@@ -253,15 +259,19 @@ report 50003 "A01 DeliveryNotePrint"
                     rcs := Cust."A01 RCS";
                     stat := Cust."A01 STAT";
                     nif := Cust."A01 NIF";
+
+                    CustIdentity := Cust."No.";
+                    CustAddress := Cust.Address;
+                    CustPhone := Cust."Phone No.";
                 end;
 
-                if Contact.Get(Header."Bill-to Contact No.") then begin
-                    CustIdentity := Contact.Name;
-                    CustPhone := Contact."Phone No.";
-                end;
+                // if Contact.Get(Header."Bill-to Contact No.") then begin
+                //     CustIdentity := Contact.Name;
+                //     CustPhone := Contact."Phone No.";
+                // end;
 
-                if Ship.Get(Header."Ship-to Code") then
-                    CustAddress := Ship.Name;
+                // if Ship.Get(Header."Ship-to Code") then
+                //     CustAddress := Ship.Name;
 
             end;
         }
@@ -274,16 +284,16 @@ report 50003 "A01 DeliveryNotePrint"
         {
             area(Content)
             {
-                group(groupName)
-                {
-                    Caption = 'Option';
-                    field(OptionVal; OptionValue)
-                    {
-                        Caption = 'Logo';
-                        OptionCaption = 'Cosmos, Uditec';
-                        ApplicationArea = Basic, Suite;
-                    }
-                }
+                // group(groupName)
+                // {
+                //     Caption = 'Option';
+                //     field(OptionVal; OptionValue)
+                //     {
+                //         Caption = 'Logo';
+                //         OptionCaption = 'Cosmos, Uditec';
+                //         ApplicationArea = Basic, Suite;
+                //     }
+                // }
             }
 
         }
@@ -306,9 +316,9 @@ report 50003 "A01 DeliveryNotePrint"
         RespCenter: Record "Responsibility Center";
         RespCenterUditec: Record "Responsibility Center";
         Cust: Record Customer;
-        Contact: Record Contact;
+        // Contact: Record Contact;
         LocRec: Record Location;
-        Ship: Record "Ship-to Address";
+        // Ship: Record "Ship-to Address";
         // Img: Media;
         OptionValue: Option LogoCosmos,LogoUditec;
         OptionType: Integer;
@@ -346,6 +356,8 @@ report 50003 "A01 DeliveryNotePrint"
         CustSignLbl: Label 'Customer signature';
         CompanySignLbl: Label 'Company signature';
         TxtLbl: Label 'I confirm that i have received the above items in good condition';
+        ConditionOfSaleTxt: Label 'Condition of sale :';
+        ConditionTxt: Label 'We hereby declare that we are not responsible for any items mentioned on this delivery note and forwarded to the carrier.';
 
 
 }
