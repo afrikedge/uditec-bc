@@ -65,7 +65,7 @@ report 50002 "A01 SalesInvoicePrint"
             column(CompanyPic; CompanyInfo.Picture)
             {
             }
-            column(CompanyPhoneNo; CompanyInfo."Phone No.")
+            column(CompanyPhoneNo; CompInfo."Phone No.")
             {
             }
             column(CompanyGiroNo; CompanyInfo."Giro No.")
@@ -486,6 +486,9 @@ report 50002 "A01 SalesInvoicePrint"
             {
             }
             column(VATText; VATText)
+            {
+            }
+            column(TxtLbl; TxtLbl)
             {
             }
             dataitem(Line; "Sales Invoice Line")
@@ -1479,6 +1482,7 @@ report 50002 "A01 SalesInvoicePrint"
     trigger OnPreReport()
     begin
         CompanyInfo.Get();
+        CompInfo.Get();
         CompanyInfo.CalcFields(Picture);
 
         if Header.GetFilters = '' then
@@ -1496,6 +1500,7 @@ report 50002 "A01 SalesInvoicePrint"
         CompanyInfo: Record "Company Information";
         DummyCompanyInfo: Record "Company Information";
         RespCenter: Record "Responsibility Center";
+        CompInfo: Record "Company Information";
         SalesPersonCode: Record "Salesperson/Purchaser";
         SalesLineRec: Record "Sales Invoice Line";
         SellToContact: Record Contact;
@@ -1543,6 +1548,7 @@ report 50002 "A01 SalesInvoicePrint"
         TransHeaderAmount: Decimal;
         FirstLineHasBeenOutput: Boolean;
         // A01FormattedUnitPrice: Text[50];
+        TxtLbl: Label 'Thank you for your confidence';
         PartiallyPaidLbl: Label 'The invoice has been partially paid. The remaining amount is %1', Comment = '%1=an amount';
         RemainingAmountTxt: Text;
         ChecksPayableLbl: Label 'Please make checks payable to %1', Comment = '%1 = company name';
@@ -1643,7 +1649,7 @@ report 50002 "A01 SalesInvoicePrint"
         NoFilterSetErr: Label 'You must specify one or more filters to avoid accidently printing all documents.';
         ExchangeRateTxt: Label 'Exchange rate: %1/%2', Comment = '%1 and %2 are both amounts.';
         PmtDiscTxt: Label 'If we receive the payment before %1, you are eligible for a %2% payment discount.', Comment = '%1 Discount Due Date %2 = value of Payment Discount % ';
-        SalesInvoiceLbl: Label 'CREDIT SALES INVOICE';
+        SalesInvoiceLbl: Label 'SALES INVOICE';
         InvNoLbl: Label 'Invoice N° :';
         SalesPersonText: Text[50];
         UnitNameLbl: Label 'Unit name :';
@@ -1667,22 +1673,22 @@ report 50002 "A01 SalesInvoicePrint"
         ProductCodeLbl: Label 'Product code';
         DesignationLbl: Label 'Designation';
         DeliverySiteLbl: Label 'Delivery site';
-        QuantityLbl: Label 'Quantity';
-        UnitPriceLbl: Label 'Unit price HT';
+        QuantityLbl: Label 'Qty';
+        UnitPriceLbl: Label 'U.P';
         DiscountPercentLbl: Label 'Discount';
-        DiscountAmountLbl: Label 'Discounted prices HT';
+        DiscountAmountLbl: Label 'HT Amount';
         VATClausesLbl: Label 'VAT clause';
 
         SubtotalLbl: Label 'Subtotal';
-        HTPriceLbl: Label '(A) HT Price';
-        VAT20Lbl: Label '(B) VAT';
-        TTCPriceLbl: Label '(C) TTC Price';
-        DepositLbl: Label '(D) Deposit';
-        BalanceLbl: Label '(E) Balance';
-        Interest18Lbl: Label '(F) Interest=18% of (E) per year';   //  Interets=18% de (E) par an
-        VATInterestLbl: Label '(G) VAT on Interest';   //  TVA sur interets
-        BalanceToPayLbl: Label '(H) Balance payable';   //  Solde à payer
-        TTCAmountOfOperationLbl: Label '(I) Amount TTC of operation';   //  Montant TTC de l'opération
+        HTPriceLbl: Label 'HT Price';
+        VAT20Lbl: Label 'VAT';
+        TTCPriceLbl: Label 'TTC Price';
+        DepositLbl: Label 'Deposit';
+        BalanceLbl: Label 'Balance';
+        Interest18Lbl: Label 'Interest=18% of (E) per year';   //  Interets=18% de (E) par an
+        VATInterestLbl: Label 'VAT on Interest';   //  TVA sur interets
+        BalanceToPayLbl: Label 'Balance payable';   //  Solde à payer
+        TTCAmountOfOperationLbl: Label 'Amount TTC of operation';   //  Montant TTC de l'opération
         ArrestedOfSumLbl: Label 'Arrested at the sum of :';
         CompanySignLbl: Label 'Company signature';
         ClientSignLbl: Label 'Client Signature';
