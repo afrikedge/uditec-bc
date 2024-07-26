@@ -214,7 +214,7 @@ report 50034 "A01 DeliveryNoteInvoiceTxt"
                 column(Location_Code; "Location Code")
                 {
                 }
-                column(Quantity; Format(Quantity))
+                column(Quantity; Quantity)
                 {
                 }
                 column(PUnit_Price_Text; Round("Unit Price", 0.01, '<'))
@@ -486,10 +486,10 @@ report 50034 "A01 DeliveryNoteInvoiceTxt"
         AfkLocalCurrency: Record Currency;
         AfkCurrency: Record Currency;
         RepCheck: Report Check;
-        // AutoFormat: Codeunit "Auto Format";
+        AutoFormat: Codeunit "Auto Format";
         OptionValue: Option LogoCosmos,LogoUditec;
         OptionType: Integer;
-        // Montant: Decimal;
+        Montant: Decimal;
         HTPrice: Decimal;
         VATHT: Decimal;
         A01TTcPriceText: Text[50];
@@ -509,7 +509,7 @@ report 50034 "A01 DeliveryNoteInvoiceTxt"
         LineDiscountText: Text[50];
         A01DiscountedPriceText: Text[50];
         NoText: array[2] of Text;
-        // TVA2: Decimal;
+        TVA2: Decimal;
         Total_LCYText: Text[50];
         TVA_LCYText: Text[50];
         TotalTTC_LCYText: Text[50];

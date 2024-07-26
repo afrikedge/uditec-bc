@@ -33,7 +33,7 @@ report 50001 "A01 SalesQuotePrint"
             column(CompanyHomePage; CompanyInfo."Home Page")
             {
             }
-            column(CompanyPhone; CompInfo."Phone No.")
+            column(CompanyPhone; CompanyInfo."Phone No.")
             {
             }
             column(rcs; rcs)
@@ -179,24 +179,6 @@ report 50001 "A01 SalesQuotePrint"
             {
             }
             column(VATText; VATText)
-            {
-            }
-            column(LogoOption; OptionValue)
-            {
-            }
-            column(RespCenterUditec; RespCenterUditec."A01 Logo")
-            {
-            }
-            column(OptionType; OptionType)
-            {
-            }
-            column(SellersVendeurLbl; SellersVendeurLbl)
-            {
-            }
-            column(Salesperson_Code; "Salesperson Code")
-            {
-            }
-            column(TxtLbl; TxtLbl)
             {
             }
             dataitem(Line; "Sales Line")
@@ -495,7 +477,7 @@ report 50001 "A01 SalesQuotePrint"
 
                 trigger OnPreDataItem()
                 begin
-                    SetRange(Number, 1, 10);
+                    SetRange(Number, 1, 0);
                 end;
             }
             dataitem(WorkDescriptionLines; "Integer")
@@ -863,11 +845,6 @@ report 50001 "A01 SalesQuotePrint"
                     PostCode := ResponsibilityInfo."Post Code";
                 end;
 
-                if OptionValue = OptionValue::LogoCosmos then
-                    OptionType := 1
-                else
-                    OptionType := 0;
-
                 if SalesPersonInfo.Get(Header."Salesperson Code") then
                     SellerName := SalesPersonInfo.Name;
 
@@ -957,13 +934,6 @@ report 50001 "A01 SalesQuotePrint"
             {
                 group(Options)
                 {
-                    Caption = 'Option';
-                    field(OptionVal; OptionValue)
-                    {
-                        Caption = 'Logo';
-                        OptionCaption = 'Cosmos, Uditec';
-                        ApplicationArea = Basic, Suite;
-                    }
                     //         Caption = 'Options';
                     //         field(LogInteraction; LogInteraction)
                     //         {
@@ -984,7 +954,6 @@ report 50001 "A01 SalesQuotePrint"
                     //                     LogInteraction := false;
                     //             end;
                     //         }
-
                 }
             }
         }
@@ -1010,7 +979,7 @@ report 50001 "A01 SalesQuotePrint"
     begin
         GLSetup.Get();
         CompanyInfo.SetAutoCalcFields(Picture);
-        CompInfo.Get();
+        CompanyInfo.Get();
         SalesSetup.Get();
         CompanyInfo.VerifyAndSetPaymentInfo();
     end;
@@ -1038,7 +1007,6 @@ report 50001 "A01 SalesQuotePrint"
     begin
         CompanyInfo.Get();
         CompanyInfo.CalcFields(Picture);
-        RespCenterUditec.Get('UDT');
 
         if Header.GetFilters = '' then
             Error(NoFilterSetErr);
@@ -1054,13 +1022,11 @@ report 50001 "A01 SalesQuotePrint"
         CompanyInfo: Record "Company Information";
         SalesPersonInfo: Record "Salesperson/Purchaser";
         ContactInfo: Record Contact;
-        RespCenterUditec: Record "Responsibility Center";
         SalesLineRec: Record "Sales Line";
         AfkLocalCurrency: Record Currency;
         CurrencyExchangeRate: Record "Currency Exchange Rate";
         ResponsibilityInfo: Record "Responsibility Center";
         AfkCurrency: Record Currency;
-        CompInfo: Record "Company Information";
         Cust: Record Customer;
         GLSetup: Record "General Ledger Setup";
         SalesSetup: Record "Sales & Receivables Setup";
@@ -1085,10 +1051,8 @@ report 50001 "A01 SalesQuotePrint"
         FormatDocument: Codeunit "Format Document";
         SegManagement: Codeunit SegManagement;
         AutoFormat: Codeunit "Auto Format";
-        OptionValue: Option LogoCosmos,LogoUditec;
         WorkDescriptionInstream: InStream;
         AfkCurrCode: Code[20];
-        OptionType: Integer;
         NumLigneText: Code[2];
         PostCode: Code[20];
         City: Code[30];
@@ -1123,7 +1087,6 @@ report 50001 "A01 SalesQuotePrint"
         PmtDiscText: Text;
         VATText: Text[50];
         LCYTxt: label ' (LCY)';
-        SellersVendeurLbl: Label 'Seller''s number :';
         LegalOfficeTxt, LegalOfficeLbl, CustomGiroTxt, CustomGiroLbl, LegalStatementLbl : Text;
         CustAddr: array[8] of Text[100];
         // ShipToAddr: array[8] of Text[100];
@@ -1181,7 +1144,6 @@ report 50001 "A01 SalesQuotePrint"
         // DisplayShipmentInformation: Boolean;
         // DisplayAssemblyInformation: Boolean;
         Report__Caption: Label 'PROFORMA INVOICE';
-        TxtLbl: Label 'Thank you for your confidence';
         UnitName__Caption: Label 'Unit name :';
         UnitAddress__Caption: Label 'Unit address :';
         City__Caption: Label 'City';
@@ -1189,10 +1151,10 @@ report 50001 "A01 SalesQuotePrint"
         SellerName__Caption: Label 'Seller name :';
         Document_No__Caption: Label 'Product code';
         Description__Caption: Label 'Designation';
-        Quantity__Caption: Label 'Qty';
-        UnitPrice__Caption: Label 'U.P';
+        Quantity__Caption: Label 'Quantity';
+        UnitPrice__Caption: Label 'Unit price HT';
         DiscountPercent__Caption: Label 'Discount';
-        DiscountAmount__Caption: Label 'HT Amount';
+        DiscountAmount__Caption: Label 'Discounted price HT';
         DevisNo__Caption: Label 'Reference :';
         DateOfPrint: Label 'Date of print :';
         CustomerName__Caption: Label 'Customer name :';
