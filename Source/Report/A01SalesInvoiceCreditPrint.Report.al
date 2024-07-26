@@ -62,10 +62,10 @@ report 50010 "A01 SalesInvoiceCreditPrint"
             column(CompanyPic; CompanyInfo.Picture)
             {
             }
-            column(CompanyPhoneNo; CompInfo."Phone No.")
+            column(CompanyPhoneNo; CompanyInfo."Phone No.")
             {
             }
-            column(CompanyGiroNo; CompInfo."Giro No.")
+            column(CompanyGiroNo; CompanyInfo."Giro No.")
             {
             }
             column(A01RespCenterName; UnitName)
@@ -527,9 +527,6 @@ report 50010 "A01 SalesInvoiceCreditPrint"
             column(Sell_to_Customer_No_; "Sell-to Customer No.")
             {
             }
-            column(A01_Credit_Duration__Month_; "A01 Credit Duration (Month)")
-            {
-            }
             column(Sell_to_Customer_Name; "Sell-to Customer Name")
             {
             }
@@ -540,9 +537,6 @@ report 50010 "A01 SalesInvoiceCreditPrint"
             {
             }
             column(VATText; VATText)
-            {
-            }
-            column(TxtLbl; TxtLbl)
             {
             }
             dataitem(Line; "Sales Invoice Line")
@@ -1612,7 +1606,6 @@ report 50010 "A01 SalesInvoiceCreditPrint"
     trigger OnPreReport()
     begin
         CompanyInfo.Get();
-        CompInfo.Get();
         CompanyInfo.CalcFields(Picture);
 
         if Header.GetFilters = '' then
@@ -1628,7 +1621,6 @@ report 50010 "A01 SalesInvoiceCreditPrint"
     var
         GLSetup: Record "General Ledger Setup";
         CompanyInfo: Record "Company Information";
-        CompInfo: Record "Company Information";
         DummyCompanyInfo: Record "Company Information";
         RespCenter: Record "Responsibility Center";
         SalesPersonCode: Record "Salesperson/Purchaser";
@@ -1685,7 +1677,6 @@ report 50010 "A01 SalesInvoiceCreditPrint"
         TransHeaderAmount: Decimal;
         FirstLineHasBeenOutput: Boolean;
         // A01FormattedUnitPrice: Text[50];
-        TxtLbl: Label 'Thank you for your confidence';
         PartiallyPaidLbl: Label 'The invoice has been partially paid. The remaining amount is %1', Comment = '%1=an amount';
         RemainingAmountTxt: Text;
         ChecksPayableLbl: Label 'Please make checks payable to %1', Comment = '%1 = company name';
@@ -1822,22 +1813,22 @@ report 50010 "A01 SalesInvoiceCreditPrint"
         ProductCodeLbl: Label 'Product code';
         DesignationLbl: Label 'Designation';
         DeliverySiteLbl: Label 'Delivery site';
-        QuantityLbl: Label 'Qty';
-        UnitPriceLbl: Label 'U.P';
+        QuantityLbl: Label 'Quantity';
+        UnitPriceLbl: Label 'Unit price HT';
         DiscountPercentLbl: Label 'Discount';
-        DiscountAmountLbl: Label 'HT Amount';
+        DiscountAmountLbl: Label 'Discounted prices HT';
         VATClausesLbl: Label 'VAT clause';
 
         SubtotalLbl: Label 'Subtotal';
-        HTPriceLbl: Label 'HT Price';
-        VAT20Lbl: Label 'VAT';
-        TTCPriceLbl: Label 'TTC Price';
-        DepositLbl: Label 'Deposit';
-        BalanceLbl: Label 'Balance';
-        Interest18Lbl: Label 'Interest=18% of (E) per year';   //  Interets=18% de (E) par an
-        VATInterestLbl: Label 'VAT on Interest';   //  TVA sur interets
-        BalanceToPayLbl: Label 'Balance payable';   //  Solde à payer
-        TTCAmountOfOperationLbl: Label 'Amount TTC of operation';   //  Montant TTC de l'opération
+        HTPriceLbl: Label '(A) HT Price';
+        VAT20Lbl: Label '(B) VAT';
+        TTCPriceLbl: Label '(C) TTC Price';
+        DepositLbl: Label '(D) Deposit';
+        BalanceLbl: Label '(E) Balance';
+        Interest18Lbl: Label '(F) Interest=18% of (E) per year';   //  Interets=18% de (E) par an
+        VATInterestLbl: Label '(G) VAT on Interest';   //  TVA sur interets
+        BalanceToPayLbl: Label '(H) Balance payable';   //  Solde à payer
+        TTCAmountOfOperationLbl: Label '(I) Amount TTC of operation';   //  Montant TTC de l'opération
         ArrestedOfSumLbl: Label 'Arrested at the sum of';
         CompanySignLbl: Label 'Company signature';
         ClientSignLbl: Label 'Client Signature';

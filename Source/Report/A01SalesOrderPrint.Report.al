@@ -36,7 +36,7 @@ report 50007 "A01 SalesOrderPrint"
             column(CompanyHomePage; CompanyInformation."Home Page")
             {
             }
-            column(CompanyPhone; CompanyInfo."Phone No.")
+            column(CompanyPhone; CompanyInformation."Phone No.")
             {
             }
             column(A01UnitName; UnitName)
@@ -343,15 +343,6 @@ report 50007 "A01 SalesOrderPrint"
             {
             }
             column(VATText; VATText)
-            {
-            }
-            column(TxtLbl; TxtLbl)
-            {
-            }
-            column(SellersVendeurLbl; SellersVendeurLbl)
-            {
-            }
-            column(Salesperson_Code; "Salesperson Code")
             {
             }
             column(ShowWorkDescription; ShowWorkDescription) { }
@@ -928,7 +919,6 @@ report 50007 "A01 SalesOrderPrint"
         IsHandled: Boolean;
     begin
         CompanyInformation.Get();
-        CompanyInfo.Get();
         CompanyInformation.CalcFields(Picture);
 
         IsHandled := false;
@@ -946,7 +936,6 @@ report 50007 "A01 SalesOrderPrint"
     var
         DummyVATAmountLine: Record "VAT Amount Line";
         CompanyInformation: Record "Company Information";
-        CompanyInfo: Record "Company Information";
         DummyShipmentMethod: Record "Shipment Method";
         DummyCurrency: Record Currency;
         SalesLineRec: Record "Sales Line";
@@ -1039,8 +1028,6 @@ report 50007 "A01 SalesOrderPrint"
         NumLigneText: Code[2];
         ExchangeRateTxt: Label 'Exchange rate: %1/%2', Comment = '%1 and %2 are both amounts.';
         A01Report__Caption: Label 'PROFORMA INVOICE';
-        TxtLbl: Label 'Thank you for your confidence';
-        SellersVendeurLbl: Label 'Seller''s number :';
         A01UnitName__Caption: Label 'Unit name :';
         A01UnitAddress__Caption: Label 'Unit address :';
         A01City__Caption: Label 'City';
@@ -1057,10 +1044,10 @@ report 50007 "A01 SalesOrderPrint"
         A01CustomerPhone__Caption: Label 'Phone :';
         A01ProductCode__Caption: Label 'Product code';
         A01Description__Caption: Label 'Designation';
-        A01Quantity__Caption: Label 'Qty';
-        A01UnitPrice__Caption: Label 'U.P';
+        A01Quantity__Caption: Label 'Quantity';
+        A01UnitPrice__Caption: Label 'Unit price HT';
         A01DiscountPercent__Caption: Label 'Discount';
-        A01DiscountAmount__Caption: Label 'HT Amount';
+        A01DiscountAmount__Caption: Label 'Discounted price HT';
         A01TotalHT__Caption: Label 'Total HT';
         A01TVA__Caption: Label 'VAT';
         A01TotalTTC__Caption: Label 'Total TTC';

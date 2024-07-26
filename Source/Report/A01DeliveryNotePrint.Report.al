@@ -159,9 +159,6 @@ report 50003 "A01 DeliveryNotePrint"
             column(OptionType; OptionType)
             {
             }
-            column(TxtLbl; TxtLbl)
-            {
-            }
             // column(CustomerAddress; CustomerAddress)
             // {
             // }
@@ -345,7 +342,6 @@ report 50003 "A01 DeliveryNotePrint"
         ProductLocationLbl: Label 'Product Location';
         CustSignLbl: Label 'Customer signature';
         CompanySignLbl: Label 'Company signature';
-        TxtLbl: Label 'I confirm that i have received the above items in good condition';
 
 
 }
