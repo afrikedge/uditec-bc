@@ -250,5 +250,72 @@ codeunit 50006 "A01 Api Mgt"
         exit(response);
     end;
 
+    procedure ValidateField(MyRecordRef: RecordRef; MyFieldName: Text; input: JsonObject; jsonKey: Text)
+    var
+        field: record Field;
+        fieldRef: FieldRef;
+        valDate: Date;
+        valDateTime: DateTime;
+        valInteger: Integer;
+        valDecimal: Decimal;
+        valBoolean: Boolean;
+        //valTime: Time;
+        valText: Text;
+    begin
+        if (not KeyExists(jsonKey, input)) then
+            exit;
+
+        field.SetRange(TableNo, MyRecordRef.Number);
+        field.SetRange(FieldName, MyFieldName);
+        if (field.FindFirst()) then begin
+            fieldRef := MyRecordRef.field(field."No.");
+            case fieldRef.Type of
+                fieldType::Date:
+                    begin
+                        Evaluate(valDate, fieldRef.Value);
+                        if (valDate <> GetDate(jsonKey, input)) then
+                            fieldRef.Validate(GetDate(jsonKey, input));
+                    end;
+                fieldType::DateTime:
+                    begin
+                        Evaluate(valDateTime, fieldRef.Value);
+                        if (valDateTime <> GetDateTime(jsonKey, input)) then
+                            fieldRef.Validate(GetDateTime(jsonKey, input));
+                    end;
+                fieldType::Option:
+                    begin
+                        Evaluate(valInteger, fieldRef.Value);
+                        if (valInteger <> GetInt(jsonKey, input)) then
+                            fieldRef.Validate(GetInt(jsonKey, input));
+                    end;
+                fieldType::Integer:
+                    begin
+                        Evaluate(valInteger, fieldRef.Value);
+                        if (valInteger <> GetInt(jsonKey, input)) then
+                            fieldRef.Validate(GetInt(jsonKey, input));
+                    end;
+                fieldType::Decimal:
+                    begin
+                        Evaluate(valDecimal, fieldRef.Value);
+                        if (valDecimal <> GetDecimal(jsonKey, input)) then
+                            fieldRef.Validate(GetDecimal(jsonKey, input));
+                    end;
+                fieldType::Boolean:
+                    begin
+                        Evaluate(valBoolean, fieldRef.Value);
+                        if (valBoolean <> GetBool(jsonKey, input)) then
+                            fieldRef.Validate(GetBool(jsonKey, input));
+                    end;
+
+                else begin
+                    Evaluate(valText, fieldRef.Value);
+                    if (valText <> GetText(jsonKey, input)) then
+                        fieldRef.Validate(GetText(jsonKey, input));
+                end;
+
+            end;
+        end;
+    end;
+
 
 }

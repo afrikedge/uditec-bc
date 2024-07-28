@@ -3588,6 +3588,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table A01 Transport Order - Field Vehicle No. - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Table 2125787823 - Field 3673083544 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Web User Id</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table A01 Transport Order - Field Web User Id - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Table 4111514512 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Transport Order Detail</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -4392,6 +4397,11 @@
           <source>The Quote N° %1 does not exists</source>
           <note from="Developer" annotates="general" priority="2">%1 = QuoteNo</note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit A01 WS QuotesMgt - NamedType LblErrorQuoteNotExists</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 2919202006 - NamedType 850573183" size-unit="char" translate="yes" xml:space="preserve">
+          <source>The Quote N° %1 does not exists</source>
+          <note from="Developer" annotates="general" priority="2">%1 = QuoteNo</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit A01SAVMgt - NamedType LblErrorQuoteNotExists</note>
         </trans-unit>
         <trans-unit id="Page 3653374298 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Activity Feedback List</source>
@@ -17507,6 +17517,11 @@
           <source>STAT</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension A01 Contact - Field A01 STAT - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 1119515148 - Field 3429901374 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 3993128796">
+          <source>TestDate</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension A01 Contact - Field A01 TestDate - Property Caption</note>
         </trans-unit>
         <trans-unit id="TableExtension 1119515148 - Field 451289878 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 3993128796">
           <source>VAT Regime</source>

@@ -43,7 +43,7 @@ table 50054 "A01 Transport Order"
             Caption = 'Route No.';
             TableRelation = "A01 Route";
         }
-        field(7; "Departure Date (Planned)"; Date)
+        field(7; "Departure Date (Planned)"; DateTime)
         {
             Caption = 'Departure Date (Planned)';
         }
@@ -51,7 +51,7 @@ table 50054 "A01 Transport Order"
         {
             Caption = 'Departure Time (Planned)';
         }
-        field(9; "Return Date (Planned)"; Date)
+        field(9; "Return Date (Planned)"; DateTime)
         {
             Caption = 'Return Date (Planned)';
         }
@@ -59,7 +59,7 @@ table 50054 "A01 Transport Order"
         {
             Caption = 'Return Time (Planned)';
         }
-        field(11; "Departure Date (Actual)"; Date)
+        field(11; "Departure Date (Actual)"; DateTime)
         {
             Caption = 'Departure Date (Actual)';
         }
@@ -67,7 +67,7 @@ table 50054 "A01 Transport Order"
         {
             Caption = 'Departure Time (Actual)';
         }
-        field(13; "Return Date (Actual)"; Date)
+        field(13; "Return Date (Actual)"; DateTime)
         {
             Caption = 'Return Date (Actual)';
         }
@@ -140,6 +140,12 @@ table 50054 "A01 Transport Order"
         {
             Caption = 'No. Series';
             TableRelation = "No. Series";
+        }
+        field(28; "Web User Id"; Code[50])
+        {
+            Caption = 'Web User Id';
+            DataClassification = CustomerContent;
+            Editable = false;
         }
 
 

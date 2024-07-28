@@ -266,8 +266,6 @@ codeunit 50005 "A01 WS QuotesMgt"
                 SalesQuote.Validate("Sell-to Contact No.", WS.GetText('saleQuoteCustomerContactCode', input));
         end;
 
-
-
         if (SalesQuote."Responsibility Center" <> WS.GetText('saleQuoteResponsibilityCenter', input)) then
             SalesQuote.Validate("Responsibility Center", WS.GetText('saleQuoteResponsibilityCenter', input));
 
@@ -331,10 +329,6 @@ codeunit 50005 "A01 WS QuotesMgt"
 
         if (SalesQuote."A01 Investigator Opinion".AsInteger() <> WS.GetInt('Investigator Opinion', input)) then
             SalesQuote.Validate("A01 Investigator Opinion", WS.GetInt('Investigator Opinion', input));
-
-
-
-
 
     end;
 

@@ -206,7 +206,6 @@ tableextension 50005 "A01 Contact" extends Contact
             TableRelation = "Customer Price Group";
             DataClassification = CustomerContent;
         }
-
     }
     trigger OnInsert()
     var
