@@ -65,7 +65,7 @@ report 50030 "A01 SalesInvoiceUditec"
             column(CompanyPic; CompanyInfo.Picture)
             {
             }
-            column(CompanyPhoneNo; CompInfo."Phone No.")
+            column(CompanyPhoneNo; CompanyInfo."Phone No.")
             {
             }
             column(CompanyGiroNo; CompanyInfo."Giro No.")
@@ -467,12 +467,6 @@ report 50030 "A01 SalesInvoiceUditec"
             {
             }
             column(VATText; VATText)
-            {
-            }
-            column(TxtLbl; TxtLbl)
-            {
-            }
-            column(RespCenterUditec; RespCenterUditec."A01 Logo")
             {
             }
             dataitem(Line; "Sales Invoice Line")
@@ -1468,8 +1462,6 @@ report 50030 "A01 SalesInvoiceUditec"
     begin
         CompanyInfo.Get();
         CompanyInfo.CalcFields(Picture);
-        CompInfo.Get();
-        RespCenterUditec.Get('UDT');
 
         if Header.GetFilters = '' then
             Error(NoFilterSetErr);
@@ -1485,9 +1477,7 @@ report 50030 "A01 SalesInvoiceUditec"
         GLSetup: Record "General Ledger Setup";
         SalesLineRec: Record "Sales Invoice Line";
         CompanyInfo: Record "Company Information";
-        RespCenterUditec: Record "Responsibility Center";
         DummyCompanyInfo: Record "Company Information";
-        CompInfo: Record "Company Information";
         RespCenter: Record "Responsibility Center";
         SalesPersonCode: Record "Salesperson/Purchaser";
         SellToContact: Record Contact;
@@ -1535,7 +1525,6 @@ report 50030 "A01 SalesInvoiceUditec"
         TransHeaderAmount: Decimal;
         FirstLineHasBeenOutput: Boolean;
         // A01FormattedUnitPrice: Text[50];
-        TxtLbl: Label 'Thank you for your confidence';
         PartiallyPaidLbl: Label 'The invoice has been partially paid. The remaining amount is %1', Comment = '%1=an amount';
         RemainingAmountTxt: Text;
         ChecksPayableLbl: Label 'Please make checks payable to %1', Comment = '%1 = company name';
@@ -1660,16 +1649,16 @@ report 50030 "A01 SalesInvoiceUditec"
         ProductCodeLbl: Label 'Product code';
         DesignationLbl: Label 'Designation';
         DeliverySiteLbl: Label 'Delivery site';
-        QuantityLbl: Label 'Qty';
-        UnitPriceLbl: Label 'U.P';
+        QuantityLbl: Label 'Quantity';
+        UnitPriceLbl: Label 'Unit price HT';
         DiscountPercentLbl: Label 'Discount';
-        DiscountAmountLbl: Label 'HT Amount';
+        DiscountAmountLbl: Label 'Discounted prices HT';
         VATClausesLbl: Label 'VAT clause';
 
         SubtotalLbl: Label 'Subtotal';
-        HTPriceLbl: Label 'HT Price';
-        VAT20Lbl: Label 'VAT';
-        TTCPriceLbl: Label 'TTC Price';
+        HTPriceLbl: Label '(A) HT Price';
+        VAT20Lbl: Label '(B) VAT';
+        TTCPriceLbl: Label '(C) TTC Price';
         // DepositLbl: Label '(D) Deposit';
         // BalanceLbl: Label '(E) Balance';
         // Interest18Lbl: Label '(F) Interest=18% of (E) per year';   //  Interets=18% de (E) par an
