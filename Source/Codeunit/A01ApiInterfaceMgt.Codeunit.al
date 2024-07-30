@@ -9,6 +9,8 @@ codeunit 50008 "A01 Api Interface Mgt"
         OrdersMgt: Codeunit "A01 WS OrdersMgt";
         CreditMgt: Codeunit "A01 WS Credit Mgt";
         MasterFilesMgt: Codeunit "A01WSMasterFilesMgt";
+
+        SAVMgt: Codeunit A01SAVMgt;
         LblUnknownParameter: Label 'Unkwnown parameter : %1', Comment = '%1 = parameter';
     /// <summary>
     /// 
@@ -130,6 +132,16 @@ codeunit 50008 "A01 Api Interface Mgt"
 
             'changeUserPassword':
                 exit(MasterFilesMgt.RunUpdatePassword(input));
+
+            'serviceRequest_modify':
+                exit(SAVMgt.RunServiceRequest(input, false));
+            'serviceRequest_insert':
+                exit(SAVMgt.RunServiceRequest(input, false));
+
+            'transportOrder_modify':
+                exit(SAVMgt.RunOrderTransport(input, false));
+            'transportOrder_insert':
+                exit(SAVMgt.RunOrderTransport(input, true));
 
 
 

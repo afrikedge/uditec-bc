@@ -29,7 +29,7 @@ table 50058 "A01 SR Spare Part"
         {
             Caption = 'Quantity';
         }
-        field(7; "Usage Status"; Enum "A01 Access Plan Type")
+        field(7; "Usage Status"; Enum "A01 Usage Status")
         {
             Caption = 'Usage Status';
         }

@@ -5,6 +5,294 @@ codeunit 50022 A01SAVMgt
         LblErrorQuoteNotExists: Label 'The Quote N° %1 does not exists', Comment = '%1 = QuoteNo';
 
 
+    procedure RunOrderTransport(input: JsonObject; IsDeletion: Boolean): Text
+    var
+        NoDocument: text;
+    begin
+        NoDocument := ws.GetText('No_', input);
+        if (NoDocument <> '') then begin
+
+            if (IsDeletion) then
+                exit(DeleteOrderTransport(NoDocument))
+            else
+                exit(ModifyOrderTransport(NoDocument, input))
+
+        end else
+            exit(AddOrderTransport(input));
+    end;
+
+    procedure RunServiceRequest(input: JsonObject; IsDeletion: Boolean): Text
+    var
+        NoDocument: text;
+    begin
+        NoDocument := ws.GetText('No_', input);
+        if (NoDocument <> '') then begin
+
+            if (IsDeletion) then
+                exit(DeleteServiceRequest(NoDocument))
+            else
+                exit(ModifyServiceRequest(NoDocument, input))
+
+        end else
+            exit(AddServiceRequest(input));
+    end;
+
+    local procedure AddOrderTransport(input: JsonObject): Text
+    var
+        TransportOrder: Record "A01 Transport Order";
+        TransportOrderDetail: Record "A01 Transport Order Detail";
+    begin
+
+        TransportOrder.Init();
+        TransportOrder."No." := '';
+
+        TransportOrderDetail.LockTable();
+        TransportOrder.Insert(true);
+
+        ProcessOrderTransport(TransportOrder, input);
+
+        processOrderTransportLines(TransportOrder, input);
+
+        TransportOrder.Modify(true);
+
+        exit(Ws.CreateResponseSuccess(TransportOrder."No."));
+
+    end;
+
+    local procedure DeleteOrderTransport(NoDocument: Text): Text
+    var
+        TransportOrder: Record "A01 Transport Order";
+    begin
+
+        TransportOrder.Get(NoDocument);
+
+        TransportOrder.Delete(true);
+
+        exit(Ws.CreateResponseSuccess(TransportOrder."No."));
+
+    end;
+
+    local procedure ModifyOrderTransport(NoDocument: Text; input: JsonObject): Text
+    var
+        TransportOrder: Record "A01 Transport Order";
+    begin
+
+        TransportOrder.Get(NoDocument);
+
+        ProcessOrderTransport(TransportOrder, input);
+
+        TransportOrder.Modify(true);
+
+        processOrderTransportLines(TransportOrder, input);
+
+        exit(Ws.CreateResponseSuccess(TransportOrder."No."));
+
+    end;
+
+    local procedure processOrderTransportLines(TransportOrder: Record "A01 Transport Order"; input: JsonObject)
+    var
+        TransportOrderDetail: Record "A01 Transport Order Detail";
+        c: JsonToken;
+        LinesArray: JsonArray;
+        LineInput: JsonObject;
+    begin
+
+        TransportOrderDetail.Reset();
+        TransportOrderDetail.SetRange("Transport Order No.", TransportOrder."No.");
+        if (not TransportOrderDetail.IsEmpty) then
+            TransportOrderDetail.DeleteAll();
+
+        input.Get('TransportOrderDetails', c);
+        LinesArray := c.AsArray();
+        foreach c in LinesArray do begin
+            LineInput := c.AsObject();
+            TransportOrderDetail.Init();
+            ProcessOrderTransportLine(TransportOrder, TransportOrderDetail, LineInput);
+        end;
+    end;
+
+    local procedure AddServiceRequest(input: JsonObject): Text
+    var
+        ServiceRequest: Record "A01 Service Request";
+    begin
+
+        ServiceRequest.Init();
+        ServiceRequest."No." := '';
+
+        //TransportOrderDetail.LockTable();
+        ServiceRequest.Insert(true);
+
+        ProcessServiceRequest(ServiceRequest, input);
+
+        Process_SRSparePart_Lines(ServiceRequest, input);
+        Process_SRDefectivePart_Lines(ServiceRequest, input);
+        Process_SRItemMovement_Lines(ServiceRequest, input);
+        Process_SRSalesDocument_Lines(ServiceRequest, input);
+        Process_SRAssignmentFlow_Lines(ServiceRequest, input);
+
+        ServiceRequest.Modify(true);
+
+        exit(Ws.CreateResponseSuccess(ServiceRequest."No."));
+
+    end;
+
+    local procedure ModifyServiceRequest(NoDocument: Text; input: JsonObject): Text
+    var
+        ServiceRequest: Record "A01 Service Request";
+    begin
+
+        ServiceRequest.Get(NoDocument);
+
+        ProcessServiceRequest(ServiceRequest, input);
+
+        ServiceRequest.Modify(true);
+
+        Process_SRSparePart_Lines(ServiceRequest, input);
+        Process_SRDefectivePart_Lines(ServiceRequest, input);
+        Process_SRItemMovement_Lines(ServiceRequest, input);
+        Process_SRSalesDocument_Lines(ServiceRequest, input);
+        Process_SRAssignmentFlow_Lines(ServiceRequest, input);
+
+        exit(Ws.CreateResponseSuccess(ServiceRequest."No."));
+
+    end;
+
+    local procedure DeleteServiceRequest(NoDocument: Text): Text
+    var
+        ServiceRequest: Record "A01 Service Request";
+    begin
+
+        ServiceRequest.Get(NoDocument);
+
+        ServiceRequest.Delete(true);
+
+        exit(Ws.CreateResponseSuccess(ServiceRequest."No."));
+
+    end;
+
+
+    local procedure Process_SRSparePart_Lines(ServiceRequest: Record "A01 Service Request"; input: JsonObject)
+    var
+        SRSparePart: Record "A01 SR Spare Part";
+        c: JsonToken;
+        LinesArray: JsonArray;
+        LineInput: JsonObject;
+    begin
+        SRSparePart.Reset();
+        SRSparePart.SetRange("Service Request No.", ServiceRequest."No.");
+        SRSparePart.SetRange("Spare Status", SRSparePart."Spare Status"::" ");
+        if (not SRSparePart.IsEmpty) then
+            SRSparePart.DeleteAll();
+
+        input.Get('SRSparePart', c);
+        LinesArray := c.AsArray();
+        foreach c in LinesArray do begin
+            LineInput := c.AsObject();
+            SRSparePart.Init();
+            Process_SRSparePart(ServiceRequest, SRSparePart, LineInput);
+        end;
+    end;
+
+    local procedure Process_SRDefectivePart_Lines(ServiceRequest: Record "A01 Service Request"; input: JsonObject)
+    var
+        SRSparePart: Record "A01 SR Spare Part";
+        c: JsonToken;
+        LinesArray: JsonArray;
+        LineInput: JsonObject;
+    begin
+        SRSparePart.Reset();
+        SRSparePart.SetRange("Service Request No.", ServiceRequest."No.");
+        SRSparePart.SetRange("Spare Status", SRSparePart."Spare Status"::Defective);
+        if (not SRSparePart.IsEmpty) then
+            SRSparePart.DeleteAll();
+
+        input.Get('SRDefectivePart', c);
+        LinesArray := c.AsArray();
+        foreach c in LinesArray do begin
+            LineInput := c.AsObject();
+            SRSparePart.Init();
+            Process_SRDefectivePart(ServiceRequest, SRSparePart, LineInput);
+        end;
+    end;
+
+    local procedure Process_SRItemMovement_Lines(ServiceRequest: Record "A01 Service Request"; input: JsonObject)
+    var
+        SRItemMvt: Record "A01 SR Item Movement";
+        c: JsonToken;
+        LinesArray: JsonArray;
+        LineInput: JsonObject;
+    begin
+        SRItemMvt.Reset();
+        SRItemMvt.SetRange("Service Request No.", ServiceRequest."No.");
+        if (not SRItemMvt.IsEmpty) then
+            SRItemMvt.DeleteAll();
+
+        input.Get('SRItemMovement', c);
+        LinesArray := c.AsArray();
+        foreach c in LinesArray do begin
+            LineInput := c.AsObject();
+            SRItemMvt.Init();
+            Process_SRItemMovement(ServiceRequest, SRItemMvt, LineInput);
+        end;
+    end;
+
+    local procedure Process_SRSalesDocument_Lines(ServiceRequest: Record "A01 Service Request"; input: JsonObject)
+    var
+        SRSalesDocument: Record "A01 SR Sales Document";
+        c: JsonToken;
+        LinesArray: JsonArray;
+        LineInput: JsonObject;
+    begin
+        SRSalesDocument.Reset();
+        SRSalesDocument.SetRange("Service Request No.", ServiceRequest."No.");
+        if (not SRSalesDocument.IsEmpty) then
+            SRSalesDocument.DeleteAll();
+
+        input.Get('SRSalesDocument', c);
+        LinesArray := c.AsArray();
+        foreach c in LinesArray do begin
+            LineInput := c.AsObject();
+            SRSalesDocument.Init();
+            Process_SRSalesDocument(ServiceRequest, SRSalesDocument, LineInput);
+        end;
+    end;
+
+    local procedure Process_SRAssignmentFlow_Lines(ServiceRequest: Record "A01 Service Request"; input: JsonObject)
+    var
+        SRAssignmentFlow: Record "A01 SR Assignment Flow";
+        c: JsonToken;
+        LinesArray: JsonArray;
+        LineInput: JsonObject;
+    begin
+        SRAssignmentFlow.Reset();
+        SRAssignmentFlow.SetRange("Service Request No.", ServiceRequest."No.");
+        if (not SRAssignmentFlow.IsEmpty) then
+            SRAssignmentFlow.DeleteAll();
+
+        input.Get('SRAssignmentFlow', c);
+        LinesArray := c.AsArray();
+        foreach c in LinesArray do begin
+            LineInput := c.AsObject();
+            SRAssignmentFlow.Init();
+            Process_SRAssignmentFlow(ServiceRequest, SRAssignmentFlow, LineInput);
+        end;
+    end;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     local procedure ProcessOrderTransport(var TransportOrder: Record "A01 Transport Order"; input: JsonObject)
     var
@@ -23,82 +311,82 @@ codeunit 50022 A01SAVMgt
 
         jsonkey := 'Carrier No_';
         if (WS.KeyExists(jsonkey, input)) then
-            if (TransportOrder."Carrier No." <> WS.GetText('Carrier No_', input)) then
-                TransportOrder.Validate("Carrier No.", WS.GetText('Carrier No_', input));
+            if (TransportOrder."Carrier No." <> WS.GetText(jsonkey, input)) then
+                TransportOrder.Validate("Carrier No.", WS.GetText(jsonkey, input));
 
         jsonkey := 'Vehicle No_';
         if (WS.KeyExists(jsonkey, input)) then
-            if (TransportOrder."Vehicle No." <> WS.GetText('Vehicle No_', input)) then
-                TransportOrder.Validate("Vehicle No.", WS.GetText('Vehicle No_', input));
+            if (TransportOrder."Vehicle No." <> WS.GetText(jsonkey, input)) then
+                TransportOrder.Validate("Vehicle No.", WS.GetText(jsonkey, input));
 
         jsonkey := 'Driver No_';
         if (WS.KeyExists(jsonkey, input)) then
-            if (TransportOrder." Driver No." <> WS.GetText('Driver No_', input)) then
-                TransportOrder.Validate(" Driver No.", WS.GetText('Driver No_', input));
+            if (TransportOrder." Driver No." <> WS.GetText(jsonkey, input)) then
+                TransportOrder.Validate(" Driver No.", WS.GetText(jsonkey, input));
 
         jsonkey := 'Route No_';
         if (WS.KeyExists(jsonkey, input)) then
-            if (TransportOrder."Route No." <> WS.GetText('Route No_', input)) then
-                TransportOrder.Validate("Route No.", WS.GetText('Route No_', input));
+            if (TransportOrder."Route No." <> WS.GetText(jsonkey, input)) then
+                TransportOrder.Validate("Route No.", WS.GetText(jsonkey, input));
 
         jsonkey := 'Departure Date (Planned)';
         if (WS.KeyExists(jsonkey, input)) then
-            if (TransportOrder."Departure Date (Planned)" <> WS.GetDateTime('Departure Date (Planned)', input)) then
-                TransportOrder.Validate("Departure Date (Planned)", WS.GetDateTime('Departure Date (Planned)', input));
+            if (TransportOrder."Departure Date (Planned)" <> WS.GetDateTime(jsonkey, input)) then
+                TransportOrder.Validate("Departure Date (Planned)", WS.GetDateTime(jsonkey, input));
 
         jsonkey := 'Duration (Planned)';
-        if (TransportOrder."Duration (Planned)" <> WS.GetInt('Duration (Planned)', input)) then
-            TransportOrder.Validate("Duration (Planned)", WS.GetInt('Duration (Planned)', input));
+        if (TransportOrder."Duration (Planned)" <> WS.GetInt(jsonkey, input)) then
+            TransportOrder.Validate("Duration (Planned)", WS.GetInt(jsonkey, input));
 
         jsonkey := 'Return Date (Planned)';
         if (WS.KeyExists(jsonkey, input)) then
-            if (TransportOrder."Return Date (Planned)" <> WS.GetDateTime('Return Date (Planned)', input)) then
-                TransportOrder.Validate("Return Date (Planned)", WS.GetDateTime('Return Date (Planned)', input));
+            if (TransportOrder."Return Date (Planned)" <> WS.GetDateTime(jsonkey, input)) then
+                TransportOrder.Validate("Return Date (Planned)", WS.GetDateTime(jsonkey, input));
 
         jsonkey := 'Departure Date (Actual)';
         if (WS.KeyExists(jsonkey, input)) then
-            if (TransportOrder."Departure Date (Actual)" <> WS.GetDateTime('Departure Date (Actual)', input)) then
-                TransportOrder.Validate("Departure Date (Actual)", WS.GetDateTime('Departure Date (Actual)', input));
+            if (TransportOrder."Departure Date (Actual)" <> WS.GetDateTime(jsonkey, input)) then
+                TransportOrder.Validate("Departure Date (Actual)", WS.GetDateTime(jsonkey, input));
 
         jsonkey := 'Return Date (Actual)';
         if (WS.KeyExists(jsonkey, input)) then
-            if (TransportOrder."Return Date (Actual)" <> WS.GetDateTime('Return Date (Actual)', input)) then
-                TransportOrder.Validate("Return Date (Actual)", WS.GetDateTime('Return Date (Actual)', input));
+            if (TransportOrder."Return Date (Actual)" <> WS.GetDateTime(jsonkey, input)) then
+                TransportOrder.Validate("Return Date (Actual)", WS.GetDateTime(jsonkey, input));
 
         jsonkey := 'Duration (Actual)';
         if (WS.KeyExists(jsonkey, input)) then
-            if (TransportOrder."Duration (Actual)" <> WS.GetInt('Duration (Actual)', input)) then
-                TransportOrder.Validate("Duration (Actual)", WS.GetInt('Duration (Actual)', input));
+            if (TransportOrder."Duration (Actual)" <> WS.GetInt(jsonkey, input)) then
+                TransportOrder.Validate("Duration (Actual)", WS.GetInt(jsonkey, input));
 
         jsonkey := 'Useful volume (cbm)';
         if (WS.KeyExists(jsonkey, input)) then
-            if (TransportOrder."Useful volume (cbm)" <> WS.GetDecimal('Useful volume (cbm)', input)) then
-                TransportOrder.Validate("Useful volume (cbm)", WS.GetDecimal('Useful volume (cbm)', input));
+            if (TransportOrder."Useful volume (cbm)" <> WS.GetDecimal(jsonkey, input)) then
+                TransportOrder.Validate("Useful volume (cbm)", WS.GetDecimal(jsonkey, input));
 
         jsonkey := 'Payload (kg)';
         if (WS.KeyExists(jsonkey, input)) then
-            if (TransportOrder."Payload (kg)" <> WS.GetDecimal('Payload (kg)', input)) then
-                TransportOrder.Validate("Payload (kg)", WS.GetDecimal('Payload (kg)', input));
+            if (TransportOrder."Payload (kg)" <> WS.GetDecimal(jsonkey, input)) then
+                TransportOrder.Validate("Payload (kg)", WS.GetDecimal(jsonkey, input));
 
         jsonkey := 'Outbound Package Count';
         if (WS.KeyExists(jsonkey, input)) then
-            if (TransportOrder."Outbound Package Count" <> WS.GetDecimal('Outbound Package Count', input)) then
-                TransportOrder.Validate("Outbound Package Count", WS.GetDecimal('Outbound Package Count', input));
+            if (TransportOrder."Outbound Package Count" <> WS.GetDecimal(jsonkey, input)) then
+                TransportOrder.Validate("Outbound Package Count", WS.GetDecimal(jsonkey, input));
 
         jsonkey := 'Outbound Volume Loaded (cbm)';
         if (WS.KeyExists(jsonkey, input)) then
-            if (TransportOrder."Outbound Volume Loaded (cbm)" <> WS.GetDecimal('Outbound Volume Loaded (cbm)', input)) then
-                TransportOrder.Validate("Outbound Volume Loaded (cbm)", WS.GetDecimal('Outbound Volume Loaded (cbm)', input));
+            if (TransportOrder."Outbound Volume Loaded (cbm)" <> WS.GetDecimal(jsonkey, input)) then
+                TransportOrder.Validate("Outbound Volume Loaded (cbm)", WS.GetDecimal(jsonkey, input));
 
         jsonkey := 'Outbound Weight Load (Kg)';
         if (WS.KeyExists(jsonkey, input)) then
-            if (TransportOrder."Outbound Weight Load (Kg)" <> WS.GetDecimal('Outbound Weight Load (Kg)', input)) then
-                TransportOrder.Validate("Outbound Weight Load (Kg)", WS.GetDecimal('Outbound Weight Load (Kg)', input));
+            if (TransportOrder."Outbound Weight Load (Kg)" <> WS.GetDecimal(jsonkey, input)) then
+                TransportOrder.Validate("Outbound Weight Load (Kg)", WS.GetDecimal(jsonkey, input));
 
         jsonkey := 'Outbound Unloading Dura (Plan)';
         if (WS.KeyExists(jsonkey, input)) then
-            if (TransportOrder."Outbound Unloading Dura (Plan)" <> WS.GetDecimal('Outbound Unloading Dura (Plan)', input)) then
-                TransportOrder.Validate("Outbound Unloading Dura (Plan)", WS.GetDecimal('Outbound Unloading Dura (Plan)', input));
+            if (TransportOrder."Outbound Unloading Dura (Plan)" <> WS.GetDecimal(jsonkey, input)) then
+                TransportOrder.Validate("Outbound Unloading Dura (Plan)", WS.GetDecimal(jsonkey, input));
 
         jsonkey := 'Inbound Package Count';
         if (WS.KeyExists(jsonkey, input)) then
@@ -187,8 +475,8 @@ codeunit 50022 A01SAVMgt
 
         jsonkey := 'Quantity(Actual)';
         if (WS.KeyExists(jsonkey, input)) then
-            if (TransportOrderDetail."Quantity (Actual)" <> WS.GetDecimal('Quantity(Actual)', input)) then
-                TransportOrderDetail.Validate("Quantity (Actual)", WS.GetDecimal('Quantity(Actual)', input));
+            if (TransportOrderDetail."Quantity (Actual)" <> WS.GetDecimal(jsonkey, input)) then
+                TransportOrderDetail.Validate("Quantity (Actual)", WS.GetDecimal(jsonkey, input));
 
         jsonkey := 'Quantity(Gap)';
         if (WS.KeyExists(jsonkey, input)) then
@@ -211,4 +499,304 @@ codeunit 50022 A01SAVMgt
                 TransportOrderDetail.Validate("Anomaly Description", WS.GetText(jsonkey, input));
 
     end;
+
+    local procedure ProcessServiceRequest(var ServiceRequest: Record "A01 Service Request"; input: JsonObject)
+    var
+        jsonkey: text;
+    begin
+
+        jsonkey := 'webUserName';
+        if (WS.KeyExists(jsonkey, input)) then
+            if (ServiceRequest."Web User Id" <> WS.GetText(jsonkey, input)) then
+                ServiceRequest.Validate("Web User Id", WS.GetText(jsonkey, input));
+
+        jsonkey := 'Service Request Status';
+        if (WS.KeyExists(jsonkey, input)) then
+            if (ServiceRequest."Service Request Status".AsInteger() <> WS.GetInt(jsonkey, input)) then
+                ServiceRequest.Validate("Service Request Status", WS.GetInt(jsonkey, input));
+
+        jsonkey := 'Customer No_';
+        if (WS.KeyExists(jsonkey, input)) then
+            if (ServiceRequest."Customer No." <> WS.GetText(jsonkey, input)) then
+                ServiceRequest.Validate("Customer No.", WS.GetText(jsonkey, input));
+
+        jsonkey := 'Warranty Status';
+        if (WS.KeyExists(jsonkey, input)) then
+            if (ServiceRequest."Warranty Status" <> WS.GetBool(jsonkey, input)) then
+                ServiceRequest.Validate("Warranty Status", WS.GetBool(jsonkey, input));
+
+        jsonkey := 'Contrat No_';
+        if (WS.KeyExists(jsonkey, input)) then
+            if (ServiceRequest."Contrat No." <> WS.GetText(jsonkey, input)) then
+                ServiceRequest.Validate("Contrat No.", WS.GetText(jsonkey, input));
+
+        jsonkey := 'Item No_';
+        if (WS.KeyExists(jsonkey, input)) then
+            if (ServiceRequest."Item No." <> WS.GetText(jsonkey, input)) then
+                ServiceRequest.Validate("Item No.", WS.GetText(jsonkey, input));
+
+        jsonkey := 'Reference';
+        if (WS.KeyExists(jsonkey, input)) then
+            if (ServiceRequest.Reference <> WS.GetText(jsonkey, input)) then
+                ServiceRequest.Validate("Reference", WS.GetText(jsonkey, input));
+
+        jsonkey := 'Warranty End Date';
+        if (ServiceRequest."Warranty End Date" <> WS.GetDate(jsonkey, input)) then
+            ServiceRequest.Validate("Warranty End Date", WS.GetDate(jsonkey, input));
+
+        jsonkey := 'Created On';
+        if (WS.KeyExists(jsonkey, input)) then
+            if (ServiceRequest."Created On" <> WS.GetDate(jsonkey, input)) then
+                ServiceRequest.Validate("Created On", WS.GetDate(jsonkey, input));
+
+        jsonkey := 'Created By';
+        if (WS.KeyExists(jsonkey, input)) then
+            if (ServiceRequest."Created By" <> WS.GetText(jsonkey, input)) then
+                ServiceRequest.Validate("Created By", WS.GetText(jsonkey, input));
+
+        jsonkey := 'Closed On';
+        if (WS.KeyExists(jsonkey, input)) then
+            if (ServiceRequest."Closed On" <> WS.GetDate(jsonkey, input)) then
+                ServiceRequest.Validate("Closed On", WS.GetDate(jsonkey, input));
+
+        jsonkey := 'Closed By';
+        if (WS.KeyExists(jsonkey, input)) then
+            if (ServiceRequest."Closed By" <> WS.GetText(jsonkey, input)) then
+                ServiceRequest.Validate("Closed By", WS.GetText(jsonkey, input));
+    end;
+
+    local procedure Process_SRItemMovement(ServiceRequest: Record "A01 Service Request"; SRItemMvt: Record "A01 SR Item Movement"; input: JsonObject)
+    var
+        jsonkey: text;
+    begin
+
+        if (SRItemMvt."Service Request No." <> ServiceRequest."No.") then
+            SRItemMvt."Service Request No." := ServiceRequest."No.";
+
+        jsonkey := 'Movement Date';
+        if (WS.KeyExists(jsonkey, input)) then
+            if (SRItemMvt."Movement Date" <> WS.GetDate(jsonkey, input)) then
+                SRItemMvt.Validate("Movement Date", WS.GetDate(jsonkey, input));
+
+        jsonkey := 'Line No_';
+        if (WS.KeyExists(jsonkey, input)) then
+            if (SRItemMvt."Line No." <> WS.GetInt(jsonkey, input)) then
+                SRItemMvt.Validate("Line No.", WS.GetInt(jsonkey, input));
+
+        jsonkey := 'From Location Code';
+        if (WS.KeyExists(jsonkey, input)) then
+            if (SRItemMvt."From Location Code" <> WS.GetText(jsonkey, input)) then
+                SRItemMvt.Validate("From Location Code", WS.GetText(jsonkey, input));
+
+        jsonkey := 'From Bin Code';
+        if (WS.KeyExists(jsonkey, input)) then
+            if (SRItemMvt."From Bin Code" <> WS.GetText(jsonkey, input)) then
+                SRItemMvt.Validate("From Bin Code", WS.GetText(jsonkey, input));
+
+        jsonkey := 'To Location Code';
+        if (WS.KeyExists(jsonkey, input)) then
+            if (SRItemMvt."To Location Code" <> WS.GetText(jsonkey, input)) then
+                SRItemMvt.Validate("From Location Code", WS.GetText(jsonkey, input));
+
+        jsonkey := 'To Bin Code';
+        if (WS.KeyExists(jsonkey, input)) then
+            if (SRItemMvt."To Bin Code" <> WS.GetText(jsonkey, input)) then
+                SRItemMvt.Validate("To Bin Code", WS.GetText(jsonkey, input));
+
+        jsonkey := 'Movement Description';
+        if (WS.KeyExists(jsonkey, input)) then
+            if (SRItemMvt."Movement Description" <> WS.GetText(jsonkey, input)) then
+                SRItemMvt.Validate("Movement Description", WS.GetText(jsonkey, input));
+    end;
+
+    local procedure Process_SRSparePart(ServiceRequest: Record "A01 Service Request"; SRSparePart: Record "A01 SR Spare Part"; input: JsonObject)
+    var
+        jsonkey: text;
+    begin
+
+        SRSparePart."Spare Status" := SRSparePart."Spare Status"::" ";
+
+        if (SRSparePart."Service Request No." <> ServiceRequest."No.") then
+            SRSparePart."Service Request No." := ServiceRequest."No.";
+
+        jsonkey := 'Line No_';
+        if (WS.KeyExists(jsonkey, input)) then
+            if (SRSparePart."Line No." <> WS.GetInt(jsonkey, input)) then
+                SRSparePart.Validate("Line No.", WS.GetInt(jsonkey, input));
+
+        jsonkey := 'Item No_';
+        if (WS.KeyExists(jsonkey, input)) then
+            if (SRSparePart."Item No." <> WS.GetText(jsonkey, input)) then
+                SRSparePart.Validate("Item No.", WS.GetText(jsonkey, input));
+
+        jsonkey := 'Unit of Measure Code';
+        if (WS.KeyExists(jsonkey, input)) then
+            if (SRSparePart."Unit of Measure Code" <> WS.GetText(jsonkey, input)) then
+                SRSparePart.Validate("Unit of Measure Code", WS.GetText(jsonkey, input));
+
+        jsonkey := 'Description';
+        if (WS.KeyExists(jsonkey, input)) then
+            if (SRSparePart."Description" <> WS.GetText(jsonkey, input)) then
+                SRSparePart.Validate("Description", WS.GetText(jsonkey, input));
+
+        jsonkey := 'Quantity';
+        if (WS.KeyExists(jsonkey, input)) then
+            if (SRSparePart."Quantity" <> WS.GetDecimal(jsonkey, input)) then
+                SRSparePart.Validate("Quantity", WS.GetDecimal(jsonkey, input));
+
+        jsonkey := 'Usage Status';
+        if (WS.KeyExists(jsonkey, input)) then
+            if (SRSparePart."Usage Status".AsInteger() <> WS.GetInt(jsonkey, input)) then
+                SRSparePart.Validate("Usage Status", WS.GetInt(jsonkey, input));
+
+        jsonkey := 'Usage';
+        if (WS.KeyExists(jsonkey, input)) then
+            if (SRSparePart."Usage" <> WS.GetText(jsonkey, input)) then
+                SRSparePart.Validate("Usage", WS.GetText(jsonkey, input));
+
+    end;
+
+    local procedure Process_SRDefectivePart(ServiceRequest: Record "A01 Service Request"; SRSparePart: Record "A01 SR Spare Part"; input: JsonObject)
+    var
+        jsonkey: text;
+    begin
+
+        SRSparePart."Spare Status" := SRSparePart."Spare Status"::Defective;
+
+        if (SRSparePart."Service Request No." <> ServiceRequest."No.") then
+            SRSparePart."Service Request No." := ServiceRequest."No.";
+
+        jsonkey := 'Line No_';
+        if (WS.KeyExists(jsonkey, input)) then
+            if (SRSparePart."Line No." <> WS.GetInt(jsonkey, input)) then
+                SRSparePart.Validate("Line No.", WS.GetInt(jsonkey, input));
+
+        jsonkey := 'Item No_';
+        if (WS.KeyExists(jsonkey, input)) then
+            if (SRSparePart."Item No." <> WS.GetText(jsonkey, input)) then
+                SRSparePart.Validate("Item No.", WS.GetText(jsonkey, input));
+
+        jsonkey := 'Unit of Measure Code';
+        if (WS.KeyExists(jsonkey, input)) then
+            if (SRSparePart."Unit of Measure Code" <> WS.GetText(jsonkey, input)) then
+                SRSparePart.Validate("Unit of Measure Code", WS.GetText(jsonkey, input));
+
+        jsonkey := 'Description';
+        if (WS.KeyExists(jsonkey, input)) then
+            if (SRSparePart."Description" <> WS.GetText(jsonkey, input)) then
+                SRSparePart.Validate("Description", WS.GetText(jsonkey, input));
+
+        jsonkey := 'Quantity';
+        if (WS.KeyExists(jsonkey, input)) then
+            if (SRSparePart."Quantity" <> WS.GetDecimal(jsonkey, input)) then
+                SRSparePart.Validate("Quantity", WS.GetDecimal(jsonkey, input));
+
+        jsonkey := 'Observation';
+        if (WS.KeyExists(jsonkey, input)) then
+            if (SRSparePart."Observations" <> WS.GetText(jsonkey, input)) then
+                SRSparePart.Validate("Observations", WS.GetText(jsonkey, input));
+
+
+        // jsonkey := 'Usage Status';
+        // if (WS.KeyExists(jsonkey, input)) then
+        //     if (SRSparePart."Usage Status".AsInteger() <> WS.GetInt(jsonkey, input)) then
+        //         SRSparePart.Validate("Usage Status", WS.GetInt(jsonkey, input));
+
+        // jsonkey := 'Usage';
+        // if (WS.KeyExists(jsonkey, input)) then
+        //     if (SRSparePart."Usage" <> WS.GetText(jsonkey, input)) then
+        //         SRSparePart.Validate("Usage", WS.GetText(jsonkey, input));
+
+    end;
+
+    local procedure Process_SRSalesDocument(ServiceRequest: Record "A01 Service Request"; SRSalesDocument: Record "A01 SR Sales Document"; input: JsonObject)
+    var
+        jsonkey: text;
+    begin
+
+        if (SRSalesDocument."Service Request No." <> ServiceRequest."No.") then
+            SRSalesDocument."Service Request No." := ServiceRequest."No.";
+
+        jsonkey := 'Line No_';
+        if (WS.KeyExists(jsonkey, input)) then
+            if (SRSalesDocument."Line No." <> WS.GetInt(jsonkey, input)) then
+                SRSalesDocument.Validate("Line No.", WS.GetInt(jsonkey, input));
+
+        jsonkey := 'Document Type';
+        if (WS.KeyExists(jsonkey, input)) then
+            if (SRSalesDocument."Document Type".AsInteger() <> WS.GetInt(jsonkey, input)) then
+                SRSalesDocument.Validate("Document Type", WS.GetInt(jsonkey, input));
+
+        jsonkey := 'Document Date';
+        if (WS.KeyExists(jsonkey, input)) then
+            if (SRSalesDocument."Document Date" <> WS.GetDate(jsonkey, input)) then
+                SRSalesDocument.Validate("Document Date", WS.GetDate(jsonkey, input));
+
+        jsonkey := 'Document Amount';
+        if (WS.KeyExists(jsonkey, input)) then
+            if (SRSalesDocument."Document Amount" <> WS.GetDecimal(jsonkey, input)) then
+                SRSalesDocument.Validate("Document Amount", WS.GetDecimal(jsonkey, input));
+
+        jsonkey := 'Processing Status';
+        if (WS.KeyExists(jsonkey, input)) then
+            if (SRSalesDocument."Processing Status".AsInteger() <> WS.GetInt(jsonkey, input)) then
+                SRSalesDocument.Validate("Processing Status", WS.GetInt(jsonkey, input));
+
+    end;
+
+    local procedure Process_SRAssignmentFlow(ServiceRequest: Record "A01 Service Request"; SRAssignmentFlow: Record "A01 SR Assignment Flow"; input: JsonObject)
+    var
+        jsonkey: text;
+    begin
+
+        if (SRAssignmentFlow."Service Request No." <> ServiceRequest."No.") then
+            SRAssignmentFlow."Service Request No." := ServiceRequest."No.";
+
+        jsonkey := 'Line No_';
+        if (WS.KeyExists(jsonkey, input)) then
+            if (SRAssignmentFlow."Line No." <> WS.GetInt(jsonkey, input)) then
+                SRAssignmentFlow.Validate("Line No.", WS.GetInt(jsonkey, input));
+
+        jsonkey := 'Assigned On';
+        if (WS.KeyExists(jsonkey, input)) then
+            if (SRAssignmentFlow."Assigned On" <> WS.GetDate(jsonkey, input)) then
+                SRAssignmentFlow.Validate("Assigned On", WS.GetDate(jsonkey, input));
+
+        jsonkey := 'Assigned By';
+        if (WS.KeyExists(jsonkey, input)) then
+            if (SRAssignmentFlow."Assigned By" <> WS.GetText(jsonkey, input)) then
+                SRAssignmentFlow.Validate("Assigned By", WS.GetText(jsonkey, input));
+
+        jsonkey := 'Current Status';
+        if (WS.KeyExists(jsonkey, input)) then
+            if (SRAssignmentFlow."Current Status".AsInteger() <> WS.GetInt(jsonkey, input)) then
+                SRAssignmentFlow.Validate("Current Status", WS.GetInt(jsonkey, input));
+
+        jsonkey := 'Assigned To';
+        if (WS.KeyExists(jsonkey, input)) then
+            if (SRAssignmentFlow."Assigned To" <> WS.GetText(jsonkey, input)) then
+                SRAssignmentFlow.Validate("Assigned To", WS.GetText(jsonkey, input));
+
+        jsonkey := 'Next Status';
+        if (WS.KeyExists(jsonkey, input)) then
+            if (SRAssignmentFlow."Next Status".AsInteger() <> WS.GetInt(jsonkey, input)) then
+                SRAssignmentFlow.Validate("Next Status", WS.GetInt(jsonkey, input));
+
+        jsonkey := 'Notes';
+        if (WS.KeyExists(jsonkey, input)) then
+            if (SRAssignmentFlow."Notes" <> WS.GetText(jsonkey, input)) then
+                SRAssignmentFlow.Validate("Notes", WS.GetText(jsonkey, input));
+
+        jsonkey := 'Starting Date';
+        if (WS.KeyExists(jsonkey, input)) then
+            if (SRAssignmentFlow."Starting Date" <> WS.GetDate(jsonkey, input)) then
+                SRAssignmentFlow.Validate("Starting Date", WS.GetDate(jsonkey, input));
+
+        jsonkey := 'Deadline';
+        if (WS.KeyExists(jsonkey, input)) then
+            if (SRAssignmentFlow."Deadline" <> WS.GetDate(jsonkey, input)) then
+                SRAssignmentFlow.Validate("Deadline", WS.GetDate(jsonkey, input));
+
+    end;
+
 }

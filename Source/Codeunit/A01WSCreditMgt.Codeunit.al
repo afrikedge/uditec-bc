@@ -107,7 +107,7 @@ codeunit 50011 "A01 WS Credit Mgt"
 
         ProcessReminderHeader(Reminder, input);
 
-        processReminderLines(Reminder, ReminderLine, input);
+        processReminderLines(Reminder, input);
 
         exit(Ws.CreateResponseSuccess(Reminder."No."));
 
@@ -126,9 +126,10 @@ codeunit 50011 "A01 WS Credit Mgt"
 
     end;
 
-    local procedure processReminderLines(Reminder: Record "Reminder Header"; var ReminderLine: Record "Reminder Line"; input: JsonObject)
+    local procedure processReminderLines(Reminder: Record "Reminder Header"; input: JsonObject)
     var
         ReminderLine1: Record "Reminder Line";
+        ReminderLine: Record "Reminder Line";
         c: JsonToken;
         LinesArray: JsonArray;
         LineInput: JsonObject;
@@ -142,6 +143,7 @@ codeunit 50011 "A01 WS Credit Mgt"
         LinesArray := c.AsArray();
         foreach c in LinesArray do begin
             LineInput := c.AsObject();
+            ReminderLine.Init();
             processReminderLine(Reminder, ReminderLine, LineInput);
         end;
     end;

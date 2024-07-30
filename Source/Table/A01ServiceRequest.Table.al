@@ -73,6 +73,17 @@ table 50056 "A01 Service Request"
             Caption = 'No. Series';
             TableRelation = "No. Series";
         }
+        field(14; "Web User Id"; Code[50])
+        {
+            Caption = 'Web User Id';
+            DataClassification = CustomerContent;
+            Editable = false;
+        }
+        field(15; "Responsibility Center"; Code[10])
+        {
+            Caption = 'Responsibility Center';
+            TableRelation = "Responsibility Center";
+        }
     }
     keys
     {

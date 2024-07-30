@@ -174,6 +174,16 @@ table 50054 "A01 Transport Order"
         InitHeader();
     end;
 
+    trigger OnDelete()
+    var
+        TransportOrderDetail: Record "A01 Transport Order Detail";
+    begin
+        TransportOrderDetail.Reset();
+        TransportOrderDetail.SetRange("Transport Order No.", Rec."No.");
+        if (not TransportOrderDetail.IsEmpty) then
+            TransportOrderDetail.DeleteAll();
+    end;
+
     var
         AddOnSetup: Record "A01 Afk Setup";
         Currency: Record Currency;

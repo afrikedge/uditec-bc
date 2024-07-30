@@ -49,6 +49,9 @@ page 50113 "A01 Service Request"
                 field("Closed By"; Rec."Closed By")
                 {
                 }
+                field("Responsibility Center"; Rec."Responsibility Center")
+                {
+                }
             }
             part(Mouvement; "A01 SR Item Mouvement Subform")
             {
