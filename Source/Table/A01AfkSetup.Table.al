@@ -320,7 +320,10 @@ table 50017 "A01 Afk Setup"
             Caption = 'Sales channel for Interest';
             TableRelation = "Dimension Value".Code where("Global Dimension No." = const(2));
         }
-
+        field(68; "SR Default Bin Code"; Code[20])
+        {
+            Caption = 'Default bin for after sales service';
+        }
 
 
         //Config. Template Header

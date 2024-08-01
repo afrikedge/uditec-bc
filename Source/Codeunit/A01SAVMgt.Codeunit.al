@@ -108,6 +108,7 @@ codeunit 50022 A01SAVMgt
             LineInput := c.AsObject();
             TransportOrderDetail.Init();
             ProcessOrderTransportLine(TransportOrder, TransportOrderDetail, LineInput);
+            TransportOrderDetail.Insert();
         end;
     end;
 
@@ -190,6 +191,7 @@ codeunit 50022 A01SAVMgt
             LineInput := c.AsObject();
             SRSparePart.Init();
             Process_SRSparePart(ServiceRequest, SRSparePart, LineInput);
+            SRSparePart.Insert();
         end;
     end;
 
@@ -212,6 +214,7 @@ codeunit 50022 A01SAVMgt
             LineInput := c.AsObject();
             SRSparePart.Init();
             Process_SRDefectivePart(ServiceRequest, SRSparePart, LineInput);
+            SRSparePart.Insert();
         end;
     end;
 
@@ -233,6 +236,7 @@ codeunit 50022 A01SAVMgt
             LineInput := c.AsObject();
             SRItemMvt.Init();
             Process_SRItemMovement(ServiceRequest, SRItemMvt, LineInput);
+            SRItemMvt.Insert();
         end;
     end;
 
@@ -254,6 +258,7 @@ codeunit 50022 A01SAVMgt
             LineInput := c.AsObject();
             SRSalesDocument.Init();
             Process_SRSalesDocument(ServiceRequest, SRSalesDocument, LineInput);
+            SRSalesDocument.Insert();
         end;
     end;
 
@@ -275,6 +280,7 @@ codeunit 50022 A01SAVMgt
             LineInput := c.AsObject();
             SRAssignmentFlow.Init();
             Process_SRAssignmentFlow(ServiceRequest, SRAssignmentFlow, LineInput);
+            SRAssignmentFlow.Insert();
         end;
     end;
 
@@ -563,6 +569,66 @@ codeunit 50022 A01SAVMgt
         if (WS.KeyExists(jsonkey, input)) then
             if (ServiceRequest."Closed By" <> WS.GetText(jsonkey, input)) then
                 ServiceRequest.Validate("Closed By", WS.GetText(jsonkey, input));
+
+
+
+
+        //******************
+        jsonkey := 'Responsibility Center';
+        if (WS.KeyExists(jsonkey, input)) then
+            if (ServiceRequest."Responsibility Center" <> WS.GetText(jsonkey, input)) then
+                ServiceRequest.Validate("Responsibility Center", WS.GetText(jsonkey, input));
+
+        jsonkey := 'Ship-to Code';
+        if (WS.KeyExists(jsonkey, input)) then
+            if (ServiceRequest."Ship-to Code" <> WS.GetText(jsonkey, input)) then
+                ServiceRequest.Validate("Ship-to Code", WS.GetText(jsonkey, input));
+
+        jsonkey := 'Contact No_';
+        if (WS.KeyExists(jsonkey, input)) then
+            if (ServiceRequest."Contact No." <> WS.GetText(jsonkey, input)) then
+                ServiceRequest.Validate("Contact No.", WS.GetText(jsonkey, input));
+
+        jsonkey := 'Serial No_';
+        if (WS.KeyExists(jsonkey, input)) then
+            if (ServiceRequest."Serial No." <> WS.GetText(jsonkey, input)) then
+                ServiceRequest.Validate("Serial No.", WS.GetText(jsonkey, input));
+
+        jsonkey := 'IMEI No_';
+        if (WS.KeyExists(jsonkey, input)) then
+            if (ServiceRequest."IMEI No." <> WS.GetText(jsonkey, input)) then
+                ServiceRequest.Validate("IMEI No.", WS.GetText(jsonkey, input));
+
+        jsonkey := 'Sales Doc. No_';
+        if (WS.KeyExists(jsonkey, input)) then
+            if (ServiceRequest."Sales Doc. No." <> WS.GetText(jsonkey, input)) then
+                ServiceRequest.Validate("Sales Doc. No.", WS.GetText(jsonkey, input));
+
+        jsonkey := 'Description';
+        if (WS.KeyExists(jsonkey, input)) then
+            if (ServiceRequest."Description" <> WS.GetText(jsonkey, input)) then
+                ServiceRequest.Validate("Description", WS.GetText(jsonkey, input));
+
+        jsonkey := 'Item Accessories';
+        if (WS.KeyExists(jsonkey, input)) then
+            if (ServiceRequest."Item Accessories" <> WS.GetText(jsonkey, input)) then
+                ServiceRequest.Validate("Item Accessories", WS.GetText(jsonkey, input));
+
+        jsonkey := 'Observations';
+        if (WS.KeyExists(jsonkey, input)) then
+            if (ServiceRequest."Observations" <> WS.GetText(jsonkey, input)) then
+                ServiceRequest.Validate("Observations", WS.GetText(jsonkey, input));
+
+        jsonkey := 'SR Type';
+        if (WS.KeyExists(jsonkey, input)) then
+            if (ServiceRequest."SR Type".AsInteger() <> WS.GetInt(jsonkey, input)) then
+                ServiceRequest.Validate("SR Type", WS.GetInt(jsonkey, input));
+
+        jsonkey := 'SR Origin';
+        if (WS.KeyExists(jsonkey, input)) then
+            if (ServiceRequest."SR Origin".AsInteger() <> WS.GetInt(jsonkey, input)) then
+                ServiceRequest.Validate("SR Origin", WS.GetInt(jsonkey, input));
+
     end;
 
     local procedure Process_SRItemMovement(ServiceRequest: Record "A01 Service Request"; SRItemMvt: Record "A01 SR Item Movement"; input: JsonObject)

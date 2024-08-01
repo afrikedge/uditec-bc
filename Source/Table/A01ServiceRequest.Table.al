@@ -81,9 +81,52 @@ table 50056 "A01 Service Request"
         }
         field(15; "Responsibility Center"; Code[10])
         {
-            Caption = 'Responsibility Center';
+            Caption = 'Point of sale';
             TableRelation = "Responsibility Center";
         }
+        field(16; "Ship-to Code"; Code[10])
+        {
+            Caption = 'Delivery address';
+            TableRelation = "Ship-to Address".Code where("Customer No." = field("Customer No."));
+        }
+        field(17; "Contact No."; Code[10])
+        {
+            Caption = 'Contact No.';
+            TableRelation = "Contact"."No.";
+        }
+        field(18; "Serial No."; Code[50])
+        {
+            Caption = 'Serial No.';
+        }
+        field(19; "IMEI No."; Code[50])
+        {
+            Caption = 'IMEI number';
+        }
+        field(20; "Sales Doc. No."; Code[50])
+        {
+            Caption = 'Invoice/BL number';
+        }
+        field(21; "Description"; Text[300])
+        {
+            Caption = 'Description of the problem';
+        }
+        field(22; "Item Accessories"; Text[300])
+        {
+            Caption = 'Accessories item';
+        }
+        field(23; "Observations"; Text[300])
+        {
+            Caption = 'Observations';
+        }
+        field(24; "SR Type"; enum "A01 SR Type")
+        {
+            Caption = 'Place of intervention';
+        }
+        field(25; "SR Origin"; enum "A01 SR Origin")
+        {
+            Caption = 'Origin of request';
+        }
+
     }
     keys
     {

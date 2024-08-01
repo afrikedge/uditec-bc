@@ -298,6 +298,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table A01 Afk Setup - Field ShipToAddress Code Nos - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Table 2685203037 - Field 3013827038 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Default bin for after sales service</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table A01 Afk Setup - Field SR Default Bin Code - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Table 2685203037 - Field 1192949124 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Suspense Account (Voucher)</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -3178,6 +3183,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table A01 Service Request - Field Closed On - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Table 3837504088 - Field 202036913 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Contact No.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table A01 Service Request - Field Contact No. - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Table 3837504088 - Field 2735989690 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Contrat No.</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -3198,6 +3208,21 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table A01 Service Request - Field Customer No. - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Table 3837504088 - Field 3461834954 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Description of the problem</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table A01 Service Request - Field Description - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3837504088 - Field 1321866497 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>IMEI number</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table A01 Service Request - Field IMEI No. - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3837504088 - Field 3014847517 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Accessories item</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table A01 Service Request - Field Item Accessories - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Table 3837504088 - Field 568743302 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Item No.</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -3213,20 +3238,50 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table A01 Service Request - Field No. Series - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Table 3837504088 - Field 2710318747 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Observations</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table A01 Service Request - Field Observations - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Table 3837504088 - Field 1221660829 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Reference</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table A01 Service Request - Field Reference - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 3837504088 - Field 2247850105 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Responsibility Center</source>
+          <source>Point of sale</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table A01 Service Request - Field Responsibility Center - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3837504088 - Field 2635387243 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Invoice/BL number</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table A01 Service Request - Field Sales Doc. No. - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3837504088 - Field 47037625 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Serial No.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table A01 Service Request - Field Serial No. - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 3837504088 - Field 3874545516 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Service Request Status</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table A01 Service Request - Field Service Request Status - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3837504088 - Field 993414011 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Delivery address</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table A01 Service Request - Field Ship-to Code - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3837504088 - Field 2305850407 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Origin of request</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table A01 Service Request - Field SR Origin - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3837504088 - Field 2887880347 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Place of intervention</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table A01 Service Request - Field SR Type - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 3837504088 - Field 2616922401 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Warranty End Date</source>
@@ -19224,9 +19279,19 @@
           <note from="Xliff Generator" annotates="general" priority="3">Enum A01 Bank Account Type - EnumValue Bank Account - Property Caption</note>
         </trans-unit>
         <trans-unit id="Enum 3247777777 - EnumValue 3396863728 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>CashBox</source>
+          <source>Income CashBox</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Enum A01 Bank Account Type - EnumValue CashBox - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 3247777777 - EnumValue 606566612 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Mobile Money</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum A01 Bank Account Type - EnumValue MobileMoney - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 3247777777 - EnumValue 3954154535 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Petty Cash</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum A01 Bank Account Type - EnumValue PettyCash - Property Caption</note>
         </trans-unit>
         <trans-unit id="Enum 3607961405 - EnumValue 4259830144 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Open</source>
@@ -19577,6 +19642,56 @@
           <source>Slow Moving</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Enum A01 Item Status - EnumValue Slow Moving - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 682552234 - EnumValue 3921533230 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Delivery to the customer</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum A01 ItemMovementType - EnumValue Delivery to the customer - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 682552234 - EnumValue 2458352354 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Reception at the after-sales service centre</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum A01 ItemMovementType - EnumValue Reception at the after-sales service centre - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 682552234 - EnumValue 736732331 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Reception at the after-sales service point</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum A01 ItemMovementType - EnumValue Reception at the after-sales service point - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 682552234 - EnumValue 2847853777 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Transfer to after-sales service centre</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum A01 ItemMovementType - EnumValue Transfer to after-sales service centre - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 682552234 - EnumValue 1223262660 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Transfer to clearance</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum A01 ItemMovementType - EnumValue Transfer to clearance - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 682552234 - EnumValue 3903813865 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Transfer to defective</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum A01 ItemMovementType - EnumValue Transfer to defective - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 682552234 - EnumValue 4056302908 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Transfer to delivery point</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum A01 ItemMovementType - EnumValue Transfer to delivery point - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 682552234 - EnumValue 1717462794 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Transfer to refund</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum A01 ItemMovementType - EnumValue Transfer to refund - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 682552234 - EnumValue 3764666298 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Transfer to replacement</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum A01 ItemMovementType - EnumValue Transfer to replacement - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 682552234 - EnumValue 2047076664 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Transfer to the workshop</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum A01 ItemMovementType - EnumValue Transfer to the workshop - Property Caption</note>
         </trans-unit>
         <trans-unit id="Enum 195680537 - EnumValue 1371923692 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source> </source>
@@ -20088,10 +20203,10 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Enum A01 Scoring Criteria Validity - EnumValue Unlimited - Property Caption</note>
         </trans-unit>
-        <trans-unit id="Enum 3234955036 - EnumValue 3844911025 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Canceled</source>
+        <trans-unit id="Enum 3234955036 - EnumValue 4069904181 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Cancelled</source>
           <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Enum A01 ServiceRequest Status - EnumValue Canceled - Property Caption</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum A01 ServiceRequest Status - EnumValue Cancelled - Property Caption</note>
         </trans-unit>
         <trans-unit id="Enum 3234955036 - EnumValue 1778072510 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Closed</source>
@@ -20103,45 +20218,65 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Enum A01 ServiceRequest Status - EnumValue Confirmed - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Enum 3234955036 - EnumValue 3845458811 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Diagnosis In Progress</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum A01 ServiceRequest Status - EnumValue Diagnosis In Progress - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 3234955036 - EnumValue 2743235096 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Diagnosis to be confirmed</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum A01 ServiceRequest Status - EnumValue Diagnosis to be confirmed - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Enum 3234955036 - EnumValue 253238575 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Draft</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Enum A01 ServiceRequest Status - EnumValue Draft - Property Caption</note>
         </trans-unit>
-        <trans-unit id="Enum 3234955036 - EnumValue 3717671363 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>To be invoiced</source>
+        <trans-unit id="Enum 3234955036 - EnumValue 2627553603 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Processing In Progress</source>
           <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Enum A01 ServiceRequest Status - EnumValue To be invoiced - Property Caption</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum A01 ServiceRequest Status - EnumValue Processing In Progress - Property Caption</note>
         </trans-unit>
-        <trans-unit id="Enum 3234955036 - EnumValue 2191704786 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>To deliver</source>
+        <trans-unit id="Enum 3234955036 - EnumValue 3478573088 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Processing to be confirmed</source>
           <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Enum A01 ServiceRequest Status - EnumValue To deliver - Property Caption</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum A01 ServiceRequest Status - EnumValue Processing to be confirmed - Property Caption</note>
         </trans-unit>
-        <trans-unit id="Enum 3234955036 - EnumValue 3075389465 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>To Diagnose</source>
+        <trans-unit id="Enum 3234955036 - EnumValue 717890328 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Waiting for delivery</source>
           <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Enum A01 ServiceRequest Status - EnumValue To Diagnose - Property Caption</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum A01 ServiceRequest Status - EnumValue Waiting for delivery - Property Caption</note>
         </trans-unit>
-        <trans-unit id="Enum 3234955036 - EnumValue 2664732664 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>To qualify</source>
+        <trans-unit id="Enum 3234955036 - EnumValue 1355862245 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Waiting for Diagnosis</source>
           <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Enum A01 ServiceRequest Status - EnumValue To qualify - Property Caption</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum A01 ServiceRequest Status - EnumValue Waiting for Diagnosis - Property Caption</note>
         </trans-unit>
-        <trans-unit id="Enum 3234955036 - EnumValue 3129432480 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>To repay</source>
+        <trans-unit id="Enum 3234955036 - EnumValue 3594369320 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Waiting for invoicing</source>
           <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Enum A01 ServiceRequest Status - EnumValue To repay - Property Caption</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum A01 ServiceRequest Status - EnumValue Waiting for invoicing - Property Caption</note>
         </trans-unit>
-        <trans-unit id="Enum 3234955036 - EnumValue 3385891321 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>To replace</source>
+        <trans-unit id="Enum 3234955036 - EnumValue 676530205 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Waiting for Processing</source>
           <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Enum A01 ServiceRequest Status - EnumValue To replace - Property Caption</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum A01 ServiceRequest Status - EnumValue Waiting for Processing - Property Caption</note>
         </trans-unit>
-        <trans-unit id="Enum 3234955036 - EnumValue 3295523703 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>To Treat</source>
+        <trans-unit id="Enum 3234955036 - EnumValue 730773534 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Waiting for quote</source>
           <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Enum A01 ServiceRequest Status - EnumValue To Treat - Property Caption</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum A01 ServiceRequest Status - EnumValue Waiting for quote - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 3234955036 - EnumValue 3300843226 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Waiting for refund</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum A01 ServiceRequest Status - EnumValue Waiting for refund - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 3234955036 - EnumValue 2708814570 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Waiting for replacement</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum A01 ServiceRequest Status - EnumValue Waiting for replacement - Property Caption</note>
         </trans-unit>
         <trans-unit id="Enum 422579085 - EnumValue 3543129988 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Blocked</source>
@@ -20218,6 +20353,21 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Enum A01 SO Processing Status - EnumValue Waiting for prepayment - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Enum 2648443255 - EnumValue 2547047513 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>After-sales service center</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum A01 SR Origin - EnumValue After-sales service center - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 2648443255 - EnumValue 4226980658 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Point of sale</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum A01 SR Origin - EnumValue Point of sale - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 2648443255 - EnumValue 1252283704 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Telephone</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum A01 SR Origin - EnumValue Telephone - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Enum 840649308 - EnumValue 1371923692 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source> </source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -20227,6 +20377,16 @@
           <source>Defective</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Enum A01 SR Spare Status - EnumValue Defective - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 1998516075 - EnumValue 1706089553 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Customer site</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum A01 SR Type - EnumValue Customer site - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 1998516075 - EnumValue 2902837327 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Workshop</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum A01 SR Type - EnumValue Workshop - Property Caption</note>
         </trans-unit>
         <trans-unit id="Enum 3900111559 - EnumValue 1371923692 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source> </source>

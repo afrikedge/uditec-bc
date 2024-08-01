@@ -216,6 +216,9 @@ page 50040 "A01 Afk Setup"
                 field("Reposession Risk Level"; Rec."Reposession Risk Level")
                 {
                 }
+                field("SR Default Bin Code"; Rec."SR Default Bin Code")
+                {
+                }
 
             }
             group("Numbering")
