@@ -236,6 +236,7 @@ codeunit 50009 "A01 WS OrdersMgt"
     var
         SalesOrderLine: Record "Sales Line";
         Item: Record Item;
+        jsonkey: Text;
     begin
         if (SalesOrder."A01 Web User Id" <> WS.GetText('webUserName', input)) then
             SalesOrder.Validate("A01 Web User Id", WS.GetText('webUserName', input));
@@ -322,6 +323,10 @@ codeunit 50009 "A01 WS OrdersMgt"
         //if (SalesOrder.store <> WS.GetText('saleOrderCustomerStoreCode', input)) then
         // SalesOrder.Validate("Shipment Method Code", WS.GetText('saleOrderCustomerStoreCode', input));
 
+        jsonkey := 'External Document No_';
+        if (WS.KeyExists(jsonkey, input)) then
+            if (SalesOrder."External Document No." <> WS.GetText(jsonkey, input)) then
+                SalesOrder.Validate("External Document No.", WS.GetText(jsonkey, input));
 
 
 

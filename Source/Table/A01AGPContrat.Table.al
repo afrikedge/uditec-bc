@@ -145,7 +145,7 @@ table 50035 "A01 AGP Contrat"
         if (Rec."OP Duration (Month)" >= NumMonths) then
             exit(NumMonths);
 
-        if (PostingDate >= "OP Ending Date") then
+        if (PostingDate > "OP Ending Date") then
             exit(0);
 
         //if (EndingDate1 >= "OP Ending Date") then

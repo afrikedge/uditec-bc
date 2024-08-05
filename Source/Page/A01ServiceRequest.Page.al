@@ -82,6 +82,12 @@ page 50113 "A01 Service Request"
                 field("SR Origin"; Rec."SR Origin")
                 {
                 }
+                field("Diagnostic Report"; Rec."Diagnostic Report")
+                {
+                }
+                field("Repair Report"; Rec."Repair Report")
+                {
+                }
             }
             part(Mouvement; "A01 SR Item Mouvement Subform")
             {

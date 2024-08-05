@@ -240,6 +240,7 @@ codeunit 50005 "A01 WS QuotesMgt"
     local procedure ProcessSalesQuoteHeader(var SalesQuote: Record "Sales Header"; input: JsonObject)
     var
         Cust: record Customer;
+        jsonkey: Text;
     begin
 
         //SalesQuote.Validate("Sell-to Customer No.", GetText('customerNo', input));
@@ -329,6 +330,12 @@ codeunit 50005 "A01 WS QuotesMgt"
 
         if (SalesQuote."A01 Investigator Opinion".AsInteger() <> WS.GetInt('Investigator Opinion', input)) then
             SalesQuote.Validate("A01 Investigator Opinion", WS.GetInt('Investigator Opinion', input));
+
+
+        jsonkey := 'External Document No_';
+        if (WS.KeyExists(jsonkey, input)) then
+            if (SalesQuote."External Document No." <> WS.GetText(jsonkey, input)) then
+                SalesQuote.Validate("External Document No.", WS.GetText(jsonkey, input));
 
     end;
 

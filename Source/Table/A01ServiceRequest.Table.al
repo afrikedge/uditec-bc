@@ -126,6 +126,14 @@ table 50056 "A01 Service Request"
         {
             Caption = 'Origin of request';
         }
+        field(26; "Diagnostic Report"; Text[250])
+        {
+            Caption = 'Diagnostic Report';
+        }
+        field(27; "Repair Report"; Text[250])
+        {
+            Caption = 'Repair Report';
+        }
 
     }
     keys

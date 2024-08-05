@@ -629,9 +629,20 @@ codeunit 50022 A01SAVMgt
             if (ServiceRequest."SR Origin".AsInteger() <> WS.GetInt(jsonkey, input)) then
                 ServiceRequest.Validate("SR Origin", WS.GetInt(jsonkey, input));
 
+
+        jsonkey := 'Diagnostic Report';
+        if (WS.KeyExists(jsonkey, input)) then
+            if (ServiceRequest."Diagnostic Report" <> WS.GetText(jsonkey, input)) then
+                ServiceRequest.Validate("Diagnostic Report", WS.GetText(jsonkey, input));
+
+        jsonkey := 'Repair Report';
+        if (WS.KeyExists(jsonkey, input)) then
+            if (ServiceRequest."Repair Report" <> WS.GetText(jsonkey, input)) then
+                ServiceRequest.Validate("Repair Report", WS.GetText(jsonkey, input));
+
     end;
 
-    local procedure Process_SRItemMovement(ServiceRequest: Record "A01 Service Request"; SRItemMvt: Record "A01 SR Item Movement"; input: JsonObject)
+    local procedure Process_SRItemMovement(ServiceRequest: Record "A01 Service Request"; var SRItemMvt: Record "A01 SR Item Movement"; input: JsonObject)
     var
         jsonkey: text;
     begin
@@ -649,6 +660,12 @@ codeunit 50022 A01SAVMgt
             if (SRItemMvt."Line No." <> WS.GetInt(jsonkey, input)) then
                 SRItemMvt.Validate("Line No.", WS.GetInt(jsonkey, input));
 
+        jsonkey := 'Movement Type';
+        if (WS.KeyExists(jsonkey, input)) then
+            if (SRItemMvt."Movement Type".AsInteger() <> WS.GetInt(jsonkey, input)) then
+                SRItemMvt.Validate("Movement Type", WS.GetInt(jsonkey, input));
+
+
         jsonkey := 'From Location Code';
         if (WS.KeyExists(jsonkey, input)) then
             if (SRItemMvt."From Location Code" <> WS.GetText(jsonkey, input)) then
@@ -662,7 +679,7 @@ codeunit 50022 A01SAVMgt
         jsonkey := 'To Location Code';
         if (WS.KeyExists(jsonkey, input)) then
             if (SRItemMvt."To Location Code" <> WS.GetText(jsonkey, input)) then
-                SRItemMvt.Validate("From Location Code", WS.GetText(jsonkey, input));
+                SRItemMvt.Validate("To Location Code", WS.GetText(jsonkey, input));
 
         jsonkey := 'To Bin Code';
         if (WS.KeyExists(jsonkey, input)) then
@@ -675,7 +692,7 @@ codeunit 50022 A01SAVMgt
                 SRItemMvt.Validate("Movement Description", WS.GetText(jsonkey, input));
     end;
 
-    local procedure Process_SRSparePart(ServiceRequest: Record "A01 Service Request"; SRSparePart: Record "A01 SR Spare Part"; input: JsonObject)
+    local procedure Process_SRSparePart(ServiceRequest: Record "A01 Service Request"; var SRSparePart: Record "A01 SR Spare Part"; input: JsonObject)
     var
         jsonkey: text;
     begin
@@ -722,7 +739,7 @@ codeunit 50022 A01SAVMgt
 
     end;
 
-    local procedure Process_SRDefectivePart(ServiceRequest: Record "A01 Service Request"; SRSparePart: Record "A01 SR Spare Part"; input: JsonObject)
+    local procedure Process_SRDefectivePart(ServiceRequest: Record "A01 Service Request"; var SRSparePart: Record "A01 SR Spare Part"; input: JsonObject)
     var
         jsonkey: text;
     begin
@@ -775,7 +792,7 @@ codeunit 50022 A01SAVMgt
 
     end;
 
-    local procedure Process_SRSalesDocument(ServiceRequest: Record "A01 Service Request"; SRSalesDocument: Record "A01 SR Sales Document"; input: JsonObject)
+    local procedure Process_SRSalesDocument(ServiceRequest: Record "A01 Service Request"; var SRSalesDocument: Record "A01 SR Sales Document"; input: JsonObject)
     var
         jsonkey: text;
     begin
@@ -810,7 +827,7 @@ codeunit 50022 A01SAVMgt
 
     end;
 
-    local procedure Process_SRAssignmentFlow(ServiceRequest: Record "A01 Service Request"; SRAssignmentFlow: Record "A01 SR Assignment Flow"; input: JsonObject)
+    local procedure Process_SRAssignmentFlow(ServiceRequest: Record "A01 Service Request"; var SRAssignmentFlow: Record "A01 SR Assignment Flow"; input: JsonObject)
     var
         jsonkey: text;
     begin
