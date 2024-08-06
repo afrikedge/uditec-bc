@@ -186,6 +186,15 @@ report 50026 "A01 TransferReceiptPrint"
                 //     {
                 //     }
                 // }
+                trigger OnAfterGetRecord()
+                begin
+                    if Quantity = 0 then
+                        CurrReport.Skip();
+
+                    if "Transfer-from Code" = '' then
+                        if Quantity = 0 then
+                            CurrReport.Skip();
+                end;
             }
         }
 

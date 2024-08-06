@@ -230,6 +230,10 @@ report 50003 "A01 DeliveryNotePrint"
 
                     if Type = Type::"G/L Account" then
                         CurrReport.Skip();
+
+                    if Type = Type::Item then
+                        if Quantity = 0 then
+                            CurrReport.Skip();
                 end;
             }
 
