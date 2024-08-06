@@ -15333,6 +15333,16 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report A01 SalesInvoicePrint - ReportDataItem Header - Property RequestFilterHeading</note>
         </trans-unit>
+        <trans-unit id="Report 1919361468 - Control 4105281732 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Options</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 SalesInvoicePrint - Control GroupName - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 1919361468 - Control 4291959338 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Show discount</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 SalesInvoicePrint - Control ShowDiscount - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Report 52677077 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Sales Invoice Uditec</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -16213,6 +16223,16 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report A01 TransferOrderPrint - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Report 3372795280 - NamedType 815363100" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Customer address:</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 TransferOrderPrint - NamedType CustomerAddressLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 3372795280 - NamedType 4169214637" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Customer code :</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 TransferOrderPrint - NamedType CustomerCodeLbl</note>
+        </trans-unit>
         <trans-unit id="Report 3372795280 - NamedType 3854008807" size-unit="char" translate="yes" xml:space="preserve">
           <source>Date</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -16247,6 +16267,11 @@
           <source>Issuer signature</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report A01 TransferOrderPrint - NamedType IssuerSignLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 3372795280 - NamedType 1907782198" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Location code :</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 TransferOrderPrint - NamedType LocationCodeLbl</note>
         </trans-unit>
         <trans-unit id="Report 3372795280 - NamedType 3135983373" size-unit="char" translate="yes" xml:space="preserve">
           <source>Logistique signature</source>
@@ -16337,6 +16362,21 @@
           <source>Transfer Order</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report A01 TransferOrderPrint - ReportDataItem Header - Property RequestFilterHeading</note>
+        </trans-unit>
+        <trans-unit id="Report 3372795280 - Control 4013682468 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Option</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 TransferOrderPrint - Control groupName - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 3372795280 - Control 229337220 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Logo</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 TransferOrderPrint - Control OptionVal - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 3372795280 - Control 229337220 - Property 62802879" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Cosmos, Uditec</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 TransferOrderPrint - Control OptionVal - Property OptionCaption</note>
         </trans-unit>
         <trans-unit id="Report 3853845866 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>A01 Transfer receipt print</source>
