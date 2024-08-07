@@ -10,7 +10,7 @@ codeunit 50008 "A01 Api Interface Mgt"
         CreditMgt: Codeunit "A01 WS Credit Mgt";
         MasterFilesMgt: Codeunit "A01WSMasterFilesMgt";
 
-        SAVMgt: Codeunit A01SAVMgt;
+        SAVMgt: Codeunit A01WSSAVMgt;
         LblUnknownParameter: Label 'Unkwnown parameter : %1', Comment = '%1 = parameter';
     /// <summary>
     /// 

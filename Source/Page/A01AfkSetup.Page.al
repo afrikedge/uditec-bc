@@ -235,6 +235,9 @@ page 50040 "A01 Afk Setup"
                 field("SR Workshop Bin Code"; Rec."SR Workshop Bin Code")
                 {
                 }
+                field("Service Request Adj Nos"; Rec."Service Request Adj Nos")
+                {
+                }
 
 
             }

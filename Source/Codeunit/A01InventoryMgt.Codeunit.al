@@ -144,4 +144,11 @@ codeunit 50020 "A01 Inventory Mgt"
         Commit();
     end;
 
+    local procedure CreateItemAdjustmentEntry_ServiceRequest()
+    var
+        myInt: Integer;
+    begin
+
+    end;
+
 }

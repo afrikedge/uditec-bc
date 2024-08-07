@@ -1,4 +1,4 @@
-codeunit 50022 A01SAVMgt
+codeunit 50022 A01WSSAVMgt
 {
     var
         WS: codeunit "A01 Api Mgt";

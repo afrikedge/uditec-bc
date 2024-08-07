@@ -25,11 +25,18 @@ tableextension 50040 "A01 Cust. Ledger Entry" extends "Cust. Ledger Entry"
 
     local procedure IsMainEntry(): Boolean
     var
+        CreditAmortLine: Record "A01 Credit Depreciation Table";
         SalesInvoiceH: Record "Sales Invoice Header";
     begin
         if (SalesInvoiceH.get("Document No.")) then
             if (TresoMgt.IsMultiMeadlinesInvoice(SalesInvoiceH."Payment Terms Code")) then
                 if ("Document No." = "External Document No.") then
                     exit(true);
+
+        CreditAmortLine.Reset();
+        CreditAmortLine.SetRange("Document Type", CreditAmortLine."Document Type"::"Posted Sales invoice");
+        CreditAmortLine.SetRange("Document No.", "Document No.");
+        if (CreditAmortLine.Count > 1) then
+            exit(true);
     end;
 }

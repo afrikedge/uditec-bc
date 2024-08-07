@@ -347,6 +347,11 @@ table 50017 "A01 Afk Setup"
         {
             Caption = 'SR Workshop Bin Code';
         }
+        field(74; "Service Request Adj Nos"; Code[20])
+        {
+            Caption = 'Service Request Item Adjust Nos';
+            TableRelation = "No. Series";
+        }
 
 
         //Config. Template Header

@@ -216,6 +216,14 @@ report 50032 "A01 Update Credit Amort Line"
             CreditAmortLine.Modify();
         end;
 
+        CreditAmortLine.Reset();
+        CreditAmortLine.SetRange("Document Type", CreditAmortLine."Document Type"::"Posted Sales invoice");
+        CreditAmortLine.SetRange("Document No.", CustLedgerEntry."Document No.");
+        if CreditAmortLine.FindFirst() then
+            if (CreditAmortLine."Customer No." = CustLedgerEntry."Customer No.") then begin
+                CreditAmortLine."Due Date" := LineDueDate;
+                CreditAmortLine.Modify();
+            end;
     end;
 
 }
