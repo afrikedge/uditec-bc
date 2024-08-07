@@ -4,6 +4,7 @@ report 50032 "A01 Update Credit Amort Line"
     Caption = 'Update Credit Amort Line';
     UsageCategory = Tasks;
     ProcessingOnly = true;
+    Permissions = tabledata "Cust. Ledger Entry" = rm;
     dataset
     {
         dataitem(CustLedgerEntry; "Cust. Ledger Entry")
@@ -165,4 +166,56 @@ report 50032 "A01 Update Credit Amort Line"
                 exit(DetailCustLedgEntry."Cust. Ledger Entry No.");
         exit(InitialDetailEntry."Applied Cust. Ledger Entry No.");
     end;
+
+    procedure UpdateDueDateOnAmortisationLines(CustLedgerEntry: record "Cust. Ledger Entry")
+    var
+        CreditAmortLine: Record "A01 Credit Depreciation Table";
+        NextCustLedgerEntry: record "Cust. Ledger Entry";
+        LineDueDate: Date;
+
+    begin
+        LineDueDate := CustLedgerEntry."Due Date";
+        CreditAmortLine.Reset();
+        CreditAmortLine.SetRange("Document Type", CreditAmortLine."Document Type"::"Posted Sales invoice");
+        CreditAmortLine.SetRange("Document No.", CustLedgerEntry."Document No.");
+        if CreditAmortLine.FindSet(true) then
+            repeat
+                if (CreditAmortLine."Customer No." = CustLedgerEntry."Customer No.") then begin
+                    CreditAmortLine."Due Date" := LineDueDate;
+                    CreditAmortLine.Modify();
+                    LineDueDate := CalcDate('<1M>', LineDueDate);
+                end;
+            until CreditAmortLine.Next() < 1;
+
+        LineDueDate := CustLedgerEntry."Due Date";
+        NextCustLedgerEntry.Reset();
+        NextCustLedgerEntry.SetCurrentKey("External Document No.");
+        NextCustLedgerEntry.SetRange("External Document No.", CustLedgerEntry."External Document No.");
+        if NextCustLedgerEntry.FindSet(true) then
+            repeat
+                if (NextCustLedgerEntry."Entry No." <> CustLedgerEntry."Entry No.") then begin
+                    NextCustLedgerEntry."Due Date" := LineDueDate;
+                    NextCustLedgerEntry.Modify();
+                end;
+                LineDueDate := CalcDate('<1M>', LineDueDate);
+            until NextCustLedgerEntry.Next() < 1;
+    end;
+
+    procedure UpdateDueDateOnOneAmortisationLine(CustLedgerEntry: record "Cust. Ledger Entry")
+    var
+        CreditAmortLine: Record "A01 Credit Depreciation Table";
+        LineDueDate: Date;
+    begin
+        LineDueDate := CustLedgerEntry."Due Date";
+
+        CreditAmortLine.Reset();
+        CreditAmortLine.SetCurrentKey("Cust Ledger Entry No.");
+        CreditAmortLine.SetRange("Cust Ledger Entry No.", CustLedgerEntry."Entry No.");
+        if CreditAmortLine.FindFirst() then begin
+            CreditAmortLine."Due Date" := LineDueDate;
+            CreditAmortLine.Modify();
+        end;
+
+    end;
+
 }

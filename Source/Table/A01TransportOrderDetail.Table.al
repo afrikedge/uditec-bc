@@ -87,6 +87,17 @@ table 50055 "A01 Transport Order Detail"
         {
             Caption = 'Anomaly Description';
         }
+        field(19; "Location Code"; Code[20])
+        {
+            Caption = 'Location Code';
+            TableRelation = Location;
+        }
+        field(20; "Return Status"; enum "A01 Transport Return Status")
+        {
+            Caption = 'Return Status';
+        }
+
+
 
     }
     keys

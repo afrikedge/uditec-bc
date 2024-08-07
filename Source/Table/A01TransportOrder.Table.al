@@ -148,6 +148,22 @@ table 50054 "A01 Transport Order"
             Editable = false;
         }
 
+        field(29; "Delivery Agent"; Code[50])
+        {
+            Caption = 'Delivery Agent';
+            DataClassification = CustomerContent;
+            Editable = false;
+            TableRelation = "A01 External User";
+        }
+        field(30; "Initial Location"; Code[50])
+        {
+            Caption = 'Delivery Agent';
+            DataClassification = CustomerContent;
+            Editable = false;
+            TableRelation = Location;
+        }
+
+
 
 
 

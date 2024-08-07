@@ -409,6 +409,17 @@ codeunit 50022 A01SAVMgt
             if (TransportOrder."Inbound Unloading Dura (Plan)" <> WS.GetDecimal(jsonkey, input)) then
                 TransportOrder.Validate("Inbound Unloading Dura (Plan)", WS.GetDecimal(jsonkey, input));
 
+
+        jsonkey := 'Delivery Agent';
+        if (WS.KeyExists(jsonkey, input)) then
+            if (TransportOrder."Delivery Agent" <> WS.GetText(jsonkey, input)) then
+                TransportOrder.Validate("Delivery Agent", WS.GetText(jsonkey, input));
+
+        jsonkey := 'Initial Location';
+        if (WS.KeyExists(jsonkey, input)) then
+            if (TransportOrder."Initial Location" <> WS.GetText(jsonkey, input)) then
+                TransportOrder.Validate("Initial Location", WS.GetText(jsonkey, input));
+
     end;
 
     local procedure ProcessOrderTransportLine(TransportOrder: Record "A01 Transport Order"; var TransportOrderDetail: Record "A01 Transport Order Detail"; input: JsonObject)
@@ -503,6 +514,16 @@ codeunit 50022 A01SAVMgt
         if (WS.KeyExists(jsonkey, input)) then
             if (TransportOrderDetail."Anomaly Description" <> WS.GetText(jsonkey, input)) then
                 TransportOrderDetail.Validate("Anomaly Description", WS.GetText(jsonkey, input));
+
+        jsonkey := 'Location Code';
+        if (WS.KeyExists(jsonkey, input)) then
+            if (TransportOrderDetail."Location Code" <> WS.GetText(jsonkey, input)) then
+                TransportOrderDetail.Validate("Location Code", WS.GetText(jsonkey, input));
+
+        jsonkey := 'Return Status';
+        if (WS.KeyExists(jsonkey, input)) then
+            if (TransportOrderDetail."Return Status".AsInteger() <> WS.GetInt(jsonkey, input)) then
+                TransportOrderDetail.Validate("Return Status", WS.GetInt(jsonkey, input));
 
     end;
 

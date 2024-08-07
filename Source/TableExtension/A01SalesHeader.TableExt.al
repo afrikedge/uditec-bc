@@ -244,6 +244,12 @@ tableextension 50000 "A01 Sales Header" extends "Sales Header"
             Caption = 'General Comment';
             DataClassification = CustomerContent;
         }
+        field(50036; "A01 Other Conditions"; Text[300])
+        {
+            Caption = 'Other Conditions';
+            DataClassification = CustomerContent;
+        }
+
 
 
 

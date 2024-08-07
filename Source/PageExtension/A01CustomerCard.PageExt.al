@@ -65,6 +65,10 @@ pageextension 50006 "A01 Customer Card" extends "Customer Card"
             {
                 ApplicationArea = Basic, Suite;
             }
+            field("A01 Gender"; Rec."A01 Gender")
+            {
+                ApplicationArea = Basic, Suite;
+            }
         }
 
         addafter("SIREN No.")

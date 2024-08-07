@@ -334,6 +334,8 @@ codeunit 50009 "A01 WS OrdersMgt"
     end;
 
     local procedure processSalesOrderLine(SalesOrder: Record "Sales Header"; var SalesLine: Record "Sales Line"; input: JsonObject)
+    var
+        jsonKey: Text;
     begin
 
         if (SalesLine."Document No." <> SalesOrder."No.") then
@@ -384,6 +386,17 @@ codeunit 50009 "A01 WS OrdersMgt"
             if (ws.KeyExists('Prepayment _', input)) then
                 if (SalesLine."Prepayment %" <> WS.GetDecimal('Prepayment _', input)) then
                     SalesLine.Validate("Prepayment %", WS.GetDecimal('Prepayment _', input));
+
+            jsonKey := 'Markup';
+            if WS.KeyExists(jsonKey, input) then
+                if (SalesLine."A01 Markup" <> WS.GetDecimal(jsonKey, input)) then
+                    SalesLine.Validate("A01 Markup", WS.GetDecimal(jsonKey, input));
+
+            jsonKey := 'Line Discount Amount';
+            if WS.KeyExists(jsonKey, input) then
+                if (SalesLine."Line Discount Amount" <> WS.GetDecimal(jsonKey, input)) then
+                    SalesLine.Validate("Line Discount Amount", WS.GetDecimal(jsonKey, input));
+
         end;
     end;
 

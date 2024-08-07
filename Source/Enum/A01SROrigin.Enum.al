@@ -1,7 +1,7 @@
 enum 50075 "A01 SR Origin"
 {
     Extensible = true;
-    
+
     value(0; "Point of sale")
     {
         Caption = 'Point of sale';
@@ -13,5 +13,9 @@ enum 50075 "A01 SR Origin"
     value(2; Telephone)
     {
         Caption = 'Telephone';
+    }
+    value(3; "E-mail")
+    {
+        Caption = 'E-mail';
     }
 }

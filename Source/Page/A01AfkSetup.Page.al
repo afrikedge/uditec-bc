@@ -131,6 +131,9 @@ page 50040 "A01 Afk Setup"
                 {
                     ToolTip = 'Minimum number of deliveries per trip';
                 }
+                field("Delivery Agent"; Rec."Delivery Agent")
+                {
+                }
             }
             group("Grouped purchase")
             {
@@ -219,6 +222,20 @@ page 50040 "A01 Afk Setup"
                 field("SR Default Bin Code"; Rec."SR Default Bin Code")
                 {
                 }
+
+                field("SR Agent Profile"; Rec."SR Agent Profile")
+                {
+                }
+                field("SR SWAP Bin Code"; Rec."SR SWAP Bin Code")
+                {
+                }
+                field("SR Defect Bin Code"; Rec."SR Defect Bin Code")
+                {
+                }
+                field("SR Workshop Bin Code"; Rec."SR Workshop Bin Code")
+                {
+                }
+
 
             }
             group("Numbering")

@@ -653,16 +653,32 @@ codeunit 50007 "A01 Treso Mgt"
     //     CustLedgEntry.SetRange("Document No.", DocNo);
     //     CustLedgEntry.FindLast();
     // end;
+    // procedure IsMultiMeadlinesInvoice(SalesHeader: Record "Sales Header"): Boolean
+    // var
+    //     PaymentCond: Record "Payment Terms";
+    // begin
+    //     if (not PaymentCond.Get(SalesHeader."Payment Terms Code")) then
+    //         exit(false);
+    //     if (not PaymentCond."A01 Multi-deadlines") then
+    //         exit(false);
+    //     // if (SalesHeader."A01 Credit Duration (Month)" <= 0) then
+    //     //     exit(false);
+    //     exit(true);
+    // end;
     procedure IsMultiMeadlinesInvoice(SalesHeader: Record "Sales Header"): Boolean
+    var
+    begin
+        exit(IsMultiMeadlinesInvoice(SalesHeader."Payment Terms Code"));
+    end;
+
+    procedure IsMultiMeadlinesInvoice(PaymentTermsCode: Code[20]): Boolean
     var
         PaymentCond: Record "Payment Terms";
     begin
-        if (not PaymentCond.Get(SalesHeader."Payment Terms Code")) then
+        if (not PaymentCond.Get(PaymentTermsCode)) then
             exit(false);
         if (not PaymentCond."A01 Multi-deadlines") then
             exit(false);
-        // if (SalesHeader."A01 Credit Duration (Month)" <= 0) then
-        //     exit(false);
         exit(true);
     end;
 

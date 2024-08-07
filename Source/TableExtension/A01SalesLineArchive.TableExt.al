@@ -17,5 +17,11 @@ tableextension 50014 "A01 Sales Line Archive" extends "Sales Line Archive"
             Editable = false;
             DataClassification = CustomerContent;
         }
+        field(50002; "A01 Markup"; Decimal)
+        {
+            Caption = 'Markup';
+            //Editable = false;
+            DataClassification = CustomerContent;
+        }
     }
 }

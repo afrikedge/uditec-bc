@@ -67,6 +67,12 @@ page 50106 "A01 Transport Order"
                 field("Payload (kg)"; Rec."Payload (kg)")
                 {
                 }
+                field("Delivery Agent"; Rec."Delivery Agent")
+                {
+                }
+                field("Initial Location"; Rec."Initial Location")
+                {
+                }
             }
             part(TransportOrderDetails; "A01 Transport Order Subform")
             {

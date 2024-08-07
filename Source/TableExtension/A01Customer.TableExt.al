@@ -3,6 +3,7 @@
 /// </summary>
 tableextension 50006 "A01 Customer" extends Customer
 {
+
     fields
     {
         field(50000; "A01 Customer Type"; Enum "A01 Customer Type")
@@ -132,6 +133,11 @@ tableextension 50006 "A01 Customer" extends Customer
         field(50023; "A01 General Comment"; Text[300])
         {
             Caption = 'General Comments';
+            DataClassification = CustomerContent;
+        }
+        field(50024; "A01 Gender"; enum A01Gender)
+        {
+            Caption = 'Gender';
             DataClassification = CustomerContent;
         }
 
@@ -278,23 +284,6 @@ tableextension 50006 "A01 Customer" extends Customer
             exit(CustDebtStatus.Code);
     end;
 
-    procedure UpdateDueDateOnAmortisationLines(NewCustEntryDueDate: Date; DocumentNo: Code[20])
-    var
-        CreditAmortLine: Record "A01 Credit Depreciation Table";
-        LineDueDate: Date;
-    begin
-        LineDueDate := NewCustEntryDueDate;
-
-        CreditAmortLine.Reset();
-        CreditAmortLine.SetRange("Document Type", CreditAmortLine."Document Type"::"Posted Sales invoice");
-        CreditAmortLine.SetRange("Document No.", DocumentNo);
-        if CreditAmortLine.FindSet(true) then
-            repeat
-                CreditAmortLine."Due Date" := LineDueDate;
-                CreditAmortLine.Modify();
-                LineDueDate := CalcDate('<1M>', LineDueDate);
-            until CreditAmortLine.Next() < 1;
-    end;
 
     local procedure DocumentFountInCreditDueLine(var MaxDueDays: integer; var RiskOfMaxDueDate: Code[20]): Boolean
     var

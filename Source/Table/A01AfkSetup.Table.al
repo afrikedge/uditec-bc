@@ -325,6 +325,29 @@ table 50017 "A01 Afk Setup"
             Caption = 'Default bin for after sales service';
         }
 
+        field(69; "Delivery Agent"; Code[20])
+        {
+            Caption = 'Delivery Agent';
+            TableRelation = "A01 External Profile";
+        }
+        field(70; "SR Agent Profile"; Code[20])
+        {
+            Caption = 'Delivery Agent';
+            TableRelation = "A01 External Profile";
+        }
+        field(71; "SR SWAP Bin Code"; Text[50])
+        {
+            Caption = 'SR SWAP Bin Code';
+        }
+        field(72; "SR Defect Bin Code"; Text[50])
+        {
+            Caption = 'SR Defect Bin Code';
+        }
+        field(73; "SR Workshop Bin Code"; Text[50])
+        {
+            Caption = 'SR Workshop Bin Code';
+        }
+
 
         //Config. Template Header
         //Banked or unbanked employee

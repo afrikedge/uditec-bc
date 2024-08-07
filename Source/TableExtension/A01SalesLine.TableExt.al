@@ -17,6 +17,13 @@ tableextension 50013 "A01 Sales Line" extends "Sales Line"
             Editable = false;
             DataClassification = CustomerContent;
         }
+        field(50002; "A01 Markup"; Decimal)
+        {
+            Caption = 'Markup';
+            //Editable = false;
+            DataClassification = CustomerContent;
+        }
+
         modify("No.")
         {
             trigger OnAfterValidate()

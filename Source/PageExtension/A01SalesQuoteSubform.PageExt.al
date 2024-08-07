@@ -11,6 +11,10 @@ pageextension 50016 "A01 Sales Quote Subform" extends "Sales Quote Subform"
             {
                 ApplicationArea = Basic, Suite;
             }
+            field("A01 Markup"; Rec."A01 Markup")
+            {
+                ApplicationArea = all;
+            }
         }
     }
 }

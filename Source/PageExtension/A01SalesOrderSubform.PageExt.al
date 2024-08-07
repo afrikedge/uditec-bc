@@ -22,6 +22,10 @@ pageextension 50015 "A01 Sales Order Subform" extends "Sales Order Subform"
             {
                 ApplicationArea = all;
             }
+            field("A01 Markup"; Rec."A01 Markup")
+            {
+                ApplicationArea = all;
+            }
         }
     }
 }

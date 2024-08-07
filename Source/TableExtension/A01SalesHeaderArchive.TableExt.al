@@ -201,5 +201,10 @@ tableextension 50002 "A01 Sales Header Archive" extends "Sales Header Archive"
             Caption = 'General Comment';
             DataClassification = CustomerContent;
         }
+        field(50036; "A01 Other Conditions"; Text[300])
+        {
+            Caption = 'Other Conditions';
+            DataClassification = CustomerContent;
+        }
     }
 }

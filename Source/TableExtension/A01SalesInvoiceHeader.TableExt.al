@@ -202,6 +202,11 @@ tableextension 50025 "A01 Sales Invoice Header" extends "Sales Invoice Header"
             Caption = 'General Comment';
             DataClassification = CustomerContent;
         }
+        field(50036; "A01 Other Conditions"; Text[300])
+        {
+            Caption = 'Other Conditions';
+            DataClassification = CustomerContent;
+        }
     }
 
 }

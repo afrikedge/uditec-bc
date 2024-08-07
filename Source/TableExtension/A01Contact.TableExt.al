@@ -131,6 +131,11 @@ tableextension 50005 "A01 Contact" extends Contact
             Caption = 'General Comments';
             DataClassification = CustomerContent;
         }
+        field(50024; "A01 Gender"; enum A01Gender)
+        {
+            Caption = 'Gender';
+            DataClassification = CustomerContent;
+        }
 
 
 
@@ -138,6 +143,7 @@ tableextension 50005 "A01 Contact" extends Contact
 
 
 
+        //Only for contact not on Customer
         field(50100; "A01 VAT Regime"; Code[20])
         {
             Caption = 'VAT Regime';
@@ -204,6 +210,11 @@ tableextension 50005 "A01 Contact" extends Contact
         {
             Caption = 'Customer Price Group';
             TableRelation = "Customer Price Group";
+            DataClassification = CustomerContent;
+        }
+        field(50110; "A01 Relationship"; Text[50])
+        {
+            Caption = 'Relationship';
             DataClassification = CustomerContent;
         }
     }

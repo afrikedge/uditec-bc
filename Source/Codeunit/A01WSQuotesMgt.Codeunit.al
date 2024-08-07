@@ -340,6 +340,8 @@ codeunit 50005 "A01 WS QuotesMgt"
     end;
 
     local procedure ProcessCreditRequestFields(var SalesQuote: Record "Sales Header"; input: JsonObject)
+    var
+        jsonKey: Text;
     begin
         if (SalesQuote."A01 Credit Validation Status".AsInteger() <> WS.Getint('Approval Status', input)) then
             SalesQuote.Validate("A01 Credit Validation Status", WS.Getint('Approval Status', input));
@@ -403,11 +405,21 @@ codeunit 50005 "A01 WS QuotesMgt"
             if (SalesQuote."A01 General Comment" <> WS.GetText('General Comment', input)) then
                 SalesQuote.Validate("A01 General Comment", WS.GetText('General Comment', input));
 
+        jsonKey := 'Other Conditions';
+        if WS.KeyExists(jsonKey, input) then
+            if (SalesQuote."A01 Other Conditions" <> WS.GetText(jsonKey, input)) then
+                SalesQuote.Validate("A01 Other Conditions", WS.GetText(jsonKey, input));
+
+
+
+
         //[Monthly Capacity],[Max Approved Rate (%)],[Max Referred Rate (%)],[Joint Required],[Rec. Amount],[Rec. Duration],[Rec. Deposit (%)]
         //[Investigator comments] (text),  [Recovery Opinion] (optionlist), [Recovery comments] (text), [Manager Opinion] (optionlist), [Manager comments] (text)
     end;
 
     local procedure processSalesQuoteLine(SalesQuote: Record "Sales Header"; var SalesLine: Record "Sales Line"; input: JsonObject)
+    var
+        jsonKey: Text;
     begin
 
         if (SalesLine."Document No." <> SalesQuote."No.") then
@@ -462,6 +474,16 @@ codeunit 50005 "A01 WS QuotesMgt"
 
             //if (SalesLine."Line Discount %" <> WS.GetDecimal('Line Discount _', input)) then
             //    SalesLine.Validate("Line Discount %", WS.GetDecimal('Line Discount _', input));
+
+            jsonKey := 'Markup';
+            if WS.KeyExists(jsonKey, input) then
+                if (SalesLine."A01 Markup" <> WS.GetDecimal(jsonKey, input)) then
+                    SalesLine.Validate("A01 Markup", WS.GetDecimal(jsonKey, input));
+
+            jsonKey := 'Line Discount Amount';
+            if WS.KeyExists(jsonKey, input) then
+                if (SalesLine."Line Discount Amount" <> WS.GetDecimal(jsonKey, input)) then
+                    SalesLine.Validate("Line Discount Amount", WS.GetDecimal(jsonKey, input));
 
         end;
     end;
