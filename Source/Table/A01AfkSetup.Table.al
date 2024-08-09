@@ -357,6 +357,10 @@ table 50017 "A01 Afk Setup"
             Caption = 'SR Item Source Code';
             TableRelation = "Source Code";
         }
+        field(76; "Deferred month"; Integer)
+        {
+            Caption = 'MIR Credit deferred (Months)';
+        }
 
 
         //Config. Template Header

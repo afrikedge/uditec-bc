@@ -699,6 +699,8 @@ codeunit 50007 "A01 Treso Mgt"
         CreditDueLine: Record "A01 Credit Depreciation Table";
         i: Integer;
         LineDueDate: Date;
+        DeferredDateFormula: Text;
+        lblFormula: label '<%1M>', comment = '%1=months';
 
     begin
         if (not IsMultiMeadlinesInvoice(SalesHeader)) then
@@ -710,7 +712,9 @@ codeunit 50007 "A01 Treso Mgt"
 
         CheckCreditDueLines(SalesHeader);
 
-        LineDueDate := SalesHeader."Due Date";
+        DeferredDateFormula := StrSubstNo(lblFormula, SalesHeader."A01 Deferred month");
+
+        LineDueDate := CalcDate(DeferredDateFormula, SalesHeader."Due Date");
 
         i := 1;
         TotalLineAmtInclVAT := 0;

@@ -249,6 +249,11 @@ tableextension 50000 "A01 Sales Header" extends "Sales Header"
             Caption = 'Other Conditions';
             DataClassification = CustomerContent;
         }
+        field(50037; "A01 Deferred month"; Integer)
+        {
+            Caption = 'Credit Deferred (Months)';
+            DataClassification = CustomerContent;
+        }
 
 
 

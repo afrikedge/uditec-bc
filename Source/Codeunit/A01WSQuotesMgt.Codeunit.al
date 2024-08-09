@@ -683,11 +683,13 @@ codeunit 50005 "A01 WS QuotesMgt"
     var
         NoQuote: text;
         WebUser: text;
+        DeferredMonth: integer;
     begin
         NoQuote := ws.GetText('QuoteNo', input);
         WebUser := ws.GetText('webUserName', input);
+        DeferredMonth := ws.GetInt('Deferred month', input);
         if (NoQuote <> '') then
-            exit(QuoteToOrder(NoQuote, WebUser));
+            exit(QuoteToOrder(NoQuote, WebUser, DeferredMonth));
     end;
 
     ///JSON demande d'approbation devis: renvoie le nouveau statut du devis
@@ -709,7 +711,7 @@ codeunit 50005 "A01 WS QuotesMgt"
     end;
 
 
-    local procedure QuoteToOrder(NoQuote: text; WebUserId: text): Text
+    local procedure QuoteToOrder(NoQuote: text; WebUserId: text; DeferredMonths: integer): Text
     var
         SalesQuote: Record "Sales Header";
         SalesOrder: Record "Sales Header";
@@ -721,6 +723,7 @@ codeunit 50005 "A01 WS QuotesMgt"
 
             if (ApprovalsMgmt.PrePostApprovalCheckSales(SalesQuote)) then begin
                 SalesQuote."A01 Order Web User Id" := CopyStr(WebUserId, 1, 50);
+                SalesQuote."A01 Deferred month" := DeferredMonths;
                 SalesQuote.Modify();
 
                 if SalesQuote.CheckCustomerCreated(false) then

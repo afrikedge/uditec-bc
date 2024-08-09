@@ -122,6 +122,9 @@ page 50040 "A01 Afk Setup"
                 field("Sales channel for Interest"; Rec."Sales channel for Interest")
                 {
                 }
+                field("MIR Credit delay (Months)"; Rec."Deferred month")
+                {
+                }
             }
             group(Logistics)
             {
@@ -381,6 +384,14 @@ page 50040 "A01 Afk Setup"
                 Image = UpdateUnitCost;
                 Ellipsis = true;
                 RunObject = report A01CustomProcess;
+            }
+            action(UpdateCreditAmortLinesTest)
+            {
+                ApplicationArea = All;
+                Caption = 'Update credit amort Lines - TEST';
+                Image = UpdateDescription;
+                Ellipsis = true;
+                RunObject = report "A01 Update Credit Line Test";
             }
         }
     }

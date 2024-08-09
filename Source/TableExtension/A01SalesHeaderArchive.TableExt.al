@@ -206,5 +206,10 @@ tableextension 50002 "A01 Sales Header Archive" extends "Sales Header Archive"
             Caption = 'Other Conditions';
             DataClassification = CustomerContent;
         }
+        field(50037; "A01 Deferred month"; Integer)
+        {
+            Caption = 'Credit Deferred (Months)';
+            DataClassification = CustomerContent;
+        }
     }
 }
