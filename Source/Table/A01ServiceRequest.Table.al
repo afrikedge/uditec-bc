@@ -22,6 +22,17 @@ table 50056 "A01 Service Request"
         field(2; "Service Request Status"; Enum "A01 ServiceRequest Status")
         {
             Caption = 'Service Request Status';
+            trigger OnValidate()
+            var
+            begin
+                if Rec.StstusIsClosed() then
+                    if not xrec.StstusIsClosed() then
+                        ItemMgt.CreateItemAdjustmentEntry_ServiceRequest(Rec);
+
+                if Rec.StstusIsReplacement() then
+                    if not xrec.StstusIsReplacement() then
+                        ItemMgt.CreateSalesReturnOnServiceRequest(Rec);
+            end;
         }
         field(3; "Customer No."; Code[20])
         {
@@ -154,12 +165,26 @@ table 50056 "A01 Service Request"
         InitHeader();
     end;
 
+    procedure StstusIsClosed(): Boolean
+    var
+    begin
+        exit("Service Request Status" = "Service Request Status"::Closed);
+    end;
+
+    procedure StstusIsReplacement(): Boolean
+    var
+    begin
+        exit(("Service Request Status" = "Service Request Status"::"Waiting for refund")
+            or ("Service Request Status" = "Service Request Status"::"Waiting for replacement"));
+    end;
+
     var
         AddOnSetup: Record "A01 Afk Setup";
         Currency: Record Currency;
         NoSeriesManagement: Codeunit NoSeriesManagement;
         RequestMgt: Codeunit "A01 Document Request Mgt";
         DimensionManagement: Codeunit DimensionManagement;
+        ItemMgt: codeunit "A01 Inventory Mgt";
 
     local procedure InitHeader()
     begin

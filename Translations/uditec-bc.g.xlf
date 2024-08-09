@@ -293,6 +293,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table A01 Afk Setup - Field SAV diagnostic time - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Table 2685203037 - Field 1650761603 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Service Request Item Adjust Nos</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table A01 Afk Setup - Field Service Request Adj Nos - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Table 2685203037 - Field 4012905282 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Service Request Nos</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -317,6 +322,11 @@
           <source>SR Defect Bin Code</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table A01 Afk Setup - Field SR Defect Bin Code - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2685203037 - Field 4127807056 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>SR Item Source Code</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table A01 Afk Setup - Field SR Item Source Code - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 2685203037 - Field 2991333920 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>SR SWAP Bin Code</source>
@@ -3508,6 +3518,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table A01 SR Spare Part - Field Description - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Table 1831218685 - Field 1672950420 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Item Entry Document No</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table A01 SR Spare Part - Field Item Entry Doc No - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Table 1831218685 - Field 568743302 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Item No.</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -4323,6 +4338,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit A01 Inventory Mgt - NamedType LblAction02</note>
         </trans-unit>
+        <trans-unit id="Codeunit 57460744 - Method 1036906811 - NamedType 3752334001" size-unit="char" translate="yes" xml:space="preserve">
+          <source>%1 %2</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit A01 Inventory Mgt - Method CreateItemAdjustmentEntry_ServiceRequest - NamedType Text002</note>
+        </trans-unit>
         <trans-unit id="Codeunit 2691362946 - NamedType 2779957468" size-unit="char" translate="yes" xml:space="preserve">
           <source>One or more of the entries that you selected is closed. You cannot apply closed entries.</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -4523,10 +4543,10 @@
           <note from="Developer" annotates="general" priority="2">%1 = QuoteNo</note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit A01 WS QuotesMgt - NamedType LblErrorQuoteNotExists</note>
         </trans-unit>
-        <trans-unit id="Codeunit 2919202006 - NamedType 850573183" size-unit="char" translate="yes" xml:space="preserve">
+        <trans-unit id="Codeunit 1146958970 - NamedType 850573183" size-unit="char" translate="yes" xml:space="preserve">
           <source>The Quote N° %1 does not exists</source>
           <note from="Developer" annotates="general" priority="2">%1 = QuoteNo</note>
-          <note from="Xliff Generator" annotates="general" priority="3">Codeunit A01SAVMgt - NamedType LblErrorQuoteNotExists</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit A01WSSAVMgt - NamedType LblErrorQuoteNotExists</note>
         </trans-unit>
         <trans-unit id="Page 3653374298 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Activity Feedback List</source>

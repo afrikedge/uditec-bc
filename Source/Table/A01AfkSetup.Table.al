@@ -352,6 +352,11 @@ table 50017 "A01 Afk Setup"
             Caption = 'Service Request Item Adjust Nos';
             TableRelation = "No. Series";
         }
+        field(75; "SR Item Source Code"; Code[10])
+        {
+            Caption = 'SR Item Source Code';
+            TableRelation = "Source Code";
+        }
 
 
         //Config. Template Header

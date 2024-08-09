@@ -238,6 +238,9 @@ page 50040 "A01 Afk Setup"
                 field("Service Request Adj Nos"; Rec."Service Request Adj Nos")
                 {
                 }
+                field("SR Item Source Code"; Rec."SR Item Source Code")
+                {
+                }
 
 
             }
