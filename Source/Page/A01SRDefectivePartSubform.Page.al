@@ -24,6 +24,9 @@ page 50110 "A01 SR Defective Part Subform"
                 field(Quantity; Rec.Quantity)
                 {
                 }
+                field("Item Entry Doc No"; Rec."Item Entry Doc No")
+                {
+                }
                 field(Observations; Rec.Observations)
                 {
                 }

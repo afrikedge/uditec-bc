@@ -155,10 +155,13 @@ codeunit 50020 "A01 Inventory Mgt"
         NextDocNo: Code[20];
     begin
 
-        NextDocNo := NoSeriesMgt.GetNextNo(AddOnSetup."Service Request Adj Nos", Today, true);
+
         AddOnSetup.GetRecordOnce();
         AddOnSetup.TestField("Service Request Adj Nos");
+        AddOnSetup.TestField("SR Item Source Code");
         ServiceRequest.TestField("Responsibility Center");
+
+        NextDocNo := NoSeriesMgt.GetNextNo(AddOnSetup."Service Request Adj Nos", Today, true);
 
         SRSparePart.Reset();
         SRSparePart.SetRange("Service Request No.", ServiceRequest."No.");
@@ -273,10 +276,11 @@ codeunit 50020 "A01 Inventory Mgt"
         SalesL.Init();
         SalesL."Document Type" := SalesL."Document Type"::"Return Order";
         SalesL."Document No." := SalesH."No.";
+        SalesL."Line No." := 10000;
         SalesL.Validate(Type, SalesL.Type::Item);
+        SalesL.Validate("No.", ServiceRequest."Item No.");
         SalesL.VALIDATE("Location Code", GetLocation(ServiceRequest));
         SalesL.Validate("Bin Code", AddOnSetup."SR Workshop Bin Code");
-        SalesL.Validate("No.", ServiceRequest."Item No.");
         SalesL.Validate(Quantity, SRSparePart.Quantity);
         SalesL.Validate("Unit of Measure Code", SRSparePart."Unit of Measure Code");
         SalesL.Validate("Unit Price", 0);

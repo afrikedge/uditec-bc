@@ -48,6 +48,7 @@ table 50058 "A01 SR Spare Part"
         field(11; "Item Entry Doc No"; Code[20])
         {
             Caption = 'Item Entry Document No';
+            Editable = false;
         }
 
     }

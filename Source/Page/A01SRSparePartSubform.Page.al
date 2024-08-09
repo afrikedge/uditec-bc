@@ -30,6 +30,9 @@ page 50109 "A01 SR SparePart Subform"
                 field(Usage; Rec.Usage)
                 {
                 }
+                field("Item Entry Doc No"; Rec."Item Entry Doc No")
+                {
+                }
             }
         }
     }
