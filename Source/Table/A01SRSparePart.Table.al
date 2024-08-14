@@ -50,6 +50,11 @@ table 50058 "A01 SR Spare Part"
             Caption = 'Item Entry Document No';
             Editable = false;
         }
+        field(12; "Item Entry Doc No Tmp"; Code[20])
+        {
+            Caption = 'Item Entry Document No';
+            Editable = false;
+        }
 
     }
     keys

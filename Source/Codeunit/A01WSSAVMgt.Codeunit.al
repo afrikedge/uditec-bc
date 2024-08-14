@@ -661,6 +661,11 @@ codeunit 50022 A01WSSAVMgt
             if (ServiceRequest."Repair Report" <> WS.GetText(jsonkey, input)) then
                 ServiceRequest.Validate("Repair Report", WS.GetText(jsonkey, input));
 
+        jsonkey := 'Sales Doc. Date';
+        if (WS.KeyExists(jsonkey, input)) then
+            if (ServiceRequest."Sales Doc. Date" <> WS.GetDate(jsonkey, input)) then
+                ServiceRequest.Validate("Sales Doc. Date", WS.GetDate(jsonkey, input));
+
     end;
 
     local procedure Process_SRItemMovement(ServiceRequest: Record "A01 Service Request"; var SRItemMvt: Record "A01 SR Item Movement"; input: JsonObject)

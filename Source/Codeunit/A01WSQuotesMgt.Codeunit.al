@@ -106,6 +106,7 @@ codeunit 50005 "A01 WS QuotesMgt"
         SalesQuote.Get(SalesQuote."Document Type"::Quote, QuoteNo);
 
         ProcessSalesQuoteHeader(SalesQuote, input);
+        SalesQuote.Modify(true);
 
         processQuotesLines(SalesQuote, SalesQuoteLine, input);
 
@@ -128,6 +129,7 @@ codeunit 50005 "A01 WS QuotesMgt"
         SalesQuote.Insert(true);
 
         ProcessSalesQuoteHeader(SalesQuote, input);
+        SalesQuote.Modify(true);
 
         processQuotesLines(SalesQuote, SalesQuoteLine, input);
 

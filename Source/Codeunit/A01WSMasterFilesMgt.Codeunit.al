@@ -170,7 +170,7 @@ codeunit 50015 A01WSMasterFilesMgt
     begin
         webUserName := Copystr(ws.GetText('webUserName', input), 1, 50);
         NewPassWd := ws.GetText('Password', input);
-        SecMgt.CreateNewPassword(webUserName, NewPassWd);
+        SecMgt.CreateNewPassword(webUserName, NewPassWd, false);
     end;
 
     #region Customers

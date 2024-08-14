@@ -122,7 +122,7 @@ report 50032 "A01 Update Credit Amort Line"
         if DetailledPaymentEntry.FindSet(true) then
             repeat
                 LinePaymentAmt := Abs(DetailledPaymentEntry.Amount);
-                if (LinePaymentAmt > 0) then begin
+                if ((not DetailledPaymentEntry.Unapplied) and (LinePaymentAmt > 0)) then begin
                     CreditAmortLine.Reset();
                     CreditAmortLine.SetRange("Document Type", CreditAmortLine."Document Type"::"Posted Sales invoice");
                     CreditAmortLine.SetRange("Document No.", CustLedgerEntry."Document No.");

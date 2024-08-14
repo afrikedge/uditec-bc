@@ -353,12 +353,14 @@ page 50040 "A01 Afk Setup"
 
                 trigger OnAction()
                 var
+                    SRRequest: record "A01 Service Request";
+                    InvtMgt: Codeunit "A01 Inventory Mgt";
                     dateT: DateTime;
                 begin
-
-                    Evaluate(dateT, '1753-01-01T00:00:00.000Z');
-
-                    Message(format(dateT));
+                    SRRequest.Get('SVQ24-0000008');
+                    InvtMgt.CreateItemAdjustmentEntry_ServiceRequest(SRRequest);
+                    // Evaluate(dateT, '1753-01-01T00:00:00.000Z');
+                    // Message(format(dateT));
                 end;
             }
             action(ImportLettrage)

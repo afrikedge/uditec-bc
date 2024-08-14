@@ -113,6 +113,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table A01 Afk Setup - Field Deadline Assignment Nos - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Table 2685203037 - Field 3004207149 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>MIR Credit deferred (Months)</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table A01 Afk Setup - Field Deferred month - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Table 2685203037 - Field 4051922175 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Delivery Agent</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -3303,6 +3308,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table A01 Service Request - Field Responsibility Center - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Table 3837504088 - Field 2577316254 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Invoice/BL Date</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table A01 Service Request - Field Sales Doc. Date - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Table 3837504088 - Field 2635387243 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Invoice/BL number</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -3522,6 +3532,11 @@
           <source>Item Entry Document No</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table A01 SR Spare Part - Field Item Entry Doc No - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 1831218685 - Field 2396109707 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Item Entry Document No</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table A01 SR Spare Part - Field Item Entry Doc No Tmp - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 1831218685 - Field 568743302 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Item No.</source>
@@ -4168,6 +4183,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit A01 Customer Settlement Post - Method CheckLines - NamedType LblValidated</note>
         </trans-unit>
+        <trans-unit id="Codeunit 2721453659 - Method 2440614122 - NamedType 4180922776" size-unit="char" translate="yes" xml:space="preserve">
+          <source>No payment transaction has been created for this document</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit A01 Customer Settlement Post - Method PostJournalLinesAndPaymentDocs - NamedType Err01</note>
+        </trans-unit>
         <trans-unit id="Codeunit 3438428471 - NamedType 3114637384" size-unit="char" translate="yes" xml:space="preserve">
           <source>The %1 in the %2 will be changed from %3 to %4.\</source>
           <note from="Developer" annotates="general" priority="2">%1 = ... %2 = ...%3 .. %4 ..</note>
@@ -4518,6 +4538,11 @@
           <note from="Developer" annotates="general" priority="2">%1=xx %2=xxx</note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit A01 Treso Mgt - Method CheckPaymentAmount - NamedType LabelPayAmt</note>
         </trans-unit>
+        <trans-unit id="Codeunit 62654211 - Method 2640750177 - NamedType 4184138744" size-unit="char" translate="yes" xml:space="preserve">
+          <source>&lt;%1M&gt;</source>
+          <note from="Developer" annotates="general" priority="2">%1=months</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit A01 Treso Mgt - Method PostMultiDeadlinesPaymentLines - NamedType lblFormula</note>
+        </trans-unit>
         <trans-unit id="Codeunit 1376265650 - Method 2696953935 - NamedType 757060530" size-unit="char" translate="yes" xml:space="preserve">
           <source>The voucher balance %1 is insufficient for this operation</source>
           <note from="Developer" annotates="general" priority="2">%1=balance</note>
@@ -4787,6 +4812,11 @@
           <source>Update credit amort Lines</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page A01 Afk Setup - Action UpdateCreditAmortLines - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2685203037 - Action 2352055214 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Update credit amort Lines - TEST</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page A01 Afk Setup - Action UpdateCreditAmortLinesTest - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 1820720969 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>AGP Contracts</source>
@@ -16588,6 +16618,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report A01 Update Credit Amort Line - NamedType LblErr003</note>
         </trans-unit>
+        <trans-unit id="Report 3650091688 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Update Credit Line Test</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 Update Credit Line Test - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Report 1440513659 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>A01 Warehouse Reception print</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -18423,6 +18458,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension A01 Sales Header - Field A01 Credit Validation Status - Property Caption</note>
         </trans-unit>
+        <trans-unit id="TableExtension 1143019865 - Field 4085631933 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1192395785">
+          <source>Credit Deferred (Months)</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension A01 Sales Header - Field A01 Deferred month - Property Caption</note>
+        </trans-unit>
         <trans-unit id="TableExtension 1143019865 - Field 45441875 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1192395785">
           <source>Delivery Autorised by</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -18608,6 +18648,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension A01 Sales Header Archive - Field A01 Credit Validation Status - Property Caption</note>
         </trans-unit>
+        <trans-unit id="TableExtension 2954665223 - Field 4085631933 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1948788855">
+          <source>Credit Deferred (Months)</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension A01 Sales Header Archive - Field A01 Deferred month - Property Caption</note>
+        </trans-unit>
         <trans-unit id="TableExtension 2954665223 - Field 45441875 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1948788855">
           <source>Delivery Autorised by</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -18792,6 +18837,11 @@
           <source>Validation Status</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension A01 Sales Invoice Header - Field A01 Credit Validation Status - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 1507475930 - Field 4085631933 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 809936682">
+          <source>Credit Deferred (Months)</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension A01 Sales Invoice Header - Field A01 Deferred month - Property Caption</note>
         </trans-unit>
         <trans-unit id="TableExtension 1507475930 - Field 45441875 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 809936682">
           <source>Delivery Autorised by</source>

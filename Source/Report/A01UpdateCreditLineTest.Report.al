@@ -3,6 +3,8 @@ report 50036 "A01 Update Credit Line Test"
     ApplicationArea = All;
     Caption = 'Update Credit Line Test';
     //UsageCategory = Tasks;
+    ProcessingOnly = true;
+    Permissions = tabledata "Cust. Ledger Entry" = rm;
 
     dataset
     {

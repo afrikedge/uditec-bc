@@ -201,9 +201,10 @@ codeunit 50020 "A01 Inventory Mgt"
 
                 if ItemJnlLine.Quantity <> 0 then begin
                     ItemJnlPostLine.RunWithCheck(ItemJnlLine);
-                    SRSparePart."Item Entry Doc No" := NextDocNo;
-                    SRSparePart.Modify();
+                    // SRSparePart."Item Entry Doc No Tmp" := NextDocNo;
+                    // SRSparePart.Modify();
                 end;
+
             until SRSparePart.Next() < 1;
 
 
@@ -243,9 +244,30 @@ codeunit 50020 "A01 Inventory Mgt"
 
                 if ItemJnlLine.Quantity <> 0 then begin
                     ItemJnlPostLine.RunWithCheck(ItemJnlLine);
-                    SRSparePart."Item Entry Doc No" := NextDocNo;
-                    SRSparePart.Modify();
+                    // SRSparePart."Item Entry Doc No Tmp" := NextDocNo;
+                    // SRSparePart.Modify();
                 end;
+            until SRSparePart.Next() < 1;
+
+
+
+        SRSparePart.Reset();
+        SRSparePart.SetRange("Service Request No.", ServiceRequest."No.");
+        SRSparePart.SetFilter("Item No.", '<>%1', '');
+        if SRSparePart.FindSet(true) then
+            repeat
+                if (SRSparePart."Spare Status" = SRSparePart."Spare Status"::Defective) then
+                    if (SRSparePart."Item Entry Doc No" = '') then begin
+                        SRSparePart."Item Entry Doc No" := NextDocNo;
+                        SRSparePart.Modify();
+                    end;
+
+                if (SRSparePart."Spare Status" = SRSparePart."Spare Status"::" ") then
+                    if (SRSparePart."Usage Status" = SRSparePart."Usage Status"::Used) then
+                        if (SRSparePart."Item Entry Doc No" = '') then begin
+                            SRSparePart."Item Entry Doc No" := NextDocNo;
+                            SRSparePart.Modify();
+                        end;
             until SRSparePart.Next() < 1;
     end;
 
@@ -254,7 +276,7 @@ codeunit 50020 "A01 Inventory Mgt"
     var
         SalesH: record "Sales header";
         SalesL: record "Sales Line";
-        SRSparePart: record "A01 SR Spare Part";
+        Item1: record Item;
     begin
         AddOnSetup.GetRecordOnce();
         ServiceRequest.TestField("Responsibility Center");
@@ -272,6 +294,8 @@ codeunit 50020 "A01 Inventory Mgt"
         SalesH.Validate("Posting Date", WorkDate());
         SalesH.Modify();
 
+        Item1.Get(ServiceRequest."Item No.");
+
 
         SalesL.Init();
         SalesL."Document Type" := SalesL."Document Type"::"Return Order";
@@ -281,8 +305,8 @@ codeunit 50020 "A01 Inventory Mgt"
         SalesL.Validate("No.", ServiceRequest."Item No.");
         SalesL.VALIDATE("Location Code", GetLocation(ServiceRequest));
         SalesL.Validate("Bin Code", AddOnSetup."SR Workshop Bin Code");
-        SalesL.Validate(Quantity, SRSparePart.Quantity);
-        SalesL.Validate("Unit of Measure Code", SRSparePart."Unit of Measure Code");
+        SalesL.Validate(Quantity, 1);
+        SalesL.Validate("Unit of Measure Code", Item1."Base Unit of Measure");
         SalesL.Validate("Unit Price", 0);
         SalesL.insert();
 

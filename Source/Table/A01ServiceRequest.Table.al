@@ -145,7 +145,10 @@ table 50056 "A01 Service Request"
         {
             Caption = 'Repair Report';
         }
-
+        field(28; "Sales Doc. Date"; Date)
+        {
+            Caption = 'Invoice/BL Date';
+        }
     }
     keys
     {

@@ -307,7 +307,7 @@ codeunit 50007 "A01 Treso Mgt"
     end;
 
     procedure CreateNewPaymentDocFromCustomerSettlement(CustSettlement: Record "A01 Payment Document";
-    CustSettlementLine: Record "A01 Payment Document Line")
+    CustSettlementLine: Record "A01 Payment Document Line"): Boolean
     var
         //PaymentCCConfig: Record "A01 Payment Type Configuration";
         PaymentClass: Record "Payment Class";
@@ -396,6 +396,8 @@ codeunit 50007 "A01 Treso Mgt"
         PaymentLine."Dimension Set ID" := CustSettlement."Dimension Set ID";
         PaymentLine.Modify();
 
+        exit(true);
+
     end;
 
     local procedure PostBalancingEntry(SalesHeader: Record "Sales Header";
@@ -464,7 +466,7 @@ codeunit 50007 "A01 Treso Mgt"
 
     procedure PostCustSettlementLine(CustSettlement: Record "A01 Payment Document";
         CustSettlementLine: Record "A01 Payment Document Line";
-        var GenJnlPostLine: Codeunit "Gen. Jnl.-Post Line"; ApplyToNo: Code[20]; ApplyType: integer)
+        var GenJnlPostLine: Codeunit "Gen. Jnl.-Post Line"; ApplyToNo: Code[20]; ApplyType: integer): Boolean
     var
         //CustLedgEntry: Record "Cust. Ledger Entry";
         GenJnlLine: Record "Gen. Journal Line";
@@ -524,6 +526,8 @@ codeunit 50007 "A01 Treso Mgt"
         //         SalesHeader.GetUseDate(), SalesHeader."Currency Code", TotalSalesLine2."Pmt. Discount Amount", SalesHeader."Currency Factor");
 
         GenJnlPostLine.RunWithCheck(GenJnlLine);
+
+        exit(true);
 
     end;
 

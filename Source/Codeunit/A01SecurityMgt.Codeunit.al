@@ -120,7 +120,7 @@ codeunit 50004 "A01 Security Mgt"
     /// </summary>
     /// <param name="UserCode"></param>
     /// <param name="NewPassord"></param>
-    procedure CreateNewPassword(UserCode: Code[50]; NewPassord: Text)
+    procedure CreateNewPassword(UserCode: Code[50]; NewPassord: Text; UserMustChangePassword: Boolean)
     var
         ExternalUser: Record "A01 External User";
         HashedPass: Text;
@@ -128,7 +128,7 @@ codeunit 50004 "A01 Security Mgt"
         ExternalUser.get(UserCode);
         HashedPass := CryptoMgt.GenerateHashAsBase64String(NewPassord, 2);//Option MD5,SHA1,SHA256,SHA384,SHA512
         ExternalUser.Password := CopyStr(HashedPass, 1, 255);
-        ExternalUser.UserMustChangePassword := true;
+        ExternalUser.UserMustChangePassword := UserMustChangePassword;
         ExternalUser.PasswordIsSet := true;
         ExternalUser.Modify();
     end;

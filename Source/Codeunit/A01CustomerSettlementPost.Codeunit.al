@@ -169,6 +169,10 @@ codeunit 50013 "A01 Customer Settlement Post"
         IsHandled: Boolean;
         ApplyToDocType: Integer;
         ApplyToDocNo: code[20];
+        PaymentPosted_Bordereau: Boolean;
+        PaymentPosted_Journal: Boolean;
+        PaymentPosted: Boolean;
+        Err01: Label 'No payment transaction has been created for this document';
     begin
 
         OnBeforeCreateJournalLines(CustSettlement, GenJnlPostLine, IsHandled);
@@ -187,12 +191,16 @@ codeunit 50013 "A01 Customer Settlement Post"
         SettlementLine.SetRange("Document No.", CustSettlement."No.");
         if SettlementLine.FindSet() then
             repeat
-                TresoMgt.CreateNewPaymentDocFromCustomerSettlement(CustSettlement, SettlementLine);
-                TresoMgt.PostCustSettlementLine(CustSettlement, SettlementLine, GenJnlPostLine, ApplyToDocNo, ApplyToDocType);
+                PaymentPosted_Bordereau := TresoMgt.CreateNewPaymentDocFromCustomerSettlement(CustSettlement, SettlementLine);
+                PaymentPosted_Journal := TresoMgt.PostCustSettlementLine(CustSettlement, SettlementLine, GenJnlPostLine, ApplyToDocNo, ApplyToDocType);
+
+                if (PaymentPosted_Bordereau or PaymentPosted_Journal) then
+                    PaymentPosted := true;
 
             until SettlementLine.Next() < 1;
 
-
+        if (not PaymentPosted) then
+            Error(Err01);
     end;
 
     local procedure InsertPostedLine(PostedCommSetttleHeader: Record "A01 Posted Payment Document"; CommSettleLine: Record "A01 Payment Document Line")
