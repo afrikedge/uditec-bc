@@ -268,6 +268,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table A01 Afk Setup - Field Purchase Voucher Nos - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Table 2685203037 - Field 3031409780 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Rebate Payment Method</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table A01 Afk Setup - Field Rebate Payment Method - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Table 2685203037 - Field 4081805805 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Reposession Location</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -1578,6 +1583,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table A01 Payment Document - NamedType Text009</note>
         </trans-unit>
+        <trans-unit id="Table 516060391 - Field 2574544089 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Abandon Interets</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table A01 Payment Document - Field Abandon Interets - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Table 516060391 - Field 636392376 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Amount</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -1667,6 +1677,11 @@
           <source>Posting No.</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table A01 Payment Document - Field Posting No. - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 516060391 - Field 2979637509 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Rebate Balance</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table A01 Payment Document - Field Rebate Balance - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 516060391 - Field 2247850105 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Responsibility Center</source>
@@ -2148,6 +2163,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table A01 Posted Payment Document - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Table 2155214808 - Field 2574544089 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Abandon Interets</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table A01 Posted Payment Document - Field Abandon Interets - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Table 2155214808 - Field 636392376 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Amount</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -2237,6 +2257,11 @@
           <source>Posting No.</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table A01 Posted Payment Document - Field Posting No. - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2155214808 - Field 2979637509 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Rebate Balance</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table A01 Posted Payment Document - Field Rebate Balance - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 2155214808 - Field 2247850105 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Responsibility Center</source>
@@ -4178,6 +4203,16 @@
           <note from="Developer" annotates="general" priority="2">%3 = counter</note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit A01 Customer Settlement Post - NamedType PostingLinesMsg</note>
         </trans-unit>
+        <trans-unit id="Codeunit 2721453659 - Method 4046992192 - NamedType 992822970" size-unit="char" translate="yes" xml:space="preserve">
+          <source>The amount of interest in lines does not match the remainder to be abandoned</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit A01 Customer Settlement Post - Method CheckAmountForRebate - NamedType ErrLbl01</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 2721453659 - Method 4046992192 - NamedType 3374700415" size-unit="char" translate="yes" xml:space="preserve">
+          <source>The amount to be paid in lines does not match the remainder amount</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit A01 Customer Settlement Post - Method CheckAmountForRebate - NamedType ErrLbl02</note>
+        </trans-unit>
         <trans-unit id="Codeunit 2721453659 - Method 2246256157 - NamedType 1170824388" size-unit="char" translate="yes" xml:space="preserve">
           <source>All lines must be validated for this operation</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -5497,6 +5532,11 @@
           <source>Application</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page A01 Customer Settlement - Action Application - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2686914651 - Action 2460683789 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>calculate the anticipated balance</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page A01 Customer Settlement - Action CalcRebaseAmount - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 2686914651 - Action 2282416948 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>&amp;Post</source>

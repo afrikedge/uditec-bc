@@ -479,6 +479,7 @@ codeunit 50007 "A01 Treso Mgt"
         //if not EntryFound then
         //    FindCustLedgEntry(DocType, DocNo, CustLedgEntry);
         SourceCodeSetup.Get();
+        AddOnSetup.GetRecordOnce();
 
         if not RCPaymentMethod.get(CustSettlement."Responsibility Center", CustSettlementLine."Payment Method") then
             exit;
@@ -502,6 +503,10 @@ codeunit 50007 "A01 Treso Mgt"
 
         GenJnlLine.SetSuppressCommit(true);
         GenJnlLine.CopyDocumentFields(Enum::"Gen. Journal Document Type"::Payment, CustSettlement."Posting No.", CustSettlement."External Document No.", SourceCodeSetup."Payment Journal", '');
+
+        if (RCPaymentMethod."Payment Method" = AddOnSetup."Rebate Payment Method") then
+            GenJnlLine."Document Type" := GenJnlLine."Document Type"::"Credit Memo";
+
         GenJnlLine."Account Type" := GenJnlLine."Account Type"::Customer;
         GenJnlLine."Account No." := CustSettlement."Partner No.";
 

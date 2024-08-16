@@ -50,6 +50,12 @@ page 50057 "A01 Customer Settlement"
                 field(Status; Rec."Approval Status")
                 {
                 }
+                field("Rebate Balance"; Rec."Rebate Balance")
+                {
+                }
+                field("Abandon Interets"; Rec."Abandon Interets")
+                {
+                }
                 // field("Shortcut Dimension 1 Code"; Rec."Shortcut Dimension 1 Code")
                 // {
                 // }
@@ -88,6 +94,18 @@ page 50057 "A01 Customer Settlement"
                 trigger OnAction()
                 begin
                     ApplyPayment();
+                end;
+            }
+            action("CalcRebaseAmount")
+            {
+                ApplicationArea = All;
+                Caption = 'calculate the anticipated balance';
+                Image = CalculateBalanceAccount;
+                trigger OnAction()
+                var
+                    CustSettlementMgt: Codeunit "A01 Customer Settlement Post";
+                begin
+                    CustSettlementMgt.CalcValuesForRebate(Rec);
                 end;
             }
             action(Post)

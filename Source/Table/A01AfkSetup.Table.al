@@ -361,6 +361,11 @@ table 50017 "A01 Afk Setup"
         {
             Caption = 'MIR Credit deferred (Months)';
         }
+        field(77; "Rebate Payment Method"; Code[20])
+        {
+            Caption = 'Rebate Payment Method';
+            TableRelation = "Payment Method";
+        }
 
 
         //Config. Template Header

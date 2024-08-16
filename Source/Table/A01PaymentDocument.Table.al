@@ -181,6 +181,16 @@ table 50032 "A01 Payment Document"
             Caption = 'ApprovalStatus';
             Editable = false;
         }
+        field(23; "Abandon Interets"; decimal)
+        {
+            Caption = 'Abandon Interets';
+            Editable = false;
+        }
+        field(24; "Rebate Balance"; decimal)
+        {
+            Caption = 'Rebate Balance';
+            Editable = false;
+        }
 
 
 
@@ -208,6 +218,7 @@ table 50032 "A01 Payment Document"
             begin
             end;
         }
+
     }
     keys
     {

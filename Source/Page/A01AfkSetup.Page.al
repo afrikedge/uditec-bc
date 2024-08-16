@@ -125,6 +125,9 @@ page 50040 "A01 Afk Setup"
                 field("MIR Credit delay (Months)"; Rec."Deferred month")
                 {
                 }
+                field("Rebate Payment Method"; Rec."Rebate Payment Method")
+                {
+                }
             }
             group(Logistics)
             {

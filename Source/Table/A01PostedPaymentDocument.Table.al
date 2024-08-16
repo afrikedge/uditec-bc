@@ -103,6 +103,16 @@ table 50026 "A01 Posted Payment Document"
             Caption = 'ApprovalStatus';
             Editable = false;
         }
+        field(23; "Abandon Interets"; decimal)
+        {
+            Caption = 'Abandon Interets';
+            Editable = false;
+        }
+        field(24; "Rebate Balance"; decimal)
+        {
+            Caption = 'Rebate Balance';
+            Editable = false;
+        }
 
 
 
