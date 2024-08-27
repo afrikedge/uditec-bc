@@ -75,7 +75,7 @@ table 50013 "A01 Cust Scoring Criteria"
         {
             Caption = 'Valid';
         }
-        field(12; DocumentLink; Text[100])
+        field(12; DocumentLink; Text[200])
         {
             Caption = 'Document link';
         }

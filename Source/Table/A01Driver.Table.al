@@ -25,6 +25,10 @@ table 50049 "A01 Driver"
         {
             Caption = 'Expiration Date';
         }
+        field(6; "Phone No."; Text[30])
+        {
+            Caption = 'Phone No.';
+        }
     }
     keys
     {

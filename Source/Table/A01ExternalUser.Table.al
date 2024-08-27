@@ -83,6 +83,10 @@ table 50001 "A01 External User"
             Caption = 'GL Period Group';
             TableRelation = "A01 GL Period User Group";
         }
+        field(14; "Phone No."; Text[30])
+        {
+            Caption = 'Phone No.';
+        }
 
     }
     keys

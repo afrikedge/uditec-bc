@@ -12,12 +12,12 @@ table 50052 "A01 Route Itinery"
         field(2; "Departure Zone"; Code[20])
         {
             Caption = 'Departure Zone';
-            TableRelation = Zone;
+            TableRelation = "Service Zone";
         }
         field(3; "Arrival Zone"; Code[20])
         {
             Caption = 'Arrival Zone';
-            TableRelation = Zone;
+            TableRelation = "Service Zone";
         }
         field(4; "Route Type"; Enum "A01 Route Type")
         {

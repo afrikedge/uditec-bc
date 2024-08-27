@@ -435,6 +435,16 @@ codeunit 50022 A01WSSAVMgt
             if (TransportOrderDetail."Line No." <> WS.GetInt(jsonkey, input)) then
                 TransportOrderDetail."Line No." := WS.GetInt(jsonkey, input);
 
+        jsonkey := 'Order Line No_';
+        if (WS.KeyExists(jsonkey, input)) then
+            if (TransportOrderDetail."Order Line No." <> WS.GetInt(jsonkey, input)) then
+                TransportOrderDetail."Order Line No." := WS.GetInt(jsonkey, input);
+
+        jsonkey := 'Order No_';
+        if (WS.KeyExists(jsonkey, input)) then
+            if (TransportOrderDetail."Order No." <> WS.GetText(jsonkey, input)) then
+                TransportOrderDetail.Validate("Order No.", WS.GetText(jsonkey, input));
+
         jsonkey := 'Customer No_';
         if (WS.KeyExists(jsonkey, input)) then
             if (TransportOrderDetail."Customer No." <> WS.GetText(jsonkey, input)) then

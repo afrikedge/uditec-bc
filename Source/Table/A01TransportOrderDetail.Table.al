@@ -96,7 +96,10 @@ table 50055 "A01 Transport Order Detail"
         {
             Caption = 'Return Status';
         }
-
+        field(21; "Order Line No."; Integer)
+        {
+            Caption = 'Order Line No.';
+        }
 
 
     }
