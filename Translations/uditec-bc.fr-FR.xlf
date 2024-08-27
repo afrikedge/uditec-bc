@@ -1307,7 +1307,7 @@
         </trans-unit>
         <trans-unit id="Table 650547982 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Disposable Rate</source>
-          <target state="needs-review-translation"/>
+          <target state="needs-review-translation">Quotité cessisble (%)</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Table A01 Disposable Rate - Property Caption</note>
         </trans-unit>
@@ -1901,7 +1901,7 @@
         </trans-unit>
         <trans-unit id="Table 516060391 - Field 2574544089 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Abandon Interets</source>
-          <target state="needs-review-translation">Intêrets (Paiement anticipé)</target>
+          <target state="needs-review-translation">Rabais (Paiement anticipé)</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Table A01 Payment Document - Field Abandon Interets - Property Caption</note>
         </trans-unit>
@@ -1940,6 +1940,12 @@
           <target state="needs-review-translation">Code devise</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Table A01 Payment Document - Field Currency Code - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 516060391 - Field 4223524552 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Customer Due Status</source>
+          <target state="needs-review-translation">Statut actuel du client</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Table A01 Payment Document - Field Customer Due Status - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 516060391 - Field 3322554545 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Dimension Set ID</source>
@@ -5489,7 +5495,7 @@
         </trans-unit>
         <trans-unit id="Codeunit 62654211 - Method 2640750177 - NamedType 4184138744" size-unit="char" translate="yes" xml:space="preserve">
           <source>&lt;%1M&gt;</source>
-          <target state="needs-review-translation">&lt;%1M&gt;</target>
+          <target state="needs-translation"/>
           <note from="Developer" annotates="general" priority="2">%1=months</note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit A01 Treso Mgt - Method PostMultiDeadlinesPaymentLines - NamedType lblFormula</note>
         </trans-unit>
@@ -5789,7 +5795,7 @@
         </trans-unit>
         <trans-unit id="Page 2685203037 - Action 174769924 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Run custom process</source>
-          <target state="needs-review-translation"/>
+          <target state="needs-review-translation">Run custom process</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Page A01 Afk Setup - Action CustomProcess - Property Caption</note>
         </trans-unit>
@@ -6731,7 +6737,7 @@
         </trans-unit>
         <trans-unit id="Page 532207948 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Disposable Rate List</source>
-          <target state="needs-review-translation"/>
+          <target state="needs-review-translation">Quotités cessisble (%)</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Page A01 Disposable Rate List - Property Caption</note>
         </trans-unit>
@@ -20297,7 +20303,7 @@
         </trans-unit>
         <trans-unit id="Report 588798876 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Custom process</source>
-          <target state="needs-review-translation"/>
+          <target state="needs-review-translation">Custom process</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Report A01CustomProcess - Property Caption</note>
         </trans-unit>
@@ -20789,7 +20795,7 @@
         </trans-unit>
         <trans-unit id="PageExtension 3250568499 - Action 2156653019 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2747922353">
           <source>Disposable Rates</source>
-          <target state="needs-review-translation"/>
+          <target state="needs-review-translation">Quotité cessisble (%)</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension A01 Order Processor RC - Action A01DisposableRates - Property Caption</note>
         </trans-unit>

@@ -62,9 +62,10 @@ page 50057 "A01 Customer Settlement"
                 // field("Shortcut Dimension 2 Code"; Rec."Shortcut Dimension 2 Code")
                 // {
                 // }
-                field("Modified By"; Rec."Modified By")
-                {
-                }
+                // field("Modified By"; Rec."Modified By")
+                // {
+                // }
+                field("Customer Due Status"; Rec."Customer Due Status") { }
             }
             part(SalesLines; "A01 Cust Settlement Subform")
             {
