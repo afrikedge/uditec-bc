@@ -1193,6 +1193,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table A01 Driver - Field Name - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Table 544100698 - Field 3986423421 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Phone No.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table A01 Driver - Field Phone No. - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Table 1338500978 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>External Profile</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -1267,6 +1272,11 @@
           <source>Password Exists</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table A01 External User - Field PasswordIsSet - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2244191176 - Field 3986423421 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Phone No.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table A01 External User - Field Phone No. - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 2244191176 - Field 2247850105 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Responsibility Center</source>
@@ -3618,6 +3628,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table A01 Transport Order - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Table 2125787823 - Method 149730411 - NamedType 1554411578" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Invalid qty to ship</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table A01 Transport Order - Method AddWhseShptLineFromSalesLine - NamedType ShipQtyError</note>
+        </trans-unit>
         <trans-unit id="Table 2125787823 - Field 3665612075 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source> Driver No.</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -3773,6 +3788,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table A01 Transport Order Detail - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Table 4111514512 - Method 2451657066 - NamedType 3941846598" size-unit="char" translate="yes" xml:space="preserve">
+          <source>This order line (%1 - %2) is already present in document %3</source>
+          <note from="Developer" annotates="general" priority="2">%1 %2 %3</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table A01 Transport Order Detail - Method OnInsert - NamedType ErrorLbl</note>
+        </trans-unit>
         <trans-unit id="Table 4111514512 - Field 1812944613 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Address Code</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -3813,10 +3833,20 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table A01 Transport Order Detail - Field Location Code - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Table 4111514512 - Field 176518433 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Order Line No.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table A01 Transport Order Detail - Field Order Line No. - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Table 4111514512 - Field 2202932243 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Order No.</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table A01 Transport Order Detail - Field Order No. - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 4111514512 - Field 1340654506 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Order Type</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table A01 Transport Order Detail - Field Order Type - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 4111514512 - Field 437606496 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Quantity (Actual)</source>
@@ -19448,6 +19478,46 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Enum A01 AGP Type of emp contr - EnumValue CDI - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Enum 4056244443 - EnumValue 4093983712 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Carrier</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum A01 Anomaly Type - EnumValue Carrier - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 4056244443 - EnumValue 1994964448 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Customer</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum A01 Anomaly Type - EnumValue Customer - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 4056244443 - EnumValue 1376798355 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Delivery person</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum A01 Anomaly Type - EnumValue Delivery person - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 4056244443 - EnumValue 990296649 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Internal</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum A01 Anomaly Type - EnumValue Internal - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 4056244443 - EnumValue 987162410 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Logistician</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum A01 Anomaly Type - EnumValue Logistician - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 4056244443 - EnumValue 3371220206 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>None</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum A01 Anomaly Type - EnumValue None - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 4056244443 - EnumValue 4252633815 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Sales person</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum A01 Anomaly Type - EnumValue Sales person - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 4056244443 - EnumValue 1074243913 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Store</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum A01 Anomaly Type - EnumValue Store - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Enum 1619023839 - EnumValue 821689635 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Invoice</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -20722,6 +20792,21 @@
           <source>Outgoing</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Enum A01 Transport Direction - EnumValue Outgoing - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 4123658679 - EnumValue 1673401186 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Sales Order</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum A01 Transport Order Type - EnumValue Sales Order - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 4123658679 - EnumValue 977073392 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Sales Order return</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum A01 Transport Order Type - EnumValue Sales Order return - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 4123658679 - EnumValue 4224198349 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Transfer</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum A01 Transport Order Type - EnumValue Transfer - Property Caption</note>
         </trans-unit>
         <trans-unit id="Enum 3910892863 - EnumValue 339349164 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Postponed</source>

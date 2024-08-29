@@ -108,7 +108,7 @@ codeunit 50022 A01WSSAVMgt
             LineInput := c.AsObject();
             TransportOrderDetail.Init();
             ProcessOrderTransportLine(TransportOrder, TransportOrderDetail, LineInput);
-            TransportOrderDetail.Insert();
+            TransportOrderDetail.Insert(true);
         end;
     end;
 
@@ -534,6 +534,11 @@ codeunit 50022 A01WSSAVMgt
         if (WS.KeyExists(jsonkey, input)) then
             if (TransportOrderDetail."Return Status".AsInteger() <> WS.GetInt(jsonkey, input)) then
                 TransportOrderDetail.Validate("Return Status", WS.GetInt(jsonkey, input));
+
+        jsonkey := 'Order Type';
+        if (WS.KeyExists(jsonkey, input)) then
+            if (TransportOrderDetail."Order Type".AsInteger() <> WS.GetInt(jsonkey, input)) then
+                TransportOrderDetail.Validate("Order Type", WS.GetInt(jsonkey, input));
 
     end;
 
