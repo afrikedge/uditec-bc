@@ -101,7 +101,7 @@ tableextension 50005 "A01 Contact" extends Contact
             Caption = 'Employee Number';
             DataClassification = CustomerContent;
         }
-        field(50018; "A01 Employee Function"; Code[50])
+        field(50018; "A01 Employee Function"; Code[100])
         {
             Caption = 'Employee Function';
             DataClassification = CustomerContent;

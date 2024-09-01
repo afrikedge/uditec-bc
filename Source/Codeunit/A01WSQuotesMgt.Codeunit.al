@@ -412,6 +412,16 @@ codeunit 50005 "A01 WS QuotesMgt"
             if (SalesQuote."A01 Other Conditions" <> WS.GetText(jsonKey, input)) then
                 SalesQuote.Validate("A01 Other Conditions", WS.GetText(jsonKey, input));
 
+        jsonKey := 'HO Receipt Date';
+        if WS.KeyExists(jsonKey, input) then
+            if (SalesQuote."A01 HO Receipt Date" <> WS.GetDate(jsonKey, input)) then
+                SalesQuote.Validate("A01 HO Receipt Date", WS.GetDate(jsonKey, input));
+
+        jsonKey := 'Archive';
+        if WS.KeyExists(jsonKey, input) then
+            if (SalesQuote."A01 Archive" <> WS.GetBool(jsonKey, input)) then
+                SalesQuote.Validate("A01 Archive", WS.GetBool(jsonKey, input));
+
 
 
 
@@ -650,6 +660,10 @@ codeunit 50005 "A01 WS QuotesMgt"
 
         if (CustScoringCriteria."Aplhanumeric Value" <> WS.GetText('Alpha Value', input)) then
             CustScoringCriteria.Validate("Aplhanumeric Value", WS.GetText('Alpha Value', input));
+
+        if WS.KeyExists('Date Value', input) then
+            if (CustScoringCriteria."Date Value" <> WS.GetDate('Date Value', input)) then
+                CustScoringCriteria.Validate("Date Value", WS.GetDate('Date Value', input));
 
         // if (CustCriteria.Validity.AsInteger() <> WS.GetInt('Validity', input)) then
         //     CustCriteria.Validate("Validity", WS.GetInt('Validity', input));

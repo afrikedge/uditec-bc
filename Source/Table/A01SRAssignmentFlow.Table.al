@@ -37,11 +37,11 @@ table 50059 "A01 SR Assignment Flow"
         {
             Caption = 'Notes';
         }
-        field(9; "Starting Date"; Date)
+        field(9; "Starting Date"; DateTime)
         {
             Caption = 'Starting Date';
         }
-        field(10; Deadline; Date)
+        field(10; Deadline; DateTime)
         {
             Caption = 'Deadline';
         }

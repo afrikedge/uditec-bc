@@ -71,5 +71,10 @@ tableextension 50001 "A01 User Setup" extends "User Setup"
             Caption = 'Can post on cashbox after closing period';
             DataClassification = CustomerContent;
         }
+        field(50013; "A01 Can Set Sales Price"; Boolean)
+        {
+            Caption = 'Can modify sales prices';
+            DataClassification = CustomerContent;
+        }
     }
 }

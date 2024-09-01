@@ -70,7 +70,7 @@ table 50056 "A01 Service Request"
             Caption = 'Created By';
             TableRelation = "A01 External User";
         }
-        field(11; "Closed On"; Date)
+        field(11; "Closed On"; DateTime)
         {
             Caption = 'Closed On';
         }
@@ -183,10 +183,10 @@ table 50056 "A01 Service Request"
 
     var
         AddOnSetup: Record "A01 Afk Setup";
-        Currency: Record Currency;
+        //Currency: Record Currency;
         NoSeriesManagement: Codeunit NoSeriesManagement;
-        RequestMgt: Codeunit "A01 Document Request Mgt";
-        DimensionManagement: Codeunit DimensionManagement;
+        //RequestMgt: Codeunit "A01 Document Request Mgt";
+        //DimensionManagement: Codeunit DimensionManagement;
         ItemMgt: codeunit "A01 Inventory Mgt";
 
     local procedure InitHeader()

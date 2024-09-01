@@ -96,7 +96,7 @@ xmlport 50004 "A01 Import Serial Numbers"
         ProcessedLines: Integer;
         Window: Dialog;
         Text008: Label 'Traitement @1@@@@@@@@@@@@@@@@@@@@@@@@@@@@\';
-        PriceListCode: Code[20];
-        NextLineNo: Integer;
+    //PriceListCode: Code[20];
+    //NextLineNo: Integer;
 }
 

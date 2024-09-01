@@ -4,6 +4,7 @@
 codeunit 50004 "A01 Security Mgt"
 {
     var
+        AddOnSetup: record "A01 Afk Setup";
         UserSetup: record "User Setup";
         CryptoMgt: Codeunit "Cryptography Management";
         ErrNotAuthorizedAction: Label 'You are not authorized to use this feature.';
@@ -26,6 +27,17 @@ codeunit 50004 "A01 Security Mgt"
     begin
         if UserSetup.Get(UserId) then
             if UserSetup."A01 Can Cancel Sales Order" then
+                exit;
+        Error(ErrNotAuthorizedAction);
+    end;
+
+    procedure CheckIfUserCanSetSalesPrice()
+    begin
+        AddOnSetup.GetRecordOnce();
+        if (not AddOnSetup."Activate sec on sales price") then exit;
+
+        if UserSetup.Get(UserId) then
+            if UserSetup."A01 Can Set Sales Price" then
                 exit;
         Error(ErrNotAuthorizedAction);
     end;
@@ -218,6 +230,7 @@ codeunit 50004 "A01 Security Mgt"
         UserSetup.TestField("Sales Resp. Ctr. Filter");
         exit(UserSetup."Sales Resp. Ctr. Filter");
     end;
+
 
     procedure GetMainUserResponsibilityCenterStore(): Code[20]
     var

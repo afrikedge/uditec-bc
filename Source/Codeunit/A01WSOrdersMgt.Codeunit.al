@@ -234,8 +234,8 @@ codeunit 50009 "A01 WS OrdersMgt"
 
     local procedure ProcessSalesOrderHeader(var SalesOrder: Record "Sales Header"; input: JsonObject)
     var
-        SalesOrderLine: Record "Sales Line";
-        Item: Record Item;
+        // SalesOrderLine: Record "Sales Line";
+        // Item: Record Item;
         jsonkey: Text;
     begin
         if (SalesOrder."A01 Web User Id" <> WS.GetText('webUserName', input)) then

@@ -398,6 +398,10 @@ codeunit 50015 A01WSMasterFilesMgt
         if (CustCriteria."Aplhanumeric Value" <> WS.GetText('Alpha Value', input)) then
             CustCriteria.Validate("Aplhanumeric Value", WS.GetText('Alpha Value', input));
 
+        if WS.KeyExists('Date Value', input) then
+            if (CustCriteria."Date Value" <> WS.GetDate('Date Value', input)) then
+                CustCriteria.Validate("Date Value", WS.GetDate('Date Value', input));
+
         // if (CustCriteria.Validity.AsInteger() <> WS.GetInt('Validity', input)) then
         //     CustCriteria.Validate("Validity", WS.GetInt('Validity', input));
 
@@ -750,6 +754,10 @@ codeunit 50015 A01WSMasterFilesMgt
 
         if (CustCriteria."Aplhanumeric Value" <> WS.GetText('Alpha Value', input)) then
             CustCriteria.Validate("Aplhanumeric Value", WS.GetText('Alpha Value', input));
+
+        if WS.KeyExists('Date Value', input) then
+            if (CustCriteria."Date Value" <> WS.GetDate('Date Value', input)) then
+                CustCriteria.Validate("Date Value", WS.GetDate('Date Value', input));
 
         // if (CustCriteria.Validity.AsInteger() <> WS.GetInt('Validity', input)) then
         //     CustCriteria.Validate("Validity", WS.GetInt('Validity', input));

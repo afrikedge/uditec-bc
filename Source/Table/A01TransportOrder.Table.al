@@ -482,10 +482,10 @@ table 50054 "A01 Transport Order"
 
     var
         AddOnSetup: Record "A01 Afk Setup";
-        Currency: Record Currency;
+        //Currency: Record Currency;
         NoSeriesManagement: Codeunit NoSeriesManagement;
-        RequestMgt: Codeunit "A01 Document Request Mgt";
-        DimensionManagement: Codeunit DimensionManagement;
+    //RequestMgt: Codeunit "A01 Document Request Mgt";
+    //DimensionManagement: Codeunit DimensionManagement;
 
     local procedure InitHeader()
     begin

@@ -40,7 +40,7 @@ report 50032 "A01 Update Credit Amort Line"
                         LineNo += 1;
                         Window.UPDATE(1, ROUND(LineNo / TotalLines * 10000, 1));
 
-                        DebtStatus := Cust.CalcCustStatus();
+                        DebtStatus := Cust.A01CalcCustStatus();
                         if (Cust."A01 Calc Risk Level" <> DebtStatus) then begin
                             Cust."A01 Calc Risk Level" := DebtStatus;
                             Cust.Modify();

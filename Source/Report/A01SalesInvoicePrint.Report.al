@@ -1429,7 +1429,7 @@ report 50002 "A01 SalesInvoicePrint"
                 group(GroupName)
                 {
                     Caption = 'Options';
-                    field(ShowDiscount; ShowDiscount)
+                    field(ShowDiscount; ShowDiscountVar)
                     {
                         ApplicationArea = Basic, Suite;
                         Caption = 'Show discount';
@@ -1447,7 +1447,7 @@ report 50002 "A01 SalesInvoicePrint"
             InitLogInteraction();
             // LogInteractionEnable := LogInteraction;
 
-            ShowDiscount := true;
+            ShowDiscountVar := true;
         end;
     }
 
@@ -1528,7 +1528,7 @@ report 50002 "A01 SalesInvoicePrint"
         AutoFormat: Codeunit "Auto Format";
         FormatDocument: Codeunit "Format Document";
         MoreLines: Boolean;
-        ShowDiscount: Boolean;
+        ShowDiscountVar: Boolean;
         CustomerIdentity: Text[100];
         VATText: Text[50];
         rcs: Code[30];

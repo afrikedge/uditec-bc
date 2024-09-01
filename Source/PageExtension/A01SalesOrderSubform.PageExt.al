@@ -12,6 +12,15 @@ pageextension 50015 "A01 Sales Order Subform" extends "Sales Order Subform"
                 ApplicationArea = Basic, Suite;
             }
         }
+        modify("Unit Price")
+        {
+            trigger OnAfterValidate()
+            var
+                SecMgt: Codeunit "A01 Security Mgt";
+            begin
+                SecMgt.CheckIfUserCanSetSalesPrice();
+            end;
+        }
         addafter("Promised Delivery Date")
         {
             field("A01 Promotion Line No."; Rec."A01 Promotion Line No.")

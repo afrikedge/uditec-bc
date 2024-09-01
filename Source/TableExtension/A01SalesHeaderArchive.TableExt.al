@@ -211,5 +211,15 @@ tableextension 50002 "A01 Sales Header Archive" extends "Sales Header Archive"
             Caption = 'Credit Deferred (Months)';
             DataClassification = CustomerContent;
         }
+        field(50038; "A01 HO Receipt Date"; Date)
+        {
+            Caption = 'HO Receipt Date';
+            DataClassification = CustomerContent;
+        }
+        field(50039; "A01 Archive"; Boolean)
+        {
+            Caption = 'Archived';
+            DataClassification = CustomerContent;
+        }
     }
 }

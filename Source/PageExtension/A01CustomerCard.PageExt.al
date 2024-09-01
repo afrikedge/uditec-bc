@@ -122,7 +122,7 @@ pageextension 50006 "A01 Customer Card" extends "Customer Card"
                 trigger OnAction()
                 var
                 begin
-                    Rec."A01 Calc Risk Level" := Rec.CalcCustStatus();
+                    Rec."A01 Calc Risk Level" := Rec.A01CalcCustStatus();
                     Rec.Modify();
                 end;
             }

@@ -43,6 +43,10 @@ pageextension 50011 "A01 User Setup" extends "User Setup"
             {
                 ApplicationArea = Basic, Suite;
             }
+            field("A01 Can Set Sales Price"; Rec."A01 Can Set Sales Price")
+            {
+                ApplicationArea = Basic, Suite;
+            }
 
 
         }

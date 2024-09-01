@@ -91,6 +91,10 @@ table 50013 "A01 Cust Scoring Criteria"
             TableRelation = "A01 External User";
             DataClassification = CustomerContent;
         }
+        field(16; "Date Value"; Date)
+        {
+            Caption = 'Date Value';
+        }
 
 
     }

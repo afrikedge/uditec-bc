@@ -43,7 +43,9 @@ page 50040 "A01 Afk Setup"
                 field("Exempt VAT Bus. Posting Group"; Rec."Exempt VAT Bus. Posting Group")
                 {
                 }
-
+                field("Activate sec on sales price"; Rec."Activate sec on sales price")
+                {
+                }
 
             }
             group(Mirindra)
@@ -127,6 +129,10 @@ page 50040 "A01 Afk Setup"
                 }
                 field("Rebate Payment Method"; Rec."Rebate Payment Method")
                 {
+                }
+                field("Set Due Date with Prepayment"; Rec."Set Due Date with Prepayment")
+                {
+
                 }
             }
             group(Logistics)
@@ -358,7 +364,7 @@ page 50040 "A01 Afk Setup"
                 var
                     SRRequest: record "A01 Service Request";
                     InvtMgt: Codeunit "A01 Inventory Mgt";
-                    dateT: DateTime;
+                //dateT: DateTime;
                 begin
                     SRRequest.Get('SVQ24-0000008');
                     InvtMgt.CreateItemAdjustmentEntry_ServiceRequest(SRRequest);

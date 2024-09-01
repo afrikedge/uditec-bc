@@ -366,6 +366,14 @@ table 50017 "A01 Afk Setup"
             Caption = 'Rebate Payment Method';
             TableRelation = "Payment Method";
         }
+        field(78; "Set Due Date with Prepayment"; Boolean)
+        {
+            Caption = 'Update due date when prepayment is zero';
+        }
+        field(79; "Activate sec on sales price"; Boolean)
+        {
+            Caption = 'Activate security on sales prices';
+        }
 
 
         //Config. Template Header

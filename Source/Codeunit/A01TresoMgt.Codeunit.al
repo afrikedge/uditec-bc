@@ -713,6 +713,7 @@ codeunit 50007 "A01 Treso Mgt"
         lblFormula: label '<%1M>', comment = '%1=months';
 
     begin
+        AddOnSetup.GetRecordOnce();
         if (not IsMultiMeadlinesInvoice(SalesHeader)) then
             exit;
 
@@ -723,8 +724,10 @@ codeunit 50007 "A01 Treso Mgt"
         CheckCreditDueLines(SalesHeader);
 
         DeferredDateFormula := StrSubstNo(lblFormula, SalesHeader."A01 Deferred month");
-
         LineDueDate := CalcDate(DeferredDateFormula, SalesHeader."Due Date");
+        if (AddOnSetup."Set Due Date with Prepayment") then
+            if (SalesHeader."Prepayment %" = 0) then
+                LineDueDate := SalesHeader."Posting Date";
 
         i := 1;
         TotalLineAmtInclVAT := 0;

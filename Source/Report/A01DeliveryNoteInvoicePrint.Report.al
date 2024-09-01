@@ -485,10 +485,10 @@ report 50009 "A01 DeliveryNoteInvoicePrint"
         AfkLocalCurrency: Record Currency;
         AfkCurrency: Record Currency;
         RepCheck: Report Check;
-        AutoFormat: Codeunit "Auto Format";
+        //AutoFormat: Codeunit "Auto Format";
         OptionValue: Option LogoCosmos,LogoUditec;
         OptionType: Integer;
-        Montant: Decimal;
+        //Montant: Decimal;
         HTPrice: Decimal;
         VATHT: Decimal;
         A01TTcPriceText: Text[50];
@@ -508,7 +508,7 @@ report 50009 "A01 DeliveryNoteInvoicePrint"
         LineDiscountText: Text[50];
         A01DiscountedPriceText: Text[50];
         NoText: array[2] of Text;
-        TVA2: Decimal;
+        //TVA2: Decimal;
         Total_LCYText: Text[50];
         TVA_LCYText: Text[50];
         TotalTTC_LCYText: Text[50];

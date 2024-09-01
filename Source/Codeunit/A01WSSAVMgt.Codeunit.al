@@ -598,8 +598,8 @@ codeunit 50022 A01WSSAVMgt
 
         jsonkey := 'Closed On';
         if (WS.KeyExists(jsonkey, input)) then
-            if (ServiceRequest."Closed On" <> WS.GetDate(jsonkey, input)) then
-                ServiceRequest.Validate("Closed On", WS.GetDate(jsonkey, input));
+            if (ServiceRequest."Closed On" <> WS.GetDatetime(jsonkey, input)) then
+                ServiceRequest.Validate("Closed On", WS.GetDatetime(jsonkey, input));
 
         jsonkey := 'Closed By';
         if (WS.KeyExists(jsonkey, input)) then
@@ -913,13 +913,13 @@ codeunit 50022 A01WSSAVMgt
 
         jsonkey := 'Starting Date';
         if (WS.KeyExists(jsonkey, input)) then
-            if (SRAssignmentFlow."Starting Date" <> WS.GetDate(jsonkey, input)) then
-                SRAssignmentFlow.Validate("Starting Date", WS.GetDate(jsonkey, input));
+            if (SRAssignmentFlow."Starting Date" <> WS.GetDatetime(jsonkey, input)) then
+                SRAssignmentFlow.Validate("Starting Date", WS.GetDatetime(jsonkey, input));
 
         jsonkey := 'Deadline';
         if (WS.KeyExists(jsonkey, input)) then
-            if (SRAssignmentFlow."Deadline" <> WS.GetDate(jsonkey, input)) then
-                SRAssignmentFlow.Validate("Deadline", WS.GetDate(jsonkey, input));
+            if (SRAssignmentFlow."Deadline" <> WS.GetDatetime(jsonkey, input)) then
+                SRAssignmentFlow.Validate("Deadline", WS.GetDatetime(jsonkey, input));
 
     end;
 

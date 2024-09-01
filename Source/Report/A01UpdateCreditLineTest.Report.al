@@ -23,7 +23,7 @@ report 50036 "A01 Update Credit Line Test"
                         UpdateCreditMgt.ProcessCustLedgerEntry(CustLedgerEntry);
                     until CustLedgerEntry.Next() < 1;
 
-                DebtStatus := Customer.CalcCustStatus();
+                DebtStatus := Customer.A01CalcCustStatus();
                 if (Customer."A01 Calc Risk Level" <> DebtStatus) then begin
                     Customer."A01 Calc Risk Level" := DebtStatus;
                     Customer.Modify();

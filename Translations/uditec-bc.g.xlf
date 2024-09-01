@@ -8,6 +8,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table A01 Afk Setup - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Table 2685203037 - Field 2968567380 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Activate security on sales prices</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table A01 Afk Setup - Field Activate sec on sales price - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Table 2685203037 - Field 362340445 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>AGP Administrative fees (%)"</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -312,6 +317,11 @@
           <source>Service Request Nos</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table A01 Afk Setup - Field Service Request Nos - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2685203037 - Field 1731588175 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Update due date when prepayment is zero</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table A01 Afk Setup - Field Set Due Date with Prepayment - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 2685203037 - Field 4286673260 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>ShipToAddress Code Nos</source>
@@ -782,6 +792,11 @@
           <source>Customer No.</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table A01 Cust Scoring Criteria - Field Customer No. - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2653739505 - Field 3301323505 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Date Value</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table A01 Cust Scoring Criteria - Field Date Value - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 2653739505 - Field 68396474 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Document Required</source>
@@ -1952,6 +1967,11 @@
           <source>Customer No.</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table A01 Post Cust Scoring Criteria - Field Customer No. - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3464415353 - Field 3301323505 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Date Value</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table A01 Post Cust Scoring Criteria - Field Date Value - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 3464415353 - Field 486908828 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Document No.</source>
@@ -18513,6 +18533,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension A01 Sales Header - Field A01 Analyst Opinion - Property Caption</note>
         </trans-unit>
+        <trans-unit id="TableExtension 1143019865 - Field 628161710 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1192395785">
+          <source>Archived</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension A01 Sales Header - Field A01 Archive - Property Caption</note>
+        </trans-unit>
         <trans-unit id="TableExtension 1143019865 - Field 732484250 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1192395785">
           <source>Collection Comments</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -18552,6 +18577,11 @@
           <source>General Comment</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension A01 Sales Header - Field A01 General Comment - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 1143019865 - Field 4272848865 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1192395785">
+          <source>HO Receipt Date</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension A01 Sales Header - Field A01 HO Receipt Date - Property Caption</note>
         </trans-unit>
         <trans-unit id="TableExtension 1143019865 - Field 3445085256 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1192395785">
           <source>Interest rate %</source>
@@ -18703,6 +18733,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension A01 Sales Header Archive - Field A01 Analyst Opinion - Property Caption</note>
         </trans-unit>
+        <trans-unit id="TableExtension 2954665223 - Field 628161710 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1948788855">
+          <source>Archived</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension A01 Sales Header Archive - Field A01 Archive - Property Caption</note>
+        </trans-unit>
         <trans-unit id="TableExtension 2954665223 - Field 732484250 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1948788855">
           <source>Collection Comments</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -18742,6 +18777,11 @@
           <source>General Comment</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension A01 Sales Header Archive - Field A01 General Comment - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 2954665223 - Field 4272848865 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1948788855">
+          <source>HO Receipt Date</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension A01 Sales Header Archive - Field A01 HO Receipt Date - Property Caption</note>
         </trans-unit>
         <trans-unit id="TableExtension 2954665223 - Field 3445085256 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1948788855">
           <source>Interest rate %</source>
@@ -18893,6 +18933,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension A01 Sales Invoice Header - Field A01 Analyst Opinion - Property Caption</note>
         </trans-unit>
+        <trans-unit id="TableExtension 1507475930 - Field 628161710 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 809936682">
+          <source>Archived</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension A01 Sales Invoice Header - Field A01 Archive - Property Caption</note>
+        </trans-unit>
         <trans-unit id="TableExtension 1507475930 - Field 732484250 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 809936682">
           <source>Collection Comments</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -18932,6 +18977,11 @@
           <source>General Comment</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension A01 Sales Invoice Header - Field A01 General Comment - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 1507475930 - Field 4272848865 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 809936682">
+          <source>HO Receipt Date</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension A01 Sales Invoice Header - Field A01 HO Receipt Date - Property Caption</note>
         </trans-unit>
         <trans-unit id="TableExtension 1507475930 - Field 3445085256 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 809936682">
           <source>Interest rate %</source>
@@ -19242,6 +19292,11 @@
           <source>Can Close Sales Order</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension A01 User Setup - Field A01 Can Close Sales Order - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 4102593426 - Field 964934485 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 337631938">
+          <source>Can modify sales prices</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension A01 User Setup - Field A01 Can Set Sales Price - Property Caption</note>
         </trans-unit>
         <trans-unit id="TableExtension 4102593426 - Field 190063116 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 337631938">
           <source>Can update Sales Order after validation</source>
@@ -20522,6 +20577,11 @@
           <source>Alphanumeric</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Enum A01 Scoring Criteria Type - EnumValue Alphanumeric - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 3042637802 - EnumValue 3192175264 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Date</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum A01 Scoring Criteria Type - EnumValue Date - Property Caption</note>
         </trans-unit>
         <trans-unit id="Enum 3042637802 - EnumValue 1606682606 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>List</source>
