@@ -4,6 +4,7 @@ page 50106 "A01 Transport Order"
     Caption = 'Transport Order';
     PageType = Document;
     SourceTable = "A01 Transport Order";
+    UsageCategory = Documents;
 
     layout
     {

@@ -540,6 +540,11 @@ codeunit 50022 A01WSSAVMgt
             if (TransportOrderDetail."Order Type".AsInteger() <> WS.GetInt(jsonkey, input)) then
                 TransportOrderDetail.Validate("Order Type", WS.GetInt(jsonkey, input));
 
+        jsonkey := 'Service Zone';
+        if (WS.KeyExists(jsonkey, input)) then
+            if (TransportOrderDetail."Service Zone" <> WS.GetText(jsonkey, input)) then
+                TransportOrderDetail.Validate("Service Zone", WS.GetText(jsonkey, input));
+
     end;
 
     local procedure ProcessServiceRequest(var ServiceRequest: Record "A01 Service Request"; input: JsonObject)

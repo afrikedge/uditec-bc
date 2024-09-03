@@ -249,10 +249,12 @@ table 50054 "A01 Transport Order"
                     if (OrderType = TransportOrderDetail."Order Type"::"Sales Order") then begin
                         SalesLine.get(SalesLine."Document Type"::Order, TransportOrderDetail."Order No.", TransportOrderDetail."Order Line No.");
                         SalesLine.Validate("Qty. to Ship", TransportOrderDetail."Quantity (Planned)");
+                        SalesLine.Modify();
                     end;
                     if (OrderType = TransportOrderDetail."Order Type"::Transfer) then begin
                         TransferLine.get(TransportOrderDetail."Order No.", TransportOrderDetail."Order Line No.");
                         TransferLine.Validate("Qty. to Ship", TransportOrderDetail."Quantity (Planned)");
+                        TransferLine.Modify();
                     end;
 
                 end;
@@ -472,6 +474,7 @@ table 50054 "A01 Transport Order"
             SalesReturnLine."Document Type" := SalesReturn."Document Type";
             SalesReturnLine."Document No." := SalesReturn."No.";
             SalesReturnLine."Line No." := LineNo;
+            SalesReturnLine.Type := SalesReturnLine.Type::Item;
             SalesReturnLine.Validate("No.", TransportOrderDetail."Item No.");
             SalesReturnLine.Validate(Quantity, TransportOrderDetail."Quantity (Planned)");
             SalesReturnLine.Validate("Unit of Measure Code", TransportOrderDetail."Unit of Mesure Code");

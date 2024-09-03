@@ -104,7 +104,11 @@ table 50055 "A01 Transport Order Detail"
         {
             Caption = 'Order Type';
         }
-
+        field(23; "Service Zone"; Code[10])
+        {
+            Caption = 'Order Type';
+            TableRelation = "Service Zone";
+        }
     }
     keys
     {

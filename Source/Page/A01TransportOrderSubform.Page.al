@@ -68,7 +68,12 @@ page 50105 "A01 Transport Order Subform"
                 field("Return Status"; Rec."Return Status")
                 {
                 }
-
+                field("Service Zone"; Rec."Service Zone")
+                {
+                }
+                field("Order Type"; Rec."Order Type")
+                {
+                }
             }
         }
     }
