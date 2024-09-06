@@ -726,8 +726,9 @@ codeunit 50007 "A01 Treso Mgt"
         DeferredDateFormula := StrSubstNo(lblFormula, SalesHeader."A01 Deferred month");
         LineDueDate := CalcDate(DeferredDateFormula, SalesHeader."Due Date");
         if (AddOnSetup."Set Due Date with Prepayment") then
-            if (SalesHeader."Prepayment %" = 0) then
-                LineDueDate := SalesHeader."Posting Date";
+            if (IsMirindraOrder(SalesHeader)) then
+                if (SalesHeader."Prepayment %" = 0) then
+                    LineDueDate := SalesHeader."Posting Date";
 
         i := 1;
         TotalLineAmtInclVAT := 0;
@@ -1051,6 +1052,7 @@ codeunit 50007 "A01 Treso Mgt"
         exit(true);
     end;
 
+
     local procedure IsPOSDocumentPayment(SalesHeader: Record "Sales Header"; SalesPaymentLine: Record "A01 Sales Payment Method"): Boolean
     var
         RCPaymentMethod: Record "A01 RC Payment Method";
@@ -1088,7 +1090,13 @@ codeunit 50007 "A01 Treso Mgt"
         if (SalesHeader."Amount Including VAT" <> TotalPayment) then
             //if (not confirm(LabelPayAmt)) then
                 error(LabelPayAmt, TotalPayment, SalesHeader."Amount Including VAT");
+    end;
 
+    local procedure IsMirindraOrder(SalesHeader: record "Sales Header"): Boolean
+    var
+    begin
+        AddOnSetup.GetRecordOnce();
+        exit(SalesHeader."A01 Sales Mode" = AddOnSetup."MIR Sales Mode");
     end;
 
 

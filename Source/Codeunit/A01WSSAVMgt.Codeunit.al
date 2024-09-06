@@ -485,27 +485,27 @@ codeunit 50022 A01WSSAVMgt
             if (TransportOrderDetail."Unloading Duration" <> WS.GetDecimal(jsonkey, input)) then
                 TransportOrderDetail.Validate("Unloading Duration", WS.GetDecimal(jsonkey, input));
 
-        jsonkey := 'Total Volume(cbm)';
+        jsonkey := 'Total Volume (cbm)';
         if (WS.KeyExists(jsonkey, input)) then
             if (TransportOrderDetail."Total Volume (cbm)" <> WS.GetDecimal(jsonkey, input)) then
                 TransportOrderDetail.Validate("Total Volume (cbm)", WS.GetDecimal(jsonkey, input));
 
-        jsonkey := 'Total Weight(Kg)';
+        jsonkey := 'Total Weight (Kg)';
         if (WS.KeyExists(jsonkey, input)) then
             if (TransportOrderDetail."Total Weight (Kg)" <> WS.GetDecimal(jsonkey, input)) then
                 TransportOrderDetail.Validate("Total Weight (Kg)", WS.GetDecimal(jsonkey, input));
 
-        jsonkey := 'Total Weight(Kg)';
+        jsonkey := 'Total Weight (Kg)';
         if (WS.KeyExists(jsonkey, input)) then
             if (TransportOrderDetail."Total Weight (Kg)" <> WS.GetDecimal(jsonkey, input)) then
                 TransportOrderDetail.Validate("Total Weight (Kg)", WS.GetDecimal(jsonkey, input));
 
-        jsonkey := 'Quantity(Actual)';
+        jsonkey := 'Quantity (Actual)';
         if (WS.KeyExists(jsonkey, input)) then
             if (TransportOrderDetail."Quantity (Actual)" <> WS.GetDecimal(jsonkey, input)) then
                 TransportOrderDetail.Validate("Quantity (Actual)", WS.GetDecimal(jsonkey, input));
 
-        jsonkey := 'Quantity(Gap)';
+        jsonkey := 'Quantity (Gap)';
         if (WS.KeyExists(jsonkey, input)) then
             if (TransportOrderDetail."Quantity (Gap)" <> WS.GetDecimal(jsonkey, input)) then
                 TransportOrderDetail.Validate("Quantity (Gap)", WS.GetDecimal(jsonkey, input));
