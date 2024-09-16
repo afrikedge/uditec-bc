@@ -155,6 +155,24 @@ report 50005 "A01 TransferOrderPrint"
             column(ShippedQtyLbl; ShippedQtyLbl)
             {
             }
+            column(LogoOption; OptionValue)
+            {
+            }
+            column(RespCenterUditec; RespCenterUditec."A01 Logo")
+            {
+            }
+            column(OptionType; OptionType)
+            {
+            }
+            column(LocationCodeLbl; LocationCodeLbl)
+            {
+            }
+            column(CustomerCodeLbl; CustomerCodeLbl)
+            {
+            }
+            column(CustomerAddressLbl; CustomerAddressLbl)
+            {
+            }
             dataitem(Line; "Transfer Shipment Line")
             {
                 DataItemLinkReference = Header;
@@ -187,7 +205,49 @@ report 50005 "A01 TransferOrderPrint"
                 //     {
                 //     }
                 // }
+                dataitem(Bin; Bin)
+                {
+                    DataItemLinkReference = Line;
+                    DataItemLink = "Location Code" = field("Transfer-to Code");
+                    DataItemTableView = sorting(Code) where(Description = const('S2M ANKORONDRANO'));
+                    column(Code; Code)
+                    {
+                    }
+                    column(Location_Code; "Location Code")
+                    {
+                    }
+                    dataitem(Customer; Customer)
+                    {
+                        DataItemLinkReference = Bin;
+                        DataItemLink = "No." = field(Code);
+                        DataItemTableView = sorting("No.");
+                        column(No_; "No.")
+                        {
+                        }
+                        column(Address; Address)
+                        {
+                        }
+                    }
+                }
+                trigger OnAfterGetRecord()
+                begin
+                    if Quantity = 0 then
+                        CurrReport.Skip();
+
+                    if "Transfer-from Code" = '' then
+                        if Quantity = 0 then
+                            CurrReport.Skip();
+
+                end;
             }
+
+            trigger OnAfterGetRecord()
+            begin
+                if OptionValue = OptionValue::LogoCosmos then
+                    OptionType := 1
+                else
+                    OptionType := 0;
+            end;
         }
 
     }
@@ -196,6 +256,19 @@ report 50005 "A01 TransferOrderPrint"
     {
         layout
         {
+            area(Content)
+            {
+                group(groupName)
+                {
+                    Caption = 'Option';
+                    field(OptionVal; OptionValue)
+                    {
+                        Caption = 'Logo';
+                        OptionCaption = 'Cosmos, Uditec';
+                        ApplicationArea = Basic, Suite;
+                    }
+                }
+            }
         }
 
         actions
@@ -207,10 +280,14 @@ report 50005 "A01 TransferOrderPrint"
     begin
         CompanyInfo.Get();
         CompanyInfo.CalcFields(Picture);
+        RespCenterUditec.Get('UDT');
     end;
 
     var
         CompanyInfo: Record "Company Information";
+        RespCenterUditec: Record "Responsibility Center";
+        OptionValue: Option LogoCosmos,LogoUditec;
+        OptionType: Integer;
         UnitName: Text[100];
         UnitAddress: Text[100];
         UnitCity: Text[50];
@@ -239,5 +316,8 @@ report 50005 "A01 TransferOrderPrint"
         SignLbl: Label 'Signature';
         DateSignLbl: Label 'Date';
         HourSignLbl: Label 'Hour';
+        LocationCodeLbl: Label 'Location code :';
+        CustomerCodeLbl: Label 'Customer code :';
+        CustomerAddressLbl: Label 'Customer address:';
 
 }

@@ -24,12 +24,12 @@ table 50051 "A01 Route"
         field(5; "Departure Zone"; Code[20])
         {
             Caption = 'Departure Zone';
-            TableRelation = Zone;
+            TableRelation = "Service Zone";
         }
         field(6; "Arrival Zone"; Code[20])
         {
             Caption = 'Arrival Zone';
-            TableRelation = Zone;
+            TableRelation = "Service Zone";
         }
         field(7; "Total Distance(Km)"; Decimal)
         {

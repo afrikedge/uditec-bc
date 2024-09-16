@@ -509,7 +509,7 @@ report 50034 "A01 DeliveryNoteInvoiceTxt"
         LineDiscountText: Text[50];
         A01DiscountedPriceText: Text[50];
         NoText: array[2] of Text;
-        TVA2: Decimal;
+        //TVA2: Decimal;
         Total_LCYText: Text[50];
         TVA_LCYText: Text[50];
         TotalTTC_LCYText: Text[50];

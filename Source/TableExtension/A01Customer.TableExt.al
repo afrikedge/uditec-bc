@@ -3,6 +3,7 @@
 /// </summary>
 tableextension 50006 "A01 Customer" extends Customer
 {
+
     fields
     {
         field(50000; "A01 Customer Type"; Enum "A01 Customer Type")
@@ -104,7 +105,7 @@ tableextension 50006 "A01 Customer" extends Customer
             Caption = 'Employee Number';
             DataClassification = CustomerContent;
         }
-        field(50018; "A01 Employee Function"; Code[50])
+        field(50018; "A01 Employee Function"; Code[100])
         {
             Caption = 'Employee Function';
             DataClassification = CustomerContent;
@@ -132,6 +133,11 @@ tableextension 50006 "A01 Customer" extends Customer
         field(50023; "A01 General Comment"; Text[300])
         {
             Caption = 'General Comments';
+            DataClassification = CustomerContent;
+        }
+        field(50024; "A01 Gender"; enum A01Gender)
+        {
+            Caption = 'Gender';
             DataClassification = CustomerContent;
         }
 
@@ -219,7 +225,7 @@ tableextension 50006 "A01 Customer" extends Customer
             "Credit Limit (LCY)" := 1;
     end;
 
-    procedure CalcCustStatus(): Code[20]
+    procedure A01CalcCustStatus(): Code[20]
     var
         //Cust: Record Customer;
         CustDebtStatus: Record "A01 Customer Debt Status";
@@ -277,6 +283,7 @@ tableextension 50006 "A01 Customer" extends Customer
         if (CustDebtStatus.FindFirst()) then
             exit(CustDebtStatus.Code);
     end;
+
 
     local procedure DocumentFountInCreditDueLine(var MaxDueDays: integer; var RiskOfMaxDueDate: Code[20]): Boolean
     var

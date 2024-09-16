@@ -4,7 +4,7 @@ page 50105 "A01 Transport Order Subform"
     Caption = 'Transport Order Subform';
     PageType = ListPart;
     SourceTable = "A01 Transport Order Detail";
-    
+
     layout
     {
         area(Content)
@@ -60,6 +60,18 @@ page 50105 "A01 Transport Order Subform"
                 {
                 }
                 field("Anomaly Description"; Rec."Anomaly Description")
+                {
+                }
+                field("Location Code"; Rec."Location Code")
+                {
+                }
+                field("Return Status"; Rec."Return Status")
+                {
+                }
+                field("Service Zone"; Rec."Service Zone")
+                {
+                }
+                field("Order Type"; Rec."Order Type")
                 {
                 }
             }

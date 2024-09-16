@@ -84,7 +84,11 @@ pageextension 50005 "A01 Contact Card" extends "Contact Card"
             {
                 ApplicationArea = Basic, Suite;
             }
-            field("A01 Credit Limit"; Rec."A01 Credit Limit")
+            field("A01 Gender"; Rec."A01 Gender")
+            {
+                ApplicationArea = Basic, Suite;
+            }
+            field("A01 Relationship"; Rec."A01 Relationship")
             {
                 ApplicationArea = Basic, Suite;
             }

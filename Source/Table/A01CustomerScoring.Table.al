@@ -73,7 +73,7 @@ table 50015 "A01 Customer Scoring"
         {
             Caption = 'Score';
         }
-        field(12; DocumentLink; Text[100])
+        field(12; DocumentLink; Text[200])
         {
             Caption = 'Document link';
         }

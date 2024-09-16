@@ -2,6 +2,10 @@ pageextension 50017 "A01 Sales Quote" extends "Sales Quote"
 {
     layout
     {
+        modify("External Document No.")
+        {
+            Visible = true;
+        }
         addafter("Sell-to Customer No.")
         {
             field("A01 Miscellaneous Contact"; Rec."A01 Miscellaneous Contact")
@@ -55,6 +59,7 @@ pageextension 50017 "A01 Sales Quote" extends "Sales Quote"
                 {
                     ApplicationArea = Basic, Suite;
                 }
+
             }
         }
     }

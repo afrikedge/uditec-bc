@@ -138,6 +138,10 @@ table 50016 "A01 Credit Depreciation Table"
         {
 
         }
+        key(PK3; "Cust Ledger Entry No.")
+        {
+
+        }
     }
 
     procedure GetDueDays(): integer

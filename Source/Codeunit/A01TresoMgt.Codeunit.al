@@ -307,7 +307,7 @@ codeunit 50007 "A01 Treso Mgt"
     end;
 
     procedure CreateNewPaymentDocFromCustomerSettlement(CustSettlement: Record "A01 Payment Document";
-    CustSettlementLine: Record "A01 Payment Document Line")
+    CustSettlementLine: Record "A01 Payment Document Line"): Boolean
     var
         //PaymentCCConfig: Record "A01 Payment Type Configuration";
         PaymentClass: Record "Payment Class";
@@ -396,6 +396,8 @@ codeunit 50007 "A01 Treso Mgt"
         PaymentLine."Dimension Set ID" := CustSettlement."Dimension Set ID";
         PaymentLine.Modify();
 
+        exit(true);
+
     end;
 
     local procedure PostBalancingEntry(SalesHeader: Record "Sales Header";
@@ -464,7 +466,7 @@ codeunit 50007 "A01 Treso Mgt"
 
     procedure PostCustSettlementLine(CustSettlement: Record "A01 Payment Document";
         CustSettlementLine: Record "A01 Payment Document Line";
-        var GenJnlPostLine: Codeunit "Gen. Jnl.-Post Line"; ApplyToNo: Code[20]; ApplyType: integer)
+        var GenJnlPostLine: Codeunit "Gen. Jnl.-Post Line"; ApplyToNo: Code[20]; ApplyType: integer): Boolean
     var
         //CustLedgEntry: Record "Cust. Ledger Entry";
         GenJnlLine: Record "Gen. Journal Line";
@@ -477,6 +479,7 @@ codeunit 50007 "A01 Treso Mgt"
         //if not EntryFound then
         //    FindCustLedgEntry(DocType, DocNo, CustLedgEntry);
         SourceCodeSetup.Get();
+        AddOnSetup.GetRecordOnce();
 
         if not RCPaymentMethod.get(CustSettlement."Responsibility Center", CustSettlementLine."Payment Method") then
             exit;
@@ -500,6 +503,9 @@ codeunit 50007 "A01 Treso Mgt"
 
         GenJnlLine.SetSuppressCommit(true);
         GenJnlLine.CopyDocumentFields(Enum::"Gen. Journal Document Type"::Payment, CustSettlement."Posting No.", CustSettlement."External Document No.", SourceCodeSetup."Payment Journal", '');
+
+
+
         GenJnlLine."Account Type" := GenJnlLine."Account Type"::Customer;
         GenJnlLine."Account No." := CustSettlement."Partner No.";
 
@@ -510,6 +516,8 @@ codeunit 50007 "A01 Treso Mgt"
         //     GenJnlLine."Document Type" := GenJnlLine."Document Type"::Refund
         // else
         GenJnlLine."Document Type" := GenJnlLine."Document Type"::Payment;
+        if (RCPaymentMethod."Payment Method" = AddOnSetup."Rebate Payment Method") then
+            GenJnlLine."Document Type" := GenJnlLine."Document Type"::"Credit Memo";
         GenJnlLine."Payment Method Code" := CustSettlementLine."Payment Method";
         GenJnlLine."Payment Reference" := CustSettlementLine.Reference;
 
@@ -524,6 +532,8 @@ codeunit 50007 "A01 Treso Mgt"
         //         SalesHeader.GetUseDate(), SalesHeader."Currency Code", TotalSalesLine2."Pmt. Discount Amount", SalesHeader."Currency Factor");
 
         GenJnlPostLine.RunWithCheck(GenJnlLine);
+
+        exit(true);
 
     end;
 
@@ -653,16 +663,32 @@ codeunit 50007 "A01 Treso Mgt"
     //     CustLedgEntry.SetRange("Document No.", DocNo);
     //     CustLedgEntry.FindLast();
     // end;
+    // procedure IsMultiMeadlinesInvoice(SalesHeader: Record "Sales Header"): Boolean
+    // var
+    //     PaymentCond: Record "Payment Terms";
+    // begin
+    //     if (not PaymentCond.Get(SalesHeader."Payment Terms Code")) then
+    //         exit(false);
+    //     if (not PaymentCond."A01 Multi-deadlines") then
+    //         exit(false);
+    //     // if (SalesHeader."A01 Credit Duration (Month)" <= 0) then
+    //     //     exit(false);
+    //     exit(true);
+    // end;
     procedure IsMultiMeadlinesInvoice(SalesHeader: Record "Sales Header"): Boolean
+    var
+    begin
+        exit(IsMultiMeadlinesInvoice(SalesHeader."Payment Terms Code"));
+    end;
+
+    procedure IsMultiMeadlinesInvoice(PaymentTermsCode: Code[20]): Boolean
     var
         PaymentCond: Record "Payment Terms";
     begin
-        if (not PaymentCond.Get(SalesHeader."Payment Terms Code")) then
+        if (not PaymentCond.Get(PaymentTermsCode)) then
             exit(false);
         if (not PaymentCond."A01 Multi-deadlines") then
             exit(false);
-        // if (SalesHeader."A01 Credit Duration (Month)" <= 0) then
-        //     exit(false);
         exit(true);
     end;
 
@@ -683,8 +709,11 @@ codeunit 50007 "A01 Treso Mgt"
         CreditDueLine: Record "A01 Credit Depreciation Table";
         i: Integer;
         LineDueDate: Date;
+        DeferredDateFormula: Text;
+        lblFormula: label '<%1M>', comment = '%1=months';
 
     begin
+        AddOnSetup.GetRecordOnce();
         if (not IsMultiMeadlinesInvoice(SalesHeader)) then
             exit;
 
@@ -694,7 +723,12 @@ codeunit 50007 "A01 Treso Mgt"
 
         CheckCreditDueLines(SalesHeader);
 
-        LineDueDate := SalesHeader."Due Date";
+        DeferredDateFormula := StrSubstNo(lblFormula, SalesHeader."A01 Deferred month");
+        LineDueDate := CalcDate(DeferredDateFormula, SalesHeader."Due Date");
+        if (AddOnSetup."Set Due Date with Prepayment") then
+            if (IsMirindraOrder(SalesHeader)) then
+                if (SalesHeader."Prepayment %" = 0) then
+                    LineDueDate := SalesHeader."Posting Date";
 
         i := 1;
         TotalLineAmtInclVAT := 0;
@@ -1018,6 +1052,7 @@ codeunit 50007 "A01 Treso Mgt"
         exit(true);
     end;
 
+
     local procedure IsPOSDocumentPayment(SalesHeader: Record "Sales Header"; SalesPaymentLine: Record "A01 Sales Payment Method"): Boolean
     var
         RCPaymentMethod: Record "A01 RC Payment Method";
@@ -1055,7 +1090,13 @@ codeunit 50007 "A01 Treso Mgt"
         if (SalesHeader."Amount Including VAT" <> TotalPayment) then
             //if (not confirm(LabelPayAmt)) then
                 error(LabelPayAmt, TotalPayment, SalesHeader."Amount Including VAT");
+    end;
 
+    local procedure IsMirindraOrder(SalesHeader: record "Sales Header"): Boolean
+    var
+    begin
+        AddOnSetup.GetRecordOnce();
+        exit(SalesHeader."A01 Sales Mode" = AddOnSetup."MIR Sales Mode");
     end;
 
 

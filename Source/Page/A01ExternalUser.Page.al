@@ -26,6 +26,9 @@ page 50022 "A01 External User"
                 field(Email; Rec.Email)
                 {
                 }
+                field("Phone No."; Rec."Phone No.")
+                {
+                }
                 field(Active; Rec.Active)
                 {
                 }

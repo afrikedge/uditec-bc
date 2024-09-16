@@ -29,7 +29,7 @@ table 50058 "A01 SR Spare Part"
         {
             Caption = 'Quantity';
         }
-        field(7; "Usage Status"; Enum "A01 Access Plan Type")
+        field(7; "Usage Status"; Enum "A01 Usage Status")
         {
             Caption = 'Usage Status';
         }
@@ -44,6 +44,16 @@ table 50058 "A01 SR Spare Part"
         field(10; "Spare Status"; enum "A01 SR Spare Status")
         {
             Caption = 'Status';
+        }
+        field(11; "Item Entry Doc No"; Code[20])
+        {
+            Caption = 'Item Entry Document No';
+            Editable = false;
+        }
+        field(12; "Item Entry Doc No Tmp"; Code[20])
+        {
+            Caption = 'Item Entry Document No';
+            Editable = false;
         }
 
     }

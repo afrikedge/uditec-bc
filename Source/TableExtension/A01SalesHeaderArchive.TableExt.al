@@ -68,7 +68,7 @@ tableextension 50002 "A01 Sales Header Archive" extends "Sales Header Archive"
             MinValue = 0;
             MaxValue = 100;
         }
-        field(50011; "A01 Analyst comments"; Text[200])
+        field(50011; "A01 Analyst comments"; Text[300])
         {
             Caption = 'Analyst comments';
             DataClassification = CustomerContent;
@@ -151,17 +151,17 @@ tableextension 50002 "A01 Sales Header Archive" extends "Sales Header Archive"
             Caption = 'Manager Opinion';
             DataClassification = CustomerContent;
         }
-        field(50026; "A01 Manager Comments"; Text[200])
+        field(50026; "A01 Manager Comments"; Text[300])
         {
             Caption = 'Manager Comments';
             DataClassification = CustomerContent;
         }
-        field(50027; "A01 Collection Comments"; Text[200])
+        field(50027; "A01 Collection Comments"; Text[300])
         {
             Caption = 'Collection Comments';
             DataClassification = CustomerContent;
         }
-        field(50028; "A01 Investigator Comments"; Text[200])
+        field(50028; "A01 Investigator Comments"; Text[300])
         {
             Caption = 'Collection Comments';
             DataClassification = CustomerContent;
@@ -196,9 +196,29 @@ tableextension 50002 "A01 Sales Header Archive" extends "Sales Header Archive"
             Caption = 'Recommended Deposit (%)';
             DataClassification = CustomerContent;
         }
-        field(50035; "A01 General Comment"; Text[250])
+        field(50035; "A01 General Comment"; Text[300])
         {
             Caption = 'General Comment';
+            DataClassification = CustomerContent;
+        }
+        field(50036; "A01 Other Conditions"; Text[300])
+        {
+            Caption = 'Other Conditions';
+            DataClassification = CustomerContent;
+        }
+        field(50037; "A01 Deferred month"; Integer)
+        {
+            Caption = 'Credit Deferred (Months)';
+            DataClassification = CustomerContent;
+        }
+        field(50038; "A01 HO Receipt Date"; Date)
+        {
+            Caption = 'HO Receipt Date';
+            DataClassification = CustomerContent;
+        }
+        field(50039; "A01 Archive"; Boolean)
+        {
+            Caption = 'Archived';
             DataClassification = CustomerContent;
         }
     }

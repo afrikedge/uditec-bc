@@ -69,7 +69,7 @@ codeunit 50013 "A01 Customer Settlement Post"
         IsHandled: Boolean;
     begin
 
-        AfkSetup.Get();
+        AfkSetup.GetRecordOnce();
 
         IsHandled := false;
         OnBeforeCode(CustomerSettlement, IsHandled);
@@ -169,6 +169,10 @@ codeunit 50013 "A01 Customer Settlement Post"
         IsHandled: Boolean;
         ApplyToDocType: Integer;
         ApplyToDocNo: code[20];
+        PaymentPosted_Bordereau: Boolean;
+        PaymentPosted_Journal: Boolean;
+        PaymentPosted: Boolean;
+        Err01: Label 'No payment transaction has been created for this document';
     begin
 
         OnBeforeCreateJournalLines(CustSettlement, GenJnlPostLine, IsHandled);
@@ -187,12 +191,20 @@ codeunit 50013 "A01 Customer Settlement Post"
         SettlementLine.SetRange("Document No.", CustSettlement."No.");
         if SettlementLine.FindSet() then
             repeat
-                TresoMgt.CreateNewPaymentDocFromCustomerSettlement(CustSettlement, SettlementLine);
-                TresoMgt.PostCustSettlementLine(CustSettlement, SettlementLine, GenJnlPostLine, ApplyToDocNo, ApplyToDocType);
+                PaymentPosted_Bordereau := TresoMgt.CreateNewPaymentDocFromCustomerSettlement(CustSettlement, SettlementLine);
+                PaymentPosted_Journal := TresoMgt.PostCustSettlementLine(CustSettlement, SettlementLine, GenJnlPostLine, ApplyToDocNo, ApplyToDocType);
+
+                if (PaymentPosted_Bordereau or PaymentPosted_Journal) then
+                    PaymentPosted := true;
 
             until SettlementLine.Next() < 1;
 
+        if (not PaymentPosted) then
+            Error(Err01);
 
+        //Update future interets lines for Rebate
+        if (IsRebasePayment(CustSettlement)) then
+            UpdateFutureInterestLines(CustSettlement);
     end;
 
     local procedure InsertPostedLine(PostedCommSetttleHeader: Record "A01 Posted Payment Document"; CommSettleLine: Record "A01 Payment Document Line")
@@ -251,6 +263,9 @@ codeunit 50013 "A01 Customer Settlement Post"
         CustSettlement.CalcFields("Validated Amount");
         CustSettlement.TestField("Validated Amount");
 
+        if (IsRebasePayment(CustSettlement)) then
+            CheckAmountForRebate(CustSettlement);
+
     end;
 
     local procedure LockTables(var CustSettlement: Record "A01 Payment Document"; var SettlementLine: Record "A01 Payment Document Line")
@@ -302,6 +317,98 @@ codeunit 50013 "A01 Customer Settlement Post"
 
 
     // end;
+    procedure CalcValuesForRebate(var CustSettlement: Record "A01 Payment Document")
+    var
+    begin
+        if (not IsRebasePayment(CustSettlement)) then
+            exit;
+        CustSettlement.TestField(CustSettlement."External Document No.");
+        CustSettlement."Abandon Interets" := GetAbandonInterets(CustSettlement."External Document No.");
+        CustSettlement."Rebate Balance" := GetBalance(CustSettlement."External Document No.") - CustSettlement."Abandon Interets";
+        CustSettlement.Modify();
+    end;
+
+    local procedure CheckAmountForRebate(CustSettlement: Record "A01 Payment Document")
+    var
+        CustSettlementLine1: Record "A01 Payment Document Line";
+        RebateInteretsPayment: decimal;
+        RebateOthersPayment: decimal;
+        ErrLbl01: Label 'The amount of interest in lines does not match the remainder to be abandoned';
+        ErrLbl02: Label 'The amount to be paid in lines does not match the remainder amount';
+    begin
+        AfkSetup.GetRecordOnce();
+        AfkSetup.TestField("Rebate Payment Method");
+
+        CustSettlementLine1.SetRange("Document No.", CustSettlement."No.");
+        if CustSettlementLine1.FindSet() then
+            repeat
+                if (CustSettlementLine1."Payment Method" = AfkSetup."Rebate Payment Method") then
+                    RebateInteretsPayment += CustSettlementLine1."Validated Amount"
+                else
+                    RebateOthersPayment += CustSettlementLine1."Validated Amount";
+            until CustSettlementLine1.Next() < 1;
+
+        if ((RebateInteretsPayment <> CustSettlement."Abandon Interets") or (CustSettlement."Abandon Interets" = 0)) then
+            Error(ErrLbl01);
+
+        if (RebateOthersPayment < CustSettlement."Rebate Balance") then
+            Error(ErrLbl02);
+    end;
+
+    local procedure UpdateFutureInterestLines(CustSettlement: Record "A01 Payment Document")
+    var
+        CreditAmortLine: Record "A01 Credit Depreciation Table";
+    begin
+        CreditAmortLine.Reset();
+        CreditAmortLine.SetRange("Document Type", CreditAmortLine."Document Type"::"Posted Sales invoice");
+        CreditAmortLine.SetRange("Document No.", CustSettlement."External Document No.");
+        if CreditAmortLine.FindSet(true) then
+            repeat
+                if (CreditAmortLine."Due Date" >= Today) then begin
+                    CreditAmortLine."Interest Posted" := true;
+                    CreditAmortLine.Modify();
+                end;
+            until CreditAmortLine.Next() < 1;
+    end;
+
+    local procedure GetAbandonInterets(InvoiceNo: Code[35]): decimal
+    var
+        CreditAmortLine: Record "A01 Credit Depreciation Table";
+    begin
+        CreditAmortLine.Reset();
+        CreditAmortLine.SetRange("Document Type", CreditAmortLine."Document Type"::"Posted Sales invoice");
+        CreditAmortLine.SetRange("Document No.", InvoiceNo);
+        if CreditAmortLine.FindSet() then
+            repeat
+                if (CreditAmortLine."Due Date" >= Today) then
+                    exit(CreditAmortLine."Abandoned interests");
+            until CreditAmortLine.Next() < 1;
+    end;
+
+    local procedure GetBalance(InvoiceNo: Code[35]): decimal
+    var
+        //CreditAmortLine: Record "A01 Credit Depreciation Table";
+        CustLedgerEntry: record "Cust. Ledger Entry";
+        Balance: Decimal;
+    begin
+        // CreditAmortLine.Reset();
+        // CreditAmortLine.SetRange("Document Type", CreditAmortLine."Document Type"::"Posted Sales invoice");
+        // CreditAmortLine.SetRange("Document No.", InvoiceNo);
+        // if CreditAmortLine.FindSet() then
+        //     repeat
+        //         Balance += CreditAmortLine."Amount to pay" - CreditAmortLine."Paid Amount";
+        //     until CreditAmortLine.Next() < 1;
+
+        CustLedgerEntry.SetCurrentKey("External Document No.");
+        CustLedgerEntry.SetRange("External Document No.", InvoiceNo);
+        CustLedgerEntry.SetAutoCalcFields("Remaining Amt. (LCY)");
+        if CustLedgerEntry.FindSet() then
+            repeat
+                Balance += CustLedgerEntry."Remaining Amt. (LCY)";
+            until CustLedgerEntry.Next() < 1;
+
+        exit(Balance);
+    end;
 
     local procedure ConfirmPosting(var CustSettlement: Record "A01 Payment Document") Result: Boolean
     var
@@ -313,6 +420,17 @@ codeunit 50013 "A01 Customer Settlement Post"
             exit(Result);
         Result := Confirm(LblPostSettlementYesNo, false);
 
+    end;
+
+    local procedure IsRebasePayment(CustSettlement: Record "A01 Payment Document"): Boolean
+    var
+        CustSettlementLine1: Record "A01 Payment Document Line";
+    begin
+        AfkSetup.GetRecordOnce();
+        CustSettlementLine1.Reset();
+        CustSettlementLine1.SetRange("Document No.", CustSettlement."No.");
+        CustSettlementLine1.SetRange("Payment Method", AfkSetup."Rebate Payment Method");
+        exit(not CustSettlementLine1.IsEmpty());
     end;
 
     local procedure InsertPostedLines()

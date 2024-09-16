@@ -17,7 +17,7 @@ table 50057 "A01 SR Item Movement"
         {
             Caption = 'Movement Date';
         }
-        field(4; "Movement Type"; Enum "A01 Access Plan Type")
+        field(4; "Movement Type"; Enum "A01 ItemMovementType")
         {
             Caption = 'Movement Type';
         }

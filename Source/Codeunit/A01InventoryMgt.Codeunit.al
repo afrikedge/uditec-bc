@@ -144,4 +144,187 @@ codeunit 50020 "A01 Inventory Mgt"
         Commit();
     end;
 
+    procedure CreateItemAdjustmentEntry_ServiceRequest(ServiceRequest: record "A01 Service Request")
+    var
+        ItemJnlLine: record "Item Journal Line";
+        SRSparePart: record "A01 SR Spare Part";
+        Item1: record Item;
+        ItemJnlPostLine: Codeunit "Item Jnl.-Post Line";
+        Text002: Label '%1 %2';
+        DefaultDimSource: List of [Dictionary of [Integer, Code[20]]];
+        NextDocNo: Code[20];
+    begin
+
+
+        AddOnSetup.GetRecordOnce();
+        AddOnSetup.TestField("Service Request Adj Nos");
+        AddOnSetup.TestField("SR Item Source Code");
+        ServiceRequest.TestField("Responsibility Center");
+
+        NextDocNo := NoSeriesMgt.GetNextNo(AddOnSetup."Service Request Adj Nos", Today, true);
+
+        SRSparePart.Reset();
+        SRSparePart.SetRange("Service Request No.", ServiceRequest."No.");
+        SRSparePart.SetRange("Spare Status", SRSparePart."Spare Status"::" ");
+        SRSparePart.SetRange("Usage Status", SRSparePart."Usage Status"::Used);
+        SRSparePart.SetFilter("Item No.", '<>%1', '');
+        SRSparePart.SetFilter("Item Entry Doc No", '=%1', '');
+        if SRSparePart.FindSet(true) then
+            repeat
+                ItemJnlLine.Init();
+                ItemJnlLine."Posting Date" := WorkDate();
+                ItemJnlLine."Document Date" := WorkDate();
+
+                ItemJnlLine."Document No." := NextDocNo;
+                ItemJnlLine."Entry Type" := ItemJnlLine."Entry Type"::"Negative Adjmt.";
+
+                ItemJnlLine."External Document No." := ServiceRequest."No.";
+
+                ItemJnlLine.VALIDATE("Item No.", SRSparePart."Item No.");
+                ItemJnlLine.Description := STRSUBSTNO(Text002, ServiceRequest.TableCaption(), ServiceRequest."No.");
+
+                ItemJnlLine.VALIDATE("Location Code", GetLocation(ServiceRequest));
+                ItemJnlLine.Validate("Bin Code", AddOnSetup."SR Workshop Bin Code");
+
+                ItemJnlLine.VALIDATE(Quantity, SRSparePart.Quantity);
+
+                ItemJnlLine.VALIDATE("Unit of Measure Code", SRSparePart."Unit of Measure Code");
+
+                ItemJnlLine."Source Code" := AddOnSetup."SR Item Source Code";
+                Item1.Get(SRSparePart."Item No.");
+                ItemJnlLine."Gen. Prod. Posting Group" := Item1."Gen. Prod. Posting Group";
+
+                DimMgt.AddDimSource(DefaultDimSource, Database::Item, SRSparePart."Item No.");
+                //DimMgt.AddDimSource(DefaultDimSource, Database::Customer, ServiceRequest."Customer No.");
+                DimMgt.AddDimSource(DefaultDimSource, Database::"Responsibility Center", ServiceRequest."Responsibility Center");
+                ItemJnlLine.CreateDim(DefaultDimSource);
+
+                if ItemJnlLine.Quantity <> 0 then begin
+                    ItemJnlPostLine.RunWithCheck(ItemJnlLine);
+                    // SRSparePart."Item Entry Doc No Tmp" := NextDocNo;
+                    // SRSparePart.Modify();
+                end;
+
+            until SRSparePart.Next() < 1;
+
+
+        SRSparePart.Reset();
+        SRSparePart.SetRange("Service Request No.", ServiceRequest."No.");
+        SRSparePart.SetRange("Spare Status", SRSparePart."Spare Status"::Defective);
+        SRSparePart.SetFilter("Item No.", '<>%1', '');
+        SRSparePart.SetFilter("Item Entry Doc No", '=%1', '');
+        if SRSparePart.FindSet(true) then
+            repeat
+                ItemJnlLine.Init();
+                ItemJnlLine."Posting Date" := WorkDate();
+                ItemJnlLine."Document Date" := WorkDate();
+
+                ItemJnlLine."Document No." := NextDocNo;
+                ItemJnlLine."Entry Type" := ItemJnlLine."Entry Type"::"Positive Adjmt.";
+
+                ItemJnlLine."External Document No." := ServiceRequest."No.";
+
+                ItemJnlLine.VALIDATE("Item No.", SRSparePart."Item No.");
+                ItemJnlLine.Description := STRSUBSTNO(Text002, ServiceRequest.TableCaption(), ServiceRequest."No.");
+
+                ItemJnlLine.VALIDATE("Location Code", GetLocation(ServiceRequest));
+                ItemJnlLine.Validate("Bin Code", AddOnSetup."SR Workshop Bin Code");
+                ItemJnlLine.VALIDATE(Quantity, SRSparePart.Quantity);
+
+                ItemJnlLine.VALIDATE("Unit of Measure Code", SRSparePart."Unit of Measure Code");
+
+                ItemJnlLine."Source Code" := AddOnSetup."SR Item Source Code";
+                Item1.Get(SRSparePart."Item No.");
+                ItemJnlLine."Gen. Prod. Posting Group" := Item1."Gen. Prod. Posting Group";
+
+                DimMgt.AddDimSource(DefaultDimSource, Database::Item, SRSparePart."Item No.");
+                DimMgt.AddDimSource(DefaultDimSource, Database::Customer, ServiceRequest."Customer No.");
+                //DimMgt.AddDimSource(DefaultDimSource, Database::Item, SRSparePart."Item No.");
+                ItemJnlLine.CreateDim(DefaultDimSource);
+
+                if ItemJnlLine.Quantity <> 0 then begin
+                    ItemJnlPostLine.RunWithCheck(ItemJnlLine);
+                    // SRSparePart."Item Entry Doc No Tmp" := NextDocNo;
+                    // SRSparePart.Modify();
+                end;
+            until SRSparePart.Next() < 1;
+
+
+
+        SRSparePart.Reset();
+        SRSparePart.SetRange("Service Request No.", ServiceRequest."No.");
+        SRSparePart.SetFilter("Item No.", '<>%1', '');
+        if SRSparePart.FindSet(true) then
+            repeat
+                if (SRSparePart."Spare Status" = SRSparePart."Spare Status"::Defective) then
+                    if (SRSparePart."Item Entry Doc No" = '') then begin
+                        SRSparePart."Item Entry Doc No" := NextDocNo;
+                        SRSparePart.Modify();
+                    end;
+
+                if (SRSparePart."Spare Status" = SRSparePart."Spare Status"::" ") then
+                    if (SRSparePart."Usage Status" = SRSparePart."Usage Status"::Used) then
+                        if (SRSparePart."Item Entry Doc No" = '') then begin
+                            SRSparePart."Item Entry Doc No" := NextDocNo;
+                            SRSparePart.Modify();
+                        end;
+            until SRSparePart.Next() < 1;
+    end;
+
+
+    procedure CreateSalesReturnOnServiceRequest(ServiceRequest: record "A01 Service Request")
+    var
+        SalesH: record "Sales header";
+        SalesL: record "Sales Line";
+        Item1: record Item;
+    begin
+        AddOnSetup.GetRecordOnce();
+        ServiceRequest.TestField("Responsibility Center");
+        ServiceRequest.TestField("Item No.");
+
+        SalesH.Init();
+        SalesH."Document Type" := SalesH."Document Type"::"Return Order";
+        SalesH."No." := '';
+        SalesH.Insert(true);
+
+        SalesH.Validate("Sell-to Customer No.", ServiceRequest."Customer No.");
+        SalesH.Validate("Sell-to Contact", ServiceRequest."Contact No.");
+        SalesH."External Document No." := ServiceRequest."No.";
+        SalesH.Validate("Responsibility Center", ServiceRequest."Responsibility Center");
+        SalesH.Validate("Posting Date", WorkDate());
+        SalesH.Modify();
+
+        Item1.Get(ServiceRequest."Item No.");
+
+
+        SalesL.Init();
+        SalesL."Document Type" := SalesL."Document Type"::"Return Order";
+        SalesL."Document No." := SalesH."No.";
+        SalesL."Line No." := 10000;
+        SalesL.Validate(Type, SalesL.Type::Item);
+        SalesL.Validate("No.", ServiceRequest."Item No.");
+        SalesL.VALIDATE("Location Code", GetLocation(ServiceRequest));
+        SalesL.Validate("Bin Code", AddOnSetup."SR Workshop Bin Code");
+        SalesL.Validate(Quantity, 1);
+        SalesL.Validate("Unit of Measure Code", Item1."Base Unit of Measure");
+        SalesL.Validate("Unit Price", 0);
+        SalesL.insert();
+
+    end;
+
+    local procedure GetLocation(ServiceHeader: record "A01 Service Request"): Code[20]
+    var
+        RespCenter: Record "Responsibility Center";
+    begin
+        RespCenter.Get(ServiceHeader."Responsibility Center");
+        exit(RespCenter."Location Code");
+    end;
+
+    var
+        AddOnSetup: record "A01 Afk Setup";
+        NoSeriesMgt: Codeunit NoSeriesManagement;
+        DimMgt: Codeunit DimensionManagement;
+
+
+
 }

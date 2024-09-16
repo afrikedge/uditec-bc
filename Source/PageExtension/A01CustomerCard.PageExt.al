@@ -65,6 +65,10 @@ pageextension 50006 "A01 Customer Card" extends "Customer Card"
             {
                 ApplicationArea = Basic, Suite;
             }
+            field("A01 Gender"; Rec."A01 Gender")
+            {
+                ApplicationArea = Basic, Suite;
+            }
         }
 
         addafter("SIREN No.")
@@ -118,7 +122,7 @@ pageextension 50006 "A01 Customer Card" extends "Customer Card"
                 trigger OnAction()
                 var
                 begin
-                    Rec."A01 Calc Risk Level" := Rec.CalcCustStatus();
+                    Rec."A01 Calc Risk Level" := Rec.A01CalcCustStatus();
                     Rec.Modify();
                 end;
             }

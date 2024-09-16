@@ -49,6 +49,45 @@ page 50113 "A01 Service Request"
                 field("Closed By"; Rec."Closed By")
                 {
                 }
+                field("Responsibility Center"; Rec."Responsibility Center")
+                {
+                }
+
+
+                field("Ship-to Code"; Rec."Ship-to Code")
+                {
+                }
+
+                field("Contact No."; Rec."Contact No.")
+                {
+                }
+                field("Serial No."; Rec."Serial No.")
+                {
+                }
+                field("IMEI No."; Rec."IMEI No.")
+                {
+                }
+                field("Sales Doc. No."; Rec."Sales Doc. No.")
+                {
+                }
+                field("Item Accessories"; Rec."Item Accessories")
+                {
+                }
+                field(Observations; Rec.Observations)
+                {
+                }
+                field("SR Type"; Rec."SR Type")
+                {
+                }
+                field("SR Origin"; Rec."SR Origin")
+                {
+                }
+                field("Diagnostic Report"; Rec."Diagnostic Report")
+                {
+                }
+                field("Repair Report"; Rec."Repair Report")
+                {
+                }
             }
             part(Mouvement; "A01 SR Item Mouvement Subform")
             {

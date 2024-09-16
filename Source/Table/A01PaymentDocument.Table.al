@@ -181,6 +181,23 @@ table 50032 "A01 Payment Document"
             Caption = 'ApprovalStatus';
             Editable = false;
         }
+        field(23; "Abandon Interets"; decimal)
+        {
+            Caption = 'Abandon Interets';
+            Editable = false;
+        }
+        field(24; "Rebate Balance"; decimal)
+        {
+            Caption = 'Rebate Balance';
+            Editable = false;
+        }
+        field(25; "Customer Due Status"; Code[20])
+        {
+            Caption = 'Customer Due Status';
+            Editable = false;
+            FieldClass = FlowField;
+            CalcFormula = lookup(Customer."A01 Calc Risk Level" where("No." = field("Partner No.")));
+        }
 
 
 
@@ -208,6 +225,7 @@ table 50032 "A01 Payment Document"
             begin
             end;
         }
+
     }
     keys
     {

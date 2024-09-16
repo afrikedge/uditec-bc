@@ -38,6 +38,7 @@ page 50019 "A01 External Users"
                 field(UserMustChangePassword; Rec.UserMustChangePassword)
                 {
                 }
+                field("Phone No."; Rec."Phone No.") { }
             }
         }
     }

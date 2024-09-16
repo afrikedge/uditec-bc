@@ -14,5 +14,11 @@ tableextension 50027 "A01 Sales Invoice Line" extends "Sales Invoice Line"
             Editable = false;
             DataClassification = CustomerContent;
         }
+        field(50002; "A01 Markup"; Decimal)
+        {
+            Caption = 'Markup';
+            //Editable = false;
+            DataClassification = CustomerContent;
+        }
     }
 }

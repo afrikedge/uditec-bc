@@ -75,6 +75,12 @@ tableextension 50004 "A01 Item" extends Item
             Caption = 'Cancel Prepayment';
             DataClassification = CustomerContent;
         }
+        field(50014; "A01 Number of package"; Integer)
+        {
+            Caption = 'Number of package';
+            DataClassification = CustomerContent;
+        }
+
 
 
 

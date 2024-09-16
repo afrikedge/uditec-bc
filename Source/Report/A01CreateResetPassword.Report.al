@@ -54,7 +54,7 @@ report 50000 "A01 CreateResetPassword"
             error(ErrMissingField);
         if (NewPassword <> ConfirmNewPassword) then
             error(ErrNotSamePasswords);
-        SecurityMgt.CreateNewPassword(UserCode, NewPassword);
+        SecurityMgt.CreateNewPassword(UserCode, NewPassword, true);
     end;
 
 

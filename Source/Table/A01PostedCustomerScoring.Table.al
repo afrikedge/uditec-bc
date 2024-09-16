@@ -70,7 +70,7 @@ table 50045 "A01 Posted Customer Scoring"
         {
             Caption = 'Score';
         }
-        field(12; DocumentLink; Text[100])
+        field(12; DocumentLink; Text[200])
         {
             Caption = 'Document link';
         }

@@ -5,7 +5,7 @@ page 50099 "A01 Drivers"
     PageType = List;
     SourceTable = "A01 Driver";
     UsageCategory = Lists;
-    
+
     layout
     {
         area(Content)
@@ -26,6 +26,10 @@ page 50099 "A01 Drivers"
                 }
                 field("Licence Expiration Date"; Rec."Licence Expiration Date")
                 {
+                }
+                field("Phone No."; Rec."Phone No.")
+                {
+
                 }
             }
         }

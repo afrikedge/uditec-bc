@@ -43,7 +43,9 @@ page 50040 "A01 Afk Setup"
                 field("Exempt VAT Bus. Posting Group"; Rec."Exempt VAT Bus. Posting Group")
                 {
                 }
-
+                field("Activate sec on sales price"; Rec."Activate sec on sales price")
+                {
+                }
 
             }
             group(Mirindra)
@@ -122,6 +124,16 @@ page 50040 "A01 Afk Setup"
                 field("Sales channel for Interest"; Rec."Sales channel for Interest")
                 {
                 }
+                field("MIR Credit delay (Months)"; Rec."Deferred month")
+                {
+                }
+                field("Rebate Payment Method"; Rec."Rebate Payment Method")
+                {
+                }
+                field("Set Due Date with Prepayment"; Rec."Set Due Date with Prepayment")
+                {
+
+                }
             }
             group(Logistics)
             {
@@ -130,6 +142,9 @@ page 50040 "A01 Afk Setup"
                 field("Minimum Delivery per trip"; Rec."Minimum Delivery per trip")
                 {
                     ToolTip = 'Minimum number of deliveries per trip';
+                }
+                field("Delivery Agent"; Rec."Delivery Agent")
+                {
                 }
             }
             group("Grouped purchase")
@@ -216,6 +231,29 @@ page 50040 "A01 Afk Setup"
                 field("Reposession Risk Level"; Rec."Reposession Risk Level")
                 {
                 }
+                field("SR Default Bin Code"; Rec."SR Default Bin Code")
+                {
+                }
+
+                field("SR Agent Profile"; Rec."SR Agent Profile")
+                {
+                }
+                field("SR SWAP Bin Code"; Rec."SR SWAP Bin Code")
+                {
+                }
+                field("SR Defect Bin Code"; Rec."SR Defect Bin Code")
+                {
+                }
+                field("SR Workshop Bin Code"; Rec."SR Workshop Bin Code")
+                {
+                }
+                field("Service Request Adj Nos"; Rec."Service Request Adj Nos")
+                {
+                }
+                field("SR Item Source Code"; Rec."SR Item Source Code")
+                {
+                }
+
 
             }
             group("Numbering")
@@ -324,12 +362,14 @@ page 50040 "A01 Afk Setup"
 
                 trigger OnAction()
                 var
-                    dateT: DateTime;
+                    SRRequest: record "A01 Service Request";
+                    InvtMgt: Codeunit "A01 Inventory Mgt";
+                //dateT: DateTime;
                 begin
-
-                    Evaluate(dateT, '1753-01-01T00:00:00.000Z');
-
-                    Message(format(dateT));
+                    SRRequest.Get('SVQ24-0000008');
+                    InvtMgt.CreateItemAdjustmentEntry_ServiceRequest(SRRequest);
+                    // Evaluate(dateT, '1753-01-01T00:00:00.000Z');
+                    // Message(format(dateT));
                 end;
             }
             action(ImportLettrage)
@@ -355,6 +395,14 @@ page 50040 "A01 Afk Setup"
                 Image = UpdateUnitCost;
                 Ellipsis = true;
                 RunObject = report A01CustomProcess;
+            }
+            action(UpdateCreditAmortLinesTest)
+            {
+                ApplicationArea = All;
+                Caption = 'Update credit amort Lines - TEST';
+                Image = UpdateDescription;
+                Ellipsis = true;
+                RunObject = report "A01 Update Credit Line Test";
             }
         }
     }

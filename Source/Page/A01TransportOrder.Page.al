@@ -4,6 +4,7 @@ page 50106 "A01 Transport Order"
     Caption = 'Transport Order';
     PageType = Document;
     SourceTable = "A01 Transport Order";
+    UsageCategory = Documents;
 
     layout
     {
@@ -65,6 +66,12 @@ page 50106 "A01 Transport Order"
                 {
                 }
                 field("Payload (kg)"; Rec."Payload (kg)")
+                {
+                }
+                field("Delivery Agent"; Rec."Delivery Agent")
+                {
+                }
+                field("Initial Location"; Rec."Initial Location")
                 {
                 }
             }

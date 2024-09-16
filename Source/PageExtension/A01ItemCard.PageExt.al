@@ -55,6 +55,10 @@ pageextension 50003 "A01 Item Card" extends "Item Card"
             {
                 ApplicationArea = Basic, Suite;
             }
+            field("A01 Number of package"; Rec."A01 Number of package")
+            {
+                ApplicationArea = Basic, Suite;
+            }
         }
         // addafter(Warehouse)
         // {

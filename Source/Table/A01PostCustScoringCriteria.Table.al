@@ -72,7 +72,7 @@ table 50046 "A01 Post Cust Scoring Criteria"
         {
             Caption = 'Valid';
         }
-        field(12; DocumentLink; Text[100])
+        field(12; DocumentLink; Text[200])
         {
             Caption = 'Document link';
         }
@@ -88,6 +88,12 @@ table 50046 "A01 Post Cust Scoring Criteria"
             TableRelation = "A01 External User";
             DataClassification = CustomerContent;
         }
+        field(16; "Date Value"; Date)
+        {
+            Caption = 'Date Value';
+        }
+
+
         field(50000; "Document No."; Code[20])
         {
             Caption = 'Document No.';

@@ -37,7 +37,7 @@ pageextension 50009 "A01 Payment Slip" extends "Payment Slip"
 
                 trigger OnValidate()
                 begin
-                    ValidateShortcutDimCode(3, ShortcutDimCode[3]);
+                    A01ValidateShortcutDimCode(3, ShortcutDimCode[3]);
                 end;
             }
         }
@@ -102,15 +102,15 @@ pageextension 50009 "A01 Payment Slip" extends "Payment Slip"
         DimVisible7: Boolean;
         DimVisible8: Boolean;
 
-    procedure ValidateShortcutDimCode(FieldNumber: Integer; var ShortcutDimCode: Code[20])
+    procedure A01ValidateShortcutDimCode(FieldNumber: Integer; var ShortcutDimCode: Code[20])
     begin
         DimMgt.ValidateShortcutDimValues(FieldNumber, ShortcutDimCode, Rec."Dimension Set ID");
     end;
 
-    procedure ItemNoOnAfterValidate();
-    begin
-        ShowShortcutDimCode(ShortcutDimCode);
-    end;
+    // procedure ItemNoOnAfterValidate();
+    // begin
+    //     ShowShortcutDimCode(ShortcutDimCode);
+    // end;
 
     local procedure SetDimensionsVisibility()
     var

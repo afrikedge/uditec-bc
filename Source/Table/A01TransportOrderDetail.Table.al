@@ -87,7 +87,32 @@ table 50055 "A01 Transport Order Detail"
         {
             Caption = 'Anomaly Description';
         }
-
+        field(19; "Location Code"; Code[10])
+        {
+            Caption = 'Location Code';
+            TableRelation = Location;
+        }
+        field(20; "Return Status"; enum "A01 Transport Return Status")
+        {
+            Caption = 'Return Status';
+        }
+        field(21; "Order Line No."; Integer)
+        {
+            Caption = 'Order Line No.';
+        }
+        field(22; "Order Type"; enum "A01 Transport Order Type")
+        {
+            Caption = 'Order Type';
+        }
+        field(23; "Service Zone"; Code[10])
+        {
+            Caption = 'Order Type';
+            TableRelation = "Service Zone";
+        }
+        field(24; "Item Return State"; enum "A01 Item Return State")
+        {
+            Caption = 'Item Return State';
+        }
     }
     keys
     {
@@ -95,5 +120,24 @@ table 50055 "A01 Transport Order Detail"
         {
             Clustered = true;
         }
+        key(PK2; "Transport Order No.", "Order Type", "Location Code")
+        {
+        }
+        key(PK3; "Transport Order No.", "Customer No.")
+        {
+        }
     }
+    trigger OnInsert()
+    var
+        TOLine: record "A01 Transport Order Detail";
+        ErrorLbl: label 'This order line (%1 - %2) is already present in document %3', Comment = '%1 %2 %3';
+    begin
+        TOLine.SetRange("Order No.", Rec."Order No.");
+        TOLine.SetRange("Order Line No.", Rec."Order Line No.");
+        if TOLine.FindSet() then
+            repeat
+                if (TOLine."Transport Order No." <> Rec."Transport Order No.") then
+                    Error(ErrorLbl, Rec."Order Line No.", Rec."Order No.", TOLine."Transport Order No.");
+            until TOLine.Next() < 1;
+    end;
 }

@@ -31,7 +31,8 @@ table 50025 "A01 Deadline Assignment"
                 Cust: Record "Customer";
             begin
                 if (Cust.Get("Customer No.")) then begin
-                    "Due status" := Cust.CalcCustStatus();
+                    //"Due status" := Cust.CalcCustStatus();
+                    "Due status" := Cust."A01 Calc Risk Level";
                     CheckAndModifyCustExistingAssigments();
                 end;
 
@@ -136,6 +137,13 @@ table 50025 "A01 Deadline Assignment"
             TableRelation = User;
             DataClassification = CustomerContent;
             Editable = false;
+        }
+        field(15; "Customer Due Status"; Code[20])
+        {
+            Caption = 'Customer Due Status';
+            Editable = false;
+            FieldClass = FlowField;
+            CalcFormula = lookup(Customer."A01 Calc Risk Level" where("No." = field("Customer No.")));
         }
     }
     keys

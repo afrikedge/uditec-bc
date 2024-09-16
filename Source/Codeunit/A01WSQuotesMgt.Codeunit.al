@@ -106,6 +106,7 @@ codeunit 50005 "A01 WS QuotesMgt"
         SalesQuote.Get(SalesQuote."Document Type"::Quote, QuoteNo);
 
         ProcessSalesQuoteHeader(SalesQuote, input);
+        SalesQuote.Modify(true);
 
         processQuotesLines(SalesQuote, SalesQuoteLine, input);
 
@@ -128,6 +129,7 @@ codeunit 50005 "A01 WS QuotesMgt"
         SalesQuote.Insert(true);
 
         ProcessSalesQuoteHeader(SalesQuote, input);
+        SalesQuote.Modify(true);
 
         processQuotesLines(SalesQuote, SalesQuoteLine, input);
 
@@ -240,6 +242,7 @@ codeunit 50005 "A01 WS QuotesMgt"
     local procedure ProcessSalesQuoteHeader(var SalesQuote: Record "Sales Header"; input: JsonObject)
     var
         Cust: record Customer;
+        jsonkey: Text;
     begin
 
         //SalesQuote.Validate("Sell-to Customer No.", GetText('customerNo', input));
@@ -265,8 +268,6 @@ codeunit 50005 "A01 WS QuotesMgt"
             if (SalesQuote."Sell-to Contact No." <> WS.GetText('saleQuoteCustomerContactCode', input)) then
                 SalesQuote.Validate("Sell-to Contact No.", WS.GetText('saleQuoteCustomerContactCode', input));
         end;
-
-
 
         if (SalesQuote."Responsibility Center" <> WS.GetText('saleQuoteResponsibilityCenter', input)) then
             SalesQuote.Validate("Responsibility Center", WS.GetText('saleQuoteResponsibilityCenter', input));
@@ -333,12 +334,16 @@ codeunit 50005 "A01 WS QuotesMgt"
             SalesQuote.Validate("A01 Investigator Opinion", WS.GetInt('Investigator Opinion', input));
 
 
-
-
+        jsonkey := 'External Document No_';
+        if (WS.KeyExists(jsonkey, input)) then
+            if (SalesQuote."External Document No." <> WS.GetText(jsonkey, input)) then
+                SalesQuote.Validate("External Document No.", WS.GetText(jsonkey, input));
 
     end;
 
     local procedure ProcessCreditRequestFields(var SalesQuote: Record "Sales Header"; input: JsonObject)
+    var
+        jsonKey: Text;
     begin
         if (SalesQuote."A01 Credit Validation Status".AsInteger() <> WS.Getint('Approval Status', input)) then
             SalesQuote.Validate("A01 Credit Validation Status", WS.Getint('Approval Status', input));
@@ -402,11 +407,31 @@ codeunit 50005 "A01 WS QuotesMgt"
             if (SalesQuote."A01 General Comment" <> WS.GetText('General Comment', input)) then
                 SalesQuote.Validate("A01 General Comment", WS.GetText('General Comment', input));
 
+        jsonKey := 'Other Conditions';
+        if WS.KeyExists(jsonKey, input) then
+            if (SalesQuote."A01 Other Conditions" <> WS.GetText(jsonKey, input)) then
+                SalesQuote.Validate("A01 Other Conditions", WS.GetText(jsonKey, input));
+
+        jsonKey := 'HO Receipt Date';
+        if WS.KeyExists(jsonKey, input) then
+            if (SalesQuote."A01 HO Receipt Date" <> WS.GetDate(jsonKey, input)) then
+                SalesQuote.Validate("A01 HO Receipt Date", WS.GetDate(jsonKey, input));
+
+        jsonKey := 'Archive';
+        if WS.KeyExists(jsonKey, input) then
+            if (SalesQuote."A01 Archive" <> WS.GetBool(jsonKey, input)) then
+                SalesQuote.Validate("A01 Archive", WS.GetBool(jsonKey, input));
+
+
+
+
         //[Monthly Capacity],[Max Approved Rate (%)],[Max Referred Rate (%)],[Joint Required],[Rec. Amount],[Rec. Duration],[Rec. Deposit (%)]
         //[Investigator comments] (text),  [Recovery Opinion] (optionlist), [Recovery comments] (text), [Manager Opinion] (optionlist), [Manager comments] (text)
     end;
 
     local procedure processSalesQuoteLine(SalesQuote: Record "Sales Header"; var SalesLine: Record "Sales Line"; input: JsonObject)
+    var
+        jsonKey: Text;
     begin
 
         if (SalesLine."Document No." <> SalesQuote."No.") then
@@ -461,6 +486,16 @@ codeunit 50005 "A01 WS QuotesMgt"
 
             //if (SalesLine."Line Discount %" <> WS.GetDecimal('Line Discount _', input)) then
             //    SalesLine.Validate("Line Discount %", WS.GetDecimal('Line Discount _', input));
+
+            jsonKey := 'Markup';
+            if WS.KeyExists(jsonKey, input) then
+                if (SalesLine."A01 Markup" <> WS.GetDecimal(jsonKey, input)) then
+                    SalesLine.Validate("A01 Markup", WS.GetDecimal(jsonKey, input));
+
+            jsonKey := 'Line Discount Amount';
+            if WS.KeyExists(jsonKey, input) then
+                if (SalesLine."Line Discount Amount" <> WS.GetDecimal(jsonKey, input)) then
+                    SalesLine.Validate("Line Discount Amount", WS.GetDecimal(jsonKey, input));
 
         end;
     end;
@@ -626,6 +661,10 @@ codeunit 50005 "A01 WS QuotesMgt"
         if (CustScoringCriteria."Aplhanumeric Value" <> WS.GetText('Alpha Value', input)) then
             CustScoringCriteria.Validate("Aplhanumeric Value", WS.GetText('Alpha Value', input));
 
+        if WS.KeyExists('Date Value', input) then
+            if (CustScoringCriteria."Date Value" <> WS.GetDate('Date Value', input)) then
+                CustScoringCriteria.Validate("Date Value", WS.GetDate('Date Value', input));
+
         // if (CustCriteria.Validity.AsInteger() <> WS.GetInt('Validity', input)) then
         //     CustCriteria.Validate("Validity", WS.GetInt('Validity', input));
 
@@ -660,11 +699,13 @@ codeunit 50005 "A01 WS QuotesMgt"
     var
         NoQuote: text;
         WebUser: text;
+        DeferredMonth: integer;
     begin
         NoQuote := ws.GetText('QuoteNo', input);
         WebUser := ws.GetText('webUserName', input);
+        DeferredMonth := ws.GetInt('Deferred month', input);
         if (NoQuote <> '') then
-            exit(QuoteToOrder(NoQuote, WebUser));
+            exit(QuoteToOrder(NoQuote, WebUser, DeferredMonth));
     end;
 
     ///JSON demande d'approbation devis: renvoie le nouveau statut du devis
@@ -686,7 +727,7 @@ codeunit 50005 "A01 WS QuotesMgt"
     end;
 
 
-    local procedure QuoteToOrder(NoQuote: text; WebUserId: text): Text
+    local procedure QuoteToOrder(NoQuote: text; WebUserId: text; DeferredMonths: integer): Text
     var
         SalesQuote: Record "Sales Header";
         SalesOrder: Record "Sales Header";
@@ -698,6 +739,7 @@ codeunit 50005 "A01 WS QuotesMgt"
 
             if (ApprovalsMgmt.PrePostApprovalCheckSales(SalesQuote)) then begin
                 SalesQuote."A01 Order Web User Id" := CopyStr(WebUserId, 1, 50);
+                SalesQuote."A01 Deferred month" := DeferredMonths;
                 SalesQuote.Modify();
 
                 if SalesQuote.CheckCustomerCreated(false) then

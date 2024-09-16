@@ -123,6 +123,18 @@ codeunit 50001 "A01 EventsSubscribers_Table"
             Customer."Credit Limit (LCY)" := Contact."A01 Credit Limit";
     end;
 
+    [EventSubscriber(ObjectType::Table, Database::"Reminder Line", 'OnAfterSetCustLedgEntryView', '', true, true)]
+    local procedure OnAfterSetCustLedgEntryView_ReminderLine(ReminderHeader: Record "Reminder Header"; ReminderLine: Record "Reminder Line"; var CustLedgEntry: Record "Cust. Ledger Entry")
+    var
+    begin
+        CustLedgEntry.SetRange("Document Type");
+    end;
+
+
+    // [IntegrationEvent(false, false)]
+    //     local procedure OnAfterSetCustLedgEntryView(ReminderHeader: Record "Reminder Header"; ReminderLine: Record "Reminder Line"; var CustLedgEntry: Record "Cust. Ledger Entry")
+    //     begin
+    //     end;
 
 
     //  [IntegrationEvent(false, false)]

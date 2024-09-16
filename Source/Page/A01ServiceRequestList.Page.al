@@ -50,6 +50,9 @@ page 50114 "A01 Service Request List"
                 field("Warranty End Date"; Rec."Warranty End Date")
                 {
                 }
+                field("Responsibility Center"; Rec."Responsibility Center")
+                {
+                }
             }
         }
     }

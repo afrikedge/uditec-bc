@@ -320,7 +320,60 @@ table 50017 "A01 Afk Setup"
             Caption = 'Sales channel for Interest';
             TableRelation = "Dimension Value".Code where("Global Dimension No." = const(2));
         }
+        field(68; "SR Default Bin Code"; Code[20])
+        {
+            Caption = 'Default bin for after sales service';
+        }
 
+        field(69; "Delivery Agent"; Code[20])
+        {
+            Caption = 'Delivery Agent';
+            TableRelation = "A01 External Profile";
+        }
+        field(70; "SR Agent Profile"; Code[20])
+        {
+            Caption = 'Delivery Agent';
+            TableRelation = "A01 External Profile";
+        }
+        field(71; "SR SWAP Bin Code"; Text[50])
+        {
+            Caption = 'SR SWAP Bin Code';
+        }
+        field(72; "SR Defect Bin Code"; Text[50])
+        {
+            Caption = 'SR Defect Bin Code';
+        }
+        field(73; "SR Workshop Bin Code"; Text[50])
+        {
+            Caption = 'SR Workshop Bin Code';
+        }
+        field(74; "Service Request Adj Nos"; Code[20])
+        {
+            Caption = 'Service Request Item Adjust Nos';
+            TableRelation = "No. Series";
+        }
+        field(75; "SR Item Source Code"; Code[10])
+        {
+            Caption = 'SR Item Source Code';
+            TableRelation = "Source Code";
+        }
+        field(76; "Deferred month"; Integer)
+        {
+            Caption = 'MIR Credit deferred (Months)';
+        }
+        field(77; "Rebate Payment Method"; Code[20])
+        {
+            Caption = 'Rebate Payment Method';
+            TableRelation = "Payment Method";
+        }
+        field(78; "Set Due Date with Prepayment"; Boolean)
+        {
+            Caption = 'Update due date when prepayment is zero';
+        }
+        field(79; "Activate sec on sales price"; Boolean)
+        {
+            Caption = 'Activate security on sales prices';
+        }
 
 
         //Config. Template Header

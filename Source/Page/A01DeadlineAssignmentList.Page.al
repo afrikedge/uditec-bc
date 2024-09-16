@@ -45,6 +45,9 @@ page 50049 "A01 Deadline Assignment List"
                 field("Assigned by"; Rec."Assigned by")
                 {
                 }
+                field("Customer Due Status"; Rec."Customer Due Status")
+                {
+                }
 
                 field(SystemModifiedBy; GetUserNameFromSecurityId(Rec.SystemModifiedBy))
                 {

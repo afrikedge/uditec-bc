@@ -30,6 +30,9 @@ page 50037 "A01 Cust Scoring Criteria"
                 field("Aplhanumeric Value"; Rec."Aplhanumeric Value")
                 {
                 }
+                field("Date Value"; Rec."Date Value")
+                {
+                }
                 field("List Value"; Rec."List Value")
                 {
                 }

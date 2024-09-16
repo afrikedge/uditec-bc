@@ -170,7 +170,7 @@ codeunit 50015 A01WSMasterFilesMgt
     begin
         webUserName := Copystr(ws.GetText('webUserName', input), 1, 50);
         NewPassWd := ws.GetText('Password', input);
-        SecMgt.CreateNewPassword(webUserName, NewPassWd);
+        SecMgt.CreateNewPassword(webUserName, NewPassWd, false);
     end;
 
     #region Customers
@@ -229,6 +229,8 @@ codeunit 50015 A01WSMasterFilesMgt
     end;
 
     local procedure ProcessCustomer(var Cust: Record "Customer"; input: JsonObject)
+    var
+        jsonKey: Text;
     begin
 
         if (Cust."A01 Created By" = '') then
@@ -323,6 +325,16 @@ codeunit 50015 A01WSMasterFilesMgt
             if (Cust."A01 General Comment" <> WS.GetText('General Comment', input)) then
                 Cust.Validate("A01 General Comment", WS.GetText('General Comment', input));
 
+        jsonKey := 'Gender';
+        if WS.KeyExists(jsonKey, input) then
+            if (Cust."A01 Gender".AsInteger() <> WS.GetInt(jsonKey, input)) then
+                Cust.Validate("A01 Gender", WS.GetInt(jsonKey, input));
+
+        jsonKey := 'Salesperson Code';
+        if WS.KeyExists(jsonKey, input) then
+            if (Cust."Salesperson Code" <> WS.GetText(jsonKey, input)) then
+                Cust.Validate("Salesperson Code", WS.GetText(jsonKey, input));
+
 
 
         Cust.Modify();
@@ -385,6 +397,10 @@ codeunit 50015 A01WSMasterFilesMgt
 
         if (CustCriteria."Aplhanumeric Value" <> WS.GetText('Alpha Value', input)) then
             CustCriteria.Validate("Aplhanumeric Value", WS.GetText('Alpha Value', input));
+
+        if WS.KeyExists('Date Value', input) then
+            if (CustCriteria."Date Value" <> WS.GetDate('Date Value', input)) then
+                CustCriteria.Validate("Date Value", WS.GetDate('Date Value', input));
 
         // if (CustCriteria.Validity.AsInteger() <> WS.GetInt('Validity', input)) then
         //     CustCriteria.Validate("Validity", WS.GetInt('Validity', input));
@@ -537,6 +553,8 @@ codeunit 50015 A01WSMasterFilesMgt
     end;
 
     local procedure ProcessLead(var Lead: Record "Contact"; input: JsonObject)
+    var
+        jsonKey: Text;
     begin
 
 
@@ -661,6 +679,21 @@ codeunit 50015 A01WSMasterFilesMgt
             if (Lead."A01 General Comment" <> WS.GetText('General Comment', input)) then
                 Lead.Validate("A01 General Comment", WS.GetText('General Comment', input));
 
+        jsonKey := 'Relationship';
+        if WS.KeyExists(jsonKey, input) then
+            if (Lead."A01 Relationship" <> WS.GetText(jsonKey, input)) then
+                Lead.Validate("A01 Relationship", WS.GetText(jsonKey, input));
+
+        jsonKey := 'Gender';
+        if WS.KeyExists(jsonKey, input) then
+            if (Lead."A01 Gender".AsInteger() <> WS.GetInt(jsonKey, input)) then
+                Lead.Validate("A01 Gender", WS.GetInt(jsonKey, input));
+
+        jsonKey := 'Salesperson Code';
+        if WS.KeyExists(jsonKey, input) then
+            if (Lead."Salesperson Code" <> WS.GetText(jsonKey, input)) then
+                Lead.Validate("Salesperson Code", WS.GetText(jsonKey, input));
+
         Lead.Modify();
     end;
 
@@ -721,6 +754,10 @@ codeunit 50015 A01WSMasterFilesMgt
 
         if (CustCriteria."Aplhanumeric Value" <> WS.GetText('Alpha Value', input)) then
             CustCriteria.Validate("Aplhanumeric Value", WS.GetText('Alpha Value', input));
+
+        if WS.KeyExists('Date Value', input) then
+            if (CustCriteria."Date Value" <> WS.GetDate('Date Value', input)) then
+                CustCriteria.Validate("Date Value", WS.GetDate('Date Value', input));
 
         // if (CustCriteria.Validity.AsInteger() <> WS.GetInt('Validity', input)) then
         //     CustCriteria.Validate("Validity", WS.GetInt('Validity', input));
@@ -857,6 +894,8 @@ codeunit 50015 A01WSMasterFilesMgt
     end;
 
     local procedure ProcessContact(var Cont: Record "Contact"; input: JsonObject)
+    var
+        jsonKey: Text;
     begin
 
         if (Cont."A01 Created By" = '') then
@@ -925,6 +964,21 @@ codeunit 50015 A01WSMasterFilesMgt
 
         if (Cont."A01 ID Number" <> WS.GetText('ID Number', input)) then
             Cont.Validate("A01 ID Number", WS.GetText('ID Number', input));
+
+        jsonKey := 'Relationship';
+        if WS.KeyExists(jsonKey, input) then
+            if (Cont."A01 Relationship" <> WS.GetText(jsonKey, input)) then
+                Cont.Validate("A01 Relationship", WS.GetText(jsonKey, input));
+
+        jsonKey := 'Gender';
+        if WS.KeyExists(jsonKey, input) then
+            if (Cont."A01 Gender".AsInteger() <> WS.GetInt(jsonKey, input)) then
+                Cont.Validate("A01 Gender", WS.GetInt(jsonKey, input));
+
+        jsonKey := 'Salesperson Code';
+        if WS.KeyExists(jsonKey, input) then
+            if (Cont."Salesperson Code" <> WS.GetText(jsonKey, input)) then
+                Cont.Validate("Salesperson Code", WS.GetText(jsonKey, input));
 
         Cont.Modify();
     end;

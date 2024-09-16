@@ -75,7 +75,7 @@ table 50013 "A01 Cust Scoring Criteria"
         {
             Caption = 'Valid';
         }
-        field(12; DocumentLink; Text[100])
+        field(12; DocumentLink; Text[200])
         {
             Caption = 'Document link';
         }
@@ -90,6 +90,10 @@ table 50013 "A01 Cust Scoring Criteria"
             Caption = 'Created By';
             TableRelation = "A01 External User";
             DataClassification = CustomerContent;
+        }
+        field(16; "Date Value"; Date)
+        {
+            Caption = 'Date Value';
         }
 
 

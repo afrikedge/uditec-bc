@@ -4,6 +4,7 @@ page 50103 "A01 Route Card"
     Caption = 'Route Card';
     PageType = Card;
     SourceTable = "A01 Route";
+    UsageCategory = None;
 
     layout
     {
