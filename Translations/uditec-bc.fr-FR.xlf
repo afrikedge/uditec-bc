@@ -4611,6 +4611,12 @@
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Table A01 Transport Order Detail - Field Item No. - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Table 4111514512 - Field 1927641212 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Item Return State</source>
+          <target state="needs-translation"/>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Table A01 Transport Order Detail - Field Item Return State - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Table 4111514512 - Field 3320823955 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Line No.</source>
           <target state="needs-review-translation">N° Ligne</target>
@@ -24015,6 +24021,30 @@
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Enum A01 Import Step Type - EnumValue Step - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Enum 1568115116 - EnumValue 1692570945 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Damaged</source>
+          <target state="needs-review-translation">Endommagé</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum A01 Item Return State - EnumValue Damaged - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 1568115116 - EnumValue 1995602790 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Dented</source>
+          <target state="needs-review-translation">Cabossé</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum A01 Item Return State - EnumValue Dented - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 1568115116 - EnumValue 4041807949 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Good</source>
+          <target state="needs-review-translation">Bon</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum A01 Item Return State - EnumValue Good - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 1568115116 - EnumValue 21111414 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Non applied</source>
+          <target state="needs-review-translation">Non appliqué</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum A01 Item Return State - EnumValue Non applied - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Enum 934449331 - EnumValue 92569267 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Current</source>
           <target state="needs-review-translation">Actuel</target>
@@ -25046,6 +25076,12 @@
           <target state="needs-review-translation">Transfert</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Enum A01 Transport Order Type - EnumValue Transfer - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 3910892863 - EnumValue 3692790378 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Not executed</source>
+          <target state="needs-translation"/>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum A01 Transport Return Status - EnumValue NotExecuted - Property Caption</note>
         </trans-unit>
         <trans-unit id="Enum 3910892863 - EnumValue 339349164 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Postponed</source>
