@@ -535,6 +535,11 @@ codeunit 50022 A01WSSAVMgt
             if (TransportOrderDetail."Return Status".AsInteger() <> WS.GetInt(jsonkey, input)) then
                 TransportOrderDetail.Validate("Return Status", WS.GetInt(jsonkey, input));
 
+        jsonkey := 'Item Return State';
+        if (WS.KeyExists(jsonkey, input)) then
+            if (TransportOrderDetail."Item Return State".AsInteger() <> WS.GetInt(jsonkey, input)) then
+                TransportOrderDetail.Validate("Item Return State", WS.GetInt(jsonkey, input));
+
         jsonkey := 'Order Type';
         if (WS.KeyExists(jsonkey, input)) then
             if (TransportOrderDetail."Order Type".AsInteger() <> WS.GetInt(jsonkey, input)) then

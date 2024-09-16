@@ -1,7 +1,7 @@
 enum 50077 "A01 Transport Return Status"
 {
     Extensible = true;
-    
+
     value(0; Waiting)
     {
         Caption = 'Waiting';
@@ -17,5 +17,9 @@ enum 50077 "A01 Transport Return Status"
     value(3; Return)
     {
         Caption = 'Return';
+    }
+    value(4; NotExecuted)
+    {
+        Caption = 'Not executed';
     }
 }

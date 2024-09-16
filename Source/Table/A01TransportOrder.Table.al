@@ -405,7 +405,7 @@ table 50054 "A01 Transport Order"
         WhseShptLine."Source Subtype" := 0;
         WhseShptLine."Source No." := TransferLine."Document No.";
         WhseShptLine."Source Line No." := TransferLine."Line No.";
-        WhseShptLine.Validate("Source Document", WhseMgt.GetSourceDocument(DATABASE::"Sales Line", 0));
+        WhseShptLine.Validate("Source Document", WhseMgt.GetSourceDocument(DATABASE::"Transfer Line", 0));
         TransferLine.TESTFIELD("Unit of Measure Code");
 
         WhseShptLine."Item No." := TransferLine."Item No.";

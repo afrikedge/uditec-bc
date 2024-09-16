@@ -3843,6 +3843,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table A01 Transport Order Detail - Field Item No. - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Table 4111514512 - Field 1927641212 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Item Return State</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table A01 Transport Order Detail - Field Item Return State - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Table 4111514512 - Field 3320823955 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Line No.</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -20872,6 +20877,11 @@
           <source>Transfer</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Enum A01 Transport Order Type - EnumValue Transfer - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 3910892863 - EnumValue 3692790378 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Not executed</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum A01 Transport Return Status - EnumValue NotExecuted - Property Caption</note>
         </trans-unit>
         <trans-unit id="Enum 3910892863 - EnumValue 339349164 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Postponed</source>

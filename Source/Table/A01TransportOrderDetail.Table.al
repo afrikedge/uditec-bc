@@ -109,6 +109,10 @@ table 50055 "A01 Transport Order Detail"
             Caption = 'Order Type';
             TableRelation = "Service Zone";
         }
+        field(24; "Item Return State"; enum "A01 Item Return State")
+        {
+            Caption = 'Item Return State';
+        }
     }
     keys
     {
