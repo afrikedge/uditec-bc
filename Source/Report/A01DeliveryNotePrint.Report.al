@@ -63,7 +63,7 @@ report 50003 "A01 DeliveryNotePrint"
             column(CustPhone; CustPhone)
             {
             }
-            column(CustIdentity; CustIdentity)
+            column(CustIdentity; "Sell-to Customer No.")
             {
             }
             column(ReportTitleLbl; ReportTitleLbl)
@@ -159,6 +159,9 @@ report 50003 "A01 DeliveryNotePrint"
             column(OptionType; OptionType)
             {
             }
+            column(NumberOfPackagesLbl; NumberOfPackagesLbl)
+            {
+            }
             // column(CustomerAddress; CustomerAddress)
             // {
             // }
@@ -211,22 +214,33 @@ report 50003 "A01 DeliveryNotePrint"
                     column(Quantity_; Format(-Quantity))
                     {
                     }
+                    dataitem(Item; Item)
+                    {
+                        DataItemTableView = sorting("No.");
+                        DataItemLinkReference = "Item Ledger Entry";
+                        DataItemLink = "No." = field("Item No.");
+
+                        column(A01NumberOfPackage; "A01 Number of package")
+                        {
+                        }
+                        trigger OnAfterGetRecord()
+                        begin
+                            if "A01 Number of package" = 0 then
+                                "A01 Number of package" := 1;
+                        end;
+                    }
+
                 }
                 trigger OnAfterGetRecord()
                 begin
-                    if OptionValue = OptionValue::LogoCosmos then
-                        OptionType := 1
-                    else
-                        OptionType := 0;
-
-                    // if "No." = 'MIR_FEES' then
-                    //     CurrReport.Skip();
-                    // if "No." = 'mir_fees' then
-                    //     CurrReport.Skip();
-                    // if "No." = 'MIR_INTEREST' then
-                    //     CurrReport.Skip();
-                    // if "No." = 'mir_interest' then
-                    //     CurrReport.Skip();
+                    if "No." = 'MIR_FEES' then
+                        CurrReport.Skip();
+                    if "No." = 'mir_fees' then
+                        CurrReport.Skip();
+                    if "No." = 'MIR_INTEREST' then
+                        CurrReport.Skip();
+                    if "No." = 'mir_interest' then
+                        CurrReport.Skip();
 
                     if Type = Type::"G/L Account" then
                         CurrReport.Skip();
@@ -239,8 +253,12 @@ report 50003 "A01 DeliveryNotePrint"
 
             trigger OnAfterGetRecord()
             begin
-                if RespCenter.Get(Header."Responsibility Center") then begin
+                if OptionValue = OptionValue::LogoCosmos then
+                    OptionType := 1
+                else
+                    OptionType := 0;
 
+                if RespCenter.Get(Header."Responsibility Center") then begin
                 end;
 
                 if LocRec.Get(Header."Location Code") then begin
@@ -254,15 +272,17 @@ report 50003 "A01 DeliveryNotePrint"
                     rcs := Cust."A01 RCS";
                     stat := Cust."A01 STAT";
                     nif := Cust."A01 NIF";
+                    CustAddress := Cust.Address;
+                    CustPhone := Cust."Phone No.";
                 end;
 
-                if Contact.Get(Header."Bill-to Contact No.") then begin
-                    CustIdentity := Contact.Name;
-                    CustPhone := Contact."Phone No.";
-                end;
+                // if Contact.Get(Header."Bill-to Contact No.") then begin
+                //     CustIdentity := Contact.Name;
+                //     CustPhone := Contact."Phone No.";
+                // end;
 
-                if Ship.Get(Header."Ship-to Code") then
-                    CustAddress := Ship.Name;
+                // if Ship.Get(Header."Ship-to Code") then
+                //     CustAddress := Ship.Name;
 
             end;
         }
@@ -307,9 +327,9 @@ report 50003 "A01 DeliveryNotePrint"
         RespCenter: Record "Responsibility Center";
         RespCenterUditec: Record "Responsibility Center";
         Cust: Record Customer;
-        Contact: Record Contact;
+        // Contact: Record Contact;
         LocRec: Record Location;
-        Ship: Record "Ship-to Address";
+        // Ship: Record "Ship-to Address";
         // Img: Media;
         OptionValue: Option LogoCosmos,LogoUditec;
         OptionType: Integer;
@@ -321,7 +341,7 @@ report 50003 "A01 DeliveryNotePrint"
         UnitCity: Text[50];
         UnitPostalCode: Text[50];
         CustAddress: Text[100];
-        CustIdentity: Text[100];
+        // CustIdentity: Text[100];
         CustPhone: Text[30];
         ReportTitleLbl: Label 'DELIVERY NOTE';
         UnitNameLbl: Label 'Unit name:';
@@ -346,6 +366,7 @@ report 50003 "A01 DeliveryNotePrint"
         ProductLocationLbl: Label 'Product Location';
         CustSignLbl: Label 'Customer signature';
         CompanySignLbl: Label 'Company signature';
+        NumberOfPackagesLbl: Label 'Number of packages';
 
 
 }
