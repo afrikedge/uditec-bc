@@ -415,6 +415,56 @@ codeunit 50000 "A01 Sales Order Processing"
         end
     end;
 
+    procedure BlockPartialInvoiceOnMiridraFromWarehouseShip(WhseShipment: Record "Warehouse Shipment Header")
+    var
+        //SalesLine: record "Sales Line";
+        SalesH: record "Sales Header";
+        AfkSetup: Record "A01 Afk Setup";
+        WhseShipmentLine: Record "Warehouse Shipment Line";
+        TresoMgt: Codeunit "A01 Treso Mgt";
+    //LblNotAutorize: Label 'Partially invoice is not autorize on Mirindra invoicing';
+    begin
+
+        AfkSetup.Get();
+        if (AfkSetup."Allow Partial Invoice MIR Whse") then
+            exit;
+
+        WhseShipmentLine.Init();
+        WhseShipmentLine.SetRange(WhseShipmentLine."No.", WhseShipment."No.");
+        WhseShipmentLine.SetRange("Source Document", WhseShipmentLine."Source Document"::"Sales Order");
+        if WhseShipmentLine.FindSet() then
+            repeat
+                SalesH.get(SalesH."Document Type"::Order, WhseShipmentLine."Source No.");
+                if (TresoMgt.IsMultiMeadlinesInvoice(SalesH)) then
+                    CheckIfOrderIsCompletelyInvoicing(WhseShipmentLine."Source No.", WhseShipment);
+            until WhseShipmentLine.Next() = 0;
+    end;
+
+    local procedure CheckIfOrderIsCompletelyInvoicing(SalesOrderNo: Code[20]; WhseShipment: Record "Warehouse Shipment Header")
+    var
+        SalesLine: record "Sales Line";
+        WhseShipmentLine: Record "Warehouse Shipment Line";
+        ErrorQtyLabel: Label 'To invoice this document the quantity of the item %1 must match the quantity ordered %2';
+        ErrorQtyLabel2: Label 'You must invoice the order %1 in full';
+    begin
+        SalesLine.SetRange("Document Type", SalesLine."Document Type"::Order);
+        SalesLine.SetRange(SalesLine."Document No.", SalesOrderNo);
+        if SalesLine.FindSet() then
+            repeat
+                WhseShipmentLine.Init();
+                WhseShipmentLine.SetRange(WhseShipmentLine."No.", WhseShipment."No.");
+                WhseShipmentLine.SetRange("Source Document", WhseShipmentLine."Source Document"::"Sales Order");
+                WhseShipmentLine.SetRange("Source No.", SalesOrderNo);
+                WhseShipmentLine.SetRange(WhseShipmentLine."Source Line No.", SalesLine."Line No.");
+                if (WhseShipmentLine.FindFirst()) then begin
+                    if (WhseShipmentLine.Quantity <> SalesLine.Quantity) then
+                        error(ErrorQtyLabel, SalesLine."No.", SalesLine.Quantity);
+                end else
+                    error(ErrorQtyLabel2, SalesOrderNo);
+
+            until SalesLine.Next() < 1;
+    end;
+
     local procedure ShippedLineExists(SalesH: Record "Sales Header"): Boolean
     var
         SalesLine: Record "Sales Line";

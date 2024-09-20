@@ -46,6 +46,10 @@ page 50040 "A01 Afk Setup"
                 field("Activate sec on sales price"; Rec."Activate sec on sales price")
                 {
                 }
+                field("Activate sec on sales discount"; Rec."Activate sec on sales discount")
+                {
+                }
+
 
             }
             group(Mirindra)
@@ -132,7 +136,9 @@ page 50040 "A01 Afk Setup"
                 }
                 field("Set Due Date with Prepayment"; Rec."Set Due Date with Prepayment")
                 {
-
+                }
+                field("Allow Partial Invoice MIR Whse"; Rec."Allow Partial Invoice MIR Whse")
+                {
                 }
             }
             group(Logistics)

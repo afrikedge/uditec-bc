@@ -21,6 +21,33 @@ pageextension 50015 "A01 Sales Order Subform" extends "Sales Order Subform"
                 SecMgt.CheckIfUserCanSetSalesPrice();
             end;
         }
+        modify("Line Amount")
+        {
+            trigger OnAfterValidate()
+            var
+                SecMgt: Codeunit "A01 Security Mgt";
+            begin
+                SecMgt.CheckIfUserCanSetSalesPrice();
+            end;
+        }
+        modify("Line Discount %")
+        {
+            trigger OnAfterValidate()
+            var
+                SecMgt: Codeunit "A01 Security Mgt";
+            begin
+                SecMgt.CheckIfUserCanSetSalesDiscounts();
+            end;
+        }
+        modify("Line Discount Amount")
+        {
+            trigger OnAfterValidate()
+            var
+                SecMgt: Codeunit "A01 Security Mgt";
+            begin
+                SecMgt.CheckIfUserCanSetSalesDiscounts();
+            end;
+        }
         addafter("Promised Delivery Date")
         {
             field("A01 Promotion Line No."; Rec."A01 Promotion Line No.")

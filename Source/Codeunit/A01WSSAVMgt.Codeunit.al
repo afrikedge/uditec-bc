@@ -420,6 +420,11 @@ codeunit 50022 A01WSSAVMgt
             if (TransportOrder."Initial Location" <> WS.GetText(jsonkey, input)) then
                 TransportOrder.Validate("Initial Location", WS.GetText(jsonkey, input));
 
+        jsonkey := 'Delivery Agent 2';
+        if (WS.KeyExists(jsonkey, input)) then
+            if (TransportOrder."Delivery Agent 2" <> WS.GetText(jsonkey, input)) then
+                TransportOrder.Validate("Delivery Agent 2", WS.GetText(jsonkey, input));
+
     end;
 
     local procedure ProcessOrderTransportLine(TransportOrder: Record "A01 Transport Order"; var TransportOrderDetail: Record "A01 Transport Order Detail"; input: JsonObject)
@@ -549,6 +554,11 @@ codeunit 50022 A01WSSAVMgt
         if (WS.KeyExists(jsonkey, input)) then
             if (TransportOrderDetail."Service Zone" <> WS.GetText(jsonkey, input)) then
                 TransportOrderDetail.Validate("Service Zone", WS.GetText(jsonkey, input));
+
+        jsonkey := 'Execution Rank';
+        if (WS.KeyExists(jsonkey, input)) then
+            if (TransportOrderDetail."Execution Rank" <> WS.GetInt(jsonkey, input)) then
+                TransportOrderDetail."Execution Rank" := WS.GetInt(jsonkey, input);
 
     end;
 

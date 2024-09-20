@@ -9,6 +9,12 @@
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Table A01 Afk Setup - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Table 2685203037 - Field 3022841372 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Activate security on sales discounts</source>
+          <target state="needs-review-translation">Acttiver sécurité sur les remises vente</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Table A01 Afk Setup - Field Activate sec on sales discount - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Table 2685203037 - Field 2968567380 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Activate security on sales prices</source>
           <target state="needs-review-translation">Activer la sécurité sur les prix de vente</target>
@@ -116,6 +122,12 @@
           <target state="needs-review-translation">Autoriser facturation partielle sur Mirindra</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Table A01 Afk Setup - Field Allow Partial Invoice MIR - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2685203037 - Field 1806862184 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Allow partial invoice on Warehouse Shipment</source>
+          <target state="needs-review-translation">Autoriser facturation partielle sur Livraison entrepot</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Table A01 Afk Setup - Field Allow Partial Invoice MIR Whse - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 2685203037 - Field 891900766 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Charge Account (Voucher)</source>
@@ -4401,6 +4413,12 @@
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Table A01 Transport Order - Field Delivery Agent - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Table 2125787823 - Field 250768737 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Delivery Agent 2</source>
+          <target state="needs-review-translation">Livreur 2</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Table A01 Transport Order - Field Delivery Agent 2 - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Table 2125787823 - Field 1017622985 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Departure Date (Actual)</source>
           <target state="needs-review-translation">Date départ réelle</target>
@@ -4599,6 +4617,12 @@
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Table A01 Transport Order Detail - Field Customer No. - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Table 4111514512 - Field 2971671408 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Execution Rank</source>
+          <target state="needs-review-translation">Rang d'exécution</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Table A01 Transport Order Detail - Field Execution Rank - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Table 4111514512 - Field 749482169 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Gap Reason Code</source>
           <target state="needs-review-translation">Motif écart</target>
@@ -4610,6 +4634,12 @@
           <target state="needs-review-translation">Article</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Table A01 Transport Order Detail - Field Item No. - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 4111514512 - Field 1927641212 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Item Return State</source>
+          <target state="needs-review-translation">Statut retour article</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Table A01 Transport Order Detail - Field Item Return State - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 4111514512 - Field 3320823955 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Line No.</source>
@@ -5493,6 +5523,18 @@
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit A01 Sales Order Processing - Method BlockPartialInvoiceOnMiridra - NamedType LblNotAutorize</note>
         </trans-unit>
+        <trans-unit id="Codeunit 4233996319 - Method 1398061455 - NamedType 2940364550" size-unit="char" translate="yes" xml:space="preserve">
+          <source>To invoice this document the quantity of the item %1 must match the quantity ordered %2</source>
+          <target state="needs-review-translation">Pour facturer ce document la quantité de l'article doit correspondre a la quantitée commandée</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit A01 Sales Order Processing - Method CheckIfOrderIsCompletelyInvoicing - NamedType ErrorQtyLabel</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 4233996319 - Method 1398061455 - NamedType 869635772" size-unit="char" translate="yes" xml:space="preserve">
+          <source>You must invoice the order %1 in full</source>
+          <target state="needs-review-translation">Vous ne pouvez pas facturer partiellement la commande %1</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit A01 Sales Order Processing - Method CheckIfOrderIsCompletelyInvoicing - NamedType ErrorQtyLabel2</note>
+        </trans-unit>
         <trans-unit id="Codeunit 4233996319 - Method 4062852933 - NamedType 1671038783" size-unit="char" translate="yes" xml:space="preserve">
           <source>%1 %2/%3</source>
           <target state="needs-review-translation">%1 %2/%3</target>
@@ -5558,12 +5600,6 @@
           <target state="needs-adaptation">Le montant total à payer %1 est différent du montant de la commande %2.</target>
           <note from="Developer" annotates="general" priority="2">%1=xx %2=xxx</note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit A01 Treso Mgt - Method CheckPaymentAmount - NamedType LabelPayAmt</note>
-        </trans-unit>
-        <trans-unit id="Codeunit 62654211 - Method 2640750177 - NamedType 4184138744" size-unit="char" translate="yes" xml:space="preserve">
-          <source>&lt;%1M&gt;</source>
-          <target state="needs-review-translation">&lt;%1M&gt;</target>
-          <note from="Developer" annotates="general" priority="2">%1=months</note>
-          <note from="Xliff Generator" annotates="general" priority="3">Codeunit A01 Treso Mgt - Method PostMultiDeadlinesPaymentLines - NamedType lblFormula</note>
         </trans-unit>
         <trans-unit id="Codeunit 1376265650 - Method 2696953935 - NamedType 757060530" size-unit="char" translate="yes" xml:space="preserve">
           <source>The voucher balance %1 is insufficient for this operation</source>
@@ -23157,6 +23193,12 @@
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension A01 User Setup - Field A01 Can Close Sales Order - Property Caption</note>
         </trans-unit>
+        <trans-unit id="TableExtension 4102593426 - Field 2533998437 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 337631938">
+          <source>Can modify sales discounts</source>
+          <target state="needs-review-translation">Peut modifier les remises</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension A01 User Setup - Field A01 Can Set Sales Discount - Property Caption</note>
+        </trans-unit>
         <trans-unit id="TableExtension 4102593426 - Field 964934485 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 337631938">
           <source>Can modify sales prices</source>
           <target state="needs-review-translation">Peut modifier les prix de vente</target>
@@ -23975,7 +24017,7 @@
         </trans-unit>
         <trans-unit id="Enum 3877844311 - EnumValue 3137442341 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Not favorable</source>
-          <target state="needs-review-translation">Non  favorable</target>
+          <target state="needs-review-translation">Non favorable</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Enum A01 Eligibility Opinion - EnumValue Not favorable - Property Caption</note>
         </trans-unit>
@@ -24014,6 +24056,30 @@
           <target state="needs-review-translation">Etape</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Enum A01 Import Step Type - EnumValue Step - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 1568115116 - EnumValue 1692570945 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Damaged</source>
+          <target state="needs-review-translation">Endommagé</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum A01 Item Return State - EnumValue Damaged - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 1568115116 - EnumValue 1995602790 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Dented</source>
+          <target state="needs-review-translation">Cabossé</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum A01 Item Return State - EnumValue Dented - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 1568115116 - EnumValue 4041807949 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Good</source>
+          <target state="needs-review-translation">Bon</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum A01 Item Return State - EnumValue Good - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 1568115116 - EnumValue 21111414 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Non applied</source>
+          <target state="needs-review-translation">Non appliqué</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum A01 Item Return State - EnumValue Non applied - Property Caption</note>
         </trans-unit>
         <trans-unit id="Enum 934449331 - EnumValue 92569267 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Current</source>
@@ -25046,6 +25112,12 @@
           <target state="needs-review-translation">Transfert</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Enum A01 Transport Order Type - EnumValue Transfer - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 3910892863 - EnumValue 3692790378 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Not executed</source>
+          <target state="needs-review-translation">Non éxécuté</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum A01 Transport Return Status - EnumValue NotExecuted - Property Caption</note>
         </trans-unit>
         <trans-unit id="Enum 3910892863 - EnumValue 339349164 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Postponed</source>

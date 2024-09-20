@@ -74,6 +74,9 @@ page 50105 "A01 Transport Order Subform"
                 field("Order Type"; Rec."Order Type")
                 {
                 }
+                field("Execution Rank"; Rec."Execution Rank")
+                {
+                }
             }
         }
     }
