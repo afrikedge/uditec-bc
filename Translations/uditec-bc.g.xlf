@@ -8,6 +8,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table A01 Afk Setup - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Table 2685203037 - Field 3022841372 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Activate security on sales discounts</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table A01 Afk Setup - Field Activate sec on sales discount - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Table 2685203037 - Field 2968567380 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Activate security on sales prices</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -97,6 +102,11 @@
           <source>Allow partial invoice on Mirindra</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table A01 Afk Setup - Field Allow Partial Invoice MIR - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2685203037 - Field 1806862184 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Allow partial invoice on Warehouse Shipment</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table A01 Afk Setup - Field Allow Partial Invoice MIR Whse - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 2685203037 - Field 891900766 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Charge Account (Voucher)</source>
@@ -3668,6 +3678,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table A01 Transport Order - Field Delivery Agent - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Table 2125787823 - Field 250768737 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Delivery Agent 2</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table A01 Transport Order - Field Delivery Agent 2 - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Table 2125787823 - Field 1017622985 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Departure Date (Actual)</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -3832,6 +3847,11 @@
           <source>Customer No.</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table A01 Transport Order Detail - Field Customer No. - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 4111514512 - Field 2971671408 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Execution Rank</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table A01 Transport Order Detail - Field Execution Rank - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 4111514512 - Field 749482169 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Gap Reason Code</source>
@@ -4583,6 +4603,16 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit A01 Sales Order Processing - Method BlockPartialInvoiceOnMiridra - NamedType LblNotAutorize</note>
         </trans-unit>
+        <trans-unit id="Codeunit 4233996319 - Method 1398061455 - NamedType 2940364550" size-unit="char" translate="yes" xml:space="preserve">
+          <source>To invoice this document the quantity of the item %1 must match the quantity ordered %2</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit A01 Sales Order Processing - Method CheckIfOrderIsCompletelyInvoicing - NamedType ErrorQtyLabel</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 4233996319 - Method 1398061455 - NamedType 869635772" size-unit="char" translate="yes" xml:space="preserve">
+          <source>You must invoice the order %1 in full</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit A01 Sales Order Processing - Method CheckIfOrderIsCompletelyInvoicing - NamedType ErrorQtyLabel2</note>
+        </trans-unit>
         <trans-unit id="Codeunit 4233996319 - Method 4062852933 - NamedType 1671038783" size-unit="char" translate="yes" xml:space="preserve">
           <source>%1 %2/%3</source>
           <note from="Developer" annotates="general" priority="2">%1=x,%2=x,%3=x,</note>
@@ -4637,11 +4667,6 @@
           <source>The total amount to be paid %1 is different from the order %2</source>
           <note from="Developer" annotates="general" priority="2">%1=xx %2=xxx</note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit A01 Treso Mgt - Method CheckPaymentAmount - NamedType LabelPayAmt</note>
-        </trans-unit>
-        <trans-unit id="Codeunit 62654211 - Method 2640750177 - NamedType 4184138744" size-unit="char" translate="yes" xml:space="preserve">
-          <source>&lt;%1M&gt;</source>
-          <note from="Developer" annotates="general" priority="2">%1=months</note>
-          <note from="Xliff Generator" annotates="general" priority="3">Codeunit A01 Treso Mgt - Method PostMultiDeadlinesPaymentLines - NamedType lblFormula</note>
         </trans-unit>
         <trans-unit id="Codeunit 1376265650 - Method 2696953935 - NamedType 757060530" size-unit="char" translate="yes" xml:space="preserve">
           <source>The voucher balance %1 is insufficient for this operation</source>
@@ -19302,6 +19327,11 @@
           <source>Can Close Sales Order</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension A01 User Setup - Field A01 Can Close Sales Order - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 4102593426 - Field 2533998437 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 337631938">
+          <source>Can modify sales discounts</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension A01 User Setup - Field A01 Can Set Sales Discount - Property Caption</note>
         </trans-unit>
         <trans-unit id="TableExtension 4102593426 - Field 964934485 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 337631938">
           <source>Can modify sales prices</source>

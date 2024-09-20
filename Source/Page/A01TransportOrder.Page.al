@@ -71,6 +71,9 @@ page 50106 "A01 Transport Order"
                 field("Delivery Agent"; Rec."Delivery Agent")
                 {
                 }
+                field("Delivery Agent 2"; Rec."Delivery Agent 2")
+                {
+                }
                 field("Initial Location"; Rec."Initial Location")
                 {
                 }

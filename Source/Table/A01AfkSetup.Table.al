@@ -374,6 +374,15 @@ table 50017 "A01 Afk Setup"
         {
             Caption = 'Activate security on sales prices';
         }
+        field(80; "Activate sec on sales discount"; Boolean)
+        {
+            Caption = 'Activate security on sales discounts';
+        }
+        field(81; "Allow Partial Invoice MIR Whse"; Boolean)
+        {
+            Caption = 'Allow partial invoice on Warehouse Shipment';
+        }
+
 
 
         //Config. Template Header

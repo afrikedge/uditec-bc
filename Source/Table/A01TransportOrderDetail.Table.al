@@ -113,6 +113,11 @@ table 50055 "A01 Transport Order Detail"
         {
             Caption = 'Item Return State';
         }
+        field(25; "Execution Rank"; Integer)
+        {
+            Caption = 'Execution Rank';
+        }
+
     }
     keys
     {

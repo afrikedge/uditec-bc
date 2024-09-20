@@ -295,19 +295,17 @@ codeunit 50002 "A01 EventsSubscribers_Code"
         SalesOrderHeader."Prepayment %" := SalesQuoteHeader."Prepayment %";
     end;
 
-
-
-
+    [EventSubscriber(ObjectType::Codeunit, Codeunit::"Whse.-Post Shipment", 'OnBeforeCheckWhseShptLines', '', true, true)]
+    local procedure WhsePostShipment_OnBeforeCheckWhseShptLinesk(var WarehouseShipmentLine: Record "Warehouse Shipment Line"; var WarehouseShipmentHeader: Record "Warehouse Shipment Header"; Invoice: Boolean; var SuppressCommit: Boolean)
+    var
+        SalesOrderProcess: Codeunit "A01 Sales Order Processing";
+    begin
+        if (Invoice) then
+            SalesOrderProcess.BlockPartialInvoiceOnMiridraFromWarehouseShip(WarehouseShipmentHeader);
+    end;
 
     // [IntegrationEvent(false, false)]
-    // local procedure OnTransferQuoteToOrderLinesOnBeforeDefaultDeferralCode(var SalesLineOrder: Record "Sales Line"; var SalesHeaderOrder: Record "Sales Header"; var SalesLineQuote: Record "Sales Line"; var IsHandled: Boolean)
+    // local procedure OnBeforeCheckWhseShptLines(var WarehouseShipmentLine: Record "Warehouse Shipment Line"; var WarehouseShipmentHeader: Record "Warehouse Shipment Header"; Invoice: Boolean; var SuppressCommit: Boolean)
     // begin
     // end;
-
-    // [IntegrationEvent(false, false)]
-    // local procedure OnBeforeModifySalesOrderHeader(var SalesOrderHeader: Record "Sales Header"; SalesQuoteHeader: Record "Sales Header")
-    // begin
-    // end;
-
-
 }
