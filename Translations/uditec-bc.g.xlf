@@ -11708,6 +11708,56 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report A01 BankTransferOrderPrint - Control OptionVal - Property OptionCaption</note>
         </trans-unit>
+        <trans-unit id="Report 2910124491 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>A01 Cash voucher</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 Cash Voucher - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 2910124491 - NamedType 1245862610" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Amount</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 Cash Voucher - NamedType AmountLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 2910124491 - NamedType 3000703146" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Beneficiairy's signature</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 Cash Voucher - NamedType CompanySignLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 2910124491 - NamedType 1116617772" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Cash signature</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 Cash Voucher - NamedType CustSignLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 2910124491 - NamedType 2251670122" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Date :</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 Cash Voucher - NamedType DateOfPrintLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 2910124491 - NamedType 3569966352" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Description</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 Cash Voucher - NamedType DescriptionLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 2910124491 - NamedType 4294012637" size-unit="char" translate="yes" xml:space="preserve">
+          <source>No</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 Cash Voucher - NamedType RefLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 2910124491 - NamedType 3040577680" size-unit="char" translate="yes" xml:space="preserve">
+          <source>CASH VOUCHER</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 Cash Voucher - NamedType ReportTitleLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 2910124491 - NamedType 3357692024" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Total Amount</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 Cash Voucher - NamedType TotalAmountLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 2910124491 - ReportDataItem 506096960 - Property 1806354803" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Cash voucher</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 Cash Voucher - ReportDataItem Batch - Property RequestFilterHeading</note>
+        </trans-unit>
         <trans-unit id="Report 238726400 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>A01 Cash Receipt Print</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -12368,6 +12418,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report A01 DeliveryNotePrint - NamedType NIFLbl</note>
         </trans-unit>
+        <trans-unit id="Report 3824556247 - NamedType 156147307" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Number of packages</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 DeliveryNotePrint - NamedType NumberOfPackagesLbl</note>
+        </trans-unit>
         <trans-unit id="Report 3824556247 - NamedType 3046308225" size-unit="char" translate="yes" xml:space="preserve">
           <source>Delivery note N°:</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -12454,12 +12509,12 @@
           <note from="Xliff Generator" annotates="general" priority="3">Report A01 DisbursementReceipt - NamedType AmountLbl</note>
         </trans-unit>
         <trans-unit id="Report 3761159245 - NamedType 3000703146" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Company signature</source>
+          <source>Beneficiairy's signature</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report A01 DisbursementReceipt - NamedType CompanySignLbl</note>
         </trans-unit>
         <trans-unit id="Report 3761159245 - NamedType 1116617772" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Customer signature</source>
+          <source>Cash signature</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report A01 DisbursementReceipt - NamedType CustSignLbl</note>
         </trans-unit>
@@ -12479,7 +12534,7 @@
           <note from="Xliff Generator" annotates="general" priority="3">Report A01 DisbursementReceipt - NamedType RefLbl</note>
         </trans-unit>
         <trans-unit id="Report 3761159245 - NamedType 3040577680" size-unit="char" translate="yes" xml:space="preserve">
-          <source>DISBURSEMENT RECEIPT</source>
+          <source>CASH VOUCHER</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report A01 DisbursementReceipt - NamedType ReportTitleLbl</note>
         </trans-unit>
@@ -17147,6 +17202,11 @@
           <source>Generate interest lines</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension A01 General Journal - Action A01GenerateInterestLines - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 3088518726 - Action 4060642635 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1739090986">
+          <source>&amp;Print Cash voucher</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension A01 GL Register - Action A01Print - Property Caption</note>
         </trans-unit>
         <trans-unit id="PageExtension 423854963 - Action 943648489 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1434786627">
           <source>Warranty plans</source>
