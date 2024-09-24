@@ -415,13 +415,15 @@ codeunit 50000 "A01 Sales Order Processing"
         end
     end;
 
-    procedure BlockPartialInvoiceOnMiridraFromWarehouseShip(WhseShipment: Record "Warehouse Shipment Header")
+    procedure BlockPartialInvoiceOnMiridraFromWarehouseShip(WhseShipmentNo: Code[20])
     var
         //SalesLine: record "Sales Line";
         SalesH: record "Sales Header";
+        WhseShipment: Record "Warehouse Shipment Header";
         AfkSetup: Record "A01 Afk Setup";
         WhseShipmentLine: Record "Warehouse Shipment Line";
         TresoMgt: Codeunit "A01 Treso Mgt";
+
     //LblNotAutorize: Label 'Partially invoice is not autorize on Mirindra invoicing';
     begin
 
@@ -429,8 +431,10 @@ codeunit 50000 "A01 Sales Order Processing"
         if (AfkSetup."Allow Partial Invoice MIR Whse") then
             exit;
 
+        WhseShipment.Get(WhseShipmentNo);
+
         WhseShipmentLine.Init();
-        WhseShipmentLine.SetRange(WhseShipmentLine."No.", WhseShipment."No.");
+        WhseShipmentLine.SetRange("No.", WhseShipment."No.");
         WhseShipmentLine.SetRange("Source Document", WhseShipmentLine."Source Document"::"Sales Order");
         if WhseShipmentLine.FindSet() then
             repeat
@@ -452,7 +456,7 @@ codeunit 50000 "A01 Sales Order Processing"
         if SalesLine.FindSet() then
             repeat
                 WhseShipmentLine.Init();
-                WhseShipmentLine.SetRange(WhseShipmentLine."No.", WhseShipment."No.");
+                WhseShipmentLine.SetRange("No.", WhseShipment."No.");
                 WhseShipmentLine.SetRange("Source Document", WhseShipmentLine."Source Document"::"Sales Order");
                 WhseShipmentLine.SetRange("Source No.", SalesOrderNo);
                 WhseShipmentLine.SetRange(WhseShipmentLine."Source Line No.", SalesLine."Line No.");

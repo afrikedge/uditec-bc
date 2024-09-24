@@ -196,6 +196,7 @@ report 50032 "A01 Update Credit Amort Line"
                     if ((NextCustLedgerEntry."Customer No." = CustLedgerEntry."Customer No.") and (NextCustLedgerEntry."Entry No." <> CustLedgerEntry."Entry No.")) then begin
                         NextCustLedgerEntry."Due Date" := LineDueDate;
                         NextCustLedgerEntry.Modify();
+                        CODEUNIT.RUN(CODEUNIT::"Cust. Entry-Edit", NextCustLedgerEntry);
                     end;
                     LineDueDate := CalcDate('<1M>', LineDueDate);
                 until NextCustLedgerEntry.Next() < 1;
