@@ -134,7 +134,7 @@ report 50032 "A01 Update Credit Amort Line"
                             monthlyPayment := CreditAmortLine."Amount to pay";
                             RemainingAmt := monthlyPayment - CreditAmortLine."Paid Amount";
 
-                            if (RemainingAmt > 0) then begin
+                            if ((RemainingAmt > 0) and (LinePaymentAmt > 0)) then begin
 
                                 AmountToPay := Min(RemainingAmt, LinePaymentAmt);
 
@@ -150,8 +150,9 @@ report 50032 "A01 Update Credit Amort Line"
                                 CreditAmortLine.Closed := CreditAmortLine."Paid Amount" = monthlyPayment;
 
                                 if (monthlyPayment = CreditAmortLine."Paid Amount") then begin
-                                    if (PayEntry.get(GetPaymentEntryId(DetailledPaymentEntry))) then
-                                        CreditAmortLine."Payment Date" := PayEntry."Posting Date";
+                                    //if (PayEntry.get(GetPaymentEntryId(DetailledPaymentEntry))) then
+                                    //    CreditAmortLine."Payment Date" := PayEntry."Posting Date";
+                                    CreditAmortLine."Payment Date" := DetailledPaymentEntry."Posting Date";
                                 end;
 
                                 if (CreditAmortLine."Customer No." = '') then
@@ -161,7 +162,7 @@ report 50032 "A01 Update Credit Amort Line"
 
                             end;
 
-                        until CreditAmortLine.Next() < 1;
+                        until ((CreditAmortLine.Next() < 1) or (LinePaymentAmt <= 0));
                 end;
             until DetailledPaymentEntry.Next() < 1;
     end;
