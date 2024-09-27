@@ -62,6 +62,9 @@ report 50031 "A01 DisbursementReceipt"
             column(DateOfPrintLbl; DateOfPrintLbl)
             {
             }
+            column(AccountNumberLbl; AccountNumberLbl)
+            {
+            }
             dataitem(Line; "Gen. Journal Line")
             {
                 DataItemLink = "Journal Template Name" = field("Journal Template Name"), "Journal Batch Name" = field(Name);
@@ -77,6 +80,9 @@ report 50031 "A01 DisbursementReceipt"
                 {
                 }
                 column(Amount; Amount)
+                {
+                }
+                column(Account_No_; "Account No.")
                 {
                 }
             }
@@ -124,6 +130,7 @@ report 50031 "A01 DisbursementReceipt"
 
         ReportTitleLbl: Label 'CASH VOUCHER';
         RefLbl: Label 'No';
+        AccountNumberLbl: Label 'Account N°';
         AmountLbl: Label 'Amount';
         TotalAmountLbl: Label 'Total Amount';
         DateOfPrintLbl: Label 'Date :';

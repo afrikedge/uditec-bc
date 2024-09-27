@@ -64,6 +64,12 @@ report 50037 "A01 Cash Voucher"
             column(DateOfPrintLbl; DateOfPrintLbl)
             {
             }
+            column(AccountNumberLbl; AccountNumberLbl)
+            {
+            }
+            column(LyneType; LyneType)
+            {
+            }
             dataitem(Line; "Bank Account Ledger Entry")
             {
                 DataItemLink = "Journal Templ. Name" = field("Journal Templ. Name"), "Journal Batch Name" = field("Journal Batch Name");
@@ -84,12 +90,15 @@ report 50037 "A01 Cash Voucher"
                 column(Credit_Amount; "Credit Amount")
                 {
                 }
-                // trigger OnAfterGetRecord()
-                // begin
-                // Line.Reset();
-                // Line.SetRange("Entry No.", Batch."From Entry No.", Batch."To Entry No.");
-                // end;
-
+                dataitem("Allocation Account"; "Allocation Account")
+                {
+                    DataItemTableView = sorting("No.");
+                    DataItemLinkReference = Line;
+                    DataItemLink = Name = field(Description);
+                    column(No_; "No.")
+                    {
+                    }
+                }
                 trigger OnPreDataItem()
                 begin
                     Line.SetRange("Entry No.", Batch."From Entry No.", Batch."To Entry No.");
@@ -136,9 +145,10 @@ report 50037 "A01 Cash Voucher"
         GLSetup: Record "General Ledger Setup";
         // GenJournalTemplate: Record "Gen. Journal Template";
         AfkCurrCode: Code[20];
-
+        LyneType: Integer;
         ReportTitleLbl: Label 'CASH VOUCHER';
         RefLbl: Label 'No';
+        AccountNumberLbl: Label 'Account N°';
         AmountLbl: Label 'Amount';
         TotalAmountLbl: Label 'Total Amount';
         DateOfPrintLbl: Label 'Date :';
