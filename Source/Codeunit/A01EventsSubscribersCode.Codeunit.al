@@ -301,7 +301,7 @@ codeunit 50002 "A01 EventsSubscribers_Code"
         SalesOrderProcess: Codeunit "A01 Sales Order Processing";
     begin
         if (Invoice) then
-            SalesOrderProcess.BlockPartialInvoiceOnMiridraFromWarehouseShip(WarehouseShipmentHeader);
+            SalesOrderProcess.BlockPartialInvoiceOnMiridraFromWarehouseShip(WarehouseShipmentLine."No.");
     end;
 
     // [IntegrationEvent(false, false)]

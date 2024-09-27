@@ -11713,6 +11713,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report A01 Cash Voucher - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Report 2910124491 - NamedType 168058148" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Account N°</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 Cash Voucher - NamedType AccountNumberLbl</note>
+        </trans-unit>
         <trans-unit id="Report 2910124491 - NamedType 1245862610" size-unit="char" translate="yes" xml:space="preserve">
           <source>Amount</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -12502,6 +12507,11 @@
           <source>A01 Disbursement Receipt</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report A01 DisbursementReceipt - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 3761159245 - NamedType 168058148" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Account N°</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 DisbursementReceipt - NamedType AccountNumberLbl</note>
         </trans-unit>
         <trans-unit id="Report 3761159245 - NamedType 1245862610" size-unit="char" translate="yes" xml:space="preserve">
           <source>Amount</source>
