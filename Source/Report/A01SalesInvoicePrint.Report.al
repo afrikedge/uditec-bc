@@ -1429,7 +1429,7 @@ report 50002 "A01 SalesInvoicePrint"
                 group(GroupName)
                 {
                     Caption = 'Options';
-                    field(ShowDiscount; ShowDiscountVar)
+                    field(ShowDiscount; DiscountDisplay())
                     {
                         ApplicationArea = Basic, Suite;
                         Caption = 'Show discount';
@@ -1446,8 +1446,6 @@ report 50002 "A01 SalesInvoicePrint"
         begin
             InitLogInteraction();
             // LogInteractionEnable := LogInteraction;
-
-            ShowDiscountVar := true;
         end;
     }
 
@@ -1528,7 +1526,6 @@ report 50002 "A01 SalesInvoicePrint"
         AutoFormat: Codeunit "Auto Format";
         FormatDocument: Codeunit "Format Document";
         MoreLines: Boolean;
-        ShowDiscountVar: Boolean;
         CustomerIdentity: Text[100];
         VATText: Text[50];
         rcs: Code[30];
@@ -1638,6 +1635,8 @@ report 50002 "A01 SalesInvoicePrint"
         AfkTotalAmountInclVAT_LCY: Decimal;
         LegalOfficeTxt, LegalOfficeLbl, CustomGiroTxt, CustomGiroLbl, LegalStatementLbl : Text;
         LogInteraction: Boolean;
+        ShowDiscountVar: Boolean;
+        param: Decimal;
         // ShowShippingAddr: Boolean;
         // AfkTotalHTCFALbl: Label 'Total Excl. VAT CFAF :';
         // AfkVAT1925Lbl: Label 'VAT 19.25% :';
@@ -1984,6 +1983,18 @@ report 50002 "A01 SalesInvoicePrint"
             Rep := DelStr(OriginString, pos, StrLen(ReplaceStr));
         end;
         exit(Rep);
+    end;
+
+    local procedure DiscountDisplay(): Boolean
+    var
+    begin
+        param := Line."Line Discount Amount";
+        if param = 0 then
+            ShowDiscountVar := false
+        else
+            ShowDiscountVar := true;
+
+        exit(ShowDiscountVar);
     end;
 
 }
