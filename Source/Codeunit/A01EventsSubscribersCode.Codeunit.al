@@ -275,7 +275,7 @@ codeunit 50002 "A01 EventsSubscribers_Code"
         if (PayLine.FindFirst()) then begin
             if (PayLine."A01 Payment Reference" <> '') then begin
                 GenJnlLine."Payment Reference" := PayLine."A01 Payment Reference";
-                GenJnlLine.Modify();
+                if GenJnlLine.Modify() then;
             end;
         end;
     end;

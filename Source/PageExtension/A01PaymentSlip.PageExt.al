@@ -23,6 +23,7 @@ pageextension 50009 "A01 Payment Slip" extends "Payment Slip"
             {
                 ApplicationArea = Basic, Suite;
             }
+
         }
         addafter("Shortcut Dimension 2 Code")
         {
