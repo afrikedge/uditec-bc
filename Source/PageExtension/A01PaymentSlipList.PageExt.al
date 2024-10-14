@@ -36,6 +36,14 @@ pageextension 50013 "A01 Payment Slip List" extends "Payment Slip List"
             {
                 ApplicationArea = Basic, Suite;
             }
+            field("A01 Due Date"; Rec."A01 Due Date")
+            {
+                ApplicationArea = Basic, Suite;
+            }
+            field("A01 Drawee Reference"; Rec."A01 Drawee Reference")
+            {
+                ApplicationArea = Basic, Suite;
+            }
         }
 
     }
