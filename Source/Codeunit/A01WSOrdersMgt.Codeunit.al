@@ -397,6 +397,22 @@ codeunit 50009 "A01 WS OrdersMgt"
                 if (SalesLine."Line Discount Amount" <> WS.GetDecimal(jsonKey, input)) then
                     SalesLine.Validate("Line Discount Amount", WS.GetDecimal(jsonKey, input));
 
+
+            jsonKey := 'Free';
+            if WS.KeyExists(jsonKey, input) then
+                if (SalesLine."A01 Free" <> WS.GetBool(jsonKey, input)) then
+                    SalesLine.Validate("A01 Free", WS.GetBool(jsonKey, input));
+
+            jsonKey := 'Linked Line No_';
+            if WS.KeyExists(jsonKey, input) then
+                if (SalesLine."A01 Linked Line No." <> WS.GetInt(jsonKey, input)) then
+                    SalesLine.Validate("A01 Linked Line No.", WS.GetInt(jsonKey, input));
+
+            jsonKey := 'Additionnal Qty';
+            if WS.KeyExists(jsonKey, input) then
+                if (SalesLine."A01 Additionnal Qty" <> WS.GetDecimal(jsonKey, input)) then
+                    SalesLine.Validate("A01 Additionnal Qty", WS.GetDecimal(jsonKey, input));
+
         end;
     end;
 

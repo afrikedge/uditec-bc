@@ -23,6 +23,24 @@ tableextension 50013 "A01 Sales Line" extends "Sales Line"
             //Editable = false;
             DataClassification = CustomerContent;
         }
+        field(50003; "A01 Free"; Boolean)
+        {
+            Caption = 'Free';
+            DataClassification = CustomerContent;
+            Editable = false;
+        }
+        field(50004; "A01 Linked Line No."; integer)
+        {
+            Caption = 'Linked Line No.';
+            DataClassification = CustomerContent;
+            Editable = false;
+        }
+        field(50005; "A01 Additionnal Qty"; Decimal)
+        {
+            Caption = 'Additionnal Qty';
+            DataClassification = CustomerContent;
+            Editable = false;
+        }
 
         modify("No.")
         {

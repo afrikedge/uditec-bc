@@ -54,7 +54,6 @@ codeunit 50001 "A01 EventsSubscribers_Table"
             DocumentSendingProfile.TrySendToPrinter(
               ReminderLevel."A01 Report Usage".AsInteger(), IssuedReminderHeader,
               IssuedReminderHeaderToSend.FieldNo("Customer No."), ShowRequestForm);
-
     end;
 
 
