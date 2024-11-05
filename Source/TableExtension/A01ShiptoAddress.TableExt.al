@@ -14,11 +14,13 @@ tableextension 50007 "A01 Ship-to Address" extends "Ship-to Address"
         {
             Caption = 'Place';
             DataClassification = CustomerContent;
+            TableRelation = "A01 Neighborhood".Municipality;
         }
         field(50002; "A01 Neighborhood"; Text[50])
         {
             Caption = 'Neighborhood';
             DataClassification = CustomerContent;
+            TableRelation = "A01 Neighborhood".Neighborhood;
         }
         field(50003; "A01 Area"; Text[50])
         {

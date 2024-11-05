@@ -1887,6 +1887,36 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table A01 Item Warranty - Field Warranty Plan Type - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Table 2667417074 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Neighborhood</source>
+          <target state="needs-review-translation">Quartier</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table A01 Neighborhood - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2667417074 - Field 714791889 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>City</source>
+          <target state="needs-review-translation">Ville</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table A01 Neighborhood - Field City - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2667417074 - Field 845095785 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Delivery Axis</source>
+          <target state="needs-review-translation">Axe</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table A01 Neighborhood - Field Delivery Axis - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2667417074 - Field 316116824 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Municipality</source>
+          <target state="needs-review-translation">Commune</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table A01 Neighborhood - Field Municipality - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2667417074 - Field 313781346 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Neighborhood</source>
+          <target state="needs-review-translation">Quartier</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table A01 Neighborhood - Field Neighborhood - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Table 782004688 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Parameter Record</source>
           <target state="needs-review-translation">Paramètre</target>
@@ -4419,6 +4449,12 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table A01 Transport Order - Field Delivery Agent 2 - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Table 2125787823 - Field 845095785 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Axe</source>
+          <target state="needs-review-translation">Axe</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table A01 Transport Order - Field Delivery Axis - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Table 2125787823 - Field 1017622985 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Departure Date (Actual)</source>
           <target state="needs-review-translation">Date départ réelle</target>
@@ -4647,11 +4683,23 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table A01 Transport Order Detail - Field Line No. - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Table 4111514512 - Field 158172202 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Line Type</source>
+          <target state="needs-review-translation">Type de ligne</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table A01 Transport Order Detail - Field Line Type - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Table 4111514512 - Field 2161572060 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Location Code</source>
           <target state="needs-review-translation">Magasin</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table A01 Transport Order Detail - Field Location Code - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 4111514512 - Field 2961552353 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Name</source>
+          <target state="needs-review-translation">Nom</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table A01 Transport Order Detail - Field Name - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 4111514512 - Field 176518433 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Order Line No.</source>
@@ -4671,6 +4719,12 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table A01 Transport Order Detail - Field Order Type - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Table 4111514512 - Field 3244652302 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Postponed-to Date</source>
+          <target state="needs-review-translation">Date report</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table A01 Transport Order Detail - Field Postponed-to Date - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Table 4111514512 - Field 437606496 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Quantity (Actual)</source>
           <target state="needs-review-translation">Quantité réalisé</target>
@@ -4689,11 +4743,23 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table A01 Transport Order Detail - Field Quantity (Planned) - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Table 4111514512 - Field 1576505637 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Return Reason Code</source>
+          <target state="needs-review-translation">Motif retour</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table A01 Transport Order Detail - Field Return Reason Code - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Table 4111514512 - Field 3795285978 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Return Status</source>
           <target state="needs-review-translation">Statut de retour</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table A01 Transport Order Detail - Field Return Status - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 4111514512 - Field 3806750113 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Returned Qty</source>
+          <target state="needs-review-translation">Quantité retournée</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table A01 Transport Order Detail - Field Returned Qty - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 4111514512 - Field 4089855909 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Order Type</source>
@@ -7742,6 +7808,12 @@
           <target state="needs-review-translation">Nom de feuille</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page A01 Journal Users - Control Ressource Code 2 - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 637432848 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Neighborhood List</source>
+          <target state="needs-review-translation">Quartiers</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page A01 Neighborhood List - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 2755153026 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Objects</source>
@@ -20715,6 +20787,12 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension A01 Order Processor RC - Action A01GapReasonsList - Property Caption</note>
         </trans-unit>
+        <trans-unit id="PageExtension 3250568499 - Action 1347053216 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2747922353">
+          <source>Neighborhood List</source>
+          <target state="needs-review-translation">Quartiers</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension A01 Order Processor RC - Action A01NeighborhoodList - Property Caption</note>
+        </trans-unit>
         <trans-unit id="PageExtension 3250568499 - Action 1261392438 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2747922353">
           <source>Routes</source>
           <target state="needs-review-translation">Trajets</target>
@@ -21290,6 +21368,12 @@
           <target state="needs-review-translation">Plan le plan de masse</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension A01 Ship-to Address - Action A01ImportMedia - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 3533721046 - Change 714791889 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1187003046">
+          <source>City/District</source>
+          <target state="needs-review-translation">Ville/District</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension A01 Ship-to Address - Change City - Property Caption</note>
         </trans-unit>
         <trans-unit id="PageExtension 3533721046 - Control 1235637342 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1187003046">
           <source>Ground Plan</source>
@@ -23243,13 +23327,13 @@
         </trans-unit>
         <trans-unit id="TableExtension 3533721046 - Field 2667417074 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1187003046">
           <source>Neighborhood</source>
-          <target state="needs-review-translation">Quartier</target>
+          <target state="needs-review-translation">Quartier/Fokontany</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension A01 Ship-to Address - Field A01 Neighborhood - Property Caption</note>
         </trans-unit>
         <trans-unit id="TableExtension 3533721046 - Field 3406890485 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1187003046">
           <source>Place</source>
-          <target state="needs-review-translation">Lieu</target>
+          <target state="needs-review-translation">Lieu/Commune</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension A01 Ship-to Address - Field A01 Place - Property Caption</note>
         </trans-unit>
@@ -25244,6 +25328,18 @@
           <target state="needs-review-translation">Sortant</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Enum A01 Transport Direction - EnumValue Outgoing - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 3728648959 - EnumValue 4137051400 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>New</source>
+          <target state="needs-review-translation">Nouveau</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum A01 Transport Line Type - EnumValue New - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 3728648959 - EnumValue 3375155882 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Report</source>
+          <target state="needs-review-translation">Report</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum A01 Transport Line Type - EnumValue Report - Property Caption</note>
         </trans-unit>
         <trans-unit id="Enum 4123658679 - EnumValue 1673401186 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Sales Order</source>

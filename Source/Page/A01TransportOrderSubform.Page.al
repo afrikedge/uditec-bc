@@ -77,6 +77,21 @@ page 50105 "A01 Transport Order Subform"
                 field("Execution Rank"; Rec."Execution Rank")
                 {
                 }
+                field(Name; Rec.Name)
+                {
+                }
+                field("Returned Qty"; Rec."Returned Qty")
+                {
+                }
+                field("Return Reason Code"; Rec."Return Reason Code")
+                {
+                }
+                field("Postponed-to Date"; Rec."Postponed-to Date")
+                {
+                }
+                field("Line Type"; Rec."Line Type")
+                {
+                }
             }
         }
     }

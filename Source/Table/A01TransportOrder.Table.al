@@ -179,6 +179,12 @@ table 50054 "A01 Transport Order"
             Editable = false;
             TableRelation = "A01 External User";
         }
+        field(32; "Delivery Axis"; Code[10])
+        {
+            Caption = 'Axe';
+            DataClassification = CustomerContent;
+            TableRelation = "Service Zone";
+        }
 
 
 
@@ -231,6 +237,7 @@ table 50054 "A01 Transport Order"
         TransportOrderDetail.Reset();
         TransportOrderDetail.SetCurrentKey("Transport Order No.", "Order Type", "Location Code");
         TransportOrderDetail.SetRange("Transport Order No.", Rec."No.");
+        TransportOrderDetail.SetRange("Line Type", TransportOrderDetail."Line Type"::New);
         if TransportOrderDetail.FindSet() then
             repeat
 
@@ -483,7 +490,8 @@ table 50054 "A01 Transport Order"
             SalesReturnLine."Line No." := LineNo;
             SalesReturnLine.Type := SalesReturnLine.Type::Item;
             SalesReturnLine.Validate("No.", TransportOrderDetail."Item No.");
-            SalesReturnLine.Validate(Quantity, TransportOrderDetail."Quantity (Planned)");
+            SalesReturnLine.Validate(Quantity, TransportOrderDetail."Returned Qty");
+            SalesReturnLine.Validate("Return Reason Code", TransportOrderDetail."Return Reason Code");
             SalesReturnLine.Validate("Unit of Measure Code", TransportOrderDetail."Unit of Mesure Code");
             SalesReturnLine.Validate(SalesReturnLine."Location Code", TransportOrderDetail."Location Code");
             SalesReturnLine.Insert(true);

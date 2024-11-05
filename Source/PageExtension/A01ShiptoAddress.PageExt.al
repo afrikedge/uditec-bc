@@ -5,6 +5,10 @@ pageextension 50007 "A01 Ship-to Address" extends "Ship-to Address"
 {
     layout
     {
+        modify(City)
+        {
+            Caption = 'City/District';
+        }
         addafter("Shipment Method Code")
         {
             field("A01 Time preference"; Rec."A01 Time preference")

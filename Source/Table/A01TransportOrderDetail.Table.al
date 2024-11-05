@@ -117,6 +117,34 @@ table 50055 "A01 Transport Order Detail"
         {
             Caption = 'Execution Rank';
         }
+        field(26; "Name"; Text[100])
+        {
+            Caption = 'Name';
+        }
+        field(27; "Returned Qty"; Decimal)
+        {
+            Caption = 'Returned Qty';
+            Editable = false;
+        }
+        field(28; "Return Reason Code"; Code[10])
+        {
+            Caption = 'Return Reason Code';
+            TableRelation = "Return Reason";
+            Editable = false;
+        }
+        field(29; "Postponed-to Date"; Date)
+        {
+            Caption = 'Postponed-to Date';
+        }
+        field(30; "Line Type"; enum "A01 Transport Line Type")
+        {
+            Caption = 'Line Type';
+            Editable = false;
+        }
+
+
+
+
 
     }
     keys
@@ -134,15 +162,15 @@ table 50055 "A01 Transport Order Detail"
     }
     trigger OnInsert()
     var
-        TOLine: record "A01 Transport Order Detail";
-        ErrorLbl: label 'This order line (%1 - %2) is already present in document %3', Comment = '%1 %2 %3';
+    // TOLine: record "A01 Transport Order Detail";
+    // ErrorLbl: label 'This order line (%1 - %2) is already present in document %3', Comment = '%1 %2 %3';
     begin
-        TOLine.SetRange("Order No.", Rec."Order No.");
-        TOLine.SetRange("Order Line No.", Rec."Order Line No.");
-        if TOLine.FindSet() then
-            repeat
-                if (TOLine."Transport Order No." <> Rec."Transport Order No.") then
-                    Error(ErrorLbl, Rec."Order Line No.", Rec."Order No.", TOLine."Transport Order No.");
-            until TOLine.Next() < 1;
+        // TOLine.SetRange("Order No.", Rec."Order No.");
+        // TOLine.SetRange("Order Line No.", Rec."Order Line No.");
+        // if TOLine.FindSet() then
+        //     repeat
+        //         if (TOLine."Transport Order No." <> Rec."Transport Order No.") then
+        //             Error(ErrorLbl, Rec."Order Line No.", Rec."Order No.", TOLine."Transport Order No.");
+        //     until TOLine.Next() < 1;
     end;
 }
