@@ -3853,11 +3853,6 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table A01 Transport Order Detail - Property Caption</note>
         </trans-unit>
-        <trans-unit id="Table 4111514512 - Method 2451657066 - NamedType 3941846598" size-unit="char" translate="yes" xml:space="preserve">
-          <source>This order line (%1 - %2) is already present in document %3</source>
-          <note from="Developer" annotates="general" priority="2">%1 %2 %3</note>
-          <note from="Xliff Generator" annotates="general" priority="3">Table A01 Transport Order Detail - Method OnInsert - NamedType ErrorLbl</note>
-        </trans-unit>
         <trans-unit id="Table 4111514512 - Field 1812944613 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Address Code</source>
           <note from="Developer" annotates="general" priority="2"></note>
