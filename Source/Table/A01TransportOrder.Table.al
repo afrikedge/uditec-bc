@@ -482,7 +482,8 @@ table 50054 "A01 Transport Order"
         SalesReturnLine: record "Sales Line";
 
     begin
-        if (TransportOrderDetail."Return Status" = TransportOrderDetail."Return Status"::Return) then begin
+        if ((TransportOrderDetail."Return Status" = TransportOrderDetail."Return Status"::Return)
+        and (TransportOrderDetail."Order Type" = TransportOrderDetail."Order Type"::"Sales Order")) then begin
 
             SalesReturnLine.Init();
             SalesReturnLine."Document Type" := SalesReturn."Document Type";

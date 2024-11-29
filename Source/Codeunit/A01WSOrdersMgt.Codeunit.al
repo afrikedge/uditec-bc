@@ -413,6 +413,11 @@ codeunit 50009 "A01 WS OrdersMgt"
                 if (SalesLine."A01 Additionnal Qty" <> WS.GetDecimal(jsonKey, input)) then
                     SalesLine.Validate("A01 Additionnal Qty", WS.GetDecimal(jsonKey, input));
 
+            jsonKey := 'Shipment Method Code';
+            if WS.KeyExists(jsonKey, input) then
+                if (SalesLine."A01 Shipment Method Code" <> WS.GetText(jsonKey, input)) then
+                    SalesLine.Validate("A01 Shipment Method Code", WS.GetText(jsonKey, input));
+
         end;
     end;
 
