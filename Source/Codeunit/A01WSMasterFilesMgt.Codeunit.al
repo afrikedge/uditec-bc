@@ -335,6 +335,11 @@ codeunit 50015 A01WSMasterFilesMgt
             if (Cust."Salesperson Code" <> WS.GetText(jsonKey, input)) then
                 Cust.Validate("Salesperson Code", WS.GetText(jsonKey, input));
 
+        jsonKey := 'Ship-to Code';
+        if WS.KeyExists(jsonKey, input) then
+            if (Cust."Ship-to Code" <> WS.GetText(jsonKey, input)) then
+                Cust.Validate("Ship-to Code", WS.GetText(jsonKey, input));
+
 
 
         Cust.Modify();

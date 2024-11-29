@@ -48,6 +48,20 @@ tableextension 50010 "A01 Payment Header" extends "Payment Header"
             DataClassification = CustomerContent;
             Editable = false;
         }
+        field(50007; "A01 Due Date"; Date)
+        {
+            Caption = 'Due Date';
+            FieldClass = FlowField;
+            CalcFormula = max("Payment Line"."Due Date" where("No." = field("No.")));
+            Editable = false;
+        }
+        field(50008; "A01 Drawee Reference"; Text[10])
+        {
+            Caption = 'Drawee Reference';
+            FieldClass = FlowField;
+            CalcFormula = max("Payment Line"."Drawee Reference" where("No." = field("No.")));
+            Editable = false;
+        }
         // field(50006; "A01 Posted Document No."; Code[20])
         // {
         //     Caption = 'Posted Document No.';

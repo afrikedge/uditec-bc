@@ -425,6 +425,13 @@ codeunit 50022 A01WSSAVMgt
             if (TransportOrder."Delivery Agent 2" <> WS.GetText(jsonkey, input)) then
                 TransportOrder.Validate("Delivery Agent 2", WS.GetText(jsonkey, input));
 
+        jsonkey := 'Delivery Axis';
+        if (WS.KeyExists(jsonkey, input)) then
+            if (TransportOrder."Delivery Axis" <> WS.GetText(jsonkey, input)) then
+                TransportOrder.Validate("Delivery Axis", WS.GetText(jsonkey, input));
+
+
+
     end;
 
     local procedure ProcessOrderTransportLine(TransportOrder: Record "A01 Transport Order"; var TransportOrderDetail: Record "A01 Transport Order Detail"; input: JsonObject)
@@ -559,6 +566,29 @@ codeunit 50022 A01WSSAVMgt
         if (WS.KeyExists(jsonkey, input)) then
             if (TransportOrderDetail."Execution Rank" <> WS.GetInt(jsonkey, input)) then
                 TransportOrderDetail."Execution Rank" := WS.GetInt(jsonkey, input);
+
+
+
+        jsonkey := 'Returned Qty';
+        if (WS.KeyExists(jsonkey, input)) then
+            if (TransportOrderDetail."Returned Qty" <> WS.GetDecimal(jsonkey, input)) then
+                TransportOrderDetail."Returned Qty" := WS.GetDecimal(jsonkey, input);
+        jsonkey := 'Return Reason Code';
+        if (WS.KeyExists(jsonkey, input)) then
+            if (TransportOrderDetail."Return Reason Code" <> WS.GetText(jsonkey, input)) then
+                TransportOrderDetail.Validate("Return Reason Code", WS.GetText(jsonkey, input));
+        jsonkey := 'Postponed-to Date';
+        if (WS.KeyExists(jsonkey, input)) then
+            if (TransportOrderDetail."Postponed-to Date" <> WS.GetDate(jsonkey, input)) then
+                TransportOrderDetail."Postponed-to Date" := WS.GetDate(jsonkey, input);
+        jsonkey := 'Line Type';
+        if (WS.KeyExists(jsonkey, input)) then
+            if (TransportOrderDetail."Line Type".AsInteger() <> WS.GetInt(jsonkey, input)) then
+                TransportOrderDetail.Validate("Line Type", WS.GetInt(jsonkey, input));
+        jsonkey := 'Name';
+        if (WS.KeyExists(jsonkey, input)) then
+            if (TransportOrderDetail."Name" <> WS.GetText(jsonkey, input)) then
+                TransportOrderDetail.Validate("Name", WS.GetText(jsonkey, input));
 
     end;
 

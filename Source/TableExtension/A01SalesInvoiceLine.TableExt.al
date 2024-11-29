@@ -20,5 +20,20 @@ tableextension 50027 "A01 Sales Invoice Line" extends "Sales Invoice Line"
             //Editable = false;
             DataClassification = CustomerContent;
         }
+        field(50003; "A01 Free"; Boolean)
+        {
+            Caption = 'Free';
+            DataClassification = CustomerContent;
+        }
+        field(50004; "A01 Linked Line No."; integer)
+        {
+            Caption = 'Linked Line No.';
+            DataClassification = CustomerContent;
+        }
+        field(50005; "A01 Additionnal Qty"; Decimal)
+        {
+            Caption = 'Additionnal Qty';
+            DataClassification = CustomerContent;
+        }
     }
 }

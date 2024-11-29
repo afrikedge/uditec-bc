@@ -300,6 +300,7 @@ pageextension 50002 "A01 Order Processor RC" extends "Order Processor Role Cente
                     RunObject = Page "A01 Activity Feedback List";
                 }
 
+
             }
             group(A01_Compta)
             {
@@ -494,6 +495,12 @@ pageextension 50002 "A01 Order Processor RC" extends "Order Processor Role Cente
                     ApplicationArea = Basic, Suite;
                     Caption = 'Routes';
                     RunObject = Page "A01 Routes";
+                }
+                action(A01NeighborhoodList)
+                {
+                    ApplicationArea = Basic, Suite;
+                    Caption = 'Neighborhood List';
+                    RunObject = Page "A01 Neighborhood List";
                 }
                 action(A01TransportOrders)
                 {

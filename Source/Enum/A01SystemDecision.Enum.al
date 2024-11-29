@@ -9,13 +9,13 @@ enum 50028 "A01 System Decision"
     {
         Caption = ' ';
     }
-    value(1; Eligible)
+    value(1; "Not eligible")
+    {
+        Caption = 'Not Eligible';
+    }
+    value(2; "Eligible")
     {
         Caption = 'Eligible';
-    }
-    value(2; "Not eligible")
-    {
-        Caption = 'Not eligible';
     }
 
     value(3; Arbitration)

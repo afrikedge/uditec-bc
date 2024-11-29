@@ -54,7 +54,6 @@ codeunit 50001 "A01 EventsSubscribers_Table"
             DocumentSendingProfile.TrySendToPrinter(
               ReminderLevel."A01 Report Usage".AsInteger(), IssuedReminderHeader,
               IssuedReminderHeaderToSend.FieldNo("Customer No."), ShowRequestForm);
-
     end;
 
 
@@ -115,12 +114,34 @@ codeunit 50001 "A01 EventsSubscribers_Table"
                 rec."Prepayment %" := 0;
     end;
 
-    [EventSubscriber(ObjectType::Table, Database::"Contact", 'OnCreateCustomerOnBeforeCustomerModify', '', true, true)]
-    local procedure OnCreateCustomerOnBeforeCustomerModify_Contact(var Customer: Record Customer; Contact: Record Contact)
+    // [EventSubscriber(ObjectType::Table, Database::"Contact", 'OnCreateCustomerOnBeforeCustomerModify', '', true, true)]
+    // local procedure OnCreateCustomerOnBeforeCustomerModify_Contact(var Customer: Record Customer; Contact: Record Contact)
+    // var
+    // begin
+    //     if (Contact."A01 Credit Limit" <> 0) then
+    //         Customer."Credit Limit (LCY)" := Contact."A01 Credit Limit";
+    // end;
+
+    [EventSubscriber(ObjectType::Table, Database::"Contact", 'OnAfterCreateCustomer', '', true, true)]
+    local procedure OnAfterCreateCustomer_Contact(var Customer: Record Customer; Contact: Record Contact)
     var
     begin
         if (Contact."A01 Credit Limit" <> 0) then
             Customer."Credit Limit (LCY)" := Contact."A01 Credit Limit";
+        if (Contact."A01 Payment Method" <> '') then
+            Customer.Validate("Payment Method Code", Contact."A01 Payment Method");
+        if (Contact."A01 Payment Terms Code" <> '') then
+            Customer.Validate(Customer."Payment Terms Code", Contact."A01 Payment Terms Code");
+        if (Contact."A01 Customer Price Group" <> '') then
+            Customer.Validate(Customer."Customer Price Group", Contact."A01 Customer Price Group");
+        if (Contact."A01 VAT Regime" <> '') then
+            Customer.Validate(Customer."VAT Bus. Posting Group", Contact."A01 VAT Regime");
+        if (Contact."A01 Prepayment required" <> 0) then
+            Customer.Validate(Customer."Prepayment %", Contact."A01 Prepayment required");
+        // if (Contact."A01 Main Contact" <> '') then
+        //     Customer.Validate(Customer.Contact, Contact."A01 Customer Price Group");
+
+        Customer.Modify();
     end;
 
     [EventSubscriber(ObjectType::Table, Database::"Reminder Line", 'OnAfterSetCustLedgEntryView', '', true, true)]
