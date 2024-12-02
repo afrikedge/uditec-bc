@@ -214,10 +214,13 @@ report 50034 "A01 DeliveryNoteInvoiceTxt"
                 column(Location_Code; "Location Code")
                 {
                 }
-                column(Quantity; Quantity)
+                column(Quantity; Round(Quantity, 0.01, '<'))
                 {
                 }
                 column(PUnit_Price_Text; Round("Unit Price", 0.01, '<'))
+                {
+                }
+                column(A01TTcPrice; Round(A01TTcPrice, 0.01, '<'))
                 {
                 }
                 column(A01TTcPriceText; A01TTcPriceText)
@@ -278,6 +281,7 @@ report 50034 "A01 DeliveryNoteInvoiceTxt"
                         HTPrice := Round(("Unit Price" * "VAT %") / 100, 0.01, '<');
                         VATHT := Round("Unit Price" + HTPrice, 0.01, '<');
                     end;
+                    A01TTcPrice := Round(VATHT, 0.01, '<');
                     A01TTcPriceText := Format(VATHT);
 
                     // LineDiscount := Round((Quantity * "Unit Price") * ("Line Discount %" / 100), 0.01, '<');
@@ -486,12 +490,13 @@ report 50034 "A01 DeliveryNoteInvoiceTxt"
         AfkLocalCurrency: Record Currency;
         AfkCurrency: Record Currency;
         RepCheck: Report Check;
-        AutoFormat: Codeunit "Auto Format";
+        // AutoFormat: Codeunit "Auto Format";
         OptionValue: Option LogoCosmos,LogoUditec;
         OptionType: Integer;
-        Montant: Decimal;
+        // Montant: Decimal;
         HTPrice: Decimal;
         VATHT: Decimal;
+        A01TTcPrice: Decimal;
         A01TTcPriceText: Text[50];
         CalculatedExchRate: Decimal;
         ExchangeRateTxt: Label 'Exchange rate: %1/%2', Comment = '%1 and %2 are both amounts.';
