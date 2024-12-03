@@ -1078,6 +1078,10 @@ codeunit 50007 "A01 Treso Mgt"
         TotalPayment: Decimal;
         LabelPayAmt: Label 'The total amount to be paid %1 is different from the order %2', comment = '%1=xx %2=xxx';
     begin
+
+        if (SalesHeader."Document Type" <> SalesHeader."Document Type"::"Order") then
+            exit;
+
         SalesPaymentLine.Reset();
         SalesPaymentLine.SetRange("Document Type", SalesPaymentLine."Document Type"::Order);
         SalesPaymentLine.SetRange("Document No.", SalesHeader."No.");
