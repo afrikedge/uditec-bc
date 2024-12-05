@@ -605,31 +605,41 @@ report 50030 "A01 SalesInvoiceUditec"
                     AutoFormatExpression = Header."Currency Code";
                     AutoFormatType = 2;
                 }
-                dataitem(ShipmentLine; "Sales Shipment Buffer")
+                dataitem(ShipmentLine; "Sales Shipment Line")
                 {
-                    DataItemTableView = sorting("Document No.", "Line No.", "Entry No.");
-                    UseTemporary = true;
-                    column(DocumentNo_ShipmentLine; "Document No.")
-                    {
-                    }
-                    column(PostingDate_ShipmentLine; "Posting Date")
-                    {
-                    }
-                    column(PostingDate_ShipmentLine_Lbl; FieldCaption("Posting Date"))
-                    {
-                    }
-                    column(Quantity_ShipmentLine; Quantity)
-                    {
-                        DecimalPlaces = 0 : 5;
-                    }
-                    column(Quantity_ShipmentLine_Lbl; FieldCaption(Quantity))
-                    {
-                    }
+                    DataItemLink = "Order Line No." = field("Order Line No."), "Order No." = field("Order No.");
+                    DataItemLinkReference = Line;
+                    DataItemTableView = sorting("Order No.", "Order Line No.", "Posting Date");
                     trigger OnPreDataItem()
                     begin
                         SetRange("Line No.", Line."Line No.");
                     end;
                 }
+                // dataitem(ShipmentLine; "Sales Shipment Buffer")
+                // {
+                //     DataItemTableView = sorting("Document No.", "Line No.", "Entry No.");
+                //     UseTemporary = true;
+                //     column(DocumentNo_ShipmentLine; "Document No.")
+                //     {
+                //     }
+                //     column(PostingDate_ShipmentLine; "Posting Date")
+                //     {
+                //     }
+                //     column(PostingDate_ShipmentLine_Lbl; FieldCaption("Posting Date"))
+                //     {
+                //     }
+                //     column(Quantity_ShipmentLine; Quantity)
+                //     {
+                //         DecimalPlaces = 0 : 5;
+                //     }
+                //     column(Quantity_ShipmentLine_Lbl; FieldCaption(Quantity))
+                //     {
+                //     }
+                //     trigger OnPreDataItem()
+                //     begin
+                //         SetRange("Line No.", Line."Line No.");
+                //     end;
+                // }
                 dataitem(AssemblyLine; "Posted Assembly Line")
                 {
                     DataItemTableView = SORTING("Document No.", "Line No.");
@@ -1697,12 +1707,12 @@ report 50030 "A01 SalesInvoiceUditec"
             if SalesShipmentHeader.Get(Line."Shipment No.") then
                 exit;
 
-        ShipmentLine.GetLinesForSalesInvoiceLine(Line, Header);
+        // ShipmentLine.GetLinesForSalesInvoiceLine(Line, Header);
 
         ShipmentLine.Reset();
         ShipmentLine.SetRange("Line No.", Line."Line No.");
         if ShipmentLine.FindFirst() then begin
-            SalesShipmentBuffer2 := ShipmentLine;
+            // SalesShipmentBuffer2 := ShipmentLine;
             if not DisplayShipmentInformation then
                 if ShipmentLine.Next() = 0 then begin
                     ShipmentLine.Get(SalesShipmentBuffer2."Document No.", SalesShipmentBuffer2."Line No.", SalesShipmentBuffer2."Entry No.");
