@@ -1195,43 +1195,32 @@ report 50002 "A01 SalesInvoicePrint"
                     AutoFormatExpression = Header."Currency Code";
                     AutoFormatType = 2;
                 }
-                // Correction Duplication de lignes du aux multiples expédition
-                dataitem(ShipmentLine; "Sales Shipment Line")
+                dataitem(ShipmentLine; "Sales Shipment Buffer")
                 {
-                    DataItemLink = "Order Line No." = field("Order Line No."), "Order No." = field("Order No.");
-                    DataItemLinkReference = Line;
-                    DataItemTableView = sorting("Order No.", "Order Line No.", "Posting Date");
+                    DataItemTableView = sorting("Document No.", "Line No.", "Entry No.");
+                    UseTemporary = true;
+                    column(DocumentNo_ShipmentLine; "Document No.")
+                    {
+                    }
+                    column(PostingDate_ShipmentLine; "Posting Date")
+                    {
+                    }
+                    column(PostingDate_ShipmentLine_Lbl; FieldCaption("Posting Date"))
+                    {
+                    }
+                    column(Quantity_ShipmentLine; Quantity)
+                    {
+                        DecimalPlaces = 0 : 5;
+                    }
+                    column(Quantity_ShipmentLine_Lbl; FieldCaption(Quantity))
+                    {
+                    }
+
                     trigger OnPreDataItem()
                     begin
                         SetRange("Line No.", Line."Line No.");
                     end;
                 }
-                // dataitem(ShipmentLine; "Sales Shipment Buffer")
-                // {
-                //     DataItemTableView = sorting("Document No.", "Line No.", "Entry No.");
-                //     UseTemporary = true;
-                //     column(DocumentNo_ShipmentLine; "Document No.")
-                //     {
-                //     }
-                //     column(PostingDate_ShipmentLine; "Posting Date")
-                //     {
-                //     }
-                //     column(PostingDate_ShipmentLine_Lbl; FieldCaption("Posting Date"))
-                //     {
-                //     }
-                //     column(Quantity_ShipmentLine; Quantity)
-                //     {
-                //         DecimalPlaces = 0 : 5;
-                //     }
-                //     column(Quantity_ShipmentLine_Lbl; FieldCaption(Quantity))
-                //     {
-                //     }
-
-                //     trigger OnPreDataItem()
-                //     begin
-                //         SetRange("Line No.", Line."Line No.");
-                //     end;
-                // }
                 dataitem(AssemblyLine; "Posted Assembly Line")
                 {
                     DataItemTableView = sorting("Document No.", "Line No.");
@@ -2546,7 +2535,6 @@ report 50002 "A01 SalesInvoicePrint"
         LogInteraction := SegManagement.FindInteractionTemplateCode(Enum::"Interaction Log Entry Document Type"::"Sales Inv.") <> '';
     end;
 
-    // Correction Duplication de lignes du aux multiples expédition
     local procedure InitializeShipmentLine()
     var
         SalesShipmentHeader: Record "Sales Shipment Header";
@@ -2564,7 +2552,7 @@ report 50002 "A01 SalesInvoicePrint"
         ShipmentLine.Reset();
         ShipmentLine.SetRange("Line No.", Line."Line No.");
         if ShipmentLine.FindFirst() then begin
-            // SalesShipmentBuffer2 := ShipmentLine;
+            SalesShipmentBuffer2 := ShipmentLine;
             if not DisplayShipmentInformation then
                 if ShipmentLine.Next() = 0 then begin
                     ShipmentLine.Get(SalesShipmentBuffer2."Document No.", SalesShipmentBuffer2."Line No.", SalesShipmentBuffer2."Entry No.");
