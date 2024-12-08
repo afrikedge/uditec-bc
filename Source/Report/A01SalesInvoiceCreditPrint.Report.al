@@ -1861,7 +1861,7 @@ report 50010 "A01 SalesInvoiceCreditPrint"
             if SalesShipmentHeader.Get(Line."Shipment No.") then
                 exit;
 
-        ShipmentLine.GetLinesForSalesInvoiceLine(Line, Header);
+        // ShipmentLine.GetLinesForSalesInvoiceLine(Line, Header);
 
         ShipmentLine.Reset();
         ShipmentLine.SetRange("Line No.", Line."Line No.");

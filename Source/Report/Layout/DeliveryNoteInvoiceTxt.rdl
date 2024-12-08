@@ -1593,7 +1593,7 @@
                                                                   <Value>=Fields!Quantity.Value</Value>
                                                                   <Style>
                                                                     <FontSize>8pt</FontSize>
-                                                                    <Format>#,0;(#,0)</Format>
+                                                                    <Format>#,0.00;(#,0.00)</Format>
                                                                   </Style>
                                                                 </TextRun>
                                                               </TextRuns>
@@ -1624,9 +1624,10 @@
                                                             <Paragraph>
                                                               <TextRuns>
                                                                 <TextRun>
-                                                                  <Value>=Fields!A01TTcPriceText.Value</Value>
+                                                                  <Value>=Fields!A01TTcPrice.Value</Value>
                                                                   <Style>
                                                                     <FontSize>8pt</FontSize>
+                                                                    <Format>#,0.00;(#,0.00)</Format>
                                                                   </Style>
                                                                 </TextRun>
                                                               </TextRuns>
@@ -1889,7 +1890,6 @@
                                                             <PaddingBottom>2pt</PaddingBottom>
                                                           </Style>
                                                         </Textbox>
-                                                        <rd:Selected>true</rd:Selected>
                                                       </CellContents>
                                                     </TablixCell>
                                                   </TablixCells>
@@ -2077,6 +2077,7 @@
                                           </Border>
                                         </Style>
                                       </Rectangle>
+                                      <rd:Selected>true</rd:Selected>
                                     </CellContents>
                                   </TablixCell>
                                 </TablixCells>
@@ -3009,6 +3010,12 @@ AAAAAAAAAECjsYAGAAAAAAAAAAAAAAAAjcYCGgAAAAAAAAAAAAAAADQaC2gAAAAAAAAAAAAAAADQaCyg
         </Field>
         <Field Name="PUnit_Price_TextFormat">
           <DataField>PUnit_Price_TextFormat</DataField>
+        </Field>
+        <Field Name="A01TTcPrice">
+          <DataField>A01TTcPrice</DataField>
+        </Field>
+        <Field Name="A01TTcPriceFormat">
+          <DataField>A01TTcPriceFormat</DataField>
         </Field>
         <Field Name="A01TTcPriceText">
           <DataField>A01TTcPriceText</DataField>

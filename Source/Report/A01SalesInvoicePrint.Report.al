@@ -6,10 +6,9 @@ report 50002 "A01 SalesInvoicePrint"
     Caption = 'Sales Invoice Print';
     UsageCategory = ReportsAndAnalysis;
     ApplicationArea = All;
-    DefaultLayout = RDLC;
-    PreviewMode = PrintLayout;
     EnableHyperlinks = true;
-    Permissions = tabledata "Sales Shipment Buffer" = rimd;
+    Permissions = TableData "Sales Shipment Buffer" = rimd;
+    PreviewMode = PrintLayout;
     WordMergeDataItem = Header;
     RDLCLayout = './Source/Report/Layout/SalesInvoicePrint.rdl';
 
@@ -18,8 +17,8 @@ report 50002 "A01 SalesInvoicePrint"
         dataitem(Header; "Sales Invoice Header")
         {
             DataItemTableView = sorting("No.");
-            RequestFilterFields = "No.", "Sell-to Customer No.";
-            RequestFilterHeading = 'Sales invoice';
+            RequestFilterFields = "No.", "Sell-to Customer No.", "No. Printed";
+            RequestFilterHeading = 'Posted Sales Invoice';
             column(CompanyAddress1; CompanyAddr[1])
             {
             }
@@ -53,6 +52,446 @@ report 50002 "A01 SalesInvoicePrint"
             column(CompanyPicture; DummyCompanyInfo.Picture)
             {
             }
+            column(CompanyPhoneNo; CompanyInfo."Phone No.")
+            {
+            }
+            column(CompanyPhoneNo_Lbl; CompanyInfoPhoneNoLbl)
+            {
+            }
+            column(CompanyGiroNo; CompanyInfo."Giro No.")
+            {
+            }
+            column(CompanyGiroNo_Lbl; CompanyInfoGiroNoLbl)
+            {
+            }
+            column(CompanyBankName; CompanyBankAccount.Name)
+            {
+            }
+            column(CompanyBankName_Lbl; CompanyInfoBankNameLbl)
+            {
+            }
+            column(CompanyBankBranchNo; CompanyBankAccount."Bank Branch No.")
+            {
+            }
+            column(CompanyBankBranchNo_Lbl; CompanyBankAccount.FieldCaption("Bank Branch No."))
+            {
+            }
+            column(CompanyBankAccountNo; CompanyBankAccount."Bank Account No.")
+            {
+            }
+            column(CompanyBankAccountNo_Lbl; CompanyInfoBankAccNoLbl)
+            {
+            }
+            column(CompanyIBAN; CompanyBankAccount.IBAN)
+            {
+            }
+            column(CompanyIBAN_Lbl; CompanyBankAccount.FieldCaption(IBAN))
+            {
+            }
+            column(CompanySWIFT; CompanyBankAccount."SWIFT Code")
+            {
+            }
+            column(CompanySWIFT_Lbl; CompanyBankAccount.FieldCaption("SWIFT Code"))
+            {
+            }
+            column(CompanyLogoPosition; CompanyLogoPosition)
+            {
+            }
+            column(CompanyRegistrationNumber; CompanyInfo.GetRegistrationNumber())
+            {
+            }
+            column(CompanyRegistrationNumber_Lbl; CompanyInfo.GetRegistrationNumberLbl())
+            {
+            }
+            column(CompanyVATRegNo; CompanyInfo.GetVATRegistrationNumber())
+            {
+            }
+            column(CompanyVATRegNo_Lbl; CompanyInfo.GetVATRegistrationNumberLbl())
+            {
+            }
+            column(CompanyVATRegistrationNo; CompanyInfo.GetVATRegistrationNumber())
+            {
+            }
+            column(CompanyVATRegistrationNo_Lbl; CompanyInfo.GetVATRegistrationNumberLbl())
+            {
+            }
+            column(CompanyLegalOffice; LegalOfficeTxt)
+            {
+            }
+            column(CompanyLegalOffice_Lbl; LegalOfficeLbl)
+            {
+            }
+            column(CompanyCustomGiro; CustomGiroTxt)
+            {
+            }
+            column(CompanyCustomGiro_Lbl; CustomGiroLbl)
+            {
+            }
+            column(CompanyLegalStatement; LegalStatementLbl)
+            {
+            }
+            column(DisplayAdditionalFeeNote; DisplayAdditionalFeeNote)
+            {
+            }
+            column(CustomerAddress1; CustAddr[1])
+            {
+            }
+            column(CustomerAddress2; CustAddr[2])
+            {
+            }
+            column(CustomerAddress3; CustAddr[3])
+            {
+            }
+            column(CustomerAddress4; CustAddr[4])
+            {
+            }
+            column(CustomerAddress5; CustAddr[5])
+            {
+            }
+            column(CustomerAddress6; CustAddr[6])
+            {
+            }
+            column(CustomerAddress7; CustAddr[7])
+            {
+            }
+            column(CustomerAddress8; CustAddr[8])
+            {
+            }
+            column(CustomerPostalBarCode; FormatAddr.PostalBarCode(1))
+            {
+            }
+            column(YourReference; "Your Reference")
+            {
+            }
+            column(YourReference_Lbl; FieldCaption("Your Reference"))
+            {
+            }
+            column(ShipmentMethodDescription; ShipmentMethod.Description)
+            {
+            }
+            column(ShipmentMethodDescription_Lbl; ShptMethodDescLbl)
+            {
+            }
+            column(ShipmentDate; Format("Shipment Date", 0, 4))
+            {
+            }
+            column(ShipmentDate_Lbl; FieldCaption("Shipment Date"))
+            {
+            }
+            column(Shipment_Lbl; ShipmentLbl)
+            {
+            }
+            column(ShowShippingAddress; ShowShippingAddr)
+            {
+            }
+            column(ShipToAddress_Lbl; ShiptoAddrLbl)
+            {
+            }
+            column(ShipToAddress1; ShipToAddr[1])
+            {
+            }
+            column(ShipToAddress2; ShipToAddr[2])
+            {
+            }
+            column(ShipToAddress3; ShipToAddr[3])
+            {
+            }
+            column(ShipToAddress4; ShipToAddr[4])
+            {
+            }
+            column(ShipToAddress5; ShipToAddr[5])
+            {
+            }
+            column(ShipToAddress6; ShipToAddr[6])
+            {
+            }
+            column(ShipToAddress7; ShipToAddr[7])
+            {
+            }
+            column(ShipToAddress8; ShipToAddr[8])
+            {
+            }
+            column(AlternativeAddress_Lbl; AlternativeAddressTxt)
+            {
+            }
+            column(AlternativeAddress1; AlternativeAddress[1])
+            {
+            }
+            column(AlternativeAddress2; AlternativeAddress[2])
+            {
+            }
+            column(AlternativeAddress3; AlternativeAddress[3])
+            {
+            }
+            column(AlternativeAddress4; AlternativeAddress[4])
+            {
+            }
+            column(AlternativeAddress5; AlternativeAddress[5])
+            {
+            }
+            column(AlternativeAddress6; AlternativeAddress[6])
+            {
+            }
+            column(AlternativeAddress7; AlternativeAddress[7])
+            {
+            }
+            column(AlternativeAddress8; AlternativeAddress[8])
+            {
+            }
+            column(CustomerSirenNo; Cust.GetSIRENNoWithCaption())
+            {
+            }
+            column(GoodsAndServices_Lbl; GetGoodsAndServicesText())
+            {
+            }
+            column(VATPaidOnDebits_Lbl; GetVATPaidOnDebitsText())
+            {
+            }
+            column(SellToContactPhoneNoLbl; SellToContactPhoneNoLbl)
+            {
+            }
+            column(SellToContactMobilePhoneNoLbl; SellToContactMobilePhoneNoLbl)
+            {
+            }
+            column(SellToContactEmailLbl; SellToContactEmailLbl)
+            {
+            }
+            column(BillToContactPhoneNoLbl; BillToContactPhoneNoLbl)
+            {
+            }
+            column(BillToContactMobilePhoneNoLbl; BillToContactMobilePhoneNoLbl)
+            {
+            }
+            column(BillToContactEmailLbl; BillToContactEmailLbl)
+            {
+            }
+            column(SellToContactPhoneNo; SellToContact."Phone No.")
+            {
+            }
+            column(SellToContactMobilePhoneNo; SellToContact."Mobile Phone No.")
+            {
+            }
+            column(SellToContactEmail; SellToContact."E-Mail")
+            {
+            }
+            column(BillToContactPhoneNo; BillToContact."Phone No.")
+            {
+            }
+            column(BillToContactMobilePhoneNo; BillToContact."Mobile Phone No.")
+            {
+            }
+            column(BillToContactEmail; BillToContact."E-Mail")
+            {
+            }
+            column(PaymentTermsDescription; PaymentTerms.Description)
+            {
+            }
+            column(PaymentTermsDescription_Lbl; PaymentTermsDescLbl)
+            {
+            }
+            column(PaymentMethodDescription; PaymentMethod.Description)
+            {
+            }
+            column(PaymentMethodDescription_Lbl; PaymentMethodDescLbl)
+            {
+            }
+            column(BilltoCustumerNo; "Bill-to Customer No.")
+            {
+            }
+            column(BilltoCustomerNo_Lbl; FieldCaption("Bill-to Customer No."))
+            {
+            }
+            column(DocumentDate; Format("Document Date", 0, 4))
+            {
+            }
+            column(DocumentDate_Lbl; FieldCaption("Document Date"))
+            {
+            }
+            column(DueDate; Format("Due Date", 0, 4))
+            {
+            }
+            column(DueDate_Lbl; FieldCaption("Due Date"))
+            {
+            }
+            column(DocumentNo; "No.")
+            {
+            }
+            column(DocumentNo_Lbl; InvNoLbl)
+            {
+            }
+            column(OrderNo; "Order No.")
+            {
+            }
+            column(OrderNo_Lbl; FieldCaption("Order No."))
+            {
+            }
+            column(PricesIncludingVAT; "Prices Including VAT")
+            {
+            }
+            column(PricesIncludingVAT_Lbl; FieldCaption("Prices Including VAT"))
+            {
+            }
+            column(PricesIncludingVATYesNo; Format("Prices Including VAT"))
+            {
+            }
+            column(SalesPerson_Lbl; SalespersonLbl)
+            {
+            }
+            column(SalesPersonBlank_Lbl; SalesPersonText)
+            {
+            }
+            column(SalesPersonName; SalespersonPurchaser.Name)
+            {
+            }
+            column(SelltoCustomerNo; "Sell-to Customer No.")
+            {
+            }
+            column(SelltoCustomerNo_Lbl; FieldCaption("Sell-to Customer No."))
+            {
+            }
+            column(VATRegistrationNo; GetCustomerVATRegistrationNumber())
+            {
+            }
+            column(VATRegistrationNo_Lbl; GetCustomerVATRegistrationNumberLbl())
+            {
+            }
+            column(GlobalLocationNumber; GetCustomerGlobalLocationNumber())
+            {
+            }
+            column(GlobalLocationNumber_Lbl; GetCustomerGlobalLocationNumberLbl())
+            {
+            }
+            column(SellToFaxNo; GetSellToCustomerFaxNo())
+            {
+            }
+            column(SellToPhoneNo; "Sell-to Phone No.")
+            {
+            }
+            column(PaymentReference; GetPaymentReference())
+            {
+            }
+            column(From_Lbl; FromLbl)
+            {
+            }
+            column(BilledTo_Lbl; BilledToLbl)
+            {
+            }
+            column(ChecksPayable_Lbl; ChecksPayableText)
+            {
+            }
+            column(PaymentReference_Lbl; GetPaymentReferenceLbl())
+            {
+            }
+            column(LegalEntityType; Cust.GetLegalEntityType())
+            {
+            }
+            column(LegalEntityType_Lbl; Cust.GetLegalEntityTypeLbl())
+            {
+            }
+            column(Copy_Lbl; CopyLbl)
+            {
+            }
+            column(EMail_Header_Lbl; EMailLbl)
+            {
+            }
+            column(HomePage_Header_Lbl; HomePageLbl)
+            {
+            }
+            column(InvoiceDiscountBaseAmount_Lbl; InvDiscBaseAmtLbl)
+            {
+            }
+            column(InvoiceDiscountAmount_Lbl; InvDiscountAmtLbl)
+            {
+            }
+            column(LineAmountAfterInvoiceDiscount_Lbl; LineAmtAfterInvDiscLbl)
+            {
+            }
+            column(LocalCurrency_Lbl; LocalCurrencyLbl)
+            {
+            }
+            column(ExchangeRateAsText; ExchangeRateText)
+            {
+            }
+            column(Page_Lbl; PageLbl)
+            {
+            }
+            column(SalesInvoiceLineDiscount_Lbl; SalesInvLineDiscLbl)
+            {
+            }
+            column(Questions_Lbl; QuestionsLbl)
+            {
+            }
+            column(Contact_Lbl; CompanyInfo.GetContactUsText())
+            {
+            }
+            column(DocumentTitle_Lbl; DocumentCaption())
+            {
+            }
+            column(YourDocumentTitle_Lbl; YourSalesInvoiceLbl)
+            {
+            }
+            column(Thanks_Lbl; ThanksLbl)
+            {
+            }
+            column(ShowWorkDescription; ShowWorkDescription)
+            {
+            }
+            column(RemainingAmount; RemainingAmount)
+            {
+            }
+            column(RemainingAmountText; RemainingAmountTxt)
+            {
+            }
+            column(Subtotal_Lbl; SubtotalLbl)
+            {
+            }
+            column(Total_Lbl; TotalLbl)
+            {
+            }
+            column(VATAmount_Lbl; VATAmtLbl)
+            {
+            }
+            column(VATBase_Lbl; VATBaseLbl)
+            {
+            }
+            column(VATAmountSpecification_Lbl; VATAmtSpecificationLbl)
+            {
+            }
+            column(VATClauses_Lbl; VATClausesLbl)
+            {
+            }
+            column(VATIdentifier_Lbl; VATIdentifierLbl)
+            {
+            }
+            column(VATPercentage_Lbl; VATPercentageLbl)
+            {
+            }
+            column(VATClause_Lbl; VATClause.TableCaption())
+            {
+            }
+            column(PackageTrackingNo; "Package Tracking No.")
+            {
+            }
+            column(PackageTrackingNo_Lbl; FieldCaption("Package Tracking No."))
+            {
+            }
+            column(ShippingAgentCode; "Shipping Agent Code")
+            {
+            }
+            column(ShippingAgentCode_Lbl; FieldCaption("Shipping Agent Code"))
+            {
+            }
+            column(PaymentInstructions_Txt; PaymentInstructionsTxt)
+            {
+            }
+            column(ExternalDocumentNo; "External Document No.")
+            {
+            }
+            column(ExternalDocumentNo_Lbl; FieldCaption("External Document No."))
+            {
+            }
+
+            //********************************************* * ********************************
             column(CompanyInfoName; CompanyInfo.Name)
             {
             }
@@ -65,12 +504,12 @@ report 50002 "A01 SalesInvoicePrint"
             column(CompanyPic; CompanyInfo.Picture)
             {
             }
-            column(CompanyPhoneNo; CompanyInfo."Phone No.")
-            {
-            }
-            column(CompanyGiroNo; CompanyInfo."Giro No.")
-            {
-            }
+            // column(CompanyPhoneNo; CompanyInfo."Phone No.")
+            // {
+            // }
+            // column(CompanyGiroNo; CompanyInfo."Giro No.")
+            // {
+            // }
             column(A01RespCenterName; UnitName)
             {
             }
@@ -98,9 +537,9 @@ report 50002 "A01 SalesInvoicePrint"
             // column(CustomerPhone; CustomerPhone)
             // {
             // }
-            column(DocumentNo; "No.")
-            {
-            }
+            // column(DocumentNo; "No.")
+            // {
+            // }
             column(A01PostingDate; Format("Posting Date"))
             {
             }
@@ -113,9 +552,9 @@ report 50002 "A01 SalesInvoicePrint"
             column(SalesInvoiceLbl; SalesInvoiceLbl)
             {
             }
-            column(DocumentNo_Lbl; InvNoLbl)
-            {
-            }
+            // column(DocumentNo_Lbl; InvNoLbl)
+            // {
+            // }
             column(InvoiceDateLbl; InvoiceDateLbl)
             {
             }
@@ -239,147 +678,147 @@ report 50002 "A01 SalesInvoicePrint"
             column(CompanySignLbl; CompanySignLbl)
             {
             }
-            column(CompanyLogoPosition; CompanyLogoPosition)
-            {
-            }
-            column(CompanyRegistrationNumber; CompanyInfo.GetRegistrationNumber())
-            {
-            }
-            column(CompanyRegistrationNumber_Lbl; CompanyInfo.GetRegistrationNumberLbl())
-            {
-            }
-            column(CompanyVATRegNo; CompanyInfo.GetVATRegistrationNumber())
-            {
-            }
-            column(CompanyVATRegNo_Lbl; CompanyInfo.GetVATRegistrationNumberLbl())
-            {
-            }
+            // column(CompanyLogoPosition; CompanyLogoPosition)
+            // {
+            // }
+            // column(CompanyRegistrationNumber; CompanyInfo.GetRegistrationNumber())
+            // {
+            // }
+            // column(CompanyRegistrationNumber_Lbl; CompanyInfo.GetRegistrationNumberLbl())
+            // {
+            // }
+            // column(CompanyVATRegNo; CompanyInfo.GetVATRegistrationNumber())
+            // {
+            // }
+            // column(CompanyVATRegNo_Lbl; CompanyInfo.GetVATRegistrationNumberLbl())
+            // {
+            // }
             column(CompanyVATRegNumber; CompanyInfo.GetVATRegistrationNumber())
             {
             }
             column(CompanyVATRegNumber_Lbl; CompanyInfo.GetVATRegistrationNumberLbl())
             {
             }
-            column(CompanyLegalOffice; LegalOfficeTxt)
-            {
-            }
-            column(CompanyLegalOffice_Lbl; LegalOfficeLbl)
-            {
-            }
-            column(CompanyCustomGiro; CustomGiroTxt)
-            {
-            }
-            column(CompanyCustomGiro_Lbl; CustomGiroLbl)
-            {
-            }
-            column(CompanyLegalStatement; LegalStatementLbl)
-            {
-            }
-            column(DisplayAdditionalFeeNote; DisplayAdditionalFeeNote)
-            {
-            }
-            column(CustomerAddress1; CustAddr[1])
-            {
-            }
-            column(CustomerAddress2; CustAddr[2])
-            {
-            }
-            column(CustomerAddress3; CustAddr[3])
-            {
-            }
-            column(CustomerAddress4; CustAddr[4])
-            {
-            }
-            column(CustomerAddress5; CustAddr[5])
-            {
-            }
-            column(CustomerAddress6; CustAddr[6])
-            {
-            }
-            column(CustomerAddress7; CustAddr[7])
-            {
-            }
-            column(CustomerAddress8; CustAddr[8])
-            {
-            }
-            column(CustomerPostalBarCode; FormatAddr.PostalBarCode(1))
-            {
-            }
-            column(YourReference; "Your Reference")
-            {
-            }
-            column(YourReference_Lbl; FieldCaption("Your Reference"))
-            {
-            }
-            column(ShipmentMethodDescription; ShipmentMethod.Description)
-            {
-            }
-            column(ShipmentDate; Format("Shipment Date", 0, 4))
-            {
-            }
-            column(ShipmentDate_Lbl; FieldCaption("Shipment Date"))
-            {
-            }
-            column(ShipToAddress1; ShipToAddr[1])
-            {
-            }
-            column(ShipToAddress2; ShipToAddr[2])
-            {
-            }
-            column(ShipToAddress3; ShipToAddr[3])
-            {
-            }
-            column(ShipToAddress4; ShipToAddr[4])
-            {
-            }
-            column(ShipToAddress5; ShipToAddr[5])
-            {
-            }
-            column(ShipToAddress6; ShipToAddr[6])
-            {
-            }
-            column(ShipToAddress7; ShipToAddr[7])
-            {
-            }
-            column(ShipToAddress8; ShipToAddr[8])
-            {
-            }
-            column(SellToContactPhoneNo; SellToContact."Phone No.")
-            {
-            }
-            column(SellToContactMobilePhoneNo; SellToContact."Mobile Phone No.")
-            {
-            }
-            column(SellToContactEmail; SellToContact."E-Mail")
-            {
-            }
-            column(BillToContactPhoneNo; BillToContact."Phone No.")
-            {
-            }
-            column(BillToContactMobilePhoneNo; BillToContact."Mobile Phone No.")
-            {
-            }
-            column(BillToContactEmail; BillToContact."E-Mail")
-            {
-            }
-            column(PaymentTermsDescription; PaymentTerms.Description)
-            {
-            }
+            // column(CompanyLegalOffice; LegalOfficeTxt)
+            // {
+            // }
+            // column(CompanyLegalOffice_Lbl; LegalOfficeLbl)
+            // {
+            // }
+            // column(CompanyCustomGiro; CustomGiroTxt)
+            // {
+            // }
+            // column(CompanyCustomGiro_Lbl; CustomGiroLbl)
+            // {
+            // }
+            // column(CompanyLegalStatement; LegalStatementLbl)
+            // {
+            // }
+            // column(DisplayAdditionalFeeNote; DisplayAdditionalFeeNote)
+            // {
+            // }
+            // column(CustomerAddress1; CustAddr[1])
+            // {
+            // }
+            // column(CustomerAddress2; CustAddr[2])
+            // {
+            // }
+            // column(CustomerAddress3; CustAddr[3])
+            // {
+            // }
+            // column(CustomerAddress4; CustAddr[4])
+            // {
+            // }
+            // column(CustomerAddress5; CustAddr[5])
+            // {
+            // }
+            // column(CustomerAddress6; CustAddr[6])
+            // {
+            // }
+            // column(CustomerAddress7; CustAddr[7])
+            // {
+            // }
+            // column(CustomerAddress8; CustAddr[8])
+            // {
+            // }
+            // column(CustomerPostalBarCode; FormatAddr.PostalBarCode(1))
+            // {
+            // }
+            // column(YourReference; "Your Reference")
+            // {
+            // }
+            // column(YourReference_Lbl; FieldCaption("Your Reference"))
+            // {
+            // }
+            // column(ShipmentMethodDescription; ShipmentMethod.Description)
+            // {
+            // }
+            // column(ShipmentDate; Format("Shipment Date", 0, 4))
+            // {
+            // }
+            // column(ShipmentDate_Lbl; FieldCaption("Shipment Date"))
+            // {
+            // }
+            // column(ShipToAddress1; ShipToAddr[1])
+            // {
+            // }
+            // column(ShipToAddress2; ShipToAddr[2])
+            // {
+            // }
+            // column(ShipToAddress3; ShipToAddr[3])
+            // {
+            // }
+            // column(ShipToAddress4; ShipToAddr[4])
+            // {
+            // }
+            // column(ShipToAddress5; ShipToAddr[5])
+            // {
+            // }
+            // column(ShipToAddress6; ShipToAddr[6])
+            // {
+            // }
+            // column(ShipToAddress7; ShipToAddr[7])
+            // {
+            // }
+            // column(ShipToAddress8; ShipToAddr[8])
+            // {
+            // }
+            // column(SellToContactPhoneNo; SellToContact."Phone No.")
+            // {
+            // }
+            // column(SellToContactMobilePhoneNo; SellToContact."Mobile Phone No.")
+            // {
+            // }
+            // column(SellToContactEmail; SellToContact."E-Mail")
+            // {
+            // }
+            // column(BillToContactPhoneNo; BillToContact."Phone No.")
+            // {
+            // }
+            // column(BillToContactMobilePhoneNo; BillToContact."Mobile Phone No.")
+            // {
+            // }
+            // column(BillToContactEmail; BillToContact."E-Mail")
+            // {
+            // }
+            // column(PaymentTermsDescription; PaymentTerms.Description)
+            // {
+            // }
             // column(PaymentTermsDescription_Lbl; PaymentTermsDescLbl)
             // {
             // }
-            column(PaymentMethodDescription; PaymentMethod.Description)
-            {
-            }
+            // column(PaymentMethodDescription; PaymentMethod.Description)
+            // {
+            // }
             // column(PaymentMethodDescription_Lbl; PaymentMethodDescLbl)
             // {
             // }
-            column(BilltoCustumerNo; "Bill-to Customer No.")
-            {
-            }
-            column(BilltoCustomerNo_Lbl; FieldCaption("Bill-to Customer No."))
-            {
-            }
+            // column(BilltoCustumerNo; "Bill-to Customer No.")
+            // {
+            // }
+            // column(BilltoCustomerNo_Lbl; FieldCaption("Bill-to Customer No."))
+            // {
+            // }
             // column(DocumentDate; Format("Document Date", 0, 4))
             // {
             // }
@@ -392,81 +831,81 @@ report 50002 "A01 SalesInvoicePrint"
             // column(DueDate_Lbl; FieldCaption("Due Date"))
             // {
             // }
-            column(PricesIncludingVAT; "Prices Including VAT")
-            {
-            }
-            column(PricesIncludingVAT_Lbl; FieldCaption("Prices Including VAT"))
-            {
-            }
-            column(PricesIncludingVATYesNo; Format("Prices Including VAT"))
-            {
-            }
-            column(VATRegistrationNo; GetCustomerVATRegistrationNumber())
-            {
-            }
-            column(VATRegistrationNo_Lbl; GetCustomerVATRegistrationNumberLbl())
-            {
-            }
-            column(GlobalLocationNumber; GetCustomerGlobalLocationNumber())
-            {
-            }
-            column(GlobalLocationNumber_Lbl; GetCustomerGlobalLocationNumberLbl())
-            {
-            }
-            column(SellToFaxNo; GetSellToCustomerFaxNo())
-            {
-            }
-            column(SellToPhoneNo; "Sell-to Phone No.")
-            {
-            }
-            column(ChecksPayable_Lbl; ChecksPayableText)
-            {
-            }
-            column(LegalEntityType; Cust.GetLegalEntityType())
-            {
-            }
-            column(LegalEntityType_Lbl; Cust.GetLegalEntityTypeLbl())
-            {
-            }
-            // column(EMail_Header_Lbl; EMailLbl)
+            // column(PricesIncludingVAT; "Prices Including VAT")
             // {
             // }
-            column(ExchangeRateAsText; ExchangeRateText)
-            {
-            }
-            column(Contact_Lbl; CompanyInfo.GetContactUsText())
-            {
-            }
-            column(DocumentTitle_Lbl; DocumentCaption())
-            {
-            }
-            column(ShowWorkDescription; ShowWorkDescription)
-            {
-            }
-            column(RemainingAmount; RemainingAmount)
-            {
-            }
-            column(VATClause_Lbl; VATClause.TableCaption)
-            {
-            }
-            column(PackageTrackingNo; "Package Tracking No.")
-            {
-            }
-            column(PackageTrackingNo_Lbl; FieldCaption("Package Tracking No."))
-            {
-            }
-            column(ShippingAgentCode; "Shipping Agent Code")
-            {
-            }
-            column(PaymentInstructions_Txt; PaymentInstructionsTxt)
-            {
-            }
-            column(ExternalDocumentNo; "External Document No.")
-            {
-            }
-            column(ExternalDocumentNo_Lbl; FieldCaption("External Document No."))
-            {
-            }
+            // column(PricesIncludingVAT_Lbl; FieldCaption("Prices Including VAT"))
+            // {
+            // }
+            // column(PricesIncludingVATYesNo; Format("Prices Including VAT"))
+            // {
+            // }
+            // column(VATRegistrationNo; GetCustomerVATRegistrationNumber())
+            // {
+            // }
+            // column(VATRegistrationNo_Lbl; GetCustomerVATRegistrationNumberLbl())
+            // {
+            // }
+            // column(GlobalLocationNumber; GetCustomerGlobalLocationNumber())
+            // {
+            // }
+            // column(GlobalLocationNumber_Lbl; GetCustomerGlobalLocationNumberLbl())
+            // {
+            // }
+            // column(SellToFaxNo; GetSellToCustomerFaxNo())
+            // {
+            // }
+            // column(SellToPhoneNo; "Sell-to Phone No.")
+            // {
+            // }
+            // column(ChecksPayable_Lbl; ChecksPayableText)
+            // {
+            // }
+            // column(LegalEntityType; Cust.GetLegalEntityType())
+            // {
+            // }
+            // column(LegalEntityType_Lbl; Cust.GetLegalEntityTypeLbl())
+            // {
+            // }
+            // // column(EMail_Header_Lbl; EMailLbl)
+            // // {
+            // // }
+            // column(ExchangeRateAsText; ExchangeRateText)
+            // {
+            // }
+            // column(Contact_Lbl; CompanyInfo.GetContactUsText())
+            // {
+            // }
+            // column(DocumentTitle_Lbl; DocumentCaption())
+            // {
+            // }
+            // column(ShowWorkDescription; ShowWorkDescription)
+            // {
+            // }
+            // column(RemainingAmount; RemainingAmount)
+            // {
+            // }
+            // column(VATClause_Lbl; VATClause.TableCaption)
+            // {
+            // }
+            // column(PackageTrackingNo; "Package Tracking No.")
+            // {
+            // }
+            // column(PackageTrackingNo_Lbl; FieldCaption("Package Tracking No."))
+            // {
+            // }
+            // column(ShippingAgentCode; "Shipping Agent Code")
+            // {
+            // }
+            // column(PaymentInstructions_Txt; PaymentInstructionsTxt)
+            // {
+            // }
+            // column(ExternalDocumentNo; "External Document No.")
+            // {
+            // }
+            // column(ExternalDocumentNo_Lbl; FieldCaption("External Document No."))
+            // {
+            // }
             column(Afk_mountInWords; Afk_AmountInWords)
             {
             }
@@ -488,6 +927,7 @@ report 50002 "A01 SalesInvoicePrint"
             column(VATText; VATText)
             {
             }
+
             dataitem(Line; "Sales Invoice Line")
             {
                 DataItemLink = "Document No." = field("No.");
@@ -496,29 +936,17 @@ report 50002 "A01 SalesInvoicePrint"
                 column(LineNo_Line; "Line No.")
                 {
                 }
-                column(ItemNo_Line; "No.")
-                {
-                }
-                column(AfkIsLine; AfkIsLine)
-                {
-                }
-                column(AfkNumLigne; NumLigneText)
-                {
-                }
-                column(ShipmentDate_Line; Format("Shipment Date"))
-                {
-                }
-                column(A01Description_Line; Line.Description)
-                {
-                }
                 column(AmountExcludingVAT_Line; Amount)
                 {
-                    AutoFormatExpression = Header."Currency Code";
+                    AutoFormatExpression = GetCurrencyCode();
                     AutoFormatType = 1;
+                }
+                column(AmountExcludingVAT_Line_Lbl; FieldCaption(Amount))
+                {
                 }
                 column(AmountIncludingVAT_Line; "Amount Including VAT")
                 {
-                    AutoFormatExpression = Header."Currency Code";
+                    AutoFormatExpression = GetCurrencyCode();
                     AutoFormatType = 1;
                 }
                 column(AmountIncludingVAT_Line_Lbl; FieldCaption("Amount Including VAT"))
@@ -526,64 +954,79 @@ report 50002 "A01 SalesInvoicePrint"
                     AutoFormatExpression = GetCurrencyCode();
                     AutoFormatType = 1;
                 }
-                column(A01LineDiscountPercent_Line; "Line Discount %")
+                column(Description_Line; Description)
+                {
+                }
+                column(Description_Line_Lbl; FieldCaption(Description))
+                {
+                }
+                column(LineDiscountPercent_Line; "Line Discount %")
                 {
                 }
                 column(LineDiscountPercentText_Line; LineDiscountPctText)
                 {
                 }
-                column(A01Line_Discount_Amount; A01FormattedLineDiscountAmount)
+                column(LineAmount_Line; FormattedLineAmount)
                 {
-                    AutoFormatExpression = Header."Currency Code";
+                    AutoFormatExpression = GetCurrencyCode();
                     AutoFormatType = 1;
                 }
-                column(A01LineAmount_Line; A01FormattedAmtHT)
+                column(LineAmount_Line_Lbl; FieldCaption("Line Amount"))
                 {
-                    AutoFormatExpression = Header."Currency Code";
-                    AutoFormatType = 1;
                 }
-                column(A01LineAmountTTC_Line; FormattedLineAmountTTC)
+                column(ItemNo_Line; "No.")
                 {
-                    AutoFormatExpression = Header."Currency Code";
-                    AutoFormatType = 1;
                 }
-                column(A01LineQty; A01LineQtyFormatted)
+                column(ItemNo_Line_Lbl; FieldCaption("No."))
+                {
+                }
+                column(ItemReferenceNo_Line; "Item Reference No.")
+                {
+                }
+                column(ItemReferenceNo_Line_Lbl; FieldCaption("Item Reference No."))
+                {
+                }
+                column(ShipmentDate_Line; Format("Shipment Date"))
+                {
+                }
+                column(ShipmentDate_Line_Lbl; PostedShipmentDateLbl)
+                {
+                }
+                column(Quantity_Line; FormattedQuantity)
+                {
+                }
+                column(Quantity_Line_Lbl; FieldCaption(Quantity))
                 {
                 }
                 column(Type_Line; Format(Type))
                 {
                 }
-                column(A01LinePU; A01LinePUFormatted)
+                column(UnitPrice; FormattedUnitPrice)
                 {
-                    AutoFormatExpression = Header."Currency Code";
+                    AutoFormatExpression = GetCurrencyCode();
                     AutoFormatType = 2;
                 }
-                column(A01AmountVAT_Line; A01FormattedVAT)
-                {
-                    AutoFormatExpression = Header."Currency Code";
-                    AutoFormatType = 1;
-                }
-                column(A01FormattedVAT; A01FormattedVAT)
+                column(UnitPrice_Lbl; FieldCaption("Unit Price"))
                 {
                 }
                 column(UnitOfMeasure; "Unit of Measure")
                 {
                 }
+                column(UnitOfMeasure_Lbl; FieldCaption("Unit of Measure"))
+                {
+                }
                 column(VATIdentifier_Line; "VAT Identifier")
+                {
+                }
+                column(VATIdentifier_Line_Lbl; FieldCaption("VAT Identifier"))
                 {
                 }
                 column(VATPct_Line; FormattedVATPct)
                 {
                 }
-                // column(AfkTotalAmountInclVAT_LCY; AfkTotalAmountInclVAT_LCY)
-                // {
-                // }
-                // column(AfkTotalAmount_LCY; AfkTotalAmount_LCY)
-                // {
-                // }
-                // column(AfkTotalVAT_LCY; AfkTotalVAT_LCY)
-                // {
-                // }
+                column(VATPct_Line_Lbl; FieldCaption("VAT %"))
+                {
+                }
                 column(TransHeaderAmount; TransHeaderAmount)
                 {
                     AutoFormatExpression = Header."Currency Code";
@@ -619,6 +1062,134 @@ report 50002 "A01 SalesInvoicePrint"
                 column(PricePer_Lbl; PricePerLbl)
                 {
                 }
+
+                //***************************************************
+                // column(LineNo_Line; "Line No.")
+                // {
+                // }
+                // column(ItemNo_Line; "No.")
+                // {
+                // }
+                column(AfkIsLine; AfkIsLine)
+                {
+                }
+                column(AfkNumLigne; NumLigneText)
+                {
+                }
+                // column(ShipmentDate_Line; Format("Shipment Date"))
+                // {
+                // }
+                column(A01Description_Line; Line.Description)
+                {
+                }
+                // column(AmountExcludingVAT_Line; Amount)
+                // {
+                //     AutoFormatExpression = Header."Currency Code";
+                //     AutoFormatType = 1;
+                // }
+                // column(AmountIncludingVAT_Line; "Amount Including VAT")
+                // {
+                //     AutoFormatExpression = Header."Currency Code";
+                //     AutoFormatType = 1;
+                // }
+                // column(AmountIncludingVAT_Line_Lbl; FieldCaption("Amount Including VAT"))
+                // {
+                //     AutoFormatExpression = GetCurrencyCode();
+                //     AutoFormatType = 1;
+                // }
+                column(A01LineDiscountPercent_Line; "Line Discount %")
+                {
+                }
+                // column(LineDiscountPercentText_Line; LineDiscountPctText)
+                // {
+                // }
+                column(A01Line_Discount_Amount; A01FormattedLineDiscountAmount)
+                {
+                    AutoFormatExpression = Header."Currency Code";
+                    AutoFormatType = 1;
+                }
+                column(A01LineAmount_Line; A01FormattedAmtHT)
+                {
+                    AutoFormatExpression = Header."Currency Code";
+                    AutoFormatType = 1;
+                }
+                column(A01LineAmountTTC_Line; FormattedLineAmountTTC)
+                {
+                    AutoFormatExpression = Header."Currency Code";
+                    AutoFormatType = 1;
+                }
+                column(A01LineQty; A01LineQtyFormatted)
+                {
+                }
+                // column(Type_Line; Format(Type))
+                // {
+                // }
+                column(A01LinePU; A01LinePUFormatted)
+                {
+                    AutoFormatExpression = Header."Currency Code";
+                    AutoFormatType = 2;
+                }
+                column(A01AmountVAT_Line; A01FormattedVAT)
+                {
+                    AutoFormatExpression = Header."Currency Code";
+                    AutoFormatType = 1;
+                }
+                column(A01FormattedVAT; A01FormattedVAT)
+                {
+                }
+                // column(UnitOfMeasure; "Unit of Measure")
+                // {
+                // }
+                // column(VATIdentifier_Line; "VAT Identifier")
+                // {
+                // }
+                // column(VATPct_Line; FormattedVATPct)
+                // {
+                // }
+                // column(AfkTotalAmountInclVAT_LCY; AfkTotalAmountInclVAT_LCY)
+                // {
+                // }
+                // column(AfkTotalAmount_LCY; AfkTotalAmount_LCY)
+                // {
+                // }
+                // column(AfkTotalVAT_LCY; AfkTotalVAT_LCY)
+                // {
+                // }
+                // column(TransHeaderAmount; TransHeaderAmount)
+                // {
+                //     AutoFormatExpression = Header."Currency Code";
+                //     AutoFormatType = 1;
+                // }
+                // column(JobTaskNo_Lbl; JobTaskNoLbl)
+                // {
+                // }
+                // column(JobTaskNo; JobTaskNo)
+                // {
+                // }
+                // column(JobTaskDescription; JobTaskDescription)
+                // {
+                // }
+                // column(JobTaskDesc_Lbl; JobTaskDescLbl)
+                // {
+                // }
+                // column(JobNo_Lbl; JobNoLbl)
+                // {
+                // }
+                // column(JobNo; JobNo)
+                // {
+                // }
+                // column(Unit_Lbl; UnitLbl)
+                // {
+                // }
+                // column(Qty_Lbl; QtyLbl)
+                // {
+                // }
+                // column(Price_Lbl; PriceLbl)
+                // {
+                // }
+                // column(PricePer_Lbl; PricePerLbl)
+                // {
+                // }
                 column(A01DiscountedPrice; A01DiscountedPriceText)
                 {
                     AutoFormatExpression = Header."Currency Code";
@@ -644,6 +1215,7 @@ report 50002 "A01 SalesInvoicePrint"
                     column(Quantity_ShipmentLine_Lbl; FieldCaption(Quantity))
                     {
                     }
+
                     trigger OnPreDataItem()
                     begin
                         SetRange("Line No.", Line."Line No.");
@@ -651,7 +1223,7 @@ report 50002 "A01 SalesInvoicePrint"
                 }
                 dataitem(AssemblyLine; "Posted Assembly Line")
                 {
-                    DataItemTableView = SORTING("Document No.", "Line No.");
+                    DataItemTableView = sorting("Document No.", "Line No.");
                     UseTemporary = true;
                     column(LineNo_AssemblyLine; "No.")
                     {
@@ -669,6 +1241,7 @@ report 50002 "A01 SalesInvoicePrint"
                     column(VariantCode_AssemblyLine; "Variant Code")
                     {
                     }
+
                     trigger OnPreDataItem()
                     var
                         ValueEntry: Record "Value Entry";
@@ -737,36 +1310,27 @@ report 50002 "A01 SalesInvoicePrint"
                         VATText := VAT20Lbl + '(' + Format(SalesLineRec."VAT %") + ')';
 
                     InitializeShipmentLine();
-
                     if Type = Type::"G/L Account" then
                         // "No." := '';
                         CurrReport.Skip();
-
-                    // if "No." = 'MIR_INTEREST' then
-                    //     CurrReport.Skip();
-                    // if "No." = 'mir_interest' then
-                    //     CurrReport.Skip();
 
                     OnBeforeLineOnAfterGetRecord(Header, Line);
 
                     // if "Line Discount %" = 0 then
                     //     LineDiscountPctText := ''
                     // else
-                    LineDiscountPctText := StrSubstNo('%1%', Round("Line Discount %", 0.1));
+                    LineDiscountPctText := StrSubstNo('%1%', -Round("Line Discount %", 0.1));
 
-                    VATAmountLine.Init();
-                    VATAmountLine."VAT Identifier" := "VAT Identifier";
-                    VATAmountLine."VAT Calculation Type" := "VAT Calculation Type";
-                    VATAmountLine."Tax Group Code" := "Tax Group Code";
-                    VATAmountLine."VAT %" := "VAT %";
-                    VATAmountLine."VAT Base" := Amount;
-                    VATAmountLine."Amount Including VAT" := "Amount Including VAT";
-                    VATAmountLine."Line Amount" := "Line Amount";
-                    if "Allow Invoice Disc." then
-                        VATAmountLine."Inv. Disc. Base Amount" := "Line Amount";
-                    VATAmountLine."Invoice Discount Amount" := "Inv. Discount Amount";
-                    VATAmountLine."VAT Clause Code" := "VAT Clause Code";
-                    VATAmountLine.InsertLine();
+                    InsertVATAmountLine(VATAmountLine, Line);
+
+                    // TransHeaderAmount += PrevLineAmount;
+                    // PrevLineAmount := "Line Amount";
+                    // TotalSubTotal += "Line Amount";
+                    // TotalInvDiscAmount -= "Inv. Discount Amount";
+                    // TotalAmount += Amount;
+                    // TotalAmountVAT += "Amount Including VAT" - Amount;
+                    // TotalAmountInclVAT += "Amount Including VAT";
+                    // TotalPaymentDiscOnVAT += -("Line Amount" - "Inv. Discount Amount" - "Amount Including VAT");
 
                     if (Header."Prices Including VAT") then begin
                         TransHeaderAmount += PrevLineAmount;
@@ -809,7 +1373,6 @@ report 50002 "A01 SalesInvoicePrint"
                     else
                         JobNoLbl := '';
 
-                    // FormatDocument.SetSalesLine(Line, FormattedQuantity, FormattedUnitPrice, FormattedVATPct, FormattedLineAmount);
                     FormatLineValues(Line);
                 end;
 
@@ -819,7 +1382,6 @@ report 50002 "A01 SalesInvoicePrint"
                     VATClauseLine.DeleteAll();
                     ShipmentLine.Reset();
                     ShipmentLine.DeleteAll();
-                    // SetRange(Type, Type::Item);
                     MoreLines := Find('+');
                     while MoreLines and (Description = '') and ("No." = '') and (Quantity = 0) and (Amount = 0) do
                         MoreLines := Next(-1) <> 0;
@@ -828,13 +1390,11 @@ report 50002 "A01 SalesInvoicePrint"
                     SetRange("Line No.", 0, "Line No.");
                     TransHeaderAmount := 0;
                     PrevLineAmount := 0;
-                    // AfkLinesNumber := Count();
                     FirstLineHasBeenOutput := false;
                     DummyCompanyInfo.Picture := CompanyInfo.Picture;
 
                     OnAfterLineOnPreDataItem(Header, Line);
                 end;
-
             }
             dataitem(AfkFooterline; "Integer")
             {
@@ -861,15 +1421,16 @@ report 50002 "A01 SalesInvoicePrint"
                     SetRange(Number, 1, 0);
                 end;
             }
-            dataitem(WorkDescriptionLines; Integer)
+            dataitem(WorkDescriptionLines; "Integer")
             {
-                DataItemTableView = SORTING(Number) WHERE(Number = FILTER(1 .. 99999));
+                DataItemTableView = sorting(Number) where(Number = filter(1 .. 99999));
                 column(WorkDescriptionLineNumber; Number)
                 {
                 }
                 column(WorkDescriptionLine; WorkDescriptionLine)
                 {
                 }
+
                 trigger OnAfterGetRecord()
                 var
                     TypeHelper: Codeunit "Type Helper";
@@ -930,9 +1491,9 @@ report 50002 "A01 SalesInvoicePrint"
                 column(VATAmountLCY_VATAmountLine; VATAmountLCY)
                 {
                 }
-                // column(VATAmountLCY_VATAmountLine_Lbl; VATAmountLCYLbl)
-                // {
-                // }
+                column(VATAmountLCY_VATAmountLine_Lbl; VATAmountLCYLbl)
+                {
+                }
                 column(VATBase_VatAmountLine; "VAT Base")
                 {
                     AutoFormatExpression = Line.GetCurrencyCode();
@@ -944,9 +1505,9 @@ report 50002 "A01 SalesInvoicePrint"
                 column(VATBaseLCY_VATAmountLine; VATBaseLCY)
                 {
                 }
-                // column(VATBaseLCY_VATAmountLine_Lbl; VATBaseLCYLbl)
-                // {
-                // }
+                column(VATBaseLCY_VATAmountLine_Lbl; VATBaseLCYLbl)
+                {
+                }
                 column(VATIdentifier_VatAmountLine; "VAT Identifier")
                 {
                 }
@@ -963,6 +1524,7 @@ report 50002 "A01 SalesInvoicePrint"
                 column(NoOfVATIdentifiers; Count)
                 {
                 }
+
                 trigger OnAfterGetRecord()
                 begin
                     VATBaseLCY :=
@@ -976,6 +1538,8 @@ report 50002 "A01 SalesInvoicePrint"
 
                     TotalVATBaseLCY += VATBaseLCY;
                     TotalVATAmountLCY += VATAmountLCY;
+                    TotalVATBaseOnVATAmtLine += "VAT Base";
+                    TotalVATAmountOnVATAmtLine += "VAT Amount";
 
                     if ShowVATClause("VAT Clause Code") then begin
                         VATClauseLine := VATAmountLine;
@@ -990,11 +1554,13 @@ report 50002 "A01 SalesInvoicePrint"
 
                     TotalVATBaseLCY := 0;
                     TotalVATAmountLCY := 0;
+                    TotalVATBaseOnVATAmtLine := 0;
+                    TotalVATAmountOnVATAmtLine := 0;
                 end;
             }
             dataitem(VATClauseLine; "VAT Amount Line")
             {
-                DataItemTableView = SORTING("VAT Identifier", "VAT Calculation Type", "Tax Group Code", "Use Tax", Positive);
+                DataItemTableView = sorting("VAT Identifier", "VAT Calculation Type", "Tax Group Code", "Use Tax", Positive);
                 UseTemporary = true;
                 column(VATClausesHeader; VATClausesText)
                 {
@@ -1008,7 +1574,7 @@ report 50002 "A01 SalesInvoicePrint"
                 column(Code_VATClauseLine_Lbl; VATClause.FieldCaption(Code))
                 {
                 }
-                column(Description_VATClauseLine; VATClause.Description)
+                column(Description_VATClauseLine; VATClauseText)
                 {
                 }
                 column(Description2_VATClauseLine; VATClause."Description 2")
@@ -1022,13 +1588,14 @@ report 50002 "A01 SalesInvoicePrint"
                 column(NoOfVATClauses; Count)
                 {
                 }
+
                 trigger OnAfterGetRecord()
                 begin
                     if "VAT Clause Code" = '' then
                         CurrReport.Skip();
                     if not VATClause.Get("VAT Clause Code") then
                         CurrReport.Skip();
-                    VATClause.GetDescriptionText(Header);
+                    VATClauseText := VATClause.GetDescriptionText(Header);
                 end;
 
                 trigger OnPreDataItem()
@@ -1041,7 +1608,7 @@ report 50002 "A01 SalesInvoicePrint"
             }
             dataitem(ReportTotalsLine; "Report Totals Buffer")
             {
-                DataItemTableView = SORTING("Line No.");
+                DataItemTableView = sorting("Line No.");
                 UseTemporary = true;
                 column(Description_ReportTotalsLine; Description)
                 {
@@ -1062,17 +1629,19 @@ report 50002 "A01 SalesInvoicePrint"
                 column(FontUnderline_ReportTotalsLine; "Font Underline")
                 {
                 }
+
                 trigger OnPreDataItem()
                 begin
                     CreateReportTotalLines();
                 end;
             }
-            dataitem(LineFee; Integer)
+            dataitem(LineFee; "Integer")
             {
                 DataItemTableView = sorting(Number) ORDER(Ascending) where(Number = filter(1 ..));
                 column(LineFeeCaptionText; TempLineFeeNoteOnReportHist.ReportText)
                 {
                 }
+
                 trigger OnAfterGetRecord()
                 begin
                     if not DisplayAdditionalFeeNote then
@@ -1088,7 +1657,7 @@ report 50002 "A01 SalesInvoicePrint"
             }
             // dataitem(PaymentReportingArgument; "Payment Reporting Argument")
             // {
-            //     DataItemTableView = SORTING(Key);
+            //     DataItemTableView = sorting(Key);
             //     UseTemporary = true;
             //     column(PaymentServiceLogo; Logo)
             //     {
@@ -1108,7 +1677,7 @@ report 50002 "A01 SalesInvoicePrint"
             // }
             dataitem(LeftHeader; "Name/Value Buffer")
             {
-                DataItemTableView = SORTING(ID);
+                DataItemTableView = sorting(ID);
                 UseTemporary = true;
                 column(LeftHeaderName; Name)
                 {
@@ -1131,15 +1700,15 @@ report 50002 "A01 SalesInvoicePrint"
             dataitem(LetterText; "Integer")
             {
                 DataItemTableView = sorting(Number) where(Number = const(1));
-                // column(GreetingText; GreetingLbl)
-                // {
-                // }
-                // column(BodyText; BodyLbl)
-                // {
-                // }
-                // column(ClosingText; ClosingLbl)
-                // {
-                // }
+                column(GreetingText; GreetingLbl)
+                {
+                }
+                column(BodyText; BodyLbl)
+                {
+                }
+                column(ClosingText; ClosingLbl)
+                {
+                }
                 column(PmtDiscText; PmtDiscText)
                 {
                 }
@@ -1151,9 +1720,9 @@ report 50002 "A01 SalesInvoicePrint"
                         PmtDiscText := StrSubstNo(PmtDiscTxt, Header."Pmt. Discount Date", Header."Payment Discount %");
                 end;
             }
-            dataitem(Totals; Integer)
+            dataitem(Totals; "Integer")
             {
-                DataItemTableView = SORTING(Number) WHERE(Number = CONST(1));
+                DataItemTableView = sorting(Number) where(Number = const(1));
                 column(TotalNetAmount; Format(TotalAmount, 0, AutoFormat.ResolveAutoFormat("Auto Format"::AmountFormat, Header."Currency Code")))
                 {
                 }
@@ -1199,6 +1768,65 @@ report 50002 "A01 SalesInvoicePrint"
                 column(TotalAmountExclInclVATText; TotalAmountExclInclVATTextValue)
                 {
                 }
+                column(TotalVATBaseOnVATAmtLine; TotalVATBaseOnVATAmtLine)
+                {
+                }
+                column(TotalVATAmountOnVATAmtLine; TotalVATAmountOnVATAmtLine)
+                {
+                }
+                column(CurrencyCode; CurrCode)
+                {
+                }
+                column(CurrencySymbol; CurrSymbol)
+                {
+                }
+
+
+                // column(TotalNetAmount; Format(TotalAmount, 0, AutoFormat.ResolveAutoFormat("Auto Format"::AmountFormat, Header."Currency Code")))
+                // {
+                // }
+                // column(TotalVATBaseLCY; TotalVATBaseLCY)
+                // {
+                // }
+                // column(TotalAmountIncludingVAT; Format(TotalAmountInclVAT, 0, AutoFormat.ResolveAutoFormat("Auto Format"::AmountFormat, Header."Currency Code")))
+                // {
+                // }
+                // column(TotalVATAmount; Format(TotalAmountVAT, 0, AutoFormat.ResolveAutoFormat("Auto Format"::AmountFormat, Header."Currency Code")))
+                // {
+                // }
+                // column(TotalVATAmountLCY; TotalVATAmountLCY)
+                // {
+                // }
+                // column(TotalInvoiceDiscountAmount; Format(TotalInvDiscAmount, 0, AutoFormat.ResolveAutoFormat("Auto Format"::AmountFormat, Header."Currency Code")))
+                // {
+                // }
+                // column(TotalPaymentDiscountOnVAT; TotalPaymentDiscOnVAT)
+                // {
+                // }
+                // column(TotalVATAmountText; VATAmountLine.VATAmountText())
+                // {
+                // }
+                // column(TotalExcludingVATText; TotalExclVATText)
+                // {
+                // }
+                // column(TotalIncludingVATText; TotalInclVATText)
+                // {
+                // }
+                // column(TotalSubTotal; Format(TotalSubTotal, 0, AutoFormat.ResolveAutoFormat("Auto Format"::AmountFormat, Header."Currency Code")))
+                // {
+                // }
+                // column(TotalSubTotalMinusInvoiceDiscount; Format(TotalSubTotal + TotalInvDiscAmount, 0, AutoFormat.ResolveAutoFormat("Auto Format"::AmountFormat, Header."Currency Code")))
+                // {
+                // }
+                // column(TotalText; TotalText)
+                // {
+                // }
+                // column(TotalAmountExclInclVAT; Format(TotalAmountExclInclVATValue, 0, AutoFormat.ResolveAutoFormat("Auto Format"::AmountFormat, Header."Currency Code")))
+                // {
+                // }
+                // column(TotalAmountExclInclVATText; TotalAmountExclInclVATTextValue)
+                // {
+                // }
                 column(AfkFormattedTotalVAT; AfkFormattedTotalVAT)
                 {
                 }
@@ -1244,10 +1872,16 @@ report 50002 "A01 SalesInvoicePrint"
                 column(AfkTotalAmountInclVAT_LCYCaption; AfkTotalAmountInclVAT_LCYCaption)
                 {
                 }
+
                 trigger OnPreDataItem()
                 begin
-                    TotalAmountExclInclVATTextValue := TotalInclVATText;
-                    TotalAmountExclInclVATValue := TotalAmountInclVAT;
+                    if Header."Prices Including VAT" then begin
+                        TotalAmountExclInclVATTextValue := TotalExclVATText;
+                        TotalAmountExclInclVATValue := TotalAmount;
+                    end else begin
+                        TotalAmountExclInclVATTextValue := TotalInclVATText;
+                        TotalAmountExclInclVATValue := TotalAmountInclVAT;
+                    end;
 
                     AfkFormattedTotalVAT :=
                         Format(TotalAmountVAT, 0,
@@ -1294,24 +1928,23 @@ report 50002 "A01 SalesInvoicePrint"
                     NoText[2] := ReplaceString(NoText[2], '****');
                     NoText[2] := ReplaceString(NoText[2], 'AND 0/100');
                     Afk_AmountInWords := NoText[1] + ' ' + NoText[2];
-
                 end;
             }
+
             trigger OnAfterGetRecord()
             var
-
                 CurrencyExchangeRate: Record "Currency Exchange Rate";
                 // PaymentServiceSetup: Record "Payment Service Setup";
+                Currency: Record Currency;
+                GeneralLedgerSetup: Record "General Ledger Setup";
                 Language: Codeunit Language;
             begin
                 CurrReport.Language := Language.GetLanguageIdOrDefault("Language Code");
+                CurrReport.FormatRegion := Language.GetFormatRegionOrDefault("Format Region");
+                FormatAddr.SetLanguageCode("Language Code");
 
                 GLSetup.Get();
                 GLSetup.TestField("LCY Code");
-                // AfkSetup.TestField("XAF Currency Code");
-
-                if not Cust.Get("Sell-to Customer No.") then
-                    Clear(Cust);
 
                 AfkCurrCod := GLSetup."Local Currency Symbol";
                 AfkCurrCode := Header."Currency Code";
@@ -1357,6 +1990,14 @@ report 50002 "A01 SalesInvoicePrint"
                         end;
                     end;
 
+                if not IsReportInPreviewMode() then
+                    CODEUNIT.Run(CODEUNIT::"Sales Inv.-Printed", Header);
+
+                OnHeaderOnAfterGetRecordOnAfterUpdateNoPrinted(IsReportInPreviewMode(), Header);
+
+                CalcFields("Work Description");
+                ShowWorkDescription := "Work Description".HasValue;
+
                 ChecksPayableText := StrSubstNo(ChecksPayableLbl, CompanyInfo.Name);
 
                 FormatAddressFields(Header);
@@ -1378,14 +2019,21 @@ report 50002 "A01 SalesInvoicePrint"
                     CalculatedExchRate :=
                       Round(1 / "Currency Factor" * CurrencyExchangeRate."Exchange Rate Amount", 0.000001);
                     ExchangeRateText := StrSubstNo(ExchangeRateTxt, CalculatedExchRate, CurrencyExchangeRate."Exchange Rate Amount");
-                end;
+                    CurrCode := "Currency Code";
+                    if Currency.Get("Currency Code") then
+                        CurrSymbol := Currency.GetCurrencySymbol();
+                end else
+                    if GeneralLedgerSetup.Get() then begin
+                        CurrCode := GeneralLedgerSetup."LCY Code";
+                        CurrSymbol := GeneralLedgerSetup.GetCurrencySymbol();
+                    end;
 
                 GetLineFeeNoteOnReportHist("No.");
 
-                //PaymentServiceSetup.CreateReportingArgs(PaymentReportingArgument, Header);
+                // PaymentServiceSetup.CreateReportingArgs(PaymentReportingArgument, Header);
 
                 CalcFields("Amount Including VAT");
-                //RemainingAmount := GetRemainingAmount;
+                RemainingAmount := GetRemainingAmount();
                 if RemainingAmount = 0 then
                     RemainingAmountTxt := AlreadyPaidLbl
                 else
@@ -1396,20 +2044,14 @@ report 50002 "A01 SalesInvoicePrint"
 
                 OnAfterGetSalesHeader(Header);
 
-
                 TotalSubTotal := 0;
                 TotalInvDiscAmount := 0;
                 TotalAmount := 0;
                 TotalAmountVAT := 0;
                 TotalAmountInclVAT := 0;
                 TotalPaymentDiscOnVAT := 0;
-                AfkTotalAmountInclVAT_LCY := 0;
-                AfkTotalAmount_LCY := 0;
-                AfkTotalVAT_LCY := 0;
-
                 if ("Order No." = '') and "Prepayment Invoice" then
                     "Order No." := "Prepayment Order No.";
-
             end;
 
             trigger OnPreDataItem()
@@ -1422,43 +2064,87 @@ report 50002 "A01 SalesInvoicePrint"
     requestpage
     {
         SaveValues = true;
+
         layout
         {
-            area(Content)
+            area(content)
             {
-                group(GroupName)
+                group(Options)
                 {
                     Caption = 'Options';
-                    field(ShowDiscount; DiscountDisplay())
-                    {
-                        ApplicationArea = Basic, Suite;
-                        Caption = 'Show discount';
-                    }
+                    // field(LogInteraction; LogInteraction)
+                    // {
+                    //     ApplicationArea = Basic, Suite;
+                    //     Caption = 'Log Interaction';
+                    //     Enabled = LogInteractionEnable;
+                    //     ToolTip = 'Specifies that interactions with the contact are logged.';
+                    // }
+                    // field(DisplayAsmInformation; DisplayAssemblyInformation)
+                    // {
+                    //     ApplicationArea = Assembly;
+                    //     Caption = 'Show Assembly Components';
+                    //     ToolTip = 'Specifies if you want the report to include information about components that were used in linked assembly orders that supplied the item(s) being sold. (Only possible for RDLC report layout.)';
+                    // }
+                    // field(DisplayShipmentInformation; DisplayShipmentInformation)
+                    // {
+                    //     ApplicationArea = Basic, Suite;
+                    //     Caption = 'Show Shipments';
+                    //     ToolTip = 'Specifies that shipments are shown on the document.';
+                    // }
+                    // field(DisplayAdditionalFeeNote; DisplayAdditionalFeeNote)
+                    // {
+                    //     ApplicationArea = Basic, Suite;
+                    //     Caption = 'Show Additional Fee Note';
+                    //     ToolTip = 'Specifies if you want notes about additional fees to be shown on the document.';
+                    // }
                 }
             }
         }
+
+        actions
+        {
+        }
+
         trigger OnInit()
         begin
-            // LogInteractionEnable := true;
+            LogInteractionEnable := true;
         end;
 
         trigger OnOpenPage()
         begin
             InitLogInteraction();
-            // LogInteractionEnable := LogInteraction;
+            LogInteractionEnable := LogInteraction;
         end;
     }
 
     labels
     {
     }
+
     trigger OnInitReport()
+    var
+        SalesInvoiceHeader: Record "Sales Invoice Header";
+        IsHandled: Boolean;
     begin
         GLSetup.Get();
         CompanyInfo.SetAutoCalcFields(Picture);
         CompanyInfo.Get();
         SalesSetup.Get();
         CompanyInfo.VerifyAndSetPaymentInfo();
+
+        if SalesInvoiceHeader.GetLegalStatement() <> '' then
+            LegalStatementLbl := SalesInvoiceHeader.GetLegalStatement();
+
+        IsHandled := false;
+        OnInitReportForGlobalVariable(IsHandled, LegalOfficeTxt, LegalOfficeLbl, CustomGiroTxt, CustomGiroLbl, LegalStatementLbl);
+#if not CLEAN23
+        if not IsHandled then begin
+            // LegalOfficeTxt := CompanyInfo.GetLegalOffice();
+            // LegalOfficeLbl := CompanyInfo.GetLegalOfficeLbl();
+            // CustomGiroTxt := CompanyInfo.GetCustomGiro();
+            // CustomGiroLbl := CompanyInfo.GetCustomGiroLbl();
+        end;
+#endif
     end;
 
     trigger OnPostReport()
@@ -1479,9 +2165,6 @@ report 50002 "A01 SalesInvoicePrint"
 
     trigger OnPreReport()
     begin
-        CompanyInfo.Get();
-        CompanyInfo.CalcFields(Picture);
-
         if Header.GetFilters = '' then
             Error(NoFilterSetErr);
 
@@ -1491,40 +2174,139 @@ report 50002 "A01 SalesInvoicePrint"
         CompanyLogoPosition := SalesSetup."Logo Position on Documents";
     end;
 
-
     var
         GLSetup: Record "General Ledger Setup";
-        CompanyInfo: Record "Company Information";
-        DummyCompanyInfo: Record "Company Information";
+        // DummyCompanyInfo: Record "Company Information";
+        Cust: Record Customer;
         RespCenter: Record "Responsibility Center";
+        VATClause: Record "VAT Clause";
+        SellToContact: Record Contact;
+        BillToContact: Record Contact;
+
+        //******************************************************************
+        // GLSetup: Record "General Ledger Setup";
+        // CompanyInfo: Record "Company Information";
+        DummyCompanyInfo: Record "Company Information";
+        // RespCenter: Record "Responsibility Center";
         SalesPersonCode: Record "Salesperson/Purchaser";
         SalesLineRec: Record "Sales Invoice Line";
-        SellToContact: Record Contact;
+        // SellToContact: Record Contact;
         // ShipToAddrr: Record "Ship-to Address";
         // Country: Record "Country/Region";
-        VATClause: Record "VAT Clause";
-        BillToContact: Record Contact;
+        // VATClause: Record "VAT Clause";
+        // BillToContact: Record Contact;
         AfkCurrency: Record Currency;
         CurrencyExchangeRate: Record "Currency Exchange Rate";
-        CompanyBankAccount: Record "Bank Account";
-        PaymentMethod: Record "Payment Method";
-        SalespersonPurchaser: Record "Salesperson/Purchaser";
-        SalesSetup: Record "Sales & Receivables Setup";
-        ShipmentMethod: Record "Shipment Method";
-        PaymentTerms: Record "Payment Terms";
+        // CompanyBankAccount: Record "Bank Account";
+        // PaymentMethod: Record "Payment Method";
+        // SalespersonPurchaser: Record "Salesperson/Purchaser";
+        // SalesSetup: Record "Sales & Receivables Setup";
+        // ShipmentMethod: Record "Shipment Method";
+        // PaymentTerms: Record "Payment Terms";
         AfkLocalCurrency: Record Currency;
         ContactInfo: Record Contact;
-        Cust: Record Customer;
+        // Cust: Record Customer;
         // TempLineFeeNoteOnReportHist: Record "Line Fee Note on Report Hist.";
-        TempLineFeeNoteOnReportHist: Record "Line Fee Note on Report Hist." temporary;
+        // TempLineFeeNoteOnReportHist: Record "Line Fee Note on Report Hist." temporary;
         // LineRec: Record "Sales Invoice Line";
         RepCheck: Report Check;
 
         // Language: Codeunit Language;
+        // FormatAddr: Codeunit "Format Address";
+        // SegManagement: Codeunit SegManagement;
+        // AutoFormat: Codeunit "Auto Format";
+        // FormatDocument: Codeunit "Format Document";
+
+        // Language: Codeunit Language;
         FormatAddr: Codeunit "Format Address";
+        FormatDocument: Codeunit "Format Document";
         SegManagement: Codeunit SegManagement;
         AutoFormat: Codeunit "Auto Format";
-        FormatDocument: Codeunit "Format Document";
+        // WorkDescriptionInstream: InStream;
+        // JobNo: Code[20];
+        // JobTaskNo: Code[20];
+        // WorkDescriptionLine: Text;
+        // ChecksPayableText: Text;
+        // SalesPersonText: Text[50];
+        RemainingAmountTxt: Text;
+        // JobNoLbl: Text;
+        // JobTaskNoLbl: Text;
+        // TotalAmountExclInclVATTextValue: Text;
+        // MoreLines: Boolean;
+        ShowWorkDescription: Boolean;
+        // TransHeaderAmount: Decimal;
+        LogInteractionEnable: Boolean;
+        // CompanyLogoPosition: Integer;
+        // CalculatedExchRate: Decimal;
+        // PaymentInstructionsTxt: Text;
+        ExchangeRateText: Text;
+        // PrevLineAmount: Decimal;
+        SalespersonLbl: Label 'Salesperson';
+        CompanyInfoBankAccNoLbl: Label 'Account No.';
+        // CompanyInfoBankNameLbl: Label 'Bank';
+        // CompanyInfoGiroNoLbl: Label 'Giro No.';
+        // CompanyInfoPhoneNoLbl: Label 'Phone No.';
+        CopyLbl: Label 'Copy';
+        // EMailLbl: Label 'Email';
+        // HomePageLbl: Label 'Home Page';
+        InvDiscBaseAmtLbl: Label 'Invoice Discount Base Amount';
+        InvDiscountAmtLbl: Label 'Invoice Discount';
+        // InvNoLbl: Label 'Invoice No.';
+        LineAmtAfterInvDiscLbl: Label 'Payment Discount on VAT';
+        LocalCurrencyLbl: Label 'Local Currency';
+        PageLbl: Label 'Page';
+        PaymentMethodDescLbl: Label 'Payment Method';
+        PostedShipmentDateLbl: Label 'Shipment Date';
+        SalesInvLineDiscLbl: Label 'Discount %';
+        // SalesInvoiceLbl: Label 'Invoice';
+        YourSalesInvoiceLbl: Label 'Your Invoice';
+        ShipmentLbl: Label 'Shipment';
+        // SubtotalLbl: Label 'Subtotal';
+        TotalLbl: Label 'Total';
+        VATAmtSpecificationLbl: Label 'VAT Amount Specification';
+        VATAmtLbl: Label 'VAT Amount';
+        VATAmountLCYLbl: Label 'VAT Amount (LCY)';
+        VATBaseLbl: Label 'VAT Base';
+        VATBaseLCYLbl: Label 'VAT Base (LCY)';
+        // VATClausesLbl: Label 'VAT Clause';
+        VATIdentifierLbl: Label 'VAT Identifier';
+        VATPercentageLbl: Label 'VAT %';
+        SellToContactPhoneNoLbl: Label 'Sell-to Contact Phone No.';
+        SellToContactMobilePhoneNoLbl: Label 'Sell-to Contact Mobile Phone No.';
+        SellToContactEmailLbl: Label 'Sell-to Contact E-Mail';
+        BillToContactPhoneNoLbl: Label 'Bill-to Contact Phone No.';
+        BillToContactMobilePhoneNoLbl: Label 'Bill-to Contact Mobile Phone No.';
+        BillToContactEmailLbl: Label 'Bill-to Contact E-Mail';
+        // ExchangeRateTxt: Label 'Exchange rate: %1/%2', Comment = '%1 and %2 are both amounts.';
+        // NoFilterSetErr: Label 'You must specify one or more filters to avoid accidently printing all documents.';
+        GreetingLbl: Label 'Hello';
+        ClosingLbl: Label 'Sincerely';
+        // PmtDiscTxt: Label 'If we receive the payment before %1, you are eligible for a %2% payment discount.', Comment = '%1 Discount Due Date %2 = value of Payment Discount % ';
+        BodyLbl: Label 'Thank you for your business. Your invoice is attached to this message.';
+        // AlreadyPaidLbl: Label 'The invoice has been paid.';
+        // PartiallyPaidLbl: Label 'The invoice has been partially paid. The remaining amount is %1', Comment = '%1=an amount';
+        FromLbl: Label 'From';
+        BilledToLbl: Label 'Billed to';
+        // ChecksPayableLbl: Label 'Please make checks payable to %1', Comment = '%1 = company name';
+        QuestionsLbl: Label 'Questions?';
+        ThanksLbl: Label 'Thank You!';
+        // JobNoLbl2: Label 'Job No.';
+        // JobTaskNoLbl2: Label 'Job Task No.';
+        // JobTaskDescription: Text[100];
+        // JobTaskDescLbl: Label 'Job Task Description';
+        // UnitLbl: Label 'Unit';
+        // VATClausesText: Text;
+        // QtyLbl: Label 'Qty', Comment = 'Short form of Quantity';
+        // PriceLbl: Label 'Price';
+        // PricePerLbl: Label 'Price per';
+        LCYTxt: label ' (LCY)';
+        IncludesGoodsLbl: Label 'Sales invoice includes only goods.';
+        IncludesServicesLbl: Label 'Sales invoice includes only services.';
+        IncludesGoodsAndServicesLbl: Label 'Sales invoice includes goods and services.';
+        VATClauseText: Text;
+        // LegalOfficeTxt, LegalOfficeLbl, CustomGiroTxt, CustomGiroLbl, LegalStatementLbl : Text;
+
+        //************************************************************ - ********************************
         MoreLines: Boolean;
         CustomerIdentity: Text[100];
         VATText: Text[50];
@@ -1542,10 +2324,10 @@ report 50002 "A01 SalesInvoicePrint"
         // LogInteractionEnable: Boolean;
         WorkDescriptionInstream: InStream;
         TransHeaderAmount: Decimal;
-        FirstLineHasBeenOutput: Boolean;
+        // FirstLineHasBeenOutput: Boolean;
         // A01FormattedUnitPrice: Text[50];
         PartiallyPaidLbl: Label 'The invoice has been partially paid. The remaining amount is %1', Comment = '%1=an amount';
-        RemainingAmountTxt: Text;
+        // RemainingAmountTxt: Text;
         ChecksPayableLbl: Label 'Please make checks payable to %1', Comment = '%1 = company name';
         CalculatedExchRate: Decimal;
         JobTaskNoLbl: Text;
@@ -1562,9 +2344,9 @@ report 50002 "A01 SalesInvoicePrint"
         JobNoLbl2: Label 'Job No.';
         AfkLocalCurrencyName: Text;
         NoText: array[2] of Text;
-        TotalExclVATText: Text[50];
-        TotalInclVATText: Text[50];
-        TotalText: text[50];
+        // TotalExclVATText: Text[50];
+        // TotalInclVATText: Text[50];
+        // TotalText: text[50];
         VendorName: Text[50];
         UnitName: Text[100];
         UnitAddress: Text[100];
@@ -1573,9 +2355,9 @@ report 50002 "A01 SalesInvoicePrint"
         UnitPhone: Text[30];
         CustomerPhone: Text[30];
         CustAddress: Text[100];
-        TotalInvDiscAmount: Decimal;
+        // TotalInvDiscAmount: Decimal;
         PrevLineAmount: Decimal;
-        TotalAmountExclInclVATValue: Decimal;
+        // TotalAmountExclInclVATValue: Decimal;
         TotalAmountExclInclVATTextValue: Text;
         AfkFormattedTotalVAT: Text[50];
         AfkFormattedTotalHT: Text[50];
@@ -1589,54 +2371,54 @@ report 50002 "A01 SalesInvoicePrint"
         AfkTotalAmountInclVAT_LCYText: Text[50];
         AfkTotalVAT_LCYText: Text[50];
         AfkLocalCurrencyText: Text[100];
-        TotalSubTotal: Decimal;
-        FormattedLineAmount: Text;
-        TotalPaymentDiscOnVAT: Decimal;
-        TotalVATAmountLCY: Decimal;
-        TotalAmountInclVAT: Decimal;
-        TotalAmountVAT: Decimal;
-        TotalAmount: Decimal;
-        VATAmountLCY: Decimal;
-        VATBaseLCY: Decimal;
+        // TotalSubTotal: Decimal;
+        // FormattedLineAmount: Text;
+        // TotalPaymentDiscOnVAT: Decimal;
+        // TotalVATAmountLCY: Decimal;
+        // TotalAmountInclVAT: Decimal;
+        // TotalAmountVAT: Decimal;
+        // TotalAmount: Decimal;
+        // VATAmountLCY: Decimal;
+        // VATBaseLCY: Decimal;
         VATClausesText: Text;
-        PmtDiscText: Text;
-        TotalVATBaseLCY: Decimal;
+        // PmtDiscText: Text;
+        // TotalVATBaseLCY: Decimal;
         A01LineQty: Decimal;
         A01LinePU: Decimal;
         A01LineQtyFormatted: Text[50];
         A01FormattedVAT: Text[50];
         A01LinePUFormatted: Text[50];
         FormattedLineAmountTTC: Text;
-        FormattedQuantity: Text;
-        FormattedUnitPrice: Text;
-        FormattedVATPct: Text;
-        LineDiscountPctText: Text;
+        // FormattedQuantity: Text;
+        // FormattedUnitPrice: Text;
+        // FormattedVATPct: Text;
+        // LineDiscountPctText: Text;
         // AfkLinesNumber: Integer;
         A01FormattedAmtHT: Text[50];
         A01FormattedLineDiscountAmount: Text[50];
-        CompanyAddr: array[8] of Text[100];
-        CustAddr: array[8] of Text[100];
-        ShipToAddr: array[8] of Text[100];
+        // CompanyAddr: array[8] of Text[100];
+        // CustAddr: array[8] of Text[100];
+        // ShipToAddr: array[8] of Text[100];
         PaymentInstructionsTxt: Text;
         CompanyLogoPosition: Integer;
-        DisplayAssemblyInformation: Boolean;
-        ShowWorkDescription: Boolean;
-        RemainingAmount: Decimal;
+        // DisplayAssemblyInformation: Boolean;
+        // ShowWorkDescription: Boolean;
+        // RemainingAmount: Decimal;
         AfkCurrCode: Code[20];
         AfkCurrCod: Code[20];
         AfkCurrencyName: Text;
-        DisplayShipmentInformation: Boolean;
-        DisplayAdditionalFeeNote: Boolean;
+        // DisplayShipmentInformation: Boolean;
+        // DisplayAdditionalFeeNote: Boolean;
         ChecksPayableText: Text;
-        ExchangeRateText: Text;
+        // ExchangeRateText: Text;
         WorkDescriptionLine: Text;
         AfkTotalVAT_LCY: Decimal;
         AfkTotalAmount_LCY: Decimal;
         AfkTotalAmountInclVAT_LCY: Decimal;
         LegalOfficeTxt, LegalOfficeLbl, CustomGiroTxt, CustomGiroLbl, LegalStatementLbl : Text;
-        LogInteraction: Boolean;
-        ShowDiscountVar: Boolean;
-        param: Decimal;
+        // LogInteraction: Boolean;
+        // ShowDiscountVar: Boolean;
+        // param: Decimal;
         // ShowShippingAddr: Boolean;
         // AfkTotalHTCFALbl: Label 'Total Excl. VAT CFAF :';
         // AfkVAT1925Lbl: Label 'VAT 19.25% :';
@@ -1648,7 +2430,7 @@ report 50002 "A01 SalesInvoicePrint"
         PmtDiscTxt: Label 'If we receive the payment before %1, you are eligible for a %2% payment discount.', Comment = '%1 Discount Due Date %2 = value of Payment Discount % ';
         SalesInvoiceLbl: Label 'CREDIT SALES INVOICE';
         InvNoLbl: Label 'Invoice N° :';
-        SalesPersonText: Text[50];
+        SalesPersonText: Text;
         UnitNameLbl: Label 'Unit name :';
         UnitAddressLbl: Label 'Unit address :';
         UnitCityLbl: Label 'City';
@@ -1689,17 +2471,64 @@ report 50002 "A01 SalesInvoicePrint"
         ArrestedOfSumLbl: Label 'Arrested at the sum of :';
         CompanySignLbl: Label 'Company signature';
         ClientSignLbl: Label 'Client Signature';
-        InvDiscountAmtLbl: Label 'Invoice Discount';
+        // InvDiscountAmtLbl: Label 'Invoice Discount';
         PaymentTermsDescLbl: Label 'Payment Terms :';
-        PaymentMethodDescLbl: Label 'Payment Method :';
-        ShptMethodDescLbl: Label 'Shipment Method';
+        // PaymentMethodDescLbl: Label 'Payment Method :';
+        // ShptMethodDescLbl: Label 'Shipment Method';
         EMailLbl: Label 'Email';
         HomePageLbl: Label 'Home Page';
         CompanyInfoPhoneNoLbl: Label 'Phone No.';
         CompanyInfoBankNameLbl: Label 'Bank';
         CompanyInfoGiroNoLbl: Label 'Giro No.';
 
-
+    protected var
+        CompanyInfo: Record "Company Information";
+        CompanyBankAccount: Record "Bank Account";
+        PaymentMethod: Record "Payment Method";
+        SalespersonPurchaser: Record "Salesperson/Purchaser";
+        SalesSetup: Record "Sales & Receivables Setup";
+        ShipmentMethod: Record "Shipment Method";
+        PaymentTerms: Record "Payment Terms";
+        TempLineFeeNoteOnReportHist: Record "Line Fee Note on Report Hist." temporary;
+        CompanyAddr: array[8] of Text[100];
+        CustAddr: array[8] of Text[100];
+        ShipToAddr: array[8] of Text[100];
+        AlternativeAddress: array[8] of Text[100];
+        FormattedLineAmount: Text;
+        FormattedQuantity: Text;
+        FormattedUnitPrice: Text;
+        FormattedVATPct: Text;
+        LineDiscountPctText: Text;
+        PmtDiscText: Text;
+        AlternativeAddressTxt: Text;
+        TotalExclVATText: Text[50];
+        TotalInclVATText: Text[50];
+        TotalSubTotal: Decimal;
+        VATBaseLCY: Decimal;
+        VATAmountLCY: Decimal;
+        DisplayAssemblyInformation: Boolean;
+        DisplayShipmentInformation: Boolean;
+        DisplayAdditionalFeeNote: Boolean;
+        FirstLineHasBeenOutput: Boolean;
+        ShowShippingAddr: Boolean;
+        TotalText: Text[50];
+        LogInteraction: Boolean;
+        TotalAmount: Decimal;
+        TotalAmountInclVAT: Decimal;
+        TotalAmountVAT: Decimal;
+        TotalInvDiscAmount: Decimal;
+        TotalPaymentDiscOnVAT: Decimal;
+        RemainingAmount: Decimal;
+        TotalAmountExclInclVATValue: Decimal;
+        TotalVATBaseLCY: Decimal;
+        TotalVATAmountLCY: Decimal;
+        TotalVATBaseOnVATAmtLine: Decimal;
+        TotalVATAmountOnVATAmtLine: Decimal;
+        CurrCode: Text[10];
+        CurrSymbol: Text[10];
+        // PaymentTermsDescLbl: Label 'Payment Terms';
+        ShptMethodDescLbl: Label 'Shipment Method';
+        ShiptoAddrLbl: Label 'Ship-to Address';
 
     local procedure InitLogInteraction()
     begin
@@ -1718,7 +2547,7 @@ report 50002 "A01 SalesInvoicePrint"
             if SalesShipmentHeader.Get(Line."Shipment No.") then
                 exit;
 
-        ShipmentLine.GetLinesForSalesInvoiceLine(Line, Header);
+        // ShipmentLine.GetLinesForSalesInvoiceLine(Line, Header);
 
         ShipmentLine.Reset();
         ShipmentLine.SetRange("Line No.", Line."Line No.");
@@ -1738,20 +2567,16 @@ report 50002 "A01 SalesInvoicePrint"
         end;
     end;
 
-    local procedure DocumentCaption(): Text[250]
+    local procedure DocumentCaption(): Text
     var
         DocCaption: Text;
     begin
         OnBeforeGetDocumentCaption(Header, DocCaption);
         if DocCaption <> '' then
-            exit(CopyStr(DocCaption, 1, 250));
+            exit(DocCaption);
         exit(SalesInvoiceLbl);
     end;
 
-    /// <summary>
-    /// IsReportInPreviewMode.
-    /// </summary>
-    /// <returns>Return value of type Boolean.</returns>
     procedure InitializeRequest(NewLogInteraction: Boolean; DisplayAsmInfo: Boolean)
     begin
         LogInteraction := NewLogInteraction;
@@ -1765,38 +2590,87 @@ report 50002 "A01 SalesInvoicePrint"
         exit(CurrReport.Preview() or MailManagement.IsHandlingGetEmailBody());
     end;
 
+    local procedure GetGoodsAndServicesText(): Text
+    var
+        SalesInvoiceLine: Record "Sales Invoice Line";
+        GotGoods: Boolean;
+        GotServices: Boolean;
+    begin
+        SalesInvoiceLine.SetRange("Document No.", Header."No.");
+        SalesInvoiceLine.SetFilter(Type, '<> %1', SalesInvoiceLine.Type::Item);
+        if not SalesInvoiceLine.IsEmpty() then
+            GotServices := true;
+        SalesInvoiceLine.SetRange(Type, SalesInvoiceLine.Type::Item);
+        SalesInvoiceLine.SetLoadFields("No.");
+        if SalesInvoiceLine.FindSet() then
+            repeat
+                if IsItemInventory(SalesInvoiceLine."No.") then
+                    GotGoods := true
+                else
+                    GotServices := true;
+            until SalesInvoiceLine.Next() = 0;
+        if GotServices then
+            if GotGoods then
+                exit(IncludesGoodsAndServicesLbl)
+            else
+                exit(IncludesServicesLbl)
+        else
+            exit(IncludesGoodsLbl);
+    end;
+
+    local procedure IsItemInventory(ItemNo: Code[20]): Boolean
+    var
+        Item: Record Item;
+    begin
+        Item.SetLoadFields(Type);
+        if Item.Get(ItemNo) then
+            exit(Item.Type = Item.Type::Inventory);
+    end;
+
+    local procedure GetVATPaidonDebitsText(): Text
+    begin
+        if Header."VAT Paid on Debits" then
+            exit(Header.FieldCaption("VAT Paid on Debits"));
+    end;
+
     local procedure GetUOMText(UOMCode: Code[10]): Text[50]
     var
         UnitOfMeasure: Record "Unit of Measure";
+        UOMDescription: Text[50];
     begin
         if not UnitOfMeasure.Get(UOMCode) then
             exit(UOMCode);
-        exit(UnitOfMeasure.Description);
+
+        UOMDescription := UnitOfMeasure.Description;
+        OnAfterGetUOMText(UOMCode, UOMDescription);
+        exit(UOMDescription);
     end;
 
     local procedure CreateReportTotalLines()
     begin
         ReportTotalsLine.DeleteAll();
         if (TotalInvDiscAmount <> 0) or (TotalAmountVAT <> 0) then
-            ReportTotalsLine.Add(SubtotalLbl, TotalSubTotal, true, false, false);
+            ReportTotalsLine.Add(SubtotalLbl, TotalSubTotal, true, false, false, Header."Currency Code");
         if TotalInvDiscAmount <> 0 then begin
-            ReportTotalsLine.Add(InvDiscountAmtLbl, TotalInvDiscAmount, false, false, false);
+            ReportTotalsLine.Add(InvDiscountAmtLbl, TotalInvDiscAmount, false, false, false, Header."Currency Code");
             if TotalAmountVAT <> 0 then
                 if Header."Prices Including VAT" then
-                    ReportTotalsLine.Add(TotalInclVATText, TotalAmountInclVAT, true, false, false)
+                    ReportTotalsLine.Add(TotalInclVATText, TotalAmountInclVAT, true, false, false, Header."Currency Code")
                 else
-                    ReportTotalsLine.Add(TotalExclVATText, TotalAmount, true, false, false);
+                    ReportTotalsLine.Add(TotalExclVATText, TotalAmount, true, false, false, Header."Currency Code");
         end;
-        if TotalAmountVAT <> 0 then
-            ReportTotalsLine.Add(VATAmountLine.VATAmountText(), TotalAmountVAT, false, true, false);
+        if TotalAmountVAT <> 0 then begin
+            ReportTotalsLine.Add(VATAmountLine.VATAmountText(), TotalAmountVAT, false, true, false, Header."Currency Code");
+            if TotalVATAmountLCY <> TotalAmountVAT then
+                ReportTotalsLine.Add(VATAmountLine.VATAmountText() + LCYTxt, TotalVATAmountLCY, false, true, false);
+        end;
     end;
 
     local procedure GetLineFeeNoteOnReportHist(SalesInvoiceHeaderNo: Code[20])
     var
+        LineFeeNoteOnReportHist: Record "Line Fee Note on Report Hist.";
         CustLedgerEntry: Record "Cust. Ledger Entry";
         Customer: Record Customer;
-        LineFeeNoteOnReportHist: Record "Line Fee Note on Report Hist.";
-        Language: Codeunit Language;
     begin
         TempLineFeeNoteOnReportHist.DeleteAll();
         CustLedgerEntry.SetRange("Document Type", CustLedgerEntry."Document Type"::Invoice);
@@ -1809,14 +2683,14 @@ report 50002 "A01 SalesInvoicePrint"
 
         LineFeeNoteOnReportHist.SetRange("Cust. Ledger Entry No", CustLedgerEntry."Entry No.");
         LineFeeNoteOnReportHist.SetRange("Language Code", Customer."Language Code");
-        if LineFeeNoteOnReportHist.FindSet() then begin
+        if LineFeeNoteOnReportHist.FindSet() then
             repeat
                 TempLineFeeNoteOnReportHist.Init();
                 TempLineFeeNoteOnReportHist.Copy(LineFeeNoteOnReportHist);
                 TempLineFeeNoteOnReportHist.Insert();
-            until LineFeeNoteOnReportHist.Next() = 0;
-        end else begin
-            LineFeeNoteOnReportHist.SetRange("Language Code", Language.GetUserLanguageCode());
+            until LineFeeNoteOnReportHist.Next() = 0
+        else begin
+            // LineFeeNoteOnReportHist.SetRange("Language Code", Language.GetUserLanguageCode);
             if LineFeeNoteOnReportHist.FindSet() then
                 repeat
                     TempLineFeeNoteOnReportHist.Init();
@@ -1835,7 +2709,7 @@ report 50002 "A01 SalesInvoicePrint"
         FillNameValueTable(LeftHeader, Header.GetCustomerVATRegistrationNumberLbl(), Header.GetCustomerVATRegistrationNumber());
         FillNameValueTable(LeftHeader, Header.GetCustomerGlobalLocationNumberLbl(), Header.GetCustomerGlobalLocationNumber());
         FillNameValueTable(LeftHeader, InvNoLbl, Header."No.");
-        //FillNameValueTable(LeftHeader, Header.FieldCaption("Order No."), Header."Order No.");
+        FillNameValueTable(LeftHeader, Header.FieldCaption("Order No."), Header."Order No.");
         FillNameValueTable(LeftHeader, Header.FieldCaption("Document Date"), Format(Header."Document Date", 0, 4));
         FillNameValueTable(LeftHeader, Header.FieldCaption("Due Date"), Format(Header."Due Date", 0, 4));
         FillNameValueTable(LeftHeader, PaymentTermsDescLbl, PaymentTerms.Description);
@@ -1847,20 +2721,27 @@ report 50002 "A01 SalesInvoicePrint"
     end;
 
     local procedure FillRightHeader()
+    var
+        IsHandled: Boolean;
     begin
-        RightHeader.DeleteAll();
+        IsHandled := false;
+        OnBeforeFillRightHeader(Header, SalespersonPurchaser, SalesPersonText, RightHeader, IsHandled);
+        if not IsHandled then begin
+            RightHeader.DeleteAll();
 
-        FillNameValueTable(RightHeader, EMailLbl, CompanyInfo."E-Mail");
-        FillNameValueTable(RightHeader, HomePageLbl, CompanyInfo."Home Page");
-        FillNameValueTable(RightHeader, CompanyInfoPhoneNoLbl, CompanyInfo."Phone No.");
-        FillNameValueTable(RightHeader, CompanyInfo.GetRegistrationNumberLbl(), CompanyInfo.GetRegistrationNumber());
-        FillNameValueTable(RightHeader, CompanyInfoBankNameLbl, CompanyBankAccount.Name);
-        FillNameValueTable(RightHeader, CompanyInfoGiroNoLbl, CompanyInfo."Giro No.");
-        FillNameValueTable(RightHeader, CompanyBankAccount.FieldCaption(IBAN), CompanyBankAccount.IBAN);
-        FillNameValueTable(RightHeader, CompanyBankAccount.FieldCaption("SWIFT Code"), CompanyBankAccount."SWIFT Code");
-        //FillNameValueTable(RightHeader, Header.GetPaymentReferenceLbl, Header.GetPaymentReference);
+            FillNameValueTable(RightHeader, EMailLbl, CompanyInfo."E-Mail");
+            FillNameValueTable(RightHeader, HomePageLbl, CompanyInfo."Home Page");
+            FillNameValueTable(RightHeader, CompanyInfoPhoneNoLbl, CompanyInfo."Phone No.");
+            FillNameValueTable(RightHeader, CompanyInfo.GetRegistrationNumberLbl(), CompanyInfo.GetRegistrationNumber());
+            FillNameValueTable(RightHeader, CompanyInfo.GetVATRegistrationNumberLbl(), CompanyInfo.GetVATRegistrationNumber());
+            FillNameValueTable(RightHeader, CompanyInfoBankNameLbl, CompanyBankAccount.Name);
+            FillNameValueTable(RightHeader, CompanyInfoGiroNoLbl, CompanyInfo."Giro No.");
+            FillNameValueTable(RightHeader, CompanyBankAccount.FieldCaption(IBAN), CompanyBankAccount.IBAN);
+            FillNameValueTable(RightHeader, CompanyBankAccount.FieldCaption("SWIFT Code"), CompanyBankAccount."SWIFT Code");
+            FillNameValueTable(RightHeader, Header.GetPaymentReferenceLbl(), Header.GetPaymentReference());
 
-        OnAfterFillRightHeader(RightHeader, Header);
+            OnAfterFillRightHeader(RightHeader, Header);
+        end;
     end;
 
     local procedure FillNameValueTable(var NameValueBuffer: Record "Name/Value Buffer"; Name: Text; Value: Text)
@@ -1882,23 +2763,23 @@ report 50002 "A01 SalesInvoicePrint"
 
     local procedure FormatAddressFields(var SalesInvoiceHeader: Record "Sales Invoice Header")
     var
-    // i: Integer;
+        i: Integer;
     begin
         FormatAddr.GetCompanyAddr(SalesInvoiceHeader."Responsibility Center", RespCenter, CompanyInfo, CompanyAddr);
         FormatAddr.SalesInvBillTo(CustAddr, SalesInvoiceHeader);
-        // ShowShippingAddr := FormatAddr.SalesInvShipTo(ShipToAddr, CustAddr, SalesInvoiceHeader);
-        // if ShowShippingAddr then begin
-        //     for i := 1 to 8 do
-        //         AlternativeAddress[i] := ShipToAddr[i];
-        //     AlternativeAddressTxt := ShiptoAddrLbl;
-        // end;
+        ShowShippingAddr := FormatAddr.SalesInvShipTo(ShipToAddr, CustAddr, SalesInvoiceHeader);
+        if ShowShippingAddr then begin
+            for i := 1 to 8 do
+                AlternativeAddress[i] := ShipToAddr[i];
+            AlternativeAddressTxt := ShiptoAddrLbl;
+        end;
     end;
 
     local procedure FormatDocumentFields(SalesInvoiceHeader: Record "Sales Invoice Header")
     begin
         // with SalesInvoiceHeader do begin
         FormatDocument.SetTotalLabels(SalesInvoiceHeader.GetCurrencySymbol(), TotalText, TotalInclVATText, TotalExclVATText);
-        FormatDocument.SetSalesPerson(SalespersonPurchaser, SalesInvoiceHeader."Salesperson Code", SalesPersonText);
+        // FormatDocument.SetSalesPerson(SalespersonPurchaser, SalesInvoiceHeader."Salesperson Code", SalesPersonText);
         FormatDocument.SetPaymentTerms(PaymentTerms, SalesInvoiceHeader."Payment Terms Code", SalesInvoiceHeader."Language Code");
         FormatDocument.SetPaymentMethod(PaymentMethod, SalesInvoiceHeader."Payment Method Code", SalesInvoiceHeader."Language Code");
         FormatDocument.SetShipmentMethod(ShipmentMethod, SalesInvoiceHeader."Shipment Method Code", SalesInvoiceHeader."Language Code");
@@ -1949,6 +2830,38 @@ report 50002 "A01 SalesInvoicePrint"
     begin
     end;
 
+    local procedure ShowVATClause(VATClauseCode: Code[20]): Boolean
+    begin
+        if VATClauseCode = '' then
+            exit(false);
+
+        exit(true);
+    end;
+
+    local procedure InsertVATAmountLine(var VATAmountLine2: Record "VAT Amount Line"; SalesInvoiceLine: Record "Sales Invoice Line")
+    var
+        IsHandled: Boolean;
+    begin
+        IsHandled := false;
+        OnBeforeVATAmountLineInsertLine(VATAmountLine2, SalesInvoiceLine, IsHandled);
+        if IsHandled then
+            exit;
+
+        VATAmountLine2.Init();
+        VATAmountLine2."VAT Identifier" := SalesInvoiceLine."VAT Identifier";
+        VATAmountLine2."VAT Calculation Type" := SalesInvoiceLine."VAT Calculation Type";
+        VATAmountLine2."Tax Group Code" := SalesInvoiceLine."Tax Group Code";
+        VATAmountLine2."VAT %" := SalesInvoiceLine."VAT %";
+        VATAmountLine2."VAT Base" := SalesInvoiceLine.Amount;
+        VATAmountLine2."Amount Including VAT" := SalesInvoiceLine."Amount Including VAT";
+        VATAmountLine2."Line Amount" := SalesInvoiceLine."Line Amount";
+        if SalesInvoiceLine."Allow Invoice Disc." then
+            VATAmountLine2."Inv. Disc. Base Amount" := SalesInvoiceLine."Line Amount";
+        VATAmountLine2."Invoice Discount Amount" := SalesInvoiceLine."Inv. Discount Amount";
+        VATAmountLine2."VAT Clause Code" := SalesInvoiceLine."VAT Clause Code";
+        VATAmountLine2.InsertLine();
+    end;
+
     local procedure FormatLineValues(CurrLine: Record "Sales Invoice Line")
     var
         IsHandled: Boolean;
@@ -1964,12 +2877,34 @@ report 50002 "A01 SalesInvoicePrint"
     begin
     end;
 
-    local procedure ShowVATClause(VATClauseCode: Code[20]): Boolean
-    begin
-        if VATClauseCode = '' then
-            exit(false);
+    // [IntegrationEvent(false, false)]
+    // local procedure OnAfterFormatDocumentFields(var SalesInvoiceHeader: Record "Sales Invoice Header")
+    // begin
+    // end;
 
-        exit(true);
+    [IntegrationEvent(false, false)]
+    local procedure OnBeforeVATAmountLineInsertLine(var VATAmountLine: Record "VAT Amount Line"; SalesInvoiceLine: Record "Sales Invoice Line"; var IsHandled: Boolean)
+    begin
+    end;
+
+    [IntegrationEvent(false, false)]
+    local procedure OnBeforeFillRightHeader(var SalesInvoiceHeader: Record "Sales Invoice Header"; SalespersonPurchaser: Record "Salesperson/Purchaser"; var SalesPersonText: Text; var RightHeader: Record "Name/Value Buffer"; var IsHandled: Boolean)
+    begin
+    end;
+
+    [IntegrationEvent(false, false)]
+    local procedure OnAfterGetUOMText(UOMCode: Code[10]; var UOMDescription: Text[50])
+    begin
+    end;
+
+    [IntegrationEvent(false, false)]
+    local procedure OnInitReportForGlobalVariable(var IsHandled: Boolean; var LegalOfficeTxt: Text; var LegalOfficeLbl: Text; var CustomGiroTxt: Text; var CustomGiroLbl: Text; var LegalStatementLbl: Text)
+    begin
+    end;
+
+    [IntegrationEvent(true, false)]
+    local procedure OnHeaderOnAfterGetRecordOnAfterUpdateNoPrinted(ReportInPreviewMode: Boolean; var SalesInvoiceHeader: Record "Sales Invoice Header")
+    begin
     end;
 
     local procedure ReplaceString(OriginString: Text; ReplaceStr: Text): Text
@@ -1984,17 +2919,4 @@ report 50002 "A01 SalesInvoicePrint"
         end;
         exit(Rep);
     end;
-
-    local procedure DiscountDisplay(): Boolean
-    var
-    begin
-        param := Line."Line Discount Amount";
-        if param = 0 then
-            ShowDiscountVar := false
-        else
-            ShowDiscountVar := true;
-
-        exit(ShowDiscountVar);
-    end;
-
 }

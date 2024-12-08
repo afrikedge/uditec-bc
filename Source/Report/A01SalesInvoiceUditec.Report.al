@@ -1697,7 +1697,7 @@ report 50030 "A01 SalesInvoiceUditec"
             if SalesShipmentHeader.Get(Line."Shipment No.") then
                 exit;
 
-        ShipmentLine.GetLinesForSalesInvoiceLine(Line, Header);
+        // ShipmentLine.GetLinesForSalesInvoiceLine(Line, Header);
 
         ShipmentLine.Reset();
         ShipmentLine.SetRange("Line No.", Line."Line No.");

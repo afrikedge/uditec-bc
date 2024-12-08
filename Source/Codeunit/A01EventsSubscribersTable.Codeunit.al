@@ -151,17 +151,18 @@ codeunit 50001 "A01 EventsSubscribers_Table"
         CustLedgEntry.SetRange("Document Type");
     end;
 
+    [EventSubscriber(ObjectType::Table, Database::"Sales Header", 'OnBeforeSetSecurityFilterOnRespCenter', '', true, true)]
+    local procedure SalesHeader_OnBeforeSetSecurityFilterOnRespCenter(var SalesHeader: Record "Sales Header"; var IsHandled: Boolean)
+    var
+    begin
+        if (SalesHeader."Document Type" = SalesHeader."Document Type"::"Return Order") then
+            IsHandled := true;
+        if (SalesHeader."Document Type" = SalesHeader."Document Type"::"Credit Memo") then
+            IsHandled := true;
+    end;
 
-    // [IntegrationEvent(false, false)]
-    //     local procedure OnAfterSetCustLedgEntryView(ReminderHeader: Record "Reminder Header"; ReminderLine: Record "Reminder Line"; var CustLedgEntry: Record "Cust. Ledger Entry")
-    //     begin
-    //     end;
 
 
-    //  [IntegrationEvent(false, false)]
-    // local procedure OnAfterCreateCustomer(var Contact: Record Contact; var Customer: Record Customer)
-    // begin
-    // end;
 
 
 
