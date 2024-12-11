@@ -208,7 +208,7 @@ codeunit 50002 "A01 EventsSubscribers_Code"
     begin
         //ItemLedgerEntry.CalcFields("Sales Amount (Actual)");
         //ItemLedgerEntry.TestField("Sales Amount (Actual)");
-        VoucherMgt.PostVoucherEmission(ItemLedgerEntry, InventoryPostingToGL, Abs(ValueEntry."Sales Amount (Actual)"));
+        VoucherMgt.PostVoucherEmission(ItemLedgerEntry, InventoryPostingToGL);
     end;
 
     [EventSubscriber(ObjectType::Codeunit, Codeunit::"Sales-Post Prepayment (Yes/No)", 'OnPostPrepmtInvoiceYNOnBeforeConfirm', '', true, true)]
