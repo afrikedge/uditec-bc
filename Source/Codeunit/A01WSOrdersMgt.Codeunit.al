@@ -373,8 +373,7 @@ codeunit 50009 "A01 WS OrdersMgt"
             if (SalesLine."Location Code" <> WS.GetText('Location Code', input)) then
                 SalesLine.Validate("Location Code", WS.GetText('Location Code', input));
 
-            if (SalesLine."Bin Code" <> WS.GetText('Bin Code', input)) then
-                SalesLine.Validate("Bin Code", WS.GetText('Bin Code', input));
+
 
             if (SalesLine.Quantity <> WS.GetDecimal('Quantity', input)) then
                 SalesLine.Validate(Quantity, WS.GetDecimal('Quantity', input));
@@ -391,6 +390,9 @@ codeunit 50009 "A01 WS OrdersMgt"
             if (ws.KeyExists('Prepayment _', input)) then
                 if (SalesLine."Prepayment %" <> WS.GetDecimal('Prepayment _', input)) then
                     SalesLine.Validate("Prepayment %", WS.GetDecimal('Prepayment _', input));
+
+            if (SalesLine."Bin Code" <> WS.GetText('Bin Code', input)) then
+                SalesLine.Validate("Bin Code", WS.GetText('Bin Code', input));
 
             jsonKey := 'Markup';
             if WS.KeyExists(jsonKey, input) then

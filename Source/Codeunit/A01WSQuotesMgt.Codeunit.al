@@ -465,9 +465,6 @@ codeunit 50005 "A01 WS QuotesMgt"
             if (SalesLine."Location Code" <> WS.GetText('Location Code', input)) then
                 SalesLine.Validate("Location Code", WS.GetText('Location Code', input));
 
-            if (SalesLine."Bin Code" <> WS.GetText('Bin Code', input)) then
-                SalesLine.Validate("Bin Code", WS.GetText('Bin Code', input));
-
 
             if (SalesLine.Quantity <> WS.GetDecimal('Quantity', input)) then
                 SalesLine.Validate(Quantity, WS.GetDecimal('Quantity', input));
@@ -483,6 +480,10 @@ codeunit 50005 "A01 WS QuotesMgt"
 
             if (SalesLine."Prepayment %" <> WS.GetDecimal('Prepayment _', input)) then
                 SalesLine.Validate("Prepayment %", WS.GetDecimal('Prepayment _', input));
+
+            if (SalesLine."Bin Code" <> WS.GetText('Bin Code', input)) then
+                SalesLine.Validate("Bin Code", WS.GetText('Bin Code', input));
+
 
             //if (SalesLine."Line Discount %" <> WS.GetDecimal('Line Discount _', input)) then
             //    SalesLine.Validate("Line Discount %", WS.GetDecimal('Line Discount _', input));
