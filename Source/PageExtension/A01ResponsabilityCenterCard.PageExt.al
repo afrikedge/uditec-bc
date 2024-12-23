@@ -39,6 +39,10 @@ pageextension 50001 "A01 Responsability Center Card" extends "Responsibility Cen
             {
                 ApplicationArea = Basic, Suite;
             }
+            field("A01 POS Default Customer"; Rec."A01 POS Default Customer")
+            {
+                ApplicationArea = Basic, Suite;
+            }
         }
         addbefore(Control1900383207)
         {

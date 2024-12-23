@@ -328,6 +328,11 @@ codeunit 50009 "A01 WS OrdersMgt"
             if (SalesOrder."External Document No." <> WS.GetText(jsonkey, input)) then
                 SalesOrder.Validate("External Document No.", WS.GetText(jsonkey, input));
 
+        jsonkey := 'Control Payment on Invoice';
+        if (WS.KeyExists(jsonkey, input)) then
+            if (SalesOrder."A01 Control Payment on Invoice" <> WS.Getbool(jsonkey, input)) then
+                SalesOrder.Validate("A01 Control Payment on Invoice", WS.Getbool(jsonkey, input));
+
 
 
         SalesOrder.Modify();
@@ -522,11 +527,22 @@ codeunit 50009 "A01 WS OrdersMgt"
     /// <returns>Return value of type Text.</returns>
     procedure SaveOrderPaymentLines(input: JsonObject): Text
     var
+        SalesOrder: Record "Sales Header";
         OrderNo: text;
+        ControlPay: Boolean;
     begin
         OrderNo := ws.GetText('OrderNo', input);
-        if (OrderNo <> '') then
+        ControlPay := ws.GetBool('Control Payment on Invoice', input);
+        if (OrderNo <> '') then begin
+            if (SalesOrder.get(SalesOrder."Document Type"::Order, OrderNo)) then begin
+                if (SalesOrder."A01 Control Payment on Invoice" <> ControlPay) then begin
+                    SalesOrder."A01 Control Payment on Invoice" := ControlPay;
+                    SalesOrder.Modify();
+                end;
+            end;
             exit(UpdatePaymentLinesOnOrder(OrderNo, input));
+        end;
+
     end;
 
     local procedure processSalesOrderPaymentLine(SalesOrder: Record "Sales Header"; var SalesPayLine: Record "A01 Sales Payment Method"; input: JsonObject)

@@ -60,6 +60,13 @@ tableextension 50003 "A01 Responsibility Center" extends "Responsibility Center"
             Caption = 'Price list change';
             DataClassification = CustomerContent;
         }
+        field(50010; "A01 POS Default Customer"; Code[20])
+        {
+            Caption = 'POS Default Customer';
+            DataClassification = CustomerContent;
+            TableRelation = Customer;
+        }
+
 
     }
 }

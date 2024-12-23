@@ -221,5 +221,10 @@ tableextension 50002 "A01 Sales Header Archive" extends "Sales Header Archive"
             Caption = 'Archived';
             DataClassification = CustomerContent;
         }
+        field(50040; "A01 Control Payment on Invoice"; Boolean)
+        {
+            Caption = 'Control Payment on Invoices';
+            DataClassification = CustomerContent;
+        }
     }
 }

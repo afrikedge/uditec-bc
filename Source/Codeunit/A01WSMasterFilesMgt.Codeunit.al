@@ -188,7 +188,7 @@ codeunit 50015 A01WSMasterFilesMgt
 
         processCustomerRequirements(Cust, input);
 
-        processCustomerScorings(Cust, input);
+        //processCustomerScorings(Cust, input);
 
         exit(Ws.CreateResponseSuccess(Cust."No."));
 
@@ -209,7 +209,7 @@ codeunit 50015 A01WSMasterFilesMgt
 
         processCustomerRequirements(Cust, input);
 
-        processCustomerScorings(Cust, input);
+        //processCustomerScorings(Cust, input);
 
         exit(Ws.CreateResponseSuccess(Cust."No."));
 
@@ -515,7 +515,7 @@ codeunit 50015 A01WSMasterFilesMgt
 
         processLeadRequirements(Cust, input);
 
-        processLeadScorings(Cust, input);
+        //processLeadScorings(Cust, input);
 
         exit(Ws.CreateResponseSuccess(Cust."No."));
 

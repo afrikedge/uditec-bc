@@ -69,6 +69,10 @@ pageextension 50006 "A01 Customer Card" extends "Customer Card"
             {
                 ApplicationArea = Basic, Suite;
             }
+            field("A01 Control Payment on Invoice"; Rec."A01 Control Payment on Invoice")
+            {
+                ApplicationArea = Basic, Suite;
+            }
         }
 
         addafter("SIREN No.")

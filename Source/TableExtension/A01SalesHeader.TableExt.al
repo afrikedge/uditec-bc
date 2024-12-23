@@ -264,7 +264,11 @@ tableextension 50000 "A01 Sales Header" extends "Sales Header"
             Caption = 'Archived';
             DataClassification = CustomerContent;
         }
-
+        field(50040; "A01 Control Payment on Invoice"; Boolean)
+        {
+            Caption = 'Control Payment on Invoices';
+            DataClassification = CustomerContent;
+        }
 
 
 
@@ -280,7 +284,7 @@ tableextension 50000 "A01 Sales Header" extends "Sales Header"
                 if (Cust1.Get("Sell-to Customer No.")) then begin
                     Rec.validate("A01 Sales Mode", Cust1."A01 Sales Mode");
                     Rec.Validate("A01 AGP Contract No.", Cust1."A01 Contract No.");
-
+                    Rec."A01 Control Payment on Invoice" := Cust1."A01 Control Payment on Invoice";
                 end;
             end;
         }
