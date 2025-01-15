@@ -181,6 +181,15 @@ report 50001 "A01 SalesQuotePrint"
             column(VATText; VATText)
             {
             }
+            column(RespCenterUditec; RespCenterUditec."A01 Logo")
+            {
+            }
+            column(OptionType; OptionType)
+            {
+            }
+            column(LogoOption; OptionValue)
+            {
+            }
             dataitem(Line; "Sales Line")
             {
                 DataItemTableView = sorting("Document No.", "Line No.");
@@ -907,6 +916,11 @@ report 50001 "A01 SalesQuotePrint"
                 //         CurrReport.Quit();
                 //     end;
 
+                if OptionValue = OptionValue::LogoCosmos then
+                    OptionType := 1
+                else
+                    OptionType := 0;
+
                 TotalSubTotal := 0;
                 TotalInvDiscAmount := 0;
                 TotalAmount := 0;
@@ -934,6 +948,13 @@ report 50001 "A01 SalesQuotePrint"
             {
                 group(Options)
                 {
+                    Caption = 'Option';
+                    field(OptionVal; OptionValue)
+                    {
+                        Caption = 'Logo';
+                        OptionCaption = 'Cosmos, Uditec';
+                        ApplicationArea = Basic, Suite;
+                    }
                     //         Caption = 'Options';
                     //         field(LogInteraction; LogInteraction)
                     //         {
@@ -1008,6 +1029,8 @@ report 50001 "A01 SalesQuotePrint"
         CompanyInfo.Get();
         CompanyInfo.CalcFields(Picture);
 
+        RespCenterUditec.Get('UDT');
+
         if Header.GetFilters = '' then
             Error(NoFilterSetErr);
 
@@ -1020,6 +1043,7 @@ report 50001 "A01 SalesQuotePrint"
 
     var
         CompanyInfo: Record "Company Information";
+        RespCenterUditec: Record "Responsibility Center";
         SalesPersonInfo: Record "Salesperson/Purchaser";
         ContactInfo: Record Contact;
         SalesLineRec: Record "Sales Line";
@@ -1056,6 +1080,9 @@ report 50001 "A01 SalesQuotePrint"
         NumLigneText: Code[2];
         PostCode: Code[20];
         City: Code[30];
+        // OptionValue: Option;
+        OptionValue: Option LogoCosmos,LogoUditec;
+        OptionType: Integer;
         AfkLocalCurrencyName: Text;
         AfkCurrencyName: Text;
         NoText: array[2] of Text;
