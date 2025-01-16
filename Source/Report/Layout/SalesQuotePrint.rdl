@@ -2195,7 +2195,6 @@
                                           </Border>
                                         </Style>
                                       </Rectangle>
-                                      <rd:Selected>true</rd:Selected>
                                     </CellContents>
                                   </TablixCell>
                                 </TablixCells>
@@ -2263,21 +2262,6 @@
           <PrintOnFirstPage>true</PrintOnFirstPage>
           <PrintOnLastPage>true</PrintOnLastPage>
           <ReportItems>
-            <Image Name="Logo">
-              <Source>Database</Source>
-              <Value>=First(Fields!CompanyInfo__Picture.Value, "DataSet_Result")</Value>
-              <MIMEType>image/jpeg</MIMEType>
-              <Sizing>FitProportional</Sizing>
-              <Top>0in</Top>
-              <Left>0.13195in</Left>
-              <Height>0.71055in</Height>
-              <Width>1.77778in</Width>
-              <Style>
-                <Border>
-                  <Style>None</Style>
-                </Border>
-              </Style>
-            </Image>
             <Textbox Name="Report__Title">
               <CanGrow>true</CanGrow>
               <KeepTogether>true</KeepTogether>
@@ -2298,10 +2282,9 @@
                 </Paragraph>
               </Paragraphs>
               <Top>0.10639in</Top>
-              <Left>2.88301in</Left>
+              <Left>3.63301in</Left>
               <Height>0.2986in</Height>
               <Width>2.27778in</Width>
-              <ZIndex>1</ZIndex>
               <Style>
                 <Border>
                   <Style>None</Style>
@@ -2458,7 +2441,7 @@
               <Left>0in</Left>
               <Height>0.69444in</Height>
               <Width>2.98647in</Width>
-              <ZIndex>2</ZIndex>
+              <ZIndex>1</ZIndex>
               <Style>
                 <Border>
                   <Style>None</Style>
@@ -2677,13 +2660,51 @@
               <Left>3.0048in</Left>
               <Height>0.69444in</Height>
               <Width>4.42904in</Width>
-              <ZIndex>3</ZIndex>
+              <ZIndex>2</ZIndex>
               <Style>
                 <Border>
                   <Style>None</Style>
                 </Border>
               </Style>
             </Rectangle>
+            <Image Name="Logo2">
+              <Source>Database</Source>
+              <Value>=First(Fields!CompanyInfo__Picture.Value, "DataSet_Result")</Value>
+              <MIMEType>image/jpeg</MIMEType>
+              <Sizing>FitProportional</Sizing>
+              <Top>0in</Top>
+              <Left>0in</Left>
+              <Height>0.71055in</Height>
+              <Width>1.77778in</Width>
+              <ZIndex>3</ZIndex>
+              <Visibility>
+                <Hidden>=IIf(First(Fields!OptionType.Value, "DataSet_Result") = 0, True, False)</Hidden>
+              </Visibility>
+              <Style>
+                <Border>
+                  <Style>None</Style>
+                </Border>
+              </Style>
+            </Image>
+            <Image Name="Logo3">
+              <Source>Database</Source>
+              <Value>=First(Fields!RespCenterUditec.Value, "DataSet_Result")</Value>
+              <MIMEType>image/jpeg</MIMEType>
+              <Sizing>FitProportional</Sizing>
+              <Top>0in</Top>
+              <Left>1.80333in</Left>
+              <Height>0.71055in</Height>
+              <Width>1.77778in</Width>
+              <ZIndex>4</ZIndex>
+              <Visibility>
+                <Hidden>=IIf(First(Fields!OptionType.Value, "DataSet_Result") = 1, True, False)</Hidden>
+              </Visibility>
+              <Style>
+                <Border>
+                  <Style>None</Style>
+                </Border>
+              </Style>
+            </Image>
           </ReportItems>
           <Style>
             <Border>
@@ -3083,6 +3104,15 @@ AAAAAAAAAECjsYAGAAAAAAAAAAAAAAAAjcYCGgAAAAAAAAAAAAAAADQaC2gAAAAAAAAAAAAAAADQaCyg
         </Field>
         <Field Name="VATText">
           <DataField>VATText</DataField>
+        </Field>
+        <Field Name="RespCenterUditec">
+          <DataField>RespCenterUditec</DataField>
+        </Field>
+        <Field Name="OptionType">
+          <DataField>OptionType</DataField>
+        </Field>
+        <Field Name="LogoOption">
+          <DataField>LogoOption</DataField>
         </Field>
         <Field Name="LineNo_Line">
           <DataField>LineNo_Line</DataField>

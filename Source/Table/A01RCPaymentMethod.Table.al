@@ -47,6 +47,10 @@ table 50018 "A01 RC Payment Method"
             Caption = 'Payment Class';
             TableRelation = "Payment Class";// where("A01 Responsibility Center" = field("Responsability Center"));
         }
+        field(6; "Allow POS"; Boolean)
+        {
+            Caption = 'Allow POS';
+        }
     }
     keys
     {

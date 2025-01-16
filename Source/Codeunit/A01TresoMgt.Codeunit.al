@@ -177,12 +177,12 @@ codeunit 50007 "A01 Treso Mgt"
     var
         SalesPaymentLine: Record "A01 Sales Payment Method";
         GenJnlLine: Record "Gen. Journal Line";
-        RespCenter: Record "Responsibility Center";
+    //RespCenter: Record "Responsibility Center";
     begin
 
         SalesHeader.TestField("Responsibility Center");
-        RespCenter.Get(SalesHeader."Responsibility Center");
-        if (not RespCenter."A01 Control Payment on Invoice") then
+        //RespCenter.Get(SalesHeader."Responsibility Center");
+        if (not SalesHeader."A01 Control Payment on Invoice") then
             exit;
 
         CheckPaymentAmount(SalesHeader);

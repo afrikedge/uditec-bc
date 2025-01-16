@@ -167,6 +167,11 @@ tableextension 50006 "A01 Customer" extends Customer
             DataClassification = CustomerContent;
             Editable = false;
         }
+        field(50203; "A01 Control Payment on Invoice"; Boolean)
+        {
+            Caption = 'Control Payment on Invoices';
+            DataClassification = CustomerContent;
+        }
 
         // field(50101; "A01 Modified By"; Code[50])
         // {

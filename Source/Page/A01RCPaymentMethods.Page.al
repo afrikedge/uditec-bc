@@ -30,6 +30,9 @@ page 50041 "A01 RC Payment Methods"
                 field("Payment Class"; Rec."Payment Class")
                 {
                 }
+                field("Allow POS"; Rec."Allow POS")
+                {
+                }
             }
         }
     }

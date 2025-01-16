@@ -6,13 +6,15 @@ codeunit 50017 "A01 Voucher Mgt"
     var
         AddOnSetup: Record "A01 Afk Setup";
 
-    procedure PostVoucherEmission(ItemLedgerEntry: Record "Item Ledger Entry"; var InventoryPostingToGL: Codeunit "Inventory Posting To G/L"; VoucherAmount: decimal)
+    procedure PostVoucherEmission(ItemLedgerEntry: Record "Item Ledger Entry"; var InventoryPostingToGL: Codeunit "Inventory Posting To G/L")
     var
         VoucherLedgerEntry: Record "A01 Purchase Voucher Entry";
         Voucher: Record "A01 Purchase Voucher";
+        Item: record Item;
         isApplicable: Boolean;
         ErrLblNoValue: Label 'Voucher %1 must not have a zero value', Comment = '%1=Bon';
         NextEntryId: Integer;
+        VoucherAmount: decimal;
     begin
 
         if (ItemLedgerEntry."Entry Type" = ItemLedgerEntry."Entry Type"::Sale) then
@@ -28,6 +30,9 @@ codeunit 50017 "A01 Voucher Mgt"
 
         if (not isApplicable) then
             exit;
+
+        if (Item.get(ItemLedgerEntry."Item No.")) then
+            VoucherAmount := item."Unit Price";
 
 
         AddOnSetup.GetRecordOnce();

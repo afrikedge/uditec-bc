@@ -11,6 +11,16 @@ codeunit 50002 "A01 EventsSubscribers_Code"
         IsHandled := true;
     end;
 
+
+
+    [EventSubscriber(ObjectType::Codeunit, Codeunit::"Sales-Post", 'OnBeforeFinalizePosting', '', true, true)]
+    local procedure SalesPost_OnBeforeFinalizePosting(var SalesHeader: Record "Sales Header"; var TempSalesLineGlobal: Record "Sales Line" temporary; var EverythingInvoiced: Boolean; SuppressCommit: Boolean; var GenJnlPostLine: Codeunit "Gen. Jnl.-Post Line")
+    var
+        SalesOrderProcess: Codeunit "A01 Sales Order Processing";
+    begin
+        SalesOrderProcess.BlockPartialInvoiceOnMiridra(SalesHeader);
+    end;
+
     [EventSubscriber(ObjectType::Codeunit, Codeunit::"Sales-Post", 'OnFinalizePostingOnBeforeDeleteApprovalEntries', '', true, true)]
     local procedure SalesPost_OnFinalizePostingOnBeforeDeleteApprovalEntries(var SalesHeader: Record "Sales Header"; var EverythingInvoiced: Boolean)
     var
@@ -208,7 +218,7 @@ codeunit 50002 "A01 EventsSubscribers_Code"
     begin
         //ItemLedgerEntry.CalcFields("Sales Amount (Actual)");
         //ItemLedgerEntry.TestField("Sales Amount (Actual)");
-        VoucherMgt.PostVoucherEmission(ItemLedgerEntry, InventoryPostingToGL, Abs(ValueEntry."Sales Amount (Actual)"));
+        VoucherMgt.PostVoucherEmission(ItemLedgerEntry, InventoryPostingToGL);
     end;
 
     [EventSubscriber(ObjectType::Codeunit, Codeunit::"Sales-Post Prepayment (Yes/No)", 'OnPostPrepmtInvoiceYNOnBeforeConfirm', '', true, true)]

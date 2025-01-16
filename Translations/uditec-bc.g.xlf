@@ -2613,6 +2613,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table A01 RC Payment Method - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Table 2588941520 - Field 977650447 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Allow POS</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table A01 RC Payment Method - Field Allow POS - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Table 2588941520 - Field 1891586249 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Bal. Account No.</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -16618,6 +16623,21 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report A01 SalesQuotePrint - ReportDataItem Header - Property RequestFilterHeading</note>
         </trans-unit>
+        <trans-unit id="Report 2502538013 - Control 2346885236 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Option</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 SalesQuotePrint - Control Options - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 2502538013 - Control 229337220 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Logo</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 SalesQuotePrint - Control OptionVal - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 2502538013 - Control 229337220 - Property 62802879" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Cosmos, Uditec</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 SalesQuotePrint - Control OptionVal - Property OptionCaption</note>
+        </trans-unit>
         <trans-unit id="Report 2377287417 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>A01 SalesReturnReceipt print</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -18228,6 +18248,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension A01 Customer - Field A01 Contract No. - Property Caption</note>
         </trans-unit>
+        <trans-unit id="TableExtension 1245960848 - Field 2520509071 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1994964448">
+          <source>Control Payment on Invoices</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension A01 Customer - Field A01 Control Payment on Invoice - Property Caption</note>
+        </trans-unit>
         <trans-unit id="TableExtension 1245960848 - Field 1519415861 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1994964448">
           <source>Created By</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -18853,6 +18878,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension A01 Responsibility Center - Field A01 Nos of categories - Property Caption</note>
         </trans-unit>
+        <trans-unit id="TableExtension 3046274025 - Field 2564767037 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 2247850105">
+          <source>POS Default Customer</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension A01 Responsibility Center - Field A01 POS Default Customer - Property Caption</note>
+        </trans-unit>
         <trans-unit id="TableExtension 3046274025 - Field 2250283331 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 2247850105">
           <source>Price list change</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -18907,6 +18937,11 @@
           <source>Collection Opinion</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension A01 Sales Header - Field A01 Collection Opinion - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 1143019865 - Field 2520509071 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1192395785">
+          <source>Control Payment on Invoices</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension A01 Sales Header - Field A01 Control Payment on Invoice - Property Caption</note>
         </trans-unit>
         <trans-unit id="TableExtension 1143019865 - Field 2992570782 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1192395785">
           <source>Credit Duration (Month)</source>
@@ -19108,6 +19143,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension A01 Sales Header Archive - Field A01 Collection Opinion - Property Caption</note>
         </trans-unit>
+        <trans-unit id="TableExtension 2954665223 - Field 2520509071 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1948788855">
+          <source>Control Payment on Invoices</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension A01 Sales Header Archive - Field A01 Control Payment on Invoice - Property Caption</note>
+        </trans-unit>
         <trans-unit id="TableExtension 2954665223 - Field 2992570782 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1948788855">
           <source>Credit Duration (Month)</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -19307,6 +19347,11 @@
           <source>Collection Opinion</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension A01 Sales Invoice Header - Field A01 Collection Opinion - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 1507475930 - Field 2520509071 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 809936682">
+          <source>Control Payment on Invoices</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension A01 Sales Invoice Header - Field A01 Control Payment on Invoice - Property Caption</note>
         </trans-unit>
         <trans-unit id="TableExtension 1507475930 - Field 2992570782 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 809936682">
           <source>Credit Duration (Month)</source>
