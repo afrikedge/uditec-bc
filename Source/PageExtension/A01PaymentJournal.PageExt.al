@@ -39,6 +39,19 @@ pageextension 50027 "A01 PaymentJournal" extends "Payment Journal"
                     Report.Run(50033, true, false, PaymentRec);
                 end;
             }
+            action("A01 CashRecipt")
+            {
+                ApplicationArea = All;
+                Image = PrintForm;
+                Caption = 'Imprimer le reçu de décaissement';
+                trigger OnAction()
+                var
+                    PaymentRec: Record "Gen. Journal Line";
+                begin
+                    PaymentRec.SetRange("Document No.", Rec."Document No.");
+                    Report.Run(50039, true, false, PaymentRec);
+                end;
+            }
         }
     }
 }
