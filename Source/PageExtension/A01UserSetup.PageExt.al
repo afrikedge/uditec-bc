@@ -51,6 +51,10 @@ pageextension 50011 "A01 User Setup" extends "User Setup"
             {
                 ApplicationArea = Basic, Suite;
             }
+            field("A01 Can Set Credit Limit"; Rec."A01 Can Set Credit Limit")
+            {
+                ApplicationArea = Basic, Suite;
+            }
 
 
         }

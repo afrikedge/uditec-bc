@@ -81,5 +81,10 @@ tableextension 50001 "A01 User Setup" extends "User Setup"
             Caption = 'Can modify sales discounts';
             DataClassification = CustomerContent;
         }
+        field(50015; "A01 Can Set Credit Limit"; Boolean)
+        {
+            Caption = 'Can modify credit limit';
+            DataClassification = CustomerContent;
+        }
     }
 }

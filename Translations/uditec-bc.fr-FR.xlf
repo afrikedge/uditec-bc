@@ -19947,6 +19947,24 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report A01 SalesQuotePrint - ReportDataItem Header - Property RequestFilterHeading</note>
         </trans-unit>
+        <trans-unit id="Report 2502538013 - Control 2346885236 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Option</source>
+          <target state="needs-review-translation">Option</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 SalesQuotePrint - Control Options - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 2502538013 - Control 229337220 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Logo</source>
+          <target state="needs-review-translation">Logo</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 SalesQuotePrint - Control OptionVal - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 2502538013 - Control 229337220 - Property 62802879" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Cosmos, Uditec</source>
+          <target state="needs-review-translation">Cosmos, Uditec</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 SalesQuotePrint - Control OptionVal - Property OptionCaption</note>
+        </trans-unit>
         <trans-unit id="Report 2377287417 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>A01 SalesReturnReceipt print</source>
           <target state="needs-review-translation">Bon de retour</target>
@@ -23672,6 +23690,12 @@
           <target state="needs-review-translation">Peut clôturer une commande client</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension A01 User Setup - Field A01 Can Close Sales Order - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 4102593426 - Field 1313577530 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 337631938">
+          <source>Can modify credit limit</source>
+          <target state="needs-review-translation">Peut modifier limite de crédit</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension A01 User Setup - Field A01 Can Set Credit Limit - Property Caption</note>
         </trans-unit>
         <trans-unit id="TableExtension 4102593426 - Field 2533998437 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 337631938">
           <source>Can modify sales discounts</source>
