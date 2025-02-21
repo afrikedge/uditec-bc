@@ -1,21 +1,14 @@
-pageextension 50044 "A01 Customer Ledger Entries" extends "Customer Ledger Entries"
+pageextension 50056 "A01 Vendor Ledger Entries" extends "Vendor Ledger Entries"
 {
+    layout
+    {
+    }
+
     actions
     {
-        addafter(Dimensions)
-        {
-            action("A01AGPDueLine")
-            {
-                ApplicationArea = All;
-                Image = AllLines;
-                Caption = 'Credit Amortisation Lines';
-                RunObject = page "A01 Posted Credit Amort Lines";
-                RunPageLink = "Document Type" = const("Posted Sales invoice"), "Document No." = field("Document No.");
-            }
-        }
         addbefore("Show Document")
         {
-            action("A01 Recu client")
+            action("A01 Recu fournisseur")
             {
                 ToolTip = 'Imprimer le reçu de décaissement';
                 Caption = 'Imprimer le reçu de décaissement';
@@ -27,11 +20,11 @@ pageextension 50044 "A01 Customer Ledger Entries" extends "Customer Ledger Entri
 
                 trigger OnAction()
                 var
-                    Receipt: Record "Cust. Ledger Entry";
+                    Receipt: Record "Vendor Ledger Entry";
                 begin
                     Receipt.SetRange("Document No.", Rec."Document No.");
                     Receipt.SetRange("Entry No.", Rec."Entry No.");
-                    Report.Run(50041, true, false, Receipt);
+                    Report.Run(50042, true, false, Receipt);
                 end;
             }
         }
