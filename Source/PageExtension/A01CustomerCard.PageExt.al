@@ -5,6 +5,10 @@ pageextension 50006 "A01 Customer Card" extends "Customer Card"
 {
     layout
     {
+        modify("Credit Limit (LCY)")
+        {
+            Editable = CanSetCreditLimit;
+        }
         addafter("Responsibility Center")
         {
             field("A01 Customer Type"; Rec."A01 Customer Type")
@@ -133,4 +137,14 @@ pageextension 50006 "A01 Customer Card" extends "Customer Card"
         }
 
     }
+    trigger OnOpenPage()
+    var
+        UserSetup: Record "User Setup";
+    begin
+        if (UserSetup.Get(UserId)) then
+            CanSetCreditLimit := UserSetup."A01 Can Set Credit Limit";
+    end;
+
+    var
+        CanSetCreditLimit: Boolean;
 }
