@@ -2793,6 +2793,16 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table A01 Request On Document - Field Credit Limit - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Table 4167722193 - Field 3176861523 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Actual Credit Limit</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table A01 Request On Document - Field Current Credit Limit - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 4167722193 - Field 1817858495 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>In progress Balance</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table A01 Request On Document - Field Current In progress Balance - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Table 4167722193 - Field 4190130733 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Customer No.</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -2857,6 +2867,11 @@
           <source>Status</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table A01 Request On Document - Field Status - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 4167722193 - Field 1082397420 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Total Order Amount (Incl VAT)</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table A01 Request On Document - Field Total Order Amount - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 4167722193 - Field 293939085 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Validated Discount (%)</source>
@@ -4482,6 +4497,11 @@
           <source>The document is still in draft</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit A01 Document Request Mgt - Method ModifyStatus - NamedType ErrDocNonTraite</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 1723010560 - Method 409565474 - NamedType 1154637616" size-unit="char" translate="yes" xml:space="preserve">
+          <source>This option is not available, you must choose Ship or Invoice</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit A01 EventsSubscribers_Code - Method SalesPostYesNo_OnAfterConfirmPost - NamedType ErrInvoiceType</note>
         </trans-unit>
         <trans-unit id="Codeunit 3954644649 - Method 8486776 - NamedType 4139332484" size-unit="char" translate="yes" xml:space="preserve">
           <source>Do you want to suppress send dialog?</source>
@@ -11552,6 +11572,11 @@
           <source>General</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page A01 UnBlocking Request - Control General - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 575045181 - Control 2808607907 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Current Due Balance</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page A01 UnBlocking Request - Control CalcOverdueBalance - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 575045181 - Action 3657829122 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Validate</source>
@@ -19402,6 +19427,11 @@
           <source>Theme Color 3</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension A01 Responsibility Center - Field A01 Theme Color 3 - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 1143019865 - NamedType 3023980112" size-unit="char" translate="yes" xml:space="preserve" al-object-target="TableExtension 1143019865">
+          <source>The posting date will be after the due date\ Do you want to confirm?</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension A01 Sales Header - NamedType LabelQstPostingDate</note>
         </trans-unit>
         <trans-unit id="TableExtension 1143019865 - Field 774417125 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1192395785">
           <source>AGP Contract No.</source>

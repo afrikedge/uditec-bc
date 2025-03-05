@@ -3,8 +3,32 @@
 /// </summary>
 tableextension 50000 "A01 Sales Header" extends "Sales Header"
 {
+
     fields
     {
+        modify("Posting Date")
+        {
+            trigger OnAfterValidate()
+            var
+            begin
+                if ("Due Date" < "Posting Date") then
+                    if (GuiAllowed()) then
+                        if (not confirm(LabelQstPostingDate)) then
+                            Error('');
+            end;
+        }
+        modify("Due Date")
+        {
+            trigger OnAfterValidate()
+            var
+            begin
+                if ("Due Date" < "Posting Date") then
+                    if (GuiAllowed()) then
+                        if (not confirm(LabelQstPostingDate)) then
+                            Error('');
+            end;
+        }
+
         field(50000; "A01 Processing Status"; Enum "A01 SO Processing Status")
         {
             Caption = 'Processing Status';
@@ -334,6 +358,7 @@ tableextension 50000 "A01 Sales Header" extends "Sales Header"
     var
         AfkSetup: Record "A01 Afk Setup";
         SOMgt: codeunit "A01 Sales Order Processing";
+        LabelQstPostingDate: label 'The posting date will be after the due date\ Do you want to confirm?';
 
 
 }

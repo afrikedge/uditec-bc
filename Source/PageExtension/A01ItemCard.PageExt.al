@@ -5,6 +5,10 @@ pageextension 50003 "A01 Item Card" extends "Item Card"
 {
     layout
     {
+        modify("Item Category Code")
+        {
+            ShowMandatory = true;
+        }
         addafter("Item Category Code")
         {
             field("A01 Item Status"; Rec."A01 Item Status")
@@ -50,6 +54,7 @@ pageextension 50003 "A01 Item Card" extends "Item Card"
             field("A01 Brand"; Rec."A01 Brand")
             {
                 ApplicationArea = Basic, Suite;
+                ShowMandatory = true;
             }
             field("A01 Cancel Prepayment"; Rec."A01 Cancel Prepayment")
             {

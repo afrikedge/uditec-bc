@@ -61,6 +61,7 @@ table 50031 "A01 Request On Document"
                 if (Cust.get("Customer No.")) then begin
                     "Credit Limit" := Cust."Credit Limit (LCY)";
                     "Due Balance" := Cust.CalcOverdueBalance();
+                    Cust.CalcFields("Balance (LCY)");
                     "In progress Balance" := Cust."Balance (LCY)";
                     "Risk level" := Cust."A01 Risk Level";
                 end;
@@ -120,7 +121,27 @@ table 50031 "A01 Request On Document"
             Editable = false;
         }
 
+        field(21; "Current Credit Limit"; Decimal)
+        {
+            Caption = 'Actual Credit Limit';
+            FieldClass = FlowField;
+            CalcFormula = lookup(Customer."Credit Limit (LCY)" where("No." = field("Customer No.")));
+            Editable = false;
+        }
+        field(22; "Current In progress Balance"; Decimal)
+        {
+            Caption = 'In progress Balance';
+            FieldClass = FlowField;
+            CalcFormula = sum("Detailed Cust. Ledg. Entry"."Amount (LCY)" where("Customer No." = field("Customer No.")));
+            Editable = false;
+        }
+        field(23; "Total Order Amount"; Decimal)
+        {
+            Caption = 'Total Order Amount (Incl VAT)';
+            Editable = false;
+        }
     }
+
     keys
     {
         key(PK; "Request Type", "Request No.")
@@ -180,6 +201,14 @@ table 50031 "A01 Request On Document"
     begin
         if ("Request Type" = "Request Type"::"Discount on order") then exit(true);
         if ("Request Type" = "Request Type"::"Discount on quote") then exit(true);
+    end;
+
+    procedure CalcOverdueBalance(): decimal
+    var
+        Cust: record Customer;
+    begin
+        if (Cust.get("Customer No.")) then
+            exit(Cust.CalcOverdueBalance());
     end;
 
     procedure IsOnHold(): Boolean

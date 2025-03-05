@@ -306,13 +306,28 @@ codeunit 50002 "A01 EventsSubscribers_Code"
     end;
 
     [EventSubscriber(ObjectType::Codeunit, Codeunit::"Whse.-Post Shipment", 'OnBeforeCheckWhseShptLines', '', true, true)]
-    local procedure WhsePostShipment_OnBeforeCheckWhseShptLinesk(var WarehouseShipmentLine: Record "Warehouse Shipment Line"; var WarehouseShipmentHeader: Record "Warehouse Shipment Header"; Invoice: Boolean; var SuppressCommit: Boolean)
+    local procedure WhsePostShipment_OnBeforeCheckWhseShptLines(var WarehouseShipmentLine: Record "Warehouse Shipment Line"; var WarehouseShipmentHeader: Record "Warehouse Shipment Header"; Invoice: Boolean; var SuppressCommit: Boolean)
     var
         SalesOrderProcess: Codeunit "A01 Sales Order Processing";
     begin
         if (Invoice) then
             SalesOrderProcess.BlockPartialInvoiceOnMiridraFromWarehouseShip(WarehouseShipmentLine."No.");
     end;
+
+    [EventSubscriber(ObjectType::Codeunit, Codeunit::"Sales-Post (Yes/No)", 'OnAfterConfirmPost', '', true, true)]
+    local procedure SalesPostYesNo_OnAfterConfirmPost(var SalesHeader: Record "Sales Header")
+    var
+        ErrInvoiceType: Label 'This option is not available, you must choose Ship or Invoice';
+    begin
+        if (SalesHeader."Document Type" = SalesHeader."Document Type"::Order) then
+            if (SalesHeader.Invoice and SalesHeader.ship) then
+                Error(ErrInvoiceType);
+    end;
+
+    // [IntegrationEvent(false, false)]
+    // local procedure OnAfterConfirmPost(var SalesHeader: Record "Sales Header")
+    // begin
+    // end;
 
     // [IntegrationEvent(false, false)]
     // local procedure OnBeforeCheckWhseShptLines(var WarehouseShipmentLine: Record "Warehouse Shipment Line"; var WarehouseShipmentHeader: Record "Warehouse Shipment Header"; Invoice: Boolean; var SuppressCommit: Boolean)
