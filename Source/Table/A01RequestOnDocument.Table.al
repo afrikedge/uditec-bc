@@ -137,12 +137,7 @@ table 50031 "A01 Request On Document"
         }
         field(23; "Total Order Amount"; Decimal)
         {
-            valeur au moment ou on cree le deblocage
             Caption = 'Total Order Amount (Incl VAT)';
-            FieldClass = FlowField;
-            CalcFormula = lookup("Sales Line"."Amount Including VAT" where(
-                "Document No." = field("Request No."),
-                "Document Type" = const(Order)));
             Editable = false;
         }
     }

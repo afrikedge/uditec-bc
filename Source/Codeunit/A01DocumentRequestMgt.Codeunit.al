@@ -52,6 +52,8 @@ codeunit 50016 "A01 Document Request Mgt"
         Request.Object := LblDescrUnblocking;
         Request."Created By" := CopyStr(WebUser, 1, 50);
         Request.Status := Status;
+        SalesHeader.CalcFields("Amount Including VAT");
+        Request."Total Order Amount" := SalesHeader."Amount Including VAT";
         Request.Insert(true);
 
         SalesHeader."A01 Request Status" := Status;

@@ -161,6 +161,14 @@ codeunit 50001 "A01 EventsSubscribers_Table"
             IsHandled := true;
     end;
 
+    [EventSubscriber(ObjectType::Table, Database::"Sales Line", 'OnBeforeCopyFromItem', '', true, true)]
+    local procedure SalesLine_OnBeforeCopyFromItem(var SalesLine: Record "Sales Line"; Item: Record Item; var IsHandled: Boolean)
+    var
+    begin
+        Item.TestField("Item Category Code");
+        Item.TestField("A01 Brand");
+    end;
+
 
 
 

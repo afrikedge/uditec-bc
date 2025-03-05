@@ -4498,6 +4498,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit A01 Document Request Mgt - Method ModifyStatus - NamedType ErrDocNonTraite</note>
         </trans-unit>
+        <trans-unit id="Codeunit 1723010560 - Method 409565474 - NamedType 1154637616" size-unit="char" translate="yes" xml:space="preserve">
+          <source>This option is not available, you must choose Ship or Invoice</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit A01 EventsSubscribers_Code - Method SalesPostYesNo_OnAfterConfirmPost - NamedType ErrInvoiceType</note>
+        </trans-unit>
         <trans-unit id="Codeunit 3954644649 - Method 8486776 - NamedType 4139332484" size-unit="char" translate="yes" xml:space="preserve">
           <source>Do you want to suppress send dialog?</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -19422,6 +19427,11 @@
           <source>Theme Color 3</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension A01 Responsibility Center - Field A01 Theme Color 3 - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 1143019865 - NamedType 3023980112" size-unit="char" translate="yes" xml:space="preserve" al-object-target="TableExtension 1143019865">
+          <source>The posting date will be after the due date\ Do you want to confirm?</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension A01 Sales Header - NamedType LabelQstPostingDate</note>
         </trans-unit>
         <trans-unit id="TableExtension 1143019865 - Field 774417125 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1192395785">
           <source>AGP Contract No.</source>
