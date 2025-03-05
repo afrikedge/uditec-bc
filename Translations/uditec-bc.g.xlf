@@ -2793,6 +2793,16 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table A01 Request On Document - Field Credit Limit - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Table 4167722193 - Field 3176861523 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Actual Credit Limit</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table A01 Request On Document - Field Current Credit Limit - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 4167722193 - Field 1817858495 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>In progress Balance</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table A01 Request On Document - Field Current In progress Balance - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Table 4167722193 - Field 4190130733 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Customer No.</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -2857,6 +2867,11 @@
           <source>Status</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table A01 Request On Document - Field Status - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 4167722193 - Field 1082397420 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Total Order Amount (Incl VAT)</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table A01 Request On Document - Field Total Order Amount - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 4167722193 - Field 293939085 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Validated Discount (%)</source>
@@ -11552,6 +11567,11 @@
           <source>General</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page A01 UnBlocking Request - Control General - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 575045181 - Control 2808607907 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Current Due Balance</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page A01 UnBlocking Request - Control CalcOverdueBalance - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 575045181 - Action 3657829122 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Validate</source>

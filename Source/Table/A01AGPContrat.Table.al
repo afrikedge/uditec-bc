@@ -32,6 +32,11 @@ table 50035 "A01 AGP Contrat"
         field(6; "OP Ending Date"; Date)
         {
             Caption = 'OP Ending Date';
+            trigger OnValidate()
+            var
+            begin
+                RefreshSalesOrders();
+            end;
         }
         field(7; "Duration (Month)"; Integer)
         {
@@ -161,5 +166,20 @@ table 50035 "A01 AGP Contrat"
         if (NumMonths < 0) then
             exit(0);
         exit(NumMonths);
+    end;
+
+    local procedure RefreshSalesOrders()
+    var
+        SalesHeader: record "Sales Header";
+    begin
+        SalesHeader.Reset();
+        SalesHeader.SetRange("Document Type", SalesHeader."Document Type"::Order);
+        SalesHeader.SetRange("A01 AGP Contract No.", Rec."No.");
+        if SalesHeader.FindSet() then
+            repeat
+                SalesHeader.Validate("A01 Credit Duration (Month)", CalcSalesCreditDuration(SalesHeader."Posting Date"));
+                //SalesHeader.Validate("Due Date", CalcSalesFirstDueDate(SalesHeader."Posting Date"));
+                SalesHeader.Modify();
+            until SalesHeader.Next() = 0;
     end;
 }

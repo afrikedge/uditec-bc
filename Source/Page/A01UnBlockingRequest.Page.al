@@ -57,6 +57,33 @@ page 50066 "A01 UnBlocking Request"
                 field("Worst Current Status"; Rec."Worst Current Status")
                 {
                 }
+                field("Current Credit Limit"; Rec."Current Credit Limit")
+                {
+                }
+                field("Current In progress Balance"; Rec."Current In progress Balance")
+                {
+                }
+                field(CalcOverdueBalance; Rec.CalcOverdueBalance())
+                {
+                    ApplicationArea = Basic, Suite;
+                    Caption = 'Current Due Balance';
+                    //CaptionClass = Format(StrSubstNo(Text000, Format(CurrentDate)));
+
+                    trigger OnDrillDown()
+                    var
+                        DtldCustLedgEntry: Record "Detailed Cust. Ledg. Entry";
+                        CustLedgEntry: Record "Cust. Ledger Entry";
+                    begin
+                        DtldCustLedgEntry.SetFilter("Customer No.", Rec."Customer No.");
+                        // Rec.CopyFilter("Global Dimension 1 Filter", DtldCustLedgEntry."Initial Entry Global Dim. 1");
+                        // Rec.CopyFilter("Global Dimension 2 Filter", DtldCustLedgEntry."Initial Entry Global Dim. 2");
+                        // Rec.CopyFilter("Currency Filter", DtldCustLedgEntry."Currency Code");
+                        CustLedgEntry.DrillDownOnOverdueEntries(DtldCustLedgEntry);
+                    end;
+                }
+                field("Total Order Amount"; Rec."Total Order Amount")
+                {
+                }
             }
         }
     }
