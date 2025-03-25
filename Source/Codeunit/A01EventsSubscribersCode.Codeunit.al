@@ -29,7 +29,7 @@ codeunit 50002 "A01 EventsSubscribers_Code"
         //Set invoice or ship status
         SalesOrderProcess.ChangeStatusOnSalesPosting(SalesHeader);
         SalesOrderProcess.CheckLocaltionOnLines(SalesHeader);
-        SalesOrderProcess.BlockPartialInvoiceOnMiridra(SalesHeader);
+        //SalesOrderProcess.BlockPartialInvoiceOnMiridra(SalesHeader);
     end;
 
 
