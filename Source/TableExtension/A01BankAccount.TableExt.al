@@ -15,5 +15,21 @@ tableextension 50026 "A01 Bank Account" extends "Bank Account"
         //     Caption = 'Beneficiairy Name';
         //     DataClassification = CustomerContent;
         // }
+        modify("Check Report ID")
+        {
+            Caption = 'Check Report ID';
+        }
+        field(50002; "A01 Starting Check No."; Code[20])
+        {
+            DataClassification = CustomerContent;
+            AccessByPermission = TableData 272 = R;
+            Caption = 'N° début plage chèque';
+        }
+        field(50004; "A01 Ending Check No."; Code[20])
+        {
+            DataClassification = CustomerContent;
+            AccessByPermission = TableData 272 = R;
+            Caption = 'N° fin plage chèque';
+        }
     }
 }

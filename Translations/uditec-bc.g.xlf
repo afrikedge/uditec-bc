@@ -11793,6 +11793,546 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report A01 BankTransferOrderPrint - Control OptionVal - Property OptionCaption</note>
         </trans-unit>
+        <trans-unit id="Report 3874186678 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Chèque BOA</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 BOA Check - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 3874186678 - NamedType 1369683813" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Adresse :</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 BOA Check - NamedType AdresseBeneficiaireLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 3874186678 - NamedType 945522884" size-unit="char" translate="yes" xml:space="preserve">
+          <source>A  l'ordre  de</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 BOA Check - NamedType ALordreDeLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 3874186678 - NamedType 1324170193" size-unit="char" translate="yes" xml:space="preserve">
+          <source> est déjà lettré à %1 %2 pour l'employé %3.</source>
+          <note from="Developer" annotates="general" priority="2">%1 = Type Document, %2 = N° Document., %3 = N° de l'employé</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 BOA Check - NamedType AlreadyAppliedToEmployeeErr</note>
+        </trans-unit>
+        <trans-unit id="Report 3874186678 - NamedType 3285233284" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Montant</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 BOA Check - NamedType AmountCaptionLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 3874186678 - NamedType 1331372530" size-unit="char" translate="yes" xml:space="preserve">
+          <source>A rédiger exclusivement en Ariary</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 BOA Check - NamedType ARedigerExcluLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 3874186678 - NamedType 4147594611" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Ar</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 BOA Check - NamedType ArLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 3874186678 - NamedType 2042524856" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Vous ne pouvez pas imprimer de chèque car l'employé %1 est bloqué pour des raisons de confidentialité.</source>
+          <note from="Developer" annotates="general" priority="2">%1 - N° de l'employé</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 BOA Check - NamedType BlockedEmplForCheckErr</note>
+        </trans-unit>
+        <trans-unit id="Report 3874186678 - NamedType 3919590978" size-unit="char" translate="yes" xml:space="preserve">
+          <source>N° chèque</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 BOA Check - NamedType CheckNoTextCaptionLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 3874186678 - NamedType 455341140" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Chèque N°</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 BOA Check - NamedType CheckNumbLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 3874186678 - NamedType 2457638450" size-unit="char" translate="yes" xml:space="preserve">
+          <source>N° CNI :</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 BOA Check - NamedType CNILbl</note>
+        </trans-unit>
+        <trans-unit id="Report 3874186678 - NamedType 3383796882" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Code devise</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 BOA Check - NamedType CurrencyCodeCaptionLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 3874186678 - NamedType 1542941690" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Date :</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 BOA Check - NamedType DateLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 3874186678 - NamedType 3112881028" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Date Document</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 BOA Check - NamedType DocDateCaptionLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 3874186678 - NamedType 2833281111" size-unit="char" translate="yes" xml:space="preserve">
+          <source>N° document</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 BOA Check - NamedType DocNoCaptionLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 3874186678 - NamedType 1630935363" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Duplicata :</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 BOA Check - NamedType DuplicataLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 3874186678 - NamedType 693653861" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Siège social : Rue du Dr Joseph RASETA, Andranomahery . BP 3806, antananarivo 101</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 BOA Check - NamedType Head001Lbl</note>
+        </trans-unit>
+        <trans-unit id="Report 3874186678 - NamedType 3888046788" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Tél. 23 277 11 / 23 692 11 . E-mail : star@.mg - www.star.mg</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 BOA Check - NamedType Head002Lbl</note>
+        </trans-unit>
+        <trans-unit id="Report 3874186678 - NamedType 1861665379" size-unit="char" translate="yes" xml:space="preserve">
+          <source>STAR S.A au capital de Ar 4 290 000 000 . N° Ident. 11041 11 1951 0 10008 . RCS Antananarivo 2002 B 00517 . NIF 2000 023 089</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 BOA Check - NamedType Head003Lbl</note>
+        </trans-unit>
+        <trans-unit id="Report 3874186678 - NamedType 1487608501" size-unit="char" translate="yes" xml:space="preserve">
+          <source>le</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 BOA Check - NamedType LeLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 3874186678 - NamedType 2116321085" size-unit="char" translate="yes" xml:space="preserve">
+          <source>LETTRE DE PAIEMENT PAR CHEQUE N° </source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 BOA Check - NamedType LettrePaiementLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 3874186678 - NamedType 1085275642" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Montant net</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 BOA Check - NamedType LineAmountCaptionLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 3874186678 - NamedType 1857519089" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Remise</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 BOA Check - NamedType LineDiscountCaptionLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 3874186678 - NamedType 2986454747" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Ne pas écrire en dessous de cette zone</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 BOA Check - NamedType NepasEcrireLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 3874186678 - NamedType 2644387780" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Nom bénéficiaire :</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 BOA Check - NamedType NomBeneficiaireLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 3874186678 - NamedType 1936702071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Noms et prénoms :</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 BOA Check - NamedType NomsPrenomsLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 3874186678 - NamedType 1511484113" size-unit="char" translate="yes" xml:space="preserve">
+          <source>NON ENDOSSABLE</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 BOA Check - NamedType NonEndossableLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 3874186678 - NamedType 2467758907" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Payable à </source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 BOA Check - NamedType PayableALbl</note>
+        </trans-unit>
+        <trans-unit id="Report 3874186678 - NamedType 2698510472" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Payez contre ce chèque :</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 BOA Check - NamedType PayezContreLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 3874186678 - NamedType 3058433994" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Signature</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 BOA Check - NamedType SignatureLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 3874186678 - NamedType 4214573250" size-unit="char" translate="yes" xml:space="preserve">
+          <source>(Somme en toutes lettres)</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 BOA Check - NamedType SommeEnLettreLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 3874186678 - NamedType 2476940767" size-unit="char" translate="yes" xml:space="preserve">
+          <source>L'aperçu n'est pas autorisée</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 BOA Check - NamedType Text000</note>
+        </trans-unit>
+        <trans-unit id="Report 3874186678 - NamedType 3114637384" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Le N° dern. chèque doit être rempli.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 BOA Check - NamedType Text001</note>
+        </trans-unit>
+        <trans-unit id="Report 3874186678 - NamedType 3752334001" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Les filtres sur %1 et %2 ne sont pas autorisés.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 BOA Check - NamedType Text002</note>
+        </trans-unit>
+        <trans-unit id="Report 3874186678 - NamedType 95063322" size-unit="char" translate="yes" xml:space="preserve">
+          <source>XXXXXXXXXXXXXXXX</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 BOA Check - NamedType Text003</note>
+        </trans-unit>
+        <trans-unit id="Report 3874186678 - NamedType 732759939" size-unit="char" translate="yes" xml:space="preserve">
+          <source>doit être renseigné.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 BOA Check - NamedType Text004</note>
+        </trans-unit>
+        <trans-unit id="Report 3874186678 - NamedType 1370456556" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Le compte bancaire et la ligne du journal général doivent avoir la même devise.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 BOA Check - NamedType Text005</note>
+        </trans-unit>
+        <trans-unit id="Report 3874186678 - NamedType 3283546407" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Les deux comptes bancaires doivent avoir la même devise.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 BOA Check - NamedType Text008</note>
+        </trans-unit>
+        <trans-unit id="Report 3874186678 - NamedType 1664139952" size-unit="char" translate="yes" xml:space="preserve">
+          <source>XXXXXXXXXX</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 BOA Check - NamedType Text010</note>
+        </trans-unit>
+        <trans-unit id="Report 3874186678 - NamedType 1026443335" size-unit="char" translate="yes" xml:space="preserve">
+          <source>XXXX</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 BOA Check - NamedType Text011</note>
+        </trans-unit>
+        <trans-unit id="Report 3874186678 - NamedType 2939533186" size-unit="char" translate="yes" xml:space="preserve">
+          <source>XX.XXXXXXXXXX.XXXX</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 BOA Check - NamedType Text012</note>
+        </trans-unit>
+        <trans-unit id="Report 3874186678 - NamedType 2301836569" size-unit="char" translate="yes" xml:space="preserve">
+          <source>%1 existe déjà.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 BOA Check - NamedType Text013</note>
+        </trans-unit>
+        <trans-unit id="Report 3874186678 - NamedType 4214926420" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Vérifier si %1 %2</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 BOA Check - NamedType Text014</note>
+        </trans-unit>
+        <trans-unit id="Report 3874186678 - NamedType 1195352358" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Dans la fenêtre d'impression, l'option Un chèque par fournisseur par n° document ne doit pas être activée lorsque le champ ID de lettrage est spécifié dans les lignes du journal.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 BOA Check - NamedType Text016</note>
+        </trans-unit>
+        <trans-unit id="Report 3874186678 - NamedType 219837695" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Total</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 BOA Check - NamedType Text019</note>
+        </trans-unit>
+        <trans-unit id="Report 3874186678 - NamedType 1940672225" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Le montant total du chèque %1 est %2. Le montant doit être positif.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 BOA Check - NamedType Text020</note>
+        </trans-unit>
+        <trans-unit id="Report 3874186678 - NamedType 2578368842" size-unit="char" translate="yes" xml:space="preserve">
+          <source>ANNULER ANNULER ANNULER ANNULER ANNULER ANNULER ANNULER ANNULER ANNULER ANNULER ANNULER ANNULER ANNULER ANNULER ANNULER ANNULER</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 BOA Check - NamedType Text021</note>
+        </trans-unit>
+        <trans-unit id="Report 3874186678 - NamedType 665278991" size-unit="char" translate="yes" xml:space="preserve">
+          <source>NON-NEGOCIABLE</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 BOA Check - NamedType Text022</note>
+        </trans-unit>
+        <trans-unit id="Report 3874186678 - NamedType 1302975608" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Impression test</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 BOA Check - NamedType Text023</note>
+        </trans-unit>
+        <trans-unit id="Report 3874186678 - NamedType 196491397" size-unit="char" translate="yes" xml:space="preserve">
+          <source>XXXX.XX</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 BOA Check - NamedType Text024</note>
+        </trans-unit>
+        <trans-unit id="Report 3874186678 - NamedType 834188014" size-unit="char" translate="yes" xml:space="preserve">
+          <source>XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 BOA Check - NamedType Text025</note>
+        </trans-unit>
+        <trans-unit id="Report 3874186678 - NamedType 3216065459" size-unit="char" translate="yes" xml:space="preserve">
+          <source>ZERO</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 BOA Check - NamedType Text026</note>
+        </trans-unit>
+        <trans-unit id="Report 3874186678 - NamedType 3853762076" size-unit="char" translate="yes" xml:space="preserve">
+          <source>CENT</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 BOA Check - NamedType Text027</note>
+        </trans-unit>
+        <trans-unit id="Report 3874186678 - NamedType 2747277865" size-unit="char" translate="yes" xml:space="preserve">
+          <source>ET</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 BOA Check - NamedType Text028</note>
+        </trans-unit>
+        <trans-unit id="Report 3874186678 - NamedType 3384974482" size-unit="char" translate="yes" xml:space="preserve">
+          <source>%1 Resulte d'un nombre écrit qui est trop long.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 BOA Check - NamedType Text029</note>
+        </trans-unit>
+        <trans-unit id="Report 3874186678 - NamedType 1148659762" size-unit="char" translate="yes" xml:space="preserve">
+          <source> est déjà lettré à %1 %2 pour le client %3.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 BOA Check - NamedType Text030</note>
+        </trans-unit>
+        <trans-unit id="Report 3874186678 - NamedType 510963145" size-unit="char" translate="yes" xml:space="preserve">
+          <source> est déjà lettré à %1 %2 pour le fournisseur %3.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 BOA Check - NamedType Text031</note>
+        </trans-unit>
+        <trans-unit id="Report 3874186678 - NamedType 4168233824" size-unit="char" translate="yes" xml:space="preserve">
+          <source>UN</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 BOA Check - NamedType Text032</note>
+        </trans-unit>
+        <trans-unit id="Report 3874186678 - NamedType 3530537207" size-unit="char" translate="yes" xml:space="preserve">
+          <source>DEUX</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 BOA Check - NamedType Text033</note>
+        </trans-unit>
+        <trans-unit id="Report 3874186678 - NamedType 3699446230" size-unit="char" translate="yes" xml:space="preserve">
+          <source>TROIS</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 BOA Check - NamedType Text034</note>
+        </trans-unit>
+        <trans-unit id="Report 3874186678 - NamedType 3061749613" size-unit="char" translate="yes" xml:space="preserve">
+          <source>QUATRE</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 BOA Check - NamedType Text035</note>
+        </trans-unit>
+        <trans-unit id="Report 3874186678 - NamedType 2424052996" size-unit="char" translate="yes" xml:space="preserve">
+          <source>CINQ</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 BOA Check - NamedType Text036</note>
+        </trans-unit>
+        <trans-unit id="Report 3874186678 - NamedType 1786356379" size-unit="char" translate="yes" xml:space="preserve">
+          <source>SIX</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 BOA Check - NamedType Text037</note>
+        </trans-unit>
+        <trans-unit id="Report 3874186678 - NamedType 342054122" size-unit="char" translate="yes" xml:space="preserve">
+          <source>SEPT</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 BOA Check - NamedType Text038</note>
+        </trans-unit>
+        <trans-unit id="Report 3874186678 - NamedType 3999324801" size-unit="char" translate="yes" xml:space="preserve">
+          <source>HUIT</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 BOA Check - NamedType Text039</note>
+        </trans-unit>
+        <trans-unit id="Report 3874186678 - NamedType 1404403683" size-unit="char" translate="yes" xml:space="preserve">
+          <source>NEUF</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 BOA Check - NamedType Text040</note>
+        </trans-unit>
+        <trans-unit id="Report 3874186678 - NamedType 2042100300" size-unit="char" translate="yes" xml:space="preserve">
+          <source>DIX</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 BOA Check - NamedType Text041</note>
+        </trans-unit>
+        <trans-unit id="Report 3874186678 - NamedType 2679796917" size-unit="char" translate="yes" xml:space="preserve">
+          <source>ONZE</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 BOA Check - NamedType Text042</note>
+        </trans-unit>
+        <trans-unit id="Report 3874186678 - NamedType 3317493534" size-unit="char" translate="yes" xml:space="preserve">
+          <source>DOUZE</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 BOA Check - NamedType Text043</note>
+        </trans-unit>
+        <trans-unit id="Report 3874186678 - NamedType 3148584511" size-unit="char" translate="yes" xml:space="preserve">
+          <source>TREIZE</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 BOA Check - NamedType Text044</note>
+        </trans-unit>
+        <trans-unit id="Report 3874186678 - NamedType 3786281128" size-unit="char" translate="yes" xml:space="preserve">
+          <source>QUATORZE</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 BOA Check - NamedType Text045</note>
+        </trans-unit>
+        <trans-unit id="Report 3874186678 - NamedType 129010449" size-unit="char" translate="yes" xml:space="preserve">
+          <source>QUINZE</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 BOA Check - NamedType Text046</note>
+        </trans-unit>
+        <trans-unit id="Report 3874186678 - NamedType 766707066" size-unit="char" translate="yes" xml:space="preserve">
+          <source>SEIZE</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 BOA Check - NamedType Text047</note>
+        </trans-unit>
+        <trans-unit id="Report 3874186678 - NamedType 2211009323" size-unit="char" translate="yes" xml:space="preserve">
+          <source>DIX-SEPT</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 BOA Check - NamedType Text048</note>
+        </trans-unit>
+        <trans-unit id="Report 3874186678 - NamedType 2848705940" size-unit="char" translate="yes" xml:space="preserve">
+          <source>DIX-HUIT</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 BOA Check - NamedType Text049</note>
+        </trans-unit>
+        <trans-unit id="Report 3874186678 - NamedType 612391220" size-unit="char" translate="yes" xml:space="preserve">
+          <source>DIX-NEUF</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 BOA Check - NamedType Text050</note>
+        </trans-unit>
+        <trans-unit id="Report 3874186678 - NamedType 4269661899" size-unit="char" translate="yes" xml:space="preserve">
+          <source>VINGT</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 BOA Check - NamedType Text051</note>
+        </trans-unit>
+        <trans-unit id="Report 3874186678 - NamedType 1887784454" size-unit="char" translate="yes" xml:space="preserve">
+          <source>TRENTE</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 BOA Check - NamedType Text052</note>
+        </trans-unit>
+        <trans-unit id="Report 3874186678 - NamedType 1250087837" size-unit="char" translate="yes" xml:space="preserve">
+          <source>QUARANTE</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 BOA Check - NamedType Text053</note>
+        </trans-unit>
+        <trans-unit id="Report 3874186678 - NamedType 2356572048" size-unit="char" translate="yes" xml:space="preserve">
+          <source>CINQUANTE</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 BOA Check - NamedType Text054</note>
+        </trans-unit>
+        <trans-unit id="Report 3874186678 - NamedType 1718875431" size-unit="char" translate="yes" xml:space="preserve">
+          <source>SOIXANTE</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 BOA Check - NamedType Text055</note>
+        </trans-unit>
+        <trans-unit id="Report 3874186678 - NamedType 3631965282" size-unit="char" translate="yes" xml:space="preserve">
+          <source>SOIXANTE-DIX</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 BOA Check - NamedType Text056</note>
+        </trans-unit>
+        <trans-unit id="Report 3874186678 - NamedType 2994268665" size-unit="char" translate="yes" xml:space="preserve">
+          <source>QUATRE-VINGTS</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 BOA Check - NamedType Text057</note>
+        </trans-unit>
+        <trans-unit id="Report 3874186678 - NamedType 4100752876" size-unit="char" translate="yes" xml:space="preserve">
+          <source>QUATRE-VINGT-DIX</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 BOA Check - NamedType Text058</note>
+        </trans-unit>
+        <trans-unit id="Report 3874186678 - NamedType 3463056259" size-unit="char" translate="yes" xml:space="preserve">
+          <source>MILLE</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 BOA Check - NamedType Text059</note>
+        </trans-unit>
+        <trans-unit id="Report 3874186678 - NamedType 888923493" size-unit="char" translate="yes" xml:space="preserve">
+          <source>MILLION</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 BOA Check - NamedType Text060</note>
+        </trans-unit>
+        <trans-unit id="Report 3874186678 - NamedType 1526620110" size-unit="char" translate="yes" xml:space="preserve">
+          <source>MILLIARD</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 BOA Check - NamedType Text061</note>
+        </trans-unit>
+        <trans-unit id="Report 3874186678 - NamedType 251226876" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Net Amount %1</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 BOA Check - NamedType Text063</note>
+        </trans-unit>
+        <trans-unit id="Report 3874186678 - NamedType 2633104321" size-unit="char" translate="yes" xml:space="preserve">
+          <source>%1 ne doit pas être %2 pour %3 %4.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 BOA Check - NamedType Text064</note>
+        </trans-unit>
+        <trans-unit id="Report 3874186678 - NamedType 3270800938" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Sous-total</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 BOA Check - NamedType Text065</note>
+        </trans-unit>
+        <trans-unit id="Report 3874186678 - NamedType 2247286032" size-unit="char" translate="yes" xml:space="preserve">
+          <source>ARIARY</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 BOA Check - NamedType Text10800</note>
+        </trans-unit>
+        <trans-unit id="Report 3874186678 - NamedType 1609589415" size-unit="char" translate="yes" xml:space="preserve">
+          <source>CENT</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 BOA Check - NamedType Text10801</note>
+        </trans-unit>
+        <trans-unit id="Report 3874186678 - NamedType 1537992153" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Transport</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 BOA Check - NamedType TransportCaptionLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 3874186678 - NamedType 2082270766" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Veuillez accuser réception du chèque N° </source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 BOA Check - NamedType VeuillezAccuserLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 3874186678 - NamedType 2997913496" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Votre n° de document.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 BOA Check - NamedType YourDocNoCaptionLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 3874186678 - Control 2346885236 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Options</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 BOA Check - Control Options - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 3874186678 - Control 2663384385 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Spécifie le compte bancaire à partir duquel les chèques imprimés sont tirés.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 BOA Check - Control BankAccount - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Report 3874186678 - Control 2663384385 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Compte bancaire</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 BOA Check - Control BankAccount - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 3874186678 - Control 1514267703 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Spécifie la valeur du champ N° dern. chèque sur la fiche compte bancaire.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 BOA Check - Control LastCheckNo - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Report 3874186678 - Control 1514267703 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>N° dern. chèque</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 BOA Check - Control LastCheckNo - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 3874186678 - Control 1563725732 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Indique si un seul chèque est imprimé par fournisseur et par numéro de document.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 BOA Check - Control OneCheckPerVendorPerDocumentNo - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Report 3874186678 - Control 1563725732 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Un chèque par fournisseur par n° document</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 BOA Check - Control OneCheckPerVendorPerDocumentNo - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 3874186678 - Control 2742330656 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Indique si vous utilisez les formulaires chèque avec souches pré-imprimées.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 BOA Check - Control PreprintedStubs - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Report 3874186678 - Control 2742330656 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Formulaire préimprimé</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 BOA Check - Control PreprintedStubs - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 3874186678 - Control 3668239828 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Indique si les chèques sont imprimés à nouveau si vous avez annulé l'impression suite à un problème.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 BOA Check - Control ReprintCheck - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Report 3874186678 - Control 3668239828 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Réimprimer les chèques</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 BOA Check - Control ReprintCheck - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 3874186678 - Control 4054877177 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Indique si vous souhaitez imprimer les chèques sur papier blanc avant de les imprimer sous forme de chèque.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 BOA Check - Control TestPrinting - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Report 3874186678 - Control 4054877177 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Impression test</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 BOA Check - Control TestPrinting - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Report 2910124491 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>A01 Cash voucher</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -14802,6 +15342,146 @@
           <source>Purchase Receipt</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report A01 PurchaseReceiptPrint - ReportDataItem Purch. Rcpt. Header - Property RequestFilterHeading</note>
+        </trans-unit>
+        <trans-unit id="Report 3604660132 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Bon de caisse - Client</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 Recu Client - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 3604660132 - NamedType 168058148" size-unit="char" translate="yes" xml:space="preserve">
+          <source>N° compte</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 Recu Client - NamedType AccountNumberLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 3604660132 - NamedType 1245862610" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Montant</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 Recu Client - NamedType AmountLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 3604660132 - NamedType 3000703146" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Signature bénéficiaire</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 Recu Client - NamedType CompanySignLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 3604660132 - NamedType 1116617772" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Signature caisse</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 Recu Client - NamedType CustSignLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 3604660132 - NamedType 2251670122" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Date :</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 Recu Client - NamedType DateOfPrintLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 3604660132 - NamedType 3569966352" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Description</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 Recu Client - NamedType DescriptionLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 3604660132 - NamedType 4294012637" size-unit="char" translate="yes" xml:space="preserve">
+          <source>No</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 Recu Client - NamedType RefLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 3604660132 - NamedType 3040577680" size-unit="char" translate="yes" xml:space="preserve">
+          <source>BON DE CAISSE</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 Recu Client - NamedType ReportTitleLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 3604660132 - NamedType 3357692024" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Montant Total</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 Recu Client - NamedType TotalAmountLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 3604660132 - ReportDataItem 1735507514 - Property 1806354803" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Bon de caisse</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 Recu Client - ReportDataItem Line - Property RequestFilterHeading</note>
+        </trans-unit>
+        <trans-unit id="Report 3604660132 - Control 4013682468 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Option</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 Recu Client - Control groupName - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 3604660132 - Control 229337220 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Logo</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 Recu Client - Control OptionVal - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 3604660132 - Control 229337220 - Property 62802879" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Uditec, Cosmos</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 Recu Client - Control OptionVal - Property OptionCaption</note>
+        </trans-unit>
+        <trans-unit id="Report 43642326 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Bon de caisse - Fournisseur</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 Recu fournisseur - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 43642326 - NamedType 168058148" size-unit="char" translate="yes" xml:space="preserve">
+          <source>N° compte</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 Recu fournisseur - NamedType AccountNumberLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 43642326 - NamedType 1245862610" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Montant</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 Recu fournisseur - NamedType AmountLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 43642326 - NamedType 3000703146" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Signature bénéficiaire</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 Recu fournisseur - NamedType CompanySignLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 43642326 - NamedType 1116617772" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Signature caisse</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 Recu fournisseur - NamedType CustSignLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 43642326 - NamedType 2251670122" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Date :</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 Recu fournisseur - NamedType DateOfPrintLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 43642326 - NamedType 3569966352" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Description</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 Recu fournisseur - NamedType DescriptionLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 43642326 - NamedType 4294012637" size-unit="char" translate="yes" xml:space="preserve">
+          <source>No</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 Recu fournisseur - NamedType RefLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 43642326 - NamedType 3040577680" size-unit="char" translate="yes" xml:space="preserve">
+          <source>BON DE CAISSE</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 Recu fournisseur - NamedType ReportTitleLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 43642326 - NamedType 3357692024" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Montant Total</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 Recu fournisseur - NamedType TotalAmountLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 43642326 - ReportDataItem 1735507514 - Property 1806354803" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Bon de caisse</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 Recu fournisseur - ReportDataItem Line - Property RequestFilterHeading</note>
+        </trans-unit>
+        <trans-unit id="Report 43642326 - Control 4013682468 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Option</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 Recu fournisseur - Control groupName - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 43642326 - Control 229337220 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Logo</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 Recu fournisseur - Control OptionVal - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 43642326 - Control 229337220 - Property 62802879" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Uditec, Cosmos</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 Recu fournisseur - Control OptionVal - Property OptionCaption</note>
         </trans-unit>
         <trans-unit id="Report 259832592 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Reçu de décaissement</source>
@@ -17978,6 +18658,16 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension A01 Customer Ledger Entries - Action A01AGPDueLine - Property Caption</note>
         </trans-unit>
+        <trans-unit id="PageExtension 928981325 - Action 3119605700 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2393537757">
+          <source>Imprimer le reçu de décaissement</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension A01 Customer Ledger Entries - Action A01 Recu client - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 928981325 - Action 3119605700 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2393537757">
+          <source>Imprimer le reçu de décaissement</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension A01 Customer Ledger Entries - Action A01 Recu client - Property Caption</note>
+        </trans-unit>
         <trans-unit id="PageExtension 1847422466 - Action 2826009200 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2901867346">
           <source>Import AGP Customers</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -18543,10 +19233,35 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension A01 Transfer Order - Action A01Process - Property Caption</note>
         </trans-unit>
+        <trans-unit id="PageExtension 1234808549 - Action 43642326 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1567633909">
+          <source>Imprimer le reçu de décaissement</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension A01 Vendor Ledger Entries - Action A01 Recu fournisseur - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 1234808549 - Action 43642326 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1567633909">
+          <source>Imprimer le reçu de décaissement</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension A01 Vendor Ledger Entries - Action A01 Recu fournisseur - Property Caption</note>
+        </trans-unit>
         <trans-unit id="TableExtension 1742308649 - Field 3247777777 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1682139193">
           <source>A01 Bank Account Type</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension A01 Bank Account - Field A01 Bank Account Type - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 1742308649 - Field 3668815994 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1682139193">
+          <source>N° fin plage chèque</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension A01 Bank Account - Field A01 Ending Check No. - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 1742308649 - Field 4245473331 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1682139193">
+          <source>N° début plage chèque</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension A01 Bank Account - Field A01 Starting Check No. - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 1742308649 - Change 3111947023 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1682139193">
+          <source>Check Report ID</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension A01 Bank Account - Change Check Report ID - Property Caption</note>
         </trans-unit>
         <trans-unit id="TableExtension 1990970658 - Field 4019533859 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1815808370">
           <source>A01 Payment Reference</source>

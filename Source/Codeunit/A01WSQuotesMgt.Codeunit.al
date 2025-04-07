@@ -162,8 +162,8 @@ codeunit 50005 "A01 WS QuotesMgt"
 
         processQuotesLines(SalesQuote, SalesQuoteLine, input);
         processCreditAmortisationLines(SalesQuote, input);
-        processCustScoringLines(SalesQuote, input);
-        processCustomerRequirements(SalesQuote, input);
+        //processCustScoringLines(SalesQuote, input);
+        //processCustomerRequirements(SalesQuote, input);
 
         exit(Ws.CreateResponseSuccess(SalesQuote."No."));
 

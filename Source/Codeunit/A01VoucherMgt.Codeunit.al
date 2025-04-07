@@ -17,6 +17,9 @@ codeunit 50017 "A01 Voucher Mgt"
         VoucherAmount: decimal;
     begin
 
+        if (Voucher.Get(ItemLedgerEntry."Serial No.")) then
+            exit;
+
         if (ItemLedgerEntry."Entry Type" = ItemLedgerEntry."Entry Type"::Sale) then
             //if (ItemLedgerEntry."Document Type" = ItemLedgerEntry."Document Type"::"Sales Shipment") then
                 isApplicable := true;

@@ -47,6 +47,7 @@ pageextension 50027 "A01 PaymentJournal" extends "Payment Journal"
                 trigger OnAction()
                 var
                     PaymentRec: Record "Gen. Journal Line";
+
                 begin
                     PaymentRec.SetRange("Document No.", Rec."Document No.");
                     Report.Run(50039, true, false, PaymentRec);
