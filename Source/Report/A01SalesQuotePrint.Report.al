@@ -190,6 +190,9 @@ report 50001 "A01 SalesQuotePrint"
             column(LogoOption; OptionValue)
             {
             }
+            column(SiteLivraisonLbl; SiteLivraisonLbl)
+            {
+            }
             dataitem(Line; "Sales Line")
             {
                 DataItemTableView = sorting("Document No.", "Line No.");
@@ -320,6 +323,9 @@ report 50001 "A01 SalesQuotePrint"
                 {
                     AutoFormatExpression = Header."Currency Code";
                     AutoFormatType = 2;
+                }
+                column(Location_Code; "Location Code")
+                {
                 }
 
                 // Line
@@ -1199,6 +1205,7 @@ report 50001 "A01 SalesQuotePrint"
         ArrestedSumLbl: Label 'Arrested at the sum of :';
         OffreLbl: Label 'Offer subject to conditions. See in store';
         ProformaLbl: Label 'This proforma invoice is valid until';
+        SiteLivraisonLbl: Label 'Site de livraison';
         // SalesConfirmationLbl: Label 'Sales Quote';
         InvDiscountAmtLbl: Label 'Invoice Discount';
         SubtotalLbl: Label 'Subtotal';

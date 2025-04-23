@@ -927,6 +927,9 @@ report 50002 "A01 SalesInvoicePrint"
             column(VATText; VATText)
             {
             }
+            column(SiteLivraisonLbl; SiteLivraisonLbl)
+            {
+            }
 
             dataitem(Line; "Sales Invoice Line")
             {
@@ -1194,6 +1197,9 @@ report 50002 "A01 SalesInvoicePrint"
                 {
                     AutoFormatExpression = Header."Currency Code";
                     AutoFormatType = 2;
+                }
+                column(Location_Code; "Location Code")
+                {
                 }
                 dataitem(ShipmentLine; "Sales Shipment Buffer")
                 {
@@ -2241,6 +2247,7 @@ report 50002 "A01 SalesInvoicePrint"
         // PaymentInstructionsTxt: Text;
         ExchangeRateText: Text;
         // PrevLineAmount: Decimal;
+        SiteLivraisonLbl: Label 'Site de livraison';
         SalespersonLbl: Label 'Salesperson';
         CompanyInfoBankAccNoLbl: Label 'Account No.';
         // CompanyInfoBankNameLbl: Label 'Bank';

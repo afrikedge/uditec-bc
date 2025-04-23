@@ -346,6 +346,9 @@ report 50007 "A01 SalesOrderPrint"
             {
             }
             column(ShowWorkDescription; ShowWorkDescription) { }
+            column(SiteLivraisonLbl; SiteLivraisonLbl)
+            {
+            }
             dataitem(Line; "Sales Line")
             {
                 DataItemLink = "Document Type" = field("Document Type"), "Document No." = field("No.");
@@ -474,6 +477,9 @@ report 50007 "A01 SalesOrderPrint"
                 {
                     AutoFormatExpression = Header."Currency Code";
                     AutoFormatType = 2;
+                }
+                column(Location_Code; "Location Code")
+                {
                 }
 
                 trigger OnAfterGetRecord()
@@ -1056,6 +1062,7 @@ report 50007 "A01 SalesOrderPrint"
         A01ArrestedSumLbl: Label 'Arrested at the sum of :';
         A01OffreLbl: Label 'Offer subject to conditions. See in store';
         A01ProformaLbl: Label 'This proforma invoice is valid until';
+        SiteLivraisonLbl: Label 'Site de livraison';
         CountryOfManufactuctureLbl: Label 'Country';
         TotalWeightLbl: Label 'Total Weight';
         SalespersonPurchaserName: Text;
