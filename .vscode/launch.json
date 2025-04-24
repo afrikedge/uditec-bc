@@ -25,7 +25,7 @@
             "request": "launch",
             "type": "al",
             "environmentType": "OnPrem",
-            "server": "http://localhost",
+            "server": "http://localhost:8081/BC230",
             "port": 7349,
             "serverInstance": "BC230",
             "authentication": "Windows",

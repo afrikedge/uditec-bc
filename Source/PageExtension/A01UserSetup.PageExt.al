@@ -55,7 +55,10 @@ pageextension 50011 "A01 User Setup" extends "User Setup"
             {
                 ApplicationArea = Basic, Suite;
             }
-
+            field("A01 Can Edit Credit Infos"; Rec."A01 Can Edit Credit Infos")
+            {
+                ApplicationArea = Basic, Suite;
+            }
 
         }
         addafter("Allow Posting To")

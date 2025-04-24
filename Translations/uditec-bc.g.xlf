@@ -18688,6 +18688,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension A01 Item Card - Action A01Attributes - Property Caption</note>
         </trans-unit>
+        <trans-unit id="PageExtension 3069236190 - Control 4280290554 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 3595318222">
+          <source>User Name</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension A01 Item Ledger Entries - Control A01SystemCreatedBy - Property Caption</note>
+        </trans-unit>
         <trans-unit id="PageExtension 496531641 - Action 829621065 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 4023405129">
           <source>Import serial Nos</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -19107,6 +19112,26 @@
           <source>Orders - Shipped</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension A01 Order Processor RC - Action A01Orders_Shipped - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 4097835928 - Control 4280290554 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2211706696">
+          <source>User Name</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension A01 Payment Slip - Control A01SystemCreatedBy - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 451057018 - Control 4280290554 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1714817514">
+          <source>User Name</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension A01 Payment Slip Archive - Control A01SystemCreatedBy - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 2071982986 - Control 4280290554 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1478521530">
+          <source>User Name</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension A01 Payment Slip List - Control A01SystemCreatedBy - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 3438331400 - Control 4280290554 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 94513016">
+          <source>User Name</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension A01 Payment Slip List Archive - Control A01SystemCreatedBy - Property Caption</note>
         </trans-unit>
         <trans-unit id="PageExtension 1800607781 - Action 1758929101 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 3196174509">
           <source>Print Bank Transfer order</source>
@@ -20987,6 +21012,11 @@
           <source>Can Close Sales Order</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension A01 User Setup - Field A01 Can Close Sales Order - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 4102593426 - Field 4166740964 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 337631938">
+          <source>Can modify credit details</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension A01 User Setup - Field A01 Can Edit Credit Infos - Property Caption</note>
         </trans-unit>
         <trans-unit id="TableExtension 4102593426 - Field 1313577530 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 337631938">
           <source>Can modify credit limit</source>

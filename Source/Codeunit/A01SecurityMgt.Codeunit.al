@@ -205,6 +205,14 @@ codeunit 50004 "A01 Security Mgt"
             end;
     end;
 
+    procedure A01GetUserNameFromSecurityId(UserSecurityID: Guid): Code[50]
+    var
+        User: Record User;
+    begin
+        User.Get(UserSecurityID);
+        exit(User."User Name");
+    end;
+
     procedure CheckBankUserAccount(BankAccountNo: Code[20])
     var
         BankAccUser: Record "A01 User Access";

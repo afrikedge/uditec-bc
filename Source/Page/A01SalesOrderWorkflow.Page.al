@@ -1036,18 +1036,22 @@ page 50002 "A01 Sales Order - Workflow"
                 field("A01 Credit Validation Status"; Rec."A01 Credit Validation Status")
                 {
                     ApplicationArea = Basic, Suite;
+                    Editable = CreditDetailsEditable;
                 }
                 field("A01 Credit Duration (Month)"; Rec."A01 Credit Duration (Month)")
                 {
                     ApplicationArea = Basic, Suite;
+                    Editable = CreditDetailsEditable;
                 }
                 field("A01 Interest rate"; Rec."A01 Interest rate")
                 {
                     ApplicationArea = Basic, Suite;
+                    Editable = CreditDetailsEditable;
                 }
                 field("A01 Sales Mode"; Rec."A01 Sales Mode")
                 {
                     ApplicationArea = Basic, Suite;
+                    Editable = CreditDetailsEditable;
                 }
             }
 
@@ -2679,6 +2683,9 @@ page 50002 "A01 Sales Order - Workflow"
         //RejectICSalesOrderEnabled := ICInboxOutboxMgt.IsSalesHeaderFromIncomingIC(Rec);
         VATDateEnabled := VATReportingDateMgt.IsVATDateEnabled();
         BasicEUEnabled := ApplicationAreaMgmtFacade.IsBasicCountryEnabled('EU');
+
+        UserSetup.Get(UserId);
+        CreditDetailsEditable := UserSetup."A01 Can Edit Credit Infos";
     end;
 
     trigger OnQueryClosePage(CloseAction: Action): Boolean
@@ -2706,6 +2713,7 @@ page 50002 "A01 Sales Order - Workflow"
     var
         BillToContact: Record Contact;
         SellToContact: Record Contact;
+        UserSetup: Record "User Setup";
         SalesSetup: Record "Sales & Receivables Setup";
         GLSetup: Record "General Ledger Setup";
         MoveNegSalesLines: Report "Move Negative Sales Lines";
@@ -2765,6 +2773,7 @@ page 50002 "A01 Sales Order - Workflow"
         //RejectICSalesOrderEnabled: Boolean;
         VATDateEnabled: Boolean;
         BasicEUEnabled: Boolean;
+        CreditDetailsEditable: Boolean;
 
     protected var
         ShipToOptions: Enum "Sales Ship-to Options";

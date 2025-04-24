@@ -21,18 +21,22 @@ pageextension 50017 "A01 Sales Quote" extends "Sales Quote"
                 field("A01 Credit Validation Status"; Rec."A01 Credit Validation Status")
                 {
                     ApplicationArea = Basic, Suite;
+                    Editable = CreditDetailsEditable;
                 }
                 field("A01 Credit Duration (Month)"; Rec."A01 Credit Duration (Month)")
                 {
                     ApplicationArea = Basic, Suite;
+                    Editable = CreditDetailsEditable;
                 }
                 field("A01 Interest rate"; Rec."A01 Interest rate")
                 {
                     ApplicationArea = Basic, Suite;
+                    Editable = CreditDetailsEditable;
                 }
                 field("A01 Sales Mode"; Rec."A01 Sales Mode")
                 {
                     ApplicationArea = Basic, Suite;
+                    Editable = CreditDetailsEditable;
                 }
                 field("A01 Analyst comments"; Rec."A01 Analyst comments")
                 {
@@ -99,4 +103,15 @@ pageextension 50017 "A01 Sales Quote" extends "Sales Quote"
             }
         }
     }
+    trigger OnOpenPage()
+    var
+    begin
+        UserSetup.Get(UserId);
+        CreditDetailsEditable := UserSetup."A01 Can Edit Credit Infos";
+    end;
+
+    var
+        UserSetup: Record "User Setup";
+        CreditDetailsEditable: Boolean;
+
 }
