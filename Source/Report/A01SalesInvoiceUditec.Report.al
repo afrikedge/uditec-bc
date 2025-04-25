@@ -469,6 +469,9 @@ report 50030 "A01 SalesInvoiceUditec"
             column(VATText; VATText)
             {
             }
+            column(SiteLivraisonLbl; SiteLivraisonLbl)
+            {
+            }
             dataitem(Line; "Sales Invoice Line")
             {
                 DataItemLink = "Document No." = field("No.");
@@ -605,6 +608,10 @@ report 50030 "A01 SalesInvoiceUditec"
                     AutoFormatExpression = Header."Currency Code";
                     AutoFormatType = 2;
                 }
+                column(Location_Code; "Location Code")
+                {
+                }
+
                 dataitem(ShipmentLine; "Sales Shipment Buffer")
                 {
                     DataItemTableView = sorting("Document No.", "Line No.", "Entry No.");
@@ -1525,6 +1532,7 @@ report 50030 "A01 SalesInvoiceUditec"
         TransHeaderAmount: Decimal;
         FirstLineHasBeenOutput: Boolean;
         // A01FormattedUnitPrice: Text[50];
+        SiteLivraisonLbl: Label 'Site de livraison';
         PartiallyPaidLbl: Label 'The invoice has been partially paid. The remaining amount is %1', Comment = '%1=an amount';
         RemainingAmountTxt: Text;
         ChecksPayableLbl: Label 'Please make checks payable to %1', Comment = '%1 = company name';
