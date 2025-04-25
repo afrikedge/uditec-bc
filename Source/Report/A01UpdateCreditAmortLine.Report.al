@@ -33,7 +33,7 @@ report 50032 "A01 Update Credit Amort Line"
                 DebtStatus: Code[20];
             begin
 
-                TotalLines := CustLedgerEntryItem.Count;
+                TotalLines := Cust.Count;
                 LineNo := 0;
                 if Cust.FindSet() then
                     repeat

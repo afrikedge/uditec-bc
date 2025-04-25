@@ -254,7 +254,7 @@ tableextension 50006 "A01 Customer" extends Customer
 
 
         MaxDueDays := 0;
-        RiskOfMaxDueDate := '';
+        RiskOfMaxDueDate := GetRiskLevel(0);
 
         CustLedgerEntry.Reset();
         CustLedgerEntry.SetCurrentKey("Customer No.", Open, Positive, "Due Date", "Currency Code");
@@ -263,7 +263,7 @@ tableextension 50006 "A01 Customer" extends Customer
         CustLedgerEntry.SetRange(Positive, true);
         if CustLedgerEntry.FindSet() then
             repeat
-                foundInCreditLine := DocumentFountInCreditDueLine(MaxDueDays, RiskOfMaxDueDate);
+                foundInCreditLine := DocumentFountInCreditDueLine(MaxDueDays, RiskOfMaxDueDate, CustLedgerEntry);
                 if (not foundInCreditLine) then begin
                     DueDays := TresoMgt.GetDueDays(CustLedgerEntry);
                     if (DueDays >= MaxDueDays) then begin
@@ -290,7 +290,7 @@ tableextension 50006 "A01 Customer" extends Customer
     end;
 
 
-    local procedure DocumentFountInCreditDueLine(var MaxDueDays: integer; var RiskOfMaxDueDate: Code[20]): Boolean
+    local procedure DocumentFountInCreditDueLine(var MaxDueDays: integer; var RiskOfMaxDueDate: Code[20]; CustLedgerEntry: Record "Cust. Ledger Entry"): Boolean
     var
         CreditDueLine: Record "A01 Credit Depreciation Table";
         //TresoMgt: Codeunit "A01 Treso Mgt";
@@ -300,7 +300,8 @@ tableextension 50006 "A01 Customer" extends Customer
         //Table des echeancier de dettes
         //Recherche du plus grand retarc aussi dans les lignes du tableau d'amortissement
         CreditDueLine.Reset();
-        CreditDueLine.SetCurrentKey("Customer No.", Closed);
+        CreditDueLine.SetRange("Cust Ledger Entry No.", CustLedgerEntry."Entry No.");
+        //CreditDueLine.SetCurrentKey("Customer No.", Closed);
         CreditDueLine.SetRange("Customer No.", Rec."No.");
         CreditDueLine.SetRange(Closed, false);
         if CreditDueLine.FindSet() then
