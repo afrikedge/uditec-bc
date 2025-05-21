@@ -753,6 +753,8 @@ codeunit 50007 "A01 Treso Mgt"
 
         end else begin
 
+            //GenerateCreditDueLines(SalesHeader)
+
             CreditDueLine.Reset();
             CreditDueLine.SetRange("Document Type", CreditDueLine."Document Type"::"Sales order");
             CreditDueLine.SetRange("Document No.", SalesHeader."No.");
@@ -773,11 +775,95 @@ codeunit 50007 "A01 Treso Mgt"
             if not CreditDueLine.IsEmpty() then
                 CreditDueLine.DeleteAll();
         end;
+    end;
 
+    procedure GenerateCreditDueLines(SalesHeader: Record "Sales Header";
 
+      LoanAmount: Decimal;
+      Installment: Decimal;
+      FinalInstallment: Decimal;
+      InterestIncVAT: Decimal
+  )
+    var
+        CreditDueLine: Record "A01 Credit Depreciation Table";
+        CurrentLevel: Integer;
+        CalculationFactor: Decimal;
+        MonthlyPayment: Decimal;
+        Interest: Decimal;
+        RemainingDebt: Decimal;
+        AbandonedInterests: Decimal;
+        PaymentBalance: Decimal;
+        Duration: Decimal;
+    begin
 
+        Duration := SalesHeader."A01 Credit Duration (Month)";
+        // Validate input parameters
+        if (LoanAmount = 0) or (Installment = 0) or (FinalInstallment = 0) or (InterestIncVAT = 0) then
+            exit;
 
+        // Clear existing simulation lines for this document
+        CreditDueLine.SetRange("Document Type", CreditDueLine."Document Type"::"Sales order");
+        CreditDueLine.SetRange("Document No.", SalesHeader."No.");
+        CreditDueLine.DeleteAll();
 
+        // Generate simulation lines
+        for CurrentLevel := 1 to Duration do begin
+            // Calculate Calculation Factor
+            CalculationFactor := (Duration - CurrentLevel + 1) / (Duration * (Duration + 1) / 2) * 100;
+
+            // Determine Monthly Payment (last installment is different)
+            If (CurrentLevel = Duration) then
+                MonthlyPayment := FinalInstallment
+            else
+                MonthlyPayment := Installment;
+
+            // Calculate Interest
+            Interest := InterestIncVAT * (Duration - CurrentLevel + 1) / (Duration * (Duration + 1) / 2);
+
+            // Calculate Remaining Debt
+            if CurrentLevel = Duration then
+                RemainingDebt := 0
+            else
+                RemainingDebt := LoanAmount - Installment * CurrentLevel;
+
+            // Calculate Abandoned Interests (sum of future interests)
+            AbandonedInterests := CalculateAbandonedInterests(CurrentLevel, Duration, InterestIncVAT);
+
+            // Calculate Payment Balance
+            PaymentBalance := LoanAmount - MonthlyPayment * CurrentLevel - AbandonedInterests;
+
+            // Insert Simulation Line
+            CreditDueLine.Init();
+            CreditDueLine."Document Type" := CreditDueLine."Document Type"::"Sales order";
+            CreditDueLine."Document No." := SalesHeader."No.";
+            CreditDueLine."Line No." := CurrentLevel;
+            CreditDueLine."Calculation Factor" := Round(CalculationFactor, 1);
+            CreditDueLine."Monthly Payment" := Round(MonthlyPayment, 0.01);
+            CreditDueLine."Interest" := Round(Interest, 0.01);
+            CreditDueLine."Depreciation" := Round(MonthlyPayment - Interest, 0.01);
+            CreditDueLine."Remaining Debt" := Round(RemainingDebt, 0.01);
+            CreditDueLine."Abandoned Interests" := Round(AbandonedInterests, 0.01);
+            CreditDueLine."Payment Balance" := Round(PaymentBalance, 0.01);
+            CreditDueLine."Interest Excl VAT" := Round(Interest / 1.2, 0.01);
+            CreditDueLine."VAT on Interest" := Round(0.2 * Interest / 1.2, 0.01);
+            CreditDueLine.Insert();
+        end;
+    end;
+
+    local procedure CalculateAbandonedInterests(CurrentLevel: Integer; Duration: Decimal; InterestIncVAT: Decimal): Decimal
+    var
+        //CreditDueLine: Record "A01 Credit Depreciation Table";
+        TotalAbandonedInterests: Decimal;
+        i: Integer;
+    begin
+        TotalAbandonedInterests := 0;
+
+        for i := CurrentLevel + 1 to Duration do begin
+            TotalAbandonedInterests +=
+                InterestIncVAT * (Duration - i + 1) / (Duration * (Duration + 1) / 2);
+        end;
+
+        exit(TotalAbandonedInterests);
     end;
 
     local procedure RoundAmount(Amount: Decimal): Decimal

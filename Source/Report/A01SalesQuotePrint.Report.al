@@ -190,6 +190,9 @@ report 50001 "A01 SalesQuotePrint"
             column(LogoOption; OptionValue)
             {
             }
+            column(SiteLivraisonLbl; SiteLivraisonLbl)
+            {
+            }
             dataitem(Line; "Sales Line")
             {
                 DataItemTableView = sorting("Document No.", "Line No.");
@@ -321,6 +324,9 @@ report 50001 "A01 SalesQuotePrint"
                     AutoFormatExpression = Header."Currency Code";
                     AutoFormatType = 2;
                 }
+                column(Location_Code; "Location Code")
+                {
+                }
 
                 // Line
                 trigger OnAfterGetRecord()
@@ -361,16 +367,16 @@ report 50001 "A01 SalesQuotePrint"
                         end;
                         A01FormattedVAT := Format(Round(tempVAT, 0.001, '<'));
                         A01FormattedAmtHT := Format(Round(Line.Quantity * tempPU, 0.001, '<'));
-                        A01FormattedLineDiscountAmount := Format(Round((Line.Quantity * tempPU) * (Line."Line Discount %" / 100), 0.001, '<'));
+                        A01FormattedLineDiscountAmount := Format(Round((Line.Quantity * tempPU) * (Line."Line Discount %" / 100), 0.001, '<'), 0, '<Precision,2><Standard Format,0>');
                         FormattedLineAmountTTC := Format(Round(tempTTC, 0.001, '<'));
                     end;
                     A01LineQty := Line.Quantity;
                     A01LinePU := Round(tempPU, 0.000001, '<');
                     A01DiscountedPrice := Round((Line.Quantity * tempPU) - Line."Line Discount Amount", 0.001, '<');
 
-                    A01LineQtyFormatted := Format(A01LineQty);
-                    A01LinePUFormatted := Format(A01LinePU);
-                    A01DiscountedPriceText := Format(A01DiscountedPrice);
+                    A01LineQtyFormatted := Format(A01LineQty, 0, '<Precision,2><Standard Format,0>');
+                    A01LinePUFormatted := Format(A01LinePU, 0, '<Precision,2><Standard Format,0>');
+                    A01DiscountedPriceText := Format(A01DiscountedPrice, 0, '<Precision,2><Standard Format,0>');
 
                     SalesLineRec.Reset();
                     SalesLineRec.SetRange("Document No.", Header."No.");
@@ -787,17 +793,17 @@ report 50001 "A01 SalesQuotePrint"
                     AfkTotalAmountInclVAT_LCYText :=
                            Format(AfkTotalAmountInclVAT_LCY, 0,
                            AutoFormat.ResolveAutoFormat("Auto Format"::AmountFormat, AfkLocalCurrency.Code));
-                    AfkTotalAmountInclVAT_LCYText := Format(AfkTotalAmountInclVAT_LCY);
+                    AfkTotalAmountInclVAT_LCYText := Format(AfkTotalAmountInclVAT_LCY, 0, '<Precision,2><Standard Format,0>');
 
                     AfkTotalAmount_LCYText :=
                         Format(AfkTotalAmount_LCY, 0,
                         AutoFormat.ResolveAutoFormat("Auto Format"::AmountFormat, AfkLocalCurrency.Code));
-                    AfkTotalAmount_LCYText := Format(AfkTotalAmount_LCY);
+                    AfkTotalAmount_LCYText := Format(AfkTotalAmount_LCY, 0, '<Precision,2><Standard Format,0>');
 
                     AfkTotalVAT_LCYText :=
                         Format(AfkTotalVAT_LCY, 0,
                         AutoFormat.ResolveAutoFormat("Auto Format"::AmountFormat, AfkLocalCurrency.Code));
-                    AfkTotalVAT_LCYText := Format(AfkTotalVAT_LCY);
+                    AfkTotalVAT_LCYText := Format(AfkTotalVAT_LCY, 0, '<Precision,2><Standard Format,0>');
 
                     RepCheck.InitTextVariable();
                     RepCheck.FormatNoText(NoText, AfkTotalAmountInclVAT_LCY, AfkLocalCurrency.Code);
@@ -1199,6 +1205,7 @@ report 50001 "A01 SalesQuotePrint"
         ArrestedSumLbl: Label 'Arrested at the sum of :';
         OffreLbl: Label 'Offer subject to conditions. See in store';
         ProformaLbl: Label 'This proforma invoice is valid until';
+        SiteLivraisonLbl: Label 'Site de livraison';
         // SalesConfirmationLbl: Label 'Sales Quote';
         InvDiscountAmtLbl: Label 'Invoice Discount';
         SubtotalLbl: Label 'Subtotal';

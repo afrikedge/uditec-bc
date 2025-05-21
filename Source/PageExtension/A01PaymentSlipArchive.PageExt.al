@@ -20,6 +20,13 @@ pageextension 50030 "A01 Payment Slip Archive" extends "Payment Slip Archive"
             {
                 ApplicationArea = Basic, Suite;
             }
+            field(A01SystemCreatedBy; SecMgt.A01GetUserNameFromSecurityId(Rec.SystemCreatedBy))
+            {
+                Caption = 'User Name';
+                ApplicationArea = Basic, Suite;
+            }
         }
     }
+    var
+        SecMgt: Codeunit "A01 Security Mgt";
 }

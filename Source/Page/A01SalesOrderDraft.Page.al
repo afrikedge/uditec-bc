@@ -1029,18 +1029,22 @@ page 50003 "A01 Sales Order - Draft"
                 field("A01 Credit Validation Status"; Rec."A01 Credit Validation Status")
                 {
                     ApplicationArea = Basic, Suite;
+                    Editable = CreditDetailsEditable;
                 }
                 field("A01 Credit Duration (Month)"; Rec."A01 Credit Duration (Month)")
                 {
                     ApplicationArea = Basic, Suite;
+                    Editable = CreditDetailsEditable;
                 }
                 field("A01 Interest rate"; Rec."A01 Interest rate")
                 {
                     ApplicationArea = Basic, Suite;
+                    Editable = CreditDetailsEditable;
                 }
                 field("A01 Sales Mode"; Rec."A01 Sales Mode")
                 {
                     ApplicationArea = Basic, Suite;
+                    Editable = CreditDetailsEditable;
                 }
             }
         }
@@ -2658,6 +2662,9 @@ page 50003 "A01 Sales Order - Draft"
         //RejectICSalesOrderEnabled := ICInboxOutboxMgt.IsSalesHeaderFromIncomingIC(Rec);
         VATDateEnabled := VATReportingDateMgt.IsVATDateEnabled();
         BasicEUEnabled := ApplicationAreaMgmtFacade.IsBasicCountryEnabled('EU');
+
+        UserSetup.Get(UserId);
+        CreditDetailsEditable := UserSetup."A01 Can Edit Credit Infos";
     end;
 
     trigger OnQueryClosePage(CloseAction: Action): Boolean
@@ -2744,6 +2751,7 @@ page 50003 "A01 Sales Order - Draft"
         //RejectICSalesOrderEnabled: Boolean;
         VATDateEnabled: Boolean;
         BasicEUEnabled: Boolean;
+        CreditDetailsEditable: Boolean;
 
     protected var
         ShipToOptions: Enum "Sales Ship-to Options";
@@ -3056,6 +3064,7 @@ page 50003 "A01 Sales Order - Draft"
     var
         PowerAutomateTemplatesEnabled: Boolean;
         PowerAutomateTemplatesFeatureLbl: Label 'PowerAutomateTemplates', Locked = true;
+        UserSetup: Record "User Setup";
 
     local procedure InitPowerAutomateTemplateVisibility()
     var

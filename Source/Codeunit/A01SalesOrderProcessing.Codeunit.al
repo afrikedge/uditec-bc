@@ -89,6 +89,12 @@ codeunit 50000 "A01 Sales Order Processing"
         //SalesH.TestField("Requested Delivery Date");
         //SalesH.TestField("Currency Code");
         SalesH.TestField("Order Date");
+
+        if (SalesH."Posting Date" = 0D) then begin
+            SalesH.Validate("Posting Date", WorkDate());
+            SalesH.Modify();
+        end;
+
         CheckLocaltionOnLines(SalesH);
 
         CheckIsOutOfStock(SalesH)

@@ -641,6 +641,8 @@ codeunit 50009 "A01 WS OrdersMgt"
         SalesOrder.Ship := true;
         SalesOrder.invoice := true;
         SalesOrder.Validate("Prepayment %", 0);
+        if (SalesOrder."Posting Date" = 0D) then
+            SalesOrder.Validate("Posting Date", WorkDate());
         SalesOrder.modify();
         SalesPost.Run(SalesOrder);
         exit(Ws.CreateResponseSuccess(SalesOrder."No."));

@@ -837,7 +837,7 @@ report 50038 "A01 CreditMemo"
                         end;
                         A01FormattedVAT := Format(Round(tempVAT, 0.001, '<'));
                         A01FormattedAmtHT := Format(Round(Line.Quantity * tempPU, 0.001, '<'));
-                        A01FormattedLineDiscountAmount := Format(Round((Line.Quantity * tempPU) * (Line."Line Discount %" / 100), 0.001, '<'));
+                        A01FormattedLineDiscountAmount := Format(Round((Line.Quantity * tempPU) * (Line."Line Discount %" / 100), 0.001, '<'), 0, '<Precision,2><Standard Format,0>');
                         FormattedLineAmountTTC := Format(Round(tempTTC, 0.001, '<'));
                     end;
                     A01LineQty := Round(Line.Quantity, 0.001, '<');

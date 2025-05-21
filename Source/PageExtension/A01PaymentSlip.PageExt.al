@@ -23,6 +23,11 @@ pageextension 50009 "A01 Payment Slip" extends "Payment Slip"
             {
                 ApplicationArea = Basic, Suite;
             }
+            field(A01SystemCreatedBy; SecMgt.A01GetUserNameFromSecurityId(Rec.SystemCreatedBy))
+            {
+                Caption = 'User Name';
+                ApplicationArea = Basic, Suite;
+            }
 
         }
         addafter("Shortcut Dimension 2 Code")
@@ -93,6 +98,8 @@ pageextension 50009 "A01 Payment Slip" extends "Payment Slip"
 
     var
         DimMgt: Codeunit DimensionManagement;
+
+        SecMgt: Codeunit "A01 Security Mgt";
         ShortcutDimCode: array[8] of Code[20];
         DimVisible1: Boolean;
         DimVisible2: Boolean;

@@ -35,6 +35,11 @@ pageextension 50014 "A01 Payment Slip List Archive" extends "Payment Slip List A
             {
                 ApplicationArea = Basic, Suite;
             }
+            field(A01SystemCreatedBy; SecMgt.A01GetUserNameFromSecurityId(Rec.SystemCreatedBy))
+            {
+                Caption = 'User Name';
+                ApplicationArea = Basic, Suite;
+            }
         }
 
     }
@@ -44,6 +49,9 @@ pageextension 50014 "A01 Payment Slip List Archive" extends "Payment Slip List A
     begin
         //SetFiltreCentreGestion();
     end;
+
+    var
+        SecMgt: Codeunit "A01 Security Mgt";
 
     // local procedure SetFiltreCentreGestion()
     // var

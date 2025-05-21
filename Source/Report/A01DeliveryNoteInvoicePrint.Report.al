@@ -278,7 +278,7 @@ report 50009 "A01 DeliveryNoteInvoicePrint"
                         HTPrice := Round(("Unit Price" * "VAT %") / 100, 0.01, '<');
                         VATHT := Round("Unit Price" + HTPrice, 0.01, '<');
                     end;
-                    A01TTcPriceText := Format(VATHT);
+                    A01TTcPriceText := Format(VATHT, 0, '<Precision,2><Standard Format,0>');
 
                     // LineDiscount := Round((Quantity * "Unit Price") * ("Line Discount %" / 100), 0.01, '<');
                     LineDiscount := Round(Quantity * VATHT * ("Line Discount %" / 100), 0.01, '<');

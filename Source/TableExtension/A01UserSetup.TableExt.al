@@ -86,5 +86,10 @@ tableextension 50001 "A01 User Setup" extends "User Setup"
             Caption = 'Can modify credit limit';
             DataClassification = CustomerContent;
         }
+        field(50016; "A01 Can Edit Credit Infos"; Boolean)
+        {
+            Caption = 'Can modify credit details';
+            DataClassification = CustomerContent;
+        }
     }
 }

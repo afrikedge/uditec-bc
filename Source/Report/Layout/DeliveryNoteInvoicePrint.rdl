@@ -1593,7 +1593,7 @@
                                                                   <Value>=Fields!Quantity.Value</Value>
                                                                   <Style>
                                                                     <FontSize>8pt</FontSize>
-                                                                    <Format>#,0;(#,0)</Format>
+                                                                    <Format>#,0.00;(#,0.00)</Format>
                                                                   </Style>
                                                                 </TextRun>
                                                               </TextRuns>
@@ -1627,6 +1627,7 @@
                                                                   <Value>=Fields!A01TTcPriceText.Value</Value>
                                                                   <Style>
                                                                     <FontSize>8pt</FontSize>
+                                                                    <Format>0.00;(0.00)</Format>
                                                                   </Style>
                                                                 </TextRun>
                                                               </TextRuns>
@@ -1926,7 +1927,6 @@
                                                             <PaddingBottom>2pt</PaddingBottom>
                                                           </Style>
                                                         </Textbox>
-                                                        <rd:Selected>true</rd:Selected>
                                                       </CellContents>
                                                     </TablixCell>
                                                   </TablixCells>
@@ -2114,6 +2114,7 @@
                                           </Border>
                                         </Style>
                                       </Rectangle>
+                                      <rd:Selected>true</rd:Selected>
                                     </CellContents>
                                   </TablixCell>
                                 </TablixCells>
