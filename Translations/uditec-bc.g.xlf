@@ -13118,6 +13118,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report A01 DeliveryNoteInvoicePrint - NamedType ArrestedOfSum__Caption</note>
         </trans-unit>
+        <trans-unit id="Report 3097000432 - NamedType 143795526" size-unit="char" translate="yes" xml:space="preserve">
+          <source>CIF:</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 DeliveryNoteInvoicePrint - NamedType CIF__Caption</note>
+        </trans-unit>
         <trans-unit id="Report 3097000432 - NamedType 3000703146" size-unit="char" translate="yes" xml:space="preserve">
           <source>Company signature</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -13163,6 +13168,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report A01 DeliveryNoteInvoicePrint - NamedType DiscountPercent__Caption</note>
         </trans-unit>
+        <trans-unit id="Report 3097000432 - NamedType 457941530" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Date d'écheance :</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 DeliveryNoteInvoicePrint - NamedType DueDate__Caption</note>
+        </trans-unit>
         <trans-unit id="Report 3097000432 - NamedType 3642584667" size-unit="char" translate="yes" xml:space="preserve">
           <source>Exchange rate: %1/%2</source>
           <note from="Developer" annotates="general" priority="2">%1 and %2 are both amounts.</note>
@@ -13182,6 +13192,11 @@
           <source>Delivery note N°:</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report A01 DeliveryNoteInvoicePrint - NamedType OrderNumberLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 3097000432 - NamedType 1336507574" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Modalité de paiement :</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 DeliveryNoteInvoicePrint - NamedType PaymentTerm__Caption</note>
         </trans-unit>
         <trans-unit id="Report 3097000432 - NamedType 1775621264" size-unit="char" translate="yes" xml:space="preserve">
           <source>Product code</source>
@@ -13293,6 +13308,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report A01 DeliveryNoteInvoiceTxt - NamedType ArrestedOfSum__Caption</note>
         </trans-unit>
+        <trans-unit id="Report 3737636543 - NamedType 143795526" size-unit="char" translate="yes" xml:space="preserve">
+          <source>CIF:</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 DeliveryNoteInvoiceTxt - NamedType CIF__Caption</note>
+        </trans-unit>
         <trans-unit id="Report 3737636543 - NamedType 3000703146" size-unit="char" translate="yes" xml:space="preserve">
           <source>Company signature</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -13338,6 +13358,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report A01 DeliveryNoteInvoiceTxt - NamedType DiscountPercent__Caption</note>
         </trans-unit>
+        <trans-unit id="Report 3737636543 - NamedType 457941530" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Date d'écheance :</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 DeliveryNoteInvoiceTxt - NamedType DueDate__Caption</note>
+        </trans-unit>
         <trans-unit id="Report 3737636543 - NamedType 3642584667" size-unit="char" translate="yes" xml:space="preserve">
           <source>Exchange rate: %1/%2</source>
           <note from="Developer" annotates="general" priority="2">%1 and %2 are both amounts.</note>
@@ -13357,6 +13382,11 @@
           <source>Delivery note N°:</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report A01 DeliveryNoteInvoiceTxt - NamedType OrderNumberLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 3737636543 - NamedType 1336507574" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Modalité de paiement :</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 DeliveryNoteInvoiceTxt - NamedType PaymentTerm__Caption</note>
         </trans-unit>
         <trans-unit id="Report 3737636543 - NamedType 1775621264" size-unit="char" translate="yes" xml:space="preserve">
           <source>Product code</source>
@@ -16278,6 +16308,11 @@
           <note from="Developer" annotates="general" priority="2">%1 = company name</note>
           <note from="Xliff Generator" annotates="general" priority="3">Report A01 SalesInvoiceCreditPrint - NamedType ChecksPayableLbl</note>
         </trans-unit>
+        <trans-unit id="Report 1604351383 - NamedType 143795526" size-unit="char" translate="yes" xml:space="preserve">
+          <source>CIF:</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 SalesInvoiceCreditPrint - NamedType CIF__Caption</note>
+        </trans-unit>
         <trans-unit id="Report 1604351383 - NamedType 1929423780" size-unit="char" translate="yes" xml:space="preserve">
           <source>Client Signature</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -16352,6 +16387,11 @@
           <source>Discount</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report A01 SalesInvoiceCreditPrint - NamedType DiscountPercentLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 1604351383 - NamedType 457941530" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Date d'écheance :</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 SalesInvoiceCreditPrint - NamedType DueDate__Caption</note>
         </trans-unit>
         <trans-unit id="Report 1604351383 - NamedType 1198791402" size-unit="char" translate="yes" xml:space="preserve">
           <source>Email</source>
@@ -16432,6 +16472,11 @@
           <source>Payment Terms :</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report A01 SalesInvoiceCreditPrint - NamedType PaymentTermsDescLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 1604351383 - NamedType 1336507574" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Modalité de paiement :</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 SalesInvoiceCreditPrint - NamedType PaymentTerm__Caption</note>
         </trans-unit>
         <trans-unit id="Report 1604351383 - NamedType 3007589352" size-unit="char" translate="yes" xml:space="preserve">
           <source>If we receive the payment before %1, you are eligible for a %2% payment discount.</source>
@@ -16628,6 +16673,11 @@
           <note from="Developer" annotates="general" priority="2">%1 = company name</note>
           <note from="Xliff Generator" annotates="general" priority="3">Report A01 SalesInvoicePrint - NamedType ChecksPayableLbl</note>
         </trans-unit>
+        <trans-unit id="Report 1919361468 - NamedType 143795526" size-unit="char" translate="yes" xml:space="preserve">
+          <source>CIF:</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 SalesInvoicePrint - NamedType CIF__Caption</note>
+        </trans-unit>
         <trans-unit id="Report 1919361468 - NamedType 1929423780" size-unit="char" translate="yes" xml:space="preserve">
           <source>Client Signature</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -16717,6 +16767,11 @@
           <source>Discount</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report A01 SalesInvoicePrint - NamedType DiscountPercentLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 1919361468 - NamedType 457941530" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Date d'écheance :</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 SalesInvoicePrint - NamedType DueDate__Caption</note>
         </trans-unit>
         <trans-unit id="Report 1919361468 - NamedType 1198791402" size-unit="char" translate="yes" xml:space="preserve">
           <source>Email</source>
@@ -16847,6 +16902,11 @@
           <source>Payment Terms :</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report A01 SalesInvoicePrint - NamedType PaymentTermsDescLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 1919361468 - NamedType 1336507574" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Modalité de paiement :</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 SalesInvoicePrint - NamedType PaymentTerm__Caption</note>
         </trans-unit>
         <trans-unit id="Report 1919361468 - NamedType 3007589352" size-unit="char" translate="yes" xml:space="preserve">
           <source>If we receive the payment before %1, you are eligible for a %2% payment discount.</source>
@@ -17108,6 +17168,11 @@
           <note from="Developer" annotates="general" priority="2">%1 = company name</note>
           <note from="Xliff Generator" annotates="general" priority="3">Report A01 SalesInvoiceUditec - NamedType ChecksPayableLbl</note>
         </trans-unit>
+        <trans-unit id="Report 52677077 - NamedType 143795526" size-unit="char" translate="yes" xml:space="preserve">
+          <source>CIF:</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 SalesInvoiceUditec - NamedType CIF__Caption</note>
+        </trans-unit>
         <trans-unit id="Report 52677077 - NamedType 1929423780" size-unit="char" translate="yes" xml:space="preserve">
           <source>Client Signature</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -17177,6 +17242,11 @@
           <source>Discount</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report A01 SalesInvoiceUditec - NamedType DiscountPercentLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 52677077 - NamedType 457941530" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Date d'écheance :</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 SalesInvoiceUditec - NamedType DueDate__Caption</note>
         </trans-unit>
         <trans-unit id="Report 52677077 - NamedType 1198791402" size-unit="char" translate="yes" xml:space="preserve">
           <source>Email</source>
@@ -17252,6 +17322,11 @@
           <source>Payment Terms :</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report A01 SalesInvoiceUditec - NamedType PaymentTermsDescLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 52677077 - NamedType 1336507574" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Modalité de paiement :</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 SalesInvoiceUditec - NamedType PaymentTerm__Caption</note>
         </trans-unit>
         <trans-unit id="Report 52677077 - NamedType 3007589352" size-unit="char" translate="yes" xml:space="preserve">
           <source>If we receive the payment before %1, you are eligible for a %2% payment discount.</source>
@@ -17538,6 +17613,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report A01 SalesOrderPrint - NamedType BillToContactPhoneNoLbl</note>
         </trans-unit>
+        <trans-unit id="Report 3247732489 - NamedType 143795526" size-unit="char" translate="yes" xml:space="preserve">
+          <source>CIF:</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 SalesOrderPrint - NamedType CIF__Caption</note>
+        </trans-unit>
         <trans-unit id="Report 3247732489 - NamedType 1464398968" size-unit="char" translate="yes" xml:space="preserve">
           <source>Country</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -17553,6 +17633,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report A01 SalesOrderPrint - NamedType DocumentTitleLbl</note>
         </trans-unit>
+        <trans-unit id="Report 3247732489 - NamedType 457941530" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Date d'écheance :</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 SalesOrderPrint - NamedType DueDate__Caption</note>
+        </trans-unit>
         <trans-unit id="Report 3247732489 - NamedType 3642584667" size-unit="char" translate="yes" xml:space="preserve">
           <source>Exchange rate: %1/%2</source>
           <note from="Developer" annotates="general" priority="2">%1 and %2 are both amounts.</note>
@@ -17562,6 +17647,11 @@
           <source>Page</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report A01 SalesOrderPrint - NamedType PageLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 3247732489 - NamedType 1336507574" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Modalité de paiement :</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 SalesOrderPrint - NamedType PaymentTerm__Caption</note>
         </trans-unit>
         <trans-unit id="Report 3247732489 - NamedType 727193652" size-unit="char" translate="yes" xml:space="preserve">
           <source>Seller name :</source>
@@ -17627,6 +17717,11 @@
           <source>Thank you for your business. Your quote is attached to this message.</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report A01 SalesQuotePrint - NamedType BodyLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 2502538013 - NamedType 143795526" size-unit="char" translate="yes" xml:space="preserve">
+          <source>CIF:</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 SalesQuotePrint - NamedType CIF__Caption</note>
         </trans-unit>
         <trans-unit id="Report 2502538013 - NamedType 3415439395" size-unit="char" translate="yes" xml:space="preserve">
           <source>City</source>
@@ -17698,6 +17793,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report A01 SalesQuotePrint - NamedType Document_No__Caption</note>
         </trans-unit>
+        <trans-unit id="Report 2502538013 - NamedType 457941530" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Date d'écheance :</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 SalesQuotePrint - NamedType DueDate__Caption</note>
+        </trans-unit>
         <trans-unit id="Report 2502538013 - NamedType 3642584667" size-unit="char" translate="yes" xml:space="preserve">
           <source>Exchange rate: %1/%2</source>
           <note from="Developer" annotates="general" priority="2">%1 and %2 are both amounts.</note>
@@ -17732,6 +17832,11 @@
           <source>Offer subject to conditions. See in store</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report A01 SalesQuotePrint - NamedType OffreLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 2502538013 - NamedType 1336507574" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Modalité de paiement :</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report A01 SalesQuotePrint - NamedType PaymentTerm__Caption</note>
         </trans-unit>
         <trans-unit id="Report 2502538013 - NamedType 3007589352" size-unit="char" translate="yes" xml:space="preserve">
           <source>If we receive the payment before %1, you are eligible for a %2% payment discount.</source>

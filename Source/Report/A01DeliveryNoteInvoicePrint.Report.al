@@ -194,6 +194,24 @@ report 50009 "A01 DeliveryNoteInvoicePrint"
             column(OptionType; OptionType)
             {
             }
+            column(cif; cif)
+            {
+            }
+            column(PaymentDescription; PaymentDescription)
+            {
+            }
+            column(Due_Date; Format("Due Date"))
+            {
+            }
+            column(CIF__Caption; CIF__Caption)
+            {
+            }
+            column(DueDate__Caption; DueDate__Caption)
+            {
+            }
+            column(PaymentTerm__Caption; PaymentTerm__Caption)
+            {
+            }
             dataitem("Sales Shipment Line"; "Sales Shipment Line")
             {
                 DataItemTableView = sorting("Document No.", "Line No.");
@@ -416,10 +434,14 @@ report 50009 "A01 DeliveryNoteInvoicePrint"
                     UnitPostalCode := LocRec."Post Code";
                 end;
 
+                if PaymentTerms.Get("Sales Shipment Header"."Payment Terms Code") then
+                    PaymentDescription := PaymentTerms.Description;
+
                 if Cust.Get("Sales Shipment Header"."Sell-to Customer No.") then begin
                     rcs := Cust."A01 RCS";
                     stat := Cust."A01 STAT";
                     nif := Cust."A01 NIF";
+                    cif := Cust."A01 CIF";
                     CustAddress := Cust.Address;
                     CustPhone := Cust."Phone No.";
                 end;
@@ -475,6 +497,7 @@ report 50009 "A01 DeliveryNoteInvoicePrint"
         RespCenter: Record "Responsibility Center";
         RespCenterUditec: Record "Responsibility Center";
         // RespCenterTXT: Record "Responsibility Center";
+        PaymentTerms: Record "Payment Terms";
         LocRec: Record Location;
         Cust: Record Customer;
         // Contact: Record Contact;
@@ -501,6 +524,11 @@ report 50009 "A01 DeliveryNoteInvoicePrint"
         rcs: Code[30];
         stat: Code[30];
         nif: Code[30];
+        PaymentDescription: Text[100];
+        CIF__Caption: Label 'CIF:';
+        DueDate__Caption: Label 'Date d''écheance :';
+        PaymentTerm__Caption: Label 'Modalité de paiement :';
+        cif: Code[30];
         AfkCurrencyName: Text;
         A01DiscountedPrice: Decimal;
         LineDiscount: Decimal;

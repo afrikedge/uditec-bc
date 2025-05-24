@@ -193,6 +193,24 @@ report 50001 "A01 SalesQuotePrint"
             column(SiteLivraisonLbl; SiteLivraisonLbl)
             {
             }
+            column(cif; cif)
+            {
+            }
+            column(PaymentDescription; PaymentDescription)
+            {
+            }
+            column(Due_Date; Format("Due Date"))
+            {
+            }
+            column(CIF__Caption; CIF__Caption)
+            {
+            }
+            column(DueDate__Caption; DueDate__Caption)
+            {
+            }
+            column(PaymentTerm__Caption; PaymentTerm__Caption)
+            {
+            }
             dataitem(Line; "Sales Line")
             {
                 DataItemTableView = sorting("Document No.", "Line No.");
@@ -863,6 +881,9 @@ report 50001 "A01 SalesQuotePrint"
                 if SalesPersonInfo.Get(Header."Salesperson Code") then
                     SellerName := SalesPersonInfo.Name;
 
+                if PaymentTerms.Get(Header."Payment Terms Code") then
+                    PaymentDescription := PaymentTerms.Description;
+
                 if Cust.Get(Header."Sell-to Customer No.") then
                     if Cust."A01 Customer Type" = Cust."A01 Customer Type"::Miscellaneous then begin
                         if ContactInfo.Get(Header."A01 Miscellaneous Contact") then begin
@@ -870,6 +891,7 @@ report 50001 "A01 SalesQuotePrint"
                             rcs := ContactInfo."A01 RCS";
                             stat := ContactInfo."A01 STAT";
                             nif := ContactInfo."A01 NIF";
+                            cif := ContactInfo."A01 CIF";
                             CustomerAddress := ContactInfo.Address;
                         end;
                     end else begin
@@ -878,6 +900,7 @@ report 50001 "A01 SalesQuotePrint"
                             rcs := Cust."A01 RCS";
                             stat := Cust."A01 STAT";
                             nif := Cust."A01 NIF";
+                            cif := Cust."A01 CIF";
                             CustomerAddress := Cust.Address;
                         end;
                     end;
@@ -1108,6 +1131,8 @@ report 50001 "A01 SalesQuotePrint"
         A01FormattedVAT: Text[50];
         UnitName: Text[100];
         rcs: Code[30];
+        cif: Code[30];
+        PaymentDescription: Text[100];
         nif: Code[30];
         stat: Code[30];
         A01FormattedLineDiscountAmount: Text[50];
@@ -1194,6 +1219,9 @@ report 50001 "A01 SalesQuotePrint"
         CustomerIdentity__Caption: Label 'Customer identity :';
         CustomerAddress__Caption: Label 'Customer address :';
         NIF__Caption: Label 'NIF:';
+        CIF__Caption: Label 'CIF:';
+        DueDate__Caption: Label 'Date d''écheance :';
+        PaymentTerm__Caption: Label 'Modalité de paiement :';
         STAT__Caption: Label 'STAT:';
         RCS__Caption: Label 'RCS:';
         CustomerPhone__Caption: Label 'Phone:';
