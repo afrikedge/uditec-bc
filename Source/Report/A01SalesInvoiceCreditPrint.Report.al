@@ -542,6 +542,24 @@ report 50010 "A01 SalesInvoiceCreditPrint"
             column(SiteLivraisonLbl; SiteLivraisonLbl)
             {
             }
+            column(cif; cif)
+            {
+            }
+            column(PaymentDescription; PaymentDescription)
+            {
+            }
+            column(Due_Date; Format("Due Date"))
+            {
+            }
+            column(CIF__Caption; CIF__Caption)
+            {
+            }
+            column(DueDate__Caption; DueDate__Caption)
+            {
+            }
+            column(PaymentTerm__Caption; PaymentTerm__Caption)
+            {
+            }
             dataitem(Line; "Sales Invoice Line")
             {
                 DataItemLink = "Document No." = field("No.");
@@ -1385,6 +1403,9 @@ report 50010 "A01 SalesInvoiceCreditPrint"
                     UnitPhone := RespCenter."Phone No.";
                 end;
 
+                if PaymentTerms.Get(Header."Payment Terms Code") then
+                    PaymentDescription := PaymentTerms.Description;
+
                 if Cust.Get(Header."Sell-to Customer No.") then
                     if Cust."A01 Customer Type" = Cust."A01 Customer Type"::Miscellaneous then begin
                         if ContactInfo.Get(Header."A01 Miscellaneous Contact") then begin
@@ -1392,6 +1413,7 @@ report 50010 "A01 SalesInvoiceCreditPrint"
                             rcs := ContactInfo."A01 RCS";
                             stat := ContactInfo."A01 STAT";
                             nif := ContactInfo."A01 NIF";
+                            cif := ContactInfo."A01 CIF";
                             CustAddress := ContactInfo.Address;
                         end;
                     end else begin
@@ -1400,6 +1422,7 @@ report 50010 "A01 SalesInvoiceCreditPrint"
                             rcs := Cust."A01 RCS";
                             stat := Cust."A01 STAT";
                             nif := Cust."A01 NIF";
+                            cif := Cust."A01 CIF";
                             CustAddress := Cust.Address;
                         end;
                     end;
@@ -1697,6 +1720,11 @@ report 50010 "A01 SalesInvoiceCreditPrint"
         rcs: Code[30];
         stat: Code[30];
         nif: Code[30];
+        PaymentDescription: Text[100];
+        CIF__Caption: Label 'CIF:';
+        DueDate__Caption: Label 'Date d''écheance :';
+        PaymentTerm__Caption: Label 'Modalité de paiement :';
+        cif: Code[30];
         UnitLbl: Label 'Unit';
         QtyLbl: Label 'Qty';
         PriceLbl: Label 'Price';
