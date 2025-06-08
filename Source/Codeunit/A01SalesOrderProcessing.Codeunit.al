@@ -392,7 +392,7 @@ codeunit 50000 "A01 Sales Order Processing"
                 end;
     end;
 
-    procedure BlockPartialInvoiceOnMiridra(SalesH: Record "Sales Header")
+    procedure BlockPartialInvoiceOnMiridra(SalesH: Record "Sales Header"; EverythingInvoiced: Boolean)
     var
         SalesLine: record "Sales Line";
         AfkSetup: Record "A01 Afk Setup";
@@ -408,6 +408,9 @@ codeunit 50000 "A01 Sales Order Processing"
 
         if (not TresoMgt.IsMultiMeadlinesInvoice(SalesH)) then
             exit;
+
+        if (not EverythingInvoiced) then
+            error(LblNotAutorize);
 
         if (SalesH.Invoice) then begin
             SalesLine.Reset();

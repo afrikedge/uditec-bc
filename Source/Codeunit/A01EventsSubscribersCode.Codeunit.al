@@ -18,7 +18,7 @@ codeunit 50002 "A01 EventsSubscribers_Code"
     var
         SalesOrderProcess: Codeunit "A01 Sales Order Processing";
     begin
-        SalesOrderProcess.BlockPartialInvoiceOnMiridra(SalesHeader);
+        SalesOrderProcess.BlockPartialInvoiceOnMiridra(SalesHeader, EverythingInvoiced);
     end;
 
     [EventSubscriber(ObjectType::Codeunit, Codeunit::"Sales-Post", 'OnFinalizePostingOnBeforeDeleteApprovalEntries', '', true, true)]
