@@ -382,6 +382,10 @@ table 50017 "A01 Afk Setup"
         {
             Caption = 'Allow partial invoice on Warehouse Shipment';
         }
+        field(82; "Activate sec on UnBlock Order"; Boolean)
+        {
+            Caption = 'Activate security on unblocking orders';
+        }
 
 
 

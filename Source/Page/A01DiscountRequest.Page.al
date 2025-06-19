@@ -59,8 +59,10 @@ page 50064 "A01 Discount Request"
                 trigger OnAction()
                 var
                     DocRequestMgt: Codeunit "A01 Document Request Mgt";
+
                     LabConfirmation: label 'Do you want to validate this request?';
                 begin
+
                     if (not confirm(LabConfirmation)) then
                         exit;
                     DocRequestMgt.ModifyStatus(Rec, '', Rec.Status::Validated);

@@ -91,5 +91,10 @@ tableextension 50001 "A01 User Setup" extends "User Setup"
             Caption = 'Can modify credit details';
             DataClassification = CustomerContent;
         }
+        field(50017; "A01 Can Unlock Order"; Boolean)
+        {
+            Caption = 'Can Unlock Order';
+            DataClassification = CustomerContent;
+        }
     }
 }

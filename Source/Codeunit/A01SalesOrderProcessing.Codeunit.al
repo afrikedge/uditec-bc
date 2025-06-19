@@ -409,9 +409,6 @@ codeunit 50000 "A01 Sales Order Processing"
         if (not TresoMgt.IsMultiMeadlinesInvoice(SalesH)) then
             exit;
 
-        if (not EverythingInvoiced) then
-            error(LblNotAutorize);
-
         if (SalesH.Invoice) then begin
             SalesLine.Reset();
             SalesLine.SetRange("Document Type", SalesH."Document Type");

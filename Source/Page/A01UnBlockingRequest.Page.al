@@ -99,8 +99,10 @@ page 50066 "A01 UnBlocking Request"
                 trigger OnAction()
                 var
                     DocRequestMgt: Codeunit "A01 Document Request Mgt";
+                    SecMgt: Codeunit "A01 Security Mgt";
                     LabConfirmation: label 'Do you want to validate this request?';
                 begin
+                    SecMgt.CheckIfUserCanUnblockOrder();
                     if (not confirm(LabConfirmation)) then
                         exit;
                     DocRequestMgt.ModifyStatus(Rec, '', Rec.Status::Validated);

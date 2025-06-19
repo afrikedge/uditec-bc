@@ -49,6 +49,9 @@ page 50040 "A01 Afk Setup"
                 field("Activate sec on sales discount"; Rec."Activate sec on sales discount")
                 {
                 }
+                field("Activate sec on UnBlock Order"; Rec."Activate sec on UnBlock Order")
+                {
+                }
 
 
             }

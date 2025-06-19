@@ -59,6 +59,10 @@ pageextension 50011 "A01 User Setup" extends "User Setup"
             {
                 ApplicationArea = Basic, Suite;
             }
+            field("A01 Can Unlock Order"; Rec."A01 Can Unlock Order")
+            {
+                ApplicationArea = Basic, Suite;
+            }
 
         }
         addafter("Allow Posting To")
