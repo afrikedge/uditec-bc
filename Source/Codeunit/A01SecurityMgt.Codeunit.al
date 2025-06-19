@@ -53,6 +53,17 @@ codeunit 50004 "A01 Security Mgt"
         Error(ErrNotAuthorizedAction);
     end;
 
+    procedure CheckIfUserCanUnblockOrder()
+    begin
+        AddOnSetup.GetRecordOnce();
+        if (not AddOnSetup."Activate sec on UnBlock Order") then exit;
+
+        if UserSetup.Get(UserId) then
+            if UserSetup."A01 Can Unlock Order" then
+                exit;
+        Error(ErrNotAuthorizedAction);
+    end;
+
     /// <summary>
     /// 
     /// </summary>
