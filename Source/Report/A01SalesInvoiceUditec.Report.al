@@ -1553,7 +1553,7 @@ report 50030 "A01 SalesInvoiceUditec"
         AfkTotalDeposit_LCYText: Text[50];
         AfkIsLine: Integer;
         NumLigne: Integer;
-        NumLigneText: Code[2];
+        NumLigneText: Code[3];
         // LogInteractionEnable: Boolean;
         WorkDescriptionInstream: InStream;
         TransHeaderAmount: Decimal;

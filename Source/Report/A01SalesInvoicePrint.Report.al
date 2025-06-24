@@ -2354,7 +2354,7 @@ report 50002 "A01 SalesInvoicePrint"
         AfkTotalDeposit_LCYText: Text[50];
         AfkIsLine: Integer;
         NumLigne: Integer;
-        NumLigneText: Code[2];
+        NumLigneText: Code[3];
         // LogInteractionEnable: Boolean;
         WorkDescriptionInstream: InStream;
         TransHeaderAmount: Decimal;

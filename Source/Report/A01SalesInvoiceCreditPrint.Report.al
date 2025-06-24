@@ -1697,7 +1697,7 @@ report 50010 "A01 SalesInvoiceCreditPrint"
         A01Balance: Decimal;
         A01Balance_LCYText: Text[50];
         NumLigne: Integer;
-        NumLigneText: Code[2];
+        NumLigneText: Code[3];
         AfkCurrCod: Code[20];
         A01DiscountedPriceText: Text[50];
         A01DiscountedPrice: Decimal;

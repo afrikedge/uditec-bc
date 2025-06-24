@@ -1061,7 +1061,7 @@ report 50007 "A01 SalesOrderPrint"
         NumLigne: Integer;
         A01LineQty: Decimal;
         A01LinePU: Decimal;
-        NumLigneText: Code[2];
+        NumLigneText: Code[3];
         ExchangeRateTxt: Label 'Exchange rate: %1/%2', Comment = '%1 and %2 are both amounts.';
         A01Report__Caption: Label 'PROFORMA INVOICE';
         A01UnitName__Caption: Label 'Unit name :';

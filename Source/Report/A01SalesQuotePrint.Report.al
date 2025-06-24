@@ -1106,7 +1106,7 @@ report 50001 "A01 SalesQuotePrint"
         AutoFormat: Codeunit "Auto Format";
         WorkDescriptionInstream: InStream;
         AfkCurrCode: Code[20];
-        NumLigneText: Code[2];
+        NumLigneText: Code[3];
         PostCode: Code[20];
         City: Code[30];
         // OptionValue: Option;
