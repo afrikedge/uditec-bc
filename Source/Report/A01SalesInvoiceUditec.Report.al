@@ -454,6 +454,9 @@ report 50030 "A01 SalesInvoiceUditec"
             column(AfkCurrCod; AfkCurrCod)
             {
             }
+            column(AfkCurrCode; AfkCurrCode)
+            {
+            }
             column(Sell_to_Customer_No_; "Sell-to Customer No.")
             {
             }

@@ -524,6 +524,9 @@ report 50010 "A01 SalesInvoiceCreditPrint"
             column(AfkCurrCod; AfkCurrCod)
             {
             }
+            column(AfkCurrCode; AfkCurrCode)
+            {
+            }
             column(Sell_to_Customer_No_; "Sell-to Customer No.")
             {
             }

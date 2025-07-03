@@ -1430,7 +1430,7 @@
                                                             <Paragraph>
                                                               <TextRuns>
                                                                 <TextRun>
-                                                                  <Value>=Fields!UnitPrice__Caption.Value &amp; " (" &amp; Fields!AfkCurrCod.Value &amp;")"</Value>
+                                                                  <Value>=Fields!UnitPrice__Caption.Value &amp; " (" &amp; Fields!AfkCurrCode.Value &amp;")"</Value>
                                                                   <Style>
                                                                     <FontSize>8pt</FontSize>
                                                                     <FontWeight>Bold</FontWeight>
@@ -1476,7 +1476,7 @@
                                                             <Paragraph>
                                                               <TextRuns>
                                                                 <TextRun>
-                                                                  <Value>=Fields!DiscountPercent__Caption.Value &amp; " (" &amp; Fields!AfkCurrCod.Value &amp;")"</Value>
+                                                                  <Value>=Fields!DiscountPercent__Caption.Value &amp; " (" &amp; Fields!AfkCurrCode.Value &amp;")"</Value>
                                                                   <Style>
                                                                     <FontSize>8pt</FontSize>
                                                                     <FontWeight>Bold</FontWeight>
@@ -1522,7 +1522,7 @@
                                                             <Paragraph>
                                                               <TextRuns>
                                                                 <TextRun>
-                                                                  <Value>=Fields!DiscountAmount__Caption.Value &amp; " (" &amp; Fields!AfkCurrCod.Value &amp;")"</Value>
+                                                                  <Value>=Fields!DiscountAmount__Caption.Value &amp; " (" &amp; Fields!AfkCurrCode.Value &amp;")"</Value>
                                                                   <Style>
                                                                     <FontSize>8pt</FontSize>
                                                                     <FontWeight>Bold</FontWeight>
@@ -2051,7 +2051,7 @@
                                                             <Paragraph>
                                                               <TextRuns>
                                                                 <TextRun>
-                                                                  <Value>=Fields!TotalHT__Caption.Value &amp; " (" &amp; Fields!AfkCurrCod.Value &amp;")"</Value>
+                                                                  <Value>=Fields!TotalHT__Caption.Value &amp; " (" &amp; Fields!AfkCurrCode.Value &amp;")"</Value>
                                                                   <Style>
                                                                     <FontSize>8pt</FontSize>
                                                                     <FontWeight>Bold</FontWeight>
@@ -2127,7 +2127,7 @@
                                                             <Paragraph>
                                                               <TextRuns>
                                                                 <TextRun>
-                                                                  <Value>=Fields!VATText.Value &amp; " (" &amp; Fields!AfkCurrCod.Value &amp;")"</Value>
+                                                                  <Value>=Fields!VATText.Value &amp; " (" &amp; Fields!AfkCurrCode.Value &amp;")"</Value>
                                                                   <Style>
                                                                     <FontSize>8pt</FontSize>
                                                                     <FontWeight>Bold</FontWeight>
@@ -2203,7 +2203,7 @@
                                                             <Paragraph>
                                                               <TextRuns>
                                                                 <TextRun>
-                                                                  <Value>=Fields!TotalTTC__Caption.Value &amp; " (" &amp; Fields!AfkCurrCod.Value &amp;")"</Value>
+                                                                  <Value>=Fields!TotalTTC__Caption.Value &amp; " (" &amp; Fields!AfkCurrCode.Value &amp;")"</Value>
                                                                   <Style>
                                                                     <FontSize>8pt</FontSize>
                                                                     <FontWeight>Bold</FontWeight>
@@ -3415,6 +3415,9 @@ AAAAAAAAAECjsYAGAAAAAAAAAAAAAAAAjcYCGgAAAAAAAAAAAAAAADQaC2gAAAAAAAAAAAAAAADQaCyg
         </Field>
         <Field Name="AfkCurrCod">
           <DataField>AfkCurrCod</DataField>
+        </Field>
+        <Field Name="AfkCurrCode">
+          <DataField>AfkCurrCode</DataField>
         </Field>
         <Field Name="CustomerName__Caption">
           <DataField>CustomerName__Caption</DataField>

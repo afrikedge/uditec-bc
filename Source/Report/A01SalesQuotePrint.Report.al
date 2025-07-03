@@ -109,6 +109,9 @@ report 50001 "A01 SalesQuotePrint"
             column(AfkCurrCod; AfkCurrCod)
             {
             }
+            column(AfkCurrCode; AfkCurrCode)
+            {
+            }
             column(CustomerName__Caption; CustomerName__Caption)
             {
             }
