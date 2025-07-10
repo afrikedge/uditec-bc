@@ -812,7 +812,7 @@ report 50010 "A01 SalesInvoiceCreditPrint"
                     SalesLineRec.Reset();
                     SalesLineRec.SetRange("Document No.", Header."No.");
                     if SalesLineRec.FindFirst() then
-                        VATText := VAT20Lbl + '(' + Format(SalesLineRec."VAT %") + ')';
+                        VATText := VAT20Lbl + '(' + Format(SalesLineRec."VAT %") + '%' + ')';
 
                     InitializeShipmentLine();
                     // if Type = Type::"G/L Account" then

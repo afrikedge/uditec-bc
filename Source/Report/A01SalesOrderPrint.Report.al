@@ -554,7 +554,7 @@ report 50007 "A01 SalesOrderPrint"
                     SalesLineRec.Reset();
                     SalesLineRec.SetRange("Document No.", Header."No.");
                     if SalesLineRec.FindFirst() then
-                        VATText := A01TVA__Caption + '(' + Format(SalesLineRec."VAT %") + ')';
+                        VATText := A01TVA__Caption + '(' + Format(SalesLineRec."VAT %") + '%' + ')';
 
                     if Type = Type::"G/L Account" then
                         // "No." := '';

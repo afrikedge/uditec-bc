@@ -1333,7 +1333,7 @@ report 50002 "A01 SalesInvoicePrint"
                     SalesLineRec.Reset();
                     SalesLineRec.SetRange("Document No.", Header."No.");
                     if SalesLineRec.FindFirst() then
-                        VATText := VAT20Lbl + '(' + Format(SalesLineRec."VAT %") + ')';
+                        VATText := VAT20Lbl + '(' + Format(SalesLineRec."VAT %") + '%' + ')';
 
                     InitializeShipmentLine();
                     if Type = Type::"G/L Account" then

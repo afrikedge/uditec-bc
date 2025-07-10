@@ -402,7 +402,7 @@ report 50001 "A01 SalesQuotePrint"
                     SalesLineRec.Reset();
                     SalesLineRec.SetRange("Document No.", Header."No.");
                     if SalesLineRec.FindFirst() then
-                        VATText := TVA__Caption + '(' + Format(SalesLineRec."VAT %") + ')';
+                        VATText := TVA__Caption + '(' + Format(SalesLineRec."VAT %") + '%' + ')';
 
                     // InitializeShipmentLine();
                     if Type = Type::"G/L Account" then

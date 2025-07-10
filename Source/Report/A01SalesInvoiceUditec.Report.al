@@ -743,7 +743,7 @@ report 50030 "A01 SalesInvoiceUditec"
                     SalesLineRec.Reset();
                     SalesLineRec.SetRange("Document No.", Header."No.");
                     if SalesLineRec.FindFirst() then
-                        VATText := VAT20Lbl + '(' + Format(SalesLineRec."VAT %") + ')';
+                        VATText := VAT20Lbl + '(' + Format(SalesLineRec."VAT %") + '%' + ')';
 
                     InitializeShipmentLine();
 
