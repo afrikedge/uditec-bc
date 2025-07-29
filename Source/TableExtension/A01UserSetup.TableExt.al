@@ -96,5 +96,10 @@ tableextension 50001 "A01 User Setup" extends "User Setup"
             Caption = 'Can Unlock Order';
             DataClassification = CustomerContent;
         }
+        field(50018; "A01 Can Edit Due Date"; Boolean)
+        {
+            Caption = 'Can modify due date on cust ledger entries';
+            DataClassification = CustomerContent;
+        }
     }
 }

@@ -19,6 +19,10 @@ pageextension 50019 "A01 Payment Methods" extends "Payment Methods"
             {
                 ApplicationArea = All;
             }
+            field("A01 Reference Check"; Rec."A01 Reference Check")
+            {
+                ApplicationArea = All;
+            }
         }
     }
 }

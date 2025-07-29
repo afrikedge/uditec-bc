@@ -49,6 +49,13 @@ pageextension 50013 "A01 Payment Slip List" extends "Payment Slip List"
                 ApplicationArea = Basic, Suite;
                 Caption = 'User Name';
             }
+            field(A01ShortcutDimCode3; ShortcutDimCode[3])
+            {
+                ApplicationArea = Dimensions;
+                CaptionClass = '1,2,3';
+                //Visible = DimVisible3;
+
+            }
         }
 
     }
@@ -72,6 +79,19 @@ pageextension 50013 "A01 Payment Slip List" extends "Payment Slip List"
         end;
     end;
 
+    trigger OnAfterGetRecord()
     var
+    begin
+        ShowShortcutDimCode(ShortcutDimCode);
+    end;
+
+    procedure ShowShortcutDimCode(var ShortcutDimCode: array[8] of Code[20])
+    begin
+        DimMgt.GetShortcutDimensions(Rec."Dimension Set ID", ShortcutDimCode);
+    end;
+
+    var
+        DimMgt: Codeunit DimensionManagement;
         SecMgt: Codeunit "A01 Security Mgt";
+        ShortcutDimCode: array[8] of Code[20];
 }

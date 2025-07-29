@@ -63,6 +63,10 @@ pageextension 50011 "A01 User Setup" extends "User Setup"
             {
                 ApplicationArea = Basic, Suite;
             }
+            field("A01 Can Edit Due Date"; Rec."A01 Can Edit Due Date")
+            {
+                ApplicationArea = Basic, Suite;
+            }
 
         }
         addafter("Allow Posting To")
