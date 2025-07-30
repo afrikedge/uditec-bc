@@ -299,12 +299,6 @@ pageextension 50002 "A01 Order Processor RC" extends "Order Processor Role Cente
                     Caption = 'Activity Feedback List';
                     RunObject = Page "A01 Activity Feedback List";
                 }
-                action(A01OperationPleinCuveList)
-                {
-                    ApplicationArea = Basic, Suite;
-                    Caption = 'Operation Plein Cuve List';
-                    RunObject = Page "A01 Operation Plein Cuve List";
-                }
 
             }
             group(A01_Compta)
