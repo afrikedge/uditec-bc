@@ -1,4 +1,4 @@
-/// <summary>
+﻿/// <summary>
 /// Codeunit AFK01 CodeEventsSubscribers (ID 50002).
 /// </summary>
 codeunit 50002 "A01 EventsSubscribers_Code"
@@ -30,6 +30,7 @@ codeunit 50002 "A01 EventsSubscribers_Code"
         SalesOrderProcess.ChangeStatusOnSalesPosting(SalesHeader);
         SalesOrderProcess.CheckLocaltionOnLines(SalesHeader);
         //SalesOrderProcess.BlockPartialInvoiceOnMiridra(SalesHeader);
+        //SalesOrderProcess.CheckStatusOnPosting(SalesHeader);
     end;
 
 
