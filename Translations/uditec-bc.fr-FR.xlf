@@ -1683,6 +1683,12 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table A01 Import Document - Field Amount3 - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Table 3927884366 - Field 3473146343 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Boolean1</source>
+          <target state="needs-review-translation">Boolean1</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table A01 Import Document - Field Boolean1 - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Table 3927884366 - Field 1344576446 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Code10_1</source>
           <target state="needs-review-translation">Code10_1</target>
@@ -1706,6 +1712,18 @@
           <target state="needs-review-translation">Code20_3</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table A01 Import Document - Field Code20_3 - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3927884366 - Field 2688099599 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Date1</source>
+          <target state="needs-review-translation">Date1</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table A01 Import Document - Field Date1 - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3927884366 - Field 306222154 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Date2</source>
+          <target state="needs-review-translation">Date2</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table A01 Import Document - Field Date2 - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 3927884366 - Field 3461834954 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Description</source>
@@ -1922,6 +1940,36 @@
           <target state="needs-review-translation">Quartier</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table A01 Neighborhood - Field Neighborhood - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3433738714 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Operation Plein Cuve</source>
+          <target state="needs-review-translation">Operation Plein Cuve</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table A01 Operation Plein Cuve - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3433738714 - Field 4190130733 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Customer No.</source>
+          <target state="needs-review-translation">Code client</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table A01 Operation Plein Cuve - Field Customer No. - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3433738714 - Field 458406397 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Ending Date</source>
+          <target state="needs-review-translation">Date fin</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table A01 Operation Plein Cuve - Field Ending Date - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3433738714 - Field 2494688018 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Inactif</source>
+          <target state="needs-review-translation">Inactif</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table A01 Operation Plein Cuve - Field Inactif - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3433738714 - Field 460889064 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Starting Date</source>
+          <target state="needs-review-translation">Date début</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table A01 Operation Plein Cuve - Field Starting Date - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 782004688 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Parameter Record</source>
@@ -7850,6 +7898,18 @@
           <target state="needs-review-translation">Objets (Circuits)</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page A01 Objects - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3889291384 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Operation Plein Cuve List</source>
+          <target state="needs-review-translation">Liste Operation Plein Cuve</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page A01 Operation Plein Cuve List - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3889291384 - Action 3622942983 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Import</source>
+          <target state="needs-review-translation">Importer</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page A01 Operation Plein Cuve List - Action ImportLettrage - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 3245512780 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Parameter Value List</source>
@@ -22467,6 +22527,24 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">XmlPort A01 Import Lettrage - Control NosOfLines - Property Caption</note>
         </trans-unit>
+        <trans-unit id="XmlPort 3357604667 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Import Operation Plein Cuve</source>
+          <target state="needs-review-translation">Import Operation Plein Cuve</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">XmlPort A01 Import Op Plein Cuve - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="XmlPort 3357604667 - NamedType 16731361" size-unit="char" translate="yes" xml:space="preserve">
+          <source>End of importation. %1 lines processed</source>
+          <target state="needs-translation"></target>
+          <note from="Developer" annotates="general" priority="2">%1=...</note>
+          <note from="Xliff Generator" annotates="general" priority="3">XmlPort A01 Import Op Plein Cuve - NamedType LblEndOfProcess</note>
+        </trans-unit>
+        <trans-unit id="XmlPort 3357604667 - NamedType 3283546407" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Traitement @1@@@@@@@@@@@@@@@@@@@@@@@@@@@@\</source>
+          <target state="needs-translation"></target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">XmlPort A01 Import Op Plein Cuve - NamedType Text008</note>
+        </trans-unit>
         <trans-unit id="XmlPort 280469533 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Import Sales Price lines</source>
           <target state="needs-review-translation">import des lignes (Prix de vente)</target>
@@ -22976,6 +23054,12 @@
           <target state="needs-review-translation">Objets (Circuits)</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension A01 Order Processor RC - Action A01Objets - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 3250568499 - Action 3554239832 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2747922353">
+          <source>Operation Plein Cuve List</source>
+          <target state="needs-review-translation">Liste Operation Plein Cuve</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension A01 Order Processor RC - Action A01OperationPleinCuveList - Property Caption</note>
         </trans-unit>
         <trans-unit id="PageExtension 3250568499 - Action 3362735432 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2747922353">
           <source>Price list</source>
@@ -24122,6 +24206,12 @@
           <target state="needs-review-translation">Label</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension A01 Payment Method - Field A01 Caption - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 2932824535 - Field 854293855 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 3566004263">
+          <source>Reference Check</source>
+          <target state="needs-translation"></target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension A01 Payment Method - Field A01 Reference Check - Property Caption</note>
         </trans-unit>
         <trans-unit id="TableExtension 2932824535 - Field 3111993894 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 3566004263">
           <source>Reference required</source>
@@ -25382,6 +25472,12 @@
           <target state="needs-review-translation">Peu modifier détails du crédit</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension A01 User Setup - Field A01 Can Edit Credit Infos - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 4102593426 - Field 1931667068 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 337631938">
+          <source>Can modify due date on cust ledger entries</source>
+          <target state="needs-review-translation">Peut modifier date échéance</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension A01 User Setup - Field A01 Can Edit Due Date - Property Caption</note>
         </trans-unit>
         <trans-unit id="TableExtension 4102593426 - Field 1313577530 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 337631938">
           <source>Can modify credit limit</source>

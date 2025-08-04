@@ -1,5 +1,12 @@
 pageextension 50044 "A01 Customer Ledger Entries" extends "Customer Ledger Entries"
 {
+    layout
+    {
+        modify("Due Date")
+        {
+            Editable = DueDateIsEditable;
+        }
+    }
     actions
     {
         addafter(Dimensions)
@@ -36,4 +43,20 @@ pageextension 50044 "A01 Customer Ledger Entries" extends "Customer Ledger Entri
             }
         }
     }
+    trigger OnAfterGetCurrRecord()
+    var
+    begin
+        DueDateIsEditable := CanEditDueDate();
+    end;
+
+    local procedure CanEditDueDate(): Boolean
+    var
+        UserSetup: Record "User Setup";
+    begin
+        if (UserSetup.get(UserId)) then
+            exit(UserSetup."A01 Can Edit Due Date");
+    end;
+
+    var
+        DueDateIsEditable: Boolean;
 }

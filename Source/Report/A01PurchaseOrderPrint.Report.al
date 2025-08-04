@@ -1375,7 +1375,7 @@ report 50006 "A01 PurchaseOrderPrint"
                 PurchLineRec.Reset();
                 PurchLineRec.SetRange("Document No.", "Purchase Header"."No.");
                 if PurchLineRec.FindFirst() then
-                    VATText := A01TotalVAT__Lbl + '(' + Format(PurchLineRec."VAT %") + ')';
+                    VATText := A01TotalVAT__Lbl + '(' + Format(PurchLineRec."VAT %") + '%' + ')';
 
                 TotalSubTotal := 0;
                 // TotalInvDiscAmount := 0;
@@ -1528,7 +1528,7 @@ report 50006 "A01 PurchaseOrderPrint"
         A01DiscountedPriceText: Text[50];
         VATBaseAmount: Decimal;
         AfkIsLine: Integer;
-        NumLigneText: Code[2];
+        NumLigneText: Code[3];
         // TotalInvDiscAmount: Decimal;
         // TotalPaymentDiscOnVAT: Decimal;
         TotalAmountVAT: Decimal;

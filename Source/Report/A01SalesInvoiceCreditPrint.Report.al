@@ -524,6 +524,9 @@ report 50010 "A01 SalesInvoiceCreditPrint"
             column(AfkCurrCod; AfkCurrCod)
             {
             }
+            column(AfkCurrCode; AfkCurrCode)
+            {
+            }
             column(Sell_to_Customer_No_; "Sell-to Customer No.")
             {
             }
@@ -809,7 +812,7 @@ report 50010 "A01 SalesInvoiceCreditPrint"
                     SalesLineRec.Reset();
                     SalesLineRec.SetRange("Document No.", Header."No.");
                     if SalesLineRec.FindFirst() then
-                        VATText := VAT20Lbl + '(' + Format(SalesLineRec."VAT %") + ')';
+                        VATText := VAT20Lbl + '(' + Format(SalesLineRec."VAT %") + '%' + ')';
 
                     InitializeShipmentLine();
                     // if Type = Type::"G/L Account" then
@@ -1697,7 +1700,7 @@ report 50010 "A01 SalesInvoiceCreditPrint"
         A01Balance: Decimal;
         A01Balance_LCYText: Text[50];
         NumLigne: Integer;
-        NumLigneText: Code[2];
+        NumLigneText: Code[3];
         AfkCurrCod: Code[20];
         A01DiscountedPriceText: Text[50];
         A01DiscountedPrice: Decimal;

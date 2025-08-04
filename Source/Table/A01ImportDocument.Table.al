@@ -89,6 +89,15 @@ table 50044 "A01 Import Document"
         field(24; "Code10_1"; Code[10])
         {
         }
+        field(25; "Date1"; Date)
+        {
+        }
+        field(26; "Date2"; Date)
+        {
+        }
+        field(27; "Boolean1"; Boolean)
+        {
+        }
     }
     keys
     {

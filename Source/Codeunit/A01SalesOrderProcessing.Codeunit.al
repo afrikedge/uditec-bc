@@ -671,4 +671,12 @@ codeunit 50000 "A01 Sales Order Processing"
             until CustScoringCriteria.Next() < 1;
     end;
 
+    internal procedure CheckStatusOnPosting(SalesHeader: Record "Sales Header")
+    var
+        WrongStatusErr: Label 'Order %1 is not in a status where it can be processed',Comment='%1';
+    begin
+        if (SalesHeader."A01 Processing Status" = SalesHeader."A01 Processing Status"::Draft) then
+            Error(WrongStatusErr,SalesHeader."No.");
+    end;
+
 }

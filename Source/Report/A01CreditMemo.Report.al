@@ -852,7 +852,7 @@ report 50038 "A01 CreditMemo"
                     SalesLineRec.Reset();
                     SalesLineRec.SetRange("Document No.", Header."No.");
                     if SalesLineRec.FindFirst() then
-                        VATText := VAT20Lbl + ' (' + Format(SalesLineRec."VAT %") + ')';
+                        VATText := VAT20Lbl + ' (' + Format(SalesLineRec."VAT %") + '%' + ')';
 
                     InitializeSalesShipmentLine();
                     if Type = Type::"G/L Account" then

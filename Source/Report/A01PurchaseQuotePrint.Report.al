@@ -810,7 +810,7 @@ report 50008 "A01 PurchaseQuotePrint"
         VATAmount: Decimal;
         VATBaseAmount: Decimal;
         AfkIsLine: Integer;
-        NumLigneText: Code[2];
+        NumLigneText: Code[3];
         // TotalInvDiscAmount: Decimal;
         // TotalPaymentDiscOnVAT: Decimal;
         TotalAmountVAT: Decimal;

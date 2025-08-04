@@ -306,6 +306,12 @@ permissionset 50000 "A01 Uditec_All"
         page "A01 Tranpsort Order List" = X,
         page "A01 Transport Order" = X,
         page "A01 Transport Order Subform" = X,
-        page "A01 Vehicules" = X;
+        page "A01 Vehicules" = X,
+        report "A01 BOA Check" = X,
+        report "A01 CreditMemo" = X,
+        report "A01 Recu Client" = X,
+        report "A01 Recu fournisseur" = X,
+        report "A01 RecuDecaissement" = X,
+        page "A01 Neighborhood List" = X;
     //page "A01 Customer Settlements" = X;
 }

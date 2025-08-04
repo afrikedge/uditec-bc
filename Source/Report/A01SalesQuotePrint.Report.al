@@ -109,6 +109,9 @@ report 50001 "A01 SalesQuotePrint"
             column(AfkCurrCod; AfkCurrCod)
             {
             }
+            column(AfkCurrCode; AfkCurrCode)
+            {
+            }
             column(CustomerName__Caption; CustomerName__Caption)
             {
             }
@@ -399,7 +402,7 @@ report 50001 "A01 SalesQuotePrint"
                     SalesLineRec.Reset();
                     SalesLineRec.SetRange("Document No.", Header."No.");
                     if SalesLineRec.FindFirst() then
-                        VATText := TVA__Caption + '(' + Format(SalesLineRec."VAT %") + ')';
+                        VATText := TVA__Caption + '(' + Format(SalesLineRec."VAT %") + '%' + ')';
 
                     // InitializeShipmentLine();
                     if Type = Type::"G/L Account" then
@@ -1106,7 +1109,7 @@ report 50001 "A01 SalesQuotePrint"
         AutoFormat: Codeunit "Auto Format";
         WorkDescriptionInstream: InStream;
         AfkCurrCode: Code[20];
-        NumLigneText: Code[2];
+        NumLigneText: Code[3];
         PostCode: Code[20];
         City: Code[30];
         // OptionValue: Option;

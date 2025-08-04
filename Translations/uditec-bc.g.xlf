@@ -1403,6 +1403,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table A01 Import Document - Field Amount3 - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Table 3927884366 - Field 3473146343 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Boolean1</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table A01 Import Document - Field Boolean1 - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Table 3927884366 - Field 1344576446 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Code10_1</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -1422,6 +1427,16 @@
           <source>Code20_3</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table A01 Import Document - Field Code20_3 - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3927884366 - Field 2688099599 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Date1</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table A01 Import Document - Field Date1 - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3927884366 - Field 306222154 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Date2</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table A01 Import Document - Field Date2 - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 3927884366 - Field 3461834954 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Description</source>
@@ -4707,6 +4722,11 @@
           <source>Error occured on posting prepayment : No invoice created</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit A01 Sales Order Processing - Method CheckIsAwaitingPrepayment - NamedType LblErrorPosteSales</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 4233996319 - Method 1984710797 - NamedType 3163058897" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Order %1 is not in a status where it can be processed</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit A01 Sales Order Processing - Method CheckStatusOnPosting - NamedType OrderStatusErr</note>
         </trans-unit>
         <trans-unit id="Codeunit 4233996319 - Method 786011703 - NamedType 1412695557" size-unit="char" translate="yes" xml:space="preserve">
           <source>Order document %1 has no lines</source>
@@ -20103,6 +20123,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension A01 Payment Method - Field A01 Caption - Property Caption</note>
         </trans-unit>
+        <trans-unit id="TableExtension 2932824535 - Field 854293855 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 3566004263">
+          <source>Reference Check</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension A01 Payment Method - Field A01 Reference Check - Property Caption</note>
+        </trans-unit>
         <trans-unit id="TableExtension 2932824535 - Field 3111993894 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 3566004263">
           <source>Reference required</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -21152,6 +21177,11 @@
           <source>Can modify credit details</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension A01 User Setup - Field A01 Can Edit Credit Infos - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 4102593426 - Field 1931667068 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 337631938">
+          <source>Can modify due date on cust ledger entries</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension A01 User Setup - Field A01 Can Edit Due Date - Property Caption</note>
         </trans-unit>
         <trans-unit id="TableExtension 4102593426 - Field 1313577530 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 337631938">
           <source>Can modify credit limit</source>

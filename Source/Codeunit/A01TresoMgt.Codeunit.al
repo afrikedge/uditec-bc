@@ -449,6 +449,7 @@ codeunit 50007 "A01 Treso Mgt"
 
         GenJnlLine.Validate("Payment Method Code", RCPaymentMethod."Payment Method");
         GenJnlLine."Payment Reference" := SalesPaymentLine.Reference;
+        GenJnlLine."External Document No." := CopyStr(SalesPaymentLine.Reference, 1, 35);
 
         SetBalAccAndApplyToDocNo(RCPaymentMethod, GenJnlLine, DocType, DocNo);
 
@@ -520,6 +521,7 @@ codeunit 50007 "A01 Treso Mgt"
             GenJnlLine."Document Type" := GenJnlLine."Document Type"::"Credit Memo";
         GenJnlLine."Payment Method Code" := CustSettlementLine."Payment Method";
         GenJnlLine."Payment Reference" := CustSettlementLine.Reference;
+        GenJnlLine."External Document No." := CustSettlementLine.Reference;
 
 
         SetBalAccAndApplyToID(RCPaymentMethod, GenJnlLine, ApplyToNo, ApplyType);

@@ -20,5 +20,10 @@ tableextension 50016 "A01 Payment Method" extends "Payment Method"
             Caption = 'Label';
             DataClassification = CustomerContent;
         }
+        field(50003; "A01 Reference Check"; Boolean)
+        {
+            Caption = 'Reference Check';
+            DataClassification = CustomerContent;
+        }
     }
 }

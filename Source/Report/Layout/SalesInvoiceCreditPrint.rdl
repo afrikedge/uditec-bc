@@ -1429,7 +1429,7 @@
                                                             <Paragraph>
                                                               <TextRuns>
                                                                 <TextRun>
-                                                                  <Value>=Fields!UnitPriceLbl.Value &amp; " (" &amp; Fields!AfkCurrCod.Value &amp;")"</Value>
+                                                                  <Value>=Fields!UnitPriceLbl.Value &amp; " (" &amp; Fields!AfkCurrCode.Value &amp;")"</Value>
                                                                   <Style>
                                                                     <FontSize>8pt</FontSize>
                                                                     <FontWeight>Bold</FontWeight>
@@ -1475,7 +1475,7 @@
                                                             <Paragraph>
                                                               <TextRuns>
                                                                 <TextRun>
-                                                                  <Value>=Fields!DiscountPercentLbl.Value &amp; " (" &amp; Fields!AfkCurrCod.Value &amp;")"</Value>
+                                                                  <Value>=Fields!DiscountPercentLbl.Value &amp; " (" &amp; Fields!AfkCurrCode.Value &amp;")"</Value>
                                                                   <Style>
                                                                     <FontSize>8pt</FontSize>
                                                                     <FontWeight>Bold</FontWeight>
@@ -1521,7 +1521,7 @@
                                                             <Paragraph>
                                                               <TextRuns>
                                                                 <TextRun>
-                                                                  <Value>=Fields!DiscountAmountLbl.Value &amp; " (" &amp; Fields!AfkCurrCod.Value &amp;")"</Value>
+                                                                  <Value>=Fields!DiscountAmountLbl.Value &amp; " (" &amp; Fields!AfkCurrCode.Value &amp;")"</Value>
                                                                   <Style>
                                                                     <FontSize>8pt</FontSize>
                                                                     <FontWeight>Bold</FontWeight>
@@ -2016,7 +2016,7 @@
                                                             <Paragraph>
                                                               <TextRuns>
                                                                 <TextRun>
-                                                                  <Value>=Fields!HTPriceLbl.Value &amp; " (" &amp; Fields!AfkCurrCod.Value &amp;")"</Value>
+                                                                  <Value>=Fields!HTPriceLbl.Value &amp; " (" &amp; Fields!AfkCurrCode.Value &amp;")"</Value>
                                                                   <Style>
                                                                     <FontSize>8pt</FontSize>
                                                                     <FontWeight>Bold</FontWeight>
@@ -2092,7 +2092,7 @@
                                                             <Paragraph>
                                                               <TextRuns>
                                                                 <TextRun>
-                                                                  <Value>=Fields!VATText.Value &amp; " (" &amp; Fields!AfkCurrCod.Value &amp;")"</Value>
+                                                                  <Value>=Fields!VATText.Value &amp; " (" &amp; Fields!AfkCurrCode.Value &amp;")"</Value>
                                                                   <Style>
                                                                     <FontSize>8pt</FontSize>
                                                                     <FontWeight>Bold</FontWeight>
@@ -2168,7 +2168,7 @@
                                                             <Paragraph>
                                                               <TextRuns>
                                                                 <TextRun>
-                                                                  <Value>=Fields!TTCPriceLbl.Value &amp; " (" &amp; Fields!AfkCurrCod.Value &amp;")"</Value>
+                                                                  <Value>=Fields!TTCPriceLbl.Value &amp; " (" &amp; Fields!AfkCurrCode.Value &amp;")"</Value>
                                                                   <Style>
                                                                     <FontSize>8pt</FontSize>
                                                                     <FontWeight>Bold</FontWeight>
@@ -2244,7 +2244,7 @@
                                                             <Paragraph>
                                                               <TextRuns>
                                                                 <TextRun>
-                                                                  <Value>=Fields!DepositLbl.Value &amp; " (" &amp; Fields!AfkCurrCod.Value &amp;")"</Value>
+                                                                  <Value>=Fields!DepositLbl.Value &amp; " (" &amp; Fields!AfkCurrCode.Value &amp;")"</Value>
                                                                   <Style>
                                                                     <FontSize>8pt</FontSize>
                                                                     <FontWeight>Bold</FontWeight>
@@ -2319,7 +2319,7 @@
                                                             <Paragraph>
                                                               <TextRuns>
                                                                 <TextRun>
-                                                                  <Value>=Fields!BalanceLbl.Value &amp; " (" &amp; Fields!AfkCurrCod.Value &amp;")"</Value>
+                                                                  <Value>=Fields!BalanceLbl.Value &amp; " (" &amp; Fields!AfkCurrCode.Value &amp;")"</Value>
                                                                   <Style>
                                                                     <FontSize>8pt</FontSize>
                                                                     <FontWeight>Bold</FontWeight>
@@ -2394,7 +2394,7 @@
                                                             <Paragraph>
                                                               <TextRuns>
                                                                 <TextRun>
-                                                                  <Value>=Fields!Interest18Lbl.Value &amp; " (" &amp; Fields!AfkCurrCod.Value &amp;")"</Value>
+                                                                  <Value>=Fields!Interest18Lbl.Value &amp; " (" &amp; Fields!AfkCurrCode.Value &amp;")"</Value>
                                                                   <Style>
                                                                     <FontSize>8pt</FontSize>
                                                                     <FontWeight>Bold</FontWeight>
@@ -2469,7 +2469,7 @@
                                                             <Paragraph>
                                                               <TextRuns>
                                                                 <TextRun>
-                                                                  <Value>=Fields!VATInterestLbl.Value &amp; " (" &amp; Fields!AfkCurrCod.Value &amp;")"</Value>
+                                                                  <Value>=Fields!VATInterestLbl.Value &amp; " (" &amp; Fields!AfkCurrCode.Value &amp;")"</Value>
                                                                   <Style>
                                                                     <FontSize>8pt</FontSize>
                                                                     <FontWeight>Bold</FontWeight>
@@ -2544,7 +2544,7 @@
                                                             <Paragraph>
                                                               <TextRuns>
                                                                 <TextRun>
-                                                                  <Value>=Fields!BalanceToPayLbl.Value &amp; " (" &amp; Fields!AfkCurrCod.Value &amp;")"</Value>
+                                                                  <Value>=Fields!BalanceToPayLbl.Value &amp; " (" &amp; Fields!AfkCurrCode.Value &amp;")"</Value>
                                                                   <Style>
                                                                     <FontSize>8pt</FontSize>
                                                                     <FontWeight>Bold</FontWeight>
@@ -2619,7 +2619,7 @@
                                                             <Paragraph>
                                                               <TextRuns>
                                                                 <TextRun>
-                                                                  <Value>=Fields!TTCAmountOfOperationLbl.Value &amp; " (" &amp; Fields!AfkCurrCod.Value &amp;")"</Value>
+                                                                  <Value>=Fields!TTCAmountOfOperationLbl.Value &amp; " (" &amp; Fields!AfkCurrCode.Value &amp;")"</Value>
                                                                   <Style>
                                                                     <FontSize>8pt</FontSize>
                                                                     <FontWeight>Bold</FontWeight>
@@ -4248,6 +4248,9 @@ AAAAAAAAAECjsYAGAAAAAAAAAAAAAAAAjcYCGgAAAAAAAAAAAAAAADQaC2gAAAAAAAAAAAAAAADQaCyg
         </Field>
         <Field Name="AfkCurrCod">
           <DataField>AfkCurrCod</DataField>
+        </Field>
+        <Field Name="AfkCurrCode">
+          <DataField>AfkCurrCode</DataField>
         </Field>
         <Field Name="Sell_to_Customer_No_">
           <DataField>Sell_to_Customer_No_</DataField>

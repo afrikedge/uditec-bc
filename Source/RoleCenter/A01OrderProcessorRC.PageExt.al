@@ -300,7 +300,6 @@ pageextension 50002 "A01 Order Processor RC" extends "Order Processor Role Cente
                     RunObject = Page "A01 Activity Feedback List";
                 }
 
-
             }
             group(A01_Compta)
             {

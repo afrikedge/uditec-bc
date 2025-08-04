@@ -330,6 +330,9 @@ report 50007 "A01 SalesOrderPrint"
             column(AfkCurrCod; AfkCurrCod)
             {
             }
+            column(AfkCurrCode; AfkCurrCode)
+            {
+            }
             column(Sell_to_Customer_No_; "Sell-to Customer No.")
             {
             }
@@ -551,7 +554,7 @@ report 50007 "A01 SalesOrderPrint"
                     SalesLineRec.Reset();
                     SalesLineRec.SetRange("Document No.", Header."No.");
                     if SalesLineRec.FindFirst() then
-                        VATText := A01TVA__Caption + '(' + Format(SalesLineRec."VAT %") + ')';
+                        VATText := A01TVA__Caption + '(' + Format(SalesLineRec."VAT %") + '%' + ')';
 
                     if Type = Type::"G/L Account" then
                         // "No." := '';
@@ -1061,7 +1064,7 @@ report 50007 "A01 SalesOrderPrint"
         NumLigne: Integer;
         A01LineQty: Decimal;
         A01LinePU: Decimal;
-        NumLigneText: Code[2];
+        NumLigneText: Code[3];
         ExchangeRateTxt: Label 'Exchange rate: %1/%2', Comment = '%1 and %2 are both amounts.';
         A01Report__Caption: Label 'PROFORMA INVOICE';
         A01UnitName__Caption: Label 'Unit name :';
