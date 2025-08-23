@@ -52,6 +52,9 @@ page 50040 "A01 Afk Setup"
                 field("Activate sec on UnBlock Order"; Rec."Activate sec on UnBlock Order")
                 {
                 }
+                field("Desactivate Ctrl SO Status"; Rec."Desactivate Ctrl SO Status")
+                {
+                }
 
 
             }

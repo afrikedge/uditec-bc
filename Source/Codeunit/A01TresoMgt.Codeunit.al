@@ -725,8 +725,9 @@ codeunit 50007 "A01 Treso Mgt"
 
         CheckCreditDueLines(SalesHeader);
 
+#pragma warning disable AA0217
         DeferredDateFormula := StrSubstNo('<%1M>', SalesHeader."A01 Deferred month");
-        //DeferredDateFormula := '<' + format(SalesHeader."A01 Deferred month") + '>';
+#pragma warning restore AA0217
         LineDueDate := CalcDate(DeferredDateFormula, SalesHeader."Due Date");
         if (AddOnSetup."Set Due Date with Prepayment") then
             if (IsMirindraOrder(SalesHeader)) then
