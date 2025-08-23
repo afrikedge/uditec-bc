@@ -30,7 +30,7 @@ codeunit 50002 "A01 EventsSubscribers_Code"
         SalesOrderProcess.ChangeStatusOnSalesPosting(SalesHeader);
         SalesOrderProcess.CheckLocaltionOnLines(SalesHeader);
         //SalesOrderProcess.BlockPartialInvoiceOnMiridra(SalesHeader);
-        //SalesOrderProcess.CheckStatusOnPosting(SalesHeader);
+        SalesOrderProcess.CheckStatusOnPosting(SalesHeader);
     end;
 
 
@@ -313,6 +313,7 @@ codeunit 50002 "A01 EventsSubscribers_Code"
     begin
         if (Invoice) then
             SalesOrderProcess.BlockPartialInvoiceOnMiridraFromWarehouseShip(WarehouseShipmentLine."No.");
+        SalesOrderProcess.CheckSalesOrderStatusFromWarehouseShip(WarehouseShipmentLine."No.");
     end;
 
     [EventSubscriber(ObjectType::Codeunit, Codeunit::"Sales-Post (Yes/No)", 'OnAfterConfirmPost', '', true, true)]

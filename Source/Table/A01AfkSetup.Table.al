@@ -386,6 +386,10 @@ table 50017 "A01 Afk Setup"
         {
             Caption = 'Activate security on unblocking orders';
         }
+        field(83; "Desactivate Ctrl SO Status"; Boolean)
+        {
+            Caption = 'Desactivate control on sales order status';
+        }
 
 
 

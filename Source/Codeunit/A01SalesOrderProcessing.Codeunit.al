@@ -70,7 +70,7 @@ codeunit 50000 "A01 Sales Order Processing"
         ErrOnCancelledOrder: Label 'The order can no longer be canceled because it has already been delivered';
         ErrOnCloseOrder_Qty: Label 'You cannot close this order because the quantity delivered has not been completely invoiced for item %1', Comment = '%1=Item No';
         QstSetAsDraft: label 'The order will be returned for edition. Do you want to continue ?';
-        ErrDocumentStatusOnValidation: Label 'The document is not at a status where it can be validated.';
+        ErrDocumentStatusOnValidation: Label 'The document %1 is not at a status where it can be validated.', Comment = '%1';
         LblOptionsValidateStock: Label '&Check inventory,&Resend to edition';
         LblOptionsValidatePrepayment: Label '&Check prepayment,&Resend to edition';
         LblOptionsCancel: Label '&Cancel order';
@@ -125,7 +125,8 @@ codeunit 50000 "A01 Sales Order Processing"
 
     procedure CheckIsBlocked(var SalesH: Record "Sales Header")
     begin
-        if ((IsOutOfCreditLimit(SalesH)) and (not CustomerIsMisc(SalesH))) then begin
+        if ((IsOutOfCreditLimit(SalesH)) and (not CustomerIsMisc(SalesH)) and (not CreditIsValidated(SalesH))
+                ) then begin
             if (SalesH."A01 Processing Status" <> SalesH."A01 Processing Status"::"Blocked") then begin
                 SalesH."A01 Processing Status" := SalesH."A01 Processing Status"::Blocked;
                 SalesH.Modify();
@@ -359,10 +360,7 @@ codeunit 50000 "A01 Sales Order Processing"
         if SalesH."Document Type" <> SalesH."Document Type"::Order then
             exit;
 
-        if not (SalesH."A01 Processing Status" in [SalesH."A01 Processing Status"::"Waiting for delivery",
-          SalesH."A01 Processing Status"::"Totally shipped", SalesH."A01 Processing Status"::"Partially invoiced",
-          SalesH."A01 Processing Status"::"Partially shipped"]) then
-            Error(ErrDocumentStatusOnValidation);
+        CheckSOWkflValidationStatus(SalesH);
     end;
 
     /// <summary>
@@ -409,16 +407,19 @@ codeunit 50000 "A01 Sales Order Processing"
         if (not TresoMgt.IsMultiMeadlinesInvoice(SalesH)) then
             exit;
 
-        if (SalesH.Invoice) then begin
-            SalesLine.Reset();
-            SalesLine.SetRange("Document Type", SalesH."Document Type");
-            SalesLine.SetRange("Document No.", SalesH."No.");
-            if SalesLine.FindSet() then
-                repeat
-                    if (SalesLine.Quantity <> SalesLine."Qty. to Invoice") then
-                        error(LblNotAutorize);
-                until SalesLine.Next() = 0;
-        end
+        if (SalesH."Document Type" = SalesH."Document Type"::Order) then
+            if (SalesH.Invoice) then begin
+                SalesLine.Reset();
+                SalesLine.SetRange("Document Type", SalesH."Document Type");
+                SalesLine.SetRange("Document No.", SalesH."No.");
+                if SalesLine.FindSet() then
+                    repeat
+                        if (SalesLine.Quantity <> SalesLine."Qty. to Invoice") then
+                            error(LblNotAutorize);
+                        if (SalesLine."Quantity Shipped" < SalesLine.Quantity) then
+                            error(LblNotAutorize);
+                    until SalesLine.Next() = 0;
+            end
     end;
 
     procedure BlockPartialInvoiceOnMiridraFromWarehouseShip(WhseShipmentNo: Code[20])
@@ -447,6 +448,27 @@ codeunit 50000 "A01 Sales Order Processing"
                 SalesH.get(SalesH."Document Type"::Order, WhseShipmentLine."Source No.");
                 if (TresoMgt.IsMultiMeadlinesInvoice(SalesH)) then
                     CheckIfOrderIsCompletelyInvoicing(WhseShipmentLine."Source No.", WhseShipment);
+            until WhseShipmentLine.Next() = 0;
+    end;
+
+    procedure CheckSalesOrderStatusFromWarehouseShip(WhseShipmentNo: Code[20])
+    var
+        //SalesLine: record "Sales Line";
+        SalesH: record "Sales Header";
+        WhseShipment: Record "Warehouse Shipment Header";
+        WhseShipmentLine: Record "Warehouse Shipment Line";
+    //TresoMgt: Codeunit "A01 Treso Mgt";
+    begin
+
+        WhseShipment.Get(WhseShipmentNo);
+
+        WhseShipmentLine.Init();
+        WhseShipmentLine.SetRange("No.", WhseShipment."No.");
+        WhseShipmentLine.SetRange("Source Document", WhseShipmentLine."Source Document"::"Sales Order");
+        if WhseShipmentLine.FindSet() then
+            repeat
+                SalesH.get(SalesH."Document Type"::Order, WhseShipmentLine."Source No.");
+                CheckStatusOnPosting(SalesH);
             until WhseShipmentLine.Next() = 0;
     end;
 
@@ -641,6 +663,23 @@ codeunit 50000 "A01 Sales Order Processing"
         exit(Cust."A01 Customer Type" = Cust."A01 Customer Type"::Miscellaneous);
     end;
 
+    local procedure CreditIsValidated(SalesHeader: Record "Sales Header"): Boolean
+    var
+    begin
+        exit(SalesHeader."A01 Credit Validation Status" = SalesHeader."A01 Credit Validation Status"::Validated);
+    end;
+
+
+
+    local procedure CheckSOWkflValidationStatus(var SalesH: Record "Sales Header")
+    begin
+        if (SalesH."Document Type" = SalesH."Document Type"::Order) then
+            if not (SalesH."A01 Processing Status" in [SalesH."A01 Processing Status"::"Waiting for delivery",
+              SalesH."A01 Processing Status"::"Totally shipped", SalesH."A01 Processing Status"::"Partially invoiced",
+              SalesH."A01 Processing Status"::"Partially shipped"]) then
+                Error(ErrDocumentStatusOnValidation, SalesH."No.");
+    end;
+
     procedure ArchiveCustomerCriteriaOnPosting(SalesInvHeader: Record "Sales Invoice Header"; SalesHeader: Record "Sales Header")
     var
         CustScoring: Record "A01 Customer Scoring";
@@ -673,10 +712,19 @@ codeunit 50000 "A01 Sales Order Processing"
 
     internal procedure CheckStatusOnPosting(SalesHeader: Record "Sales Header")
     var
-        WrongStatusErr: Label 'Order %1 is not in a status where it can be processed',Comment='%1';
+    //AfkSetup: Record "A01 Afk Setup";
+    //WrongStatusErr: Label 'Order %1 is not in a status where it can be processed', Comment = '%1';
     begin
-        if (SalesHeader."A01 Processing Status" = SalesHeader."A01 Processing Status"::Draft) then
-            Error(WrongStatusErr,SalesHeader."No.");
+        // AfkSetup.GetRecordOnce();
+        // if (AfkSetup."Desactivate Ctrl SO Status") then
+        //     exit;
+        CheckSOWkflValidationStatus(SalesHeader)
+        // if ((SalesHeader."A01 Processing Status" = SalesHeader."A01 Processing Status"::Draft)
+        //     or (SalesHeader."A01 Processing Status" = SalesHeader."A01 Processing Status"::"Stock out")
+        //     or (SalesHeader."A01 Processing Status" = SalesHeader."A01 Processing Status"::"Waiting for discount")
+        //     or (SalesHeader."A01 Processing Status" = SalesHeader."A01 Processing Status"::"Partially out of stock")
+        //     or (SalesHeader."A01 Processing Status" = SalesHeader."A01 Processing Status"::Blocked)) then
+        //     Error(ErrDocumentStatusOnValidation);
     end;
 
 }

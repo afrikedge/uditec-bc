@@ -143,6 +143,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table A01 Afk Setup - Field Delivery Agent - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Table 2685203037 - Field 599890526 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Desactivate control on sales order status</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table A01 Afk Setup - Field Desactivate Ctrl SO Status - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Table 2685203037 - Field 2742694682 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Discount Request Nos</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -4639,8 +4644,8 @@
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit A01 Purchase Op Mgt - Method FillImportationSteps - NamedType LblErrorEmptyList</note>
         </trans-unit>
         <trans-unit id="Codeunit 4233996319 - NamedType 3523952544" size-unit="char" translate="yes" xml:space="preserve">
-          <source>The document is not at a status where it can be validated.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
+          <source>The document %1 is not at a status where it can be validated.</source>
+          <note from="Developer" annotates="general" priority="2">%1</note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit A01 Sales Order Processing - NamedType ErrDocumentStatusOnValidation</note>
         </trans-unit>
         <trans-unit id="Codeunit 4233996319 - NamedType 2192651235" size-unit="char" translate="yes" xml:space="preserve">
@@ -4722,11 +4727,6 @@
           <source>Error occured on posting prepayment : No invoice created</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit A01 Sales Order Processing - Method CheckIsAwaitingPrepayment - NamedType LblErrorPosteSales</note>
-        </trans-unit>
-        <trans-unit id="Codeunit 4233996319 - Method 1984710797 - NamedType 3163058897" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Order %1 is not in a status where it can be processed</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Codeunit A01 Sales Order Processing - Method CheckStatusOnPosting - NamedType OrderStatusErr</note>
         </trans-unit>
         <trans-unit id="Codeunit 4233996319 - Method 786011703 - NamedType 1412695557" size-unit="char" translate="yes" xml:space="preserve">
           <source>Order document %1 has no lines</source>
