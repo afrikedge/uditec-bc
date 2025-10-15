@@ -101,5 +101,10 @@ tableextension 50001 "A01 User Setup" extends "User Setup"
             Caption = 'Can modify due date on cust ledger entries';
             DataClassification = CustomerContent;
         }
+        field(50019; "A01 Can ReOpen Closed Period"; Boolean)
+        {
+            Caption = 'Can reOpen Closed period';
+            DataClassification = CustomerContent;
+        }
     }
 }

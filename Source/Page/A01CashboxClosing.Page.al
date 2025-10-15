@@ -55,6 +55,7 @@ page 50079 "A01 Cashbox Closing"
                 ApplicationArea = Basic, Suite;
                 Caption = '&Post';
                 ShortCutKey = 'Shift+F11';
+                //Enabled = Rec.Status = Rec.Status::Open;               
                 // Promoted = true;
                 // PromotedCategory = Process;
                 //ToolTip = 'Apply the customer or vendor payment on the selected payment slip.';

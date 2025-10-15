@@ -43,4 +43,26 @@ page 50081 "A01 Posted Cashbox Closing"
             }
         }
     }
+    actions
+    {
+        area(Processing)
+        {
+            action(ReOpen)
+            {
+                Image = ReOpen;
+                ApplicationArea = Basic, Suite;
+                Caption = '&ReOpen';
+                ShortCutKey = 'Shift+F11';
+                //Enabled = Rec.Status = Rec.Status::Posted; 
+                // Promoted = true;
+                // PromotedCategory = Process;
+                //ToolTip = 'Apply the customer or vendor payment on the selected payment slip.';
+
+                trigger OnAction()
+                begin
+                    Rec.PostReOpenCashbox();
+                end;
+            }
+        }
+    }
 }

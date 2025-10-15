@@ -42,6 +42,14 @@ codeunit 50004 "A01 Security Mgt"
         Error(ErrNotAuthorizedAction);
     end;
 
+    procedure CheckIfUserCanReOpenClosedCashPeriod()
+    begin
+        if UserSetup.Get(UserId) then
+            if UserSetup."A01 Can ReOpen Closed Period" then
+                exit;
+        Error(ErrNotAuthorizedAction);
+    end;
+
     procedure CheckIfUserCanSetSalesDiscounts()
     begin
         AddOnSetup.GetRecordOnce();
