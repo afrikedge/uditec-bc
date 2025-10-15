@@ -77,6 +77,18 @@ pageextension 50006 "A01 Customer Card" extends "Customer Card"
             {
                 ApplicationArea = Basic, Suite;
             }
+            field("A01 Customer Category"; Rec."A01 Customer Category")
+            {
+                ApplicationArea = Basic, Suite;
+            }
+            field("A01 Activity Center"; Rec."A01 Activity Center")
+            {
+                ApplicationArea = Basic, Suite;
+            }
+            field("A01 Customer Level"; Rec."A01 Customer Level")
+            {
+                ApplicationArea = Basic, Suite;
+            }
         }
 
         addafter("SIREN No.")

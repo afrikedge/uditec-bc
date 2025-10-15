@@ -1995,6 +1995,12 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table A01 Parameter Record - Field Line Order - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Table 782004688 - Field 1077592717 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Manager</source>
+          <target state="needs-review-translation">Responsable</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table A01 Parameter Record - Field Manager - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Table 782004688 - Field 1878130204 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Type</source>
           <target state="needs-review-translation">Type</target>
@@ -5775,6 +5781,12 @@
           <note from="Developer" annotates="general" priority="2">%1 = QuoteNo</note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit A01WSSAVMgt - NamedType LblErrorQuoteNotExists</note>
         </trans-unit>
+        <trans-unit id="Page 1532791047 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Activity Centers</source>
+          <target state="needs-review-translation">Pôles d'activité</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page A01 Activity Centers - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Page 3653374298 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Activity Feedback List</source>
           <target state="needs-review-translation">Liste Retour d'activité</target>
@@ -6818,6 +6830,12 @@
           <target state="needs-review-translation">Lignes</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page A01 Cust Settlement Subform - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2856563254 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Customer Categories</source>
+          <target state="needs-review-translation">Catégories client</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page A01 Customer Categories - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 4141137359 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Customer Debt Status List</source>
@@ -22893,6 +22911,18 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension A01 Order Processor RC - Action A01Compta_PayMethods - Property Caption</note>
         </trans-unit>
+        <trans-unit id="PageExtension 3250568499 - Action 2707138108 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2747922353">
+          <source>Activity Centers</source>
+          <target state="needs-review-translation">Pôles d'activité</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension A01 Order Processor RC - Action A01Config_ActivityCenters - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 3250568499 - Action 3572581038 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2747922353">
+          <source>Customer Categories</source>
+          <target state="needs-review-translation">Catégories client</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension A01 Order Processor RC - Action A01Config_CustCategories - Property Caption</note>
+        </trans-unit>
         <trans-unit id="PageExtension 3250568499 - Action 1673777834 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2747922353">
           <source>Cust Scoring Requirement</source>
           <target state="needs-review-translation">Exigence de notation client</target>
@@ -23601,6 +23631,12 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension A01 Customer - Field A01 Account Type - Property Caption</note>
         </trans-unit>
+        <trans-unit id="TableExtension 1245960848 - Field 1654837178 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1994964448">
+          <source>Activity Center</source>
+          <target state="needs-review-translation">Pôle d'activité</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension A01 Customer - Field A01 Activity Center - Property Caption</note>
+        </trans-unit>
         <trans-unit id="TableExtension 1245960848 - Field 966039103 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1994964448">
           <source>Allowed Item Category</source>
           <target state="needs-review-translation">Catégorie article autorisée</target>
@@ -23636,6 +23672,18 @@
           <target state="needs-review-translation">Créé par</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension A01 Customer - Field A01 Created By - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 1245960848 - Field 1202472440 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1994964448">
+          <source>Customer Category</source>
+          <target state="needs-review-translation">Cétagorie client</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension A01 Customer - Field A01 Customer Category - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 1245960848 - Field 1148001238 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1994964448">
+          <source>Customer Level</source>
+          <target state="needs-review-translation">Niveau client</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension A01 Customer - Field A01 Customer Level - Property Caption</note>
         </trans-unit>
         <trans-unit id="TableExtension 1245960848 - Field 3407316512 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1994964448">
           <source>Customer Type</source>
@@ -25605,6 +25653,24 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Enum A01 Access Type - EnumValue Stairs - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Enum 3832368721 - EnumValue 2616704846 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>GrandParent</source>
+          <target state="needs-review-translation">Grand parent</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum A01 Account Level - EnumValue GrandParent - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 3832368721 - EnumValue 3108107879 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Operation</source>
+          <target state="needs-review-translation">Opération</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum A01 Account Level - EnumValue Operation - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 3832368721 - EnumValue 4206260792 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Parent</source>
+          <target state="needs-review-translation">Parent</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum A01 Account Level - EnumValue Parent - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Enum 1547106346 - EnumValue 1181470318 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Change Status</source>
           <target state="needs-review-translation">Changer le statut</target>
@@ -26553,6 +26619,12 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Enum A01 Parameter Record Type - EnumValue   - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Enum 3132669536 - EnumValue 526599338 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Activity Center</source>
+          <target state="needs-review-translation">Pôle d'activité</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum A01 Parameter Record Type - EnumValue ActivityCenter - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Enum 3132669536 - EnumValue 3567110040 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Activity Feedback</source>
           <target state="needs-review-translation">Retour d'activité</target>
@@ -26570,6 +26642,12 @@
           <target state="needs-review-translation">Marque</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Enum A01 Parameter Record Type - EnumValue Brand - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 3132669536 - EnumValue 462997376 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Customer Category</source>
+          <target state="needs-review-translation">Catégorie client</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum A01 Parameter Record Type - EnumValue CustomerCategory - Property Caption</note>
         </trans-unit>
         <trans-unit id="Enum 3132669536 - EnumValue 2492146860 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Discount Limit</source>

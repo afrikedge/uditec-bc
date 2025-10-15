@@ -172,6 +172,23 @@ tableextension 50006 "A01 Customer" extends Customer
             Caption = 'Control Payment on Invoices';
             DataClassification = CustomerContent;
         }
+        field(50204; "A01 Customer Category"; Code[20])
+        {
+            Caption = 'Customer Category';
+            DataClassification = CustomerContent;
+            TableRelation = "A01 Parameter Record".Code where(Type = const(CustomerCategory));
+        }
+        field(50205; "A01 Activity Center"; Code[20])
+        {
+            Caption = 'Activity Center';
+            DataClassification = CustomerContent;
+            TableRelation = "A01 Parameter Record".Code where(Type = const(ActivityCenter));
+        }
+        field(50206; "A01 Customer Level"; enum "A01 Account Level")
+        {
+            Caption = 'Customer Level';
+            DataClassification = CustomerContent;
+        }
 
         // field(50101; "A01 Modified By"; Code[50])
         // {

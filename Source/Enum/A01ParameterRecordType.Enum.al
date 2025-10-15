@@ -49,4 +49,12 @@ enum 50017 "A01 Parameter Record Type"
     {
         Caption = 'Gap Reason';
     }
+    value(11; CustomerCategory)
+    {
+        Caption = 'Customer Category';
+    }
+    value(12; ActivityCenter)
+    {
+        Caption = 'Activity Center';
+    }
 }
