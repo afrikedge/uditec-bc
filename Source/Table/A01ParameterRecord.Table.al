@@ -29,6 +29,11 @@ table 50008 "A01 Parameter Record"
         {
             Caption = 'Discount Limit (%)';
         }
+        field(6; "Manager"; Code[20])
+        {
+            Caption = 'Manager';
+            TableRelation = "Salesperson/Purchaser";
+        }
     }
     keys
     {

@@ -299,7 +299,18 @@ pageextension 50002 "A01 Order Processor RC" extends "Order Processor Role Cente
                     Caption = 'Activity Feedback List';
                     RunObject = Page "A01 Activity Feedback List";
                 }
-
+                action(A01Config_CustCategories)
+                {
+                    ApplicationArea = Basic, Suite;
+                    Caption = 'Customer Categories';
+                    RunObject = Page "A01 Customer Categories";
+                }
+                action(A01Config_ActivityCenters)
+                {
+                    ApplicationArea = Basic, Suite;
+                    Caption = 'Activity Centers';
+                    RunObject = Page "A01 Activity Centers";
+                }
             }
             group(A01_Compta)
             {
