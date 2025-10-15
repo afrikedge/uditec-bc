@@ -125,8 +125,7 @@ codeunit 50000 "A01 Sales Order Processing"
 
     procedure CheckIsBlocked(var SalesH: Record "Sales Header")
     begin
-        if ((IsOutOfCreditLimit(SalesH)) and (not CustomerIsMisc(SalesH)) and (not CreditIsValidated(SalesH))
-                ) then begin
+        if (ShouldBlockSalesHeader(SalesH)) then begin
             if (SalesH."A01 Processing Status" <> SalesH."A01 Processing Status"::"Blocked") then begin
                 SalesH."A01 Processing Status" := SalesH."A01 Processing Status"::Blocked;
                 SalesH.Modify();
@@ -242,6 +241,61 @@ codeunit 50000 "A01 Sales Order Processing"
         CheckCreditLimit: Page "Check Credit Limit";
     begin
         exit(CheckCreditLimit.SalesHeaderShowWarning(SalesH));
+    end;
+
+    local procedure CheckIfAnySubAccountIsBlocked(CustomerNo: Code[20]): Boolean
+    var
+        Cust: Record Customer;
+        ParentCust: Record Customer;
+    begin
+        ParentCust.get(CustomerNo);
+        if (ParentCust."A01 Parent Customer" = '') then
+            exit;
+        Cust.SetRange("A01 Parent Customer", ParentCust."A01 Parent Customer");
+        if Cust.FindSet() then
+            repeat
+                if IsCreditLimitExceeded(Cust."No.") then
+                    exit(true);
+
+                if HasOverdueInvoices(Cust."No.") then
+                    exit(true);
+            until Cust.Next() < 1;
+
+    end;
+
+    local procedure IsCreditLimitExceeded(CustomerNo: Code[20]): Boolean
+    var
+        Customer: Record Customer;
+        CustLedgEntry: Record "Cust. Ledger Entry";
+        RemainingAmount: Decimal;
+    begin
+        if not Customer.Get(CustomerNo) then
+            exit(false);
+
+        // If the customer has no credit limit defined
+        if Customer."Credit Limit (LCY)" = 0 then
+            exit(false);
+
+        CustLedgEntry.SetRange("Customer No.", CustomerNo);
+        CustLedgEntry.SetRange(Open, true);
+        if CustLedgEntry.FindSet() then begin
+            repeat
+                RemainingAmount += CustLedgEntry."Remaining Amt. (LCY)";
+            until CustLedgEntry.Next() = 0;
+        end;
+
+        exit(RemainingAmount > Customer."Credit Limit (LCY)");
+    end;
+
+    local procedure HasOverdueInvoices(CustomerNo: Code[20]): Boolean
+    var
+        CustLedgEntry: Record "Cust. Ledger Entry";
+    begin
+        CustLedgEntry.SetRange("Customer No.", CustomerNo);
+        CustLedgEntry.SetRange(Open, true);
+        CustLedgEntry.SetFilter("Due Date", '<%1', WorkDate()); // earlier than today
+
+        exit(not CustLedgEntry.IsEmpty);
     end;
 
     procedure CheckLocaltionOnLines(SalesH: Record "Sales Header"): Boolean
@@ -678,6 +732,15 @@ codeunit 50000 "A01 Sales Order Processing"
               SalesH."A01 Processing Status"::"Totally shipped", SalesH."A01 Processing Status"::"Partially invoiced",
               SalesH."A01 Processing Status"::"Partially shipped"]) then
                 Error(ErrDocumentStatusOnValidation, SalesH."No.");
+    end;
+
+    local procedure ShouldBlockSalesHeader(var SalesH: Record "Sales Header"): Boolean
+    begin
+        if ((IsOutOfCreditLimit(SalesH)) and (not CustomerIsMisc(SalesH)) and (not CreditIsValidated(SalesH))) then
+            exit(true);
+
+        if (CheckIfAnySubAccountIsBlocked(SalesH."Sell-to Customer No.")) then
+            exit(true);
     end;
 
     procedure ArchiveCustomerCriteriaOnPosting(SalesInvHeader: Record "Sales Invoice Header"; SalesHeader: Record "Sales Header")
