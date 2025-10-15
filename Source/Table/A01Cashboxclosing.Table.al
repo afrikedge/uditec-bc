@@ -62,6 +62,7 @@ table 50038 "A01 Cashbox Closing"
         LblQuestChangeRespCenter: Label 'The lines will be deleted. Do you want to continue ?';
         LblQuestValidate: Label 'Do you want to validate the closing of cashbox for the date of %1 ?', Comment = '%1)';
         LblQuestNoLines: Label 'This document has no lines. do you want to continue ?';
+        blQuestReOpen: Label 'Do you want to Reopen the cashbox for the date of %1 ?', Comment = '%1)';
 
 
 
@@ -87,6 +88,8 @@ table 50038 "A01 Cashbox Closing"
     var
         DocLine: Record "A01 Cashbox Closing Line";
     begin
+        CheckPeriodOnClosing();
+
         if (not Confirm(StrSubstNo(LblQuestValidate, "Closing Date"))) then
             exit;
 
@@ -112,5 +115,69 @@ table 50038 "A01 Cashbox Closing"
         DocLine.SetRange("Store Code", "Store Code");
         DocLine.SetRange("Closing Date", "Closing Date");
         DocLine.ModifyAll(Status, rec.Status::Posted);
+    end;
+
+    procedure PostReOpenCashbox()
+    var
+        DocLine: Record "A01 Cashbox Closing Line";
+    begin
+        CheckPeriodOnReOpen();
+
+        if (not Confirm(StrSubstNo(blQuestReOpen, "Closing Date"))) then
+            exit;
+
+        DocLine.Reset();
+        DocLine.SetRange("Store Code", "Store Code");
+        DocLine.SetRange("Closing Date", "Closing Date");
+        if (DocLine.IsEmpty) then
+            if (not Confirm(StrSubstNo(LblQuestNoLines))) then
+                exit;
+
+        DocLine.Reset();
+        DocLine.SetRange("Store Code", "Store Code");
+        DocLine.SetRange("Closing Date", "Closing Date");
+        if DocLine.FindSet() then
+            repeat
+                SecMgt.CheckBankUserAccount(DocLine."Bank Account");
+            until DocLine.Next() < 1;
+
+        Rec.Status := rec.Status::Open;
+        Modify();
+
+        DocLine.Reset();
+        DocLine.SetRange("Store Code", "Store Code");
+        DocLine.SetRange("Closing Date", "Closing Date");
+        DocLine.ModifyAll(Status, rec.Status::Open);
+    end;
+
+    local procedure CheckPeriodOnClosing()
+    var
+        CBClosingPeriod: record "A01 Cashbox Closing";
+        ErrPreviousOpenPeriod: Label 'You must close period %1 before closing the current one', Comment = '%1';
+    begin
+        //Verifier quil n'ya pas de periode precedente ouverte
+        CBClosingPeriod.Reset();
+        CBClosingPeriod.SetRange("Store Code", Rec."Store Code");
+        CBClosingPeriod.SetFilter("Closing Date", '<%1', Rec."Closing Date");
+        CBClosingPeriod.SetRange(Status, CBClosingPeriod.Status::Open);
+        if (CBClosingPeriod.FindFirst()) then
+            error(ErrPreviousOpenPeriod, CBClosingPeriod."Closing Date");
+    end;
+
+    local procedure CheckPeriodOnReOpen()
+    var
+        CBClosingPeriod: record "A01 Cashbox Closing";
+        //SecMgt: Codeunit "A01 Security Mgt";
+        ErrPreviousOpenPeriod: Label 'You must reopen period %1 before open the current one', Comment = '%1';
+    begin
+        SecMgt.CheckIfUserCanReOpenClosedCashPeriod();
+
+        //Verifier quil n'ya pas de periode suivante cloturee
+        CBClosingPeriod.Reset();
+        CBClosingPeriod.SetRange("Store Code", Rec."Store Code");
+        CBClosingPeriod.SetFilter("Closing Date", '>%1', Rec."Closing Date");
+        CBClosingPeriod.SetRange(Status, CBClosingPeriod.Status::Posted);
+        if (CBClosingPeriod.FindFirst()) then
+            error(ErrPreviousOpenPeriod, CBClosingPeriod."Closing Date");
     end;
 }

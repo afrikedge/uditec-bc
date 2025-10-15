@@ -67,6 +67,10 @@ pageextension 50011 "A01 User Setup" extends "User Setup"
             {
                 ApplicationArea = Basic, Suite;
             }
+            field("A01 Can ReOpen Closed Period"; Rec."A01 Can ReOpen Closed Period")
+            {
+                ApplicationArea = Basic, Suite;
+            }
 
         }
         addafter("Allow Posting To")
