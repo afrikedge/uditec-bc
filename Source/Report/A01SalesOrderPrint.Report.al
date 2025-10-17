@@ -370,7 +370,9 @@ report 50007 "A01 SalesOrderPrint"
             column(PaymentTerm__Caption; PaymentTerm__Caption)
             {
             }
-
+            column(PaymentMethodTxt; PaymentMethodTxt)
+            {
+            }
             dataitem(Line; "Sales Line")
             {
                 DataItemLink = "Document Type" = field("Document Type"), "Document No." = field("No.");
@@ -878,6 +880,9 @@ report 50007 "A01 SalesOrderPrint"
                 if PaymentTerms.Get(Header."Payment Terms Code") then
                     PaymentDescription := PaymentTerms.Description;
 
+                if PaymentMethodRec.Get(Header."Payment Method Code") then
+                    PaymentMethodTxt := PaymentMethodRec.Description;
+
                 if Cust.Get(Header."Sell-to Customer No.") then
                     if Cust."A01 Customer Type" = Cust."A01 Customer Type"::Miscellaneous then begin
                         if ContactInfo.Get(Header."A01 Miscellaneous Contact") then begin
@@ -987,10 +992,12 @@ report 50007 "A01 SalesOrderPrint"
         Currency: Record Currency;
         SellToContact: Record Contact;
         BillToContact: Record Contact;
+        PaymentMethodRec: Record "Payment Method";
         RepCheck: Report Check;
         AutoFormat: Codeunit "Auto Format";
         // Language: Codeunit Language;
         CalculatedExchRate: Decimal;
+        PaymentMethodTxt: Text[100];
         VATText: Text[50];
         AfkCurrCod: Code[20];
         rcs: Code[30];

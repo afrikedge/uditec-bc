@@ -951,6 +951,9 @@ report 50002 "A01 SalesInvoicePrint"
             column(PaymentTerm__Caption; PaymentTerm__Caption)
             {
             }
+            column(PaymentMethodTxt; PaymentMethodTxt)
+            {
+            }
             dataitem(Line; "Sales Invoice Line")
             {
                 DataItemLink = "Document No." = field("No.");
@@ -2000,6 +2003,9 @@ report 50002 "A01 SalesInvoicePrint"
                 if PaymentTerms.Get(Header."Payment Terms Code") then
                     PaymentDescription := PaymentTerms.Description;
 
+                if PaymentMethodRec.Get(Header."Payment Method Code") then
+                    PaymentMethodTxt := PaymentMethodRec.Description;
+
                 if Cust.Get(Header."Sell-to Customer No.") then
                     if Cust."A01 Customer Type" = Cust."A01 Customer Type"::Miscellaneous then begin
                         if ContactInfo.Get(Header."A01 Miscellaneous Contact") then begin
@@ -2213,6 +2219,7 @@ report 50002 "A01 SalesInvoicePrint"
         VATClause: Record "VAT Clause";
         SellToContact: Record Contact;
         BillToContact: Record Contact;
+        PaymentMethodRec: Record "Payment Method";
 
         //******************************************************************
         // GLSetup: Record "General Ledger Setup";
@@ -2260,6 +2267,7 @@ report 50002 "A01 SalesInvoicePrint"
         // ChecksPayableText: Text;
         // SalesPersonText: Text[50];
         RemainingAmountTxt: Text;
+        PaymentMethodTxt: Text[100];
         // JobNoLbl: Text;
         // JobTaskNoLbl: Text;
         // TotalAmountExclInclVATTextValue: Text;

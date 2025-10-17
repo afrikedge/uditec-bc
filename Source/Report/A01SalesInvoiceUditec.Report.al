@@ -493,6 +493,9 @@ report 50030 "A01 SalesInvoiceUditec"
             column(PaymentTerm__Caption; PaymentTerm__Caption)
             {
             }
+            column(PaymentMethodTxt; PaymentMethodTxt)
+            {
+            }
             dataitem(Line; "Sales Invoice Line")
             {
                 DataItemLink = "Document No." = field("No.");
@@ -1342,6 +1345,9 @@ report 50030 "A01 SalesInvoiceUditec"
                 if PaymentTerms.Get(Header."Payment Terms Code") then
                     PaymentDescription := PaymentTerms.Description;
 
+                if PaymentMethodRec.Get(Header."Payment Method Code") then
+                    PaymentMethodTxt := PaymentMethodRec.Description;
+
                 if RespCenter.Get(Header."Responsibility Center") then begin
                     UnitName := RespCenter.Name;
                     UnitAddress := RespCenter.Address;
@@ -1514,6 +1520,8 @@ report 50030 "A01 SalesInvoiceUditec"
         SalesPersonCode: Record "Salesperson/Purchaser";
         SellToContact: Record Contact;
         ContactInfo: Record Contact;
+        PaymentMethodRec: Record "Payment Method";
+
         // ShipToAddrr: Record "Ship-to Address";
         // Country: Record "Country/Region";
         VATClause: Record "VAT Clause";
@@ -1539,6 +1547,7 @@ report 50030 "A01 SalesInvoiceUditec"
         AutoFormat: Codeunit "Auto Format";
         FormatDocument: Codeunit "Format Document";
         MoreLines: Boolean;
+        PaymentMethodTxt: Text[100];
         CustomerIdentity: Text[100];
         VATText: Text[50];
         rcs: Code[30];

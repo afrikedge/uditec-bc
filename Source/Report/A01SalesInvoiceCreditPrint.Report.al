@@ -563,6 +563,9 @@ report 50010 "A01 SalesInvoiceCreditPrint"
             column(PaymentTerm__Caption; PaymentTerm__Caption)
             {
             }
+            column(PaymentMethodTxt; PaymentMethodTxt)
+            {
+            }
             dataitem(Line; "Sales Invoice Line")
             {
                 DataItemLink = "Document No." = field("No.");
@@ -1409,6 +1412,9 @@ report 50010 "A01 SalesInvoiceCreditPrint"
                 if PaymentTerms.Get(Header."Payment Terms Code") then
                     PaymentDescription := PaymentTerms.Description;
 
+                if PaymentMethodRec.Get(Header."Payment Method Code") then
+                    PaymentMethodTxt := PaymentMethodRec.Description;
+
                 if Cust.Get(Header."Sell-to Customer No.") then
                     if Cust."A01 Customer Type" = Cust."A01 Customer Type"::Miscellaneous then begin
                         if ContactInfo.Get(Header."A01 Miscellaneous Contact") then begin
@@ -1657,6 +1663,7 @@ report 50010 "A01 SalesInvoiceCreditPrint"
         RespCenter: Record "Responsibility Center";
         SalesPersonCode: Record "Salesperson/Purchaser";
         SellToContact: Record Contact;
+        PaymentMethodRec: Record "Payment Method";
         SalesLineRec: Record "Sales Invoice Line";
         // ShipToAddrr: Record "Ship-to Address";
         // Country: Record "Country/Region";
@@ -1690,6 +1697,7 @@ report 50010 "A01 SalesInvoiceCreditPrint"
         TotalTTC: Decimal;
         Montant: Decimal;
         TVA2: Decimal;
+        PaymentMethodTxt: Text[100];
         Total_LCYText: Text[50];
         VATText: Text[50];
         TVA_LCYText: Text[50];

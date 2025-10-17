@@ -212,6 +212,9 @@ report 50009 "A01 DeliveryNoteInvoicePrint"
             column(PaymentTerm__Caption; PaymentTerm__Caption)
             {
             }
+            column(PaymentMethodTxt; PaymentMethodTxt)
+            {
+            }
             dataitem("Sales Shipment Line"; "Sales Shipment Line")
             {
                 DataItemTableView = sorting("Document No.", "Line No.");
@@ -437,6 +440,9 @@ report 50009 "A01 DeliveryNoteInvoicePrint"
                 if PaymentTerms.Get("Sales Shipment Header"."Payment Terms Code") then
                     PaymentDescription := PaymentTerms.Description;
 
+                if PaymentMethodRec.Get("Sales Shipment Header"."Payment Method Code") then
+                    PaymentMethodTxt := PaymentMethodRec.Description;
+
                 if Cust.Get("Sales Shipment Header"."Sell-to Customer No.") then begin
                     rcs := Cust."A01 RCS";
                     stat := Cust."A01 STAT";
@@ -498,6 +504,7 @@ report 50009 "A01 DeliveryNoteInvoicePrint"
         RespCenterUditec: Record "Responsibility Center";
         // RespCenterTXT: Record "Responsibility Center";
         PaymentTerms: Record "Payment Terms";
+        PaymentMethodRec: Record "Payment Method";
         LocRec: Record Location;
         Cust: Record Customer;
         // Contact: Record Contact;
@@ -514,6 +521,7 @@ report 50009 "A01 DeliveryNoteInvoicePrint"
         //Montant: Decimal;
         HTPrice: Decimal;
         VATHT: Decimal;
+        PaymentMethodTxt: Text[100];
         A01TTcPriceText: Text[50];
         CalculatedExchRate: Decimal;
         ExchangeRateTxt: Label 'Exchange rate: %1/%2', Comment = '%1 and %2 are both amounts.';
