@@ -281,8 +281,8 @@ codeunit 50015 A01WSMasterFilesMgt
         if (Cust."A01 Allowed Item Category" <> WS.GetText('Item Category', input)) then
             Cust.Validate("A01 Allowed Item Category", WS.GetText('Item Category', input));
 
-        if (Cust."A01 Allowed Item Category" <> WS.GetText('Primary Contact No_', input)) then
-            Cust.Validate("A01 Allowed Item Category", WS.GetText('Primary Contact No_', input));
+        if (Cust."Primary Contact No." <> WS.GetText('Primary Contact No_', input)) then
+            Cust.Validate("Primary Contact No.", WS.GetText('Primary Contact No_', input));
 
         if (Cust."A01 Preferred Reminder Mode".AsInteger() <> WS.GetInt('Activity Type', input)) then
             Cust.Validate("A01 Preferred Reminder Mode", WS.GetInt('Activity Type', input));
@@ -339,6 +339,21 @@ codeunit 50015 A01WSMasterFilesMgt
         if WS.KeyExists(jsonKey, input) then
             if (Cust."Ship-to Code" <> WS.GetText(jsonKey, input)) then
                 Cust.Validate("Ship-to Code", WS.GetText(jsonKey, input));
+
+        jsonKey := 'Customer Category';
+        if WS.KeyExists(jsonKey, input) then
+            if (Cust."A01 Customer Category" <> WS.GetText(jsonKey, input)) then
+                Cust.Validate("A01 Customer Category", WS.GetText(jsonKey, input));
+
+        jsonKey := 'Activity Center';
+        if WS.KeyExists(jsonKey, input) then
+            if (Cust."A01 Activity Center" <> WS.GetText(jsonKey, input)) then
+                Cust.Validate("A01 Activity Center", WS.GetText(jsonKey, input));
+
+        jsonKey := 'Customer Level';
+        if WS.KeyExists(jsonKey, input) then
+            if (Cust."A01 Customer Level".AsInteger() <> WS.GetInt(jsonKey, input)) then
+                Cust.Validate("A01 Customer Level", WS.GetInt(jsonKey, input));
 
 
 
@@ -698,6 +713,21 @@ codeunit 50015 A01WSMasterFilesMgt
         if WS.KeyExists(jsonKey, input) then
             if (Lead."Salesperson Code" <> WS.GetText(jsonKey, input)) then
                 Lead.Validate("Salesperson Code", WS.GetText(jsonKey, input));
+
+        jsonKey := 'Customer Category';
+        if WS.KeyExists(jsonKey, input) then
+            if (Lead."A01 Customer Category" <> WS.GetText(jsonKey, input)) then
+                Lead.Validate("A01 Customer Category", WS.GetText(jsonKey, input));
+
+        jsonKey := 'Activity Center';
+        if WS.KeyExists(jsonKey, input) then
+            if (Lead."A01 Activity Center" <> WS.GetText(jsonKey, input)) then
+                Lead.Validate("A01 Activity Center", WS.GetText(jsonKey, input));
+
+        jsonKey := 'Customer Level';
+        if WS.KeyExists(jsonKey, input) then
+            if (Lead."A01 Customer Level".AsInteger() <> WS.GetInt(jsonKey, input)) then
+                Lead.Validate("A01 Customer Level", WS.GetInt(jsonKey, input));
 
         Lead.Modify();
     end;

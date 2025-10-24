@@ -214,6 +214,9 @@ report 50001 "A01 SalesQuotePrint"
             column(PaymentTerm__Caption; PaymentTerm__Caption)
             {
             }
+            column(PaymentMethodTxt; PaymentMethodTxt)
+            {
+            }
             dataitem(Line; "Sales Line")
             {
                 DataItemTableView = sorting("Document No.", "Line No.");
@@ -887,6 +890,9 @@ report 50001 "A01 SalesQuotePrint"
                 if PaymentTerms.Get(Header."Payment Terms Code") then
                     PaymentDescription := PaymentTerms.Description;
 
+                if PaymentMethodRec.Get(Header."Payment Method Code") then
+                    PaymentMethodTxt := PaymentMethodRec.Description;
+
                 if Cust.Get(Header."Sell-to Customer No.") then
                     if Cust."A01 Customer Type" = Cust."A01 Customer Type"::Miscellaneous then begin
                         if ContactInfo.Get(Header."A01 Miscellaneous Contact") then begin
@@ -1096,6 +1102,7 @@ report 50001 "A01 SalesQuotePrint"
         PaymentTerms: Record "Payment Terms";
         PaymentMethod: Record "Payment Method";
         SalespersonPurchaser: Record "Salesperson/Purchaser";
+        PaymentMethodRec: Record "Payment Method";
         // TempLineFeeNoteOnReportHist: Record "Line Fee Note on Report Hist.";
         // SalesLineRec: Record "Sales Line";
         // Currency: Record Currency;
@@ -1108,6 +1115,7 @@ report 50001 "A01 SalesQuotePrint"
         SegManagement: Codeunit SegManagement;
         AutoFormat: Codeunit "Auto Format";
         WorkDescriptionInstream: InStream;
+        PaymentMethodTxt: Text[100];
         AfkCurrCode: Code[20];
         NumLigneText: Code[3];
         PostCode: Code[20];

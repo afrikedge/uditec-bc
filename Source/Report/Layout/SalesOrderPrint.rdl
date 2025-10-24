@@ -2051,7 +2051,7 @@
                                               </Paragraph>
                                             </Paragraphs>
                                             <rd:DefaultName>Textbox57</rd:DefaultName>
-                                            <Top>3.87476in</Top>
+                                            <Top>4.12476in</Top>
                                             <Left>0in</Left>
                                             <Height>0.1875in</Height>
                                             <Width>2.25472in</Width>
@@ -2349,7 +2349,7 @@
                                               </Paragraph>
                                             </Paragraphs>
                                             <rd:DefaultName>Textbox57</rd:DefaultName>
-                                            <Top>4.53423in</Top>
+                                            <Top>4.78423in</Top>
                                             <Left>0.22918in</Left>
                                             <Height>0.1875in</Height>
                                             <Width>1.41088in</Width>
@@ -2384,7 +2384,7 @@
                                               </Paragraph>
                                             </Paragraphs>
                                             <rd:DefaultName>Textbox57</rd:DefaultName>
-                                            <Top>4.53423in</Top>
+                                            <Top>4.78423in</Top>
                                             <Left>5.71751in</Left>
                                             <Height>0.1875in</Height>
                                             <Width>1.51852in</Width>
@@ -2418,7 +2418,7 @@
                                               </Paragraph>
                                             </Paragraphs>
                                             <rd:DefaultName>Textbox13</rd:DefaultName>
-                                            <Top>3.87476in</Top>
+                                            <Top>4.12476in</Top>
                                             <Left>2.26861in</Left>
                                             <Height>0.1875in</Height>
                                             <Width>1.17361in</Width>
@@ -2582,6 +2582,75 @@
                                                     </TablixCell>
                                                   </TablixCells>
                                                 </TablixRow>
+                                                <TablixRow>
+                                                  <Height>0.1875in</Height>
+                                                  <TablixCells>
+                                                    <TablixCell>
+                                                      <CellContents>
+                                                        <Textbox Name="Textbox25">
+                                                          <CanGrow>true</CanGrow>
+                                                          <KeepTogether>true</KeepTogether>
+                                                          <Paragraphs>
+                                                            <Paragraph>
+                                                              <TextRuns>
+                                                                <TextRun>
+                                                                  <Value>Mode de règlement :</Value>
+                                                                  <Style>
+                                                                    <FontSize>8pt</FontSize>
+                                                                  </Style>
+                                                                </TextRun>
+                                                              </TextRuns>
+                                                              <Style>
+                                                                <TextAlign>Left</TextAlign>
+                                                              </Style>
+                                                            </Paragraph>
+                                                          </Paragraphs>
+                                                          <rd:DefaultName>Textbox25</rd:DefaultName>
+                                                          <Style>
+                                                            <Border />
+                                                            <VerticalAlign>Middle</VerticalAlign>
+                                                            <PaddingLeft>2pt</PaddingLeft>
+                                                            <PaddingRight>2pt</PaddingRight>
+                                                            <PaddingTop>2pt</PaddingTop>
+                                                            <PaddingBottom>2pt</PaddingBottom>
+                                                          </Style>
+                                                        </Textbox>
+                                                      </CellContents>
+                                                    </TablixCell>
+                                                    <TablixCell>
+                                                      <CellContents>
+                                                        <Textbox Name="Textbox29">
+                                                          <CanGrow>true</CanGrow>
+                                                          <KeepTogether>true</KeepTogether>
+                                                          <Paragraphs>
+                                                            <Paragraph>
+                                                              <TextRuns>
+                                                                <TextRun>
+                                                                  <Value>=Fields!PaymentMethodTxt.Value</Value>
+                                                                  <Style>
+                                                                    <FontSize>8pt</FontSize>
+                                                                  </Style>
+                                                                </TextRun>
+                                                              </TextRuns>
+                                                              <Style>
+                                                                <TextAlign>Left</TextAlign>
+                                                              </Style>
+                                                            </Paragraph>
+                                                          </Paragraphs>
+                                                          <rd:DefaultName>Textbox29</rd:DefaultName>
+                                                          <Style>
+                                                            <Border />
+                                                            <VerticalAlign>Middle</VerticalAlign>
+                                                            <PaddingLeft>2pt</PaddingLeft>
+                                                            <PaddingRight>2pt</PaddingRight>
+                                                            <PaddingTop>2pt</PaddingTop>
+                                                            <PaddingBottom>2pt</PaddingBottom>
+                                                          </Style>
+                                                        </Textbox>
+                                                      </CellContents>
+                                                    </TablixCell>
+                                                  </TablixCells>
+                                                </TablixRow>
                                               </TablixRows>
                                             </TablixBody>
                                             <TablixColumnHierarchy>
@@ -2594,11 +2663,12 @@
                                               <TablixMembers>
                                                 <TablixMember />
                                                 <TablixMember />
+                                                <TablixMember />
                                               </TablixMembers>
                                             </TablixRowHierarchy>
                                             <Top>3.34698in</Top>
                                             <Left>0in</Left>
-                                            <Height>0.375in</Height>
+                                            <Height>0.5625in</Height>
                                             <Width>3.89005in</Width>
                                             <ZIndex>10</ZIndex>
                                             <Style>
@@ -3698,6 +3768,9 @@ AAAAAAAAAECjsYAGAAAAAAAAAAAAAAAAjcYCGgAAAAAAAAAAAAAAADQaC2gAAAAAAAAAAAAAAADQaCyg
         </Field>
         <Field Name="PaymentTerm__Caption">
           <DataField>PaymentTerm__Caption</DataField>
+        </Field>
+        <Field Name="PaymentMethodTxt">
+          <DataField>PaymentMethodTxt</DataField>
         </Field>
         <Field Name="LineNo_Line">
           <DataField>LineNo_Line</DataField>

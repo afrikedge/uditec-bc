@@ -74,6 +74,9 @@ codeunit 50008 "A01 Api Interface Mgt"
             'request_validate':
                 exit(OrdersMgt.Run_ModifyRequestStatus(input));
 
+            'request_modify':
+                exit(OrdersMgt.Run_ModifyRequestComments(input));
+
 
             'recoveryActivities_insert':
                 exit(CreditMgt.RunRecoveryActivities(input, false));

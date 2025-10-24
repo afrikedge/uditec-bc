@@ -52,7 +52,7 @@ page 50070 "A01 Payment Request"
                 begin
                     if (not confirm(LabConfirmation)) then
                         exit;
-                    DocRequestMgt.ModifyStatus(Rec, '', Rec.Status::Validated);
+                    DocRequestMgt.ModifyStatus(Rec, '', Rec.Status::Validated, '');
                     //Message('Modification terminée');
                 end;
             }

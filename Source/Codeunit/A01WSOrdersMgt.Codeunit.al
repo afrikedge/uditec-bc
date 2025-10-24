@@ -84,14 +84,17 @@ codeunit 50009 "A01 WS OrdersMgt"
         WebUser: text;
         RequestNo: Code[20];
         DocStatus: Enum "A01 Approval Status";
+        SalespersonComment: Text[500];
     begin
         NoOrder := ws.GetText('No_', input);
         WebUser := ws.GetText('webUserName', input);
         Evaluate(DocStatus, Format(ws.GetInt('Approval Status', input)));
+        Evaluate(SalespersonComment, Format(ws.GetText('Salesperson Comment', input)));
+
 
         SalesOrder.Get(SalesOrder."Document Type"::Order, NoOrder);
 
-        RequestNo := DocRequestMgt.AddUnBlockingRequest(SalesOrder, WebUser, DocStatus);
+        RequestNo := DocRequestMgt.AddUnBlockingRequest(SalesOrder, WebUser, DocStatus, SalespersonComment);
 
         exit(Ws.CreateResponseSuccess(RequestNo));
 
@@ -126,6 +129,7 @@ codeunit 50009 "A01 WS OrdersMgt"
         WebUser: text;
         //Sequence: Integer;
         RequestNo: Code[20];
+        ApproverComment: Text[500];
         DocStatus: Enum "A01 Approval Status";
         RequestType: Enum "A01 Request On Document Type";
     begin
@@ -135,22 +139,52 @@ codeunit 50009 "A01 WS OrdersMgt"
         //Sequence := ws.Getint('Sequence', input);
         Evaluate(DocStatus, Format(ws.GetInt('Approval Status', input)));
         Evaluate(RequestType, Format(ws.GetInt('Request Type', input)));
+        Evaluate(ApproverComment, Format(ws.GetText('Approver Comment', input)));
 
-        if (RequestType = "A01 Request On Document Type"::"Discount on order") then
-            Request.Get(Request."Request Type"::"Discount on order", DocNo);
+        GetRequestDoc(Request, DocNo, RequestType);
 
-        if (RequestType = "A01 Request On Document Type"::"Discount on quote") then
-            Request.Get(Request."Request Type"::"Discount on quote", DocNo);
 
-        if (RequestType = "A01 Request On Document Type"::"Payment Document") then
-            Request.Get(Request."Request Type"::"Payment Document", DocNo);
 
-        if (RequestType = "A01 Request On Document Type"::"POS Payment") then
-            Request.Get(Request."Request Type"::"POS Payment", DocNo);
-
-        RequestNo := DocRequestMgt.ModifyStatus(Request, WebUser, DocStatus);
+        RequestNo := DocRequestMgt.ModifyStatus(Request, WebUser, DocStatus, ApproverComment);
 
         exit(Ws.CreateResponseSuccess(RequestNo));
+
+    end;
+
+
+    //{"inputJson":"{\"Parameter\":\"request_modify\",\"webUserName\":\"DAVID\",\"No_\":\"SO24-0000881\",\"Request Type\":2}",\"Category Manager Comment\":\"Pas de commentaire\" ,\"Recovery Comment\":\"No Comment\"}"} 
+    procedure Run_ModifyRequestComments(input: JsonObject): Text
+    var
+        Request: Record "A01 Request On Document";
+        //DocRequestMgt: Codeunit "A01 Document Request Mgt";
+        DocNo: text;
+        WebUser: text[50];
+        //Sequence: Integer;
+        //RequestNo: Code[20];
+        CategoryManagerComment: Text[500];
+        RecoveryComment: Text[500];
+        DocStatus: Enum "A01 Approval Status";
+        RequestType: Enum "A01 Request On Document Type";
+    begin
+        DocNo := ws.GetText('No_', input);
+        WebUser := CopyStr(ws.GetText('webUserName', input), 1, 50);
+        //Sequence := 0;
+        //Sequence := ws.Getint('Sequence', input);
+        // Evaluate(DocStatus, Format(ws.GetInt('Approval Status', input)));
+        Evaluate(RequestType, Format(ws.GetInt('Request Type', input)));
+        Evaluate(CategoryManagerComment, Format(ws.GetText('Category Manager Comment', input)));
+        Evaluate(RecoveryComment, Format(ws.GetText('Recovery Comment', input)));
+
+        GetRequestDoc(Request, DocNo, RequestType);
+
+        if (Request."Request No." <> '') then begin
+            Request."Category Manager Comment" := CategoryManagerComment;
+            Request."Recovery Comment" := RecoveryComment;
+            Request."Modified By" := WebUser;
+            Request.Modify();
+        end;
+
+        exit(Ws.CreateResponseSuccess(Request."Request No."));
 
     end;
 
@@ -646,6 +680,26 @@ codeunit 50009 "A01 WS OrdersMgt"
         SalesOrder.modify();
         SalesPost.Run(SalesOrder);
         exit(Ws.CreateResponseSuccess(SalesOrder."No."));
+    end;
+
+    local procedure GetRequestDoc(var Request: Record "A01 Request On Document"; DocNo: text; RequestType: Enum "A01 Request On Document Type")
+    begin
+        if (RequestType = "A01 Request On Document Type"::"Discount on order") then
+            Request.Get(Request."Request Type"::"Discount on order", DocNo);
+
+        if (RequestType = "A01 Request On Document Type"::"Discount on quote") then
+            Request.Get(Request."Request Type"::"Discount on quote", DocNo);
+
+        if (RequestType = "A01 Request On Document Type"::"Payment Document") then
+            Request.Get(Request."Request Type"::"Payment Document", DocNo);
+
+        if (RequestType = "A01 Request On Document Type"::"POS Payment") then
+            Request.Get(Request."Request Type"::"POS Payment", DocNo);
+
+        if (RequestType = "A01 Request On Document Type"::Unblocking) then
+            Request.Get(Request."Request Type"::Unblocking, DocNo);
+
+        if (Request."Request No." = '') then error('Unknown document');
     end;
 
 

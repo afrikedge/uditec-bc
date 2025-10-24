@@ -39,7 +39,8 @@ codeunit 50016 "A01 Document Request Mgt"
         exit(RequestHdr."Request No.");
     end;
 
-    procedure AddUnBlockingRequest(var SalesHeader: Record "Sales Header"; WebUser: Text; Status: Enum "A01 Approval Status"): Code[20]
+    procedure AddUnBlockingRequest(var SalesHeader: Record "Sales Header"; WebUser: Text;
+    Status: Enum "A01 Approval Status"; SalespersonComment: Text[500]): Code[20]
     var
         Request: Record "A01 Request On Document";
     begin
@@ -52,6 +53,7 @@ codeunit 50016 "A01 Document Request Mgt"
         Request.Object := LblDescrUnblocking;
         Request."Created By" := CopyStr(WebUser, 1, 50);
         Request.Status := Status;
+        Request."Salesperson Comment" := SalespersonComment;
         SalesHeader.CalcFields("Amount Including VAT");
         Request."Total Order Amount" := SalesHeader."Amount Including VAT";
         Request.Insert(true);
@@ -61,6 +63,7 @@ codeunit 50016 "A01 Document Request Mgt"
 
         exit(Request."Request No.");
     end;
+
 
     procedure AddPOSPaymentRequest(var SalesHeader: Record "Sales Header"; WebUser: Text; Status: Enum "A01 Approval Status"): Code[20]
     var
@@ -107,7 +110,7 @@ codeunit 50016 "A01 Document Request Mgt"
 
     end;
 
-    procedure ModifyStatus(var Request: Record "A01 Request On Document"; WebUser: Text; NewStatus: Enum "A01 Approval Status"): Code[20]
+    procedure ModifyStatus(var Request: Record "A01 Request On Document"; WebUser: Text; NewStatus: Enum "A01 Approval Status"; ApproverComments: Text[500]): Code[20]
     var
         SalesOrder: Record "Sales Header";
         PayDoc: Record "A01 Payment Document";
@@ -120,6 +123,7 @@ codeunit 50016 "A01 Document Request Mgt"
 
         Request.Status := NewStatus;
         Request."Modified By" := CopyStr(WebUser, 1, 50);
+        Request."Approver Comment" := ApproverComments;
         Request.Modify();
 
         if ((Request."Request Type" = Request."Request Type"::"Discount on order")

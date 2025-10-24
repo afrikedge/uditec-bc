@@ -65,7 +65,7 @@ page 50064 "A01 Discount Request"
 
                     if (not confirm(LabConfirmation)) then
                         exit;
-                    DocRequestMgt.ModifyStatus(Rec, '', Rec.Status::Validated);
+                    DocRequestMgt.ModifyStatus(Rec, '', Rec.Status::Validated, '');
                 end;
             }
         }
