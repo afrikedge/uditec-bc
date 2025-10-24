@@ -136,6 +136,23 @@ tableextension 50005 "A01 Contact" extends Contact
             Caption = 'Gender';
             DataClassification = CustomerContent;
         }
+        field(50025; "A01 Customer Category"; Code[20])
+        {
+            Caption = 'Customer Category';
+            DataClassification = CustomerContent;
+            TableRelation = "A01 Parameter Record".Code where(Type = const(CustomerCategory));
+        }
+        field(50026; "A01 Activity Center"; Code[20])
+        {
+            Caption = 'Activity Center';
+            DataClassification = CustomerContent;
+            TableRelation = "A01 Parameter Record".Code where(Type = const(ActivityCenter));
+        }
+        field(50027; "A01 Customer Level"; enum "A01 Account Level")
+        {
+            Caption = 'Customer Level';
+            DataClassification = CustomerContent;
+        }
 
 
 

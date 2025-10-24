@@ -57,6 +57,8 @@ table 50031 "A01 Request On Document"
             trigger OnValidate()
             var
                 Cust: Record Customer;
+                TotalSolde: Decimal;
+                TotalSoldeEchus: Decimal;
             begin
                 if (Cust.get("Customer No.")) then begin
                     "Credit Limit" := Cust."Credit Limit (LCY)";
@@ -64,6 +66,9 @@ table 50031 "A01 Request On Document"
                     Cust.CalcFields("Balance (LCY)");
                     "In progress Balance" := Cust."Balance (LCY)";
                     "Risk level" := Cust."A01 Risk Level";
+                    GetSumSoldes("Customer No.", TotalSolde, TotalSoldeEchus);
+                    "Parent Balance Amount" := TotalSolde;
+                    "Parent Balance Due" := TotalSoldeEchus;
                 end;
             end;
         }
@@ -140,6 +145,34 @@ table 50031 "A01 Request On Document"
             Caption = 'Total Order Amount (Incl VAT)';
             Editable = false;
         }
+        field(24; "Salesperson Comment"; Text[500])
+        {
+            Caption = 'Salesperson Comment';
+        }
+        field(25; "Category Manager Comment"; Text[500])
+        {
+            Caption = 'Category Manager Comment';
+        }
+        field(26; "Recovery Comment"; Text[500])
+        {
+            Caption = 'Recovery Comment';
+        }
+        field(27; "Approver Comment"; Text[500])
+        {
+            Caption = 'Approver Comment';
+        }
+        field(28; "Parent Balance Amount"; Decimal)
+        {
+            // FieldClass = FlowField;
+            // CalcFormula = sum(Customer.Balance where("Afk Parent Account No." = field("No.")));
+            Editable = false;
+        }
+        field(29; "Parent Balance Due"; Decimal)
+        {
+            // FieldClass = FlowField;
+            // CalcFormula = sum(Customer.Balance where("Afk Parent Account No." = field("No.")));
+            Editable = false;
+        }
     }
 
     keys
@@ -168,6 +201,19 @@ table 50031 "A01 Request On Document"
     local procedure InitHeader()
     begin
 
+    end;
+
+    local procedure GetSumSoldes(CustNo: Code[20]; var SoldeTotal: Decimal; var TotalSoldeEchus: Decimal): Decimal
+    var
+        Cust: record Customer;
+    begin
+        Cust.SetRange("A01 Parent Customer", CustNo);
+        if Cust.FindSet() then
+            repeat
+                Cust.CalcFields("Balance");
+                SoldeTotal := SoldeTotal + Cust."Balance";
+                TotalSoldeEchus := TotalSoldeEchus + Cust.CalcOverdueBalance();
+            until Cust.Next() < 1;
     end;
 
     // value(0; Initialization)

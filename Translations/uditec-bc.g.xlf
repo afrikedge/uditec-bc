@@ -1283,6 +1283,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table A01 External User - Field BCUserId - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Table 2244191176 - Field 1283552164 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Can Unblock Order</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table A01 External User - Field Can Unblock Order - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Table 2244191176 - Field 3004954119 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Code</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -2828,6 +2833,16 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table A01 Request On Document - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Table 4167722193 - Field 619574162 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Approver Comment</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table A01 Request On Document - Field Approver Comment - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 4167722193 - Field 1506546412 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Category Manager Comment</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table A01 Request On Document - Field Category Manager Comment - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Table 4167722193 - Field 2369664869 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Modified By</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -2883,6 +2898,21 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table A01 Request On Document - Field Object - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Table 4167722193 - Field 4171542834 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Parent Balance Amount</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table A01 Request On Document - Field Parent Balance Amount - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 4167722193 - Field 4207352570 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Parent Balance Due</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table A01 Request On Document - Field Parent Balance Due - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 4167722193 - Field 1210266540 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Recovery Comment</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table A01 Request On Document - Field Recovery Comment - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Table 4167722193 - Field 3959455890 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Request No.</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -2907,6 +2937,11 @@
           <source>Sales Person</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table A01 Request On Document - Field Sales Person - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 4167722193 - Field 3328939594 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Salesperson Comment</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table A01 Request On Document - Field Salesperson Comment - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 4167722193 - Field 513339096 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Status</source>
@@ -19508,6 +19543,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension A01 Contact - Field A01 Account Type - Property Caption</note>
         </trans-unit>
+        <trans-unit id="TableExtension 1119515148 - Field 1654837178 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 3993128796">
+          <source>Activity Center</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension A01 Contact - Field A01 Activity Center - Property Caption</note>
+        </trans-unit>
         <trans-unit id="TableExtension 1119515148 - Field 966039103 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 3993128796">
           <source>Allowed Item Category</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -19537,6 +19577,16 @@
           <source>Credit Limit</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension A01 Contact - Field A01 Credit Limit - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 1119515148 - Field 1202472440 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 3993128796">
+          <source>Customer Category</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension A01 Contact - Field A01 Customer Category - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 1119515148 - Field 1148001238 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 3993128796">
+          <source>Customer Level</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension A01 Contact - Field A01 Customer Level - Property Caption</note>
         </trans-unit>
         <trans-unit id="TableExtension 1119515148 - Field 1506815378 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 3993128796">
           <source>Customer Price Group</source>

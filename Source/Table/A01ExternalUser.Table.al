@@ -87,6 +87,10 @@ table 50001 "A01 External User"
         {
             Caption = 'Phone No.';
         }
+        field(15; "Can Unblock Order"; Boolean)
+        {
+            Caption = 'Can Unblock Order';
+        }
 
     }
     keys

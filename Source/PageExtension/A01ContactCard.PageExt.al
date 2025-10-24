@@ -92,6 +92,18 @@ pageextension 50005 "A01 Contact Card" extends "Contact Card"
             {
                 ApplicationArea = Basic, Suite;
             }
+            field("A01 Customer Category"; Rec."A01 Customer Category")
+            {
+                ApplicationArea = Basic, Suite;
+            }
+            field("A01 Activity Center"; Rec."A01 Activity Center")
+            {
+                ApplicationArea = Basic, Suite;
+            }
+            field("A01 Customer Level"; Rec."A01 Customer Level")
+            {
+                ApplicationArea = Basic, Suite;
+            }
         }
     }
     actions

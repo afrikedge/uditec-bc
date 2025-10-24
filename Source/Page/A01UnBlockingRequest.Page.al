@@ -84,6 +84,28 @@ page 50066 "A01 UnBlocking Request"
                 field("Total Order Amount"; Rec."Total Order Amount")
                 {
                 }
+                field("Parent Balance Amount"; Rec."Parent Balance Amount")
+                {
+                }
+                field("Parent Balance Due"; Rec."Parent Balance Due")
+                {
+                }
+                field("Salesperson Comment"; Rec."Salesperson Comment")
+                {
+                    MultiLine = true;
+                }
+                field("Category Manager Comment"; Rec."Category Manager Comment")
+                {
+                    MultiLine = true;
+                }
+                field("Recovery Comment"; Rec."Recovery Comment")
+                {
+                    MultiLine = true;
+                }
+                field("Approver Comment"; Rec."Approver Comment")
+                {
+                    MultiLine = true;
+                }
             }
         }
     }
@@ -105,7 +127,7 @@ page 50066 "A01 UnBlocking Request"
                     SecMgt.CheckIfUserCanUnblockOrder();
                     if (not confirm(LabConfirmation)) then
                         exit;
-                    DocRequestMgt.ModifyStatus(Rec, '', Rec.Status::Validated);
+                    DocRequestMgt.ModifyStatus(Rec, '', Rec.Status::Validated, '');
                     //Message('Modification terminée');
                 end;
             }

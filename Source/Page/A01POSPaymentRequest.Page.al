@@ -76,7 +76,7 @@ page 50068 "A01 POS Payment Request"
                 begin
                     if (not confirm(LabConfirmation)) then
                         exit;
-                    DocRequestMgt.ModifyStatus(Rec, '', Rec.Status::Validated);
+                    DocRequestMgt.ModifyStatus(Rec, '', Rec.Status::Validated, '');
                     //Message('Modification terminée');
                 end;
             }

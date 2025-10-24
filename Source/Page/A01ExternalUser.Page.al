@@ -47,6 +47,9 @@ page 50022 "A01 External User"
                 field("GL Period Group"; Rec."GL Period Group")
                 {
                 }
+                field("Can Unblock Order"; Rec."Can Unblock Order")
+                {
+                }
             }
             part(Companies; "A01 External User Companies")
             {
