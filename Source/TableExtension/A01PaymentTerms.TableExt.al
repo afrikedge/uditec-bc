@@ -20,5 +20,11 @@ tableextension 50008 "A01 Payment Terms" extends "Payment Terms"
             MinValue = 0;
             MaxValue = 100;
         }
+        field(50003; "A01 Credit Duration (Month)"; Integer)
+        {
+            Caption = 'Credit Duration (Month)';
+            DataClassification = CustomerContent;
+        }
+
     }
 }

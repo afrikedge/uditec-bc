@@ -355,6 +355,11 @@ codeunit 50015 A01WSMasterFilesMgt
             if (Cust."A01 Customer Level".AsInteger() <> WS.GetInt(jsonKey, input)) then
                 Cust.Validate("A01 Customer Level", WS.GetInt(jsonKey, input));
 
+        jsonKey := 'Customer Manager';
+        if WS.KeyExists(jsonKey, input) then
+            if (Cust."A01 Customer Manager" <> WS.GetText(jsonKey, input)) then
+                Cust.Validate("A01 Customer Manager", WS.GetText(jsonKey, input));
+
 
 
         Cust.Modify();
@@ -728,6 +733,11 @@ codeunit 50015 A01WSMasterFilesMgt
         if WS.KeyExists(jsonKey, input) then
             if (Lead."A01 Customer Level".AsInteger() <> WS.GetInt(jsonKey, input)) then
                 Lead.Validate("A01 Customer Level", WS.GetInt(jsonKey, input));
+
+        jsonKey := 'Customer Manager';
+        if WS.KeyExists(jsonKey, input) then
+            if (Lead."A01 Customer Manager" <> WS.GetText(jsonKey, input)) then
+                Lead.Validate("A01 Customer Manager", WS.GetText(jsonKey, input));
 
         Lead.Modify();
     end;

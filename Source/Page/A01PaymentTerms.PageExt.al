@@ -19,6 +19,10 @@ pageextension 50008 "A01 Payment Terms" extends "Payment Terms"
             {
                 ApplicationArea = Basic, Suite;
             }
+            field("A01 Credit Duration (Month)"; Rec."A01 Credit Duration (Month)")
+            {
+                ApplicationArea = Basic, Suite;
+            }
         }
     }
 }

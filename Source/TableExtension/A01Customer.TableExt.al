@@ -157,6 +157,17 @@ tableextension 50006 "A01 Customer" extends Customer
             Caption = 'Customer Level';
             DataClassification = CustomerContent;
         }
+        field(50028; "A01 Customer Manager"; Code[20])
+        {
+            Caption = 'Customer Manager';
+            DataClassification = CustomerContent;
+            TableRelation = "Salesperson/Purchaser";
+        }
+
+
+
+
+
 
 
 
