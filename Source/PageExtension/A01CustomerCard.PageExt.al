@@ -47,7 +47,12 @@ pageextension 50006 "A01 Customer Card" extends "Customer Card"
             {
                 ApplicationArea = Basic, Suite;
             }
-
+            field("A01ContractCompanyName"; ContractCompanyName)
+            {
+                Caption = 'Contract Company Name';
+                ApplicationArea = Basic, Suite;
+                Editable = false;
+            }
             field("A01 ID Number"; Rec."A01 ID Number")
             {
                 ApplicationArea = Basic, Suite;
@@ -161,6 +166,24 @@ pageextension 50006 "A01 Customer Card" extends "Customer Card"
             CanSetCreditLimit := UserSetup."A01 Can Set Credit Limit";
     end;
 
+    trigger OnAfterGetCurrRecord()
+    var
+        Contract: Record "A01 AGP Contrat";
+        Cust: Record Customer;
+        Contact: Record Contact;
+    begin
+        ContractCompanyName := '';
+        if (Contract.Get(Rec."A01 Contract No.")) then begin
+            if (Contract."Account Type" = Contract."Account Type"::Customer) then
+                if (Cust.Get(Contract."Customer No.")) then
+                    ContractCompanyName := Cust.Name;
+            if (Contract."Account Type" = Contract."Account Type"::Prospect) then
+                if (Contact.Get(Contract."Customer No.")) then
+                    ContractCompanyName := Contact.Name;
+        end;
+    end;
+
     var
         CanSetCreditLimit: Boolean;
+        ContractCompanyName: Text[100];
 }
