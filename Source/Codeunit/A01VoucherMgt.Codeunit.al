@@ -15,6 +15,7 @@ codeunit 50017 "A01 Voucher Mgt"
         ErrLblNoValue: Label 'Voucher %1 must not have a zero value', Comment = '%1=Bon';
         NextEntryId: Integer;
         VoucherAmount: decimal;
+        PostGLEntries: Boolean;
     begin
 
         if (Voucher.Get(ItemLedgerEntry."Serial No.")) then
@@ -28,8 +29,8 @@ codeunit 50017 "A01 Voucher Mgt"
             if (ItemLedgerEntry."Document Type" = ItemLedgerEntry."Document Type"::"Purchase Return Shipment") then
                 isApplicable := true;
 
-        //if (ItemLedgerEntry."Entry Type" = ItemLedgerEntry."Entry Type"::"Negative Adjmt.") then
-        //    isApplicable := true;
+        if (ItemLedgerEntry."Entry Type" = ItemLedgerEntry."Entry Type"::"Negative Adjmt.") then
+            isApplicable := true;
 
         if (not isApplicable) then
             exit;
@@ -70,10 +71,15 @@ codeunit 50017 "A01 Voucher Mgt"
         VoucherLedgerEntry."Item Ledger Entry No." := ItemLedgerEntry."Entry No.";
         VoucherLedgerEntry.Insert(true);
 
-        //if (ItemLedgerEntry."Entry Type" = ItemLedgerEntry."Entry Type"::"Negative Adjmt.") then
+        if (ItemLedgerEntry."Entry Type" = ItemLedgerEntry."Entry Type"::"Negative Adjmt.") then
+            PostGLEntries := true;
+
         if (ItemLedgerEntry."Entry Type" = ItemLedgerEntry."Entry Type"::Sale) then
             if (ItemLedgerEntry."Document Type" = ItemLedgerEntry."Document Type"::" ") then
-                PostEmissionGLEntryOnNegAdjustment(ItemLedgerEntry, InventoryPostingToGL, VoucherAmount);
+                PostGLEntries := true;
+
+        if (PostGLEntries) then
+            PostEmissionGLEntryOnNegAdjustment(ItemLedgerEntry, InventoryPostingToGL, VoucherAmount);
 
     end;
 
