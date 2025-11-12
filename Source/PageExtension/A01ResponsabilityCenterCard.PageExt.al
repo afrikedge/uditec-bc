@@ -43,6 +43,10 @@ pageextension 50001 "A01 Responsability Center Card" extends "Responsibility Cen
             {
                 ApplicationArea = Basic, Suite;
             }
+            field("A01 VAT Posting Group Modify"; Rec."A01 VAT Posting Group Modify")
+            {
+                ApplicationArea = Basic, Suite;
+            }
         }
         addbefore(Control1900383207)
         {

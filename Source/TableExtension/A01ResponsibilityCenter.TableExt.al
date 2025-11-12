@@ -66,6 +66,11 @@ tableextension 50003 "A01 Responsibility Center" extends "Responsibility Center"
             DataClassification = CustomerContent;
             TableRelation = Customer;
         }
+        field(50011; "A01 VAT Posting Group Modify"; Boolean)
+        {
+            Caption = 'VAT Posting Group Modify';
+            DataClassification = CustomerContent;
+        }
 
 
     }
