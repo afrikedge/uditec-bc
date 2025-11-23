@@ -898,6 +898,11 @@ codeunit 50005 "A01 WS QuotesMgt"
         if (CreditAmortizationLine."Payment balance" <> WS.GetDecimal('Payment balance', input)) then
             CreditAmortizationLine."Payment balance" := WS.GetDecimal('Payment balance', input);
 
+        if (CreditAmortizationLine."Interest Excl VAT" <> WS.GetDecimal('Interest Excl VAT', input)) then
+            CreditAmortizationLine."Interest Excl VAT" := WS.GetDecimal('Interest Excl VAT', input);
+
+        if (CreditAmortizationLine."VAT on interest" <> WS.GetDecimal('VAT on Interest', input)) then
+            CreditAmortizationLine."VAT on interest" := WS.GetDecimal('VAT on Interest', input);
     end;
 
     local procedure AddCustScoring(input: JsonObject)
