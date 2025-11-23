@@ -28,6 +28,17 @@ tableextension 50000 "A01 Sales Header" extends "Sales Header"
                             Error('');
             end;
         }
+        modify("Payment Terms Code")
+        {
+            trigger OnAfterValidate()
+            var
+                PaymentTerms: Record "Payment Terms";
+            begin
+                if PaymentTerms.Get("Payment Terms Code") then
+                    if (PaymentTerms."A01 Credit Duration (Month)" <> 0) then
+                        Rec.Validate("A01 Credit Duration (Month)", PaymentTerms."A01 Credit Duration (Month)");
+            end;
+        }
 
         field(50000; "A01 Processing Status"; Enum "A01 SO Processing Status")
         {
