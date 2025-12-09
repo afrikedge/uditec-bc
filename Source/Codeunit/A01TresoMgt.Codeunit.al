@@ -1050,25 +1050,64 @@ codeunit 50007 "A01 Treso Mgt"
     procedure ConfirmGenerationOnInterestOnCreditDue(GenJnlLine: Record "Gen. Journal Line")
     var
         CreditDueLine: Record "A01 Credit Depreciation Table";
-        pos: Integer;
+        //pos: Integer;
         CustEntryNo: Integer;
-        intValueStr: Text;
+        CreditLineNo: Integer;
+    //intValueStr: Text;
     begin
         //CustEntryNo := 0;
         if (GenJnlLine."Message to Recipient" = '') then
             exit;
-        pos := StrPos(GenJnlLine."Message to Recipient", 'AFKGIE');
-        if (pos > 0) then begin
-            intValueStr := CopyStr(GenJnlLine."Message to Recipient", 7);
-            Evaluate(CustEntryNo, intValueStr);
-            if (CustEntryNo > 0) then begin
-                CreditDueLine.SetRange("Cust Ledger Entry No.", CustEntryNo);
-                if (CreditDueLine.FindFirst()) then begin
-                    CreditDueLine."Interest Posted" := true;
-                    CreditDueLine.Modify();
-                end;
+        //pos := StrPos(GenJnlLine."Message to Recipient", 'AFKGIE');
+        ParseGenJrnMessage(GenJnlLine."Message to Recipient", CustEntryNo, CreditLineNo);
+        if (CustEntryNo > 0) and (CreditLineNo > 0) then begin
+            CreditDueLine.SetRange("Cust Ledger Entry No.", CustEntryNo);
+            CreditDueLine.SetRange("Line No.", CreditLineNo);
+            if (CreditDueLine.FindFirst()) then begin
+                CreditDueLine."Interest Posted" := true;
+                CreditDueLine.Modify();
             end;
         end;
+    end;
+
+    procedure ParseGenJrnMessage(MessageText: Text; var CustLedgerEntryNo: Integer; var LineNo: Integer)
+    var
+        Prefix: Text[10];
+        WithoutPrefix: Text;
+        SlashPos: Integer;
+        EntryNoText: Text;
+        LineNoText: Text;
+    begin
+        Prefix := 'AFKGIE';
+
+        // Ensure the message starts with the expected prefix
+        if not MessageText.StartsWith(Prefix) then
+            exit;
+
+        // Remove the prefix → leaves: 12345/7
+        WithoutPrefix := CopyStr(MessageText, StrLen(Prefix) + 1);
+
+        // Find the slash position
+        SlashPos := StrPos(WithoutPrefix, '/');
+        if SlashPos = 0 then
+            Error('Invalid message format. Expected "<EntryNo>/<LineNo>".');
+
+        // Extract Entry No. and Line No. as text
+        EntryNoText := CopyStr(WithoutPrefix, 1, SlashPos - 1);
+        LineNoText := CopyStr(WithoutPrefix, SlashPos + 1);
+
+        // Convert to integers
+        CustLedgerEntryNo := EvaluateOrError(EntryNoText);
+        LineNo := EvaluateOrError(LineNoText);
+    end;
+
+    local procedure EvaluateOrError(ValueText: Text): Integer
+    var
+        Result: Integer;
+    begin
+        if not Evaluate(Result, ValueText) then
+            Error('Invalid number value: %1', ValueText);
+        exit(Result);
     end;
 
     /// <summary>

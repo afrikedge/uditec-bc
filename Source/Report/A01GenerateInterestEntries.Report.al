@@ -176,7 +176,7 @@ report 50019 "A01 Generate Interest Entries"
 
         GenJrnLine.Validate(GenJrnLine.Amount, CreditDueLine."Interest Excl VAT");
 
-        GenJrnLine."Message to Recipient" := 'AFKGIE' + Format(CreditDueLine."Cust Ledger Entry No.");
+        GenJrnLine."Message to Recipient" := 'AFKGIE' + Format(CreditDueLine."Cust Ledger Entry No.") + '/' + Format(CreditDueLine."Line No.");
 
         //GenJrnLine.Validate("Currency Code", '');
 

@@ -127,12 +127,22 @@ codeunit 50002 "A01 EventsSubscribers_Code"
     [EventSubscriber(ObjectType::Codeunit, Codeunit::"Gen. Jnl.-Post Line", 'OnAfterRunWithCheck', '', true, true)]
     local procedure GenJnlPostLine_OnAfterRunWithCheck(var GenJnlLine: Record "Gen. Journal Line")
     var
-        TresoMgt: Codeunit "A01 Treso Mgt";
         VoucherMgt: Codeunit "A01 Voucher Mgt";
     begin
-        TresoMgt.ConfirmGenerationOnInterestOnCreditDue(GenJnlLine);
+        //TresoMgt.ConfirmGenerationOnInterestOnCreditDue(GenJnlLine);
         VoucherMgt.PostVoucherConsumption(GenJnlLine);
     end;
+
+    [EventSubscriber(ObjectType::Codeunit, Codeunit::"Gen. Jnl.-Post Line", 'OnAfterRunWithoutCheck', '', true, true)]
+    local procedure GenJnlPostLine_OnAfterRunWithoutCheck(var GenJnlLine: Record "Gen. Journal Line")
+    var
+        TresoMgt: Codeunit "A01 Treso Mgt";
+    begin
+        TresoMgt.ConfirmGenerationOnInterestOnCreditDue(GenJnlLine);
+        //VoucherMgt.PostVoucherConsumption(GenJnlLine);
+    end;
+
+
 
     [EventSubscriber(ObjectType::Codeunit, Codeunit::"Sales-Quote to Order", 'OnAfterCreateSalesHeader', '', true, true)]
     local procedure SalesQuoteToOrder_OnAfterCreateSalesHeader(var SalesOrderHeader: Record "Sales Header"; SalesHeader: Record "Sales Header")
