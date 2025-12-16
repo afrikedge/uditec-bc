@@ -257,7 +257,6 @@ table 50032 "A01 Payment Document"
 
     trigger OnModify()
     var
-
     begin
         RequestMgt.CheckOnHoldRequestAlreadyExists(Rec);
     end;

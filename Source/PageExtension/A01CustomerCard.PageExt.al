@@ -9,6 +9,10 @@ pageextension 50006 "A01 Customer Card" extends "Customer Card"
         {
             Editable = CanSetCreditLimit;
         }
+        modify("Salesperson Code")
+        {
+            Editable = not IsParentAccount;
+        }
         addafter("Responsibility Center")
         {
             field("A01 Customer Type"; Rec."A01 Customer Type")
@@ -30,6 +34,7 @@ pageextension 50006 "A01 Customer Card" extends "Customer Card"
             field("A01 Sales Mode"; Rec."A01 Sales Mode")
             {
                 ApplicationArea = Basic, Suite;
+                Editable = not IsParentAccount;
             }
             field("A01 Parent Customer"; Rec."A01 Parent Customer")
             {
@@ -89,12 +94,25 @@ pageextension 50006 "A01 Customer Card" extends "Customer Card"
             field("A01 Activity Center"; Rec."A01 Activity Center")
             {
                 ApplicationArea = Basic, Suite;
+                Editable = not IsParentAccount;
             }
             field("A01 Customer Level"; Rec."A01 Customer Level")
             {
                 ApplicationArea = Basic, Suite;
             }
             field("A01 Customer Manager"; Rec."A01 Customer Manager")
+            {
+                ApplicationArea = Basic, Suite;
+            }
+            field("A01 Credit Limit Total"; Rec."A01 Credit Limit Total")
+            {
+                ApplicationArea = Basic, Suite;
+            }
+            field("A01 Balance Total"; Rec."A01 Balance Total")
+            {
+                ApplicationArea = Basic, Suite;
+            }
+            field("A01 Due Balance Total"; Rec."A01 Due Balance Total")
             {
                 ApplicationArea = Basic, Suite;
             }
@@ -164,6 +182,7 @@ pageextension 50006 "A01 Customer Card" extends "Customer Card"
     begin
         if (UserSetup.Get(UserId)) then
             CanSetCreditLimit := UserSetup."A01 Can Set Credit Limit";
+        IsParentAccount := Rec."A01 Parent Customer" = '';
     end;
 
     trigger OnAfterGetCurrRecord()
@@ -185,5 +204,6 @@ pageextension 50006 "A01 Customer Card" extends "Customer Card"
 
     var
         CanSetCreditLimit: Boolean;
+        IsParentAccount: Boolean;
         ContractCompanyName: Text[100];
 }
