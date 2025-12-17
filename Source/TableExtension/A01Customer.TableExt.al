@@ -201,27 +201,30 @@ tableextension 50006 "A01 Customer" extends Customer
             DataClassification = CustomerContent;
         }
 
-        field(50204; "A01 Credit Limit Total"; Decimal)
-        {
-            Caption = 'Total Credit Limit';
-            FieldClass = FlowField;
-            CalcFormula = Sum("Customer"."Credit Limit (LCY)" where("A01 Parent Customer" = field("No.")));
-            Editable = false;
-        }
-        field(50205; "A01 Balance Total"; Decimal)
-        {
-            Caption = 'Total Balance';
-            FieldClass = FlowField;
-            CalcFormula = Sum("Customer"."Balance (LCY)" where("A01 Parent Customer" = field("No.")));
-            Editable = false;
-        }
-        field(50206; "A01 Due Balance Total"; Decimal)
-        {
-            Caption = 'Total Due Balance';
-            FieldClass = FlowField;
-            CalcFormula = Sum("Customer"."Balance Due (LCY)" where("A01 Parent Customer" = field("No.")));
-            Editable = false;
-        }
+        // field(50204; "A01 Credit Limit Total"; Decimal)
+        // {
+        //     Caption = 'Total Credit Limit';
+        //     // FieldClass = FlowField;
+        //     // CalcFormula = Sum("Customer"."Credit Limit (LCY)" where("A01 Parent Customer" = field("No.")));
+        //     Editable = false;
+        //     DataClassification = CustomerContent;
+        // }
+        // field(50205; "A01 Balance Total"; Decimal)
+        // {
+        //     Caption = 'Total Balance';
+        //     // FieldClass = FlowField;
+        //     // CalcFormula = Sum("Customer"."Balance (LCY)" where("A01 Parent Customer" = field("No.")));
+        //     Editable = false;
+        //     DataClassification = CustomerContent;
+        // }
+        // field(50206; "A01 Due Balance Total"; Decimal)
+        // {
+        //     Caption = 'Total Due Balance';
+        //     DataClassification = CustomerContent;
+        //     // FieldClass = FlowField;
+        //     // CalcFormula = Sum("Customer"."Balance Due (LCY)" where("A01 Parent Customer" = field("No.")));
+        //     Editable = false;
+        // }
 
 
         // field(50101; "A01 Modified By"; Code[50])

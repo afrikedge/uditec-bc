@@ -104,17 +104,20 @@ pageextension 50006 "A01 Customer Card" extends "Customer Card"
             {
                 ApplicationArea = Basic, Suite;
             }
-            field("A01 Credit Limit Total"; Rec."A01 Credit Limit Total")
+            field("A01 Credit Limit Total"; A01CreditLimitTotal)
             {
                 ApplicationArea = Basic, Suite;
+                Caption = 'Total Credit Limit';
             }
-            field("A01 Balance Total"; Rec."A01 Balance Total")
+            field("A01 Balance Total"; A01BalanceTotal)
             {
                 ApplicationArea = Basic, Suite;
+                Caption = 'Total Balance';
             }
-            field("A01 Due Balance Total"; Rec."A01 Due Balance Total")
+            field("A01 Due Balance Total"; A01DueBalanceTotal)
             {
                 ApplicationArea = Basic, Suite;
+                Caption = 'Total Due Balance';
             }
         }
 
@@ -191,6 +194,7 @@ pageextension 50006 "A01 Customer Card" extends "Customer Card"
         Cust: Record Customer;
         Contact: Record Contact;
     begin
+        CalcTotals();
         ContractCompanyName := '';
         if (Contract.Get(Rec."A01 Contract No.")) then begin
             if (Contract."Account Type" = Contract."Account Type"::Customer) then
@@ -202,8 +206,29 @@ pageextension 50006 "A01 Customer Card" extends "Customer Card"
         end;
     end;
 
+    local procedure CalcTotals()
+    var
+        ChildCustomer: Record Customer;
+    begin
+        A01CreditLimitTotal := 0;
+        A01BalanceTotal := 0;
+        A01DueBalanceTotal := 0;
+
+        ChildCustomer.SetRange("A01 Parent Customer", Rec."No.");
+        if ChildCustomer.FindSet() then
+            repeat
+                ChildCustomer.CalcFields("Balance", "Balance Due (LCY)");
+                A01CreditLimitTotal += ChildCustomer."Credit Limit (LCY)";
+                A01BalanceTotal += ChildCustomer."Balance";
+                A01DueBalanceTotal += ChildCustomer."Balance Due (LCY)";
+            until ChildCustomer.Next() < 1;
+    end;
+
     var
         CanSetCreditLimit: Boolean;
         IsParentAccount: Boolean;
         ContractCompanyName: Text[100];
+        A01CreditLimitTotal: Decimal;
+        A01BalanceTotal: Decimal;
+        A01DueBalanceTotal: Decimal;
 }

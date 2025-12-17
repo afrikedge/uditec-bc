@@ -18878,6 +18878,21 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension A01 Customer Card - Action A01CalcStatus - Property Caption</note>
         </trans-unit>
+        <trans-unit id="PageExtension 2726706820 - Control 4103039664 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 523354100">
+          <source>Total Balance</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension A01 Customer Card - Control A01 Balance Total - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 2726706820 - Control 438643798 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 523354100">
+          <source>Total Credit Limit</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension A01 Customer Card - Control A01 Credit Limit Total - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 2726706820 - Control 3190154076 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 523354100">
+          <source>Total Due Balance</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension A01 Customer Card - Control A01 Due Balance Total - Property Caption</note>
+        </trans-unit>
         <trans-unit id="PageExtension 2726706820 - Control 2897346182 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 523354100">
           <source>Contract Company Name</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -19763,11 +19778,6 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension A01 Customer - Field A01 Allowed Item Category - Property Caption</note>
         </trans-unit>
-        <trans-unit id="TableExtension 1245960848 - Field 4103039664 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1994964448">
-          <source>Total Balance</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">TableExtension A01 Customer - Field A01 Balance Total - Property Caption</note>
-        </trans-unit>
         <trans-unit id="TableExtension 1245960848 - Field 300818780 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1994964448">
           <source>Calculated Risk Level</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -19793,11 +19803,6 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension A01 Customer - Field A01 Created By - Property Caption</note>
         </trans-unit>
-        <trans-unit id="TableExtension 1245960848 - Field 438643798 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1994964448">
-          <source>Total Credit Limit</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">TableExtension A01 Customer - Field A01 Credit Limit Total - Property Caption</note>
-        </trans-unit>
         <trans-unit id="TableExtension 1245960848 - Field 1202472440 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1994964448">
           <source>Customer Category</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -19817,11 +19822,6 @@
           <source>Customer Type</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension A01 Customer - Field A01 Customer Type - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="TableExtension 1245960848 - Field 3190154076 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1994964448">
-          <source>Total Due Balance</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">TableExtension A01 Customer - Field A01 Due Balance Total - Property Caption</note>
         </trans-unit>
         <trans-unit id="TableExtension 1245960848 - Field 3401549420 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1994964448">
           <source>Employee Function</source>
