@@ -336,13 +336,10 @@ codeunit 50002 "A01 EventsSubscribers_Code"
                 Error(ErrInvoiceType);
     end;
 
-    // [IntegrationEvent(false, false)]
-    // local procedure OnAfterConfirmPost(var SalesHeader: Record "Sales Header")
-    // begin
-    // end;
-
-    // [IntegrationEvent(false, false)]
-    // local procedure OnBeforeCheckWhseShptLines(var WarehouseShipmentLine: Record "Warehouse Shipment Line"; var WarehouseShipmentHeader: Record "Warehouse Shipment Header"; Invoice: Boolean; var SuppressCommit: Boolean)
-    // begin
-    // end;
+    [EventSubscriber(ObjectType::Codeunit, Codeunit::"Sales-Post", 'OnBeforePostSalesDoc', '', true, true)]
+    local procedure C80_OnBeforePostSalesDoc(var SalesHeader: Record "Sales Header"; CommitIsSuppressed: Boolean; PreviewMode: Boolean; var HideProgressWindow: Boolean; var IsHandled: Boolean; var CalledBy: Integer)
+    var
+    begin
+        SalesHeader.TestField("Responsibility Center");
+    end;
 }

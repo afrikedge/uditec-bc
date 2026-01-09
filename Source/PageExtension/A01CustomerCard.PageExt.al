@@ -185,7 +185,7 @@ pageextension 50006 "A01 Customer Card" extends "Customer Card"
     begin
         if (UserSetup.Get(UserId)) then
             CanSetCreditLimit := UserSetup."A01 Can Set Credit Limit";
-        IsParentAccount := Rec."A01 Parent Customer" = '';
+        IsParentAccount := Rec."A01 Customer Level" <> Rec."A01 Customer Level"::Operation;
     end;
 
     trigger OnAfterGetCurrRecord()
