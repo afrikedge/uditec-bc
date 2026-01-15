@@ -91,6 +91,11 @@ table 50001 "A01 External User"
         {
             Caption = 'Can Unblock Order';
         }
+        field(16; "Can approve Customer"; Boolean)
+        {
+            Caption = 'Can approve Customer';
+        }
+
 
     }
     keys

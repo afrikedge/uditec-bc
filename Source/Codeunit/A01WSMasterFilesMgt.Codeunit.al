@@ -242,6 +242,10 @@ codeunit 50015 A01WSMasterFilesMgt
         if (Cust."Name" <> WS.GetText('Name', input)) then
             Cust.Validate("Name", WS.GetText('Name', input));
 
+        if WS.KeyExists('Name 2', input) then
+            if (Cust."Name 2" <> WS.GetText('Name 2', input)) then
+                Cust.Validate("Name 2", WS.GetText('Name 2', input));
+
         if (Cust."Search Name" <> WS.GetText('Search Name', input)) then
             Cust.Validate("Search Name", WS.GetText('Search Name', input));
 
@@ -597,6 +601,10 @@ codeunit 50015 A01WSMasterFilesMgt
         if (Lead."Name" <> WS.GetText('Name', input)) then
             Lead.Validate("Name", WS.GetText('Name', input));
 
+        if WS.KeyExists('Name 2', input) then
+            if (Lead."Name 2" <> WS.GetText('Name 2', input)) then
+                Lead.Validate("Name 2", WS.GetText('Name 2', input));
+
         if (Lead."Search Name" <> WS.GetText('Search Name', input)) then
             Lead.Validate("Search Name", WS.GetText('Search Name', input));
 
@@ -687,6 +695,10 @@ codeunit 50015 A01WSMasterFilesMgt
 
         if (Lead."A01 Customer Price Group" <> WS.GetText('Customer Price Group', input)) then
             Lead.Validate("A01 Customer Price Group", WS.GetText('Customer Price Group', input));
+
+        if WS.KeyExists('Customer Template Code', input) then
+            if (Lead."A01 Customer Template Code" <> WS.GetText('Customer Template Code', input)) then
+                Lead.Validate("A01 Customer Template Code", WS.GetText('Customer Template Code', input));
 
         if WS.KeyExists('Professional Category', input) then
             if (Lead."A01 Professional Category".AsInteger() <> WS.GetInt('Professional Category', input)) then
@@ -967,6 +979,10 @@ codeunit 50015 A01WSMasterFilesMgt
 
         if (Cont.Name <> WS.GetText('Name', input)) then
             Cont.Validate("Name", WS.GetText('Name', input));
+
+        if WS.KeyExists('Name 2', input) then
+            if (Cont."Name 2" <> WS.GetText('Name 2', input)) then
+                Cont.Validate("Name 2", WS.GetText('Name 2', input));
 
         // if (Cont.Name <> WS.GetText('Image', input)) then
         //             Cont.Validate("Name", WS.GetText('Image', input));

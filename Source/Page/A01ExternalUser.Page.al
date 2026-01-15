@@ -50,6 +50,9 @@ page 50022 "A01 External User"
                 field("Can Unblock Order"; Rec."Can Unblock Order")
                 {
                 }
+                field("Can approve Customer"; Rec."Can approve Customer")
+                {
+                }
             }
             part(Companies; "A01 External User Companies")
             {

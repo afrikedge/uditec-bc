@@ -1283,6 +1283,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table A01 External User - Field BCUserId - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Table 2244191176 - Field 3322511353 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Can approve Customer</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table A01 External User - Field Can approve Customer - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Table 2244191176 - Field 1283552164 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Can Unblock Order</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -19617,6 +19622,11 @@
           <source>Customer Price Group</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension A01 Contact - Field A01 Customer Price Group - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 1119515148 - Field 152601779 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 3993128796">
+          <source>Customer Template Code</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension A01 Contact - Field A01 Customer Template Code - Property Caption</note>
         </trans-unit>
         <trans-unit id="TableExtension 1119515148 - Field 3407316512 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 3993128796">
           <source>Customer Type</source>

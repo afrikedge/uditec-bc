@@ -240,6 +240,12 @@ tableextension 50005 "A01 Contact" extends Contact
             Caption = 'Relationship';
             DataClassification = CustomerContent;
         }
+        field(50111; "A01 Customer Template Code"; Text[20])
+        {
+            Caption = 'Customer Template Code';
+            DataClassification = CustomerContent;
+            TableRelation = "Customer Templ.";
+        }
     }
     trigger OnInsert()
     var

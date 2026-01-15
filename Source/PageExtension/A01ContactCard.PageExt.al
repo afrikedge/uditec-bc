@@ -108,6 +108,10 @@ pageextension 50005 "A01 Contact Card" extends "Contact Card"
             {
                 ApplicationArea = Basic, Suite;
             }
+            field("A01 Customer Template Code"; Rec."A01 Customer Template Code")
+            {
+                ApplicationArea = Basic, Suite;
+            }
         }
     }
     actions
